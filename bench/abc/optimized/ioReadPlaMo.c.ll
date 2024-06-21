@@ -394,8 +394,8 @@ define noalias noundef ptr @Mop_ManRead(ptr nocapture noundef readonly %0) local
   br i1 %5, label %Mop_ManReadParams.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.4) #25
-  %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.5) #25
+  %7 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.4) #25
+  %8 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.5) #25
   %9 = icmp eq ptr %7, null
   %10 = icmp eq ptr %8, null
   %or.cond.i = select i1 %9, i1 true, i1 %10
@@ -3402,7 +3402,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 .lr.ph31.i:                                       ; preds = %Mop_ManCountOutputLits.exit
   %52 = getelementptr i8, ptr %14, i64 8
   %.val24.i = load ptr, ptr %52, align 8
-  %53 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef %.val24.i)
+  %53 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef %.val24.i)
   %54 = zext nneg i32 %.val2228.i to i64
   %.not = icmp eq i32 %.val2228.i, 1
   br i1 %.not, label %.lr.ph.i38, label %.lr.ph.i36.preheader
@@ -3410,7 +3410,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 .critedge2.loopexit.i:                            ; preds = %.lr.ph.i36
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv.next37.i158, 1
   %55 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i158
-  %56 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %55)
+  %56 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %55)
   %57 = add nsw i32 %56, %62
   %exitcond.not = icmp eq i64 %indvars.iv.next37.i, %54
   br i1 %exitcond.not, label %.lr.ph.i38, label %.lr.ph.i36.preheader
@@ -3425,7 +3425,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph.i36 ], [ %indvars.iv.next37.i158, %.lr.ph.i36.preheader ]
   %.127.i = phi i32 [ %62, %.lr.ph.i36 ], [ %58, %.lr.ph.i36.preheader ]
   %60 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i
-  %61 = call i32 @Mop_ManMergeContainTwo(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %60)
+  %61 = call i32 @Mop_ManMergeContainTwo(ptr noundef readonly %0, ptr noundef %59, ptr noundef nonnull %60)
   %62 = add nsw i32 %61, %.127.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %63 = trunc nuw i64 %indvars.iv.next34.i to i32
@@ -3458,9 +3458,9 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   br label %.lr.ph31.i45
 
 74:                                               ; preds = %69
-  %75 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %66)
+  %75 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %66)
   %gep = getelementptr %struct.Vec_Int_t_, ptr %invariant.gep, i64 %indvars.iv.i39
-  %76 = call i32 @Mop_ManMergeDist1Pairs(ptr noundef %0, ptr noundef nonnull %66, ptr noundef %gep, ptr noundef %13, i32 noundef 1000000000)
+  %76 = call i32 @Mop_ManMergeDist1Pairs(ptr noundef readonly %0, ptr noundef nonnull %66, ptr noundef %gep, ptr noundef readonly %13, i32 noundef 1000000000)
   %77 = add i32 %75, %.027.i
   %78 = add i32 %77, %76
   br label %79
@@ -3472,7 +3472,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 
 .lr.ph31.i45:                                     ; preds = %79, %71
   %.019.i = phi i32 [ -1, %71 ], [ %.1.i, %79 ]
-  %81 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %.val24.i)
+  %81 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %.val24.i)
   br i1 %.not, label %.lr.ph.i67, label %.lr.ph.i56.preheader.preheader
 
 .lr.ph.i56.preheader.preheader:                   ; preds = %.lr.ph31.i45
@@ -3482,7 +3482,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 .critedge2.loopexit.i52:                          ; preds = %.lr.ph.i56
   %indvars.iv.next37.i50 = add nuw nsw i64 %indvars.iv.next37.i50160, 1
   %82 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i50160
-  %83 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %82)
+  %83 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %82)
   %84 = add nsw i32 %83, %89
   %exitcond178.not = icmp eq i64 %indvars.iv.next37.i50, %umax
   br i1 %exitcond178.not, label %.lr.ph.i67, label %.lr.ph.i56.preheader
@@ -3497,7 +3497,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %indvars.iv33.i57 = phi i64 [ %indvars.iv.next34.i60, %.lr.ph.i56 ], [ %indvars.iv.next37.i50160, %.lr.ph.i56.preheader ]
   %.127.i58 = phi i32 [ %89, %.lr.ph.i56 ], [ %85, %.lr.ph.i56.preheader ]
   %87 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i57
-  %88 = call i32 @Mop_ManMergeContainTwo(ptr noundef %0, ptr noundef %86, ptr noundef nonnull %87)
+  %88 = call i32 @Mop_ManMergeContainTwo(ptr noundef readonly %0, ptr noundef %86, ptr noundef nonnull %87)
   %89 = add nsw i32 %88, %.127.i58
   %indvars.iv.next34.i60 = add nuw nsw i64 %indvars.iv33.i57, 1
   %90 = trunc nuw i64 %indvars.iv.next34.i60 to i32
@@ -3529,9 +3529,9 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   br label %.lr.ph31.i79
 
 101:                                              ; preds = %96
-  %102 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %93)
+  %102 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %93)
   %gep163 = getelementptr %struct.Vec_Int_t_, ptr %invariant.gep, i64 %indvars.iv.i68
-  %103 = call i32 @Mop_ManMergeDist1Pairs(ptr noundef %0, ptr noundef nonnull %93, ptr noundef %gep163, ptr noundef %13, i32 noundef 1000000000)
+  %103 = call i32 @Mop_ManMergeDist1Pairs(ptr noundef readonly %0, ptr noundef nonnull %93, ptr noundef %gep163, ptr noundef readonly %13, i32 noundef 1000000000)
   %104 = add i32 %102, %.027.i69
   %105 = add i32 %104, %103
   br label %106
@@ -3543,7 +3543,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 
 .lr.ph31.i79:                                     ; preds = %106, %98
   %.019.i66 = phi i32 [ -1, %98 ], [ %.1.i74, %106 ]
-  %108 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %.val24.i)
+  %108 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %.val24.i)
   br i1 %.not, label %Mop_ManMergeContainAll.exit98, label %.lr.ph.i90.preheader.preheader
 
 .lr.ph.i90.preheader.preheader:                   ; preds = %.lr.ph31.i79
@@ -3553,7 +3553,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 .critedge2.loopexit.i86:                          ; preds = %.lr.ph.i90
   %indvars.iv.next37.i84 = add nuw nsw i64 %indvars.iv.next37.i84165, 1
   %109 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i84165
-  %110 = call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef nonnull %109)
+  %110 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %109)
   %111 = add nsw i32 %110, %116
   %exitcond180.not = icmp eq i64 %indvars.iv.next37.i84, %umax179
   br i1 %exitcond180.not, label %Mop_ManMergeContainAll.exit98, label %.lr.ph.i90.preheader
@@ -3568,7 +3568,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %indvars.iv33.i91 = phi i64 [ %indvars.iv.next34.i94, %.lr.ph.i90 ], [ %indvars.iv.next37.i84165, %.lr.ph.i90.preheader ]
   %.127.i92 = phi i32 [ %116, %.lr.ph.i90 ], [ %112, %.lr.ph.i90.preheader ]
   %114 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i91
-  %115 = call i32 @Mop_ManMergeContainTwo(ptr noundef %0, ptr noundef %113, ptr noundef nonnull %114)
+  %115 = call i32 @Mop_ManMergeContainTwo(ptr noundef readonly %0, ptr noundef %113, ptr noundef nonnull %114)
   %116 = add nsw i32 %115, %.127.i92
   %indvars.iv.next34.i94 = add nuw nsw i64 %indvars.iv33.i91, 1
   %117 = trunc nuw i64 %indvars.iv.next34.i94 to i32

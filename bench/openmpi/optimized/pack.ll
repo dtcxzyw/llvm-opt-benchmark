@@ -816,7 +816,7 @@ define noundef i32 @pmix20_bfrop_pack_string(ptr nocapture readnone %0, ptr noun
   br i1 %55, label %pmix20_bfrop_pack_int32.exit, label %pmix20_bfrop_pack_byte.exit.thread
 
 pmix20_bfrop_pack_byte.exit.thread:               ; preds = %52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr align 1 %44, i64 %53, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr readonly align 1 %44, i64 %53, i1 false)
   br label %56
 
 56:                                               ; preds = %pmix20_bfrop_pack_byte.exit.thread, %.lr.ph.i.preheader
@@ -2774,7 +2774,7 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
   %14 = getelementptr inbounds %struct.pmix_pdata, ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %14, ptr %6, align 8
-  %15 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
+  %15 = call i32 @pmix20_bfrop_pack_string(ptr readnone poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %pmix20_bfrop_pack_proc.exit.thread
 
@@ -3041,7 +3041,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %52, label %pmix20_bfrop_pack_byte.exit, label %pmix20_bfrop_pack_byte.exit.thread
 
 pmix20_bfrop_pack_byte.exit.thread:               ; preds = %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %40, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr readonly align 1 %40, i64 %50, i1 false)
   %53 = load ptr, ptr %8, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %50
   store ptr %54, ptr %8, align 8
@@ -3541,7 +3541,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %52, label %pmix20_bfrop_pack_byte.exit, label %pmix20_bfrop_pack_byte.exit.thread
 
 pmix20_bfrop_pack_byte.exit.thread:               ; preds = %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %40, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr readonly align 1 %40, i64 %50, i1 false)
   %53 = load ptr, ptr %8, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %50
   store ptr %54, ptr %8, align 8
@@ -3584,7 +3584,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_persist(ptr nocapture noundef re
   br i1 %16, label %pmix20_bfrop_pack_byte.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %2, i64 %14, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
@@ -3624,7 +3624,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_scope(ptr nocapture noundef read
   br i1 %16, label %pmix20_bfrop_pack_byte.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %2, i64 %14, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
@@ -3664,7 +3664,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_range(ptr nocapture noundef read
   br i1 %16, label %pmix20_bfrop_pack_byte.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %2, i64 %14, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
@@ -3704,7 +3704,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_cmd(ptr nocapture noundef readno
   br i1 %16, label %pmix20_bfrop_pack_byte.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %2, i64 %14, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
@@ -3816,7 +3816,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %51, label %pmix20_bfrop_pack_byte.exit, label %pmix20_bfrop_pack_byte.exit.thread
 
 pmix20_bfrop_pack_byte.exit.thread:               ; preds = %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %39, i64 %49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %39, i64 %49, i1 false)
   %52 = load ptr, ptr %8, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 %49
   store ptr %53, ptr %8, align 8
@@ -3898,7 +3898,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_pstate(ptr nocapture noundef rea
   br i1 %16, label %pmix20_bfrop_pack_byte.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %2, i64 %14, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
@@ -3932,7 +3932,7 @@ define i32 @pmix20_bfrop_pack_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = getelementptr inbounds %struct.pmix_proc_info, ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %12, ptr %6, align 8
-  %13 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
+  %13 = call i32 @pmix20_bfrop_pack_string(ptr readnone poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %pmix20_bfrop_pack_proc.exit.thread
 
@@ -4388,7 +4388,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_alloc_directive(ptr nocapture no
   br i1 %16, label %pmix20_bfrop_pack_byte.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %2, i64 %14, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14

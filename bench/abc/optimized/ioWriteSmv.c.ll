@@ -133,7 +133,7 @@ Io_WriteSmvCheckNames.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   %49 = getelementptr inbounds ptr, ptr %.val94.val.val.i, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @Abc_ObjName(ptr noundef %50) #6
-  %52 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %51) #6
+  %52 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %51) #6
   br label %53
 
 53:                                               ; preds = %56, %.lr.ph.i14
@@ -210,7 +210,7 @@ cleanUNSAFE.exit.i:                               ; preds = %53
   %85 = getelementptr inbounds ptr, ptr %.val98.val.val.i, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @Abc_ObjName(ptr noundef %86) #6
-  %88 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %87) #6
+  %88 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %87) #6
   br label %89
 
 89:                                               ; preds = %92, %74
@@ -314,7 +314,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %122, %118
   %130 = getelementptr inbounds ptr, ptr %.val25.val.val.i.i, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = tail call ptr @Abc_ObjName(ptr noundef %131) #6
-  %133 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %132) #6
+  %133 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %132) #6
   br label %134
 
 134:                                              ; preds = %137, %125
@@ -354,7 +354,7 @@ cleanUNSAFE.exit.i.i:                             ; preds = %134
   %148 = getelementptr inbounds ptr, ptr %.val21.val.val.i.i, i64 %147
   %149 = load ptr, ptr %148, align 8
   %150 = tail call ptr @Abc_ObjName(ptr noundef %149) #6
-  %151 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %150) #6
+  %151 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %150) #6
   br i1 %.not.i125.i, label %.preheader.i, label %.preheader143.i
 
 .preheader143.i:                                  ; preds = %142, %154
@@ -388,7 +388,7 @@ cleanUNSAFE.exit37.i.i:                           ; preds = %.preheader143.i
   %162 = getelementptr inbounds ptr, ptr %.val28.val.val.i.i, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = tail call ptr @Abc_ObjName(ptr noundef %163) #6
-  %165 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %164) #6
+  %165 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %164) #6
   br label %166
 
 166:                                              ; preds = %169, %cleanUNSAFE.exit37.i.i
@@ -443,7 +443,7 @@ cleanUNSAFE.exit41.i.i:                           ; preds = %.preheader.i
   %183 = getelementptr inbounds ptr, ptr %.val30.val.val.i.i, i64 %182
   %184 = load ptr, ptr %183, align 8
   %185 = tail call ptr @Abc_ObjName(ptr noundef %184) #6
-  %186 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %185) #6
+  %186 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %185) #6
   br label %187
 
 187:                                              ; preds = %190, %cleanUNSAFE.exit41.i.i
@@ -480,7 +480,7 @@ cleanUNSAFE.exit43.i.i:                           ; preds = %187
   %199 = getelementptr inbounds ptr, ptr %.val.val.val.i.i, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = tail call ptr @Abc_ObjName(ptr noundef %200) #6
-  %202 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %201) #6
+  %202 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %201) #6
   br label %203
 
 203:                                              ; preds = %206, %194
@@ -514,7 +514,7 @@ cleanUNSAFE.exit45.i.i:                           ; preds = %203
   %214 = getelementptr inbounds ptr, ptr %.val32.val.val.i.i, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = tail call ptr @Abc_ObjName(ptr noundef %215) #6
-  %217 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %216) #6
+  %217 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %216) #6
   br label %218
 
 218:                                              ; preds = %221, %cleanUNSAFE.exit45.i.i
@@ -548,7 +548,7 @@ cleanUNSAFE.exit47.i.i:                           ; preds = %218
   %229 = getelementptr inbounds ptr, ptr %.val34.val.val.i.i, i64 %228
   %230 = load ptr, ptr %229, align 8
   %231 = tail call ptr @Abc_ObjName(ptr noundef %230) #6
-  %232 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %231) #6
+  %232 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %231) #6
   br label %233
 
 233:                                              ; preds = %236, %cleanUNSAFE.exit47.i.i
@@ -636,7 +636,7 @@ Io_WriteSmvOneNode.exit.i:                        ; preds = %cleanUNSAFE.exit49.
   %269 = getelementptr inbounds ptr, ptr %.val102.val.val.i, i64 %268
   %270 = load ptr, ptr %269, align 8
   %271 = tail call ptr @Abc_ObjName(ptr noundef %270) #6
-  %272 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %271) #6
+  %272 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %271) #6
   br label %273
 
 273:                                              ; preds = %276, %258
@@ -685,7 +685,7 @@ cleanUNSAFE.exit127.i:                            ; preds = %273
   %292 = getelementptr inbounds ptr, ptr %.val106.val.val.i, i64 %291
   %293 = load ptr, ptr %292, align 8
   %294 = tail call ptr @Abc_ObjName(ptr noundef %293) #6
-  %295 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %294) #6
+  %295 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %294) #6
   br label %296
 
 296:                                              ; preds = %299, %281
@@ -730,7 +730,7 @@ cleanUNSAFE.exit129.i:                            ; preds = %296
   %313 = getelementptr inbounds ptr, ptr %.val116.val.val.i, i64 %312
   %314 = load ptr, ptr %313, align 8
   %315 = tail call ptr @Abc_ObjName(ptr noundef %314) #6
-  %316 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %315) #6
+  %316 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %315) #6
   br label %317
 
 317:                                              ; preds = %320, %cleanUNSAFE.exit129.i
@@ -792,7 +792,7 @@ cleanUNSAFE.exit131.i:                            ; preds = %317
   %339 = getelementptr inbounds ptr, ptr %.val118.val.val.i, i64 %338
   %340 = load ptr, ptr %339, align 8
   %341 = tail call ptr @Abc_ObjName(ptr noundef %340) #6
-  %342 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull dereferenceable(1) %341) #6
+  %342 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @cleanUNSAFE.buffer, ptr noundef nonnull readonly dereferenceable(1) %341) #6
   br label %343
 
 343:                                              ; preds = %346, %.lr.ph162.i

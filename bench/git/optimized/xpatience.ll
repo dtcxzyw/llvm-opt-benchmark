@@ -180,7 +180,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %arrayidx.i.i61 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %arrayidx.i.i61, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #7
-  %call5.i.i = tail call i32 @strncmp(ptr noundef %18, ptr noundef %21, i64 noundef %call.i.i) #7
+  %call5.i.i = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef %21, i64 noundef %call.i.i) #7
   %tobool.not.i.i62 = icmp eq i32 %call5.i.i, 0
   br i1 %tobool.not.i.i62, label %is_anchor.exit.i, label %for.cond.i.i
 

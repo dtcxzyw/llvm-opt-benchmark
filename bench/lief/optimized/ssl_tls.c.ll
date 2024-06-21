@@ -1360,7 +1360,7 @@ define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_psk(ptr nocapture nound
 ssl_conf_set_psk_identity.exit:                   ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 320
   store i64 %4, ptr %22, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   br label %ssl_conf_remove_psk.exit
 
 23:                                               ; preds = %14, %18
@@ -2541,10 +2541,10 @@ define internal fastcc range(i32 -28800, 1) i32 @ssl_session_save(ptr nocapture 
   %65 = getelementptr inbounds i8, ptr %.1, i64 12
   store i8 %64, ptr %61, align 1
   %66 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %65, ptr noundef nonnull readonly align 8 dereferenceable(32) %66, i64 32, i1 false)
   %67 = getelementptr inbounds i8, ptr %.1, i64 44
   %68 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %68, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull readonly align 8 dereferenceable(48) %68, i64 48, i1 false)
   %69 = getelementptr inbounds i8, ptr %.1, i64 92
   %70 = getelementptr inbounds i8, ptr %0, i64 120
   %71 = load i32, ptr %70, align 8

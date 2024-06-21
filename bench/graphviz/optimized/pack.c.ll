@@ -1645,7 +1645,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call fastcc i32 @computeStep(i64 noundef %0, ptr noundef %1, i32 noundef %10)
+  %11 = tail call fastcc i32 @computeStep(i64 noundef %0, ptr noundef readonly %1, i32 noundef %10)
   %12 = load i8, ptr @Verbose, align 1
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %16, label %13
@@ -1702,7 +1702,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds %struct.point, ptr %30, i64 %34
   %36 = load i32, ptr %9, align 8
-  tail call fastcc void @placeGraph(i64 noundef %.06071.i, ptr noundef %32, ptr noundef %29, ptr noundef %35, i32 noundef %11, i32 noundef %36, ptr noundef %1)
+  tail call fastcc void @placeGraph(i64 noundef %.06071.i, ptr noundef %32, ptr noundef %29, ptr noundef %35, i32 noundef %11, i32 noundef %36, ptr noundef readonly %1)
   %37 = add nuw i64 %.06071.i, 1
   %exitcond86.not.i = icmp eq i64 %37, %0
   br i1 %exitcond86.not.i, label %.lr.ph77.preheader.i, label %.lr.ph73.i
@@ -2246,7 +2246,7 @@ define range(i32 0, 2) i32 @packGraphs(i64 noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @putGraphs(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %5 = tail call ptr @putGraphs(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %packGraphs.exit, label %6
 
@@ -2254,7 +2254,7 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef 
   %7 = getelementptr inbounds i8, ptr %3, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
-  %10 = tail call i32 @shiftGraphs(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext %9)
+  %10 = tail call i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly %1, ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext %9)
   tail call void @free(ptr noundef nonnull %5) #18
   tail call void @compute_bb(ptr noundef %2) #18
   %11 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2439,7 +2439,7 @@ define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocap
   br i1 %.not, label %54, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #22
+  %11 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @.str.2, i64 noundef 5) #22
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %31
 
@@ -2503,7 +2503,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 31:                                               ; preds = %10
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #22
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(7) @.str.3, i64 noundef 6) #22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %42
 
@@ -2526,7 +2526,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 42:                                               ; preds = %31
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.5) #22
+  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(8) @.str.5) #22
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46
 
@@ -2535,7 +2535,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.6) #22
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @.str.6) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -2544,7 +2544,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #22
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.7) #22
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
 

@@ -2664,7 +2664,7 @@ php_sxe_get_first_node_non_destructive.exit60:    ; preds = %223, %switch.lookup
   br i1 %.not.not.i, label %.thread77, label %261
 
 261:                                              ; preds = %260
-  %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032) #16
+  %262 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.032) #16
   %263 = and i64 %262, -8
   %264 = add i64 %263, 32
   %265 = tail call noalias ptr @_emalloc(i64 noundef %264) #15
@@ -2676,7 +2676,7 @@ php_sxe_get_first_node_non_destructive.exit60:    ; preds = %223, %switch.lookup
   %268 = getelementptr inbounds i8, ptr %265, i64 16
   store i64 %262, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %265, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %269, ptr nonnull align 1 %.032, i64 %262, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %269, ptr nonnull readonly align 1 %.032, i64 %262, i1 false)
   %270 = getelementptr inbounds [1 x i8], ptr %269, i64 0, i64 %262
   store i8 0, ptr %270, align 1
   store ptr %265, ptr %1, align 8

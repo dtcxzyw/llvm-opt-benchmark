@@ -1880,7 +1880,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
   br label %927
 
 926:                                              ; preds = %.lr.ph.i47
-  tail call void (ptr, ptr, ...) @configuration_error(ptr noundef %49, ptr noundef nonnull @.str.17, ptr noundef %894)
+  tail call void (ptr, ptr, ...) @configuration_error(ptr noundef readonly %49, ptr noundef nonnull @.str.17, ptr noundef %894)
   unreachable
 
 927:                                              ; preds = %921, %918, %.lr.ph.i47

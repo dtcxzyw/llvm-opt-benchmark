@@ -3531,12 +3531,12 @@ if.then8:                                         ; preds = %_ZNK16tracked_uint_
 
 lor.lhs.false11:                                  ; preds = %if.then8
   %shl.i.i = shl i32 %10, 1
-  %call.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %shl.i.i)
+  %call.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, i32 %shl.i.i)
   br i1 %call.i, label %if.then13, label %_ZN3sat9lookahead17in_reduced_clauseEj.exit
 
 _ZN3sat9lookahead17in_reduced_clauseEj.exit:      ; preds = %lor.lhs.false11
   %add.i.i = or disjoint i32 %shl.i.i, 1
-  %call4.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %add.i.i)
+  %call4.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, i32 %add.i.i)
   br i1 %call4.i, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %lor.lhs.false11, %if.then8, %_ZN3sat9lookahead17in_reduced_clauseEj.exit
@@ -7995,9 +7995,9 @@ for.body.i:                                       ; preds = %_ZNK6vectorIN3sat9l
   %arrayidx.i5.i = getelementptr inbounds %"struct.sat::lookahead::candidate", ptr %0, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx.i5.i, align 8
   %shl.i.i = shl i32 %3, 1
-  %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat9lookahead11display_dfsERSoNS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %shl.i.i)
+  %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat9lookahead11display_dfsERSoNS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %shl.i.i)
   %xor.i.i = or disjoint i32 %shl.i.i, 1
-  %call11.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat9lookahead11display_dfsERSoNS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %xor.i.i)
+  %call11.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat9lookahead11display_dfsERSoNS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %xor.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !40
 
@@ -18675,7 +18675,7 @@ land.lhs.true8.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp11.i, label %if.end152, label %if.then111
 
 land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
-  %call17.i77 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull align 8 dereferenceable(1160) %this)
+  %call17.i77 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this)
           to label %call17.i.noexc unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call17.i.noexc:                                   ; preds = %land.lhs.true16.i
@@ -18705,7 +18705,7 @@ land.lhs.true24.i:                                ; preds = %lor.lhs.false20.i
   br i1 %cmp28.i, label %if.then111, label %if.end152
 
 land.rhs32.i:                                     ; preds = %lor.lhs.false20.i
-  %call33.i78 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull align 8 dereferenceable(1160) %this)
+  %call33.i78 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this)
           to label %invoke.cont109 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont109:                                   ; preds = %land.rhs32.i
@@ -18814,12 +18814,12 @@ for.body135:                                      ; preds = %invoke.cont129, %fo
   %__begin3.0247 = phi ptr [ %incdec.ptr144, %for.inc143 ], [ %86, %invoke.cont129 ]
   %88 = load i32, ptr %__begin3.0247, align 4
   %shl.i.i = shl i32 %88, 1
-  %call.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %shl.i.i)
+  %call.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, i32 %shl.i.i)
   br i1 %call.i, label %if.then139, label %invoke.cont137
 
 invoke.cont137:                                   ; preds = %for.body135
   %add.i.i = or disjoint i32 %shl.i.i, 1
-  %call4.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %add.i.i)
+  %call4.i = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, i32 %add.i.i)
   br i1 %call4.i, label %if.then139, label %for.inc143
 
 if.then139:                                       ; preds = %for.body135, %invoke.cont137
@@ -18986,12 +18986,12 @@ for.body200:                                      ; preds = %invoke.cont193, %fo
   %__begin3192.0249 = phi ptr [ %incdec.ptr209, %for.inc208 ], [ %109, %invoke.cont193 ]
   %111 = load i32, ptr %__begin3192.0249, align 4
   %shl.i.i143 = shl i32 %111, 1
-  %call.i144 = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %shl.i.i143)
+  %call.i144 = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, i32 %shl.i.i143)
   br i1 %call.i144, label %if.then204, label %invoke.cont202
 
 invoke.cont202:                                   ; preds = %for.body200
   %add.i.i146 = or disjoint i32 %shl.i.i143, 1
-  %call4.i147 = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(1160) %this, i32 %add.i.i146)
+  %call4.i147 = tail call noundef zeroext i1 @_ZN3sat9lookahead17in_reduced_clauseENS_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %this, i32 %add.i.i146)
   br i1 %call4.i147, label %if.then204, label %for.inc208
 
 if.then204:                                       ; preds = %for.body200, %invoke.cont202

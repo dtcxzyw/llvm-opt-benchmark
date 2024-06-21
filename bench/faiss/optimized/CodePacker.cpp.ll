@@ -96,7 +96,7 @@ define linkonce_odr void @_ZN5faiss10CodePackerD0Ev(ptr noundef nonnull align 8 
 define void @_ZNK5faiss14CodePackerFlat6pack_1EPKhmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %6, i1 false)
   ret void
 }
 
@@ -104,7 +104,7 @@ define void @_ZNK5faiss14CodePackerFlat6pack_1EPKhmPh(ptr nocapture noundef nonn
 define void @_ZNK5faiss14CodePackerFlat8unpack_1EPKhmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %6, i1 false)
   ret void
 }
 

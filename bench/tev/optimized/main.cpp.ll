@@ -76479,7 +76479,7 @@ define internal void @"_ZNSt3__110__function6__funcIZZN3tev8mainFuncERKNS_6vecto
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  invoke void @_ZN3tev15handleIpcPacketERKNS_9IpcPacketERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %.val)
+  invoke void @_ZN3tev15handleIpcPacketERKNS_9IpcPacketERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %"_ZNSt3__110__function12__alloc_funcIZZN3tev8mainFuncERKNS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS7_IS9_EEEEENK3$_1clEvEUlRKNS2_9IpcPacketEE_NS7_ISI_EEFvSH_EEclB8ne190000ESH_.exit" unwind label %5
 
 5:                                                ; preds = %2

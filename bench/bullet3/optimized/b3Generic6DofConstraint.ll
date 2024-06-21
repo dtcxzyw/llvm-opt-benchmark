@@ -1426,7 +1426,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i, align 4, !alias.scope !34
   %m_origin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i32, ptr %m_rbB, align 8
   %idxprom3 = sext i32 %8 to i64
@@ -1493,7 +1493,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i53 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i53, align 4, !alias.scope !37
   %m_origin.i.i54 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i54, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i54, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx4, i64 16, i1 false)
   call void @_ZN23b3Generic6DofConstraint19calculateTransformsERK11b3TransformS2_PK15b3RigidBodyData(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp2, ptr noundef %bodies)
   store i32 0, ptr %info, align 4
   %nub = getelementptr inbounds i8, ptr %info, i64 4
@@ -1713,7 +1713,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i, align 4, !alias.scope !42
   %m_origin.i.i = getelementptr inbounds i8, ptr %transA, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i32, ptr %m_rbB, align 8
   %idxprom2 = sext i32 %8 to i64
@@ -1780,7 +1780,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i61 = getelementptr inbounds i8, ptr %transB, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i61, align 4, !alias.scope !45
   %m_origin.i.i62 = getelementptr inbounds i8, ptr %transB, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i62, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i62, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   %m_linVel = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %m_linVel10 = getelementptr inbounds i8, ptr %arrayidx3, i64 32
   %m_angVel = getelementptr inbounds i8, ptr %arrayidx, i64 48
@@ -1863,7 +1863,7 @@ if.then18.i:                                      ; preds = %if.end15.i
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then18.i, %if.end15.i
-  %call24.i = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(64) %transA, ptr noundef nonnull align 16 dereferenceable(64) %transB, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel10, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel17, ptr noundef %info, i32 noundef %row.026.i, ptr noundef nonnull align 16 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
+  %call24.i = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_linVel, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_linVel10, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_angVel, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_angVel17, ptr noundef readonly %info, i32 noundef %row.026.i, ptr noundef nonnull align 16 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
   %add25.i = add nsw i32 %call24.i, %row.026.i
   br label %for.inc.i
 
@@ -1952,7 +1952,7 @@ if.then18.i96:                                    ; preds = %if.end15.i86
   br label %if.end22.i89
 
 if.end22.i89:                                     ; preds = %if.then18.i96, %if.end15.i86
-  %call24.i90 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i72, ptr noundef nonnull align 16 dereferenceable(64) %transA, ptr noundef nonnull align 16 dereferenceable(64) %transB, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel10, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel17, ptr noundef %info, i32 noundef %row.026.i71, ptr noundef nonnull align 16 dereferenceable(16) %axis.i63, i32 noundef 1, i32 noundef 0)
+  %call24.i90 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i72, ptr noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_linVel, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_linVel10, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_angVel, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_angVel17, ptr noundef readonly %info, i32 noundef %row.026.i71, ptr noundef nonnull align 16 dereferenceable(16) %axis.i63, i32 noundef 1, i32 noundef 0)
   %add25.i91 = add nsw i32 %call24.i90, %row.026.i71
   br label %for.inc.i92
 
@@ -2412,7 +2412,7 @@ if.then18.i:                                      ; preds = %if.end15.i
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then18.i, %if.end15.i
-  %call24.i = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(64) %transA, ptr noundef nonnull align 16 dereferenceable(64) %transB, ptr noundef nonnull align 16 dereferenceable(16) %linVelA, ptr noundef nonnull align 16 dereferenceable(16) %linVelB, ptr noundef nonnull align 16 dereferenceable(16) %angVelA, ptr noundef nonnull align 16 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.026.i, ptr noundef nonnull align 16 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
+  %call24.i = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 16 dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 16 dereferenceable(16) %angVelB, ptr noundef readonly %info, i32 noundef %row.026.i, ptr noundef nonnull align 16 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
   %add25.i = add nsw i32 %call24.i, %row.026.i
   br label %for.inc.i
 
@@ -2500,7 +2500,7 @@ if.then18.i64:                                    ; preds = %if.end15.i54
   br label %if.end22.i57
 
 if.end22.i57:                                     ; preds = %if.then18.i64, %if.end15.i54
-  %call24.i58 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i40, ptr noundef nonnull align 16 dereferenceable(64) %transA, ptr noundef nonnull align 16 dereferenceable(64) %transB, ptr noundef nonnull align 16 dereferenceable(16) %linVelA, ptr noundef nonnull align 16 dereferenceable(16) %linVelB, ptr noundef nonnull align 16 dereferenceable(16) %angVelA, ptr noundef nonnull align 16 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.026.i39, ptr noundef nonnull align 16 dereferenceable(16) %axis.i31, i32 noundef 1, i32 noundef 0)
+  %call24.i58 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull %arrayidx.i.i40, ptr noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 16 dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 16 dereferenceable(16) %angVelB, ptr noundef readonly %info, i32 noundef %row.026.i39, ptr noundef nonnull align 16 dereferenceable(16) %axis.i31, i32 noundef 1, i32 noundef 0)
   %add25.i59 = add nsw i32 %call24.i58, %row.026.i39
   br label %for.inc.i60
 

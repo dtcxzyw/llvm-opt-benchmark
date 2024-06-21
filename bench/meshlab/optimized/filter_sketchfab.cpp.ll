@@ -10606,7 +10606,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
   %183 = phi i64 [ %.pre30.i74, %179 ], [ %106, %167 ]
   %184 = phi ptr [ %178, %179 ], [ %168, %167 ]
   %185 = getelementptr inbounds i8, ptr %184, i64 %183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %185, ptr noundef nonnull align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %185, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
   store i64 %169, ptr %11, align 8
   %186 = load i64, ptr %4, align 8
   %187 = add i64 %186, 4
@@ -12422,7 +12422,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
   %.val = load i32, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #43
   %25 = trunc i64 %24 to i32
   %.not9.i = icmp slt i32 %.val, 1
   br i1 %.not9.i, label %_ZL39mz_zip_reader_locate_file_binary_searchP18mz_zip_archive_tagPKc.exit, label %.lr.ph13.i
@@ -13836,7 +13836,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef %0, i32 no
   store i64 %16, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %16, ptr %17, align 8
-  %18 = call i32 @utime(ptr noundef %2, ptr noundef nonnull %5) #41
+  %18 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %19
 
@@ -13872,7 +13872,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef %0, p
   br i1 %.not.i, label %mz_zip_reader_extract_to_file.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = call noalias ptr @fopen64(ptr noundef %2, ptr noundef nonnull @.str.22)
+  %12 = call noalias ptr @fopen64(ptr noundef readonly %2, ptr noundef nonnull @.str.22)
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %mz_zip_reader_extract_to_file.exit, label %13
 
@@ -13891,7 +13891,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef %0, p
   store i64 %19, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %19, ptr %20, align 8
-  %21 = call i32 @utime(ptr noundef %2, ptr noundef nonnull %5) #41
+  %21 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %mz_zip_reader_extract_to_file.exit
 

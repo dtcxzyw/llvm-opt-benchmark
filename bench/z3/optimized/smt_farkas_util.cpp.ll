@@ -472,7 +472,7 @@ invoke.cont9:                                     ; preds = %_ZNK10arith_util6pl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i)
   store ptr %call2.i15, ptr %e1.addr.i, align 8
   store ptr %e, ptr %e2.addr.i, align 8
-  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i)
+  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i)
           to label %.noexc16 unwind label %lpad
 
 .noexc16:                                         ; preds = %invoke.cont9
@@ -504,7 +504,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i33)
   store ptr %19, ptr %e1.addr.i32, align 8
   store ptr %18, ptr %e2.addr.i33, align 8
-  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i32, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i33)
+  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i32, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i33)
           to label %.noexc35 unwind label %lpad
 
 .noexc35:                                         ; preds = %if.end
@@ -1181,7 +1181,7 @@ if.then:                                          ; preds = %_ZNK17arith_recogni
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i)
   store ptr %x.2, ptr %e1.addr.i, align 8
   store ptr %call8, ptr %e2.addr.i, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i)
   %a.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %e1.addr.i, align 8
   %15 = load ptr, ptr %e2.addr.i, align 8
@@ -1193,7 +1193,7 @@ if.then:                                          ; preds = %_ZNK17arith_recogni
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i37)
   store ptr %call.i.i35, ptr %e1.addr.i36, align 8
   store ptr %y.2, ptr %e2.addr.i37, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i36, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i37)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i36, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i37)
   %17 = load ptr, ptr %e1.addr.i36, align 8
   %18 = load ptr, ptr %e2.addr.i37, align 8
   %19 = load ptr, ptr %a.i, align 8
@@ -1269,7 +1269,7 @@ if.then20:                                        ; preds = %_ZNK17arith_recogni
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i77)
   store ptr %y.6, ptr %e1.addr.i76, align 8
   store ptr %call21, ptr %e2.addr.i77, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i76, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i77)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i76, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i77)
   %a.i78 = getelementptr inbounds i8, ptr %this, i64 8
   %30 = load ptr, ptr %e1.addr.i76, align 8
   %31 = load ptr, ptr %e2.addr.i77, align 8
@@ -1281,7 +1281,7 @@ if.then20:                                        ; preds = %_ZNK17arith_recogni
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i81)
   store ptr %x.6, ptr %e1.addr.i80, align 8
   store ptr %call.i.i79, ptr %e2.addr.i81, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i80, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i81)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i80, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i81)
   %33 = load ptr, ptr %e1.addr.i80, align 8
   %34 = load ptr, ptr %e2.addr.i81, align 8
   %35 = load ptr, ptr %a.i78, align 8
@@ -1331,7 +1331,7 @@ if.then30:                                        ; preds = %land.lhs.true.i97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i105)
   store ptr %42, ptr %e1.addr.i104, align 8
   store ptr %43, ptr %e2.addr.i105, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i104, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i105)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i104, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i105)
   %a.i106 = getelementptr inbounds i8, ptr %this, i64 8
   %44 = load ptr, ptr %e1.addr.i104, align 8
   %45 = load ptr, ptr %e2.addr.i105, align 8
@@ -1364,7 +1364,7 @@ if.then35:                                        ; preds = %land.lhs.true.i121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i129)
   store ptr %51, ptr %e1.addr.i128, align 8
   store ptr %52, ptr %e2.addr.i129, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i128, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i129)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i128, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i129)
   %a.i130 = getelementptr inbounds i8, ptr %this, i64 8
   %53 = load ptr, ptr %e1.addr.i128, align 8
   %54 = load ptr, ptr %e2.addr.i129, align 8
@@ -1397,7 +1397,7 @@ if.then40:                                        ; preds = %land.lhs.true.i145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i153)
   store ptr %60, ptr %e1.addr.i152, align 8
   store ptr %61, ptr %e2.addr.i153, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i152, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i153)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i152, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i153)
   %a.i154 = getelementptr inbounds i8, ptr %this, i64 8
   %62 = load ptr, ptr %e1.addr.i152, align 8
   %63 = load ptr, ptr %e2.addr.i153, align 8
@@ -1430,7 +1430,7 @@ if.then45:                                        ; preds = %land.lhs.true.i169
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i177)
   store ptr %69, ptr %e1.addr.i176, align 8
   store ptr %70, ptr %e2.addr.i177, align 8
-  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i176, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i177)
+  call void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i176, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i177)
   %a.i178 = getelementptr inbounds i8, ptr %this, i64 8
   %71 = load ptr, ptr %e1.addr.i176, align 8
   %72 = load ptr, ptr %e2.addr.i177, align 8
@@ -3136,7 +3136,7 @@ if.then90:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i)
   store ptr %61, ptr %e1.addr.i, align 8
   store ptr %call2.i116120, ptr %e2.addr.i, align 8
-  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i)
+  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i)
           to label %.noexc151 unwind label %lpad5.loopexit.split-lp
 
 .noexc151:                                        ; preds = %if.then90
@@ -3181,7 +3181,7 @@ if.else99:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e2.addr.i168)
   store ptr %61, ptr %e1.addr.i167, align 8
   store ptr %call2.i116120, ptr %e2.addr.i168, align 8
-  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i167, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i168)
+  invoke void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %e1.addr.i167, ptr noundef nonnull align 8 dereferenceable(8) %e2.addr.i168)
           to label %.noexc170 unwind label %lpad5.loopexit.split-lp
 
 .noexc170:                                        ; preds = %if.else99

@@ -2468,7 +2468,7 @@ if.end3:                                          ; preds = %cond.end
 
 if.end7:                                          ; preds = %if.end, %if.end3
   %cond1723 = phi i64 [ %call, %if.end3 ], [ 0, %if.end ]
-  %call.i = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
+  %call.i = tail call ptr @strpbrk(ptr noundef readonly %name, ptr noundef nonnull @.str.3) #36
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %if.end11, label %return
 
@@ -2726,7 +2726,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %call.i = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
+  %call.i = tail call ptr @strpbrk(ptr noundef readonly %name, ptr noundef nonnull @.str.3) #36
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %if.end18, label %return
 
@@ -14723,7 +14723,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #36
   %cmp.not.i = icmp ne i64 %call.i, 9
   %or.cond.i = icmp ugt i32 %encver, 1023
   %or.cond10.i = or i1 %or.cond.i, %cmp.not.i
@@ -14760,7 +14760,7 @@ moduleTypeEncodeId.exit:                          ; preds = %if.end8.i
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %moduleTypeEncodeId.exit
-  %call.i50 = tail call ptr @moduleTypeLookupModuleByNameInternal(ptr noundef nonnull %name, i32 noundef 0)
+  %call.i50 = tail call ptr @moduleTypeLookupModuleByNameInternal(ptr noundef nonnull readonly %name, i32 noundef 0)
   %cmp4.not = icmp eq ptr %call.i50, null
   br i1 %cmp4.not, label %if.end6, label %return
 
@@ -18973,7 +18973,7 @@ if.end:                                           ; preds = %entry
   %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #36
   %cmp.not.i.not = icmp eq i64 %call.i, 9
   br i1 %cmp.not.i.not, label %for.cond.preheader.i, label %moduleTypeEncodeId.exit
 
@@ -19085,7 +19085,7 @@ if.end:                                           ; preds = %entry
   %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #36
   %cmp.not.i.not = icmp eq i64 %call.i, 9
   br i1 %cmp.not.i.not, label %for.cond.preheader.i, label %moduleTypeEncodeId.exit
 

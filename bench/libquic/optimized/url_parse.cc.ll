@@ -2068,7 +2068,7 @@ if.else.i:                                        ; preds = %while.body.i13.i, %
 _ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %if.then.i, %if.else.i
   %spec_len.addr.13135.i = phi i32 [ %spec_len.addr.130.i, %if.then.i ], [ %spec_len.addr.131.ph.i, %if.else.i ]
   %after_scheme.0.i = phi i32 [ %add.i, %if.then.i ], [ %begin.12428.ph.i, %if.else.i ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull %parsed)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull %parsed)
   ret void
 }
 
@@ -2348,7 +2348,7 @@ if.else.i:                                        ; preds = %while.body.i13.i, %
 _ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %if.then.i, %if.else.i
   %spec_len.addr.13135.i = phi i32 [ %spec_len.addr.130.i, %if.then.i ], [ %spec_len.addr.131.ph.i, %if.else.i ]
   %after_scheme.0.i = phi i32 [ %add.i, %if.then.i ], [ %begin.12428.ph.i, %if.else.i ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull %parsed)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull %parsed)
   ret void
 }
 

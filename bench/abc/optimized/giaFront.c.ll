@@ -293,10 +293,10 @@ Gia_ManCrossCutSimple.exit:                       ; preds = %Gia_ManCrossCutSimp
   br i1 %.not.i138, label %Abc_UtilStrsav.exit, label %41
 
 41:                                               ; preds = %Gia_ManCrossCutSimple.exit
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #16
+  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #16
   %43 = add i64 %42, 1
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #14
-  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %40) #15
+  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %40) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Gia_ManCrossCutSimple.exit, %41
@@ -308,10 +308,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Gia_ManCrossCutSimp
   br i1 %.not.i139, label %Gia_ManFrontFindNext.exit, label %49
 
 49:                                               ; preds = %Abc_UtilStrsav.exit
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #16
+  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #16
   %51 = add i64 %50, 1
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #14
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %48) #15
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %48) #15
   br label %Gia_ManFrontFindNext.exit
 
 Gia_ManFrontFindNext.exit:                        ; preds = %49, %Abc_UtilStrsav.exit

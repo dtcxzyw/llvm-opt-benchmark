@@ -667,7 +667,7 @@ define hidden void @"_ZN10ockam_node14worker_builder39WorkerBuilderMultipleAddre
   %6 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, align 8
   %7 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !30
   %8 = getelementptr inbounds i8, ptr %1, i64 304
   %9 = load ptr, ptr %8, align 8, !nonnull !16, !noundef !16
   %10 = getelementptr inbounds i8, ptr %1, i64 320
@@ -703,7 +703,7 @@ define hidden void @"_ZN10ockam_node14worker_builder39WorkerBuilderMultipleAddre
 
 "_ZN10ockam_node14worker_builder39WorkerBuilderMultipleAddresses$LT$W$GT$24terminal_with_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hc94d620027717ab1E.exit.i": ; preds = %23
   %.val.i.i.i = load ptr, ptr %18, align 8, !alias.scope !47, !noalias !49, !nonnull !16, !noundef !16
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i.i, ptr nonnull %.val2.i.i.i, i64 %.val3.i.i.i), !alias.scope !50, !noalias !54
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val2.i.i.i, i64 %.val3.i.i.i), !alias.scope !50, !noalias !54
   %25 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %25, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6b46524ff1a66c24E.exit", label %"_ZN10ockam_node14worker_builder39WorkerBuilderMultipleAddresses$LT$W$GT$24terminal_with_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hc94d620027717ab1E.exit.thread.i"
 
@@ -13526,7 +13526,7 @@ common.ret:                                       ; preds = %721, %718, %124
   br label %454
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h3addfe9e33e5e49cE.exit.i": ; preds = %424
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !alias.scope !1869, !noalias !1770
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull readonly align 8 dereferenceable(32) %35, i64 32, i1 false), !alias.scope !1869, !noalias !1770
   %.pr.i = load ptr, ptr %206, align 8, !noalias !1770
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !1770
   %430 = icmp eq ptr %.pr.i, null
@@ -16131,7 +16131,7 @@ default.unreachable42:                            ; preds = %1377, %1173, %1158,
   %638 = extractvalue { ptr, i64 } %636, 1
   %639 = icmp ne ptr %637, null
   call void @llvm.assume(i1 %639)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %637, ptr nonnull align 1 %634, i64 %635, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %637, ptr nonnull readonly align 1 %634, i64 %635, i1 false)
   %640 = getelementptr inbounds i8, ptr %56, i64 24
   store i8 %632, ptr %640, align 8, !noalias !2090
   store ptr %637, ptr %56, align 8, !noalias !2090
@@ -16164,7 +16164,7 @@ default.unreachable42:                            ; preds = %1377, %1173, %1158,
   %653 = extractvalue { ptr, i64 } %647, 1
   %654 = icmp ne ptr %652, null
   call void @llvm.assume(i1 %654)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %652, ptr nonnull align 1 %645, i64 %646, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %652, ptr nonnull readonly align 1 %645, i64 %646, i1 false)
   %655 = getelementptr inbounds i8, ptr %55, i64 24
   store i8 %643, ptr %655, align 8, !noalias !2090
   store ptr %652, ptr %55, align 8, !noalias !2090
@@ -16197,7 +16197,7 @@ default.unreachable42:                            ; preds = %1377, %1173, %1158,
   %668 = extractvalue { ptr, i64 } %662, 1
   %669 = icmp ne ptr %667, null
   call void @llvm.assume(i1 %669)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %667, ptr nonnull align 1 %660, i64 %661, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %667, ptr nonnull readonly align 1 %660, i64 %661, i1 false)
   %670 = getelementptr inbounds i8, ptr %54, i64 24
   store i8 %658, ptr %670, align 8, !noalias !2090
   store ptr %667, ptr %54, align 8, !noalias !2090
@@ -16397,7 +16397,7 @@ default.unreachable42:                            ; preds = %1377, %1173, %1158,
   %734 = extractvalue { ptr, i64 } %677, 0
   %735 = icmp ne ptr %734, null
   call void @llvm.assume(i1 %735)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %734, ptr nonnull align 1 %675, i64 %676, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %734, ptr nonnull readonly align 1 %675, i64 %676, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false), !noalias !2137
   %.sroa.0.32..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !noalias !2137
@@ -16532,7 +16532,7 @@ default.unreachable42:                            ; preds = %1377, %1173, %1158,
   %.sroa.4.0..sroa_idx.i452.i.i = getelementptr inbounds i8, ptr %776, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx.i452.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2150)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !alias.scope !2153, !noalias !2155
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull readonly align 8 dereferenceable(32) %65, i64 32, i1 false), !alias.scope !2153, !noalias !2155
   %780 = getelementptr inbounds i8, ptr %66, i64 32
   %781 = load <2 x ptr>, ptr %64, align 16, !noalias !1951
   store <2 x ptr> %781, ptr %780, align 8, !alias.scope !2158, !noalias !2159

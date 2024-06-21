@@ -6494,7 +6494,7 @@ define internal fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql16S
   %13 = extractvalue { ptr, i64 } %11, 1
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %9, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %9, i64 %10, i1 false)
   store ptr %12, ptr %6, align 8, !alias.scope !1051, !noalias !1052
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %13, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1051, !noalias !1052
@@ -6581,7 +6581,7 @@ define internal fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql16S
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit": ; preds = %41
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %43, ptr noundef nonnull dereferenceable(15) @anon.e7aa820b0027ad43c8dfa72f22989151.40.llvm.17962845343687502241, i64 15), !alias.scope !1081
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) %43, ptr noundef nonnull readonly dereferenceable(15) @anon.e7aa820b0027ad43c8dfa72f22989151.40.llvm.17962845343687502241, i64 15), !alias.scope !1081
   %46 = icmp eq i32 %bcmp.i, 0
   br i1 %46, label %54, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit19.thread"
 
@@ -6602,7 +6602,7 @@ define internal fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql16S
   br label %60
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit19": ; preds = %41
-  %bcmp.i18 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %43, ptr noundef nonnull dereferenceable(20) @anon.e7aa820b0027ad43c8dfa72f22989151.41.llvm.17962845343687502241, i64 20), !alias.scope !1085
+  %bcmp.i18 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %43, ptr noundef nonnull readonly dereferenceable(20) @anon.e7aa820b0027ad43c8dfa72f22989151.41.llvm.17962845343687502241, i64 20), !alias.scope !1085
   %53 = icmp eq i32 %bcmp.i18, 0
   br i1 %53, label %58, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit19.thread"
 
@@ -6644,12 +6644,12 @@ define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSec
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit": ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %4, ptr noundef nonnull dereferenceable(15) @anon.e7aa820b0027ad43c8dfa72f22989151.40.llvm.17962845343687502241, i64 15), !alias.scope !1089
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) %4, ptr noundef nonnull readonly dereferenceable(15) @anon.e7aa820b0027ad43c8dfa72f22989151.40.llvm.17962845343687502241, i64 15), !alias.scope !1089
   %7 = icmp eq i32 %bcmp.i, 0
   br i1 %7, label %9, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit10.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit10": ; preds = %2
-  %bcmp.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %4, ptr noundef nonnull dereferenceable(20) @anon.e7aa820b0027ad43c8dfa72f22989151.41.llvm.17962845343687502241, i64 20), !alias.scope !1093
+  %bcmp.i9 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %4, ptr noundef nonnull readonly dereferenceable(20) @anon.e7aa820b0027ad43c8dfa72f22989151.41.llvm.17962845343687502241, i64 20), !alias.scope !1093
   %8 = icmp eq i32 %bcmp.i9, 0
   br i1 %8, label %19, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdd402681e7a41d0aE.exit10.thread"
 
@@ -6663,7 +6663,7 @@ define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSec
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %11, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %11, i64 %12, i1 false)
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6690,7 +6690,7 @@ define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSec
   %25 = extractvalue { ptr, i64 } %23, 1
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %21, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %21, i64 %22, i1 false)
   store i64 1, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %.sroa.42.0..sroa_idx, align 8
@@ -6720,7 +6720,7 @@ define internal fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql15X
   %9 = extractvalue { ptr, i64 } %7, 1
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %.24.val, i64 %.40.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %.24.val, i64 %.40.val, i1 false)
   store ptr %8, ptr %5, align 8, !alias.scope !1124, !noalias !1125
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %9, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1124, !noalias !1125
@@ -6834,7 +6834,7 @@ define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql15X25519Secr
   %8 = extractvalue { ptr, i64 } %6, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %4, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %4, i64 %5, i1 false)
   store ptr %7, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -6955,7 +6955,7 @@ common.ret:                                       ; preds = %89, %20
   %34 = extractvalue { ptr, i64 } %32, 0
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %34, ptr noundef nonnull align 1 dereferenceable(15) @anon.e7aa820b0027ad43c8dfa72f22989151.40.llvm.17962845343687502241, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %34, ptr noundef nonnull readonly align 1 dereferenceable(15) @anon.e7aa820b0027ad43c8dfa72f22989151.40.llvm.17962845343687502241, i64 15, i1 false)
   store ptr %34, ptr %33, align 8, !alias.scope !1166, !noalias !1171
   br label %46
 
@@ -6968,7 +6968,7 @@ common.ret:                                       ; preds = %89, %20
   %39 = extractvalue { ptr, i64 } %37, 0
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %39, ptr noundef nonnull align 1 dereferenceable(20) @anon.e7aa820b0027ad43c8dfa72f22989151.41.llvm.17962845343687502241, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %39, ptr noundef nonnull readonly align 1 dereferenceable(20) @anon.e7aa820b0027ad43c8dfa72f22989151.41.llvm.17962845343687502241, i64 20, i1 false)
   store ptr %39, ptr %38, align 8, !alias.scope !1174, !noalias !1179
   br label %46
 
@@ -9434,7 +9434,7 @@ common.ret:                                       ; preds = %133, %22
 144:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1521
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !1521
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %13, i64 72, i1 false), !noalias !1525
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %13, i64 72, i1 false), !noalias !1525
   invoke fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSecretRow14signing_secret17h129631ecb6d9d226E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13)
           to label %"_ZN145_$LT$ockam_vault..storage..secrets_repository_sql..SecretsSqlxDatabase$u20$as$u20$ockam_vault..storage..secrets_repository..SecretsRepository$GT$18get_signing_secret28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hef3c033e8a56363cE.exit.i" unwind label %145, !noalias !1525
 

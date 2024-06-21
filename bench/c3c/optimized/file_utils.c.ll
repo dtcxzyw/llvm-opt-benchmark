@@ -107,7 +107,7 @@ define dso_local noundef zeroext i1 @dir_make_recursive(ptr nocapture noundef %0
   br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %9, %1, %6
-  %12 = tail call i32 @mkdir(ptr noundef %0, i32 noundef 493) #17
+  %12 = tail call i32 @mkdir(ptr noundef readonly %0, i32 noundef 493) #17
   %13 = icmp eq i32 %12, 0
   ret i1 %13
 }
@@ -292,7 +292,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @file_read_all(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
-  %3 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -385,7 +385,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @file_read_binary(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8
-  %4 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %4 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %27, label %6
 
@@ -1018,7 +1018,7 @@ define dso_local void @file_add_wildcard_files(ptr nocapture noundef %0, ptr nou
   %38 = getelementptr inbounds i8, ptr %21, i64 %37
   %sext.i.us = shl i64 %33, 32
   %39 = ashr exact i64 %sext.i.us, 32
-  %40 = tail call i32 @strncmp(ptr noundef nonnull %38, ptr noundef %32, i64 noundef %39) #18
+  %40 = tail call i32 @strncmp(ptr noundef nonnull readonly %38, ptr noundef %32, i64 noundef %39) #18
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %file_has_suffix_in_list.exit.us, label %42
 

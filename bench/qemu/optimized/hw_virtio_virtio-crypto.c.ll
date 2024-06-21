@@ -1077,12 +1077,12 @@ sw.bb:                                            ; preds = %if.end17
   ]
 
 if.then.i53:                                      ; preds = %sw.bb
-  %call9.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull %u43, ptr noundef nonnull %iov.addr.i, ptr noundef nonnull %out_num.addr.i)
+  %call9.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull readonly %u43, ptr noundef nonnull %iov.addr.i, ptr noundef nonnull %out_num.addr.i)
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %virtio_crypto_create_sym_session.exit.thread, label %virtio_crypto_create_sym_session.exit
 
 if.then15.i:                                      ; preds = %sw.bb
-  %call18.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull %keylen7.i, ptr noundef nonnull %iov.addr.i, ptr noundef nonnull %out_num.addr.i)
+  %call18.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull readonly %keylen7.i, ptr noundef nonnull %iov.addr.i, ptr noundef nonnull %out_num.addr.i)
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %virtio_crypto_create_sym_session.exit.thread, label %if.end22.i
 

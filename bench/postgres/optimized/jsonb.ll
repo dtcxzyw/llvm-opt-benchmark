@@ -2648,7 +2648,7 @@ define dso_local i64 @jsonb_agg_finalfn(ptr nocapture noundef %0) local_unnamed_
 
 16:                                               ; preds = %8
   %17 = tail call ptr @palloc(i64 noundef 56) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
@@ -3123,7 +3123,7 @@ define dso_local i64 @jsonb_object_agg_finalfn(ptr nocapture noundef %0) local_u
 
 16:                                               ; preds = %8
   %17 = tail call ptr @palloc(i64 noundef 56) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32

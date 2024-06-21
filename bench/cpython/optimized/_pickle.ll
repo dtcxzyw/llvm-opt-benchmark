@@ -1477,7 +1477,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end34, 
   %buffer_callback.0 = phi ptr [ %8, %if.end39 ], [ @_Py_NoneStruct, %if.end34 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %9 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %9, align 8
-  %call1.i = call fastcc ptr @_Pickler_New(ptr noundef %module.val)
+  %call1.i = call fastcc ptr @_Pickler_New(ptr noundef readonly %module.val)
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %exit, label %if.end.i
 
@@ -1568,7 +1568,7 @@ if.end13.i:                                       ; preds = %if.end.i.i.i.i.i, %
   %phi.call.i.i = phi ptr [ null, %if.end9.i ], [ %buffer_callback.0, %if.then.i.i.i.i ], [ %buffer_callback.0, %if.end.i.i.i.i.i ]
   %buffer_callback5.i.i = getelementptr inbounds i8, ptr %call1.i, i64 144
   store ptr %phi.call.i.i, ptr %buffer_callback5.i.i, align 8
-  %call14.i = call fastcc i32 @dump(ptr noundef %module.val, ptr noundef nonnull %call1.i, ptr noundef %4)
+  %call14.i = call fastcc i32 @dump(ptr noundef readonly %module.val, ptr noundef nonnull %call1.i, ptr noundef %4)
   %cmp15.i = icmp slt i32 %call14.i, 0
   br i1 %cmp15.i, label %if.then.i.i, label %if.end17.i
 
@@ -1686,7 +1686,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end33, 
   %buffer_callback.0 = phi ptr [ %7, %if.end38 ], [ @_Py_NoneStruct, %if.end33 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %8 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %8, align 8
-  %call1.i = call fastcc ptr @_Pickler_New(ptr noundef %module.val)
+  %call1.i = call fastcc ptr @_Pickler_New(ptr noundef readonly %module.val)
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %exit, label %if.end.i
 
@@ -1760,7 +1760,7 @@ if.end9.i:                                        ; preds = %if.end.i.i.i.i.i, %
   %phi.call.i.i = phi ptr [ null, %if.end5.i ], [ %buffer_callback.0, %if.then.i.i.i.i ], [ %buffer_callback.0, %if.end.i.i.i.i.i ]
   %buffer_callback5.i.i = getelementptr inbounds i8, ptr %call1.i, i64 144
   store ptr %phi.call.i.i, ptr %buffer_callback5.i.i, align 8
-  %call10.i = call fastcc i32 @dump(ptr noundef %module.val, ptr noundef nonnull %call1.i, ptr noundef %4)
+  %call10.i = call fastcc i32 @dump(ptr noundef readonly %module.val, ptr noundef nonnull %call1.i, ptr noundef %4)
   %cmp11.i = icmp slt i32 %call10.i, 0
   br i1 %cmp11.i, label %if.then.i.i, label %if.end13.i
 
@@ -2008,7 +2008,7 @@ skip_optional_kwonly:                             ; preds = %if.end.thread, %if.
   %encoding.1 = phi ptr [ %encoding.0, %if.end74 ], [ %encoding.0, %if.end69 ], [ %call38, %if.end45 ], [ @.str.73, %if.end22 ], [ @.str.73, %if.end ], [ @.str.73, %if.end.thread ]
   %errors.1 = phi ptr [ %errors.0, %if.end74 ], [ %call62, %if.end69 ], [ @.str.26, %if.end45 ], [ @.str.26, %if.end22 ], [ @.str.26, %if.end ], [ @.str.26, %if.end.thread ]
   %buffers.0 = phi ptr [ %18, %if.end74 ], [ null, %if.end69 ], [ null, %if.end45 ], [ null, %if.end22 ], [ null, %if.end ], [ null, %if.end.thread ]
-  %call.i = call fastcc ptr @_Unpickler_New(ptr noundef %module)
+  %call.i = call fastcc ptr @_Unpickler_New(ptr noundef readonly %module)
   %cmp.i38 = icmp eq ptr %call.i, null
   br i1 %cmp.i38, label %exit, label %if.end.i
 
@@ -2239,7 +2239,7 @@ skip_optional_kwonly:                             ; preds = %if.end.thread, %if.
   %encoding.1 = phi ptr [ %encoding.0, %if.end74 ], [ %encoding.0, %if.end69 ], [ %call38, %if.end45 ], [ @.str.73, %if.end22 ], [ @.str.73, %if.end ], [ @.str.73, %if.end.thread ]
   %errors.1 = phi ptr [ %errors.0, %if.end74 ], [ %call62, %if.end69 ], [ @.str.26, %if.end45 ], [ @.str.26, %if.end22 ], [ @.str.26, %if.end ], [ @.str.26, %if.end.thread ]
   %buffers.0 = phi ptr [ %18, %if.end74 ], [ null, %if.end69 ], [ null, %if.end45 ], [ null, %if.end22 ], [ null, %if.end ], [ null, %if.end.thread ]
-  %call.i = call fastcc ptr @_Unpickler_New(ptr noundef %module)
+  %call.i = call fastcc ptr @_Unpickler_New(ptr noundef readonly %module)
   %cmp.i38 = icmp eq ptr %call.i, null
   br i1 %cmp.i38, label %exit, label %if.end.i
 
@@ -3751,7 +3751,7 @@ for.body34.i.i:                                   ; preds = %for.cond32.preheade
 _Pickler_Write.exit.thread263.i:                  ; preds = %if.end29.i.i189
   %97 = load i64, ptr %output_len.i.i182, align 8
   %add.ptr.i.i190 = getelementptr i8, ptr %ob_sval.i.i.i188, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i190, ptr nonnull align 16 %pdata.i, i64 %len.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i190, ptr nonnull readonly align 16 %pdata.i, i64 %len.0.i, i1 false)
   %98 = load i64, ptr %output_len.i.i182, align 8
   %add46.i264.i = add i64 %98, %len.0.i
   store i64 %add46.i264.i, ptr %output_len.i.i182, align 8
@@ -4185,7 +4185,7 @@ for.body34.i198.i:                                ; preds = %for.cond32.preheade
 _Pickler_Write.exit218.thread278.i:               ; preds = %if.end29.i189.i
   %157 = load i64, ptr %output_len.i140.i, align 8
   %add.ptr.i192.i = getelementptr i8, ptr %ob_sval.i.i188.i, i64 %157
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i192.i, ptr nonnull align 1 %call140.i, i64 %144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i192.i, ptr nonnull readonly align 1 %call140.i, i64 %144, i1 false)
   %158 = load i64, ptr %output_len.i140.i, align 8
   %add46.i194279.i = add i64 %158, %144
   store i64 %add46.i194279.i, ptr %output_len.i140.i, align 8
@@ -4386,7 +4386,7 @@ if.then21.i.i232:                                 ; preds = %if.end17.i.i224
 _Pickler_Write.exit.i228:                         ; preds = %if.then21.i.i232, %if.end17.i.i224
   %187 = phi i64 [ %.pre.i225, %if.end17.i.i224 ], [ %add28.i.i234, %if.then21.i.i232 ]
   %add.ptr.i.i229 = getelementptr i8, ptr %ob_sval.i.i.i227, i64 %187
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i.i229, ptr noundef nonnull align 1 dereferenceable(9) %pdata.i206, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i.i229, ptr noundef nonnull readonly align 1 dereferenceable(9) %pdata.i206, i64 9, i1 false)
   %188 = load i64, ptr %output_len.i.i220, align 8
   %add46.i.i230 = add i64 %188, 9
   store i64 %add46.i.i230, ptr %output_len.i.i220, align 8
@@ -4550,7 +4550,7 @@ for.body34.i62.i255:                              ; preds = %for.cond32.preheade
 _Pickler_Write.exit82.thread7.i:                  ; preds = %if.end29.i57.i
   %214 = load i64, ptr %output_len.i17.i, align 8
   %add.ptr.i58.i = getelementptr i8, ptr %ob_sval.i.i56.i, i64 %214
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i58.i, ptr nonnull align 1 %call12.i, i64 %call17.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i58.i, ptr nonnull readonly align 1 %call12.i, i64 %call17.i, i1 false)
   %215 = load i64, ptr %output_len.i17.i, align 8
   %add46.i608.i = add i64 %215, %call17.i
   store i64 %add46.i608.i, ptr %output_len.i17.i, align 8
@@ -5200,7 +5200,7 @@ for.body34.i:                                     ; preds = %for.cond32.preheade
 _Pickler_Write.exit.thread18:                     ; preds = %if.end29.i
   %26 = load i64, ptr %output_len.i, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 16 %pdata, i64 %len.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 16 %pdata, i64 %len.0, i1 false)
   %27 = load i64, ptr %output_len.i, align 8
   %add46.i19 = add i64 %27, %len.0
   store i64 %add46.i19, ptr %output_len.i, align 8
@@ -5363,7 +5363,7 @@ if.end29.i:                                       ; preds = %for.body.i.i, %if.e
   br i1 %cmp31.i, label %_save_bytes_data.exit, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end29.i
-  %call35.i = tail call fastcc i32 @memo_put(ptr noundef %st, ptr noundef %self, ptr noundef %obj)
+  %call35.i = tail call fastcc i32 @memo_put(ptr noundef readonly %st, ptr noundef %self, ptr noundef %obj)
   br label %_save_bytes_data.exit
 
 _save_bytes_data.exit:                            ; preds = %if.else15, %if.else26.i, %if.end29.i, %if.end34.i
@@ -5940,7 +5940,7 @@ for.body34.i57:                                   ; preds = %for.cond32.preheade
 _Pickler_Write.exit77.thread136:                  ; preds = %if.end29.i52
   %73 = load i64, ptr %output_len.i, align 8
   %add.ptr.i53 = getelementptr i8, ptr %ob_sval.i.i51, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i53, ptr nonnull align 1 %ob_sval.i, i64 %call2.val, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i53, ptr nonnull readonly align 1 %ob_sval.i, i64 %call2.val, i1 false)
   %74 = load i64, ptr %output_len.i, align 8
   %add46.i55137 = add i64 %74, %call2.val
   store i64 %add46.i55137, ptr %output_len.i, align 8
@@ -7773,7 +7773,7 @@ if.end.i50.i:                                     ; preds = %if.then.i111
   br label %Py_INCREF.exit52.i
 
 Py_INCREF.exit52.i:                               ; preds = %if.end.i50.i, %if.then.i111
-  %call1.i = tail call fastcc i32 @save(ptr noundef %state, ptr noundef nonnull %self, ptr noundef nonnull %32, i32 noundef 0)
+  %call1.i = tail call fastcc i32 @save(ptr noundef readonly %state, ptr noundef nonnull %self, ptr noundef nonnull %32, i32 noundef 0)
   %34 = load i64, ptr %32, align 8
   %35 = and i64 %34, 2147483648
   %cmp.i54.not.i = icmp eq i64 %35, 0
@@ -7954,7 +7954,7 @@ if.end.i43.i:                                     ; preds = %while.body.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i43.i, %while.body.i
-  %call18.i = tail call fastcc i32 @save(ptr noundef %state, ptr noundef %self, ptr noundef nonnull %61, i32 noundef 0)
+  %call18.i = tail call fastcc i32 @save(ptr noundef readonly %state, ptr noundef %self, ptr noundef nonnull %61, i32 noundef 0)
   %63 = load i64, ptr %61, align 8
   %64 = and i64 %63, 2147483648
   %cmp.i57.not.i = icmp eq i64 %64, 0
@@ -9034,7 +9034,7 @@ _write_size64.exit.i:                             ; preds = %for.body.i.i
   br i1 %cmp2.i, label %_save_bytearray_data.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %_write_size64.exit.i
-  %call5.i = tail call fastcc i32 @memo_put(ptr noundef %state, ptr noundef %self, ptr noundef %obj)
+  %call5.i = tail call fastcc i32 @memo_put(ptr noundef readonly %state, ptr noundef %self, ptr noundef %obj)
   br label %_save_bytearray_data.exit
 
 _save_bytearray_data.exit:                        ; preds = %PyByteArray_AS_STRING.exit, %_write_size64.exit.i, %if.end4.i
@@ -9432,7 +9432,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i35.i
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.end23.i
 
 if.end5.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i35.i
-  %call6.i.i = call fastcc ptr @get_deep_attribute(ptr noundef %15, ptr noundef nonnull %call.i, ptr noundef null)
+  %call6.i.i = call fastcc ptr @get_deep_attribute(ptr noundef %15, ptr noundef nonnull readonly %call.i, ptr noundef null)
   %cmp7.i.i = icmp eq ptr %call6.i.i, null
   br i1 %cmp7.i.i, label %if.end23.i, label %if.end9.i.i
 
@@ -9553,7 +9553,7 @@ land.lhs.true.i43.i:                              ; preds = %if.end.i39.i
   br i1 %tobool3.not.i45.i, label %if.end5.i47.i, label %if.end43.i
 
 if.end5.i47.i:                                    ; preds = %land.lhs.true.i43.i, %if.end.i39.i
-  %call6.i48.i = call fastcc ptr @get_deep_attribute(ptr noundef nonnull %call36.i, ptr noundef nonnull %call.i, ptr noundef null)
+  %call6.i48.i = call fastcc ptr @get_deep_attribute(ptr noundef nonnull %call36.i, ptr noundef nonnull readonly %call.i, ptr noundef null)
   %cmp7.i49.i = icmp eq ptr %call6.i48.i, null
   br i1 %cmp7.i49.i, label %if.end43.i, label %if.end9.i50.i
 
@@ -11339,7 +11339,7 @@ for.body34.i:                                     ; preds = %for.cond32.preheade
 _Pickler_Write.exit.thread88:                     ; preds = %if.end29.i
   %17 = load i64, ptr %output_len.i25, align 8
   %add.ptr.i27 = getelementptr i8, ptr %ob_sval.i.i26, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i27, ptr align 1 %header, i64 %header_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i27, ptr readonly align 1 %header, i64 %header_size, i1 false)
   %18 = load i64, ptr %output_len.i25, align 8
   %add46.i89 = add i64 %18, %header_size
   store i64 %add46.i89, ptr %output_len.i25, align 8
@@ -11537,7 +11537,7 @@ for.body34.i64:                                   ; preds = %for.cond32.preheade
 _Pickler_Write.exit84.thread100:                  ; preds = %if.end29.i55
   %45 = load i64, ptr %output_len.i25, align 8
   %add.ptr.i58 = getelementptr i8, ptr %ob_sval.i.i54, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i58, ptr align 1 %data, i64 %data_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i58, ptr readonly align 1 %data, i64 %data_size, i1 false)
   %46 = load i64, ptr %output_len.i25, align 8
   %add46.i60101 = add i64 %46, %data_size
   store i64 %add46.i60101, ptr %output_len.i25, align 8
@@ -11795,7 +11795,7 @@ for.body34.i35:                                   ; preds = %for.cond32.preheade
 _Pickler_Write.exit55.thread61:                   ; preds = %if.end29.i31
   %32 = load i64, ptr %output_len.i24, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i30, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 16 %pdata, i64 %len.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 16 %pdata, i64 %len.0, i1 false)
   %33 = load i64, ptr %output_len.i24, align 8
   %add46.i3362 = add i64 %33, %len.0
   store i64 %add46.i3362, ptr %output_len.i24, align 8
@@ -14376,7 +14376,7 @@ load_binint2.exit:                                ; preds = %do.body.i.i264, %Pd
 sw.bb39:                                          ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i)
-  %call.i = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i)
+  %call.i = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i)
   %cmp.i301 = icmp slt i64 %call.i, 0
   br i1 %cmp.i301, label %load_int.exit.thread, label %if.end.i302
 
@@ -14493,7 +14493,7 @@ load_int.exit:                                    ; preds = %do.body.i304, %Pdat
 sw.bb45:                                          ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i331)
   store ptr null, ptr %s.i331, align 8
-  %call.i332 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i331)
+  %call.i332 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i331)
   %cmp.i333 = icmp slt i64 %call.i332, 0
   br i1 %cmp.i333, label %load_long.exit.thread, label %if.end.i334
 
@@ -14590,7 +14590,7 @@ sw.bb57:                                          ; preds = %if.end15
 sw.bb63:                                          ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i367)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i368)
-  %call.i369 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i368)
+  %call.i369 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i368)
   %cmp.i370 = icmp slt i64 %call.i369, 0
   br i1 %cmp.i370, label %load_float.exit.thread, label %if.end.i371
 
@@ -14916,7 +14916,7 @@ if.then.i20.i:                                    ; preds = %if.end12.i
 
 PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i20.i, %if.end12.i
   %retval.0.i21.i = phi ptr [ %107, %if.then.i20.i ], [ @_PyByteArray_empty_string, %if.end12.i ]
-  %call14.i = call fastcc i64 @_Unpickler_ReadInto(ptr noundef %st, ptr noundef %self, ptr noundef %retval.0.i21.i, i64 noundef %.x.0.i.i)
+  %call14.i = call fastcc i64 @_Unpickler_ReadInto(ptr noundef readonly %st, ptr noundef %self, ptr noundef %retval.0.i21.i, i64 noundef %.x.0.i.i)
   %cmp15.i = icmp slt i64 %call14.i, 0
   br i1 %cmp15.i, label %if.then16.i, label %do.body.i488
 
@@ -15143,7 +15143,7 @@ sw.bb117:                                         ; preds = %if.end15
 
 sw.bb123:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i581)
-  %call.i582 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i581)
+  %call.i582 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i581)
   %cmp.i583 = icmp slt i64 %call.i582, 0
   br i1 %cmp.i583, label %load_string.exit.thread, label %if.end.i584
 
@@ -15264,7 +15264,7 @@ load_string.exit:                                 ; preds = %do.body.i594, %Pdat
 sw.bb129:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i624)
   store ptr null, ptr %s.i624, align 8
-  %call.i625 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i624)
+  %call.i625 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i624)
   %cmp.i626 = icmp slt i64 %call.i625, 0
   br i1 %cmp.i626, label %load_unicode.exit.thread, label %if.end.i627
 
@@ -15418,7 +15418,7 @@ load_tuple.exit:                                  ; preds = %marker.exit.i
   %171 = getelementptr i8, ptr %170, i64 16
   %.val.i672 = load i64, ptr %171, align 8
   %sub.i673 = sub i64 %.val.i672, %163
-  %call2.i = call fastcc i32 @load_counted_tuple(ptr noundef %st, ptr noundef nonnull %self, i64 noundef %sub.i673)
+  %call2.i = call fastcc i32 @load_counted_tuple(ptr noundef readonly %st, ptr noundef nonnull %self, i64 noundef %sub.i673)
   %cmp179 = icmp slt i32 %call2.i, 0
   br i1 %cmp179, label %while.end, label %while.body.backedge
 
@@ -16597,7 +16597,7 @@ marker.exit.i1082:                                ; preds = %cond.true.i.i1080, 
   br i1 %cmp.i1085, label %load_inst.exit.thread, label %if.end.i1086
 
 if.end.i1086:                                     ; preds = %marker.exit.i1082
-  %call1.i = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1071)
+  %call1.i = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1071)
   %cmp2.i1087 = icmp slt i64 %call1.i, 0
   br i1 %cmp2.i1087, label %load_inst.exit.thread, label %if.end4.i1088
 
@@ -16618,7 +16618,7 @@ if.end8.i1090:                                    ; preds = %if.end4.i1088
   br i1 %cmp10.i1093, label %load_inst.exit.thread, label %if.end12.i1094
 
 if.end12.i1094:                                   ; preds = %if.end8.i1090
-  %call13.i = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1071)
+  %call13.i = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1071)
   %cmp14.i = icmp sgt i64 %call13.i, -1
   br i1 %cmp14.i, label %if.then15.i1158, label %if.end26.i
 
@@ -16879,7 +16879,7 @@ sw.bb243:                                         ; preds = %if.end15
 
 sw.bb249:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i1167)
-  %call.i1168 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1167)
+  %call.i1168 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1167)
   %cmp.i1169 = icmp slt i64 %call.i1168, 0
   br i1 %cmp.i1169, label %load_global.exit.thread, label %if.end.i1170
 
@@ -16900,7 +16900,7 @@ if.end4.i1172:                                    ; preds = %if.end.i1170
   br i1 %tobool.not.i1175, label %load_global.exit.thread, label %if.end7.i1176
 
 if.end7.i1176:                                    ; preds = %if.end4.i1172
-  %call8.i1177 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1167)
+  %call8.i1177 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1167)
   %cmp9.i1178 = icmp sgt i64 %call8.i1177, -1
   br i1 %cmp9.i1178, label %if.then10.i1212, label %if.end21.i
 
@@ -17252,7 +17252,7 @@ load_append.exit.thread:                          ; preds = %sw.bb261
   br label %while.end
 
 load_append.exit:                                 ; preds = %sw.bb261
-  %call7.i1285 = call fastcc i32 @do_append(ptr noundef %st, ptr noundef nonnull %self, i64 noundef %sub.i1276)
+  %call7.i1285 = call fastcc i32 @do_append(ptr noundef readonly %st, ptr noundef nonnull readonly %self, i64 noundef %sub.i1276)
   %cmp263 = icmp slt i32 %call7.i1285, 0
   br i1 %cmp263, label %while.end, label %while.body.backedge
 
@@ -17297,7 +17297,7 @@ marker.exit.i1299:                                ; preds = %cond.true.i.i1297, 
   br i1 %cmp.i1302, label %while.end, label %load_appends.exit
 
 load_appends.exit:                                ; preds = %marker.exit.i1299
-  %call1.i1304 = call fastcc i32 @do_append(ptr noundef %st, ptr noundef nonnull %self, i64 noundef %431)
+  %call1.i1304 = call fastcc i32 @do_append(ptr noundef readonly %st, ptr noundef nonnull %self, i64 noundef %431)
   %cmp269 = icmp slt i32 %call1.i1304, 0
   br i1 %cmp269, label %while.end, label %while.body.backedge
 
@@ -18105,7 +18105,7 @@ load_long_binget.exit:                            ; preds = %Py_INCREF.exit.i151
 
 sw.bb297:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i1553)
-  %call.i1554 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1553)
+  %call.i1554 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1553)
   %cmp.i1555 = icmp slt i64 %call.i1554, 0
   br i1 %cmp.i1555, label %load_get.exit.thread, label %if.end.i1556
 
@@ -18501,7 +18501,7 @@ load_long_binput.exit:                            ; preds = %calc_binsize.exit.i
 sw.bb321:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i1725)
   store ptr null, ptr %s.i1725, align 8
-  %call.i1726 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1725)
+  %call.i1726 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1725)
   %cmp.i1727 = icmp slt i64 %call.i1726, 0
   br i1 %cmp.i1727, label %load_put.exit.thread, label %if.end.i1728
 
@@ -18787,7 +18787,7 @@ sw.bb345:                                         ; preds = %if.end15
   %650 = getelementptr i8, ptr %649, i64 16
   %.val.i1838 = load i64, ptr %650, align 8
   %sub.i1839 = add i64 %.val.i1838, -2
-  %call1.i1840 = call fastcc range(i32 -1, 1) i32 @do_setitems(ptr noundef %st, ptr noundef nonnull %self, i64 noundef %sub.i1839)
+  %call1.i1840 = call fastcc range(i32 -1, 1) i32 @do_setitems(ptr noundef readonly %st, ptr noundef nonnull readonly %self, i64 noundef %sub.i1839)
   %cmp347 = icmp slt i32 %call1.i1840, 0
   br i1 %cmp347, label %while.end, label %while.body.backedge
 
@@ -18832,7 +18832,7 @@ marker.exit.i1854:                                ; preds = %cond.true.i.i1852, 
   br i1 %cmp.i1857, label %while.end, label %load_setitems.exit
 
 load_setitems.exit:                               ; preds = %marker.exit.i1854
-  %call1.i1859 = call fastcc i32 @do_setitems(ptr noundef %st, ptr noundef nonnull %self, i64 noundef %654)
+  %call1.i1859 = call fastcc i32 @do_setitems(ptr noundef readonly %st, ptr noundef nonnull %self, i64 noundef %654)
   %cmp353 = icmp slt i32 %call1.i1859, 0
   br i1 %cmp353, label %while.end, label %while.body.backedge
 
@@ -18843,7 +18843,7 @@ sw.bb357:                                         ; preds = %if.end15
   br i1 %tobool.not.i1864, label %if.else.i1917, label %if.then.i1865
 
 if.then.i1865:                                    ; preds = %sw.bb357
-  %call.i1866 = call fastcc i64 @_Unpickler_Readline(ptr noundef %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1863)
+  %call.i1866 = call fastcc i64 @_Unpickler_Readline(ptr noundef readonly %st, ptr noundef nonnull %self, ptr noundef nonnull %s.i1863)
   %cmp.i1867 = icmp slt i64 %call.i1866, 0
   br i1 %cmp.i1867, label %load_persid.exit.thread, label %if.end.i1868
 
@@ -21750,7 +21750,7 @@ if.then.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.then
   %add = add i64 %sub, 1
   %add.ptr = getelementptr i8, ptr %2, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %add.ptr, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %add.ptr, i64 %add, i1 false)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 %add
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %call.i, ptr %input_line1.i, align 8
@@ -21812,7 +21812,7 @@ if.then.i33:                                      ; preds = %if.end28
   br label %return
 
 if.end.i30:                                       ; preds = %if.end28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i28, ptr nonnull align 1 %7, i64 %call12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i28, ptr nonnull readonly align 1 %7, i64 %call12, i1 false)
   %arrayidx.i31 = getelementptr i8, ptr %call.i28, i64 %call12
   store i8 0, ptr %arrayidx.i31, align 1
   store ptr %call.i28, ptr %input_line1.i26, align 8
@@ -23306,7 +23306,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @_pickle_PicklerMemoProxy___reduce__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i = tail call fastcc ptr @_pickle_PicklerMemoProxy_copy_impl(ptr noundef %self)
+  %call.i = tail call fastcc ptr @_pickle_PicklerMemoProxy_copy_impl(ptr noundef readonly %self)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_pickle_PicklerMemoProxy___reduce___impl.exit, label %if.end.i
 
@@ -23725,7 +23725,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @_pickle_UnpicklerMemoProxy___reduce__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i = tail call fastcc ptr @_pickle_UnpicklerMemoProxy_copy_impl(ptr noundef %self)
+  %call.i = tail call fastcc ptr @_pickle_UnpicklerMemoProxy_copy_impl(ptr noundef readonly %self)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_pickle_UnpicklerMemoProxy___reduce___impl.exit, label %if.end.i
 
@@ -24613,7 +24613,7 @@ if.end6.i:                                        ; preds = %Py_XDECREF.exit.i.i
   store i64 0, ptr %output_len.i.i, align 8
   %frame_start.i.i = getelementptr inbounds i8, ptr %self, i64 104
   store i64 -1, ptr %frame_start.i.i, align 8
-  %call7.i = call fastcc i32 @dump(ptr noundef %cls.val.val, ptr noundef nonnull %self, ptr noundef %1)
+  %call7.i = call fastcc i32 @dump(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self, ptr noundef %1)
   %cmp8.i = icmp slt i32 %call7.i, 0
   br i1 %cmp8.i, label %exit, label %if.end10.i
 

@@ -4547,7 +4547,7 @@ if.end23.i:                                       ; preds = %config_run_filename
 
 if.end.i.i57.i:                                   ; preds = %if.end23.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %context.i.i), !noalias !51
-  %call.i.i58.i = call ptr @getenv(ptr noundef nonnull @.str.122) #21, !noalias !75
+  %call.i.i58.i = call ptr @getenv(ptr noundef nonnull readonly @.str.122) #21, !noalias !75
   %tobool1.not.i.i.i = icmp eq ptr %call.i.i58.i, null
   br i1 %tobool1.not.i.i.i, label %config_init_env_warnoptions.exit.i.thread, label %lor.lhs.false.i.i.i
 
@@ -4709,7 +4709,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %i.05.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %inc.i.i.i.i, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr ptr, ptr %121, i64 %i.05.i.i.i.i
   %122 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !91
-  %call.i.i.i103.i = call i32 @wcscmp(ptr noundef %122, ptr noundef nonnull @.str.112) #22, !noalias !91
+  %call.i.i.i103.i = call i32 @wcscmp(ptr noundef %122, ptr noundef nonnull readonly @.str.112) #22, !noalias !91
   %cmp1.i.i.i.i = icmp eq i32 %call.i.i.i103.i, 0
   br i1 %cmp1.i.i.i.i, label %if.end2.i.i, label %for.cond.i.i.i.i
 
@@ -4769,7 +4769,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %i.05.i.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %126, i64 %i.05.i.i.i.i.i
   %127 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !101
-  %call.i.i.i.i.i = call i32 @wcscmp(ptr noundef %127, ptr noundef %124) #22, !noalias !101
+  %call.i.i.i.i.i = call i32 @wcscmp(ptr noundef %127, ptr noundef readonly %124) #22, !noalias !101
   %cmp1.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp1.i.i.i.i.i, label %for.inc.i.i.i, label %for.cond.i.i.i.i.i
 
@@ -4786,7 +4786,7 @@ for.body.i8.i.i.i.i:                              ; preds = %if.end.i.i.i.i, %fo
   %i.05.i9.i.i.i.i = phi i64 [ %inc.i14.i.i.i.i, %for.cond.i13.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %arrayidx.i10.i.i.i.i = getelementptr ptr, ptr %123, i64 %i.05.i9.i.i.i.i
   %128 = load ptr, ptr %arrayidx.i10.i.i.i.i, align 8, !noalias !101
-  %call.i11.i.i.i.i = call i32 @wcscmp(ptr noundef %128, ptr noundef %124) #22, !noalias !101
+  %call.i11.i.i.i.i = call i32 @wcscmp(ptr noundef %128, ptr noundef readonly %124) #22, !noalias !101
   %cmp1.i12.i.i.i.i = icmp eq i32 %call.i11.i.i.i.i, 0
   br i1 %cmp1.i12.i.i.i.i, label %for.inc.i.i.i, label %for.cond.i13.i.i.i.i
 
@@ -4868,7 +4868,7 @@ for.body.i.i.i54.i.i:                             ; preds = %for.cond.i.i.i59.i.
   %i.05.i.i.i55.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i53.i.i ], [ %inc.i.i.i60.i.i, %for.cond.i.i.i59.i.i ]
   %arrayidx.i.i.i56.i.i = getelementptr ptr, ptr %133, i64 %i.05.i.i.i55.i.i
   %134 = load ptr, ptr %arrayidx.i.i.i56.i.i, align 8, !noalias !111
-  %call.i.i.i57.i.i = call i32 @wcscmp(ptr noundef %134, ptr noundef %131) #22, !noalias !111
+  %call.i.i.i57.i.i = call i32 @wcscmp(ptr noundef %134, ptr noundef readonly %131) #22, !noalias !111
   %cmp1.i.i.i58.i.i = icmp eq i32 %call.i.i.i57.i.i, 0
   br i1 %cmp1.i.i.i58.i.i, label %for.inc.i40.i.i, label %for.cond.i.i.i59.i.i
 
@@ -4885,7 +4885,7 @@ for.body.i8.i.i44.i.i:                            ; preds = %if.end.i.i35.i.i, %
   %i.05.i9.i.i45.i.i = phi i64 [ %inc.i14.i.i50.i.i, %for.cond.i13.i.i49.i.i ], [ 0, %if.end.i.i35.i.i ]
   %arrayidx.i10.i.i46.i.i = getelementptr ptr, ptr %130, i64 %i.05.i9.i.i45.i.i
   %135 = load ptr, ptr %arrayidx.i10.i.i46.i.i, align 8, !noalias !111
-  %call.i11.i.i47.i.i = call i32 @wcscmp(ptr noundef %135, ptr noundef %131) #22, !noalias !111
+  %call.i11.i.i47.i.i = call i32 @wcscmp(ptr noundef %135, ptr noundef readonly %131) #22, !noalias !111
   %cmp1.i12.i.i48.i.i = icmp eq i32 %call.i11.i.i47.i.i, 0
   br i1 %cmp1.i12.i.i48.i.i, label %for.inc.i40.i.i, label %for.cond.i13.i.i49.i.i
 
@@ -4964,7 +4964,7 @@ for.body.i.i81.i.i:                               ; preds = %for.cond.i.i86.i.i,
   %i.05.i.i82.i.i = phi i64 [ 0, %for.body.lr.ph.i.i79.i.i ], [ %inc.i.i87.i.i, %for.cond.i.i86.i.i ]
   %arrayidx.i.i83.i.i = getelementptr ptr, ptr %141, i64 %i.05.i.i82.i.i
   %142 = load ptr, ptr %arrayidx.i.i83.i.i, align 8, !noalias !117
-  %call.i.i84.i.i = call i32 @wcscmp(ptr noundef %142, ptr noundef nonnull @.str.125) #22, !noalias !117
+  %call.i.i84.i.i = call i32 @wcscmp(ptr noundef %142, ptr noundef nonnull readonly @.str.125) #22, !noalias !117
   %cmp1.i.i85.i.i = icmp eq i32 %call.i.i84.i.i, 0
   br i1 %cmp1.i.i85.i.i, label %if.end24.sink.split.i.i, label %for.cond.i.i86.i.i
 
@@ -4981,7 +4981,7 @@ for.body.i8.i70.i.i:                              ; preds = %if.end.i65.i.i, %fo
   %i.05.i9.i71.i.i = phi i64 [ %inc.i14.i76.i.i, %for.cond.i13.i75.i.i ], [ 0, %if.end.i65.i.i ]
   %arrayidx.i10.i72.i.i = getelementptr ptr, ptr %137, i64 %i.05.i9.i71.i.i
   %143 = load ptr, ptr %arrayidx.i10.i72.i.i, align 8, !noalias !117
-  %call.i11.i73.i.i = call i32 @wcscmp(ptr noundef %143, ptr noundef nonnull @.str.125) #22, !noalias !117
+  %call.i11.i73.i.i = call i32 @wcscmp(ptr noundef %143, ptr noundef nonnull readonly @.str.125) #22, !noalias !117
   %cmp1.i12.i74.i.i = icmp eq i32 %call.i11.i73.i.i, 0
   br i1 %cmp1.i12.i74.i.i, label %if.end24.sink.split.i.i, label %for.cond.i13.i75.i.i
 
@@ -5002,7 +5002,7 @@ for.body.i.i109.i.i:                              ; preds = %for.cond.i.i114.i.i
   %i.05.i.i110.i.i = phi i64 [ 0, %for.body.lr.ph.i.i107.i.i ], [ %inc.i.i115.i.i, %for.cond.i.i114.i.i ]
   %arrayidx.i.i111.i.i = getelementptr ptr, ptr %144, i64 %i.05.i.i110.i.i
   %145 = load ptr, ptr %arrayidx.i.i111.i.i, align 8, !noalias !120
-  %call.i.i112.i.i = call i32 @wcscmp(ptr noundef %145, ptr noundef nonnull @.str.126) #22, !noalias !120
+  %call.i.i112.i.i = call i32 @wcscmp(ptr noundef %145, ptr noundef nonnull readonly @.str.126) #22, !noalias !120
   %cmp1.i.i113.i.i = icmp eq i32 %call.i.i112.i.i, 0
   br i1 %cmp1.i.i113.i.i, label %if.end24.sink.split.i.i, label %for.cond.i.i114.i.i
 
@@ -5019,7 +5019,7 @@ for.body.i8.i98.i.i:                              ; preds = %if.end.i93.i.i, %fo
   %i.05.i9.i99.i.i = phi i64 [ %inc.i14.i104.i.i, %for.cond.i13.i103.i.i ], [ 0, %if.end.i93.i.i ]
   %arrayidx.i10.i100.i.i = getelementptr ptr, ptr %137, i64 %i.05.i9.i99.i.i
   %146 = load ptr, ptr %arrayidx.i10.i100.i.i, align 8, !noalias !120
-  %call.i11.i101.i.i = call i32 @wcscmp(ptr noundef %146, ptr noundef nonnull @.str.126) #22, !noalias !120
+  %call.i11.i101.i.i = call i32 @wcscmp(ptr noundef %146, ptr noundef nonnull readonly @.str.126) #22, !noalias !120
   %cmp1.i12.i102.i.i = icmp eq i32 %call.i11.i101.i.i, 0
   br i1 %cmp1.i12.i102.i.i, label %if.end24.sink.split.i.i, label %for.cond.i13.i103.i.i
 
@@ -5080,7 +5080,7 @@ for.body.i.i.i148.i.i:                            ; preds = %for.cond.i.i.i153.i
   %i.05.i.i.i149.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i147.i.i ], [ %inc.i.i.i154.i.i, %for.cond.i.i.i153.i.i ]
   %arrayidx.i.i.i150.i.i = getelementptr ptr, ptr %152, i64 %i.05.i.i.i149.i.i
   %153 = load ptr, ptr %arrayidx.i.i.i150.i.i, align 8, !noalias !126
-  %call.i.i.i151.i.i = call i32 @wcscmp(ptr noundef %153, ptr noundef %150) #22, !noalias !126
+  %call.i.i.i151.i.i = call i32 @wcscmp(ptr noundef %153, ptr noundef readonly %150) #22, !noalias !126
   %cmp1.i.i.i152.i.i = icmp eq i32 %call.i.i.i151.i.i, 0
   br i1 %cmp1.i.i.i152.i.i, label %for.inc.i134.i.i, label %for.cond.i.i.i153.i.i
 
@@ -5097,7 +5097,7 @@ for.body.i8.i.i138.i.i:                           ; preds = %if.end.i.i129.i.i, 
   %i.05.i9.i.i139.i.i = phi i64 [ %inc.i14.i.i144.i.i, %for.cond.i13.i.i143.i.i ], [ 0, %if.end.i.i129.i.i ]
   %arrayidx.i10.i.i140.i.i = getelementptr ptr, ptr %149, i64 %i.05.i9.i.i139.i.i
   %154 = load ptr, ptr %arrayidx.i10.i.i140.i.i, align 8, !noalias !126
-  %call.i11.i.i141.i.i = call i32 @wcscmp(ptr noundef %154, ptr noundef %150) #22, !noalias !126
+  %call.i11.i.i141.i.i = call i32 @wcscmp(ptr noundef %154, ptr noundef readonly %150) #22, !noalias !126
   %cmp1.i12.i.i142.i.i = icmp eq i32 %call.i11.i.i141.i.i, 0
   br i1 %cmp1.i12.i.i142.i.i, label %for.inc.i134.i.i, label %for.cond.i13.i.i143.i.i
 
@@ -5478,7 +5478,7 @@ if.then14.i:                                      ; preds = %if.end13.i
   br i1 %tobool.not.i.i, label %if.end19.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then14.i
-  %call.i47.i = call ptr @getenv(ptr noundef nonnull @.str.138) #21, !noalias !135
+  %call.i47.i = call ptr @getenv(ptr noundef nonnull readonly @.str.138) #21, !noalias !135
   %tobool1.not.i.i = icmp eq ptr %call.i47.i, null
   br i1 %tobool1.not.i.i, label %if.then3.i.i, label %lor.lhs.false.i.i
 
@@ -5564,7 +5564,7 @@ if.then.i73.i:                                    ; preds = %if.then21.i, %if.en
   br label %if.end28.i
 
 if.end.i52.i:                                     ; preds = %if.then21.i
-  %call.i53.i = call ptr @getenv(ptr noundef nonnull @.str.141) #21, !noalias !141
+  %call.i53.i = call ptr @getenv(ptr noundef nonnull readonly @.str.141) #21, !noalias !141
   %tobool1.not.i54.i = icmp eq ptr %call.i53.i, null
   br i1 %tobool1.not.i54.i, label %if.then3.i72.i, label %lor.lhs.false.i55.i
 
@@ -5642,7 +5642,7 @@ if.then.i100.i:                                   ; preds = %if.then30.i
   br label %if.end37.i
 
 if.end.i79.i:                                     ; preds = %if.then30.i
-  %call.i80.i = call ptr @getenv(ptr noundef nonnull @.str.144) #21, !noalias !147
+  %call.i80.i = call ptr @getenv(ptr noundef nonnull readonly @.str.144) #21, !noalias !147
   %tobool1.not.i81.i = icmp eq ptr %call.i80.i, null
   br i1 %tobool1.not.i81.i, label %if.then3.i99.i, label %lor.lhs.false.i82.i
 
@@ -6198,7 +6198,7 @@ if.then.i.i.i66:                                  ; preds = %if.end15.i.i
   br label %if.end10
 
 if.end.i.i.i:                                     ; preds = %if.end15.i.i
-  %call.i9.i113.i = call ptr @getenv(ptr noundef nonnull @.str.172) #21, !noalias !174
+  %call.i9.i113.i = call ptr @getenv(ptr noundef nonnull readonly @.str.172) #21, !noalias !174
   %tobool1.not.i.i.i = icmp eq ptr %call.i9.i113.i, null
   br i1 %tobool1.not.i.i.i, label %if.then3.i.i.i, label %lor.lhs.false.i.i114.i
 

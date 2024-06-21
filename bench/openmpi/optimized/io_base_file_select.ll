@@ -572,7 +572,7 @@ query.exit.thread19.i:                            ; preds = %40
   %59 = load i32, ptr %4, align 4
   %60 = getelementptr inbounds i8, ptr %46, i64 44
   %61 = getelementptr inbounds i8, ptr %46, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %61, ptr noundef nonnull align 8 dereferenceable(320) %25, i64 320, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %61, ptr noundef nonnull readonly align 8 dereferenceable(320) %25, i64 320, i1 false)
   %62 = getelementptr inbounds i8, ptr %46, i64 368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %62, ptr noundef nonnull align 8 dereferenceable(424) %43, i64 424, i1 false)
   %63 = load ptr, ptr %5, align 8

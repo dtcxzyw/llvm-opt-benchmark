@@ -3208,7 +3208,7 @@ while.body:                                       ; preds = %lor.lhs.false, %nex
   br i1 %tobool4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %while.body
-  %call.i34 = tail call ptr @strchrnul(ptr noundef nonnull %query.addr.038, i32 noundef 59) #16
+  %call.i34 = tail call ptr @strchrnul(ptr noundef nonnull readonly %query.addr.038, i32 noundef 59) #16
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %while.body

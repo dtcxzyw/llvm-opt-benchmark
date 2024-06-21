@@ -9399,9 +9399,9 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7rocksdb6ribbon1
   %bs.val41.i.i.i.i = load ptr, ptr %coeff_rows_.i, align 8
   %bs.val42.i.i.i.i = load ptr, ptr %result_rows_12.i.i, align 8
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %shr11.i.i.i68.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i.i.i.i.i.i, i32 1, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i.i.i.i.i.i, i32 1, i32 1, i32 1)
   %arrayidx.i2.i.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %shr11.i.i.i68.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i2.i.i.i.i.i, i32 1, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i2.i.i.i.i.i, i32 1, i32 1, i32 1)
   br label %for.cond26.i.i.i.i
 
 for.cond26.i.i.i.i:                               ; preds = %for.cond26.i.i.i.i.backedge, %if.else.i.i.i.i
@@ -9531,9 +9531,9 @@ if.end38.i.i.i.i:                                 ; preds = %_ZNSt15_Deque_itera
   %add.i.i.i163.i.i.i.i = add nuw i64 %shr.i.i.i160.i.i.i.i, %mul4.i.i.i162.i.i.i.i
   %shr11.i.i.i164.i.i.i.i = lshr i64 %add.i.i.i163.i.i.i.i, 32
   %arrayidx.i.i167.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %shr11.i.i.i164.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i.i167.i.i.i.i, i32 1, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i.i167.i.i.i.i, i32 1, i32 1, i32 1)
   %arrayidx.i2.i168.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %shr11.i.i.i164.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i2.i168.i.i.i.i, i32 1, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull readonly %arrayidx.i2.i168.i.i.i.i, i32 1, i32 1, i32 1)
   %arrayidx.i.i22.i172.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
   %cr_at_i.sroa.0.0.copyload23.i173.i.i.i.i = load i64, ptr %arrayidx.i.i22.i172.i.i.i.i, align 8
   %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx24.i174.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i22.i172.i.i.i.i, i64 8
@@ -11080,7 +11080,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp6.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !149
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i.i.i
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr5.i.i.i, i32 0, i32 1, i32 1)
   br label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit
 
 _ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit: ; preds = %entry, %while.end.i.i.i
@@ -11178,7 +11178,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %cmp6.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !149
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.end.i.i
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr5.i.i, i32 0, i32 1, i32 1)
   br label %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit
 
 _ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit: ; preds = %for.body, %while.end.i.i
@@ -11275,7 +11275,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp6.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !149
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i.i.i
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr5.i.i.i, i32 0, i32 1, i32 1)
   br label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit
 
 _ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit: ; preds = %entry, %while.end.i.i.i

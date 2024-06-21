@@ -124,7 +124,7 @@ define range(i32 -1, 1) i32 @H5R__create_object(ptr nocapture noundef readonly %
   store i64 -1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 44
   store i8 2, ptr %7, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 1 %0, i64 %1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr readonly align 1 %0, i64 %1, i1 false)
   %8 = trunc i64 %1 to i8
   %9 = getelementptr inbounds i8, ptr %2, i64 45
   store i8 %8, ptr %9, align 1
@@ -196,7 +196,7 @@ define range(i32 -1, 1) i32 @H5R__encode(ptr nocapture noundef readonly %0, ptr 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %.055.ph, i64 1
   store i8 %20, ptr %.055.ph, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %21, i1 false)
   br label %28
 
 H5R__encode_obj_token.exit:                       ; preds = %5
@@ -226,7 +226,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   br i1 %.not65, label %59, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   %39 = icmp ugt i64 %38, 65536
   br i1 %39, label %43, label %40
 
@@ -256,7 +256,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   %54 = trunc i64 %53 to i8
   store i8 %54, ptr %52, align 1
   %55 = getelementptr inbounds i8, ptr %.156, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %0, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr readonly align 1 %0, i64 %38, i1 false)
   %56 = getelementptr inbounds i8, ptr %.156, i64 %41
   %57 = sub i64 %.154, %41
   br label %.thread
@@ -372,7 +372,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
 113:                                              ; preds = %59
   %114 = getelementptr inbounds i8, ptr %1, i64 24
   %115 = load ptr, ptr %114, align 8
-  %116 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %115) #16
+  %116 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %115) #16
   %117 = icmp ugt i64 %116, 65536
   br i1 %117, label %126, label %118
 
@@ -391,7 +391,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   %124 = trunc i64 %123 to i8
   store i8 %124, ptr %122, align 1
   %125 = getelementptr inbounds i8, ptr %.358, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 1 %115, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr readonly align 1 %115, i64 %116, i1 false)
   br label %133
 
 126:                                              ; preds = %113
@@ -451,7 +451,7 @@ define range(i32 -1, 1) i32 @H5R__create_region(ptr nocapture noundef readonly %
   store i64 -1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 44
   store i8 3, ptr %16, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %0, i64 %1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr readonly align 1 %0, i64 %1, i1 false)
   %17 = trunc i64 %1 to i8
   %18 = getelementptr inbounds i8, ptr %3, i64 45
   store i8 %17, ptr %18, align 1
@@ -525,7 +525,7 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr nocapture noundef readonly %0,
   store i64 -1, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 44
   store i8 4, ptr %24, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %0, i64 %1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr readonly align 1 %0, i64 %1, i1 false)
   %25 = trunc i64 %1 to i8
   %26 = getelementptr inbounds i8, ptr %3, i64 45
   store i8 %25, ptr %26, align 1
@@ -1305,7 +1305,7 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
   %44 = getelementptr inbounds i8, ptr %0, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = zext nneg i8 %32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %44, i64 %45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %44, i64 %45, i1 false)
   %46 = load i8, ptr %25, align 1
   %47 = zext i8 %46 to i64
   %48 = add nuw nsw i64 %47, 1
@@ -1354,7 +1354,7 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
 
 79:                                               ; preds = %60
   %80 = getelementptr inbounds i8, ptr %49, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull align 1 %80, i64 %67, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull readonly align 1 %80, i64 %67, i1 false)
   %81 = getelementptr inbounds i8, ptr %69, i64 %67
   store i8 0, ptr %81, align 1
   store ptr %69, ptr %53, align 8

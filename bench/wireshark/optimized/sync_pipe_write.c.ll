@@ -60,7 +60,7 @@ define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext 
   %4 = alloca [4 x i8], align 1
   %5 = alloca [22 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 22, ptr noundef nonnull @.str, i32 noundef %2) #6
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #5
+  %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #5
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -85,7 +85,7 @@ define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext 
 
 21:                                               ; preds = %3
   %22 = sext i32 %9 to i64
-  %23 = call i64 @write(i32 noundef %0, ptr noundef nonnull %5, i64 noundef %22) #6
+  %23 = call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %5, i64 noundef %22) #6
   br label %sync_pipe_write_string_msg.exit
 
 sync_pipe_write_string_msg.exit:                  ; preds = %3, %21
@@ -100,7 +100,7 @@ define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %
   %4 = alloca [4 x i8], align 1
   %5 = alloca [22 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 22, ptr noundef nonnull @.str.1, i32 noundef %2) #6
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #5
+  %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #5
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -125,7 +125,7 @@ define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %
 
 21:                                               ; preds = %3
   %22 = sext i32 %9 to i64
-  %23 = call i64 @write(i32 noundef %0, ptr noundef nonnull %5, i64 noundef %22) #6
+  %23 = call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %5, i64 noundef %22) #6
   br label %sync_pipe_write_string_msg.exit
 
 sync_pipe_write_string_msg.exit:                  ; preds = %3, %21
@@ -162,7 +162,7 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   br i1 %.not.i, label %26, label %22
 
 22:                                               ; preds = %3
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #5
   %24 = trunc i64 %23 to i32
   %25 = add i32 %24, 1
   br label %26
@@ -191,7 +191,7 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
 
 38:                                               ; preds = %26
   %39 = sext i32 %.0.i to i64
-  %40 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %39) #6
+  %40 = tail call i64 @write(i32 noundef %0, ptr noundef readonly %1, i64 noundef %39) #6
   br label %sync_pipe_write_string_msg.exit
 
 sync_pipe_write_string_msg.exit:                  ; preds = %26, %38
@@ -199,7 +199,7 @@ sync_pipe_write_string_msg.exit:                  ; preds = %26, %38
   br i1 %.not.i6, label %45, label %41
 
 41:                                               ; preds = %sync_pipe_write_string_msg.exit
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
+  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #5
   %43 = trunc i64 %42 to i32
   %44 = add i32 %43, 1
   br label %45
@@ -228,7 +228,7 @@ sync_pipe_write_string_msg.exit:                  ; preds = %26, %38
 
 57:                                               ; preds = %45
   %58 = sext i32 %.0.i7 to i64
-  %59 = tail call i64 @write(i32 noundef %0, ptr noundef %2, i64 noundef %58) #6
+  %59 = tail call i64 @write(i32 noundef %0, ptr noundef readonly %2, i64 noundef %58) #6
   br label %sync_pipe_write_string_msg.exit9
 
 sync_pipe_write_string_msg.exit9:                 ; preds = %45, %57

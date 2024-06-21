@@ -2876,7 +2876,7 @@ define internal fastcc range(i32 0, 2) i32 @inspect_ipv6_mreq(i64 noundef %0, i6
 
 RSTRING_PTR.exit:                                 ; preds = %11, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %11 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 1 dereferenceable(20) %.sroa.2.0.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull readonly align 1 dereferenceable(20) %.sroa.2.0.i, i64 20, i1 false)
   %16 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 46) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -2967,7 +2967,7 @@ define internal fastcc range(i32 0, 2) i32 @inspect_ipv4_mreqn(i64 noundef %0, i
 
 RSTRING_PTR.exit:                                 ; preds = %11, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %11 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.2.0.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull readonly align 1 dereferenceable(12) %.sroa.2.0.i, i64 12, i1 false)
   %16 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 16) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20

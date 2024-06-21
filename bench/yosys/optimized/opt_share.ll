@@ -16928,7 +16928,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_111merged_op_tES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; pre
 .body.i1048:                                      ; preds = %6235
   %6306 = extractvalue { ptr, i32 } %6236, 0
   %6307 = call ptr @__cxa_begin_catch(ptr %6306) #19
-  call fastcc void @_ZN12_GLOBAL__N_111merged_op_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5847) #19
+  call fastcc void @_ZN12_GLOBAL__N_111merged_op_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %5847) #19
   call void @_ZdlPv(ptr noundef nonnull %5846) #20
   invoke void @__cxa_rethrow() #21
           to label %6313 unwind label %6308
@@ -17440,7 +17440,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit1145: ; preds = %.lr.ph8342
 
 .lr.ph.i.i.i.i1147:                               ; preds = %._crit_edge8347, %.lr.ph.i.i.i.i1147
   %.05.i.i.i.i1148 = phi ptr [ %6417, %.lr.ph.i.i.i.i1147 ], [ %.sroa.02884.1.lcssa, %._crit_edge8347 ]
-  call fastcc void @_ZN12_GLOBAL__N_111merged_op_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i1148) #19
+  call fastcc void @_ZN12_GLOBAL__N_111merged_op_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i1148) #19
   %6417 = getelementptr inbounds i8, ptr %.05.i.i.i.i1148, i64 168
   %.not.i.i.i.i1149 = icmp eq ptr %6417, %.sroa.8.1.lcssa
   br i1 %.not.i.i.i.i1149, label %_ZSt8_DestroyIPN12_GLOBAL__N_111merged_op_tES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i1147, !llvm.loop !104
@@ -17532,7 +17532,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit1142: ; preds = %.loopexit3329
 
 .lr.ph.i.i.i.i1161:                               ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit1142, %.lr.ph.i.i.i.i1161
   %.05.i.i.i.i1162 = phi ptr [ %6434, %.lr.ph.i.i.i.i1161 ], [ %.sroa.02884.16, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit1142 ]
-  call fastcc void @_ZN12_GLOBAL__N_111merged_op_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i1162) #19
+  call fastcc void @_ZN12_GLOBAL__N_111merged_op_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i1162) #19
   %6434 = getelementptr inbounds i8, ptr %.05.i.i.i.i1162, i64 168
   %.not.i.i.i.i1163 = icmp eq ptr %6434, %.sroa.8.16
   br i1 %.not.i.i.i.i1163, label %_ZSt8_DestroyIPN12_GLOBAL__N_111merged_op_tES1_EvT_S3_RSaIT0_E.exit.i1166, label %.lr.ph.i.i.i.i1161, !llvm.loop !104
@@ -27293,13 +27293,13 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110ExtSigSpecES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds 
   br i1 %cond, label %_ZSt8_DestroyIPN12_GLOBAL__N_110ExtSigSpecES1_EvT_S3_RSaIT0_E.exit37.i.i.thread, label %539
 
 _ZSt8_DestroyIPN12_GLOBAL__N_110ExtSigSpecES1_EvT_S3_RSaIT0_E.exit37.i.i.thread: ; preds = %.body.i.i
-  call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %232) #19
+  call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %232) #19
   br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110ExtSigSpecESaIS1_EE13_M_deallocateEPS1_m.exit39.i.i
 
 _ZSt8_DestroyIPN12_GLOBAL__N_110ExtSigSpecES1_EvT_S3_RSaIT0_E.exit37.i.i: ; preds = %479
   %535 = extractvalue { ptr, i32 } %480, 0
   %536 = call ptr @__cxa_begin_catch(ptr %535) #19
-  call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %232) #19
+  call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %232) #19
   %.not.i38.i.i = icmp eq ptr %231, null
   br i1 %.not.i38.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110ExtSigSpecESaIS1_EE13_M_deallocateEPS1_m.exit39.i.i, label %539
 
@@ -30562,7 +30562,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit618:              ; preds = %_ZSt8_DestroyIPN5Yo
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit618, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %1685, %.lr.ph.i.i.i.i ], [ %1683, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit618 ]
-  call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %.05.i.i.i.i) #19
+  call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %.05.i.i.i.i) #19
   %1685 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 136
   %.not.i.i.i.i619 = icmp eq ptr %1685, %1684
   br i1 %.not.i.i.i.i619, label %_ZSt8_DestroyIPN12_GLOBAL__N_110ExtSigSpecES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !353
@@ -35217,7 +35217,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110ExtSigSpecESaIS1_EED2
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %.05.i.i.i) #19
+  tail call fastcc void @_ZN12_GLOBAL__N_110ExtSigSpecD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %.05.i.i.i) #19
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 136
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110ExtSigSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !353

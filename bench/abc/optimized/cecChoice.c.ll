@@ -40,10 +40,10 @@ define ptr @Cec_ManCombSpecReduce(ptr noundef %0, ptr nocapture noundef %1, i32 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #16
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #15
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %7
@@ -55,10 +55,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %7
   br i1 %.not.i213, label %Abc_UtilStrsav.exit214, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #16
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #16
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #17
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #15
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #15
   br label %Abc_UtilStrsav.exit214
 
 Abc_UtilStrsav.exit214:                           ; preds = %Abc_UtilStrsav.exit, %15
@@ -2274,7 +2274,7 @@ define ptr @Cec_ComputeChoices(ptr noundef %0, ptr nocapture noundef readonly %1
   %21 = load i32, ptr %4, align 4
   %22 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %21, ptr %22, align 4
-  %23 = call i32 @Cec_ManChoiceComputation_int(ptr noundef %0, ptr noundef nonnull %3)
+  %23 = call i32 @Cec_ManChoiceComputation_int(ptr noundef %0, ptr noundef nonnull readonly %3)
   %24 = call ptr @Gia_ManEquivToChoices(ptr noundef %0, i32 noundef 3) #15
   %25 = getelementptr i8, ptr %24, i64 16
   %.val = load i32, ptr %25, align 8

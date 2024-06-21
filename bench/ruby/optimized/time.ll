@@ -1433,7 +1433,7 @@ RSTRING_PTR.exit:                                 ; preds = %4, %9
   br i1 %.not.i.i76, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
-  %12 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %10) #21
+  %12 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %10) #21
   %.not3.i.i = icmp eq i32 %12, 0
   br i1 %.not3.i.i, label %13, label %rb_enc_str_asciicompat_p.exit.thread
 
@@ -3233,7 +3233,7 @@ get_timeval.exit:                                 ; preds = %3
   unreachable
 
 get_new_timeval.exit:                             ; preds = %get_timeval.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %12, ptr noundef nonnull align 1 dereferenceable(48) %5, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %12, ptr noundef nonnull readonly align 1 dereferenceable(48) %5, i64 48, i1 false)
   br label %19
 
 19:                                               ; preds = %2, %get_new_timeval.exit
@@ -4609,7 +4609,7 @@ get_timeval.exit:                                 ; preds = %2
 
 13:                                               ; preds = %get_timeval.exit
   %14 = load i64, ptr @rb_cTime, align 8
-  %15 = tail call fastcc noundef i64 @time_add0(i64 noundef %14, ptr noundef nonnull %3, i64 noundef %1, i32 noundef 1)
+  %15 = tail call fastcc noundef i64 @time_add0(i64 noundef %14, ptr noundef nonnull readonly %3, i64 noundef %1, i32 noundef 1)
   ret i64 %15
 }
 
@@ -4657,7 +4657,7 @@ get_timeval.exit9:                                ; preds = %11
 
 24:                                               ; preds = %get_timeval.exit
   %25 = load i64, ptr @rb_cTime, align 8
-  %26 = tail call fastcc noundef i64 @time_add0(i64 noundef %25, ptr noundef nonnull %3, i64 noundef %1, i32 noundef -1)
+  %26 = tail call fastcc noundef i64 @time_add0(i64 noundef %25, ptr noundef nonnull readonly %3, i64 noundef %1, i32 noundef -1)
   br label %27
 
 27:                                               ; preds = %24, %get_timeval.exit9
@@ -4945,7 +4945,7 @@ cmp.exit:                                         ; preds = %129, %.critedge.i23
 
 cmp.exit.thread:                                  ; preds = %117, %cmp.exit
   %136 = load i64, ptr @rb_cTime, align 8
-  %137 = tail call fastcc noundef i64 @time_add0(i64 noundef %136, ptr noundef nonnull %22, i64 noundef %.028.i27, i32 noundef -1)
+  %137 = tail call fastcc noundef i64 @time_add0(i64 noundef %136, ptr noundef nonnull readonly %22, i64 noundef %.028.i27, i32 noundef -1)
   br label %164
 
 cmp.exit.thread31:                                ; preds = %117, %cmp.exit
@@ -4995,7 +4995,7 @@ cmp.exit.thread31:                                ; preds = %117, %cmp.exit
 subv.exit:                                        ; preds = %144, %147, %159, %.critedge.i25
   %.027.i = phi i64 [ %160, %159 ], [ %161, %.critedge.i25 ], [ %146, %144 ], [ %148, %147 ]
   %162 = load i64, ptr @rb_cTime, align 8
-  %163 = tail call fastcc noundef i64 @time_add0(i64 noundef %162, ptr noundef nonnull %22, i64 noundef %.027.i, i32 noundef 1)
+  %163 = tail call fastcc noundef i64 @time_add0(i64 noundef %162, ptr noundef nonnull readonly %22, i64 noundef %.027.i, i32 noundef 1)
   br label %164
 
 164:                                              ; preds = %subv.exit, %cmp.exit.thread
@@ -5191,7 +5191,7 @@ rb_time_unmagnify.exit:                           ; preds = %rb_time_unmagnify_t
 modv.exit:                                        ; preds = %63, %76, %89, %.critedge.i
   %.028.i = phi i64 [ %90, %89 ], [ %91, %.critedge.i ], [ %78, %76 ], [ 1, %63 ]
   %92 = load i64, ptr @rb_cTime, align 8
-  %93 = tail call fastcc noundef i64 @time_add0(i64 noundef %92, ptr noundef nonnull %22, i64 noundef %.028.i, i32 noundef -1)
+  %93 = tail call fastcc noundef i64 @time_add0(i64 noundef %92, ptr noundef nonnull readonly %22, i64 noundef %.028.i, i32 noundef -1)
   ret i64 %93
 }
 
@@ -5433,7 +5433,7 @@ modv.exit:                                        ; preds = %63, %76, %89, %.cri
 subv.exit:                                        ; preds = %.critedge.i17, %115, %103, %100, %modv.exit
   %.0 = phi i64 [ %.028.i, %modv.exit ], [ %116, %115 ], [ %117, %.critedge.i17 ], [ %102, %100 ], [ %104, %103 ]
   %118 = load i64, ptr @rb_cTime, align 8
-  %119 = tail call fastcc noundef i64 @time_add0(i64 noundef %118, ptr noundef nonnull %22, i64 noundef %.0, i32 noundef 1)
+  %119 = tail call fastcc noundef i64 @time_add0(i64 noundef %118, ptr noundef nonnull readonly %22, i64 noundef %.0, i32 noundef 1)
   ret i64 %119
 }
 
@@ -6578,7 +6578,7 @@ force_make_tm.exit:                               ; preds = %43, %41, %39, %32, 
   br i1 %.not.i.i, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit:                    ; preds = %force_make_tm.exit
-  %49 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %47) #21
+  %49 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %47) #21
   %.not3.i.i = icmp eq i32 %49, 0
   br i1 %.not3.i.i, label %51, label %rb_enc_str_asciicompat_p.exit.thread
 
@@ -6885,7 +6885,7 @@ addv.exit.i:                                      ; preds = %70, %68, %65
 
 RSTRING_PTR.exit.i:                               ; preds = %138, %129
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %138 ], [ %137, %129 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0.i.i, ptr noundef nonnull align 16 dereferenceable(1) %4, i64 %131, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0.i.i, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 %131, i1 false)
   %139 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 %131
   %140 = call i32 @rb_integer_pack(i64 noundef %.095.i, ptr noundef %139, i64 noundef %118, i64 noundef 1, i64 noundef 0, i32 noundef 34) #18
   br label %143
@@ -8359,7 +8359,7 @@ define internal noundef i64 @time_init_parse(ptr nocapture readnone %0, i64 noun
   br i1 %.not.i.i, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit:                    ; preds = %11
-  %14 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %12) #21
+  %14 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %12) #21
   %.not3.i.i = icmp eq i32 %14, 0
   br i1 %.not3.i.i, label %16, label %rb_enc_str_asciicompat_p.exit.thread
 
@@ -14221,7 +14221,7 @@ cmp.exit.thread.i:                                ; preds = %cmp.exit.i, %122
 
 cmp.exit.thread47.i:                              ; preds = %cmp.exit.cmp.exit.thread47_crit_edge.i, %122
   %159 = phi i64 [ %.pre.i, %cmp.exit.cmp.exit.thread47_crit_edge.i ], [ %120, %122 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false)
   %160 = and i64 %159, 1
   %.not29.i.i = icmp eq i64 %160, 0
   br i1 %.not29.i.i, label %169, label %161
@@ -18931,7 +18931,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %rb_check_arity.exit
 
 time_set_timew.exit:                              ; preds = %RTYPEDDATA_GET_DATA.exit, %21, %26
   %27 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 7
   %30 = icmp ne i64 %29, 0

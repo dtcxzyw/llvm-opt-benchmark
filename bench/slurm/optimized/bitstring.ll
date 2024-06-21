@@ -1310,7 +1310,7 @@ define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
   %15 = add i64 %14, 33822867456
   %sext.i = ashr i64 %15, 32
   %16 = and i64 %sext.i, -8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull readonly align 8 %13, i64 %16, i1 false)
   store i64 0, ptr %9, align 8
   call void @slurm_xfree(ptr noundef nonnull %3) #17
   br label %17

@@ -770,7 +770,7 @@ for.body.i.i44.i.i:                               ; preds = %if.end.i30.i.i, %fo
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %if.end.i30.i.i ]
   %arrayidx.i.i45.i.i = getelementptr %struct.RamblockDirtyInfo, ptr %call10.i.i.i, i64 %indvars.iv.i.i.i.i
   %call.i.i46.i.i = tail call ptr @qemu_ram_get_idstr(ptr noundef nonnull %block.035.i.i.i) #12
-  %call1.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx.i.i45.i.i, ptr noundef nonnull dereferenceable(1) %call.i.i46.i.i) #15
+  %call1.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i.i45.i.i, ptr noundef nonnull dereferenceable(1) %call.i.i46.i.i) #15
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %for.end.loopexit.i.i.i.i, label %for.inc.i.i.i.i
 

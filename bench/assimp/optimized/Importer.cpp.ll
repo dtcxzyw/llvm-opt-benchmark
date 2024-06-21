@@ -6063,7 +6063,7 @@ return:                                           ; preds = %invoke.cont11, %if.
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6Assimp8Importer20IsExtensionSupportedEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %szExtension) local_unnamed_addr #2 align 2 {
 entry:
-  %call.i = tail call noundef i64 @_ZNK6Assimp8Importer16GetImporterIndexEPKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %szExtension)
+  %call.i = tail call noundef i64 @_ZNK6Assimp8Importer16GetImporterIndexEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %szExtension)
   %0 = load ptr, ptr %this, align 8
   %mImporter.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 40

@@ -167,7 +167,7 @@ define hidden noundef i32 @BIO_snprintf(ptr nocapture noundef %buf, i64 noundef 
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call.i = call noundef i32 @vsnprintf(ptr noundef %buf, i64 noundef %n, ptr noundef %format, ptr noundef nonnull %args) #14
+  %call.i = call noundef i32 @vsnprintf(ptr noundef %buf, i64 noundef %n, ptr noundef readonly %format, ptr noundef nonnull %args) #14
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %call.i
 }

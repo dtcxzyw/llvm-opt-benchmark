@@ -9122,7 +9122,7 @@ zend_do_extended_stmt.exit:                       ; preds = %1126, %get_next_op.
   br label %zend_oparray_context_end.exit
 
 zend_oparray_context_end.exit:                    ; preds = %1159, %1161
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull readonly align 8 dereferenceable(56) %19, i64 56, i1 false)
   call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br i1 %2, label %1163, label %zend_observer_function_declared_notify.exit
 
@@ -9220,7 +9220,7 @@ zend_do_extended_stmt.exit265:                    ; preds = %.critedge195, %get_
   br label %zend_oparray_context_end.exit268
 
 zend_oparray_context_end.exit268:                 ; preds = %1199, %1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull readonly align 8 dereferenceable(56) %19, i64 56, i1 false)
   call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br label %zend_observer_function_declared_notify.exit
 
@@ -11223,7 +11223,7 @@ zend_get_unqualified_name.exit:                   ; preds = %10, %8, %3
   %52 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 50, ptr %4, align 4
-  %53 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef %52, ptr noundef nonnull %4)
+  %53 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef readonly %52, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %53, label %54, label %can_ct_eval_const.exit
 
@@ -19478,7 +19478,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %141, %140, %116, %1
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds i8, ptr %170, i64 24
-  call fastcc void @zend_compile_attributes(ptr noundef nonnull %172, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 8, i32 noundef 0)
+  call fastcc void @zend_compile_attributes(ptr noundef nonnull %172, ptr noundef nonnull readonly %12, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   br label %173
 
 173:                                              ; preds = %171, %169
@@ -19776,7 +19776,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %135, %128, %125, %z
 
 145:                                              ; preds = %zend_is_valid_default_value.exit.thread.i
   %146 = getelementptr inbounds i8, ptr %144, i64 24
-  call fastcc void @zend_compile_attributes(ptr noundef nonnull %146, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 16, i32 noundef 0)
+  call fastcc void @zend_compile_attributes(ptr noundef nonnull %146, ptr noundef nonnull readonly %10, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   br label %147
 
 147:                                              ; preds = %145, %zend_is_valid_default_value.exit.thread.i
@@ -19923,7 +19923,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   br i1 %.not16.i.i, label %zend_compile_method_ref.exit.i, label %78
 
 78:                                               ; preds = %77
-  %79 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull %.val.i, ptr noundef nonnull @.str.266)
+  %79 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull readonly %.val.i, ptr noundef nonnull @.str.266)
   br label %zend_compile_method_ref.exit.i
 
 zend_compile_method_ref.exit.i:                   ; preds = %78, %77
@@ -20085,7 +20085,7 @@ zend_check_trait_alias_modifiers.exit.i:          ; preds = %141
   br i1 %.not16.i.i46, label %zend_compile_method_ref.exit.i47, label %156
 
 156:                                              ; preds = %155
-  %157 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull %.val.i45, ptr noundef nonnull @.str.266)
+  %157 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull readonly %.val.i45, ptr noundef nonnull @.str.266)
   br label %zend_compile_method_ref.exit.i47
 
 zend_compile_method_ref.exit.i47:                 ; preds = %156, %155
@@ -21064,10 +21064,10 @@ zend_mangle_property_name.exit:                   ; preds = %4, %0
   %19 = getelementptr inbounds i8, ptr %15, i64 24
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %15, i64 25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %20, ptr noundef nonnull align 16 dereferenceable(25) @.str.292, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %20, ptr noundef nonnull readonly align 16 dereferenceable(25) @.str.292, i64 25, i1 false)
   %21 = getelementptr inbounds i8, ptr %15, i64 50
   %22 = add i64 %11, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %9, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %9, i64 %22, i1 false)
   tail call void @zend_register_long_constant(ptr noundef nonnull %19, i64 noundef %12, i64 noundef %.8.val.8.val, i32 noundef 0, i32 noundef 0) #28
   %23 = load i32, ptr %16, align 4
   %24 = and i32 %23, 64
@@ -26353,7 +26353,7 @@ zend_compile_expr.exit.i100:                      ; preds = %172
 
 186:                                              ; preds = %zend_compile_expr.exit.i100
   %187 = getelementptr inbounds i8, ptr %1, i64 24
-  %bcmp.i101 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %187, ptr noundef nonnull dereferenceable(6) @.str.200, i64 6)
+  %bcmp.i101 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %187, ptr noundef nonnull dereferenceable(6) @.str.200, i64 6)
   %.not10.i = icmp eq i32 %bcmp.i101, 0
   %188 = zext i1 %.not10.i to i32
   br label %189
@@ -34549,7 +34549,7 @@ zend_compile_expr.exit:                           ; preds = %2
   br i1 %28, label %zend_try_ct_eval_unary_op.exit.thread, label %zend_unary_op_produces_error.exit.i
 
 zend_unary_op_produces_error.exit.i:              ; preds = %27
-  %29 = call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull %21)
+  %29 = call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull readonly %21)
   br i1 %29, label %30, label %zend_try_ct_eval_unary_op.exit.thread
 
 30:                                               ; preds = %zend_unary_op_produces_error.exit.i, %23, %18
@@ -40682,7 +40682,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_unary_op(ptr noundef
   br i1 %10, label %zend_unary_op_produces_error.exit.thread9, label %zend_unary_op_produces_error.exit
 
 zend_unary_op_produces_error.exit:                ; preds = %9
-  %11 = tail call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull %2)
+  %11 = tail call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull readonly %2)
   br i1 %11, label %zend_unary_op_produces_error.exit.thread, label %zend_unary_op_produces_error.exit.thread9
 
 zend_unary_op_produces_error.exit.thread:         ; preds = %3, %5, %zend_unary_op_produces_error.exit
@@ -41193,7 +41193,7 @@ zend_verify_ct_const_access.exit.thread99:        ; preds = %89, %75, %zend_veri
   %113 = load ptr, ptr %.063, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 50, ptr %4, align 4
-  %114 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef %113, ptr noundef nonnull %4)
+  %114 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef readonly %113, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %114, label %115, label %.thread83
 

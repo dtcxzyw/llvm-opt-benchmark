@@ -4060,7 +4060,7 @@ if.else60:                                        ; preds = %land.lhs.true, %lan
   %25 = load ptr, ptr %Data, align 8
   %26 = load i32, ptr %TempBuffer, align 8
   %conv63 = sext i32 %26 to i64
-  %call.i = tail call i32 @vsnprintf(ptr noundef %25, i64 noundef %conv63, ptr noundef nonnull %fmt, ptr noundef %args) #36
+  %call.i = tail call i32 @vsnprintf(ptr noundef %25, i64 noundef %conv63, ptr noundef nonnull readonly %fmt, ptr noundef %args) #36
   %cmp.i = icmp eq ptr %25, null
   br i1 %cmp.i, label %_Z15ImFormatStringVPcmPKcP13__va_list_tag.exit, label %if.end.i
 
@@ -4305,7 +4305,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef %mode)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef readonly %mode)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end2
 
@@ -6246,7 +6246,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %this, ptr noundef nonnull dereferenceable(1) %default_filter, i64 noundef 255) #36
+  %call.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %this, ptr noundef nonnull readonly dereferenceable(1) %default_filter, i64 noundef 255) #36
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 255
   store i8 0, ptr %arrayidx.i, align 1
   invoke void @_ZN15ImGuiTextFilter5BuildEv(ptr noundef nonnull align 8 dereferenceable(276) %this)
@@ -6883,7 +6883,7 @@ define void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnu
 entry:
   %args_copy = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %args_copy, ptr %args)
-  %call.i = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %fmt, ptr noundef %args) #36
+  %call.i = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %fmt, ptr noundef %args) #36
   %cmp = icmp slt i32 %call.i, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -6932,7 +6932,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %if.end18, %_ZNK8ImV
   %arrayidx.i = getelementptr i8, ptr %5, i64 -1
   %narrow = add nuw i32 %call.i, 1
   %add22 = zext i32 %narrow to i64
-  %call.i12 = call i32 @vsnprintf(ptr noundef %arrayidx.i, i64 noundef %add22, ptr noundef %fmt, ptr noundef nonnull %args_copy) #36
+  %call.i12 = call i32 @vsnprintf(ptr noundef %arrayidx.i, i64 noundef %add22, ptr noundef readonly %fmt, ptr noundef nonnull %args_copy) #36
   %cmp.i13 = icmp eq ptr %arrayidx.i, null
   br i1 %cmp.i13, label %return, label %if.end.i
 
@@ -7502,7 +7502,7 @@ entry:
   %FrameCount.i = getelementptr inbounds i8, ptr %0, i64 16224
   %2 = load i32, ptr %FrameCount.i, align 8
   call void (ptr, ptr, ...) @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf.i, ptr noundef nonnull @.str.407, i32 noundef %2)
-  call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf.i, ptr noundef %fmt, ptr noundef nonnull %args)
+  call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf.i, ptr noundef readonly %fmt, ptr noundef nonnull %args)
   %DebugLogIndex.i = getelementptr inbounds i8, ptr %0, i64 24576
   %Data.i.i = getelementptr inbounds i8, ptr %0, i64 24568
   %3 = load ptr, ptr %Data.i.i, align 8
@@ -14118,7 +14118,7 @@ _ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit: ; preds = %for.body.i
 _ZN5ImGui23SaveIniSettingsToMemoryEPm.exit:       ; preds = %_ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit, %_ZN8ImVectorIcE9push_backERKc.exit.i
   %9 = phi i32 [ %.pre, %_ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit ], [ %inc.i.i, %_ZN8ImVectorIcE9push_backERKc.exit.i ]
   %10 = load ptr, ptr %Data.i.i, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull %ini_filename, ptr noundef nonnull @.str.137)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull readonly %ini_filename, ptr noundef nonnull readonly @.str.137)
   %tobool2.not = icmp eq ptr %call.i, null
   br i1 %tobool2.not, label %return, label %if.end4
 
@@ -15505,7 +15505,7 @@ invoke.cont12:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1008) %0, i8 0, i64 1008, i1 false)
   store ptr %ctx, ptr %this, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #54
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #54
   %add.i = add i64 %call.i, 1
   %1 = load ptr, ptr @_ZL21GImAllocatorAllocFunc, align 8
   %2 = load ptr, ptr @_ZL20GImAllocatorUserData, align 8
@@ -15573,7 +15573,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %if.els
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %_ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i, %call.i.i.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i23, ptr align 1 %name, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i23, ptr readonly align 1 %name, i64 %add.i, i1 false)
   %Name = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call.i.i23, ptr %Name, align 8
   %call28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #54
@@ -21621,7 +21621,7 @@ if.then.i239:                                     ; preds = %_ZN5ImGuiL30ErrorCh
 if.then2.i:                                       ; preds = %if.then.i239
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %file_data_size.i.i)
   store i64 0, ptr %file_data_size.i.i, align 8
-  %call.i.i = call noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef nonnull %16, ptr noundef nonnull @.str.136, ptr noundef nonnull %file_data_size.i.i, i32 noundef 0)
+  %call.i.i = call noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.136, ptr noundef nonnull %file_data_size.i.i, i32 noundef 0)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %_ZN5ImGui23LoadIniSettingsFromDiskEPKc.exit.i, label %if.end.i.i
 
@@ -24908,7 +24908,7 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
   %550 = load ptr, ptr %NavWindow.i.i519.i, align 8
   %NavRectRel.i.i522.i = getelementptr inbounds i8, ptr %550, i64 952
   %arrayidx3.i.i.i = getelementptr inbounds [2 x %struct.ImRect], ptr %NavRectRel.i.i522.i, i64 0, i64 %idxprom.i512.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx17.i.i, i64 16, i1 false)
   %551 = load ptr, ptr @GImGui, align 8
   %NavWindow.i.i.i523.i = getelementptr inbounds i8, ptr %551, i64 19176
   %552 = load ptr, ptr %NavWindow.i.i.i523.i, align 8
@@ -24961,7 +24961,7 @@ if.then12.i.i.i:                                  ; preds = %if.then344.i.i
   store i32 %561, ptr %arrayidx.i.i.i355, align 4
   %562 = load ptr, ptr %NavWindow10.i.i.i, align 8
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %562, i64 968
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx17.i.i.i, i64 16, i1 false)
   %563 = load ptr, ptr %NavWindow10.i.i.i, align 8
   %RootWindowForNav.i.i.i.i.i = getelementptr inbounds i8, ptr %563, i64 928
   %564 = load ptr, ptr %RootWindowForNav.i.i.i.i.i, align 8
@@ -25204,7 +25204,7 @@ if.then12.i.i198.i:                               ; preds = %if.end9.i.i.i
   store i32 %600, ptr %NavLastIds.i.i.i.i, align 4
   %603 = load ptr, ptr %NavWindow.i.i.i.i, align 8
   %NavRectRel.i.i.i.i = getelementptr inbounds i8, ptr %603, i64 952
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavRectRel.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %NavRectRel.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavRectRel.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %NavRectRel.i.i.i, i64 16, i1 false)
   %604 = load ptr, ptr %NavWindow.i.i.i.i, align 8
   %RootWindowForNav.i.i.i.i202.i = getelementptr inbounds i8, ptr %604, i64 928
   %605 = load ptr, ptr %RootWindowForNav.i.i.i.i202.i, align 8
@@ -26250,7 +26250,7 @@ if.then12.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
   store i32 %801, ptr %NavLastIds.i.i.i.i.i, align 4
   %804 = load ptr, ptr %NavWindow.i.i.i.i.i, align 8
   %NavRectRel.i.i.i.i.i = getelementptr inbounds i8, ptr %804, i64 952
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavRectRel.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %NavRectRel.i.i.i332.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavRectRel.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %NavRectRel.i.i.i332.i, i64 16, i1 false)
   %805 = load ptr, ptr %NavWindow.i.i.i.i.i, align 8
   %RootWindowForNav.i.i.i.i.i.i = getelementptr inbounds i8, ptr %805, i64 928
   %806 = load ptr, ptr %RootWindowForNav.i.i.i.i.i.i, align 8
@@ -32821,7 +32821,7 @@ if.then81.i:                                      ; preds = %land.lhs.true.i678
   %455 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %454, <2 x float> %402, <2 x float> %453)
   %456 = fsub <2 x float> %455, %451
   %457 = bitcast <2 x float> %456 to i64
-  %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %457)
+  %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %457)
   %458 = fsub <2 x float> %call5.i.i, %456
   %459 = fsub <2 x float> %451, %458
   %sel = select <2 x i1> %432, <2 x float> %459, <2 x float> %451
@@ -33341,7 +33341,7 @@ if.then374.i:                                     ; preds = %if.end372.i
   %573 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %572, <2 x float> %538, <2 x float> %570)
   %574 = fsub <2 x float> %573, %571
   %575 = bitcast <2 x float> %574 to i64
-  %call5.i382.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %575)
+  %call5.i382.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %575)
   %576 = extractelement <2 x float> %538, i64 0
   %cmp.i383.i = fcmp oeq float %576, 0.000000e+00
   %577 = fsub <2 x float> %call5.i382.i, %574
@@ -35855,7 +35855,7 @@ if.end.i144.i:                                    ; preds = %_ZN5ImGui19FindRend
   %1222 = load ptr, ptr %CurrentWindow.i.i1065, align 8
   %DrawList.i.i1066 = getelementptr inbounds i8, ptr %1222, i64 680
   %1223 = load ptr, ptr %DrawList.i.i1066, align 8
-  call void @_ZN5ImGui19RenderTextClippedExEP10ImDrawListRK6ImVec2S4_PKcS6_PS3_S4_PK6ImRect(ptr noundef %1223, ptr noundef nonnull align 4 dereferenceable(8) %layout_r.i, ptr noundef nonnull align 4 dereferenceable(8) %Max.i127.i, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.lcssa.i.ph.i.i, ptr noundef nonnull %text_size.i, ptr noundef nonnull align 4 dereferenceable(8) %WindowTitleAlign.i, ptr noundef nonnull %clip_r.i)
+  call void @_ZN5ImGui19RenderTextClippedExEP10ImDrawListRK6ImVec2S4_PKcS6_PS3_S4_PK6ImRect(ptr noundef %1223, ptr noundef nonnull align 4 dereferenceable(8) %layout_r.i, ptr noundef nonnull readonly align 4 dereferenceable(8) %Max.i127.i, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.lcssa.i.ph.i.i, ptr noundef nonnull %text_size.i, ptr noundef nonnull readonly align 4 dereferenceable(8) %WindowTitleAlign.i, ptr noundef nonnull %clip_r.i)
   %LogEnabled.i.i = getelementptr inbounds i8, ptr %1221, i64 24488
   %1224 = load i8, ptr %LogEnabled.i.i, align 8
   %tobool.i.i = trunc i8 %1224 to i1
@@ -35925,9 +35925,9 @@ _ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit: ; preds = %if.end1411, %land.
   %StatusFlags.i = getelementptr inbounds i8, ptr %1225, i64 18816
   store i32 %cond1418, ptr %StatusFlags.i, align 8
   %NavRect.i = getelementptr inbounds i8, ptr %1225, i64 18836
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %NavRect.i, ptr noundef nonnull align 8 dereferenceable(16) %title_bar_rect847, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %NavRect.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %title_bar_rect847, i64 16, i1 false)
   %Rect.i = getelementptr inbounds i8, ptr %1225, i64 18820
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Rect.i, ptr noundef nonnull align 8 dereferenceable(16) %title_bar_rect847, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Rect.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %title_bar_rect847, i64 16, i1 false)
   %DebugLocateId = getelementptr inbounds i8, ptr %0, i64 18772
   %1235 = load i32, ptr %DebugLocateId, align 4
   %cmp1419.not = icmp eq i32 %1235, 0
@@ -38740,7 +38740,7 @@ land.lhs.true34:                                  ; preds = %_ZL24IsWindowActive
 if.then44:                                        ; preds = %land.lhs.true34
   %and.i.i77 = lshr i32 %133, 25
   %and.lobit.i.i = and i32 %and.i.i77, 1
-  call fastcc void @_ZL19AddWindowToDrawDataP11ImGuiWindowi(ptr noundef nonnull %130, i32 noundef %and.lobit.i.i)
+  call fastcc void @_ZL19AddWindowToDrawDataP11ImGuiWindowi(ptr noundef nonnull readonly %130, i32 noundef %and.lobit.i.i)
   br label %for.inc46
 
 for.inc46:                                        ; preds = %for.body32, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit, %land.lhs.true34, %if.then44
@@ -38774,7 +38774,7 @@ if.then58:                                        ; preds = %_ZL24IsWindowActive
   %window.val.i86 = load i32, ptr %136, align 4
   %and.i.i87 = lshr i32 %window.val.i86, 25
   %and.lobit.i.i88 = and i32 %and.i.i87, 1
-  call fastcc void @_ZL19AddWindowToDrawDataP11ImGuiWindowi(ptr noundef nonnull %indvars.iv.sroa.phi.sroa.speculated, i32 noundef %and.lobit.i.i88)
+  call fastcc void @_ZL19AddWindowToDrawDataP11ImGuiWindowi(ptr noundef nonnull readonly %indvars.iv.sroa.phi.sroa.speculated, i32 noundef %and.lobit.i.i88)
   br label %for.inc62
 
 for.inc62:                                        ; preds = %land.lhs.true54, %for.body51, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit85, %if.then58
@@ -39659,7 +39659,7 @@ _ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i: ; preds = %_ZNK8ImVectorI1
   br i1 %cmp.not.i, label %_ZN5ImGui14PushStyleColorEiRK6ImVec4.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx, i64 16, i1 false)
   br label %_ZN5ImGui14PushStyleColorEiRK6ImVec4.exit
 
 _ZN5ImGui14PushStyleColorEiRK6ImVec4.exit:        ; preds = %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i, %if.then.i
@@ -41753,7 +41753,7 @@ _ZL22CalcWindowContentSizesP11ImGuiWindowP6ImVec2S2_.exit: ; preds = %cond.end61
   br i1 %tobool.not.i, label %if.else.i7, label %_ZL21CalcWindowAutoFitSizeP11ImGuiWindowRK6ImVec2.exit
 
 if.else.i7:                                       ; preds = %_ZL22CalcWindowContentSizesP11ImGuiWindowP6ImVec2S2_.exit
-  %call7.i = tail call fastcc <2 x float> @_ZL17CalcWindowMinSizeP11ImGuiWindow(ptr noundef nonnull %window)
+  %call7.i = tail call fastcc <2 x float> @_ZL17CalcWindowMinSizeP11ImGuiWindow(ptr noundef nonnull readonly %window)
   %and9.i = and i32 %29, 16777216
   %tobool10.not.i = icmp eq i32 %and9.i, 0
   br i1 %tobool10.not.i, label %cond.false.i11, label %cond.end.i8
@@ -41795,7 +41795,7 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %retval.sroa.0.0.vec.insert.i45.i = insertelement <2 x float> poison, float %cond11.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i46.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i45.i, float %cond27.i.i, i64 1
   %38 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i46.i to i64
-  %call16.i = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window, i64 %38)
+  %call16.i = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window, i64 %38)
   %39 = fsub <2 x float> %call16.i, %26
   %40 = fsub <2 x float> %39, %24
   %sub20.i = extractelement <2 x float> %40, i64 0
@@ -55663,7 +55663,7 @@ do.end:                                           ; preds = %do.body, %if.then5
   %13 = load ptr, ptr %NavWindow.i, align 8
   %NavRectRel.i = getelementptr inbounds i8, ptr %13, i64 952
   %arrayidx3.i = getelementptr inbounds [2 x %struct.ImRect], ptr %NavRectRel.i, i64 0, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull align 4 dereferenceable(16) %RectRel, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %RectRel, i64 16, i1 false)
   %14 = load ptr, ptr @GImGui, align 8
   %NavWindow.i.i = getelementptr inbounds i8, ptr %14, i64 19176
   %15 = load ptr, ptr %NavWindow.i.i, align 8
@@ -56081,7 +56081,7 @@ do.end145:                                        ; preds = %do.body135, %if.the
   %64 = load ptr, ptr %NavWindow.i100, align 8
   %NavRectRel.i = getelementptr inbounds i8, ptr %64, i64 952
   %arrayidx3.i = getelementptr inbounds [2 x %struct.ImRect], ptr %NavRectRel.i, i64 0, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull align 4 dereferenceable(16) %RectRel151, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %RectRel151, i64 16, i1 false)
   %65 = load ptr, ptr @GImGui, align 8
   %NavWindow.i.i = getelementptr inbounds i8, ptr %65, i64 19176
   %66 = load ptr, ptr %NavWindow.i.i, align 8
@@ -56730,7 +56730,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then3:                                         ; preds = %lor.lhs.false, %entry
   %DataType = getelementptr inbounds i8, ptr %0, i64 19752
-  %call.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %DataType, ptr noundef nonnull dereferenceable(1) %type, i64 noundef 32) #36
+  %call.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %DataType, ptr noundef nonnull readonly dereferenceable(1) %type, i64 noundef 32) #36
   %arrayidx.i = getelementptr i8, ptr %0, i64 19784
   store i8 0, ptr %arrayidx.i, align 1
   %DragDropPayloadBufHeap = getelementptr inbounds i8, ptr %0, i64 19856
@@ -57456,7 +57456,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 _ZN8ImVectorIcE6resizeEi.exit.i:                  ; preds = %if.then.i.i, %if.then.i
   store i32 0, ptr %LogBuffer7.i, align 8
-  call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef %fmt, ptr noundef nonnull %args)
+  call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef readonly %fmt, ptr noundef nonnull %args)
   %Data.i.i = getelementptr inbounds i8, ptr %0, i64 24512
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -57469,7 +57469,7 @@ _ZN8ImVectorIcE6resizeEi.exit.i:                  ; preds = %if.then.i.i, %if.th
   br label %_ZL8LogTextVR12ImGuiContextPKcP13__va_list_tag.exit
 
 if.else.i:                                        ; preds = %if.end
-  call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef %fmt, ptr noundef nonnull %args)
+  call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef readonly %fmt, ptr noundef nonnull %args)
   br label %_ZL8LogTextVR12ImGuiContextPKcP13__va_list_tag.exit
 
 _ZL8LogTextVR12ImGuiContextPKcP13__va_list_tag.exit: ; preds = %_ZN8ImVectorIcE6resizeEi.exit.i, %if.else.i
@@ -57508,7 +57508,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 _ZN8ImVectorIcE6resizeEi.exit.i:                  ; preds = %if.then.i.i, %if.then.i
   store i32 0, ptr %LogBuffer7.i, align 8
-  tail call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef %fmt, ptr noundef %args)
+  tail call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef readonly %fmt, ptr noundef %args)
   %Data.i.i = getelementptr inbounds i8, ptr %0, i64 24512
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -57521,7 +57521,7 @@ _ZN8ImVectorIcE6resizeEi.exit.i:                  ; preds = %if.then.i.i, %if.th
   br label %return
 
 if.else.i:                                        ; preds = %if.end
-  tail call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef %fmt, ptr noundef %args)
+  tail call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer7.i, ptr noundef readonly %fmt, ptr noundef %args)
   br label %return
 
 return:                                           ; preds = %if.else.i, %_ZN8ImVectorIcE6resizeEi.exit.i, %entry
@@ -57646,7 +57646,7 @@ lor.lhs.false:                                    ; preds = %if.end, %if.end3
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull %filename.addr.09, ptr noundef nonnull @.str.130)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull readonly %filename.addr.09, ptr noundef nonnull readonly @.str.130)
   %tobool8.not = icmp eq ptr %call.i, null
   br i1 %tobool8.not, label %return, label %if.end10
 
@@ -58009,7 +58009,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i44
   br i1 %tobool5.not.i, label %if.end10, label %if.end7.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %call.i.i = call noalias noundef ptr @fopen(ptr noundef nonnull %47, ptr noundef nonnull @.str.130)
+  %call.i.i = call noalias noundef ptr @fopen(ptr noundef nonnull readonly %47, ptr noundef nonnull readonly @.str.130)
   %tobool8.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool8.not.i, label %if.end10, label %if.end10.i
 
@@ -64167,7 +64167,7 @@ if.then.i.i1333:                                  ; preds = %_Z9ImHashStrPKcmj.e
   br label %_ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit
 
 _ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit:        ; preds = %_Z9ImHashStrPKcmj.exit.i.loopexit.i, %if.then.i.i1333
-  %call2.i = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef nonnull @.str.293, i32 noundef %669, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp682, i32 noundef 136, i32 noundef 256)
+  %call2.i = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef nonnull @.str.293, i32 noundef %669, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp682, i32 noundef 136, i32 noundef 256)
   br i1 %call2.i, label %for.cond688.preheader, label %if.end708
 
 for.cond688.preheader:                            ; preds = %_ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit
@@ -64397,7 +64397,7 @@ if.then.i.i1441:                                  ; preds = %_Z9ImHashStrPKcmj.e
   br label %_ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit1446
 
 _ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit1446:    ; preds = %_Z9ImHashStrPKcmj.exit.i.loopexit.i1437, %if.then.i.i1441
-  %call2.i1440 = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef nonnull @.str.298, i32 noundef %717, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp709, i32 noundef 136, i32 noundef 256)
+  %call2.i1440 = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef nonnull @.str.298, i32 noundef %717, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp709, i32 noundef 136, i32 noundef 256)
   br i1 %call2.i1440, label %for.cond715.preheader, label %if.end736
 
 for.cond715.preheader:                            ; preds = %_ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit1446
@@ -65841,7 +65841,7 @@ if.then.i.i:                                      ; preds = %_Z9ImHashStrPKcmj.e
   br label %_ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit
 
 _ZN5ImGui10BeginChildEPKcRK6ImVec2ii.exit:        ; preds = %_Z9ImHashStrPKcmj.exit.i.loopexit.i, %if.then.i.i
-  %call2.i = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef nonnull @.str.418, i32 noundef %97, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp31, i32 noundef 1, i32 noundef 49152)
+  %call2.i = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef nonnull @.str.418, i32 noundef %97, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp31, i32 noundef 1, i32 noundef 49152)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper)
   %DebugLogIndex33 = getelementptr inbounds i8, ptr %0, i64 24576
   %100 = load i32, ptr %DebugLogIndex33, align 8
@@ -68374,7 +68374,7 @@ _ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i: ; preds = %_ZNK8ImVectorI1
   br i1 %cmp.not.i, label %if.then35, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Colors.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i53, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Colors.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx.i53, i64 16, i1 false)
   br label %if.then35
 
 if.then35:                                        ; preds = %if.then.i, %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i
@@ -69215,7 +69215,7 @@ _ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i: ; preds = %_ZNK8ImVectorI1
   br i1 %cmp.not.i, label %if.then10, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Colors.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Colors.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   br label %if.then10
 
 if.then10:                                        ; preds = %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit.i, %if.then.i

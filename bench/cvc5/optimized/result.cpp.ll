@@ -544,7 +544,7 @@ if.then.i:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %sw.bb
-  tail call void @_ZNK4cvc58internal6Result15toStreamDefaultERSo(ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef nonnull align 8 dereferenceable(8) %out)
+  tail call void @_ZNK4cvc58internal6Result15toStreamDefaultERSo(ptr noundef nonnull readonly align 8 dereferenceable(40) %r, ptr noundef nonnull align 8 dereferenceable(8) %out)
   br label %sw.epilog
 
 if.then:                                          ; preds = %entry
@@ -557,7 +557,7 @@ if.then.i11:                                      ; preds = %if.then
   br label %sw.epilog
 
 if.end.i10:                                       ; preds = %if.then
-  tail call void @_ZNK4cvc58internal6Result15toStreamDefaultERSo(ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef nonnull align 8 dereferenceable(8) %out)
+  tail call void @_ZNK4cvc58internal6Result15toStreamDefaultERSo(ptr noundef nonnull readonly align 8 dereferenceable(40) %r, ptr noundef nonnull align 8 dereferenceable(8) %out)
   br label %sw.epilog
 
 if.else:                                          ; preds = %entry

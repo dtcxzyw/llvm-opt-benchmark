@@ -9688,7 +9688,7 @@ ehcleanup65.thread:                               ; preds = %entry
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i669
 
 invoke.cont9:                                     ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i.i.i.i.i4.i, ptr noundef nonnull align 4 dereferenceable(32) @constinit.46, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i.i.i.i.i4.i, ptr noundef nonnull readonly align 4 dereferenceable(32) @constinit.46, i64 32, i1 false)
   invoke void (i32, ptr, ...) @_ZN2EA8UnitTest15ReportVerbosityEjPKcz(i32 noundef 2, ptr noundef nonnull @.str.47)
           to label %invoke.cont22 unwind label %lpad10
 

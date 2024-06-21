@@ -16750,7 +16750,7 @@ if.then.i78:                                      ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
   br i1 %call.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -17781,7 +17781,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i
-  %call9.i.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 2)
+  %call9.i.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 2)
   br i1 %call9.i.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -18777,7 +18777,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
-  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1)
+  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
   br i1 %call9.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -19568,7 +19568,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
-  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1)
+  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
   br i1 %call9.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -19921,7 +19921,7 @@ if.then.i78:                                      ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
   br i1 %call.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -22654,7 +22654,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
-  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1)
+  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
   br i1 %call9.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -23007,7 +23007,7 @@ if.then.i78:                                      ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
   br i1 %call.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end

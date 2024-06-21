@@ -10831,7 +10831,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers19TransitionInference2
 entry:
   %d_vars = getelementptr inbounds i8, ptr %this, i64 24
   %d_trie.i = getelementptr inbounds i8, ptr %dt, i64 24
-  tail call void @_ZN4cvc58internal6theory11quantifiers8DetTrace12DetTraceTrie16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEj(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %d_trie.i, ptr noundef nonnull align 8 dereferenceable(24) %d_vars, i32 noundef 0)
+  tail call void @_ZN4cvc58internal6theory11quantifiers8DetTrace12DetTraceTrie16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEj(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %d_trie.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %d_vars, i32 noundef 0)
   ret void
 }
 

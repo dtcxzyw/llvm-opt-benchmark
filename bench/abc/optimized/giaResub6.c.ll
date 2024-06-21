@@ -1254,7 +1254,7 @@ define void @Res6_PrintSolution(ptr nocapture noundef readonly %0, i32 noundef %
   %.val = load i32, ptr %3, align 4
   %4 = sdiv i32 %.val, 2
   %5 = add nsw i32 %4, -1
-  %6 = tail call ptr @Res6_FindSupport(ptr noundef %0, i32 noundef %1)
+  %6 = tail call ptr @Res6_FindSupport(ptr noundef readonly %0, i32 noundef %1)
   %7 = getelementptr i8, ptr %6, i64 4
   %.val.i = load i32, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1930,7 +1930,7 @@ Res6_ManReadSol.exit:                             ; preds = %Vec_IntPush.exit.i,
   br label %.critedge
 
 .critedge:                                        ; preds = %58, %59
-  %70 = call i32 @Res6_FindBestEval(ptr noundef nonnull %14, ptr noundef nonnull %20, i32 noundef 0)
+  %70 = call i32 @Res6_FindBestEval(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %20, i32 noundef 0)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
 

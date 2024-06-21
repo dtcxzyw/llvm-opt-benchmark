@@ -2354,7 +2354,7 @@ _ZL12update_histoiPKiPA3_fPiPS3_f.exit:           ; preds = %._crit_edge46.i, %.
 .loopexit.i:                                      ; preds = %.lr.ph.i415, %.noexc422, %844
   %879 = load ptr, ptr %656, align 8
   %880 = load ptr, ptr @_ZZL11write_trx_xP11t_trxstatusPK10t_trxframePfbiPiPS5_E3xav, align 8
-  call fastcc void @_ZL12average_dataPA3_fS0_PKfiPKiPPi(ptr noundef %879, ptr noundef %880, ptr noundef %.0568, i32 noundef %836, ptr noundef %.0577, ptr noundef %.0570)
+  call fastcc void @_ZL12average_dataPA3_fS0_PKfiPKiPPi(ptr noundef %879, ptr noundef %880, ptr noundef %.0568, i32 noundef %836, ptr noundef readonly %.0577, ptr noundef readonly %.0570)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %21, ptr noundef nonnull align 8 dereferenceable(176) %83, i64 176, i1 false)
   store i32 %836, ptr %657, align 8
   %881 = load ptr, ptr @_ZZL11write_trx_xP11t_trxstatusPK10t_trxframePfbiPiPS5_E5atoms, align 8
@@ -4213,7 +4213,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %42, float %40)
   %sqrt.i.us.i = tail call noundef float @llvm.sqrt.f32(float %43)
   %44 = fpext float %sqrt.i.us.i to double
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef %9, double noundef %44) #20
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %44) #20
   br label %46
 
 46:                                               ; preds = %34, %31
@@ -4232,7 +4232,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %52 = getelementptr inbounds [3 x float], ptr %26, i64 %indvars.iv38.i, i64 %indvars.iv34.i
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef %9, double noundef %54) #20
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %54) #20
   br label %56
 
 56:                                               ; preds = %51, %47
@@ -4275,7 +4275,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %76 = tail call noundef float @llvm.fmuladd.f32(float %75, float %75, float %73)
   %sqrt.i.us.i28 = tail call noundef float @llvm.sqrt.f32(float %76)
   %77 = fpext float %sqrt.i.us.i28 to double
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef %9, double noundef %77) #20
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %77) #20
   br label %79
 
 79:                                               ; preds = %67, %64
@@ -4294,7 +4294,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %85 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv38.i22, i64 %indvars.iv34.i23
   %86 = load float, ptr %85, align 4
   %87 = fpext float %86 to double
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef %9, double noundef %87) #20
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %87) #20
   br label %89
 
 89:                                               ; preds = %84, %80
@@ -4320,7 +4320,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %98 = getelementptr inbounds [3 x float], ptr %2, i64 %92, i64 %indvars.iv.i
   %99 = load float, ptr %98, align 4
   %100 = fpext float %99 to double
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef %9, double noundef %100) #20
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %100) #20
   br label %102
 
 102:                                              ; preds = %97, %93
@@ -4345,7 +4345,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %115 = tail call noundef float @llvm.fmuladd.f32(float %114, float %114, float %112)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %115)
   %116 = fpext float %sqrt.i.i to double
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef %9, double noundef %116) #20
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %116) #20
   br label %118
 
 118:                                              ; preds = %106, %103

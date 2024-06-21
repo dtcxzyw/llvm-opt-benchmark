@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef 
   %67 = getelementptr inbounds i8, ptr %8, i64 12
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = getelementptr inbounds i8, ptr %8, i64 4
-  %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %65, ptr noundef nonnull @.str.15, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
+  %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %65, ptr noundef nonnull @.str.15, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
   %71 = icmp eq i32 %70, 6
   br i1 %71, label %72, label %get_time.exit
 
@@ -449,7 +449,7 @@ get_time.exit:                                    ; preds = %64, %72
   %87 = getelementptr inbounds i8, ptr %6, i64 12
   %88 = getelementptr inbounds i8, ptr %6, i64 8
   %89 = getelementptr inbounds i8, ptr %6, i64 4
-  %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %91 = icmp eq i32 %90, 6
   br i1 %91, label %92, label %get_time.exit72
 

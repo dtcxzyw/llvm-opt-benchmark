@@ -691,7 +691,7 @@ Aig_TsiStateHash.exit.i:                          ; preds = %.lr.ph.i.i, %89
 
 .lr.ph.i:                                         ; preds = %Aig_TsiStateHash.exit.i, %106
   %.01115.i = phi ptr [ %.011.i, %106 ], [ %.01113.i, %Aig_TsiStateHash.exit.i ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr %51, i64 %105)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr readonly %51, i64 %105)
   %.not12.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not12.i, label %Aig_TsiStateLookup.exit, label %106
 

@@ -887,13 +887,13 @@ thread-pre-split:                                 ; preds = %16
   br label %cli_safer_strdup.exit.thread
 
 52:                                               ; preds = %50
-  %53 = call noalias ptr @strdup(ptr noundef nonnull %.15171) #22
+  %53 = call noalias ptr @strdup(ptr noundef nonnull readonly %.15171) #22
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %54, label %cli_safer_strdup.exit
 
 54:                                               ; preds = %52
   call void @perror(ptr noundef nonnull @.str.20) #25
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.15171) #23
+  %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.15171) #23
   %56 = trunc i64 %55 to i32
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21, i32 noundef %56)
   br label %cli_safer_strdup.exit.thread
@@ -921,13 +921,13 @@ cli_safer_strdup.exit:                            ; preds = %52
   br label %cli_safer_strdup.exit.thread
 
 .thread77:                                        ; preds = %58, %61
-  %63 = call noalias ptr @strdup(ptr noundef nonnull %.15171) #22
+  %63 = call noalias ptr @strdup(ptr noundef nonnull readonly %.15171) #22
   %.not.i67 = icmp eq ptr %63, null
   br i1 %.not.i67, label %64, label %cli_safer_strdup.exit69
 
 64:                                               ; preds = %.thread77
   call void @perror(ptr noundef nonnull @.str.20) #25
-  %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.15171) #23
+  %65 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.15171) #23
   %66 = trunc i64 %65 to i32
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21, i32 noundef %66)
   br label %cli_safer_strdup.exit.thread
@@ -965,7 +965,7 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not33.i, label %22, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @lstat(ptr noundef %0, ptr noundef %2) #22
+  %14 = tail call i32 @lstat(ptr noundef readonly %0, ptr noundef %2) #22
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %41, label %16
 
@@ -1001,7 +1001,7 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not35.i, label %29, label %.thread.i
 
 .thread.i:                                        ; preds = %25, %10
-  %27 = tail call i32 @stat(ptr noundef %0, ptr noundef %2) #22
+  %27 = tail call i32 @stat(ptr noundef readonly %0, ptr noundef %2) #22
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %41, label %.thread._crit_edge.i
 
@@ -1060,13 +1060,13 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br label %cli_safer_strdup.exit.thread
 
 44:                                               ; preds = %41
-  %45 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #22
+  %45 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #22
   %.not.i33 = icmp eq ptr %45, null
   br i1 %.not.i33, label %46, label %cli_safer_strdup.exit
 
 46:                                               ; preds = %44
   tail call void @perror(ptr noundef nonnull @.str.20) #25
-  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %47 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
   %48 = trunc i64 %47 to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21, i32 noundef %48)
   br label %cli_safer_strdup.exit.thread
@@ -1097,13 +1097,13 @@ cli_safer_strdup.exit:                            ; preds = %44
   br label %cli_safer_strdup.exit.thread
 
 57:                                               ; preds = %54
-  %58 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #22
+  %58 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #22
   %.not.i35 = icmp eq ptr %58, null
   br i1 %.not.i35, label %59, label %cli_safer_strdup.exit37
 
 59:                                               ; preds = %57
   tail call void @perror(ptr noundef nonnull @.str.20) #25
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %60 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
   %61 = trunc i64 %60 to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21, i32 noundef %61)
   br label %cli_safer_strdup.exit.thread

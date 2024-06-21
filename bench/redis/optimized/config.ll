@@ -5141,12 +5141,12 @@ entry:
 define internal i32 @boolConfigSet(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %argv, i32 %argc, ptr noundef %err) #2 {
 entry:
   %0 = load ptr, ptr %argv, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.36) #23
+  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.36) #23
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %yesnotoi.exit
 
 yesnotoi.exit:                                    ; preds = %entry
-  %call1.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.25) #23
+  %call1.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.25) #23
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i.not, label %if.end, label %if.then
 
@@ -8534,7 +8534,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %3 = phi ptr [ %.pre, %if.then ], [ %1, %for.body ]
   %call.i = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %config.017, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %config.017, i64 128, i1 false)
   %4 = load ptr, ptr @configs, align 8
   %call6.i = tail call ptr @sdsnew(ptr noundef %3) #24
   %call7.i = tail call i32 @dictAdd(ptr noundef %4, ptr noundef %call6.i, ptr noundef nonnull %call.i) #24
@@ -8554,7 +8554,7 @@ cond.end:                                         ; preds = %if.end
 
 if.then10:                                        ; preds = %cond.end
   %call.i11 = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i11, ptr noundef nonnull align 8 dereferenceable(128) %config.017, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i11, ptr noundef nonnull readonly align 8 dereferenceable(128) %config.017, i64 128, i1 false)
   %flags.i = getelementptr inbounds i8, ptr %call.i11, i64 16
   %6 = load i32, ptr %flags.i, align 8
   %7 = or i32 %6, 128

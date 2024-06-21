@@ -320,7 +320,7 @@ todo_list_check_against_backup.exit:              ; preds = %if.then47
   %buf3.i = getelementptr inbounds i8, ptr %backup.i, i64 16
   %9 = load ptr, ptr %buf3.i, align 8
   %call4.i = call i32 @todo_list_parse_insn_buffer(ptr noundef %r, ptr noundef %9, ptr noundef nonnull %backup.i) #10
-  %call5.i = call i32 @todo_list_check(ptr noundef nonnull %backup.i, ptr noundef nonnull %new_todo)
+  %call5.i = call i32 @todo_list_check(ptr noundef nonnull %backup.i, ptr noundef nonnull readonly %new_todo)
   call void @todo_list_release(ptr noundef nonnull %backup.i) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %backup.i)
   %tobool49.not = icmp eq i32 %call5.i, 0

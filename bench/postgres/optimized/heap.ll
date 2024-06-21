@@ -343,7 +343,7 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
   %15 = getelementptr [6 x ptr], ptr @SysAtt, i64 0, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 4
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %12) #12
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %12) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %SystemAttributeByName.exit, label %13
 
@@ -1408,7 +1408,7 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
   %125 = load ptr, ptr %122, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   store i32 -1, ptr %126, align 8
-  call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull %105, i32 noundef %.1, i64 noundef %108, i64 noundef %15)
+  call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull readonly %105, i32 noundef %.1, i64 noundef %108, i64 noundef %15)
   %127 = load ptr, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24)

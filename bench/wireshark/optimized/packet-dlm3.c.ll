@@ -639,7 +639,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
 98:                                               ; preds = %94
   %99 = load i32, ptr @ett_dlm3_next_cmd, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %99) #2
-  %101 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef %1, ptr noundef %100, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
+  %101 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef readonly %1, ptr noundef %100, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
   br label %118
 
 102:                                              ; preds = %93
@@ -651,7 +651,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
 106:                                              ; preds = %102
   %107 = load i32, ptr @ett_dlm3_next_cmd, align 4
   %108 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %107) #2
-  %109 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef %1, ptr noundef %108, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
+  %109 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef readonly %1, ptr noundef %108, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
   br label %118
 
 110:                                              ; preds = %27
@@ -659,7 +659,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %111, label %dissect_dlm3_2.exit, label %112
 
 112:                                              ; preds = %110
-  %113 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %31, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
+  %113 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %31, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
   br label %118
 
 114:                                              ; preds = %27
@@ -667,7 +667,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %115, label %dissect_dlm3_2.exit, label %116
 
 116:                                              ; preds = %114
-  %117 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %31, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
+  %117 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %31, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
   br label %118
 
 118:                                              ; preds = %116, %112, %106, %98, %27

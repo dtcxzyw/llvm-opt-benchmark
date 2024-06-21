@@ -937,7 +937,7 @@ define void @"_ZN66_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$regex..regex..bytes..Replace
   %5 = load i64, ptr %4, align 8, !alias.scope !104, !noalias !99, !noundef !5
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !107
-  %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull %3, ptr noundef nonnull %6), !noalias !114
+  %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %6), !noalias !114
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %8, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
   br i1 %switch8.i.not.i.i.i, label %9, label %10
@@ -951,7 +951,7 @@ define void @"_ZN66_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$regex..regex..bytes..Replace
 
 10:                                               ; preds = %2
   %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %8, 1
-  %11 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull %3)
+  %11 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull readonly %3)
   br label %_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit
 
 _ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit: ; preds = %9, %10
@@ -982,7 +982,7 @@ define void @"_ZN79_$LT$regex..regex..bytes..NoExpand$u20$as$u20$regex..regex..b
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !115, !noalias !120, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %4, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %4, i64 %6, i1 false)
   %17 = load i64, ptr %7, align 8, !alias.scope !115, !noalias !120, !noundef !5
   %18 = add i64 %17, %6
   store i64 %18, ptr %7, align 8, !alias.scope !115, !noalias !120

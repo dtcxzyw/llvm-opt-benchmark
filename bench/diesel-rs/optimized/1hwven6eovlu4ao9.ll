@@ -1063,7 +1063,7 @@ define hidden void @"_ZN6diesel10type_impls10primitives13foreign_impls1_131_$LT$
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !330, !noalias !335, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !340
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !340
   %19 = load i64, ptr %6, align 8, !alias.scope !330, !noalias !335, !noundef !5
   %20 = add i64 %19, %2
   store i64 %20, ptr %6, align 8, !alias.scope !330, !noalias !335

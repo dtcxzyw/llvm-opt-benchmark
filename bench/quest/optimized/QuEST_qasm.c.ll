@@ -983,7 +983,7 @@ define void @qasm_recordMultiStateControlledUnitary(ptr nocapture noundef readon
   %40 = getelementptr inbounds i8, ptr %13, i64 16
   %41 = load double, ptr %12, align 8
   store double %41, ptr %40, align 16
-  call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %13, i32 noundef 3)
+  call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef readonly %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %13, i32 noundef 3)
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.28)
   %42 = load double, ptr %9, align 8
   store double %42, ptr %14, align 8

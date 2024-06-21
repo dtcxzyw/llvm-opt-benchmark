@@ -1514,7 +1514,7 @@ strhash.exit.i:                                   ; preds = %.lr.ph.i.i, %22
   %.012.i = phi ptr [ %.0.i, %41 ], [ %.010.i, %strhash.exit.i ]
   %37 = getelementptr inbounds i8, ptr %.012.i, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %18) #42
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %18) #42
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %Symbol_find.exit, label %41
 
@@ -4489,7 +4489,7 @@ strhash.exit.i:                                   ; preds = %.lr.ph.i.i, %69
   %.012.i = phi ptr [ %.0.i, %88 ], [ %.010.i, %strhash.exit.i ]
   %84 = getelementptr inbounds i8, ptr %.012.i, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %65) #42
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull readonly dereferenceable(1) %65) #42
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %Symbol_find.exit, label %88
 
@@ -6077,7 +6077,7 @@ OptArg.exit:                                      ; preds = %.tail.i.i, %State_i
   %.012.i = phi ptr [ %.0.i, %151 ], [ %.010.i, %.lr.ph.i.i55.preheader ]
   %147 = getelementptr inbounds i8, ptr %.012.i, i64 8
   %148 = load ptr, ptr %147, align 8
-  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %148, ptr noundef nonnull dereferenceable(6) @.str.53) #42
+  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %148, ptr noundef nonnull readonly dereferenceable(6) @.str.53) #42
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %153, label %151
 
@@ -7516,7 +7516,7 @@ strhash.exit.i:                                   ; preds = %.lr.ph.i.i, %4
   %.012.i = phi ptr [ %.0.i, %23 ], [ %.010.i, %strhash.exit.i ]
   %19 = getelementptr inbounds i8, ptr %.012.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %0) #42
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %0) #42
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %Symbol_find.exit, label %23
 
@@ -9423,7 +9423,7 @@ strhash.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %860
   %.012.i.i = phi ptr [ %.0.i.i, %878 ], [ %.010.i.i, %strhash.exit.i.i ]
   %874 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
   %875 = load ptr, ptr %874, align 8
-  %876 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %875, ptr noundef nonnull dereferenceable(1) %332) #42
+  %876 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %875, ptr noundef nonnull readonly dereferenceable(1) %332) #42
   %877 = icmp eq i32 %876, 0
   br i1 %877, label %Symbol_find.exit.i, label %878
 
@@ -9916,7 +9916,7 @@ strhash.exit.i593.i:                              ; preds = %.lr.ph.i.i589.i, %1
   %.012.i598.i = phi ptr [ %.0.i599.i, %1122 ], [ %.010.i595.i, %strhash.exit.i593.i ]
   %1118 = getelementptr inbounds i8, ptr %.012.i598.i, i64 8
   %1119 = load ptr, ptr %1118, align 8
-  %1120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1119, ptr noundef nonnull dereferenceable(1) %332) #42
+  %1120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1119, ptr noundef nonnull readonly dereferenceable(1) %332) #42
   %1121 = icmp eq i32 %1120, 0
   br i1 %1121, label %Symbol_find.exit602.i, label %1122
 
@@ -10911,9 +10911,9 @@ define hidden void @ReportOutput(ptr nocapture noundef %0) local_unnamed_addr #0
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  %7 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.105)
   store ptr %7, ptr %3, align 8
-  %8 = tail call noalias ptr @fopen(ptr noundef %7, ptr noundef nonnull @.str.106)
+  %8 = tail call noalias ptr @fopen(ptr noundef %7, ptr noundef nonnull readonly @.str.106)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %file_open.exit.thread, label %file_open.exit.preheader
 
@@ -11343,9 +11343,9 @@ define hidden void @ReportTable(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br label %27
 
 27:                                               ; preds = %26, %23
-  %28 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull @.str.164)
+  %28 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.164)
   store ptr %28, ptr %24, align 8
-  %29 = tail call noalias ptr @fopen(ptr noundef %28, ptr noundef nonnull @.str.106)
+  %29 = tail call noalias ptr @fopen(ptr noundef %28, ptr noundef nonnull readonly @.str.106)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %file_open.exit
 
@@ -11374,9 +11374,9 @@ file_open.exit:                                   ; preds = %27
   br label %43
 
 43:                                               ; preds = %42, %40
-  %44 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull @.str.165)
+  %44 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.165)
   store ptr %44, ptr %24, align 8
-  %45 = tail call noalias ptr @fopen(ptr noundef %44, ptr noundef nonnull @.str.106)
+  %45 = tail call noalias ptr @fopen(ptr noundef %44, ptr noundef nonnull readonly @.str.106)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %file_open.exit944
 
@@ -13826,9 +13826,9 @@ define hidden void @ReportHeader(ptr nocapture noundef %0) local_unnamed_addr #0
   br label %file_open.exit
 
 file_open.exit:                                   ; preds = %8, %1
-  %9 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull @.str.178)
+  %9 = tail call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.178)
   store ptr %9, ptr %6, align 8
-  %10 = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.73)
+  %10 = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull readonly @.str.73)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %33, label %.preheader
 
@@ -13887,9 +13887,9 @@ file_open.exit:                                   ; preds = %8, %1
   br label %36
 
 36:                                               ; preds = %35, %33
-  %37 = call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull @.str.178)
+  %37 = call ptr @file_makename(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.178)
   store ptr %37, ptr %6, align 8
-  %38 = call noalias ptr @fopen(ptr noundef %37, ptr noundef nonnull @.str.106)
+  %38 = call noalias ptr @fopen(ptr noundef %37, ptr noundef nonnull readonly @.str.106)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %file_open.exit37.thread, label %file_open.exit37.preheader
 
@@ -14838,7 +14838,7 @@ define internal void @lemon_sprintf(ptr nocapture noundef writeonly %0, ptr noca
   %30 = sext i32 %.2226.i to i64
   %31 = getelementptr i8, ptr %0, i64 %30
   %32 = sext i32 %.123.i231.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %15, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %15, i64 %32, i1 false)
   %33 = add i32 %.2226.i, %.123.i231.i
   %34 = sub i32 0, %.0.lcssa.i.i
   %35 = icmp slt i32 %.123.i231.i, %34
@@ -15143,7 +15143,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %169 = sext i32 %.16.i to i64
   %170 = getelementptr i8, ptr %0, i64 %169
   %171 = sext i32 %.123.i114.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr nonnull align 1 %160, i64 %171, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr nonnull readonly align 1 %160, i64 %171, i1 false)
   %172 = add i32 %.16.i, %.123.i114.i
   %173 = sub i32 0, %.0.lcssa.i116.i
   %174 = icmp slt i32 %.123.i114.i, %173
@@ -15217,7 +15217,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
 205:                                              ; preds = %._crit_edge.i133.i
   %206 = sext i32 %.21.i to i64
   %207 = getelementptr i8, ptr %0, i64 %206
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr align 1 %193, i64 %194, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr readonly align 1 %193, i64 %194, i1 false)
   %208 = add i32 %.21.i, %.022.i129.i
   %209 = sub i32 0, %.0.lcssa.i134.i
   %210 = icmp slt i32 %.022.i129.i, %209
@@ -15238,7 +15238,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
 217:                                              ; preds = %87
   %218 = sext i32 %.3.i to i64
   %219 = getelementptr i8, ptr %1, i64 %218
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %219, ptr noundef nonnull dereferenceable(3) @.str.340, i64 3)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %219, ptr noundef nonnull dereferenceable(3) @.str.340, i64 3)
   %220 = icmp eq i32 %bcmp.i, 0
   br i1 %220, label %221, label %.thread.i
 
@@ -15321,7 +15321,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %260 = sext i32 %.26.i to i64
   %261 = getelementptr i8, ptr %0, i64 %260
   %262 = sext i32 %.123.i144.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %261, ptr align 1 %246, i64 %262, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %261, ptr readonly align 1 %246, i64 %262, i1 false)
   %263 = add i32 %.26.i, %.123.i144.i
   %264 = sub i32 0, %.0.lcssa.i146.i
   %265 = icmp slt i32 %.123.i144.i, %264
@@ -15412,7 +15412,7 @@ lemon_addtext.exit127.i:                          ; preds = %lemon_addtext.exit1
   %301 = sext i32 %.35.i to i64
   %302 = getelementptr i8, ptr %0, i64 %301
   %303 = sext i32 %.123.i171236.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr align 1 %286, i64 %303, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr readonly align 1 %286, i64 %303, i1 false)
   %304 = add i32 %.35.i, %.123.i171236.i
   %305 = sub i32 0, %.0.lcssa.i173.i
   %306 = icmp slt i32 %.123.i171236.i, %305
@@ -17105,7 +17105,7 @@ strhash.exit.i:                                   ; preds = %.lr.ph.i.i, %6
 .lr.ph.i:                                         ; preds = %strhash.exit.i, %21
   %.011.i = phi ptr [ %.0.i, %21 ], [ %.09.i, %strhash.exit.i ]
   %23 = load ptr, ptr %.011.i, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #42
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %0) #42
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %Strsafe_find.exit, label %21
 

@@ -584,7 +584,7 @@ if.then20.i:                                      ; preds = %if.then15.i
   br i1 %cmp.i76.i, label %error.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then20.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %call.i75.i, ptr noundef nonnull align 8 dereferenceable(176) %except_stack.0133.i, i64 176, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %call.i75.i, ptr noundef nonnull readonly align 8 dereferenceable(176) %except_stack.0133.i, i64 176, i1 false)
   %23 = load ptr, ptr %i_target.i17, align 8
   %b_exceptstack26.i = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %call.i75.i, ptr %b_exceptstack26.i, align 8
@@ -690,7 +690,7 @@ if.then54.i:                                      ; preds = %land.rhs.i.i, %basi
   br i1 %cmp.i93.i, label %error.i, label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.then54.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %call.i92.i, ptr noundef nonnull align 8 dereferenceable(176) %except_stack.0133.i, i64 176, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %call.i92.i, ptr noundef nonnull readonly align 8 dereferenceable(176) %except_stack.0133.i, i64 176, i1 false)
   %37 = load ptr, ptr %i_target44.i, align 8
   br label %if.end65.i
 

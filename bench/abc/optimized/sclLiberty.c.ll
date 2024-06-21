@@ -693,12 +693,12 @@ Scl_LibertyItem.exit:                             ; preds = %3
   %17 = getelementptr inbounds i8, ptr %.val, i64 %16
   %18 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @strncmp(ptr noundef %17, ptr noundef %2, i64 noundef %19) #30
+  %20 = tail call i32 @strncmp(ptr noundef readonly %17, ptr noundef readonly %2, i64 noundef %19) #30
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %Scl_LibertyCompare.exit, label %Scl_LibertyCompare.exit.thread
 
 Scl_LibertyCompare.exit:                          ; preds = %13
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #30
   %22 = trunc i64 %21 to i32
   %.not14 = icmp eq i32 %18, %22
   %cond.fr = freeze i1 %.not14
@@ -1613,7 +1613,7 @@ define noalias noundef ptr @Scl_LibertyStart(ptr noundef %0) local_unnamed_addr 
   br label %3, !llvm.loop !21
 
 Scl_LibertyFixFileName.exit:                      ; preds = %3
-  %8 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.9)
+  %8 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.9)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %Scl_LibertyFileSize.exit.thread, label %Scl_LibertyFileSize.exit
 
@@ -1651,7 +1651,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   store i64 %.0.i24, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %calloc, i64 16
   store i64 %11, ptr %25, align 8
-  %26 = call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.9)
+  %26 = call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.9)
   %27 = add nsw i64 %11, 1
   %28 = call noalias ptr @malloc(i64 noundef %27) #28
   %29 = call i64 @fread(ptr noundef %28, i64 noundef %11, i64 noundef 1, ptr noundef %26)
@@ -1664,10 +1664,10 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %33
 
 33:                                               ; preds = %Abc_Clock.exit
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %34 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %35 = add i64 %34, 1
   %36 = call noalias ptr @malloc(i64 noundef %35) #28
-  %37 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %0) #29
+  %37 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %0) #29
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Abc_Clock.exit, %33
@@ -2135,14 +2135,14 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val12, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.21, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.21, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not22 = icmp eq i32 %17, 2
   %or.cond = and i1 %.not.i, %.not22
   br i1 %or.cond, label %Scl_LibertyCompare.exit.thread._crit_edge, label %Scl_LibertyCompare.exit.thread
 
 Scl_LibertyCompare.exit.thread:                   ; preds = %12
-  %20 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.22, i64 noundef %18) #30
+  %20 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.22, i64 noundef %18) #30
   %.not.i17 = icmp eq i32 %20, 0
   %.not23 = icmp eq i32 %17, 5
   %or.cond24 = and i1 %.not23, %.not.i17
@@ -2206,7 +2206,7 @@ Scl_LibertyItem.exit:                             ; preds = %4
   %19 = getelementptr inbounds i8, ptr %.val.us, i64 %18
   %20 = sub nsw i32 %.sroa.4.0.extract.trunc.i.us, %.sroa.0.0.extract.trunc.i.us
   %21 = sext i32 %20 to i64
-  %22 = tail call i32 @strncmp(ptr noundef %19, ptr noundef nonnull @.str.23, i64 noundef %21) #30
+  %22 = tail call i32 @strncmp(ptr noundef readonly %19, ptr noundef nonnull readonly @.str.23, i64 noundef %21) #30
   %.not.i.us = icmp eq i32 %22, 0
   %.not19.us = icmp eq i32 %20, 8
   %or.cond.us = and i1 %.not.i.us, %.not19.us
@@ -2256,7 +2256,7 @@ Scl_LibertyItem.exit17.us:                        ; preds = %._crit_edge.us
   %39 = getelementptr inbounds i8, ptr %.val, i64 %38
   %40 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %41 = sext i32 %40 to i64
-  %42 = tail call i32 @strncmp(ptr noundef %39, ptr noundef nonnull @.str.23, i64 noundef %41) #30
+  %42 = tail call i32 @strncmp(ptr noundef readonly %39, ptr noundef nonnull readonly @.str.23, i64 noundef %41) #30
   %.not.i = icmp eq i32 %42, 0
   %.not19 = icmp eq i32 %40, 8
   %or.cond = and i1 %.not.i, %.not19
@@ -2315,7 +2315,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.24, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.24, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not14 = icmp eq i32 %17, 4
   %or.cond = and i1 %.not.i, %.not14
@@ -2378,7 +2378,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val50, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.25, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.25, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not86 = icmp eq i32 %17, 18
   %or.cond = and i1 %.not.i, %.not86
@@ -2432,7 +2432,7 @@ Scl_LibertyItem.exit52:                           ; preds = %Scl_LibertyItem.exi
   %40 = getelementptr inbounds i8, ptr %.val49, i64 %39
   %41 = sub nsw i32 %.sroa.4.0.extract.trunc.i55, %.sroa.0.0.extract.trunc.i53
   %42 = sext i32 %41 to i64
-  %43 = tail call i32 @strncmp(ptr noundef %40, ptr noundef nonnull @.str.26, i64 noundef %42) #30
+  %43 = tail call i32 @strncmp(ptr noundef readonly %40, ptr noundef nonnull readonly @.str.26, i64 noundef %42) #30
   %.not.i57 = icmp eq i32 %43, 0
   %.not87 = icmp eq i32 %41, 13
   %or.cond90 = and i1 %.not.i57, %.not87
@@ -2466,7 +2466,7 @@ Scl_LibertyItem.exit59:                           ; preds = %44
   %54 = getelementptr inbounds i8, ptr %.val49, i64 %53
   %55 = sub nsw i32 %.sroa.4.0.extract.trunc.i62, %.sroa.0.0.extract.trunc.i60
   %56 = sext i32 %55 to i64
-  %57 = tail call i32 @strncmp(ptr noundef %54, ptr noundef nonnull @.str.27, i64 noundef %56) #30
+  %57 = tail call i32 @strncmp(ptr noundef readonly %54, ptr noundef nonnull readonly @.str.27, i64 noundef %56) #30
   %.not.i64 = icmp eq i32 %57, 0
   %.not88 = icmp eq i32 %55, 4
   %or.cond91 = and i1 %.not.i64, %.not88
@@ -2510,7 +2510,7 @@ Scl_LibertyItem.exit73:                           ; preds = %Scl_LibertyItem.exi
   %70 = getelementptr inbounds i8, ptr %.val49, i64 %69
   %71 = sub nsw i32 %.sroa.4.0.extract.trunc.i76, %.sroa.0.0.extract.trunc.i74
   %72 = sext i32 %71 to i64
-  %73 = tail call i32 @strncmp(ptr noundef %70, ptr noundef nonnull @.str.28, i64 noundef %72) #30
+  %73 = tail call i32 @strncmp(ptr noundef readonly %70, ptr noundef nonnull readonly @.str.28, i64 noundef %72) #30
   %.not.i78 = icmp eq i32 %73, 0
   %.not89 = icmp eq i32 %71, 5
   %or.cond92 = and i1 %.not.i78, %.not89
@@ -2586,7 +2586,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.29, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.29, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not14 = icmp eq i32 %17, 8
   %or.cond = and i1 %.not.i, %.not14
@@ -2649,7 +2649,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val19, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.30, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.30, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not31 = icmp eq i32 %17, 3
   %or.cond = and i1 %.not.i, %.not31
@@ -2683,7 +2683,7 @@ Scl_LibertyItem.exit20:                           ; preds = %20
   %30 = getelementptr inbounds i8, ptr %.val19, i64 %29
   %31 = sub nsw i32 %.sroa.4.0.extract.trunc.i23, %.sroa.0.0.extract.trunc.i21
   %32 = sext i32 %31 to i64
-  %33 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull @.str.31, i64 noundef %32) #30
+  %33 = tail call i32 @strncmp(ptr noundef readonly %30, ptr noundef nonnull readonly @.str.31, i64 noundef %32) #30
   %.not.i25 = icmp eq i32 %33, 0
   %.not32 = icmp eq i32 %31, 11
   %or.cond33 = and i1 %.not.i25, %.not32
@@ -2754,7 +2754,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.30, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.30, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not16 = icmp eq i32 %17, 3
   %or.cond = and i1 %.not.i, %.not16
@@ -2785,7 +2785,7 @@ Scl_LibertyItem.exit.i:                           ; preds = %20
   %28 = getelementptr inbounds i8, ptr %.val, i64 %27
   %29 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %30 = sext i32 %29 to i64
-  %31 = tail call i32 @strncmp(ptr noundef %28, ptr noundef nonnull @.str.29, i64 noundef %30) #30
+  %31 = tail call i32 @strncmp(ptr noundef readonly %28, ptr noundef nonnull readonly @.str.29, i64 noundef %30) #30
   %.not.i.i = icmp eq i32 %31, 0
   %.not14.i = icmp eq i32 %29, 8
   %or.cond.i = and i1 %.not.i.i, %.not14.i
@@ -2794,7 +2794,7 @@ Scl_LibertyItem.exit.i:                           ; preds = %20
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.017.i, i64 16
   %34 = load i64, ptr %33, align 4
-  %35 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %34)
+  %35 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %34)
   br label %Scl_LibertyReadPinFormula.exit
 
 Scl_LibertyCompare.exit.thread.i:                 ; preds = %.lr.ph.i
@@ -2870,7 +2870,7 @@ Scl_LibertyItem.exit:
   %19 = getelementptr inbounds i8, ptr %.val97, i64 %18
   %20 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %21 = sext i32 %20 to i64
-  %22 = tail call i32 @strncmp(ptr noundef %19, ptr noundef nonnull @.str.34, i64 noundef %21) #30
+  %22 = tail call i32 @strncmp(ptr noundef readonly %19, ptr noundef nonnull readonly @.str.34, i64 noundef %21) #30
   %.not.i = icmp eq i32 %22, 0
   %.not167 = icmp eq i32 %20, 4
   %or.cond = and i1 %.not.i, %.not167
@@ -2901,14 +2901,14 @@ Scl_LibertyItem.exit.i:                           ; preds = %23
   %31 = getelementptr inbounds i8, ptr %.val97, i64 %30
   %32 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %33 = sext i32 %32 to i64
-  %34 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.21, i64 noundef %33) #30
+  %34 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.21, i64 noundef %33) #30
   %.not.i.i = icmp eq i32 %34, 0
   %.not22.i = icmp eq i32 %32, 2
   %or.cond.i = and i1 %.not.i.i, %.not22.i
   br i1 %or.cond.i, label %Scl_LibertyReadCellIsFlop.exit, label %Scl_LibertyCompare.exit.thread.i
 
 Scl_LibertyCompare.exit.thread.i:                 ; preds = %.lr.ph.i
-  %35 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.22, i64 noundef %33) #30
+  %35 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.22, i64 noundef %33) #30
   %.not.i17.i = icmp eq i32 %35, 0
   %.not23.i = icmp eq i32 %32, 5
   %or.cond24.i = and i1 %.not23.i, %.not.i17.i
@@ -3004,7 +3004,7 @@ Scl_LibertyItem.exit99:                           ; preds = %68
   %79 = getelementptr inbounds i8, ptr %.val96, i64 %78
   %80 = sub nsw i32 %.sroa.4.0.extract.trunc.i102, %.sroa.0.0.extract.trunc.i100
   %81 = sext i32 %80 to i64
-  %82 = tail call i32 @strncmp(ptr noundef %79, ptr noundef nonnull @.str.30, i64 noundef %81) #30
+  %82 = tail call i32 @strncmp(ptr noundef readonly %79, ptr noundef nonnull readonly @.str.30, i64 noundef %81) #30
   %.not.i104 = icmp eq i32 %82, 0
   %.not168 = icmp eq i32 %80, 3
   %or.cond177 = and i1 %.not.i104, %.not168
@@ -3035,7 +3035,7 @@ Scl_LibertyItem.exit.i106:                        ; preds = %83
   %91 = getelementptr inbounds i8, ptr %.val96, i64 %90
   %92 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i110, %.sroa.0.0.extract.trunc.i.i108
   %93 = sext i32 %92 to i64
-  %94 = tail call i32 @strncmp(ptr noundef %91, ptr noundef nonnull @.str.29, i64 noundef %93) #30
+  %94 = tail call i32 @strncmp(ptr noundef readonly %91, ptr noundef nonnull readonly @.str.29, i64 noundef %93) #30
   %.not.i.i112 = icmp eq i32 %94, 0
   %.not14.i = icmp eq i32 %92, 8
   %or.cond.i113 = and i1 %.not.i.i112, %.not14.i
@@ -3050,7 +3050,7 @@ Scl_LibertyCompare.exit.thread.i114:              ; preds = %.lr.ph.i107
 Scl_LibertyReadPinFormula.exit:                   ; preds = %.lr.ph.i107
   %98 = getelementptr inbounds i8, ptr %.017.i, i64 16
   %99 = load i64, ptr %98, align 4
-  %100 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %99)
+  %100 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %99)
   %.not85 = icmp eq ptr %100, null
   br i1 %.not85, label %Scl_LibertyCompare.exit105.thread, label %sub_0
 
@@ -3130,7 +3130,7 @@ Scl_LibertyItem.exit12.i129:                      ; preds = %Scl_LibertyCompare.
   %127 = getelementptr inbounds i8, ptr %.val.i119, i64 %126
   %128 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i123, %.sroa.0.0.extract.trunc.i.i121
   %129 = sext i32 %128 to i64
-  %130 = tail call i32 @strncmp(ptr noundef %127, ptr noundef nonnull @.str.24, i64 noundef %129) #30
+  %130 = tail call i32 @strncmp(ptr noundef readonly %127, ptr noundef nonnull readonly @.str.24, i64 noundef %129) #30
   %.not.i.i125 = icmp eq i32 %130, 0
   %.not14.i126 = icmp eq i32 %128, 4
   %or.cond.i127 = and i1 %.not.i.i125, %.not14.i126
@@ -3139,7 +3139,7 @@ Scl_LibertyItem.exit12.i129:                      ; preds = %Scl_LibertyCompare.
 131:                                              ; preds = %Scl_LibertyItem.exit12.i129
   %132 = getelementptr inbounds i8, ptr %.017.i120, i64 16
   %133 = load i64, ptr %132, align 4
-  %134 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %133)
+  %134 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %133)
   br label %Scl_LibertyReadCellArea.exit
 
 Scl_LibertyCompare.exit.thread.i128:              ; preds = %Scl_LibertyItem.exit12.i129
@@ -3186,7 +3186,7 @@ Scl_LibertyItem.exit132:                          ; preds = %Scl_LibertyReadCell
   %149 = getelementptr inbounds i8, ptr %.val95, i64 %148
   %150 = sub nsw i32 %.sroa.4.0.extract.trunc.i135, %.sroa.0.0.extract.trunc.i133
   %151 = sext i32 %150 to i64
-  %152 = tail call i32 @strncmp(ptr noundef %149, ptr noundef nonnull @.str.30, i64 noundef %151) #30
+  %152 = tail call i32 @strncmp(ptr noundef readonly %149, ptr noundef nonnull readonly @.str.30, i64 noundef %151) #30
   %.not.i137 = icmp eq i32 %152, 0
   %.not171 = icmp eq i32 %150, 3
   %or.cond178 = and i1 %.not.i137, %.not171
@@ -3217,7 +3217,7 @@ Scl_LibertyItem.exit.i139:                        ; preds = %153
   %161 = getelementptr inbounds i8, ptr %.val95, i64 %160
   %162 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i146, %.sroa.0.0.extract.trunc.i.i144
   %163 = sext i32 %162 to i64
-  %164 = tail call i32 @strncmp(ptr noundef %161, ptr noundef nonnull @.str.29, i64 noundef %163) #30
+  %164 = tail call i32 @strncmp(ptr noundef readonly %161, ptr noundef nonnull readonly @.str.29, i64 noundef %163) #30
   %.not.i.i148 = icmp eq i32 %164, 0
   %.not14.i149 = icmp eq i32 %162, 8
   %or.cond.i150 = and i1 %.not.i.i148, %.not14.i149
@@ -3232,7 +3232,7 @@ Scl_LibertyCompare.exit.thread.i151:              ; preds = %.lr.ph.i141
 Scl_LibertyReadPinFormula.exit155:                ; preds = %.lr.ph.i141
   %168 = getelementptr inbounds i8, ptr %.017.i143, i64 16
   %169 = load i64, ptr %168, align 4
-  %170 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %169)
+  %170 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %169)
   %171 = icmp eq ptr %170, null
   br i1 %171, label %Scl_LibertyCompare.exit138.thread, label %172
 
@@ -3469,7 +3469,7 @@ Scl_LibertyItem.exit:
   %10 = getelementptr inbounds i8, ptr %.val12, i64 %9
   %11 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %12 = sext i32 %11 to i64
-  %13 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull @.str.48, i64 noundef %12) #30
+  %13 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef nonnull readonly @.str.48, i64 noundef %12) #30
   %.not.i = icmp eq i32 %13, 0
   %.not15 = icmp eq i32 %11, 17
   %or.cond = and i1 %.not.i, %.not15
@@ -3523,7 +3523,7 @@ Scl_LibertyItem.exit:
   %10 = getelementptr inbounds i8, ptr %.val12, i64 %9
   %11 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %12 = sext i32 %11 to i64
-  %13 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull @.str.50, i64 noundef %12) #30
+  %13 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef nonnull readonly @.str.50, i64 noundef %12) #30
   %.not.i = icmp eq i32 %13, 0
   %.not15 = icmp eq i32 %11, 27
   %or.cond = and i1 %.not.i, %.not15
@@ -3577,7 +3577,7 @@ Scl_LibertyItem.exit:
   %10 = getelementptr inbounds i8, ptr %.val12, i64 %9
   %11 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %12 = sext i32 %11 to i64
-  %13 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull @.str.51, i64 noundef %12) #30
+  %13 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef nonnull readonly @.str.51, i64 noundef %12) #30
   %.not.i = icmp eq i32 %13, 0
   %.not15 = icmp eq i32 %11, 22
   %or.cond = and i1 %.not.i, %.not15
@@ -3636,7 +3636,7 @@ Scl_LibertyItem.exit:
   %10 = getelementptr inbounds i8, ptr %.val19, i64 %9
   %11 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %12 = sext i32 %11 to i64
-  %13 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull @.str.52, i64 noundef %12) #30
+  %13 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef nonnull readonly @.str.52, i64 noundef %12) #30
   %.not.i = icmp eq i32 %13, 0
   %.not22 = icmp eq i32 %11, 9
   %or.cond = and i1 %.not.i, %.not22
@@ -3711,7 +3711,7 @@ Scl_LibertyItem.exit:
   %11 = getelementptr inbounds i8, ptr %.val25, i64 %10
   %12 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %13 = sext i32 %12 to i64
-  %14 = tail call i32 @strncmp(ptr noundef %11, ptr noundef nonnull @.str.58, i64 noundef %13) #30
+  %14 = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef nonnull readonly @.str.58, i64 noundef %13) #30
   %.not.i = icmp eq i32 %14, 0
   %.not42 = icmp eq i32 %12, 20
   %or.cond = and i1 %.not.i, %.not42
@@ -4419,7 +4419,7 @@ Scl_LibertyItem.exit11.i:                         ; preds = %Scl_LibertyItem.exi
   %12 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %.fr = freeze i32 %12
   %13 = sext i32 %.fr to i64
-  %14 = tail call i32 @strncmp(ptr noundef %11, ptr noundef nonnull @.str.62, i64 noundef %13) #30
+  %14 = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef nonnull readonly @.str.62, i64 noundef %13) #30
   %.not.i.i = icmp eq i32 %14, 0
   %.not14.i = icmp eq i32 %.fr, 9
   %narrow = and i1 %.not.i.i, %.not14.i
@@ -4463,7 +4463,7 @@ Scl_LibertyItemNum.exit:                          ; preds = %Scl_LibertyItem.exi
   %31 = getelementptr inbounds i8, ptr %.val67, i64 %30
   %32 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %33 = sext i32 %32 to i64
-  %34 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.62, i64 noundef %33) #30
+  %34 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.62, i64 noundef %33) #30
   %.not.i68 = icmp eq i32 %34, 0
   %.not152 = icmp eq i32 %32, 9
   %or.cond = and i1 %.not.i68, %.not152
@@ -4502,7 +4502,7 @@ Scl_LibertyItem.exit69:                           ; preds = %35
   %48 = getelementptr inbounds i8, ptr %.val66, i64 %47
   %49 = sub nsw i32 %.sroa.4.0.extract.trunc.i72, %.sroa.0.0.extract.trunc.i70
   %50 = sext i32 %49 to i64
-  %51 = tail call i32 @strncmp(ptr noundef %48, ptr noundef nonnull @.str.63, i64 noundef %50) #30
+  %51 = tail call i32 @strncmp(ptr noundef readonly %48, ptr noundef nonnull readonly @.str.63, i64 noundef %50) #30
   %.not.i74 = icmp eq i32 %51, 0
   %.not153 = icmp eq i32 %49, 11
   %or.cond158 = and i1 %.not.i74, %.not153
@@ -4648,7 +4648,7 @@ Scl_LibertyItem.exit80:                           ; preds = %Scl_LibertyItem.exi
   %114 = getelementptr inbounds i8, ptr %.val65, i64 %113
   %115 = sub nsw i32 %.sroa.4.0.extract.trunc.i83, %.sroa.0.0.extract.trunc.i81
   %116 = sext i32 %115 to i64
-  %117 = tail call i32 @strncmp(ptr noundef %114, ptr noundef nonnull @.str.64, i64 noundef %116) #30
+  %117 = tail call i32 @strncmp(ptr noundef readonly %114, ptr noundef nonnull readonly @.str.64, i64 noundef %116) #30
   %.not.i85 = icmp eq i32 %117, 0
   %.not154 = icmp eq i32 %115, 5
   %or.cond159 = and i1 %.not.i85, %.not154
@@ -4800,7 +4800,7 @@ Scl_LibertyItem.exit11.i115:                      ; preds = %Scl_LibertyItem.exi
   %179 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i111, %.sroa.0.0.extract.trunc.i.i109
   %.fr156 = freeze i32 %179
   %180 = sext i32 %.fr156 to i64
-  %181 = tail call i32 @strncmp(ptr noundef %178, ptr noundef nonnull @.str.65, i64 noundef %180) #30
+  %181 = tail call i32 @strncmp(ptr noundef readonly %178, ptr noundef nonnull readonly @.str.65, i64 noundef %180) #30
   %.not.i.i113 = icmp eq i32 %181, 0
   %.not14.i119 = icmp eq i32 %.fr156, 13
   %narrow177 = and i1 %.not.i.i113, %.not14.i119
@@ -4841,7 +4841,7 @@ Scl_LibertyItem.exit123:                          ; preds = %Scl_LibertyItemNum.
   %194 = getelementptr inbounds i8, ptr %.val64, i64 %193
   %195 = sub nsw i32 %.sroa.4.0.extract.trunc.i126, %.sroa.0.0.extract.trunc.i124
   %196 = sext i32 %195 to i64
-  %197 = tail call i32 @strncmp(ptr noundef %194, ptr noundef nonnull @.str.65, i64 noundef %196) #30
+  %197 = tail call i32 @strncmp(ptr noundef readonly %194, ptr noundef nonnull readonly @.str.65, i64 noundef %196) #30
   %.not.i128 = icmp eq i32 %197, 0
   %.not157 = icmp eq i32 %195, 13
   %or.cond160 = and i1 %.not.i128, %.not157
@@ -5296,7 +5296,7 @@ Scl_LibertyItem.exit11.i:                         ; preds = %Scl_LibertyItem.exi
   %12 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %.fr = freeze i32 %12
   %13 = sext i32 %.fr to i64
-  %14 = tail call i32 @strncmp(ptr noundef %11, ptr noundef nonnull @.str.67, i64 noundef %13) #30
+  %14 = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef nonnull readonly @.str.67, i64 noundef %13) #30
   %.not.i.i = icmp eq i32 %14, 0
   %.not14.i = icmp eq i32 %.fr, 19
   %narrow = and i1 %.not.i.i, %.not14.i
@@ -5340,7 +5340,7 @@ Scl_LibertyItemNum.exit:                          ; preds = %Scl_LibertyItem.exi
   %31 = getelementptr inbounds i8, ptr %.val49, i64 %30
   %32 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %33 = sext i32 %32 to i64
-  %34 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.67, i64 noundef %33) #30
+  %34 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.67, i64 noundef %33) #30
   %.not.i50 = icmp eq i32 %34, 0
   %.not87 = icmp eq i32 %32, 19
   %or.cond = and i1 %.not.i50, %.not87
@@ -5381,7 +5381,7 @@ Scl_LibertyItem.exit11.i63:                       ; preds = %Scl_LibertyItem.exi
   %47 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i59, %.sroa.0.0.extract.trunc.i.i57
   %.fr89 = freeze i32 %47
   %48 = sext i32 %.fr89 to i64
-  %49 = tail call i32 @strncmp(ptr noundef %46, ptr noundef nonnull @.str.68, i64 noundef %48) #30
+  %49 = tail call i32 @strncmp(ptr noundef readonly %46, ptr noundef nonnull readonly @.str.68, i64 noundef %48) #30
   %.not.i.i61 = icmp eq i32 %49, 0
   %.not14.i67 = icmp eq i32 %.fr89, 19
   %narrow99 = and i1 %.not.i.i61, %.not14.i67
@@ -5422,7 +5422,7 @@ Scl_LibertyItem.exit71:                           ; preds = %Scl_LibertyItemNum.
   %62 = getelementptr inbounds i8, ptr %.val48, i64 %61
   %63 = sub nsw i32 %.sroa.4.0.extract.trunc.i74, %.sroa.0.0.extract.trunc.i72
   %64 = sext i32 %63 to i64
-  %65 = tail call i32 @strncmp(ptr noundef %62, ptr noundef nonnull @.str.68, i64 noundef %64) #30
+  %65 = tail call i32 @strncmp(ptr noundef readonly %62, ptr noundef nonnull readonly @.str.68, i64 noundef %64) #30
   %.not.i76 = icmp eq i32 %65, 0
   %.not90 = icmp eq i32 %63, 19
   %or.cond91 = and i1 %.not.i76, %.not90
@@ -5747,7 +5747,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.69, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.69, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not13 = icmp eq i32 %17, 14
   %or.cond = and i1 %.not.i, %.not13
@@ -5811,7 +5811,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.70, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.70, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not19 = icmp eq i32 %17, 9
   %or.cond = and i1 %.not.i, %.not19
@@ -5889,12 +5889,12 @@ Scl_LibertyItem.exit:                             ; preds = %3
   %17 = getelementptr inbounds i8, ptr %.val, i64 %16
   %18 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @strncmp(ptr noundef %17, ptr noundef %2, i64 noundef %19) #30
+  %20 = tail call i32 @strncmp(ptr noundef readonly %17, ptr noundef readonly %2, i64 noundef %19) #30
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %Scl_LibertyCompare.exit, label %Scl_LibertyCompare.exit.thread
 
 Scl_LibertyCompare.exit:                          ; preds = %13
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #30
   %22 = trunc i64 %21 to i32
   %.not15 = icmp eq i32 %18, %22
   br i1 %.not15, label %23, label %Scl_LibertyCompare.exit.thread
@@ -5958,7 +5958,7 @@ Scl_LibertyItem.exit:                             ; preds = %3
   %17 = getelementptr inbounds i8, ptr %.val25, i64 %16
   %18 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @strncmp(ptr noundef %17, ptr noundef nonnull @.str.74, i64 noundef %19) #30
+  %20 = tail call i32 @strncmp(ptr noundef readonly %17, ptr noundef nonnull readonly @.str.74, i64 noundef %19) #30
   %.not.i = icmp eq i32 %20, 0
   %.not37 = icmp eq i32 %18, 6
   %or.cond = and i1 %.not.i, %.not37
@@ -5993,7 +5993,7 @@ Scl_LibertyItem.exit26:                           ; preds = %21
   %31 = getelementptr inbounds i8, ptr %.val, i64 %30
   %32 = sub nsw i32 %.sroa.4.0.extract.trunc.i29, %.sroa.0.0.extract.trunc.i27
   %33 = sext i32 %32 to i64
-  %34 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.75, i64 noundef %33) #30
+  %34 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.75, i64 noundef %33) #30
   %.not.i31 = icmp eq i32 %34, 0
   %.not38 = icmp eq i32 %32, 11
   %or.cond39 = and i1 %.not.i31, %.not38
@@ -6079,7 +6079,7 @@ Scl_LibertyItem.exit:                             ; preds = %3
   %22 = getelementptr inbounds i8, ptr %.val25, i64 %21
   %23 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %24 = sext i32 %23 to i64
-  %25 = tail call i32 @strncmp(ptr noundef %22, ptr noundef nonnull @.str.74, i64 noundef %24) #30
+  %25 = tail call i32 @strncmp(ptr noundef readonly %22, ptr noundef nonnull readonly @.str.74, i64 noundef %24) #30
   %.not.i = icmp eq i32 %25, 0
   %.not39 = icmp eq i32 %23, 6
   %or.cond = and i1 %.not.i, %.not39
@@ -6114,7 +6114,7 @@ Scl_LibertyItem.exit26:                           ; preds = %26
   %36 = getelementptr inbounds i8, ptr %.val, i64 %35
   %37 = sub nsw i32 %.sroa.4.0.extract.trunc.i29, %.sroa.0.0.extract.trunc.i27
   %38 = sext i32 %37 to i64
-  %39 = tail call i32 @strncmp(ptr noundef %36, ptr noundef nonnull @.str.75, i64 noundef %38) #30
+  %39 = tail call i32 @strncmp(ptr noundef readonly %36, ptr noundef nonnull readonly @.str.75, i64 noundef %38) #30
   %.not.i31 = icmp eq i32 %39, 0
   %.not40 = icmp eq i32 %37, 11
   %or.cond41 = and i1 %.not.i31, %.not40
@@ -6415,7 +6415,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %17 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull @.str.76, i64 noundef %18) #30
+  %19 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.76, i64 noundef %18) #30
   %.not.i = icmp eq i32 %19, 0
   %.not19 = icmp eq i32 %17, 12
   %or.cond = and i1 %.not.i, %.not19
@@ -6671,12 +6671,12 @@ Scl_LibertyItem.exit:                             ; preds = %5
   %19 = getelementptr inbounds i8, ptr %.val145, i64 %18
   %20 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %21 = sext i32 %20 to i64
-  %22 = tail call i32 @strncmp(ptr noundef %19, ptr noundef %3, i64 noundef %21) #30
+  %22 = tail call i32 @strncmp(ptr noundef readonly %19, ptr noundef readonly %3, i64 noundef %21) #30
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %Scl_LibertyCompare.exit, label %Scl_LibertyCompare.exit.thread
 
 Scl_LibertyCompare.exit:                          ; preds = %15
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #30
   %24 = trunc i64 %23 to i32
   %.not = icmp eq i32 %20, %24
   br i1 %.not, label %31, label %Scl_LibertyCompare.exit.thread
@@ -6738,7 +6738,7 @@ Scl_LibertyItem.exit159:                          ; preds = %39
   %49 = getelementptr inbounds i8, ptr %.val144, i64 %48
   %50 = sub nsw i32 %.sroa.4.0.extract.trunc.i162, %.sroa.0.0.extract.trunc.i160
   %51 = sext i32 %50 to i64
-  %52 = tail call i32 @strncmp(ptr noundef %49, ptr noundef nonnull @.str.80, i64 noundef %51) #30
+  %52 = tail call i32 @strncmp(ptr noundef readonly %49, ptr noundef nonnull readonly @.str.80, i64 noundef %51) #30
   %.not.i164 = icmp eq i32 %52, 0
   %.not304 = icmp eq i32 %50, 7
   %or.cond307 = and i1 %.not.i164, %.not304
@@ -6752,7 +6752,7 @@ Scl_LibertyItem.exit159:                          ; preds = %39
   br label %Scl_LibertyCompare.exit177.thread
 
 Scl_LibertyCompare.exit165.thread:                ; preds = %.lr.ph337
-  %58 = tail call i32 @strncmp(ptr noundef %49, ptr noundef nonnull @.str.81, i64 noundef %51) #30
+  %58 = tail call i32 @strncmp(ptr noundef readonly %49, ptr noundef nonnull readonly @.str.81, i64 noundef %51) #30
   %.not.i170 = icmp eq i32 %58, 0
   %or.cond308 = and i1 %.not304, %.not.i170
   br i1 %or.cond308, label %59, label %Scl_LibertyCompare.exit171.thread
@@ -6765,7 +6765,7 @@ Scl_LibertyCompare.exit165.thread:                ; preds = %.lr.ph337
   br label %Scl_LibertyCompare.exit177.thread
 
 Scl_LibertyCompare.exit171.thread:                ; preds = %Scl_LibertyCompare.exit165.thread
-  %64 = tail call i32 @strncmp(ptr noundef %49, ptr noundef nonnull @.str.82, i64 noundef %51) #30
+  %64 = tail call i32 @strncmp(ptr noundef readonly %49, ptr noundef nonnull readonly @.str.82, i64 noundef %51) #30
   %.not.i176 = icmp eq i32 %64, 0
   %.not306 = icmp eq i32 %50, 6
   %or.cond309 = and i1 %.not306, %.not.i176
@@ -7046,7 +7046,7 @@ Scl_LibertyItem.exit193:                          ; preds = %176
   %187 = getelementptr inbounds i8, ptr %.val141, i64 %186
   %188 = sub nsw i32 %.sroa.4.0.extract.trunc.i196, %.sroa.0.0.extract.trunc.i194
   %189 = sext i32 %188 to i64
-  %190 = tail call i32 @strncmp(ptr noundef %187, ptr noundef nonnull @.str.82, i64 noundef %189) #30
+  %190 = tail call i32 @strncmp(ptr noundef readonly %187, ptr noundef nonnull readonly @.str.82, i64 noundef %189) #30
   %.not.i198 = icmp eq i32 %190, 0
   %.not303 = icmp eq i32 %188, 6
   %or.cond310 = and i1 %.not.i198, %.not303
@@ -7123,7 +7123,7 @@ Scl_LibertyItem.exit200:                          ; preds = %.critedge
   %215 = getelementptr inbounds i8, ptr %.val140, i64 %214
   %216 = sub nsw i32 %.sroa.4.0.extract.trunc.i203, %.sroa.0.0.extract.trunc.i201
   %217 = sext i32 %216 to i64
-  %218 = tail call i32 @strncmp(ptr noundef %215, ptr noundef nonnull @.str.80, i64 noundef %217) #30
+  %218 = tail call i32 @strncmp(ptr noundef readonly %215, ptr noundef nonnull readonly @.str.80, i64 noundef %217) #30
   %.not.i205 = icmp eq i32 %218, 0
   %.not300 = icmp eq i32 %216, 7
   %or.cond311 = and i1 %.not.i205, %.not300
@@ -7137,7 +7137,7 @@ Scl_LibertyItem.exit200:                          ; preds = %.critedge
   br label %Scl_LibertyCompare.exit218.thread
 
 Scl_LibertyCompare.exit206.thread:                ; preds = %.lr.ph325
-  %224 = tail call i32 @strncmp(ptr noundef %215, ptr noundef nonnull @.str.81, i64 noundef %217) #30
+  %224 = tail call i32 @strncmp(ptr noundef readonly %215, ptr noundef nonnull readonly @.str.81, i64 noundef %217) #30
   %.not.i211 = icmp eq i32 %224, 0
   %or.cond312 = and i1 %.not300, %.not.i211
   br i1 %or.cond312, label %225, label %Scl_LibertyCompare.exit212.thread
@@ -7150,7 +7150,7 @@ Scl_LibertyCompare.exit206.thread:                ; preds = %.lr.ph325
   br label %Scl_LibertyCompare.exit218.thread
 
 Scl_LibertyCompare.exit212.thread:                ; preds = %Scl_LibertyCompare.exit206.thread
-  %230 = tail call i32 @strncmp(ptr noundef %215, ptr noundef nonnull @.str.82, i64 noundef %217) #30
+  %230 = tail call i32 @strncmp(ptr noundef readonly %215, ptr noundef nonnull readonly @.str.82, i64 noundef %217) #30
   %.not.i217 = icmp eq i32 %230, 0
   %.not302 = icmp eq i32 %216, 6
   %or.cond313 = and i1 %.not302, %.not.i217
@@ -7952,12 +7952,12 @@ Scl_LibertyItem.exit:                             ; preds = %5
   %19 = getelementptr inbounds i8, ptr %.val225, i64 %18
   %20 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %21 = sext i32 %20 to i64
-  %22 = tail call i32 @strncmp(ptr noundef %19, ptr noundef %3, i64 noundef %21) #30
+  %22 = tail call i32 @strncmp(ptr noundef readonly %19, ptr noundef readonly %3, i64 noundef %21) #30
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %Scl_LibertyCompare.exit, label %Scl_LibertyCompare.exit.thread
 
 Scl_LibertyCompare.exit:                          ; preds = %15
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #30
   %24 = trunc i64 %23 to i32
   %.not = icmp eq i32 %20, %24
   br i1 %.not, label %31, label %Scl_LibertyCompare.exit.thread
@@ -8030,7 +8030,7 @@ Scl_LibertyItem.exit266:                          ; preds = %42
   %52 = getelementptr inbounds i8, ptr %.val224, i64 %51
   %53 = sub nsw i32 %.sroa.4.0.extract.trunc.i269, %.sroa.0.0.extract.trunc.i267
   %54 = sext i32 %53 to i64
-  %55 = tail call i32 @strncmp(ptr noundef %52, ptr noundef nonnull @.str.80, i64 noundef %54) #30
+  %55 = tail call i32 @strncmp(ptr noundef readonly %52, ptr noundef nonnull readonly @.str.80, i64 noundef %54) #30
   %.not.i271 = icmp eq i32 %55, 0
   %.not362 = icmp eq i32 %53, 7
   %or.cond365 = and i1 %.not.i271, %.not362
@@ -8044,7 +8044,7 @@ Scl_LibertyItem.exit266:                          ; preds = %42
   br label %Scl_LibertyCompare.exit284.thread
 
 Scl_LibertyCompare.exit272.thread:                ; preds = %.lr.ph415
-  %61 = tail call i32 @strncmp(ptr noundef %52, ptr noundef nonnull @.str.81, i64 noundef %54) #30
+  %61 = tail call i32 @strncmp(ptr noundef readonly %52, ptr noundef nonnull readonly @.str.81, i64 noundef %54) #30
   %.not.i277 = icmp eq i32 %61, 0
   %or.cond366 = and i1 %.not362, %.not.i277
   br i1 %or.cond366, label %62, label %Scl_LibertyCompare.exit278.thread
@@ -8057,7 +8057,7 @@ Scl_LibertyCompare.exit272.thread:                ; preds = %.lr.ph415
   br label %Scl_LibertyCompare.exit284.thread
 
 Scl_LibertyCompare.exit278.thread:                ; preds = %Scl_LibertyCompare.exit272.thread
-  %67 = tail call i32 @strncmp(ptr noundef %52, ptr noundef nonnull @.str.82, i64 noundef %54) #30
+  %67 = tail call i32 @strncmp(ptr noundef readonly %52, ptr noundef nonnull readonly @.str.82, i64 noundef %54) #30
   %.not.i283 = icmp eq i32 %67, 0
   %.not364 = icmp eq i32 %53, 6
   %or.cond367 = and i1 %.not364, %.not.i283
@@ -8223,7 +8223,7 @@ Scl_LibertyItem.exit286:                          ; preds = %.critedge9
   %123 = getelementptr inbounds i8, ptr %.val221, i64 %122
   %124 = sub nsw i32 %.sroa.4.0.extract.trunc.i289, %.sroa.0.0.extract.trunc.i287
   %125 = sext i32 %124 to i64
-  %126 = tail call i32 @strncmp(ptr noundef %123, ptr noundef nonnull @.str.80, i64 noundef %125) #30
+  %126 = tail call i32 @strncmp(ptr noundef readonly %123, ptr noundef nonnull readonly @.str.80, i64 noundef %125) #30
   %.not.i291 = icmp eq i32 %126, 0
   %.not359 = icmp eq i32 %124, 7
   %or.cond368 = and i1 %.not.i291, %.not359
@@ -8237,7 +8237,7 @@ Scl_LibertyItem.exit286:                          ; preds = %.critedge9
   br label %Scl_LibertyCompare.exit304.thread
 
 Scl_LibertyCompare.exit292.thread:                ; preds = %.lr.ph386
-  %132 = tail call i32 @strncmp(ptr noundef %123, ptr noundef nonnull @.str.81, i64 noundef %125) #30
+  %132 = tail call i32 @strncmp(ptr noundef readonly %123, ptr noundef nonnull readonly @.str.81, i64 noundef %125) #30
   %.not.i297 = icmp eq i32 %132, 0
   %or.cond369 = and i1 %.not359, %.not.i297
   br i1 %or.cond369, label %133, label %Scl_LibertyCompare.exit298.thread
@@ -8250,7 +8250,7 @@ Scl_LibertyCompare.exit292.thread:                ; preds = %.lr.ph386
   br label %Scl_LibertyCompare.exit304.thread
 
 Scl_LibertyCompare.exit298.thread:                ; preds = %Scl_LibertyCompare.exit292.thread
-  %138 = tail call i32 @strncmp(ptr noundef %123, ptr noundef nonnull @.str.82, i64 noundef %125) #30
+  %138 = tail call i32 @strncmp(ptr noundef readonly %123, ptr noundef nonnull readonly @.str.82, i64 noundef %125) #30
   %.not.i303 = icmp eq i32 %138, 0
   %.not361 = icmp eq i32 %124, 6
   %or.cond370 = and i1 %.not361, %.not.i303
@@ -8668,7 +8668,7 @@ Scl_LibertyItem.exit:
   %17 = getelementptr inbounds i8, ptr %.val77, i64 %16
   %18 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @strncmp(ptr noundef %17, ptr noundef nonnull @.str.91, i64 noundef %19) #30
+  %20 = tail call i32 @strncmp(ptr noundef readonly %17, ptr noundef nonnull readonly @.str.91, i64 noundef %19) #30
   %.not.i = icmp eq i32 %20, 0
   %.not199 = icmp eq i32 %18, 17
   %or.cond204 = and i1 %.not.i, %.not199
@@ -8707,7 +8707,7 @@ Scl_LibertyItem.exit79:                           ; preds = %21
   %31 = getelementptr inbounds i8, ptr %.val76, i64 %30
   %32 = sub nsw i32 %.sroa.4.0.extract.trunc.i82, %.sroa.0.0.extract.trunc.i80
   %33 = sext i32 %32 to i64
-  %34 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.80, i64 noundef %33) #30
+  %34 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.80, i64 noundef %33) #30
   %.not.i84 = icmp eq i32 %34, 0
   %.not200 = icmp eq i32 %32, 7
   %or.cond205 = and i1 %.not.i84, %.not200
@@ -8887,7 +8887,7 @@ Vec_FltPush.exit.i:                               ; preds = %109, %Vec_FltGrow.e
   br i1 %.not.i88, label %Scl_LibertyReadFloatVec.exit, label %.lr.ph.i, !llvm.loop !59
 
 Scl_LibertyCompare.exit85.thread:                 ; preds = %.lr.ph
-  %116 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.81, i64 noundef %33) #30
+  %116 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.81, i64 noundef %33) #30
   %.not.i94 = icmp eq i32 %116, 0
   %or.cond206 = and i1 %.not200, %.not.i94
   br i1 %or.cond206, label %117, label %Scl_LibertyCompare.exit95.thread
@@ -9066,7 +9066,7 @@ Vec_FltPush.exit.i116:                            ; preds = %191, %Vec_FltGrow.e
   br i1 %.not.i117, label %Scl_LibertyReadFloatVec.exit, label %.lr.ph.i112, !llvm.loop !59
 
 Scl_LibertyCompare.exit95.thread:                 ; preds = %Scl_LibertyCompare.exit85.thread
-  %198 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.92, i64 noundef %33) #30
+  %198 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.92, i64 noundef %33) #30
   %.not.i126 = icmp eq i32 %198, 0
   %.not202 = icmp eq i32 %32, 10
   %or.cond207 = and i1 %.not202, %.not.i126
@@ -9080,14 +9080,14 @@ Scl_LibertyCompare.exit95.thread:                 ; preds = %Scl_LibertyCompare.
   br i1 %.not.i128, label %Scl_LibertyReadFloatVec.exit, label %203
 
 203:                                              ; preds = %199
-  %204 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %202) #30
+  %204 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %202) #30
   %205 = add i64 %204, 1
   %206 = tail call noalias ptr @malloc(i64 noundef %205) #28
-  %207 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %206, ptr noundef nonnull dereferenceable(1) %202) #29
+  %207 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(1) %202) #29
   br label %Scl_LibertyReadFloatVec.exit
 
 Scl_LibertyCompare.exit127.thread:                ; preds = %Scl_LibertyCompare.exit95.thread
-  %208 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull @.str.93, i64 noundef %33) #30
+  %208 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.93, i64 noundef %33) #30
   %.not.i133 = icmp eq i32 %208, 0
   %or.cond208 = and i1 %.not202, %.not.i133
   br i1 %or.cond208, label %209, label %Scl_LibertyReadFloatVec.exit
@@ -9100,10 +9100,10 @@ Scl_LibertyCompare.exit127.thread:                ; preds = %Scl_LibertyCompare.
   br i1 %.not.i135, label %Scl_LibertyReadFloatVec.exit, label %213
 
 213:                                              ; preds = %209
-  %214 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #30
+  %214 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %212) #30
   %215 = add i64 %214, 1
   %216 = tail call noalias ptr @malloc(i64 noundef %215) #28
-  %217 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull dereferenceable(1) %212) #29
+  %217 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull readonly dereferenceable(1) %212) #29
   br label %Scl_LibertyReadFloatVec.exit
 
 Scl_LibertyReadFloatVec.exit:                     ; preds = %Vec_FltPush.exit.i116, %Vec_FltPush.exit.i, %Scl_LibertyCompare.exit127.thread, %213, %209, %203, %199, %Scl_LibertyReadString.exit110, %Scl_LibertyReadString.exit
@@ -9251,10 +9251,10 @@ Vec_FltFreeP.exit148:                             ; preds = %252, %.thread.i147
   br i1 %.not.i154, label %Abc_UtilStrsav.exit155, label %267
 
 267:                                              ; preds = %263
-  %268 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %266) #30
+  %268 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %266) #30
   %269 = add i64 %268, 1
   %270 = tail call noalias ptr @malloc(i64 noundef %269) #28
-  %271 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull dereferenceable(1) %266) #29
+  %271 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull readonly dereferenceable(1) %266) #29
   br label %Abc_UtilStrsav.exit155
 
 Abc_UtilStrsav.exit155:                           ; preds = %263, %267
@@ -9584,7 +9584,7 @@ Vec_StrPutI_.exit:
   %27 = getelementptr inbounds i8, ptr %.val12.i, i64 %26
   %28 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %29 = sext i32 %28 to i64
-  %30 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull @.str.48, i64 noundef %29) #30
+  %30 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull readonly @.str.48, i64 noundef %29) #30
   %.not.i.i = icmp eq i32 %30, 0
   %.not15.i = icmp eq i32 %28, 17
   %or.cond.i = and i1 %.not.i.i, %.not15.i
@@ -9593,7 +9593,7 @@ Vec_StrPutI_.exit:
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %.018.i, i64 16
   %33 = load i64, ptr %32, align 4
-  %34 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %33)
+  %34 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %33)
   br label %Scl_LibertyReadDefaultWireLoad.exit
 
 Scl_LibertyCompare.exit.thread.i:                 ; preds = %23
@@ -9632,7 +9632,7 @@ Scl_LibertyReadDefaultWireLoad.exit:              ; preds = %Scl_LibertyCompare.
   %46 = getelementptr inbounds i8, ptr %.val12.i399, i64 %45
   %47 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i405, %.sroa.0.0.extract.trunc.i.i403
   %48 = sext i32 %47 to i64
-  %49 = tail call i32 @strncmp(ptr noundef %46, ptr noundef nonnull @.str.50, i64 noundef %48) #30
+  %49 = tail call i32 @strncmp(ptr noundef readonly %46, ptr noundef nonnull readonly @.str.50, i64 noundef %48) #30
   %.not.i.i407 = icmp eq i32 %49, 0
   %.not15.i408 = icmp eq i32 %47, 27
   %or.cond.i409 = and i1 %.not.i.i407, %.not15.i408
@@ -9641,7 +9641,7 @@ Scl_LibertyReadDefaultWireLoad.exit:              ; preds = %Scl_LibertyCompare.
 50:                                               ; preds = %42
   %51 = getelementptr inbounds i8, ptr %.018.i402, i64 16
   %52 = load i64, ptr %51, align 4
-  %53 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %52)
+  %53 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %52)
   br label %Scl_LibertyReadDefaultWireLoadSel.exit
 
 Scl_LibertyCompare.exit.thread.i410:              ; preds = %42
@@ -9680,7 +9680,7 @@ Scl_LibertyReadDefaultWireLoadSel.exit:           ; preds = %Scl_LibertyCompare.
   %65 = getelementptr inbounds i8, ptr %.val12.i418, i64 %64
   %66 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i424, %.sroa.0.0.extract.trunc.i.i422
   %67 = sext i32 %66 to i64
-  %68 = tail call i32 @strncmp(ptr noundef %65, ptr noundef nonnull @.str.51, i64 noundef %67) #30
+  %68 = tail call i32 @strncmp(ptr noundef readonly %65, ptr noundef nonnull readonly @.str.51, i64 noundef %67) #30
   %.not.i.i426 = icmp eq i32 %68, 0
   %.not15.i427 = icmp eq i32 %66, 22
   %or.cond.i428 = and i1 %.not.i.i426, %.not15.i427
@@ -9689,7 +9689,7 @@ Scl_LibertyReadDefaultWireLoadSel.exit:           ; preds = %Scl_LibertyCompare.
 69:                                               ; preds = %61
   %70 = getelementptr inbounds i8, ptr %.018.i421, i64 16
   %71 = load i64, ptr %70, align 4
-  %72 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %71)
+  %72 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %71)
   %73 = tail call double @atof(ptr noundef %72) #30
   %74 = fptrunc double %73 to float
   br label %Scl_LibertyReadDefaultMaxTrans.exit
@@ -9741,7 +9741,7 @@ Scl_LibertyReadDefaultMaxTrans.exit:              ; preds = %Scl_LibertyCompare.
   %89 = getelementptr inbounds i8, ptr %.val380, i64 %88
   %90 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %91 = sext i32 %90 to i64
-  %92 = tail call i32 @strncmp(ptr noundef %89, ptr noundef nonnull @.str.34, i64 noundef %91) #30
+  %92 = tail call i32 @strncmp(ptr noundef readonly %89, ptr noundef nonnull readonly @.str.34, i64 noundef %91) #30
   %.not.i433 = icmp eq i32 %92, 0
   %.not736 = icmp eq i32 %90, 4
   %or.cond = and i1 %.not.i433, %.not736
@@ -9772,14 +9772,14 @@ Scl_LibertyItem.exit.i:                           ; preds = %93
   %101 = getelementptr inbounds i8, ptr %.val380, i64 %100
   %102 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i438, %.sroa.0.0.extract.trunc.i.i436
   %103 = sext i32 %102 to i64
-  %104 = tail call i32 @strncmp(ptr noundef %101, ptr noundef nonnull @.str.21, i64 noundef %103) #30
+  %104 = tail call i32 @strncmp(ptr noundef readonly %101, ptr noundef nonnull readonly @.str.21, i64 noundef %103) #30
   %.not.i.i440 = icmp eq i32 %104, 0
   %.not22.i441 = icmp eq i32 %102, 2
   %or.cond.i442 = and i1 %.not.i.i440, %.not22.i441
   br i1 %or.cond.i442, label %Scl_LibertyReadCellIsFlop.exit, label %Scl_LibertyCompare.exit.thread.i443
 
 Scl_LibertyCompare.exit.thread.i443:              ; preds = %.lr.ph.i434
-  %105 = tail call i32 @strncmp(ptr noundef %101, ptr noundef nonnull @.str.22, i64 noundef %103) #30
+  %105 = tail call i32 @strncmp(ptr noundef readonly %101, ptr noundef nonnull readonly @.str.22, i64 noundef %103) #30
   %.not.i17.i = icmp eq i32 %105, 0
   %.not23.i = icmp eq i32 %102, 5
   %or.cond24.i = and i1 %.not23.i, %.not.i17.i
@@ -9921,7 +9921,7 @@ Scl_LibertyItem.exit446:                          ; preds = %Scl_LibertyCompare.
   %167 = getelementptr inbounds i8, ptr %.val379, i64 %166
   %168 = sub nsw i32 %.sroa.4.0.extract.trunc.i449, %.sroa.0.0.extract.trunc.i447
   %169 = sext i32 %168 to i64
-  %170 = tail call i32 @strncmp(ptr noundef %167, ptr noundef nonnull @.str.34, i64 noundef %169) #30
+  %170 = tail call i32 @strncmp(ptr noundef readonly %167, ptr noundef nonnull readonly @.str.34, i64 noundef %169) #30
   %.not.i451 = icmp eq i32 %170, 0
   %.not737 = icmp eq i32 %168, 4
   %or.cond752 = and i1 %.not.i451, %.not737
@@ -9952,14 +9952,14 @@ Scl_LibertyItem.exit.i453:                        ; preds = %171
   %179 = getelementptr inbounds i8, ptr %.val379, i64 %178
   %180 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i460, %.sroa.0.0.extract.trunc.i.i458
   %181 = sext i32 %180 to i64
-  %182 = tail call i32 @strncmp(ptr noundef %179, ptr noundef nonnull @.str.21, i64 noundef %181) #30
+  %182 = tail call i32 @strncmp(ptr noundef readonly %179, ptr noundef nonnull readonly @.str.21, i64 noundef %181) #30
   %.not.i.i462 = icmp eq i32 %182, 0
   %.not22.i463 = icmp eq i32 %180, 2
   %or.cond.i464 = and i1 %.not.i.i462, %.not22.i463
   br i1 %or.cond.i464, label %Scl_LibertyReadCellIsFlop.exit473, label %Scl_LibertyCompare.exit.thread.i465
 
 Scl_LibertyCompare.exit.thread.i465:              ; preds = %.lr.ph.i455
-  %183 = tail call i32 @strncmp(ptr noundef %179, ptr noundef nonnull @.str.22, i64 noundef %181) #30
+  %183 = tail call i32 @strncmp(ptr noundef readonly %179, ptr noundef nonnull readonly @.str.22, i64 noundef %181) #30
   %.not.i17.i466 = icmp eq i32 %183, 0
   %.not23.i467 = icmp eq i32 %180, 5
   %or.cond24.i468 = and i1 %.not23.i467, %.not.i17.i466
@@ -10018,7 +10018,7 @@ Scl_LibertyItem.exit12.i:                         ; preds = %Scl_LibertyCompare.
   %203 = getelementptr inbounds i8, ptr %.val.i476, i64 %202
   %204 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i479, %.sroa.0.0.extract.trunc.i.i477
   %205 = sext i32 %204 to i64
-  %206 = tail call i32 @strncmp(ptr noundef %203, ptr noundef nonnull @.str.24, i64 noundef %205) #30
+  %206 = tail call i32 @strncmp(ptr noundef readonly %203, ptr noundef nonnull readonly @.str.24, i64 noundef %205) #30
   %.not.i.i481 = icmp eq i32 %206, 0
   %.not14.i = icmp eq i32 %204, 4
   %or.cond.i482 = and i1 %.not.i.i481, %.not14.i
@@ -10033,7 +10033,7 @@ Scl_LibertyCompare.exit.thread.i483:              ; preds = %Scl_LibertyItem.exi
 Scl_LibertyReadCellArea.exit:                     ; preds = %Scl_LibertyItem.exit12.i
   %210 = getelementptr inbounds i8, ptr %.017.i, i64 16
   %211 = load i64, ptr %210, align 4
-  %212 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %211)
+  %212 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %211)
   %.not347 = icmp eq ptr %212, null
   br i1 %.not347, label %Scl_LibertyReadCellArea.exit.thread, label %213
 
@@ -10084,7 +10084,7 @@ Scl_LibertyItem.exit11.i:                         ; preds = %Scl_LibertyCompare.
   %229 = getelementptr inbounds i8, ptr %.val.i489, i64 %228
   %230 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i492, %.sroa.0.0.extract.trunc.i.i490
   %231 = sext i32 %230 to i64
-  %232 = tail call i32 @strncmp(ptr noundef %229, ptr noundef nonnull @.str.69, i64 noundef %231) #30
+  %232 = tail call i32 @strncmp(ptr noundef readonly %229, ptr noundef nonnull readonly @.str.69, i64 noundef %231) #30
   %.not.i.i494 = icmp eq i32 %232, 0
   %.not13.i = icmp eq i32 %230, 14
   %or.cond.i495 = and i1 %.not.i.i494, %.not13.i
@@ -10093,7 +10093,7 @@ Scl_LibertyItem.exit11.i:                         ; preds = %Scl_LibertyCompare.
 233:                                              ; preds = %Scl_LibertyItem.exit11.i
   %234 = getelementptr inbounds i8, ptr %.016.i, i64 16
   %235 = load i64, ptr %234, align 4
-  %236 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %235)
+  %236 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %235)
   %237 = tail call i32 @atoi(ptr nocapture noundef %236) #30
   br label %Scl_LibertyReadDeriveStrength.exit
 
@@ -10136,7 +10136,7 @@ Scl_LibertyItem.exit11.i510:                      ; preds = %Scl_LibertyItem.exi
   %249 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i506, %.sroa.0.0.extract.trunc.i.i504
   %.fr = freeze i32 %249
   %250 = sext i32 %.fr to i64
-  %251 = tail call i32 @strncmp(ptr noundef %248, ptr noundef nonnull @.str.30, i64 noundef %250) #30
+  %251 = tail call i32 @strncmp(ptr noundef readonly %248, ptr noundef nonnull readonly @.str.30, i64 noundef %250) #30
   %.not.i.i508 = icmp eq i32 %251, 0
   %.not14.i512 = icmp eq i32 %.fr, 3
   %narrow = and i1 %.not.i.i508, %.not14.i512
@@ -10186,7 +10186,7 @@ Scl_LibertyItem.exit513:                          ; preds = %Scl_LibertyItemNum.
   %269 = getelementptr inbounds i8, ptr %.val378, i64 %268
   %270 = sub nsw i32 %.sroa.4.0.extract.trunc.i516, %.sroa.0.0.extract.trunc.i514
   %271 = sext i32 %270 to i64
-  %272 = tail call i32 @strncmp(ptr noundef %269, ptr noundef nonnull @.str.30, i64 noundef %271) #30
+  %272 = tail call i32 @strncmp(ptr noundef readonly %269, ptr noundef nonnull readonly @.str.30, i64 noundef %271) #30
   %.not.i518 = icmp eq i32 %272, 0
   %.not742 = icmp eq i32 %270, 3
   %or.cond753 = and i1 %.not.i518, %.not742
@@ -10217,7 +10217,7 @@ Scl_LibertyItem.exit.i520:                        ; preds = %273
   %281 = getelementptr inbounds i8, ptr %.val378, i64 %280
   %282 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i527, %.sroa.0.0.extract.trunc.i.i525
   %283 = sext i32 %282 to i64
-  %284 = tail call i32 @strncmp(ptr noundef %281, ptr noundef nonnull @.str.29, i64 noundef %283) #30
+  %284 = tail call i32 @strncmp(ptr noundef readonly %281, ptr noundef nonnull readonly @.str.29, i64 noundef %283) #30
   %.not.i.i529 = icmp eq i32 %284, 0
   %.not14.i530 = icmp eq i32 %282, 8
   %or.cond.i531 = and i1 %.not.i.i529, %.not14.i530
@@ -10232,7 +10232,7 @@ Scl_LibertyCompare.exit.thread.i532:              ; preds = %.lr.ph.i522
 Scl_LibertyReadPinFormula.exit:                   ; preds = %.lr.ph.i522
   %288 = getelementptr inbounds i8, ptr %.017.i524, i64 16
   %289 = load i64, ptr %288, align 4
-  %290 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %289)
+  %290 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %289)
   %.not365 = icmp eq ptr %290, null
   br i1 %.not365, label %Scl_LibertyReadPinFormula.exit.thread, label %Scl_LibertyCompare.exit519.thread
 
@@ -10244,10 +10244,10 @@ Scl_LibertyReadPinFormula.exit.thread:            ; preds = %Scl_LibertyCompare.
   br i1 %.not.i536, label %Abc_UtilStrsav.exit, label %294
 
 294:                                              ; preds = %Scl_LibertyReadPinFormula.exit.thread
-  %295 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %293) #30
+  %295 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %293) #30
   %296 = add i64 %295, 1
   %297 = tail call noalias ptr @malloc(i64 noundef %296) #28
-  %298 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %297, ptr noundef nonnull dereferenceable(1) %293) #29
+  %298 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %297, ptr noundef nonnull readonly dereferenceable(1) %293) #29
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Scl_LibertyReadPinFormula.exit.thread, %294
@@ -10341,7 +10341,7 @@ Scl_LibertyItem.exit13.i:                         ; preds = %Scl_LibertyCompare.
   %333 = getelementptr inbounds i8, ptr %.val.i540, i64 %332
   %334 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i544, %.sroa.0.0.extract.trunc.i.i542
   %335 = sext i32 %334 to i64
-  %336 = tail call i32 @strncmp(ptr noundef %333, ptr noundef nonnull @.str.63, i64 noundef %335) #30
+  %336 = tail call i32 @strncmp(ptr noundef readonly %333, ptr noundef nonnull readonly @.str.63, i64 noundef %335) #30
   %.not.i.i546 = icmp eq i32 %336, 0
   %.not15.i550 = icmp eq i32 %334, 11
   %or.cond754 = and i1 %.not.i.i546, %.not15.i550
@@ -10350,7 +10350,7 @@ Scl_LibertyItem.exit13.i:                         ; preds = %Scl_LibertyCompare.
 337:                                              ; preds = %Scl_LibertyItem.exit13.i
   %338 = getelementptr inbounds i8, ptr %.018.i541, i64 16
   %339 = load i64, ptr %338, align 4
-  %340 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %339)
+  %340 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %339)
   %341 = tail call double @atof(ptr noundef %340) #30
   %342 = fptrunc double %341 to float
   %.pr.pre = load i32, ptr %274, align 4
@@ -10391,7 +10391,7 @@ Scl_LibertyItem.exit13.i562:                      ; preds = %Scl_LibertyCompare.
   %350 = getelementptr inbounds i8, ptr %.val.i554, i64 %349
   %351 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i558, %.sroa.0.0.extract.trunc.i.i556
   %352 = sext i32 %351 to i64
-  %353 = tail call i32 @strncmp(ptr noundef %350, ptr noundef nonnull @.str.97, i64 noundef %352) #30
+  %353 = tail call i32 @strncmp(ptr noundef readonly %350, ptr noundef nonnull readonly @.str.97, i64 noundef %352) #30
   %.not.i.i560 = icmp eq i32 %353, 0
   %.not15.i566 = icmp eq i32 %351, 16
   %or.cond755 = and i1 %.not.i.i560, %.not15.i566
@@ -10400,7 +10400,7 @@ Scl_LibertyItem.exit13.i562:                      ; preds = %Scl_LibertyCompare.
 354:                                              ; preds = %Scl_LibertyItem.exit13.i562
   %355 = getelementptr inbounds i8, ptr %.018.i555, i64 16
   %356 = load i64, ptr %355, align 4
-  %357 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %356)
+  %357 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %356)
   %358 = tail call double @atof(ptr noundef %357) #30
   %359 = fptrunc double %358 to float
   %.pr703.pr.pre = load i32, ptr %274, align 4
@@ -10441,7 +10441,7 @@ Scl_LibertyItem.exit13.i579:                      ; preds = %Scl_LibertyCompare.
   %367 = getelementptr inbounds i8, ptr %.val.i571, i64 %366
   %368 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i575, %.sroa.0.0.extract.trunc.i.i573
   %369 = sext i32 %368 to i64
-  %370 = tail call i32 @strncmp(ptr noundef %367, ptr noundef nonnull @.str.98, i64 noundef %369) #30
+  %370 = tail call i32 @strncmp(ptr noundef readonly %367, ptr noundef nonnull readonly @.str.98, i64 noundef %369) #30
   %.not.i.i577 = icmp eq i32 %370, 0
   %.not15.i583 = icmp eq i32 %368, 16
   %or.cond756 = and i1 %.not.i.i577, %.not15.i583
@@ -10450,7 +10450,7 @@ Scl_LibertyItem.exit13.i579:                      ; preds = %Scl_LibertyCompare.
 371:                                              ; preds = %Scl_LibertyItem.exit13.i579
   %372 = getelementptr inbounds i8, ptr %.018.i572, i64 16
   %373 = load i64, ptr %372, align 4
-  %374 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %373)
+  %374 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %373)
   %375 = tail call double @atof(ptr noundef %374) #30
   %376 = fptrunc double %375 to float
   br label %Scl_LibertyReadPinCap.exit584
@@ -10515,7 +10515,7 @@ Scl_LibertyItem.exit586:                          ; preds = %Scl_LibertyItem.exi
   %396 = getelementptr inbounds i8, ptr %.val377, i64 %395
   %397 = sub nsw i32 %.sroa.4.0.extract.trunc.i589, %.sroa.0.0.extract.trunc.i587
   %398 = sext i32 %397 to i64
-  %399 = tail call i32 @strncmp(ptr noundef %396, ptr noundef nonnull @.str.30, i64 noundef %398) #30
+  %399 = tail call i32 @strncmp(ptr noundef readonly %396, ptr noundef nonnull readonly @.str.30, i64 noundef %398) #30
   %.not.i591 = icmp eq i32 %399, 0
   %.not747 = icmp eq i32 %397, 3
   %or.cond757 = and i1 %.not.i591, %.not747
@@ -10546,7 +10546,7 @@ Scl_LibertyItem.exit.i593:                        ; preds = %400
   %408 = getelementptr inbounds i8, ptr %.val377, i64 %407
   %409 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i600, %.sroa.0.0.extract.trunc.i.i598
   %410 = sext i32 %409 to i64
-  %411 = tail call i32 @strncmp(ptr noundef %408, ptr noundef nonnull @.str.29, i64 noundef %410) #30
+  %411 = tail call i32 @strncmp(ptr noundef readonly %408, ptr noundef nonnull readonly @.str.29, i64 noundef %410) #30
   %.not.i.i602 = icmp eq i32 %411, 0
   %.not14.i603 = icmp eq i32 %409, 8
   %or.cond.i604 = and i1 %.not.i.i602, %.not14.i603
@@ -10561,7 +10561,7 @@ Scl_LibertyCompare.exit.thread.i605:              ; preds = %.lr.ph.i595
 Scl_LibertyReadPinFormula.exit609:                ; preds = %.lr.ph.i595
   %415 = getelementptr inbounds i8, ptr %.017.i597, i64 16
   %416 = load i64, ptr %415, align 4
-  %417 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %416)
+  %417 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %416)
   %.not352 = icmp eq ptr %417, null
   br i1 %.not352, label %.critedge, label %418
 
@@ -10602,7 +10602,7 @@ Scl_LibertyItem.exit13.i621:                      ; preds = %Scl_LibertyCompare.
   %431 = getelementptr inbounds i8, ptr %.val.i613, i64 %430
   %432 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i617, %.sroa.0.0.extract.trunc.i.i615
   %433 = sext i32 %432 to i64
-  %434 = tail call i32 @strncmp(ptr noundef %431, ptr noundef nonnull @.str.99, i64 noundef %433) #30
+  %434 = tail call i32 @strncmp(ptr noundef readonly %431, ptr noundef nonnull readonly @.str.99, i64 noundef %433) #30
   %.not.i.i619 = icmp eq i32 %434, 0
   %.not15.i625 = icmp eq i32 %432, 15
   %or.cond758 = and i1 %.not.i.i619, %.not15.i625
@@ -10611,7 +10611,7 @@ Scl_LibertyItem.exit13.i621:                      ; preds = %Scl_LibertyCompare.
 435:                                              ; preds = %Scl_LibertyItem.exit13.i621
   %436 = getelementptr inbounds i8, ptr %.018.i614, i64 16
   %437 = load i64, ptr %436, align 4
-  %438 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %437)
+  %438 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %437)
   %439 = tail call double @atof(ptr noundef %438) #30
   %440 = fptrunc double %439 to float
   br label %Scl_LibertyReadPinCap.exit626
@@ -10652,7 +10652,7 @@ Scl_LibertyItem.exit13.i638:                      ; preds = %Scl_LibertyCompare.
   %450 = getelementptr inbounds i8, ptr %.val.i630, i64 %449
   %451 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i634, %.sroa.0.0.extract.trunc.i.i632
   %452 = sext i32 %451 to i64
-  %453 = tail call i32 @strncmp(ptr noundef %450, ptr noundef nonnull @.str.100, i64 noundef %452) #30
+  %453 = tail call i32 @strncmp(ptr noundef readonly %450, ptr noundef nonnull readonly @.str.100, i64 noundef %452) #30
   %.not.i.i636 = icmp eq i32 %453, 0
   %.not15.i642 = icmp eq i32 %451, 14
   %or.cond759 = and i1 %.not.i.i636, %.not15.i642
@@ -10661,7 +10661,7 @@ Scl_LibertyItem.exit13.i638:                      ; preds = %Scl_LibertyCompare.
 454:                                              ; preds = %Scl_LibertyItem.exit13.i638
   %455 = getelementptr inbounds i8, ptr %.018.i631, i64 16
   %456 = load i64, ptr %455, align 4
-  %457 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %456)
+  %457 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %456)
   %458 = tail call double @atof(ptr noundef %457) #30
   %459 = fptrunc double %458 to float
   br label %Scl_LibertyReadPinCap.exit643
@@ -10704,7 +10704,7 @@ Scl_LibertyItem.exit12.i657:                      ; preds = %Scl_LibertyCompare.
   %469 = getelementptr inbounds i8, ptr %.val.i647, i64 %468
   %470 = sub nsw i32 %.sroa.4.0.extract.trunc.i.i651, %.sroa.0.0.extract.trunc.i.i649
   %471 = sext i32 %470 to i64
-  %472 = tail call i32 @strncmp(ptr noundef %469, ptr noundef nonnull @.str.29, i64 noundef %471) #30
+  %472 = tail call i32 @strncmp(ptr noundef readonly %469, ptr noundef nonnull readonly @.str.29, i64 noundef %471) #30
   %.not.i.i653 = icmp eq i32 %472, 0
   %.not14.i654 = icmp eq i32 %470, 8
   %or.cond.i655 = and i1 %.not.i.i653, %.not14.i654
@@ -10713,7 +10713,7 @@ Scl_LibertyItem.exit12.i657:                      ; preds = %Scl_LibertyCompare.
 473:                                              ; preds = %Scl_LibertyItem.exit12.i657
   %474 = getelementptr inbounds i8, ptr %.017.i648, i64 16
   %475 = load i64, ptr %474, align 4
-  %476 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %475)
+  %476 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %475)
   br label %Scl_LibertyReadPinFormula.exit660
 
 Scl_LibertyCompare.exit.thread.i656:              ; preds = %Scl_LibertyItem.exit12.i657
@@ -11283,10 +11283,10 @@ define ptr @Abc_SclReadLiberty(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #28
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %0) #29
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %0) #29
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %14, %15
@@ -11324,7 +11324,7 @@ define void @Scl_LibertyTest() local_unnamed_addr #4 {
 
 3:                                                ; preds = %0
   %4 = tail call ptr @Scl_LibertyReadSclStr(ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0, i32 0, ptr null)
-  %5 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.11)
+  %5 = tail call noalias ptr @fopen(ptr noundef nonnull readonly @.str.110, ptr noundef nonnull @.str.11)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 

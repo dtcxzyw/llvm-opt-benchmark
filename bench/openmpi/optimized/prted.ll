@@ -1662,7 +1662,7 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr nocapture noundef 
   %.03.i = phi ptr [ %.0.i, %6 ], [ %.01.i, %1 ]
   %2 = getelementptr inbounds i8, ptr %.03.i, i64 144
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #18
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %pmix_cmd_line_get_param.exit.loopexit, label %6
 
@@ -1898,7 +1898,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
   %.03.i.i.fr = freeze ptr %.03.i.i
   %31 = getelementptr inbounds i8, ptr %.03.i.i.fr, i64 144
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(13) @.str.55) #18
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(13) @.str.55) #18
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35
 

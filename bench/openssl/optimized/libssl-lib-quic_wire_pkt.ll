@@ -139,7 +139,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %if.end.i
 
@@ -311,7 +311,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_encrypt_fields.exit, label %if.end.i
 

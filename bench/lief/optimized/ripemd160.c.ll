@@ -2017,7 +2017,7 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
   %43 = getelementptr inbounds i8, ptr %0, i64 28
   %44 = zext nneg i32 %30 to i64
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 16 dereferenceable(1) @ripemd160_padding, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 16 dereferenceable(1) @ripemd160_padding, i64 %35, i1 false)
   %46 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %43)
   %47 = getelementptr inbounds i8, ptr @ripemd160_padding, i64 %35
   %48 = sub nsw i64 %33, %35
@@ -2082,7 +2082,7 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
   %69 = getelementptr inbounds i8, ptr %0, i64 28
   %70 = zext nneg i32 %59 to i64
   %71 = getelementptr inbounds i8, ptr %69, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %61, i1 false)
   %72 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %69)
   %73 = getelementptr inbounds i8, ptr %3, i64 %61
   %74 = sub nuw nsw i64 8, %61

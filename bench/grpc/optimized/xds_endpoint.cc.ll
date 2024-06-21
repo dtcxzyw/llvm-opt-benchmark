@@ -2714,7 +2714,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
 
 _ZNK9grpc_core12_GLOBAL__N_123ResolvedAddressLessThanclERK21grpc_resolved_addressS4_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.034.i.i.i.i.i, i64 32
-  %call.i.i.i.i77.i.i = call i32 @memcmp(ptr noundef nonnull %__begin4.sroa.0.0166.i.i, ptr noundef nonnull %_M_storage.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i) #21, !noalias !52
+  %call.i.i.i.i77.i.i = call i32 @memcmp(ptr noundef nonnull readonly %__begin4.sroa.0.0166.i.i, ptr noundef nonnull readonly %_M_storage.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i) #21, !noalias !52
   %cmp9.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i77.i.i, 0
   br i1 %cmp9.i.i.i.i.i.i, label %cond.end.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i
 
@@ -2763,7 +2763,7 @@ if.then.i9.i.i.i.i.i:                             ; preds = %if.end12.i.i.i.i.i
 _ZNK9grpc_core12_GLOBAL__N_123ResolvedAddressLessThanclERK21grpc_resolved_addressS4_.exit16.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i.i, i64 32
   %conv.i13.i.i.i.i.i = zext i32 %131 to i64
-  %call.i14.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull %__begin4.sroa.0.0166.i.i, i64 noundef %conv.i13.i.i.i.i.i) #21, !noalias !52
+  %call.i14.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly %__begin4.sroa.0.0166.i.i, i64 noundef %conv.i13.i.i.i.i.i) #21, !noalias !52
   %cmp9.i15.i.i.i.i.i = icmp slt i32 %call.i14.i.i.i.i.i, 0
   br i1 %cmp9.i15.i.i.i.i.i, label %if.then.i.i72.i.i, label %invoke.cont77.i.i
 
@@ -2787,7 +2787,7 @@ if.then.i.i9.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i
 if.end.i.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i
   %_M_storage.i.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i.i.i, i64 32
   %conv.i.i12.i.i.i.i = zext i32 %133 to i64
-  %call.i.i13.i.i.i.i = call i32 @memcmp(ptr noundef nonnull %__begin4.sroa.0.0166.i.i, ptr noundef nonnull %_M_storage.i.i.i.i11.i.i.i.i, i64 noundef %conv.i.i12.i.i.i.i) #21, !noalias !52
+  %call.i.i13.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly %__begin4.sroa.0.0166.i.i, ptr noundef nonnull readonly %_M_storage.i.i.i.i11.i.i.i.i, i64 noundef %conv.i.i12.i.i.i.i) #21, !noalias !52
   %cmp9.i.i14.i.i.i.i = icmp slt i32 %call.i.i13.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeI21grpc_resolved_addressS0_St9_IdentityIS0_EN9grpc_core12_GLOBAL__N_123ResolvedAddressLessThanESaIS0_EE10_M_insert_IRKS0_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i
 
@@ -2798,7 +2798,7 @@ _ZNSt8_Rb_treeI21grpc_resolved_addressS0_St9_IdentityIS0_EN9grpc_core12_GLOBAL__
 
 invoke.cont70.i.i:                                ; preds = %_ZNSt8_Rb_treeI21grpc_resolved_addressS0_St9_IdentityIS0_EN9grpc_core12_GLOBAL__N_123ResolvedAddressLessThanESaIS0_EE10_M_insert_IRKS0_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i78.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %_M_storage.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(132) %__begin4.sroa.0.0166.i.i, i64 132, i1 false), !noalias !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %_M_storage.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(132) %__begin4.sroa.0.0166.i.i, i64 132, i1 false), !noalias !52
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %135, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i78.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %18) #19, !noalias !52
   %136 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8, !noalias !52
   %inc.i.i.i.i.i = add i64 %136, 1

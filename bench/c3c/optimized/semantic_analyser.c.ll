@@ -479,7 +479,7 @@ context_pop_defers.exit:                          ; preds = %31
 
 35:                                               ; preds = %context_pop_defers.exit
   %36 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false)
   %37 = getelementptr inbounds i8, ptr %1, i64 12
   store i8 6, ptr %37, align 4
   %38 = load ptr, ptr @ast_arena, align 8

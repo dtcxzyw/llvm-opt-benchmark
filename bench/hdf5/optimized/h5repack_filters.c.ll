@@ -70,7 +70,7 @@ define dso_local range(i32 -1, 1) i32 @apply_filters(ptr nocapture noundef reado
 22:                                               ; preds = %33, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
   %23 = getelementptr inbounds %struct.pack_info_t, ptr %21, i64 %indvars.iv.i.i
-  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #10
+  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %aux_find_obj.exit.i, label %26
 
@@ -83,7 +83,7 @@ define dso_local range(i32 -1, 1) i32 @apply_filters(ptr nocapture noundef reado
   %30 = icmp eq i8 %29, 47
   %.023.idx.i.i = zext i1 %30 to i64
   %.023.i.i = getelementptr inbounds i8, ptr %0, i64 %.023.idx.i.i
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i.i, ptr noundef nonnull dereferenceable(1) %.023.i.i) #10
+  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i.i, ptr noundef nonnull readonly dereferenceable(1) %.023.i.i) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %aux_find_obj.exit.i, label %33
 
@@ -179,7 +179,7 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
   store i32 1, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %10, i64 256
   %82 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 8 dereferenceable(96) %82, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull readonly align 8 dereferenceable(96) %82, i64 96, i1 false)
   br label %aux_assign_obj.exit
 
 83:                                               ; preds = %.loopexit59.i
@@ -227,7 +227,7 @@ aux_find_obj.exit.thread.i:                       ; preds = %33, %aux_find_obj.e
   %106 = getelementptr inbounds i8, ptr %5, i64 16
   %107 = zext nneg i32 %102 to i64
   %108 = mul nuw nsw i64 %107, 96
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %105, ptr nonnull align 8 %106, i64 %108, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %105, ptr nonnull readonly align 8 %106, i64 %108, i1 false)
   br label %.loopexit57.i
 
 .loopexit57.i:                                    ; preds = %.lr.ph69.i, %100, %aux_find_obj.exit.thread.i
@@ -431,7 +431,7 @@ aux_assign_obj.exit:                              ; preds = %91, %.lr.ph71.i, %7
 ._crit_edge.i:                                    ; preds = %191, %.preheader.i
   %216 = getelementptr inbounds i8, ptr %13, i64 832
   store i32 %172, ptr %216, align 8
-  %217 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %0) #9
+  %217 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %0) #9
   %218 = call i32 @H5Pget_layout(i64 noundef %4) #9
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %220, label %236

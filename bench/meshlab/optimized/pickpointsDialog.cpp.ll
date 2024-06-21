@@ -13005,7 +13005,7 @@ _ZN7QStringD2Ev.exit42:                           ; preds = %_ZN7QStringD2Ev.exi
 
 73:                                               ; preds = %.noexc44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
-  %74 = invoke noundef ptr @_ZN16PickPointsDialog15getPickedPointsEv(ptr noundef nonnull align 8 dereferenceable(464) %0)
+  %74 = invoke noundef ptr @_ZN16PickPointsDialog15getPickedPointsEv(ptr noundef nonnull readonly align 8 dereferenceable(464) %0)
           to label %.noexc45 unwind label %86
 
 .noexc45:                                         ; preds = %73

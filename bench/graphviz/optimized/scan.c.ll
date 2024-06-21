@@ -586,7 +586,7 @@ addstr.exit:                                      ; preds = %addstr.exit.backedg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %260 = getelementptr inbounds i8, ptr %.pre556, i64 1
-  %261 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %260, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #27
+  %261 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %260, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #27
   %262 = icmp eq i32 %261, 0
   %263 = getelementptr inbounds i8, ptr %.pre556, i64 5
   %spec.select.i = select i1 %262, ptr %263, ptr %260
@@ -676,7 +676,7 @@ gv_realloc.exit.i.i:                              ; preds = %299, %297, %290
 
 storeFileName.exit.i:                             ; preds = %gv_realloc.exit.i.i, %280
   %302 = phi ptr [ %.0.i.i.i, %gv_realloc.exit.i.i ], [ %.pre.i.i, %280 ]
-  %303 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %302, ptr noundef nonnull dereferenceable(1) %274) #28
+  %303 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %302, ptr noundef nonnull readonly dereferenceable(1) %274) #28
   store ptr %302, ptr @InputFile, align 8
   br label %ppDirective.exit
 
@@ -1394,7 +1394,7 @@ addstr.exit127:                                   ; preds = %715, %720
   br label %743
 
 743:                                              ; preds = %731, %728
-  %744 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre552) #27
+  %744 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre552) #27
   %745 = icmp eq i64 %744, 0
   br i1 %745, label %addstr.exit.backedge, label %agxblen.exit.i.i.i128
 
@@ -1423,7 +1423,7 @@ agxblen.exit.i.i.i128:                            ; preds = %743
 753:                                              ; preds = %752
   %754 = zext i8 %.val.i25.i.i.i133 to i64
   %755 = getelementptr inbounds [31 x i8], ptr @Sbuf, i64 0, i64 %754
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %755, ptr align 1 %.pre552, i64 %744, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %755, ptr readonly align 1 %.pre552, i64 %744, i1 false)
   %756 = trunc i64 %744 to i8
   %757 = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   %758 = add i8 %757, %756
@@ -1434,7 +1434,7 @@ agxblen.exit.i.i.i128:                            ; preds = %743
   %760 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %761 = load ptr, ptr @Sbuf, align 8
   %762 = getelementptr inbounds i8, ptr %761, i64 %760
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %762, ptr align 1 %.pre552, i64 %744, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %762, ptr readonly align 1 %.pre552, i64 %744, i1 false)
   %763 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %764 = add i64 %763, %744
   store i64 %764, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
@@ -1496,7 +1496,7 @@ agxblen.exit.i.i.i128:                            ; preds = %743
 
 801:                                              ; preds = %798
   %802 = load ptr, ptr @aagtext, align 8
-  %803 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %802) #27
+  %803 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %802) #27
   %804 = icmp eq i64 %803, 0
   br i1 %804, label %addstr.exit.backedge, label %agxblen.exit.i.i.i137
 
@@ -1525,7 +1525,7 @@ agxblen.exit.i.i.i137:                            ; preds = %801
 812:                                              ; preds = %811
   %813 = zext i8 %.val.i25.i.i.i142 to i64
   %814 = getelementptr inbounds [31 x i8], ptr @Sbuf, i64 0, i64 %813
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %814, ptr align 1 %802, i64 %803, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %814, ptr readonly align 1 %802, i64 %803, i1 false)
   %815 = trunc i64 %803 to i8
   %816 = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   %817 = add i8 %816, %815
@@ -1536,7 +1536,7 @@ agxblen.exit.i.i.i137:                            ; preds = %801
   %819 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %820 = load ptr, ptr @Sbuf, align 8
   %821 = getelementptr inbounds i8, ptr %820, i64 %819
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %821, ptr align 1 %802, i64 %803, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %821, ptr readonly align 1 %802, i64 %803, i1 false)
   %822 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %823 = add i64 %822, %803
   store i64 %823, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
@@ -1572,7 +1572,7 @@ agxblen.exit.i.i.i137:                            ; preds = %801
   %841 = load i32, ptr @html_nest, align 4
   %842 = add nsw i32 %841, 1
   store i32 %842, ptr @html_nest, align 4
-  %843 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre551) #27
+  %843 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre551) #27
   %844 = icmp eq i64 %843, 0
   br i1 %844, label %addstr.exit.backedge, label %agxblen.exit.i.i.i146
 
@@ -1601,7 +1601,7 @@ agxblen.exit.i.i.i146:                            ; preds = %840
 852:                                              ; preds = %851
   %853 = zext i8 %.val.i25.i.i.i151 to i64
   %854 = getelementptr inbounds [31 x i8], ptr @Sbuf, i64 0, i64 %853
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %854, ptr align 1 %.pre551, i64 %843, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %854, ptr readonly align 1 %.pre551, i64 %843, i1 false)
   %855 = trunc i64 %843 to i8
   %856 = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   %857 = add i8 %856, %855
@@ -1612,7 +1612,7 @@ agxblen.exit.i.i.i146:                            ; preds = %840
   %859 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %860 = load ptr, ptr @Sbuf, align 8
   %861 = getelementptr inbounds i8, ptr %860, i64 %859
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %861, ptr align 1 %.pre551, i64 %843, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %861, ptr readonly align 1 %.pre551, i64 %843, i1 false)
   %862 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %863 = add i64 %862, %843
   store i64 %863, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
@@ -1640,7 +1640,7 @@ agxblen.exit.i.i.i146:                            ; preds = %840
   br label %879
 
 879:                                              ; preds = %867, %864
-  %880 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre550) #27
+  %880 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre550) #27
   %881 = icmp eq i64 %880, 0
   br i1 %881, label %addstr.exit163, label %agxblen.exit.i.i.i155
 
@@ -1669,7 +1669,7 @@ agxblen.exit.i.i.i155:                            ; preds = %879
 889:                                              ; preds = %888
   %890 = zext i8 %.val.i25.i.i.i160 to i64
   %891 = getelementptr inbounds [31 x i8], ptr @Sbuf, i64 0, i64 %890
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %891, ptr align 1 %.pre550, i64 %880, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %891, ptr readonly align 1 %.pre550, i64 %880, i1 false)
   %892 = trunc i64 %880 to i8
   %893 = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   %894 = add i8 %893, %892
@@ -1680,7 +1680,7 @@ agxblen.exit.i.i.i155:                            ; preds = %879
   %896 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %897 = load ptr, ptr @Sbuf, align 8
   %898 = getelementptr inbounds i8, ptr %897, i64 %896
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %898, ptr align 1 %.pre550, i64 %880, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %898, ptr readonly align 1 %.pre550, i64 %880, i1 false)
   %899 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %900 = add i64 %899, %880
   store i64 %900, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
@@ -1714,7 +1714,7 @@ addstr.exit163:                                   ; preds = %879, %889, %895
   br label %918
 
 918:                                              ; preds = %906, %903
-  %919 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre549) #27
+  %919 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre549) #27
   %920 = icmp eq i64 %919, 0
   br i1 %920, label %addstr.exit.backedge, label %agxblen.exit.i.i.i164
 
@@ -1743,7 +1743,7 @@ agxblen.exit.i.i.i164:                            ; preds = %918
 928:                                              ; preds = %927
   %929 = zext i8 %.val.i25.i.i.i169 to i64
   %930 = getelementptr inbounds [31 x i8], ptr @Sbuf, i64 0, i64 %929
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %930, ptr align 1 %.pre549, i64 %919, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %930, ptr readonly align 1 %.pre549, i64 %919, i1 false)
   %931 = trunc i64 %919 to i8
   %932 = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   %933 = add i8 %932, %931
@@ -1754,7 +1754,7 @@ agxblen.exit.i.i.i164:                            ; preds = %918
   %935 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %936 = load ptr, ptr @Sbuf, align 8
   %937 = getelementptr inbounds i8, ptr %936, i64 %935
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %937, ptr align 1 %.pre549, i64 %919, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %937, ptr readonly align 1 %.pre549, i64 %919, i1 false)
   %938 = load i64, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
   %939 = add i64 %938, %919
   store i64 %939, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 8), align 8
@@ -3777,7 +3777,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #28
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #28
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -3837,7 +3837,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #28
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #28
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

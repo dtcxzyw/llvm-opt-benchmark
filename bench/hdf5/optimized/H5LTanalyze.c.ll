@@ -560,9 +560,9 @@ yy_get_next_buffer.exit.thread:                   ; preds = %yy_get_next_buffer.
 
 176:                                              ; preds = %yy_get_next_buffer.exit.thread
   %177 = load ptr, ptr @H5LTyytext, align 8
-  %178 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #27
+  %178 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %177) #27
   %179 = getelementptr inbounds i8, ptr %177, i64 1
-  %180 = tail call noalias ptr @strdup(ptr noundef nonnull %179) #28
+  %180 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %179) #28
   %181 = getelementptr i8, ptr %180, i64 %178
   %182 = getelementptr i8, ptr %181, i64 -2
   store i8 0, ptr %182, align 1

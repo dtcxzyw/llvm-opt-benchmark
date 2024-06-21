@@ -10043,7 +10043,7 @@ if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.then9.i.i.i.i, %while.end.i.i.i.i
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub12.i.i.i.i, %if.then9.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__comp.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__comp.i.i.i.i, i64 16, i1 false)
   %cmp12.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %div17.i.i.i
   br i1 %cmp12.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPP3applS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_T0_SA_T1_T2_.exit.i.i.i
 
@@ -10122,7 +10122,7 @@ if.then9.i46.i.i.i:                               ; preds = %while.end.i23.i.i.i
 
 if.end16.i27.i.i.i:                               ; preds = %if.then9.i46.i.i.i, %while.end.i23.i.i.i
   %__holeIndex.addr.1.i28.i.i.i = phi i64 [ %sub12.i48.i.i.i, %if.then9.i46.i.i.i ], [ %__secondChild.0.lcssa.i24.i.i.i, %while.end.i23.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i19.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__comp.i18.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i19.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__comp.i18.i.i.i, i64 16, i1 false)
   %cmp12.i.i29.not.i.i.i = icmp slt i64 %__holeIndex.addr.1.i28.i.i.i, %__parent.070.i.i.i
   br i1 %cmp12.i.i29.not.i.i.i, label %_ZSt13__adjust_heapIPP3applS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_T0_SA_T1_T2_.exit65.i.i.i, label %land.rhs.i.i32.i.i.i
 
@@ -10214,7 +10214,7 @@ if.then9.i.i17:                                   ; preds = %land.lhs.true.i.i
 
 if.end16.i.i:                                     ; preds = %if.then9.i.i17, %land.lhs.true.i.i, %while.end.i.i
   %__holeIndex.addr.1.i.i = phi i64 [ %sub12.i.i, %if.then9.i.i17 ], [ %__secondChild.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__secondChild.0.lcssa.i.i, %while.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__comp.i.i12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__comp.i.i12, i64 16, i1 false)
   %cmp12.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
   br i1 %cmp12.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIPP3appN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_S9_S9_RT0_.exit
 

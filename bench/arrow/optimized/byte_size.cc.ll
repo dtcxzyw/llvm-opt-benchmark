@@ -497,7 +497,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %seen_buffers.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  %call.i = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %seen_buffers.i)
+  %call.i = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull %seen_buffers.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -563,7 +563,7 @@ for.body.i:                                       ; preds = %entry, %call2.i.i.n
   %1 = load ptr, ptr %__begin2.sroa.0.04.i, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %call6.val.i = load ptr, ptr %2, align 8
-  %call2.i.i2 = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %call6.val.i, ptr noundef nonnull %seen_buffers)
+  %call2.i.i2 = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(104) %call6.val.i, ptr noundef nonnull %seen_buffers)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %for.body.i
@@ -642,7 +642,7 @@ for.body.i:                                       ; preds = %call.i.noexc, %call
   %3 = load ptr, ptr %__begin2.sroa.0.06.i, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %call6.val.i = load ptr, ptr %4, align 8
-  %call2.i.i2 = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %call6.val.i, ptr noundef nonnull %seen_buffers)
+  %call2.i.i2 = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(104) %call6.val.i, ptr noundef nonnull %seen_buffers)
           to label %call2.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.noexc:                                  ; preds = %for.body.i
@@ -740,7 +740,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %call2.
   %5 = load ptr, ptr %__begin2.sroa.0.04.i.i, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %call6.val.i.i = load ptr, ptr %6, align 8
-  %call2.i.i.i2 = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %call6.val.i.i, ptr noundef nonnull %seen_buffers)
+  %call2.i.i.i2 = invoke fastcc noundef i64 @_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_9ArrayDataEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(104) %call6.val.i.i, ptr noundef nonnull %seen_buffers)
           to label %call2.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %for.body.i.i
@@ -11040,7 +11040,7 @@ entry:
   %buffers.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %buffers.i, align 8, !noalias !362
   %call.val.i = load ptr, ptr %1, align 8, !noalias !362
-  call fastcc void @_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray11VisitBitmapERKSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %call.val.i), !noalias !362
+  call fastcc void @_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray11VisitBitmapERKSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %call.val.i), !noalias !362
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
   %2 = load ptr, ptr %ref.tmp.i, align 8, !noalias !368
   store ptr %2, ptr %agg.result, align 8, !alias.scope !368
@@ -11507,7 +11507,7 @@ entry:
   %buffers.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %buffers.i, align 8, !noalias !464
   %call.val.i = load ptr, ptr %1, align 8, !noalias !464
-  call fastcc void @_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray11VisitBitmapERKSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %call.val.i), !noalias !464
+  call fastcc void @_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray11VisitBitmapERKSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %call.val.i), !noalias !464
   tail call void @llvm.experimental.noalias.scope.decl(metadata !467)
   %2 = load ptr, ptr %ref.tmp.i, align 8, !noalias !470
   store ptr %2, ptr %agg.result, align 8, !alias.scope !470

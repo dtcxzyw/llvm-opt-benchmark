@@ -4251,7 +4251,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !486
   %164 = load <4 x i32>, ptr %53, align 4, !alias.scope !486, !noalias !483
   store <4 x i32> %164, ptr %62, align 4, !alias.scope !483, !noalias !486
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %63, ptr noundef nonnull align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !488
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %63, ptr noundef nonnull readonly align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !488
   store i16 %157, ptr %64, align 8, !alias.scope !483, !noalias !486
   store i16 %.sroa.5.0.i, ptr %65, align 2, !alias.scope !483, !noalias !486
   store i32 %159, ptr %66, align 4, !alias.scope !483, !noalias !486
@@ -4543,7 +4543,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 343:                                              ; preds = %.lr.ph.i.i.i
   %344 = getelementptr inbounds i8, ptr %340, i64 -96
   %345 = load ptr, ptr %344, align 8, !alias.scope !582, !noalias !583, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val8.i.i, ptr nonnull %345, i64 %.val9.i.i), !alias.scope !589, !noalias !593
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %345, i64 %.val9.i.i), !alias.scope !589, !noalias !593
   %346 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %346, label %389, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i"
 
@@ -4814,7 +4814,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !642
   %449 = load <4 x i32>, ptr %53, align 4, !alias.scope !642, !noalias !639
   store <4 x i32> %449, ptr %82, align 4, !alias.scope !639, !noalias !642
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %83, ptr noundef nonnull align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !644
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %83, ptr noundef nonnull readonly align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !644
   store i16 %442, ptr %84, align 8, !alias.scope !639, !noalias !642
   store i16 %.sroa.5.0.i41, ptr %85, align 2, !alias.scope !639, !noalias !642
   store i32 %444, ptr %86, align 4, !alias.scope !639, !noalias !642
@@ -5106,7 +5106,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 628:                                              ; preds = %.lr.ph.i.i.i96
   %629 = getelementptr inbounds i8, ptr %625, i64 -96
   %630 = load ptr, ptr %629, align 8, !alias.scope !736, !noalias !737, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i.i117 = call i32 @bcmp(ptr nonnull %.val8.i.i73, ptr nonnull %630, i64 %.val9.i.i74), !alias.scope !743, !noalias !747
+  %bcmp.i.i.i.i.i.i.i.i.i117 = call i32 @bcmp(ptr nonnull readonly %.val8.i.i73, ptr nonnull readonly %630, i64 %.val9.i.i74), !alias.scope !743, !noalias !747
   %631 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i117, 0
   br i1 %631, label %674, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i99"
 

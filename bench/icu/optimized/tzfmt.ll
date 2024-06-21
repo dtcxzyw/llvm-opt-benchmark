@@ -3755,43 +3755,43 @@ sw.bb28:                                          ; preds = %if.then25, %if.then
   br label %sw.epilog51
 
 sw.bb30:                                          ; preds = %if.then25
-  %call.i69 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i69 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb32:                                          ; preds = %if.then25
-  %call.i70 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i70 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb34:                                          ; preds = %if.then25
-  %call.i71 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i71 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb36:                                          ; preds = %if.then25
-  %call.i72 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i72 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb38:                                          ; preds = %if.then25
-  %call.i73 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i73 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb40:                                          ; preds = %if.then25
-  %call.i74 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i74 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb42:                                          ; preds = %if.then25
-  %call.i75 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i75 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb44:                                          ; preds = %if.then25
-  %call.i76 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i76 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb46:                                          ; preds = %if.then25
-  %call.i77 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i77 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.bb48:                                          ; preds = %if.then25
-  %call.i78 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call.i78 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 poison, i32 noundef %add, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog51
 
 sw.epilog51:                                      ; preds = %if.then25, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26
@@ -4557,7 +4557,7 @@ if.end72:                                         ; preds = %invoke.cont61
 invoke.cont78:                                    ; preds = %invoke.cont38, %invoke.cont38, %invoke.cont38, %invoke.cont38, %invoke.cont38
   store i32 %0, ptr %index.i216535, align 8
   store i32 -1, ptr %errorIndex.i537, align 4
-  %call.i239 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %tmpPos, i8 noundef signext 0, ptr noundef null)
+  %call.i239 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %tmpPos, i8 noundef signext 0, ptr noundef null)
   %20 = load i32, ptr %errorIndex.i537, align 4
   %cmp82 = icmp eq i32 %20, -1
   br i1 %cmp82, label %if.then83, label %sw.epilog302

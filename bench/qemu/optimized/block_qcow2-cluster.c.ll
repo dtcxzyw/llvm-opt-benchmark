@@ -850,7 +850,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
   %retval.0.i.i = phi i64 [ %46, %if.then.i.i ], [ 0, %for.body.i ]
   %47 = load ptr, ptr %opaque, align 8
-  %call.i.i = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i)
+  %call.i.i = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull readonly %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i)
   %cmp.i.i = icmp eq i32 %call.i.i, 6
   br i1 %cmp.i.i, label %if.then68, label %if.else.i.i
 
@@ -5305,7 +5305,7 @@ if.then14:                                        ; preds = %get_l2_bitmap.exit
   %18 = trunc nuw i64 %shr.i155 to i32
   %conv1.i157 = and i32 %sub.i152, %18
   %19 = load ptr, ptr %opaque, align 8
-  %call.i = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef %conv1.i153)
+  %call.i = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef readonly %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef %conv1.i153)
   %cmp.i = icmp eq i32 %call.i, 6
   br i1 %cmp.i, label %qcow2_get_subcluster_range_type.exit, label %if.else.i
 

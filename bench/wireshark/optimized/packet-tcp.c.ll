@@ -3946,7 +3946,7 @@ find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %2
   %356 = getelementptr inbounds i8, ptr %351, i64 12
   store i32 %353, ptr %356, align 4
   %357 = getelementptr inbounds i8, ptr %351, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %358 = getelementptr inbounds i8, ptr %351, i64 36
   store i32 0, ptr %358, align 4
   call void @wmem_tree_insert32(ptr noundef %349, i32 noundef %.0451.us.us.i.us, ptr noundef nonnull %351) #20
@@ -4412,7 +4412,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %414, %408, %403, %3
   %587 = getelementptr inbounds i8, ptr %582, i64 12
   store i32 %584, ptr %587, align 4
   %588 = getelementptr inbounds i8, ptr %582, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %588, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %588, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %589 = getelementptr inbounds i8, ptr %582, i64 36
   store i32 0, ptr %589, align 4
   call void @wmem_tree_insert32(ptr noundef %580, i32 noundef %576, ptr noundef nonnull %582) #20
@@ -4865,7 +4865,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %806 = getelementptr inbounds i8, ptr %801, i64 12
   store i32 %803, ptr %806, align 4
   %807 = getelementptr inbounds i8, ptr %801, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %808 = getelementptr inbounds i8, ptr %801, i64 36
   store i32 0, ptr %808, align 4
   call void @wmem_tree_insert32(ptr noundef %799, i32 noundef %778, ptr noundef nonnull %801) #20
@@ -4891,7 +4891,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %821 = getelementptr inbounds i8, ptr %816, i64 12
   store i32 %818, ptr %821, align 4
   %822 = getelementptr inbounds i8, ptr %816, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %823 = getelementptr inbounds i8, ptr %816, i64 36
   store i32 0, ptr %823, align 4
   call void @wmem_tree_insert32(ptr noundef %814, i32 noundef %778, ptr noundef nonnull %816) #20
@@ -4915,7 +4915,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %835 = getelementptr inbounds i8, ptr %830, i64 12
   store i32 %832, ptr %835, align 4
   %836 = getelementptr inbounds i8, ptr %830, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %837 = getelementptr inbounds i8, ptr %830, i64 36
   store i32 0, ptr %837, align 4
   call void @wmem_tree_insert32(ptr noundef %828, i32 noundef %778, ptr noundef nonnull %830) #20

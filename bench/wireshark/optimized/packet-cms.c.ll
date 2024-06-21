@@ -1525,12 +1525,12 @@ cms_get_private_data.exit.i:                      ; preds = %13, %4
 
 25:                                               ; preds = %cms_get_private_data.exit.i
   %26 = call ptr @x509af_get_last_algorithm_id() #4
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(14) @.str.595) #5
+  %27 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(14) @.str.595) #5
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(19) @.str.596) #5
+  %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(19) @.str.596) #5
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %cms_verify_msg_digest.exit.i
 

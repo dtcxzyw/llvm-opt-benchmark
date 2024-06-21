@@ -240,7 +240,7 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i:        ; preds = %_ZSt8__copy_nIPKclP
   br label %if.end.i70.i
 
 if.end.i70.i:                                     ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i, %if.then2.i74.i
-  %call.i.i71.i = call noundef double @nan(ptr noundef nonnull %n_char_sequence.i50.i) #10
+  %call.i.i71.i = call noundef double @nan(ptr noundef nonnull readonly %n_char_sequence.i50.i) #10
   %fneg.i72.i = fneg double %call.i.i71.i
   %cond.i73.i = select i1 %negative.0.i, double %fneg.i72.i, double %call.i.i71.i
   br label %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i
@@ -404,7 +404,7 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i:       ; preds = %_ZSt8__copy_nIPKclP
   br label %if.end.i168.i
 
 if.end.i168.i:                                    ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i, %if.then2.i172.i
-  %call.i.i169.i = call noundef double @nan(ptr noundef nonnull %n_char_sequence.i148.i) #10
+  %call.i.i169.i = call noundef double @nan(ptr noundef nonnull readonly %n_char_sequence.i148.i) #10
   %fneg.i170.i = fneg double %call.i.i169.i
   %cond.i171.i = select i1 %negative.0.i, double %fneg.i170.i, double %call.i.i169.i
   br label %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i
@@ -963,7 +963,7 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i:        ; preds = %_ZSt8__copy_nIPKclP
   br label %if.end.i71.i
 
 if.end.i71.i:                                     ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i, %if.then2.i75.i
-  %call.i.i72.i = call noundef float @nanf(ptr noundef nonnull %n_char_sequence.i51.i) #10
+  %call.i.i72.i = call noundef float @nanf(ptr noundef nonnull readonly %n_char_sequence.i51.i) #10
   %fneg.i73.i = fneg float %call.i.i72.i
   %cond.i74.i = select i1 %negative.0.i, float %fneg.i73.i, float %call.i.i72.i
   br label %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i
@@ -1127,7 +1127,7 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i:       ; preds = %_ZSt8__copy_nIPKclP
   br label %if.end.i169.i
 
 if.end.i169.i:                                    ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i, %if.then2.i173.i
-  %call.i.i170.i = call noundef float @nanf(ptr noundef nonnull %n_char_sequence.i149.i) #10
+  %call.i.i170.i = call noundef float @nanf(ptr noundef nonnull readonly %n_char_sequence.i149.i) #10
   %fneg.i171.i = fneg float %call.i.i170.i
   %cond.i172.i = select i1 %negative.0.i, float %fneg.i171.i, float %call.i.i170.i
   br label %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i

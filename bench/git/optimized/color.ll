@@ -169,7 +169,7 @@ while.body36:                                     ; preds = %land.rhs28
 while.end39:                                      ; preds = %land.rhs28, %while.body36, %while.end23
   %len.3.lcssa = phi i32 [ %len.2.lcssa, %while.end23 ], [ 0, %while.body36 ], [ %len.3310, %land.rhs28 ]
   %ptr.2.lcssa = phi ptr [ %add.ptr24, %while.end23 ], [ %scevgep602, %while.body36 ], [ %ptr.2311, %land.rhs28 ]
-  %call.i = tail call i32 @strncasecmp(ptr noundef %ptr.1319, ptr noundef nonnull @.str.13, i64 noundef %idx.ext) #14
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull readonly @.str.13, i64 noundef %idx.ext) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %match_word.exit, label %if.end42
 
@@ -192,7 +192,7 @@ while.cond8.preheader.lr.ph:                      ; preds = %while.cond8.prehead
 
 if.end42:                                         ; preds = %while.end39, %match_word.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef %ptr.1319, ptr noundef nonnull @.str.26, i64 noundef %idx.ext) #14
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull readonly @.str.26, i64 noundef %idx.ext) #14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %match_word.exit.i, label %if.end.i
 
@@ -274,7 +274,7 @@ if.then14.i:                                      ; preds = %land.lhs.true10.i
 if.end17.i:                                       ; preds = %land.lhs.true10.i, %land.lhs.true6.i, %if.then3.i, %land.lhs.true.i, %if.end.i
   %c.sroa.16.0 = phi i8 [ %conv.i46.i, %land.lhs.true10.i ], [ 0, %land.lhs.true6.i ], [ 0, %if.then3.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ]
   %c.sroa.15.0 = phi i8 [ %conv.i34.i, %land.lhs.true10.i ], [ %conv.i34.i, %land.lhs.true6.i ], [ 0, %if.then3.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ]
-  %call.i.i.i = tail call i32 @strncasecmp(ptr noundef %ptr.1319, ptr noundef nonnull @.str.35, i64 noundef %idx.ext) #14
+  %call.i.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull readonly @.str.35, i64 noundef %idx.ext) #14
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %match_word.exit.i.i, label %if.end.i62.i
 
@@ -285,7 +285,7 @@ match_word.exit.i.i:                              ; preds = %if.end17.i
   br i1 %tobool1.not.i.not.i.i, label %if.then45, label %if.end.i62.i
 
 if.end.i62.i:                                     ; preds = %match_word.exit.i.i, %if.end17.i
-  %call1.i.i = tail call i32 @strncasecmp(ptr noundef %ptr.1319, ptr noundef nonnull @.str.36, i64 noundef 6) #14
+  %call1.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull @.str.36, i64 noundef 6) #14
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   %name.addr.0.idx.i.i = select i1 %cmp.i.i, i64 6, i64 0
   %name.addr.0.i.i = getelementptr inbounds i8, ptr %ptr.1319, i64 %name.addr.0.idx.i.i
@@ -299,7 +299,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i62.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i63.i = getelementptr inbounds [8 x ptr], ptr @parse_ansi_color.color_names, i64 0, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx.i63.i, align 8
-  %call.i14.i.i = tail call i32 @strncasecmp(ptr noundef %name.addr.0.i.i, ptr noundef %27, i64 noundef %conv.i13.i.i) #14
+  %call.i14.i.i = tail call i32 @strncasecmp(ptr noundef readonly %name.addr.0.i.i, ptr noundef readonly %27, i64 noundef %conv.i13.i.i) #14
   %tobool.not.i15.i.i = icmp eq i32 %call.i14.i.i, 0
   br i1 %tobool.not.i15.i.i, label %match_word.exit20.i.i, label %for.inc.i.i
 
@@ -413,7 +413,7 @@ if.end55:                                         ; preds = %if.else49.i, %if.en
   br i1 %cmp.not.i.i, label %if.end.i69, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end55
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %ptr.1319, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %ptr.1319, ptr noundef nonnull readonly dereferenceable(2) @.str.44, i64 2)
   %tobool.not.i.i68 = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i68, label %if.then.i74, label %if.end.i69
 
@@ -936,7 +936,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %r.0.i = phi i32 [ %call.i, %if.then.i ], [ 0, %entry ]
-  %call1.i = call i32 @vfprintf(ptr noundef %fp, ptr noundef %fmt, ptr noundef nonnull %args)
+  %call1.i = call i32 @vfprintf(ptr noundef %fp, ptr noundef readonly %fmt, ptr noundef nonnull %args)
   %add2.i = add nsw i32 %call1.i, %r.0.i
   %1 = load i8, ptr %color, align 1
   %tobool3.not.i = icmp eq i8 %1, 0
@@ -968,7 +968,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %r.0.i = phi i32 [ %call.i, %if.then.i ], [ 0, %entry ]
-  %call1.i = call i32 @vfprintf(ptr noundef %fp, ptr noundef %fmt, ptr noundef nonnull %args)
+  %call1.i = call i32 @vfprintf(ptr noundef %fp, ptr noundef readonly %fmt, ptr noundef nonnull %args)
   %add2.i = add nsw i32 %call1.i, %r.0.i
   %1 = load i8, ptr %color, align 1
   %tobool3.not.i = icmp eq i8 %1, 0

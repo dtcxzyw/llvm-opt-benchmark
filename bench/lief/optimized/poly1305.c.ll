@@ -600,7 +600,7 @@ define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %
 
 34:                                               ; preds = %32
   %35 = lshr i64 %2, 4
-  call fastcc void @poly1305_process(ptr noundef nonnull %5, i64 noundef %35, ptr noundef %1, i32 noundef 1)
+  call fastcc void @poly1305_process(ptr noundef nonnull %5, i64 noundef %35, ptr noundef readonly %1, i32 noundef 1)
   %36 = and i64 %2, -16
   %37 = and i64 %2, 15
   %.not45.i = icmp eq i64 %37, 0
@@ -611,7 +611,7 @@ define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %
   %.139.i11 = phi i64 [ %37, %34 ], [ %2, %32 ]
   store i64 %.139.i11, ptr %31, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 %.1.i12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr align 1 %38, i64 %.139.i11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr readonly align 1 %38, i64 %.139.i11, i1 false)
   br label %mbedtls_poly1305_update.exit
 
 mbedtls_poly1305_update.exit:                     ; preds = %4, %34, %.thread

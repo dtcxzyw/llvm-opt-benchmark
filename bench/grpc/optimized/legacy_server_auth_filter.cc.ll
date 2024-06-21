@@ -2812,7 +2812,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %13 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %14 = load i64, ptr %capacity.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !40
@@ -2892,7 +2892,7 @@ if.then.i.i.i.i.i.i.i52.i.i.i.i:                  ; preds = %if.then.i27.i.i.i.i
   br label %invoke.cont.i.i.i.i32.i.i.i.i
 
 invoke.cont.i.i.i.i32.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i52.i.i.i.i, %if.then.i27.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %22 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %23 = load i64, ptr %capacity.i.i.i.i.i33.i.i.i.i, align 8, !alias.scope !40
@@ -3990,7 +3990,7 @@ if.then.i.i.i.i.i.i.i501.i.i.i.i:                 ; preds = %if.then.i476.i.i.i.
   br label %invoke.cont.i.i.i.i481.i.i.i.i
 
 invoke.cont.i.i.i.i481.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i501.i.i.i.i, %if.then.i476.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i473.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i473.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %139 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i482.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %140 = load i64, ptr %capacity.i.i.i.i.i482.i.i.i.i, align 8, !alias.scope !40
@@ -4064,7 +4064,7 @@ if.then.i.i.i.i.i.i.i533.i.i.i.i:                 ; preds = %if.then.i508.i.i.i.
   br label %invoke.cont.i.i.i.i513.i.i.i.i
 
 invoke.cont.i.i.i.i513.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i533.i.i.i.i, %if.then.i508.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i505.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i505.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %148 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i514.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %149 = load i64, ptr %capacity.i.i.i.i.i514.i.i.i.i, align 8, !alias.scope !40
@@ -4138,7 +4138,7 @@ if.then.i.i.i.i.i.i.i565.i.i.i.i:                 ; preds = %if.then.i540.i.i.i.
   br label %invoke.cont.i.i.i.i545.i.i.i.i
 
 invoke.cont.i.i.i.i545.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i565.i.i.i.i, %if.then.i540.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i537.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i537.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %157 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i546.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %158 = load i64, ptr %capacity.i.i.i.i.i546.i.i.i.i, align 8, !alias.scope !40
@@ -4212,7 +4212,7 @@ if.then.i.i.i.i.i.i.i597.i.i.i.i:                 ; preds = %if.then.i572.i.i.i.
   br label %invoke.cont.i.i.i.i577.i.i.i.i
 
 invoke.cont.i.i.i.i577.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i597.i.i.i.i, %if.then.i572.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i569.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i569.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %166 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i578.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %167 = load i64, ptr %capacity.i.i.i.i.i578.i.i.i.i, align 8, !alias.scope !40
@@ -4286,7 +4286,7 @@ if.then.i.i.i.i.i.i.i629.i.i.i.i:                 ; preds = %if.then.i604.i.i.i.
   br label %invoke.cont.i.i.i.i609.i.i.i.i
 
 invoke.cont.i.i.i.i609.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i629.i.i.i.i, %if.then.i604.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i601.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i601.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %175 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i610.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %176 = load i64, ptr %capacity.i.i.i.i.i610.i.i.i.i, align 8, !alias.scope !40
@@ -4360,7 +4360,7 @@ if.then.i.i.i.i.i.i.i661.i.i.i.i:                 ; preds = %if.then.i636.i.i.i.
   br label %invoke.cont.i.i.i.i641.i.i.i.i
 
 invoke.cont.i.i.i.i641.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i661.i.i.i.i, %if.then.i636.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i633.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i633.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %184 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i642.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %185 = load i64, ptr %capacity.i.i.i.i.i642.i.i.i.i, align 8, !alias.scope !40
@@ -4434,7 +4434,7 @@ if.then.i.i.i.i.i.i.i693.i.i.i.i:                 ; preds = %if.then.i668.i.i.i.
   br label %invoke.cont.i.i.i.i673.i.i.i.i
 
 invoke.cont.i.i.i.i673.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i693.i.i.i.i, %if.then.i668.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i665.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i665.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %193 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i674.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %194 = load i64, ptr %capacity.i.i.i.i.i674.i.i.i.i, align 8, !alias.scope !40
@@ -4660,7 +4660,7 @@ if.then.i.i.i.i.i.i.i780.i.i.i.i:                 ; preds = %if.then.i755.i.i.i.
   br label %invoke.cont.i.i.i.i760.i.i.i.i
 
 invoke.cont.i.i.i.i760.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i780.i.i.i.i, %if.then.i755.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i752.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i752.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %222 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i761.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %223 = load i64, ptr %capacity.i.i.i.i.i761.i.i.i.i, align 8, !alias.scope !40
@@ -4734,7 +4734,7 @@ if.then.i.i.i.i.i.i.i812.i.i.i.i:                 ; preds = %if.then.i787.i.i.i.
   br label %invoke.cont.i.i.i.i792.i.i.i.i
 
 invoke.cont.i.i.i.i792.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i812.i.i.i.i, %if.then.i787.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i784.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i784.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !40
   %231 = load i64, ptr %md, align 8, !alias.scope !40
   %capacity.i.i.i.i.i793.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %232 = load i64, ptr %capacity.i.i.i.i.i793.i.i.i.i, align 8, !alias.scope !40
@@ -4815,7 +4815,7 @@ if.then.i.i.i8.i.i:                               ; preds = %for.body.i.i
   br label %_ZNK9grpc_core5Slice3RefEv.exit.i.i.i
 
 _ZNK9grpc_core5Slice3RefEv.exit.i.i.i:            ; preds = %if.then.i.i.i8.i.i, %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx.i.i.i, i64 32, i1 false)
   %241 = load ptr, ptr %second.i.i, align 8, !noalias !191
   %cmp.i.i2.i.i.i = icmp ugt ptr %241, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i2.i.i.i, label %if.then.i.i3.i.i.i, label %invoke.cont.i.i.i
@@ -4825,7 +4825,7 @@ if.then.i.i3.i.i.i:                               ; preds = %_ZNK9grpc_core5Slic
   br label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i3.i.i.i, %_ZNK9grpc_core5Slice3RefEv.exit.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second.i.i, i64 32, i1 false)
   %243 = load i64, ptr %md, align 8, !alias.scope !40
   %244 = load i64, ptr %capacity.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i6.i.i = icmp eq i64 %243, %244

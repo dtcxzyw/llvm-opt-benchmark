@@ -2354,12 +2354,12 @@ define internal fastcc noundef i32 @setup_launch(ptr nocapture noundef writeonly
   br i1 %38, label %find_shell.exit.thread.i, label %39
 
 39:                                               ; preds = %35
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #22
+  %40 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %37) #22
   %41 = icmp eq i64 %40, 1
   br i1 %41, label %find_shell.exit.thread.i, label %42
 
 42:                                               ; preds = %39
-  %43 = call ptr @rindex(ptr noundef nonnull %37, i32 noundef 47) #22
+  %43 = call ptr @rindex(ptr noundef nonnull readonly %37, i32 noundef 47) #22
   %44 = icmp eq ptr %43, null
   br i1 %44, label %find_shell.exit.thread.i, label %45
 
@@ -2391,12 +2391,12 @@ find_shell.exit.thread.i:                         ; preds = %51, %find_shell.exi
   br i1 %.not42.i, label %find_shell.exit55.thread.i, label %55
 
 55:                                               ; preds = %find_shell.exit.thread.i
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #22
+  %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #22
   %57 = icmp eq i64 %56, 1
   br i1 %57, label %find_shell.exit55.thread.i, label %58
 
 58:                                               ; preds = %55
-  %59 = call ptr @rindex(ptr noundef nonnull %54, i32 noundef 47) #22
+  %59 = call ptr @rindex(ptr noundef nonnull readonly %54, i32 noundef 47) #22
   %60 = icmp eq ptr %59, null
   br i1 %60, label %find_shell.exit55.thread.i, label %61
 

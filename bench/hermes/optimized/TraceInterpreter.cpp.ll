@@ -5863,7 +5863,7 @@ _ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vect
 for.body.i.i.i.i.i162.i:                          ; preds = %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i159.i, %for.body.i.i.i.i.i162.i
   %__cur.03.i.i.i.i.i163.i = phi ptr [ %incdec.ptr1.i.i.i.i.i166.i, %for.body.i.i.i.i.i162.i ], [ %cond.i12.i.i160.i, %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i159.i ]
   %__first.addr.02.i.i.i.i.i164.i = phi ptr [ %incdec.ptr.i.i.i.i.i165.i, %for.body.i.i.i.i.i162.i ], [ %stack.sroa.0.1776.i, %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i159.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i163.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i164.i, i64 16, i1 false), !alias.scope !73, !noalias !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i163.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i164.i, i64 16, i1 false), !alias.scope !73, !noalias !67
   %incdec.ptr.i.i.i.i.i165.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i164.i, i64 16
   %incdec.ptr1.i.i.i.i.i166.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i163.i, i64 16
   %cmp.not.i.i.i.i.i167.i = icmp eq ptr %incdec.ptr.i.i.i.i.i165.i, %stack.sroa.11.1775.i
@@ -6190,7 +6190,7 @@ _ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vect
 for.body.i.i.i.i.i317.i:                          ; preds = %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i314.i, %for.body.i.i.i.i.i317.i
   %__cur.03.i.i.i.i.i318.i = phi ptr [ %incdec.ptr1.i.i.i.i.i321.i, %for.body.i.i.i.i.i317.i ], [ %cond.i12.i.i315.i, %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i314.i ]
   %__first.addr.02.i.i.i.i.i319.i = phi ptr [ %incdec.ptr.i.i.i.i.i320.i, %for.body.i.i.i.i.i317.i ], [ %stack.sroa.0.1776.i, %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i314.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i318.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i319.i, i64 16, i1 false), !alias.scope !79, !noalias !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i318.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i319.i, i64 16, i1 false), !alias.scope !79, !noalias !67
   %incdec.ptr.i.i.i.i.i320.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i319.i, i64 16
   %incdec.ptr1.i.i.i.i.i321.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i318.i, i64 16
   %cmp.not.i.i.i.i.i322.i = icmp eq ptr %incdec.ptr.i.i.i.i.i320.i, %stack.sroa.11.1775.i
@@ -6518,7 +6518,7 @@ _ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vect
 for.body.i.i.i.i.i473.i:                          ; preds = %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i470.i, %for.body.i.i.i.i.i473.i
   %__cur.03.i.i.i.i.i474.i = phi ptr [ %incdec.ptr1.i.i.i.i.i477.i, %for.body.i.i.i.i.i473.i ], [ %cond.i12.i.i471.i, %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i470.i ]
   %__first.addr.02.i.i.i.i.i475.i = phi ptr [ %incdec.ptr.i.i.i.i.i476.i, %for.body.i.i.i.i.i473.i ], [ %stack.sroa.0.1776.i, %_ZNSt12_Vector_baseIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS7_EESaISA_EEE10StackValueSaISF_EE11_M_allocateEm.exit.i.i470.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i474.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i475.i, i64 16, i1 false), !alias.scope !83, !noalias !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i474.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i475.i, i64 16, i1 false), !alias.scope !83, !noalias !67
   %incdec.ptr.i.i.i.i.i476.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i475.i, i64 16
   %incdec.ptr1.i.i.i.i.i477.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i474.i, i64 16
   %cmp.not.i.i.i.i.i478.i = icmp eq ptr %incdec.ptr.i.i.i.i.i476.i, %stack.sroa.11.1775.i
@@ -11181,7 +11181,7 @@ sw.bb10.i:                                        ; preds = %sw.bb216
           to label %call.i.i2.i.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit
 
 call.i.i2.i.i.noexc:                              ; preds = %sw.bb10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i.i345, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false), !noalias !134
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i.i345, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false), !noalias !134
   store ptr %call.i.i2.i.i345, ptr %agg.tmp.i, align 8, !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i.i, align 8, !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !noalias !134
@@ -11225,7 +11225,7 @@ lor.lhs.false16.i.i:                              ; preds = %call.i.i2.i.i.noexc
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i.i
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i.i: ; preds = %lor.lhs.false16.i.i, %call.i.i2.i.i.noexc, %call.i.i2.i.i.noexc, %call.i.i2.i.i.noexc
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %val.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i.i345, i64 noundef %agg.tmp12.sroa.21.0.copyload.i)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %val.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i.i345, i64 noundef %agg.tmp12.sroa.21.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !134
 
 invoke.cont.i:                                    ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i.i
@@ -11757,7 +11757,7 @@ invoke.cont258:                                   ; preds = %invoke.cont19
   %276 = load i64, ptr %objID_261, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i422)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i422, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %276)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i422, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %276)
           to label %invoke.cont263 unwind label %lpad262
 
 invoke.cont263:                                   ; preds = %invoke.cont258
@@ -12020,7 +12020,7 @@ sw.bb305:                                         ; preds = %invoke.cont19
   %321 = load i64, ptr %objID_307, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i478)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i478, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %321)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i478, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %321)
           to label %invoke.cont308 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont308:                                   ; preds = %sw.bb305
@@ -12054,7 +12054,7 @@ invoke.cont322:                                   ; preds = %invoke.cont319
           to label %invoke.cont329 unwind label %lpad328
 
 invoke.cont329:                                   ; preds = %invoke.cont322
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i484, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i484, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i484, ptr %agg.tmp327, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i, align 8
@@ -12098,7 +12098,7 @@ lor.lhs.false16.i:                                ; preds = %invoke.cont329
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i: ; preds = %invoke.cont329, %invoke.cont329, %invoke.cont329, %lor.lhs.false16.i
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i484, i64 noundef %agg.tmp330.sroa.230.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp325, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i484, i64 noundef %agg.tmp330.sroa.230.0.copyload)
           to label %invoke.cont333 unwind label %lpad332
 
 invoke.cont333:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i, %if.then9.i, %if.then5.i, %if.then2.i, %if.then.i490
@@ -12222,7 +12222,7 @@ invoke.cont344:                                   ; preds = %if.else339
           to label %invoke.cont351 unwind label %lpad350
 
 invoke.cont351:                                   ; preds = %invoke.cont344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i520, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i520, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i520, ptr %agg.tmp349, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i519, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i518, align 8
@@ -12266,7 +12266,7 @@ lor.lhs.false16.i537:                             ; preds = %invoke.cont351
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i526
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i526: ; preds = %invoke.cont351, %invoke.cont351, %invoke.cont351, %lor.lhs.false16.i537
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp346, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i520, i64 noundef %agg.tmp352.sroa.229.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp346, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i520, i64 noundef %agg.tmp352.sroa.229.0.copyload)
           to label %invoke.cont355 unwind label %lpad354
 
 invoke.cont355:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i526, %if.then9.i529, %if.then5.i533, %if.then2.i535, %if.then.i536
@@ -12408,7 +12408,7 @@ sw.bb363:                                         ; preds = %invoke.cont19
   %374 = load i64, ptr %objID_365, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i578)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i578, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %374)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i578, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %374)
           to label %invoke.cont366 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont366:                                   ; preds = %sw.bb363
@@ -12588,7 +12588,7 @@ sw.bb400:                                         ; preds = %invoke.cont19
   %411 = load i64, ptr %objID_402, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i624)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i624, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %411)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i624, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %411)
           to label %invoke.cont403 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont403:                                   ; preds = %sw.bb400
@@ -12772,7 +12772,7 @@ sw.bb427:                                         ; preds = %invoke.cont19
   %447 = load i64, ptr %objID_432, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i681)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i681, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %447)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i681, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %447)
           to label %invoke.cont433 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont433:                                   ; preds = %sw.bb427
@@ -12932,7 +12932,7 @@ sw.bb446:                                         ; preds = %invoke.cont19
   %477 = load i64, ptr %objID_449, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i719)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i719, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %477)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i719, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %477)
           to label %invoke.cont450 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont450:                                   ; preds = %sw.bb446
@@ -12955,7 +12955,7 @@ invoke.cont453:                                   ; preds = %invoke.cont450
           to label %invoke.cont461 unwind label %lpad460
 
 invoke.cont461:                                   ; preds = %invoke.cont453
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i725, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i725, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i725, ptr %agg.tmp459, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i724, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i723, align 8
@@ -12999,7 +12999,7 @@ lor.lhs.false16.i742:                             ; preds = %invoke.cont461
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i731
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i731: ; preds = %invoke.cont461, %invoke.cont461, %invoke.cont461, %lor.lhs.false16.i742
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp456, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i725, i64 noundef %agg.tmp462.sroa.219.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp456, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i725, i64 noundef %agg.tmp462.sroa.219.0.copyload)
           to label %invoke.cont465 unwind label %lpad464
 
 invoke.cont465:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i731, %if.then9.i734, %if.then5.i738, %if.then2.i740, %if.then.i741
@@ -13147,7 +13147,7 @@ sw.bb472:                                         ; preds = %invoke.cont19
   %509 = load i64, ptr %functionID_, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i783)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i783, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %509)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i783, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %509)
           to label %invoke.cont474 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont474:                                   ; preds = %sw.bb472
@@ -13195,7 +13195,7 @@ for.body486:                                      ; preds = %_ZN8facebook3jsi6Ob
           to label %invoke.cont493 unwind label %lpad492.loopexit
 
 invoke.cont493:                                   ; preds = %for.body486
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i796, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i796, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i796, ptr %agg.tmp491, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i795, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i794, align 8
@@ -13238,7 +13238,7 @@ lor.lhs.false16.i813:                             ; preds = %invoke.cont493
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i802
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i802: ; preds = %invoke.cont493, %invoke.cont493, %invoke.cont493, %lor.lhs.false16.i813
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp488, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i796, i64 noundef %agg.tmp494.sroa.214.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp488, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i796, i64 noundef %agg.tmp494.sroa.214.0.copyload)
           to label %invoke.cont496 unwind label %lpad495
 
 invoke.cont496:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i802, %if.then9.i805, %if.then5.i809, %if.then2.i811, %if.then.i812
@@ -13401,7 +13401,7 @@ if.else515:                                       ; preds = %for.end
   %val_.i854 = getelementptr inbounds i8, ptr %15, i64 32
   %541 = load i64, ptr %val_.i854, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i856)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i856, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %541)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i856, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %541)
           to label %invoke.cont522 unwind label %lpad492.loopexit.split-lp
 
 invoke.cont522:                                   ; preds = %if.else515
@@ -13564,7 +13564,7 @@ sw.bb534:                                         ; preds = %invoke.cont19
   %567 = load i64, ptr %functionID_538, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i903)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i903, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %567)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i903, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %567)
           to label %invoke.cont539 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont539:                                   ; preds = %sw.bb534
@@ -13612,7 +13612,7 @@ for.body555:                                      ; preds = %_ZN8facebook3jsi6Ob
           to label %invoke.cont563 unwind label %lpad562.loopexit
 
 invoke.cont563:                                   ; preds = %for.body555
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i916, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i916, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i916, ptr %agg.tmp561, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i915, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i914, align 8
@@ -13655,7 +13655,7 @@ lor.lhs.false16.i933:                             ; preds = %invoke.cont563
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i922
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i922: ; preds = %invoke.cont563, %invoke.cont563, %invoke.cont563, %lor.lhs.false16.i933
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp558, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i916, i64 noundef %agg.tmp564.sroa.210.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp558, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i916, i64 noundef %agg.tmp564.sroa.210.0.copyload)
           to label %invoke.cont566 unwind label %lpad565
 
 invoke.cont566:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i922, %if.then9.i925, %if.then5.i929, %if.then2.i931, %if.then.i932
@@ -13872,7 +13872,7 @@ dynamic_cast.end590:                              ; preds = %sw.bb587
 
 invoke.cont594:                                   ; preds = %dynamic_cast.end590
   %_M_invoker.i1001 = getelementptr inbounds i8, ptr %agg.tmp593, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i1002, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i1002, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i1002, ptr %agg.tmp593, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i1001, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i1000, align 8
@@ -13918,7 +13918,7 @@ lor.lhs.false16.i1019:                            ; preds = %invoke.cont594
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i1008
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i1008: ; preds = %invoke.cont594, %invoke.cont594, %invoke.cont594, %lor.lhs.false16.i1019
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i1002, i64 noundef %agg.tmp595.sroa.29.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i1002, i64 noundef %agg.tmp595.sroa.29.0.copyload)
           to label %invoke.cont599 unwind label %lpad598
 
 invoke.cont599:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i1008
@@ -14109,7 +14109,7 @@ dynamic_cast.end631:                              ; preds = %sw.bb628
 
 invoke.cont635:                                   ; preds = %dynamic_cast.end631
   %_M_invoker.i1072 = getelementptr inbounds i8, ptr %agg.tmp634, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i1073, ptr noundef nonnull align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i2.i1073, ptr noundef nonnull readonly align 8 dereferenceable(32) %getJSIValueForUse, i64 32, i1 false)
   store ptr %call.i.i2.i1073, ptr %agg.tmp634, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i1072, align 8
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6hermes7tracing16TraceInterpreter12execFunctionERKNS6_4CallERKS2_PSA_mPKNS1_10PropNameIDEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i1071, align 8
@@ -14155,7 +14155,7 @@ lor.lhs.false16.i1090:                            ; preds = %invoke.cont635
   br label %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i1079
 
 _ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i1079: ; preds = %invoke.cont635, %invoke.cont635, %invoke.cont635, %lor.lhs.false16.i1090
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i1073, i64 noundef %agg.tmp636.sroa.23.0.copyload)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %call.i.i2.i1073, i64 noundef %agg.tmp636.sroa.23.0.copyload)
           to label %invoke.cont640 unwind label %lpad639
 
 invoke.cont640:                                   ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueEmEEclEm.exit.i1079
@@ -14275,7 +14275,7 @@ sw.bb656:                                         ; preds = %invoke.cont19
   %673 = load i64, ptr %objID_659, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i1128)
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i1128, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %673)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp.i1128, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %673)
           to label %invoke.cont660 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont660:                                   ; preds = %sw.bb656
@@ -23809,7 +23809,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -24521,7 +24521,7 @@ define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueEmEZNS0_6he
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args.val = load i64, ptr %__args, align 8
-  tail call fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__functor.val, i64 noundef %__args.val)
+  tail call fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_0clEm"(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %__functor.val, i64 noundef %__args.val)
   ret void
 }
 
@@ -24547,7 +24547,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

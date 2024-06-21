@@ -11503,7 +11503,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %call)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %call)
   %cmp.i19 = icmp eq ptr %call.i, null
   br i1 %cmp.i19, label %delta_total_seconds.exit, label %if.end.i20
 
@@ -16833,7 +16833,7 @@ if.then:                                          ; preds = %entry, %PyObject_Ty
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i20 = icmp eq ptr %call.i, null
   br i1 %cmp.i20, label %if.end26, label %if.end.i21
 
@@ -16897,7 +16897,7 @@ if.else11:                                        ; preds = %PyObject_TypeCheck.
   br i1 %tobool14.not, label %if.else17, label %if.then15
 
 if.then15:                                        ; preds = %if.else11
-  %call.i31 = tail call fastcc ptr @delta_to_microseconds(ptr noundef %right)
+  %call.i31 = tail call fastcc ptr @delta_to_microseconds(ptr noundef readonly %right)
   %cmp.i32 = icmp eq ptr %call.i31, null
   br i1 %cmp.i32, label %if.end26, label %if.end.i33
 
@@ -17394,7 +17394,7 @@ if.then:                                          ; preds = %entry, %PyObject_Ty
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i12 = icmp eq ptr %call.i, null
   br i1 %cmp.i12, label %if.end13, label %if.end.i13
 
@@ -17494,12 +17494,12 @@ PyObject_TypeCheck.exit20:                        ; preds = %if.then
   br i1 %tobool3.i18.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then, %PyObject_TypeCheck.exit20
-  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i21 = icmp eq ptr %call.i, null
   br i1 %cmp.i21, label %if.end19, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then3
-  %call1.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %right)
+  %call1.i = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %right)
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
@@ -17573,7 +17573,7 @@ if.else9:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool12.not, label %if.then18, label %if.then13
 
 if.then13:                                        ; preds = %if.else9
-  %call.i30 = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull %left)
+  %call.i30 = tail call fastcc ptr @delta_to_microseconds(ptr noundef nonnull readonly %left)
   %cmp.i31 = icmp eq ptr %call.i30, null
   br i1 %cmp.i31, label %if.end19, label %if.end.i32
 

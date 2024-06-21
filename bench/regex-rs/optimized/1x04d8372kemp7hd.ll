@@ -2494,7 +2494,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %89 = load i32, ptr %88, align 4, !noalias !769
   tail call void @llvm.experimental.noalias.scope.decl(metadata !784), !noalias !769
   %90 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i411 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %90, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !787
+  %bcmp.i.i411 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %90, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !787
   %91 = icmp eq i32 %bcmp.i.i411, 0
   br i1 %91, label %106, label %98
 
@@ -2712,7 +2712,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %.fca.1.gep.i.i364 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %2, ptr %.fca.1.gep.i.i364, align 8, !noalias !849
   %169 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i369 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %169, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !850
+  %bcmp.i.i369 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %169, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !850
   %170 = icmp eq i32 %bcmp.i.i369, 0
   br i1 %170, label %208, label %198
 
@@ -3474,7 +3474,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !1023
   store ptr %1, ptr %27, align 8, !noalias !1023
   store ptr %2, ptr %.fca.1.gep.i.i3221590, align 8, !noalias !1023
-  %bcmp.i.i327 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %242, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1026
+  %bcmp.i.i327 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %242, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1026
   %459 = icmp eq i32 %bcmp.i.i327, 0
   br i1 %459, label %485, label %476
 
@@ -3671,7 +3671,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %521 = load i32, ptr %520, align 4, !noalias !1064
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079), !noalias !1064
   %522 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i285 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %522, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1082
+  %bcmp.i.i285 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %522, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1082
   %523 = icmp eq i32 %bcmp.i.i285, 0
   br i1 %523, label %538, label %530
 
@@ -3886,7 +3886,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %.fca.1.gep.i.i238 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %2, ptr %.fca.1.gep.i.i238, align 8, !noalias !1140
   %601 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i243 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %601, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1141
+  %bcmp.i.i243 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %601, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1141
   %602 = icmp eq i32 %bcmp.i.i243, 0
   br i1 %602, label %640, label %630
 
@@ -4582,7 +4582,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !1282
   store ptr %1, ptr %33, align 8, !noalias !1282
   store ptr %2, ptr %.fca.1.gep.i.i1961717, align 8, !noalias !1282
-  %bcmp.i.i201 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %668, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1285
+  %bcmp.i.i201 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %668, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1285
   %861 = icmp eq i32 %bcmp.i.i201, 0
   br i1 %861, label %887, label %878
 
@@ -4783,7 +4783,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %.fca.1.gep.i.i154 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %2, ptr %.fca.1.gep.i.i154, align 8, !noalias !1344
   %921 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i159 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %921, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1345
+  %bcmp.i.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %921, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1345
   %922 = icmp eq i32 %bcmp.i.i159, 0
   br i1 %922, label %959, label %949
 
@@ -5534,7 +5534,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %2, ptr %.fca.1.gep.i.i, align 8, !noalias !1542
   %1204 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1204, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1543
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1204, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1543
   %1205 = icmp eq i32 %bcmp.i.i, 0
   br i1 %1205, label %1242, label %1232
 
@@ -6254,7 +6254,7 @@ _ZN14regex_automata4util5start6Config18from_input_reverse17h624f281abb1ab2b7E.ex
   %.fca.1.gep.i.i491058 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %2, ptr %.fca.1.gep.i.i491058, align 8, !noalias !1706
   %44 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i54 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %44, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1708
+  %bcmp.i.i54 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %44, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1708
   %45 = icmp eq i32 %bcmp.i.i54, 0
   br i1 %45, label %85, label %75
 
@@ -7187,7 +7187,7 @@ _ZN14regex_automata4util5start6Config18from_input_reverse17h624f281abb1ab2b7E.ex
   %.fca.1.gep.i.i1067 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %2, ptr %.fca.1.gep.i.i1067, align 8, !noalias !1957
   %383 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %383, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1959
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %383, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !1959
   %384 = icmp eq i32 %bcmp.i.i, 0
   br i1 %384, label %424, label %414
 
@@ -8112,7 +8112,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %60 = load i32, ptr %59, align 4, !alias.scope !2171, !noalias !2174
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2179), !noalias !2162
   %61 = getelementptr inbounds i8, ptr %0, i64 656
-  %bcmp.i.i54 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %61, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2182
+  %bcmp.i.i54 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %61, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2182
   %62 = icmp eq i32 %bcmp.i.i54, 0
   br i1 %62, label %77, label %69
 
@@ -8842,7 +8842,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2361
   store ptr %0, ptr %15, align 8, !noalias !2361
   store ptr %1, ptr %.fca.1.gep.i.i91, align 8, !noalias !2361
-  %bcmp.i.i96 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %180, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2363
+  %bcmp.i.i96 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %180, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2363
   %329 = icmp eq i32 %bcmp.i.i96, 0
   br i1 %329, label %355, label %346
 
@@ -9050,7 +9050,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %1, ptr %.fca.1.gep.i.i, align 8, !noalias !2425
   %392 = getelementptr inbounds i8, ptr %0, i64 656
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %392, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2426
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %392, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2426
   %393 = icmp eq i32 %bcmp.i.i, 0
   br i1 %393, label %430, label %420
 
@@ -9758,7 +9758,7 @@ _ZN14regex_automata4util5start6Config18from_input_reverse17h624f281abb1ab2b7E.ex
   %.fca.1.gep.i.i276 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %1, ptr %.fca.1.gep.i.i276, align 8, !noalias !2598
   %35 = getelementptr inbounds i8, ptr %0, i64 656
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %35, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2600
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %35, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2600
   %36 = icmp eq i32 %bcmp.i.i, 0
   br i1 %36, label %76, label %66
 
@@ -10515,7 +10515,7 @@ _ZN14regex_automata4util5start6Config18from_input_reverse17h624f281abb1ab2b7E.ex
   %32 = getelementptr inbounds i8, ptr %3, i64 4
   %33 = load i32, ptr %32, align 4, !alias.scope !2762, !noalias !2765
   %34 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %34, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2771
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %34, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !2771
   %35 = icmp eq i32 %bcmp.i, 0
   br i1 %35, label %81, label %72
 
@@ -11480,7 +11480,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   %31 = load i32, ptr %30, align 4, !alias.scope !3096, !noalias !3099
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3102)
   %32 = getelementptr inbounds i8, ptr %1, i64 656
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %32, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !3105
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %32, ptr noundef nonnull dereferenceable(32) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.17, i64 32), !noalias !3105
   %33 = icmp eq i32 %bcmp.i, 0
   br i1 %33, label %79, label %70
 

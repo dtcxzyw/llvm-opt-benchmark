@@ -3690,7 +3690,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNSt6vect
   %459 = getelementptr inbounds i8, ptr %1, i64 980
   %460 = getelementptr inbounds i8, ptr %1, i64 984
   %461 = getelementptr inbounds i8, ptr %1, i64 988
-  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %454, ptr noundef nonnull %455, ptr noundef %457, ptr %458, ptr noundef nonnull %459, ptr noundef nonnull %460, ptr noundef nonnull %461)
+  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %454, ptr noundef nonnull readonly %455, ptr noundef readonly %457, ptr %458, ptr noundef nonnull %459, ptr noundef nonnull %460, ptr noundef nonnull %461)
   br label %462
 
 462:                                              ; preds = %449, %453
@@ -10374,7 +10374,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   %299 = getelementptr inbounds i8, ptr %298, i64 720
   %300 = getelementptr inbounds i8, ptr %9, i64 912
   %301 = load ptr, ptr %300, align 8
-  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %297, ptr noundef nonnull %299, ptr noundef %39, ptr %301, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %297, ptr noundef nonnull readonly %299, ptr noundef readonly %39, ptr %301, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66)
           to label %302 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 302:                                              ; preds = %294

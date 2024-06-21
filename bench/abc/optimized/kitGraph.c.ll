@@ -1418,7 +1418,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg28, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %10 = call i32 @Extra_FileSize(ptr noundef %0) #20
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %11 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
   %12 = trunc i64 %11 to i32
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.preheader.i, label %Kit_TruthFindVarNum.exit.thread
@@ -1442,7 +1442,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 Kit_TruthFindVarNum.exit:                         ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  %19 = call i32 @atoi(ptr nocapture noundef nonnull %18) #23
+  %19 = call i32 @atoi(ptr nocapture noundef nonnull readonly %18) #23
   %.fr = freeze i32 %19
   %20 = icmp slt i32 %.fr, 6
   %21 = add nsw i32 %.fr, -5

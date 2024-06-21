@@ -599,7 +599,7 @@ define internal void @_set_pbs_options(i32 noundef %0, ptr noundef %1) unnamed_a
   %71 = load i32, ptr %7, align 4
   %72 = sub nsw i32 %71, %61
   %73 = sext i32 %72 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %63, i64 %73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %63, i64 %73, i1 false)
   %74 = load i32, ptr %7, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %27, i64 %75
@@ -671,7 +671,7 @@ _get_pbs_option_value.exit.i:                     ; preds = %78, %.critedge.i.i
   %100 = load i32, ptr %7, align 4
   %101 = sub nsw i32 %100, %90
   %102 = sext i32 %101 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr nonnull align 1 %92, i64 %102, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr nonnull readonly align 1 %92, i64 %102, i1 false)
   %103 = load i32, ptr %7, align 4
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %27, i64 %104
@@ -796,7 +796,7 @@ _get_pbs_option_value.exit122.i:                  ; preds = %107, %.critedge.i11
   %156 = load i32, ptr %7, align 4
   %157 = sub nsw i32 %156, %146
   %158 = sext i32 %157 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr nonnull align 1 %148, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr nonnull readonly align 1 %148, i64 %158, i1 false)
   %159 = load i32, ptr %7, align 4
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i8, ptr %27, i64 %160
@@ -886,7 +886,7 @@ _get_pbs_option_value.exit140.i:                  ; preds = %163, %.critedge.i13
   %196 = load i32, ptr %7, align 4
   %197 = sub nsw i32 %196, %186
   %198 = sext i32 %197 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr nonnull align 1 %188, i64 %198, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr nonnull readonly align 1 %188, i64 %198, i1 false)
   %199 = load i32, ptr %7, align 4
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %27, i64 %200
@@ -953,7 +953,7 @@ _get_pbs_option_value.exit154.i:                  ; preds = %203, %.critedge.i15
   %223 = load i32, ptr %7, align 4
   %224 = sub nsw i32 %223, %213
   %225 = sext i32 %224 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr nonnull align 1 %215, i64 %225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr nonnull readonly align 1 %215, i64 %225, i1 false)
   %226 = load i32, ptr %7, align 4
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds i8, ptr %27, i64 %227
@@ -1019,7 +1019,7 @@ _get_pbs_option_value.exit168.i:                  ; preds = %230, %.critedge.i16
   %250 = load i32, ptr %7, align 4
   %251 = sub nsw i32 %250, %240
   %252 = sext i32 %251 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %249, ptr nonnull align 1 %242, i64 %252, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %249, ptr nonnull readonly align 1 %242, i64 %252, i1 false)
   %253 = load i32, ptr %7, align 4
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds i8, ptr %27, i64 %254
@@ -1086,7 +1086,7 @@ _get_pbs_option_value.exit182.i:                  ; preds = %257, %.critedge.i17
   %277 = load i32, ptr %7, align 4
   %278 = sub nsw i32 %277, %267
   %279 = sext i32 %278 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %276, ptr nonnull align 1 %269, i64 %279, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %276, ptr nonnull readonly align 1 %269, i64 %279, i1 false)
   %280 = load i32, ptr %7, align 4
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %27, i64 %281
@@ -1148,7 +1148,7 @@ _get_pbs_option_value.exit196.i:                  ; preds = %284, %.critedge.i19
   %302 = load i32, ptr %7, align 4
   %303 = sub nsw i32 %302, %292
   %304 = sext i32 %303 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr nonnull align 1 %294, i64 %304, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr nonnull readonly align 1 %294, i64 %304, i1 false)
   %305 = load i32, ptr %7, align 4
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds i8, ptr %27, i64 %306
@@ -1220,7 +1220,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   %330 = getelementptr inbounds i8, ptr %301, i64 %322
   %331 = sub nsw i32 %indvars76.i.i, %321
   %332 = sext i32 %331 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %329, ptr nonnull align 1 %330, i64 %332, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %329, ptr nonnull readonly align 1 %330, i64 %332, i1 false)
   %sext.i.i = shl i64 %indvars.iv.i.i.i, 32
   %333 = ashr exact i64 %sext.i.i, 32
   %334 = getelementptr inbounds i8, ptr %301, i64 %333
@@ -1334,7 +1334,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   %382 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %381, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__._get_pbs_node_name) #12
   %383 = sub nsw i32 %.7.i.i, %.05565.i.i
   %384 = sext i32 %383 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %382, ptr nonnull align 1 %317, i64 %384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %382, ptr nonnull readonly align 1 %317, i64 %384, i1 false)
   %385 = sext i32 %.7.i.i to i64
   %386 = getelementptr inbounds i8, ptr %301, i64 %385
   %387 = load i8, ptr %386, align 1
@@ -1519,7 +1519,7 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %403, %.thread.i.i
   %453 = load i32, ptr %7, align 4
   %454 = sub nsw i32 %453, %443
   %455 = sext i32 %454 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %452, ptr nonnull align 1 %445, i64 %455, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %452, ptr nonnull readonly align 1 %445, i64 %455, i1 false)
   %456 = load i32, ptr %7, align 4
   %457 = sext i32 %456 to i64
   %458 = getelementptr inbounds i8, ptr %27, i64 %457
@@ -1858,12 +1858,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
 598:                                              ; preds = %596
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %599 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 98) #11
+  %599 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 98) #11
   %.not.i19 = icmp eq ptr %599, null
   br i1 %.not.i19, label %600, label %602
 
 600:                                              ; preds = %598
-  %601 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 66) #11
+  %601 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 66) #11
   %.not8.i = icmp eq ptr %601, null
   br i1 %.not8.i, label %603, label %602
 
@@ -1872,12 +1872,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
   br label %603
 
 603:                                              ; preds = %602, %600
-  %604 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 101) #11
+  %604 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 101) #11
   %.not10.i = icmp eq ptr %604, null
   br i1 %.not10.i, label %605, label %607
 
 605:                                              ; preds = %603
-  %606 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 69) #11
+  %606 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 69) #11
   %.not11.i = icmp eq ptr %606, null
   br i1 %.not11.i, label %610, label %607
 
@@ -1889,12 +1889,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
   br label %610
 
 610:                                              ; preds = %607, %605
-  %611 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 97) #11
+  %611 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 97) #11
   %.not13.i = icmp eq ptr %611, null
   br i1 %.not13.i, label %612, label %614
 
 612:                                              ; preds = %610
-  %613 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 65) #11
+  %613 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 65) #11
   %.not14.i = icmp eq ptr %613, null
   br i1 %.not14.i, label %617, label %614
 
@@ -1906,12 +1906,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
   br label %617
 
 617:                                              ; preds = %614, %612
-  %618 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 110) #11
+  %618 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 110) #11
   %.not16.i = icmp eq ptr %618, null
   br i1 %.not16.i, label %619, label %621
 
 619:                                              ; preds = %617
-  %620 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 78) #11
+  %620 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 78) #11
   %.not17.i = icmp eq ptr %620, null
   br i1 %.not17.i, label %._crit_edge.i20, label %621
 

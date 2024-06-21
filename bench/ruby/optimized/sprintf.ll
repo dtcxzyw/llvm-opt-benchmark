@@ -242,7 +242,7 @@ RSTRING_PTR.exit1211:                             ; preds = %75, %81
 
 82:                                               ; preds = %RSTRING_PTR.exit1211
   %83 = getelementptr i8, ptr %.sroa.2.0.i1210, i64 %.08793129
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %.08683130, i64 %67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr readonly align 1 %.08683130, i64 %67, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit1211, %82
@@ -1729,7 +1729,7 @@ RSTRING_PTR.exit1294:                             ; preds = %714, %721
   br i1 %.not.i1295, label %ruby_nonempty_memcpy.exit1296, label %722
 
 722:                                              ; preds = %RSTRING_PTR.exit1294
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %715, ptr align 1 %.sroa.2.0.i1293, i64 %.0981, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %715, ptr readonly align 1 %.sroa.2.0.i1293, i64 %.0981, i1 false)
   br label %ruby_nonempty_memcpy.exit1296
 
 ruby_nonempty_memcpy.exit1296:                    ; preds = %RSTRING_PTR.exit1294, %722
@@ -1809,7 +1809,7 @@ RSTRING_PTR.exit1304:                             ; preds = %RSTRING_PTR.exit130
   br i1 %.not.i1305, label %ruby_nonempty_memcpy.exit1306, label %756
 
 756:                                              ; preds = %RSTRING_PTR.exit1304
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %749, ptr align 1 %.sroa.2.0.i1303, i64 %.1982, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %749, ptr readonly align 1 %.sroa.2.0.i1303, i64 %.1982, i1 false)
   br label %ruby_nonempty_memcpy.exit1306
 
 ruby_nonempty_memcpy.exit1306:                    ; preds = %RSTRING_PTR.exit1304, %756
@@ -2795,7 +2795,7 @@ RSTRING_PTR.exit1387:                             ; preds = %1146, %1152
 
 1153:                                             ; preds = %RSTRING_PTR.exit1387
   %1154 = getelementptr i8, ptr %.sroa.2.0.i1386, i64 %.6885
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1154, ptr align 1 %.110081559, i64 %1138, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1154, ptr readonly align 1 %.110081559, i64 %1138, i1 false)
   br label %ruby_nonempty_memcpy.exit1389
 
 ruby_nonempty_memcpy.exit1389:                    ; preds = %RSTRING_PTR.exit1387, %1153
@@ -2974,7 +2974,7 @@ RSTRING_PTR.exit1402:                             ; preds = %1220, %1226
 
 1227:                                             ; preds = %RSTRING_PTR.exit1402
   %1228 = getelementptr i8, ptr %.sroa.2.0.i1401, i64 %.9
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1228, ptr align 1 %.29941542, i64 %1212, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1228, ptr readonly align 1 %.29941542, i64 %1212, i1 false)
   br label %ruby_nonempty_memcpy.exit1404
 
 ruby_nonempty_memcpy.exit1404:                    ; preds = %RSTRING_PTR.exit1402, %1227
@@ -3284,7 +3284,7 @@ RSTRING_PTR.exit1420:                             ; preds = %1360, %1369
 
 1373:                                             ; preds = %1371
   %1374 = getelementptr i8, ptr %.sroa.2.0.i1415, i64 %.12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1374, ptr align 1 %.sroa.2.0.i1419, i64 %1372, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1374, ptr readonly align 1 %.sroa.2.0.i1419, i64 %1372, i1 false)
   br label %ruby_nonempty_memcpy.exit1422
 
 1375:                                             ; preds = %RSTRING_PTR.exit1420
@@ -3327,7 +3327,7 @@ ruby_nonempty_memcpy.exit1422:                    ; preds = %1373, %1371, %1375
 
 1389:                                             ; preds = %1386
   %1390 = getelementptr i8, ptr %1387, i64 %1388
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1390, ptr align 1 %.sroa.2.0.i1419, i64 %1365, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1390, ptr readonly align 1 %.sroa.2.0.i1419, i64 %1365, i1 false)
   br label %ruby_nonempty_memcpy.exit1424
 
 ruby_nonempty_memcpy.exit1424:                    ; preds = %1386, %1389
@@ -3342,7 +3342,7 @@ ruby_nonempty_memcpy.exit1426:                    ; preds = %1392
   %1394 = getelementptr i8, ptr %.sroa.2.0.i1419, i64 %1365
   %1395 = sub nsw i64 0, %.pre-phi
   %1396 = getelementptr i8, ptr %1394, i64 %1395
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1393, ptr align 1 %1396, i64 %.pre-phi, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1393, ptr readonly align 1 %1396, i64 %.pre-phi, i1 false)
   %1397 = add i64 %.14, %.pre-phi
   br label %1398
 
@@ -3522,7 +3522,7 @@ RSTRING_PTR.exit1435:                             ; preds = %1458, %1464
   %1472 = zext nneg i32 %.2877 to i64
   %1473 = sub i64 %1466, %1472
   %1474 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1473
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1474, ptr noundef nonnull align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1474, ptr noundef nonnull readonly align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
   br label %rbimpl_rstring_getmem.exit
 
 1475:                                             ; preds = %RSTRING_PTR.exit1435
@@ -3537,7 +3537,7 @@ RSTRING_PTR.exit1435:                             ; preds = %1458, %1464
 1479:                                             ; preds = %1476, %1475
   %1480 = add i64 %1466, -3
   %1481 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1480
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1481, ptr noundef nonnull align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1481, ptr noundef nonnull readonly align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
   br label %rbimpl_rstring_getmem.exit
 
 rb_float_value_inline.exit1431.thread:            ; preds = %1424, %rb_float_value_inline.exit1431
@@ -4382,7 +4382,7 @@ define internal noundef i32 @BSD__sfvwrite(ptr nocapture noundef %0, ptr nocaptu
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.133.lcssa, i64 %spec.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %.133.lcssa, i64 %spec.select, i1 false)
   %.pre = load i64, ptr %15, align 8
   br label %ruby_nonempty_memcpy.exit
 
@@ -5085,7 +5085,7 @@ BSD__sprint.exit755:                              ; preds = %166
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %307
 
 307:                                              ; preds = %302
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %.042.i, i64 %306, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr readonly align 1 %.042.i, i64 %306, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %307, %302
@@ -7930,7 +7930,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %10
 
 48:                                               ; preds = %.lr.ph
   %49 = load ptr, ptr %.04056, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.04155, ptr align 1 %49, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.04155, ptr readonly align 1 %49, i64 %47, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %.lr.ph, %48

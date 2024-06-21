@@ -390,14 +390,14 @@ if.end5.i:                                        ; preds = %if.end.i
   %12 = load i32, ptr %dataCapacity.i, align 4
   %dataCapacity7.i = getelementptr inbounds i8, ptr %call.i, i64 144148
   store i32 %12, ptr %dataCapacity7.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %call.i, ptr noundef nonnull align 8 dereferenceable(2176) %10, i64 2176, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(2176) %10, i64 2176, i1 false)
   %index2.i = getelementptr inbounds i8, ptr %call.i, i64 2176
   %index212.i = getelementptr inbounds i8, ptr %10, i64 2176
   %index2Length.i = getelementptr inbounds i8, ptr %10, i64 144144
   %13 = load i32, ptr %index2Length.i, align 8
   %conv14.i = sext i32 %13 to i64
   %mul15.i = shl nsw i64 %conv14.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %index2.i, ptr nonnull align 8 %index212.i, i64 %mul15.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %index2.i, ptr nonnull readonly align 8 %index212.i, i64 %mul15.i, i1 false)
   %index2NullOffset.i = getelementptr inbounds i8, ptr %10, i64 144160
   %14 = load i32, ptr %index2NullOffset.i, align 8
   %index2NullOffset17.i = getelementptr inbounds i8, ptr %call.i, i64 144160
@@ -430,7 +430,7 @@ do.body30.i:                                      ; preds = %if.end5.i
   %conv35.i = sext i32 %19 to i64
   %21 = lshr i64 %conv35.i, 3
   %mul36.i = and i64 %21, 2305843009213693948
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %map.i, ptr nonnull align 8 %map32.i, i64 %mul36.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %map.i, ptr nonnull readonly align 8 %map32.i, i64 %mul36.i, i1 false)
   %firstFreeBlock38.i = getelementptr inbounds i8, ptr %10, i64 144156
   %22 = load i32, ptr %firstFreeBlock38.i, align 4
   br label %if.end40.i

@@ -580,7 +580,7 @@ for.body.i:                                       ; preds = %if.end20, %for.inc.
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %if.end20 ]
   %name1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 56
   %6 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %6) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %6) #20
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then23, label %for.inc.i
 
@@ -2445,7 +2445,7 @@ if.end9:                                          ; preds = %sw.bb4
 
 if.then.i:                                        ; preds = %if.end9
   %sub.i = sub i32 0, %call11
-  %call.i = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i, ptr noundef nonnull @.str.71, ptr noundef %errp)
+  %call.i = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i, ptr noundef nonnull @.str.71, ptr noundef %errp)
   br label %return
 
 if.else.i:                                        ; preds = %if.end9
@@ -2453,13 +2453,13 @@ if.else.i:                                        ; preds = %if.end9
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull %request, ptr noundef %errp)
+  %call5.i = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, ptr noundef %errp)
   br label %return
 
 if.else6.i:                                       ; preds = %if.else.i
   %sub8.i = sub i32 0, %call11
   %cond.i = select i1 %cmp1.i, i32 %sub8.i, i32 0
-  %call9.i = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %cond.i, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %cond.i, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 sw.bb13:                                          ; preds = %entry
@@ -2491,7 +2491,7 @@ sw.bb13:                                          ; preds = %entry
 
 if.then.i122:                                     ; preds = %sw.bb13
   %sub.i123 = sub i32 0, %call39
-  %call.i124 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i123, ptr noundef nonnull @.str.71, ptr noundef %errp)
+  %call.i124 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i123, ptr noundef nonnull @.str.71, ptr noundef %errp)
   br label %return
 
 if.else.i113:                                     ; preds = %sw.bb13
@@ -2499,13 +2499,13 @@ if.else.i113:                                     ; preds = %sw.bb13
   br i1 %cmp3.i114, label %if.then4.i120, label %if.else6.i115
 
 if.then4.i120:                                    ; preds = %if.else.i113
-  %call5.i121 = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull %request, ptr noundef %errp)
+  %call5.i121 = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, ptr noundef %errp)
   br label %return
 
 if.else6.i115:                                    ; preds = %if.else.i113
   %sub8.i116 = sub i32 0, %call39
   %cond.i117 = select i1 %cmp1.i111, i32 %sub8.i116, i32 0
-  %call9.i118 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %cond.i117, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i118 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %cond.i117, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 sw.bb41:                                          ; preds = %entry
@@ -2525,7 +2525,7 @@ sw.bb42:                                          ; preds = %entry
 
 if.then.i139:                                     ; preds = %sw.bb42
   %sub.i140 = sub i32 0, %call45
-  %call.i141 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i140, ptr noundef nonnull @.str.72, ptr noundef %errp)
+  %call.i141 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i140, ptr noundef nonnull @.str.72, ptr noundef %errp)
   br label %return
 
 if.else.i130:                                     ; preds = %sw.bb42
@@ -2533,13 +2533,13 @@ if.else.i130:                                     ; preds = %sw.bb42
   br i1 %cmp3.i131, label %if.then4.i137, label %if.else6.i132
 
 if.then4.i137:                                    ; preds = %if.else.i130
-  %call5.i138 = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull %request, ptr noundef %errp)
+  %call5.i138 = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, ptr noundef %errp)
   br label %return
 
 if.else6.i132:                                    ; preds = %if.else.i130
   %sub8.i133 = sub i32 0, %call45
   %cond.i134 = select i1 %cmp1.i128, i32 %sub8.i133, i32 0
-  %call9.i135 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %cond.i134, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i135 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %cond.i134, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 sw.bb47:                                          ; preds = %entry
@@ -2581,7 +2581,7 @@ if.end63:                                         ; preds = %if.then59, %sw.bb47
 
 if.then.i156:                                     ; preds = %if.end63
   %sub.i157 = sub i32 0, %ret.0
-  %call.i158 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i157, ptr noundef nonnull @.str.73, ptr noundef %errp)
+  %call.i158 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i157, ptr noundef nonnull @.str.73, ptr noundef %errp)
   br label %return
 
 if.else.i147:                                     ; preds = %if.end63.thread, %if.end63
@@ -2592,13 +2592,13 @@ if.else.i147:                                     ; preds = %if.end63.thread, %i
   br i1 %cmp3.i148, label %if.then4.i154, label %if.else6.i149
 
 if.then4.i154:                                    ; preds = %if.else.i147
-  %call5.i155 = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull %request, ptr noundef %errp)
+  %call5.i155 = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, ptr noundef %errp)
   br label %return
 
 if.else6.i149:                                    ; preds = %if.else.i147
   %sub8.i150 = sub i32 0, %ret.0204
   %cond.i151 = select i1 %cmp1.i145205, i32 %sub8.i150, i32 0
-  %call9.i152 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %cond.i151, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i152 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %cond.i151, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 sw.bb65:                                          ; preds = %entry
@@ -2649,11 +2649,11 @@ if.then90:                                        ; preds = %if.then80
   br i1 %cmp.i161, label %if.then.i170, label %if.else.i163
 
 if.then.i170:                                     ; preds = %if.then90
-  %call.i171 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef nonnull @.str.76, ptr noundef %errp)
+  %call.i171 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef 22, ptr noundef nonnull @.str.76, ptr noundef %errp)
   br label %return
 
 if.else.i163:                                     ; preds = %if.then90
-  %call9.i166 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i166 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 if.end92:                                         ; preds = %if.then80
@@ -2783,11 +2783,11 @@ if.then162:                                       ; preds = %if.else158
   br i1 %cmp.i174, label %if.then.i183, label %if.else.i176
 
 if.then.i183:                                     ; preds = %if.then162
-  %call.i184 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef nonnull @.str.79, ptr noundef %errp)
+  %call.i184 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef 22, ptr noundef nonnull @.str.79, ptr noundef %errp)
   br label %return
 
 if.else.i176:                                     ; preds = %if.then162
-  %call9.i179 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i179 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 if.else164:                                       ; preds = %if.else158
@@ -2803,11 +2803,11 @@ sw.default:                                       ; preds = %entry
   br i1 %cmp.i187, label %if.then.i196, label %if.else.i189
 
 if.then.i196:                                     ; preds = %sw.default
-  %call.i197 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef %call168, ptr noundef %errp)
+  %call.i197 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef 22, ptr noundef %call168, ptr noundef %errp)
   br label %nbd_send_generic_reply.exit198
 
 if.else.i189:                                     ; preds = %sw.default
-  %call9.i192 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i192 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %nbd_send_generic_reply.exit198
 
 nbd_send_generic_reply.exit198:                   ; preds = %if.then.i196, %if.else.i189
@@ -3680,7 +3680,7 @@ if.end7:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end7
   %sub.i = sub i32 0, %call
-  %call.i = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i, ptr noundef nonnull @.str.83, ptr noundef %errp)
+  %call.i = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i, ptr noundef nonnull @.str.83, ptr noundef %errp)
   br label %nbd_send_generic_reply.exit
 
 if.else.i:                                        ; preds = %if.end7
@@ -3688,13 +3688,13 @@ if.else.i:                                        ; preds = %if.end7
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull %request, ptr noundef %errp)
+  %call5.i = tail call i32 @nbd_co_send_chunk_done(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, ptr noundef %errp)
   br label %nbd_send_generic_reply.exit
 
 if.else6.i:                                       ; preds = %if.else.i
   %sub8.i = sub i32 0, %call
   %cond.i = select i1 %cmp1.i, i32 %sub8.i, i32 0
-  %call9.i = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %cond.i, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %cond.i, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %nbd_send_generic_reply.exit
 
 nbd_send_generic_reply.exit:                      ; preds = %if.then.i, %if.then4.i, %if.else6.i
@@ -3748,11 +3748,11 @@ if.then12:                                        ; preds = %if.then9
   br i1 %cmp.i, label %if.then.i, label %if.else6.i
 
 if.then.i:                                        ; preds = %if.then12
-  %call.i = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i, ptr noundef nonnull @.str.72, ptr noundef %errp)
+  %call.i = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i, ptr noundef nonnull @.str.72, ptr noundef %errp)
   br label %return
 
 if.else6.i:                                       ; preds = %if.then12
-  %call9.i = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 if.end15:                                         ; preds = %if.then9, %if.end7
@@ -3799,11 +3799,11 @@ if.then36:                                        ; preds = %if.end28
   br i1 %cmp.i41, label %if.then.i53, label %if.else6.i46
 
 if.then.i53:                                      ; preds = %if.then36
-  %call.i55 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i54, ptr noundef nonnull @.str.85, ptr noundef %errp)
+  %call.i55 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i54, ptr noundef nonnull @.str.85, ptr noundef %errp)
   br label %return
 
 if.else6.i46:                                     ; preds = %if.then36
-  %call9.i49 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %sub.i54, ptr noundef null, i64 noundef 0, ptr noundef %errp)
+  %call9.i49 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull readonly %request, i32 noundef %sub.i54, ptr noundef null, i64 noundef 0, ptr noundef %errp)
   br label %return
 
 if.end38:                                         ; preds = %if.end28
@@ -5463,7 +5463,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_nbd_negotiate_handle_starttls.exit.i:       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end.i155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %48 = load ptr, ptr %ioc, align 8
-  %call.i.i156 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i.i156 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp2.i = icmp slt i32 %call.i.i156, 0
   br i1 %cmp2.i, label %nbd_negotiate_handle_starttls.exit.thread, label %if.end4.i
 
@@ -5680,7 +5680,7 @@ if.end17.i.i:                                     ; preds = %trace_nbd_negotiate
   %78 = trunc nuw i64 %add.i.i to i32
   %conv.i.i = add nuw nsw i32 %78, 4
   store i32 %conv.i.i, ptr %len.i.i, align 4
-  %call19.i.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 2, i32 noundef %conv.i.i, ptr noundef nonnull %spec.select.i.i170)
+  %call19.i.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 2, i32 noundef %conv.i.i, ptr noundef nonnull %spec.select.i.i170)
   %cmp20.i.i = icmp slt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.end146.thread, label %if.end23.i.i
 
@@ -5719,7 +5719,7 @@ nbd_negotiate_send_rep_list.exit.i:               ; preds = %if.end35.i.i
   br i1 %tobool.not.i174, label %for.end.i, label %for.body.i, !llvm.loop !27
 
 for.end.i:                                        ; preds = %nbd_negotiate_send_rep_list.exit.i, %for.cond.preheader.i
-  %call.i7.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i7.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   br label %if.end146
 
 if.end146.thread:                                 ; preds = %if.end17.i.i, %cleanup.sink.split.i.i
@@ -5731,7 +5731,7 @@ if.end146.thread:                                 ; preds = %if.end17.i.i, %clea
   br label %return
 
 sw.bb72:                                          ; preds = %if.then64
-  %call.i176 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef null)
+  %call.i176 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef null)
   br label %return
 
 sw.bb74:                                          ; preds = %if.then64
@@ -5947,7 +5947,7 @@ for.body.i.i:                                     ; preds = %if.end19.i190, %for
   %exp.06.i.i = phi ptr [ %exp.0.i.i, %for.inc.i.i ], [ %exp.04.i.i, %if.end19.i190 ]
   %name1.i.i = getelementptr inbounds i8, ptr %exp.06.i.i, i64 56
   %112 = load ptr, ptr %name1.i.i, align 8
-  %call.i125.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.val.pre.i, ptr noundef nonnull dereferenceable(1) %112) #20
+  %call.i125.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.val.pre.i, ptr noundef nonnull dereferenceable(1) %112) #20
   %cmp.i126.i = icmp eq i32 %call.i125.i, 0
   br i1 %cmp.i126.i, label %if.end25.i, label %for.inc.i.i
 
@@ -6155,7 +6155,7 @@ if.then142.i:                                     ; preds = %land.lhs.true136.i
   br label %nbd_negotiate_handle_info.exit.thread
 
 if.end144.i:                                      ; preds = %land.lhs.true136.i, %land.lhs.true134.i, %if.end130.i
-  %call.i149.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i149.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp146.i = icmp slt i32 %call.i149.i, 0
   br i1 %cmp146.i, label %nbd_negotiate_handle_info.exit.thread, label %if.end149.i
 
@@ -6293,7 +6293,7 @@ if.then111:                                       ; preds = %if.else108
   br label %if.end146
 
 if.else113:                                       ; preds = %if.else108
-  %call.i226 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i226 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   store i32 3, ptr %mode, align 4
   br label %if.end146
 
@@ -6338,7 +6338,7 @@ for.body.i.i236:                                  ; preds = %if.end12.i, %for.in
   %exp.06.i.i237 = phi ptr [ %exp.0.i.i243, %for.inc.i.i241 ], [ %exp.04.i.i234, %if.end12.i ]
   %name1.i.i238 = getelementptr inbounds i8, ptr %exp.06.i.i237, i64 56
   %158 = load ptr, ptr %name1.i.i238, align 8
-  %call.i.i239 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %export_name.val.pre.i, ptr noundef nonnull dereferenceable(1) %158) #20
+  %call.i.i239 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %export_name.val.pre.i, ptr noundef nonnull dereferenceable(1) %158) #20
   %cmp.i.i240 = icmp eq i32 %call.i.i239, 0
   br i1 %cmp.i.i240, label %if.end19.i249, label %for.inc.i.i241
 
@@ -6591,7 +6591,7 @@ if.end13.i.i:                                     ; preds = %nbd_opt_read.exit34
   %idxprom.i.i = zext i32 %197 to i64
   %arrayidx.i.i = getelementptr i8, ptr %call7.i.i, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
-  %call1.i.i.i.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call7.i.i, ptr noundef nonnull dereferenceable(6) @.str.194, i64 noundef 5) #20
+  %call1.i.i.i.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %call7.i.i, ptr noundef nonnull readonly dereferenceable(6) @.str.194, i64 noundef 5) #20
   %cmp.i.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.end.i35.i.i, label %if.end16.i.i
 
@@ -6667,7 +6667,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
   br label %nbd_meta_empty_or_pattern.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %trace_nbd_negotiate_meta_query_parse.exit.i.i.i
-  %call.i1.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.195) #20
+  %call.i1.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.195) #20
   %cmp1.i.i.i.i = icmp eq i32 %call.i1.i.i.i, 0
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.end3.i.i.i.i
 
@@ -6754,7 +6754,7 @@ if.then2.i.i.i:                                   ; preds = %nbd_meta_empty_or_p
   br label %nbd_negotiate_meta_query.exit.thread.i
 
 if.end16.i.i:                                     ; preds = %if.end13.i.i
-  %call1.i.i37.i.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call7.i.i, ptr noundef nonnull dereferenceable(6) @.str.200, i64 noundef 5) #20
+  %call1.i.i37.i.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call7.i.i, ptr noundef nonnull readonly dereferenceable(6) @.str.200, i64 noundef 5) #20
   %cmp.i.i38.i.i = icmp eq i32 %call1.i.i37.i.i, 0
   br i1 %cmp.i.i38.i.i, label %if.end.i39.i.i, label %if.end19.i.i
 
@@ -6901,7 +6901,7 @@ trace_nbd_negotiate_meta_query_parse.exit47.i.i.i: ; preds = %if.else.i.i42.i.i.
   br label %nbd_negotiate_meta_query.exit.thread.i
 
 if.end21.i.i.i:                                   ; preds = %if.end12.i.i.i
-  %call1.i49.i.i.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i40.i.i, ptr noundef nonnull dereferenceable(14) @.str.202, i64 noundef 13) #20
+  %call1.i49.i.i.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i40.i.i, ptr noundef nonnull readonly dereferenceable(14) @.str.202, i64 noundef 13) #20
   %cmp.i50.i.i.i = icmp eq i32 %call1.i49.i.i.i, 0
   br i1 %cmp.i50.i.i.i, label %if.then23.i.i.i, label %if.end48.i.i.i
 
@@ -7279,7 +7279,7 @@ for.inc100.i:                                     ; preds = %if.end98.i, %for.bo
 
 for.end102.i:                                     ; preds = %for.inc100.i, %if.end78.i
   %count.2.lcssa.i = phi i64 [ %count.1.i, %if.end78.i ], [ %count.3.ph.i, %for.inc100.i ]
-  %call.i77.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i77.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp104.i = icmp eq i32 %call.i77.i, 0
   br i1 %cmp104.i, label %if.then106.i, label %nbd_negotiate_meta_queries.exit
 
@@ -7329,7 +7329,7 @@ if.then128:                                       ; preds = %if.else125
   br label %if.end146
 
 if.else130:                                       ; preds = %if.else125
-  %call.i305 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i305 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   store i32 4, ptr %mode, align 4
   br label %if.end146
 
@@ -7557,7 +7557,7 @@ for.body.i:                                       ; preds = %trace_nbd_negotiate
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %trace_nbd_negotiate_handle_export_name_request.exit ]
   %name1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 56
   %17 = load ptr, ptr %name1.i, align 8
-  %call.i55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %17) #20
+  %call.i55 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %17) #20
   %cmp.i56 = icmp eq i32 %call.i55, 0
   br i1 %cmp.i56, label %if.end23, label %for.inc.i
 

@@ -1451,7 +1451,7 @@ entry:
   br i1 %or.cond, label %return, label %if.then3
 
 if.then3:                                         ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %tmpSha, ptr noundef nonnull align 8 dereferenceable(104) %sha, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %tmpSha, ptr noundef nonnull readonly align 8 dereferenceable(104) %sha, i64 104, i1 false)
   %call5 = call i32 @wc_ShaFinal(ptr noundef nonnull %tmpSha, ptr noundef nonnull %hash)
   br label %return
 

@@ -2678,7 +2678,7 @@ define internal i64 @date_s__parse(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   br i1 %.not.i.i.i, label %rb_enc_str_asciicompat_p.exit.i, label %rb_enc_str_asciicompat_p.exit.thread.i
 
 rb_enc_str_asciicompat_p.exit.i:                  ; preds = %3
-  %16 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %14) #23
+  %16 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %14) #23
   %.not3.i.i.i = icmp eq i32 %16, 0
   br i1 %.not3.i.i.i, label %18, label %rb_enc_str_asciicompat_p.exit.thread.i
 
@@ -4342,11 +4342,11 @@ define internal range(i64 1, 0) i64 @d_lite_cweek(i64 noundef %0) #0 {
   br i1 %.not.i.i, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %5)
+  %10 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %5)
   br label %m_cweek.exit
 
 11:                                               ; preds = %1
-  %12 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %5)
+  %12 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %5)
   br label %m_cweek.exit
 
 m_cweek.exit:                                     ; preds = %9, %11
@@ -4660,11 +4660,11 @@ c_gregorian_leap_p.exit:                          ; preds = %11, %15
   br i1 %.not.i7, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %2)
+  %22 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %2)
   br label %m_virtual_sg.exit
 
 23:                                               ; preds = %18
-  %24 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %2)
+  %24 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %2)
   br label %m_virtual_sg.exit
 
 m_virtual_sg.exit:                                ; preds = %21, %23
@@ -4695,11 +4695,11 @@ m_virtual_sg.exit:                                ; preds = %21, %23
   br i1 %.not.i9, label %46, label %48
 
 46:                                               ; preds = %m_virtual_sg.exit
-  %47 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %2)
+  %47 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %2)
   br label %m_virtual_sg.exit11
 
 48:                                               ; preds = %m_virtual_sg.exit
-  %49 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %2)
+  %49 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %2)
   br label %m_virtual_sg.exit11
 
 m_virtual_sg.exit11:                              ; preds = %46, %48
@@ -16572,7 +16572,7 @@ define internal fastcc noundef i64 @date_s__strptime_internal(i32 noundef %0, pt
   br i1 %.not.i.i, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit:                    ; preds = %3
-  %11 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %9) #23
+  %11 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %9) #23
   %.not3.i.i = icmp eq i32 %11, 0
   br i1 %.not3.i.i, label %13, label %rb_enc_str_asciicompat_p.exit.thread
 
@@ -16615,7 +16615,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %19
   br i1 %.not.i.i29, label %rb_enc_str_asciicompat_p.exit32, label %rb_enc_str_asciicompat_p.exit32.thread
 
 rb_enc_str_asciicompat_p.exit32:                  ; preds = %25
-  %30 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %28) #23
+  %30 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %28) #23
   %.not3.i.i31 = icmp eq i32 %30, 0
   br i1 %.not3.i.i31, label %32, label %rb_enc_str_asciicompat_p.exit32.thread
 
@@ -20970,11 +20970,11 @@ define internal i32 @m_yday(ptr nocapture noundef %0) #0 {
   br i1 %.not.i, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %10 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_virtual_sg.exit
 
 11:                                               ; preds = %1
-  %12 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %0)
+  %12 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_virtual_sg.exit
 
 m_virtual_sg.exit:                                ; preds = %9, %11
@@ -21313,11 +21313,11 @@ m_nth.exit:                                       ; preds = %1, %8
   br i1 %.not.i.i, label %12, label %14
 
 12:                                               ; preds = %m_nth.exit
-  %13 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %13 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_cwyear.exit
 
 14:                                               ; preds = %m_nth.exit
-  %15 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %0)
+  %15 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_cwyear.exit
 
 m_cwyear.exit:                                    ; preds = %12, %14
@@ -21405,11 +21405,11 @@ define internal i32 @m_cweek(ptr nocapture noundef %0) #0 {
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %9 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_virtual_sg.exit
 
 10:                                               ; preds = %1
-  %11 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %0)
+  %11 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_virtual_sg.exit
 
 m_virtual_sg.exit:                                ; preds = %8, %10
@@ -22095,11 +22095,11 @@ define internal i32 @m_wnum0(ptr nocapture noundef %0) #0 {
   br i1 %.not.i.i, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %9 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_wnumx.exit
 
 10:                                               ; preds = %1
-  %11 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %0)
+  %11 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_wnumx.exit
 
 m_wnumx.exit:                                     ; preds = %8, %10
@@ -22127,11 +22127,11 @@ define internal i32 @m_wnum1(ptr nocapture noundef %0) #0 {
   br i1 %.not.i.i, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
+  %9 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_wnumx.exit
 
 10:                                               ; preds = %1
-  %11 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %0)
+  %11 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull readonly %0)
   br label %m_wnumx.exit
 
 m_wnumx.exit:                                     ; preds = %8, %10
@@ -22646,7 +22646,7 @@ define internal fastcc i64 @date_strftime_internal(i32 noundef %0, ptr noundef %
   br i1 %.not.i.i, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit:                    ; preds = %13
-  %18 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %16) #23
+  %18 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %16) #23
   %.not3.i.i = icmp eq i32 %18, 0
   br i1 %.not3.i.i, label %rb_enc_str_asciicompat_p.exit._crit_edge, label %rb_enc_str_asciicompat_p.exit.thread
 

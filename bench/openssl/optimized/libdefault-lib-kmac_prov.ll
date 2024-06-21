@@ -234,13 +234,13 @@ if.end19.i:                                       ; preds = %if.end11.i
   %conv20.i = trunc nuw i32 %call21 to i8
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %call36, i64 2
   store i8 %conv20.i, ptr %incdec.ptr.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %incdec.ptr21.i, ptr noundef nonnull align 1 dereferenceable(6) @kmac_string, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %incdec.ptr21.i, ptr noundef nonnull readonly align 1 dereferenceable(6) @kmac_string, i64 6, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call36, i64 8
   %cmp24.i.not = icmp eq i64 %6, 0
   br i1 %cmp24.i.not, label %if.end28.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end19.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %custom, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %custom, i64 %6, i1 false)
   %add.ptr27.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %6
   br label %if.end28.i
 
@@ -574,7 +574,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 for.end.i:                                        ; preds = %for.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %custom, i64 %conv.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i, ptr nonnull align 1 %4, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i, ptr nonnull readonly align 1 %4, i64 %3, i1 false)
   br label %encode_string.exit
 
 encode_string.exit:                               ; preds = %if.end29, %for.end.i
@@ -784,7 +784,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 for.end.i.i:                                      ; preds = %for.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 %conv.i.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr nonnull align 1 %key, i64 %keylen, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
   br label %if.end.i
 
 encode_string.exit.i:                             ; preds = %get_encode_size.exit.i.i
@@ -811,7 +811,7 @@ if.end19.i.i:                                     ; preds = %if.end.i
   %conv20.i.i = trunc nuw i32 %call2 to i8
   %incdec.ptr21.i.i = getelementptr inbounds i8, ptr %kctx, i64 70
   store i8 %conv20.i.i, ptr %incdec.ptr.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr21.i.i, ptr nonnull align 16 %tmp.i, i64 %tmp_len.0.ph.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr21.i.i, ptr nonnull readonly align 16 %tmp.i, i64 %tmp_len.0.ph.i, i1 false)
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %incdec.ptr21.i.i, i64 %tmp_len.0.ph.i
   %p.0.fr.i.i = freeze ptr %add.ptr.i12.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %p.0.fr.i.i to i64

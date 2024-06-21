@@ -348,7 +348,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %add.ptr5.ptr.i = getelementptr i8, ptr %call4.i, i64 511
   %call.i.i = call i32 @gettimeofday(ptr noundef %call4.i, ptr noundef null) #12
   call void @llvm.va_copy.p0(ptr nonnull %backup_ap.i, ptr nonnull %ap)
-  %call10.i = call i32 @vsnprintf(ptr noundef nonnull %message.i, i64 noundef 495, ptr noundef %format, ptr noundef nonnull %backup_ap.i) #12
+  %call10.i = call i32 @vsnprintf(ptr noundef nonnull %message.i, i64 noundef 495, ptr noundef readonly %format, ptr noundef nonnull %backup_ap.i) #12
   %cmp11.i = icmp sgt i32 %call10.i, 0
   %idx.ext.i = zext nneg i32 %call10.i to i64
   %add.ptr13.i = getelementptr inbounds i8, ptr %message.i, i64 %idx.ext.i

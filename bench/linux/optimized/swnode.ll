@@ -1769,7 +1769,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr n
 .preheader.i:                                     ; preds = %23, %30
   %26 = phi ptr [ %32, %30 ], [ %24, %23 ]
   %27 = phi ptr [ %31, %30 ], [ %18, %23 ]
-  %28 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(1) %26) #12
+  %28 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef nonnull dereferenceable(1) %26) #12
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %34, label %30
 
@@ -1814,7 +1814,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr n
 .preheader17.i:                                   ; preds = %51, %58
   %54 = phi ptr [ %60, %58 ], [ %52, %51 ]
   %55 = phi ptr [ %59, %58 ], [ %18, %51 ]
-  %56 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(1) %54) #12
+  %56 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef nonnull dereferenceable(1) %54) #12
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %62, label %58
 

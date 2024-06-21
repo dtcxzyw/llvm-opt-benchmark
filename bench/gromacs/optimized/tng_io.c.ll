@@ -360,7 +360,7 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   store i64 1, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
   %32 = add i64 %31, 1
   %33 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 1024)
   %34 = getelementptr inbounds i8, ptr %28, i64 48
@@ -375,7 +375,7 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   br label %tng_molecule_name_set.exit
 
 39:                                               ; preds = %.thread.i
-  %40 = tail call ptr @strncpy(ptr noundef nonnull %35, ptr noundef %1, i64 noundef %33) #23
+  %40 = tail call ptr @strncpy(ptr noundef nonnull %35, ptr noundef readonly %1, i64 noundef %33) #23
   br label %tng_molecule_name_set.exit
 
 tng_molecule_name_set.exit:                       ; preds = %36, %39
@@ -1260,7 +1260,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %
   %18 = getelementptr inbounds %struct.tng_chain, ptr %12, i64 %17
   store ptr %18, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
   %21 = add i64 %20, 1
   %22 = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 1024)
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #25
@@ -1275,7 +1275,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %
   br label %tng_chain_name_set.exit
 
 27:                                               ; preds = %.thread.i
-  %28 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef %2, i64 noundef %22) #23
+  %28 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef readonly %2, i64 noundef %22) #23
   br label %tng_chain_name_set.exit
 
 tng_chain_name_set.exit:                          ; preds = %24, %27
@@ -1457,7 +1457,7 @@ tng_molecule_atoms_residue_pointers_update.exit:  ; preds = %._crit_edge.i, %tng
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   store ptr null, ptr %89, align 8
   %90 = load ptr, ptr %4, align 8
-  %91 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %91 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
   %92 = add i64 %91, 1
   %93 = tail call noundef i64 @llvm.umin.i64(i64 %92, i64 1024)
   %94 = getelementptr inbounds i8, ptr %90, i64 16
@@ -1487,7 +1487,7 @@ tng_molecule_atoms_residue_pointers_update.exit:  ; preds = %._crit_edge.i, %tng
 
 104:                                              ; preds = %.thread.i, %96
   %105 = phi ptr [ %100, %.thread.i ], [ %95, %96 ]
-  %106 = tail call ptr @strncpy(ptr noundef nonnull %105, ptr noundef %2, i64 noundef %93) #23
+  %106 = tail call ptr @strncpy(ptr noundef nonnull %105, ptr noundef readonly %2, i64 noundef %93) #23
   br label %tng_residue_name_set.exit
 
 tng_residue_name_set.exit:                        ; preds = %101, %104
@@ -1556,7 +1556,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0,
   store ptr %26, ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   store i64 0, ptr %27, align 8
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
   %29 = add i64 %28, 1
   %30 = tail call noundef i64 @llvm.umin.i64(i64 %29, i64 1024)
   %31 = getelementptr inbounds i8, ptr %26, i64 24
@@ -1574,13 +1574,13 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0,
   br label %tng_atom_name_set.exit
 
 36:                                               ; preds = %.thread.i
-  %37 = tail call ptr @strncpy(ptr noundef nonnull %32, ptr noundef %2, i64 noundef %30) #23
+  %37 = tail call ptr @strncpy(ptr noundef nonnull %32, ptr noundef readonly %2, i64 noundef %30) #23
   br label %tng_atom_name_set.exit
 
 tng_atom_name_set.exit:                           ; preds = %33, %36
   %38 = phi ptr [ %.pre37, %33 ], [ null, %36 ]
   %39 = phi ptr [ %.pre35, %33 ], [ %26, %36 ]
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
+  %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #24
   %41 = add i64 %40, 1
   %42 = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 1024)
   %43 = getelementptr inbounds i8, ptr %39, i64 16
@@ -1609,7 +1609,7 @@ tng_atom_name_set.exit:                           ; preds = %33, %36
 
 52:                                               ; preds = %.thread.i32, %44
   %53 = phi ptr [ %48, %.thread.i32 ], [ %38, %44 ]
-  %54 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef %3, i64 noundef %42) #23
+  %54 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef readonly %3, i64 noundef %42) #23
   br label %tng_atom_type_set.exit
 
 tng_atom_type_set.exit:                           ; preds = %49, %52
@@ -7615,7 +7615,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
   %15 = getelementptr inbounds %struct.tng_molecule, ptr %14, i64 %.01417.us.i
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #24
+  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #24
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.lr.ph.i42, label %20
 
@@ -7737,7 +7737,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 tng_molecule_add.exit:                            ; preds = %78, %79
   %.0.i46 = phi i64 [ %85, %79 ], [ 1, %78 ]
-  %86 = call range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %.0.i46, ptr noundef nonnull %3)
+  %86 = call range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.15, i64 noundef %.0.i46, ptr noundef nonnull %3)
   %.not38 = icmp eq i32 %86, 0
   br i1 %.not38, label %87, label %tng_molecule_cnt_set.exit
 
@@ -7759,7 +7759,7 @@ tng_molecule_add.exit:                            ; preds = %78, %79
 
 tng_molecule_chain_add.exit:                      ; preds = %87, %91
   %.0.i48 = phi i64 [ %97, %91 ], [ 1, %87 ]
-  %98 = call range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nonnull poison, ptr noundef nonnull %88, ptr noundef nonnull @.str.20, i64 noundef %.0.i48, ptr noundef nonnull %4)
+  %98 = call range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nonnull readnone poison, ptr noundef nonnull %88, ptr noundef nonnull readonly @.str.20, i64 noundef %.0.i48, ptr noundef nonnull %4)
   %.not39 = icmp eq i32 %98, 0
   br i1 %.not39, label %99, label %tng_molecule_cnt_set.exit
 
@@ -7781,7 +7781,7 @@ tng_molecule_chain_add.exit:                      ; preds = %87, %91
 
 tng_chain_residue_add.exit:                       ; preds = %99, %103
   %.0.i50 = phi i64 [ %109, %103 ], [ 0, %99 ]
-  %110 = call range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr nonnull poison, ptr noundef nonnull %100, ptr noundef nonnull @.str.20, i64 noundef %.0.i50, ptr noundef nonnull %5)
+  %110 = call range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr nonnull readnone poison, ptr noundef nonnull %100, ptr noundef nonnull readonly @.str.20, i64 noundef %.0.i50, ptr noundef nonnull %5)
   %.not40 = icmp eq i32 %110, 0
   br i1 %.not40, label %111, label %tng_molecule_cnt_set.exit
 
@@ -8865,7 +8865,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %206, %204, %tng_fil
   br i1 %55, label %232, label %240
 
 232:                                              ; preds = %231
-  call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %35, ptr noundef nonnull %27)
+  call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %35, ptr noundef nonnull %27)
   call void @md5_finish(ptr noundef nonnull %27, ptr noundef nonnull %26) #23
   %233 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i = load i8, ptr %233, align 1
@@ -8873,7 +8873,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %206, %204, %tng_fil
   br i1 %.not79.i, label %246, label %234
 
 234:                                              ; preds = %232
-  %235 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %233, ptr noundef nonnull dereferenceable(1) %26, i64 noundef 16) #24
+  %235 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %233, ptr noundef nonnull dereferenceable(1) %26, i64 noundef 16) #24
   %.not80.i = icmp eq i32 %235, 0
   br i1 %.not80.i, label %246, label %236
 
@@ -9195,7 +9195,7 @@ tng_file_input_numerical.exit57.thread:           ; preds = %368, %366, %tng_fil
   br i1 %262, label %380, label %387
 
 380:                                              ; preds = %379
-  call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %261, ptr noundef nonnull %25)
+  call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %261, ptr noundef nonnull %25)
   call void @md5_finish(ptr noundef nonnull %25, ptr noundef nonnull %24) #23
   %381 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i26 = load i8, ptr %381, align 1
@@ -9203,7 +9203,7 @@ tng_file_input_numerical.exit57.thread:           ; preds = %368, %366, %tng_fil
   br i1 %.not66.i, label %tng_general_info_block_read.exit, label %382
 
 382:                                              ; preds = %380
-  %383 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %381, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 16) #24
+  %383 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %381, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 16) #24
   %.not67.i = icmp eq i32 %383, 0
   br i1 %.not67.i, label %tng_general_info_block_read.exit, label %384
 
@@ -10354,7 +10354,7 @@ tng_file_input_numerical.exit315.thread.i:        ; preds = %tng_file_input_nume
   br i1 %412, label %884, label %891
 
 884:                                              ; preds = %._crit_edge426.i
-  call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %398, ptr noundef nonnull %23)
+  call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef readonly %1, i64 noundef %398, ptr noundef nonnull %23)
   call void @md5_finish(ptr noundef nonnull %23, ptr noundef nonnull %22) #23
   %885 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i34 = load i8, ptr %885, align 1
@@ -10362,7 +10362,7 @@ tng_file_input_numerical.exit315.thread.i:        ; preds = %tng_file_input_nume
   br i1 %.not234.i, label %tng_molecules_block_read.exit, label %886
 
 886:                                              ; preds = %884
-  %887 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %885, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 16) #24
+  %887 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %885, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 16) #24
   %.not235.i = icmp eq i32 %887, 0
   br i1 %.not235.i, label %tng_molecules_block_read.exit, label %888
 
@@ -11215,7 +11215,7 @@ tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.sp
   br i1 %905, label %1268, label %1277
 
 1268:                                             ; preds = %tng_data_read.exit.i
-  call fastcc void @tng_md5_remaining_append(ptr noundef %0, ptr noundef %1, i64 noundef %904, ptr noundef nonnull %19)
+  call fastcc void @tng_md5_remaining_append(ptr noundef %0, ptr noundef readonly %1, i64 noundef %904, ptr noundef nonnull %19)
   call void @md5_finish(ptr noundef nonnull %19, ptr noundef nonnull %18) #23
   %1269 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i40 = load i8, ptr %1269, align 1
@@ -11223,7 +11223,7 @@ tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.sp
   br i1 %.not24.i, label %tng_data_block_contents_read.exit, label %1270
 
 1270:                                             ; preds = %1268
-  %1271 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1269, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 16) #24
+  %1271 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1269, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 16) #24
   %.not25.i = icmp eq i32 %1271, 0
   br i1 %.not25.i, label %tng_data_block_contents_read.exit, label %1272
 
@@ -28010,7 +28010,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
   %36 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.us.i
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %38) #24
+  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %38) #24
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %tng_molecule_chain_find.exit.thread.loopexit, label %41
 
@@ -28024,7 +28024,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
   %43 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.i
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %45) #24
+  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %45) #24
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %52
 
@@ -28054,7 +28054,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
 
 tng_molecule_chain_add.exit:                      ; preds = %.loopexit61, %54
   %.0.i40 = phi i64 [ %59, %54 ], [ 1, %.loopexit61 ]
-  %60 = call range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr poison, ptr noundef nonnull %1, ptr noundef %20, i64 noundef %.0.i40, ptr noundef nonnull %10)
+  %60 = call range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr readnone poison, ptr noundef nonnull %1, ptr noundef readonly %20, i64 noundef %.0.i40, ptr noundef nonnull %10)
   %.not36 = icmp eq i32 %60, 0
   br i1 %.not36, label %tng_molecule_chain_add.exit.tng_molecule_chain_find.exit.thread_crit_edge, label %._crit_edge
 
@@ -28120,7 +28120,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   %81 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.us.i49
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %83) #24
+  %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %83) #24
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %tng_chain_residue_find.exit.thread.loopexit, label %86
 
@@ -28134,7 +28134,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   %88 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.i46
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %90) #24
+  %91 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %90) #24
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %97
 
@@ -28165,7 +28165,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 
 tng_chain_residue_add.exit:                       ; preds = %.loopexit, %99
   %.0.i52 = phi i64 [ %105, %99 ], [ 0, %.loopexit ]
-  %106 = call range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr poison, ptr noundef nonnull %61, ptr noundef %63, i64 noundef %.0.i52, ptr noundef nonnull %11)
+  %106 = call range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr readnone poison, ptr noundef nonnull %61, ptr noundef readonly %63, i64 noundef %.0.i52, ptr noundef nonnull %11)
   %.not38 = icmp eq i32 %106, 0
   br i1 %.not38, label %tng_chain_residue_add.exit.tng_chain_residue_find.exit.thread_crit_edge, label %._crit_edge
 
@@ -28207,7 +28207,7 @@ tng_chain_residue_find.exit.thread:               ; preds = %tng_chain_residue_a
 
 tng_residue_atom_add.exit:                        ; preds = %tng_chain_residue_find.exit.thread, %116
   %.0.i54 = phi i64 [ %122, %116 ], [ 0, %tng_chain_residue_find.exit.thread ]
-  %123 = call range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr poison, ptr noundef nonnull %107, ptr noundef %109, ptr noundef %111, i64 noundef %.0.i54, ptr noundef nonnull %12)
+  %123 = call range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr readnone poison, ptr noundef nonnull %107, ptr noundef readonly %109, ptr noundef readonly %111, i64 noundef %.0.i54, ptr noundef nonnull %12)
   %.not39 = icmp eq i32 %123, 0
   br i1 %.not39, label %16, label %._crit_edge
 
@@ -29197,7 +29197,7 @@ define i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, 
 
 .loopexit:                                        ; preds = %.critedge.i, %54, %47, %.critedge.preheader.i
   %63 = sext i8 %6 to i64
-  %64 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1, ptr noundef %4, i8 noundef signext 2, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef %storemerge.i, i64 noundef %63, ptr noundef null)
+  %64 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1, ptr noundef readonly %4, i8 noundef signext 2, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef %storemerge.i, i64 noundef %63, ptr noundef null)
   %.not86 = icmp eq i32 %64, 0
   br i1 %.not86, label %68, label %65
 
@@ -29327,7 +29327,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .loopexit104:                                     ; preds = %.critedge.i90, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i88
   %127 = sext i8 %6 to i64
-  %128 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 0, ptr noundef %4, i8 noundef signext 2, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef %127, ptr noundef null)
+  %128 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 0, ptr noundef readonly %4, i8 noundef signext 2, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef %127, ptr noundef null)
   %.not81 = icmp eq i32 %128, 0
   br i1 %.not81, label %132, label %129
 
@@ -29976,7 +29976,7 @@ define i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 nound
 
 .loopexit:                                        ; preds = %.critedge.i, %54, %47, %.critedge.preheader.i
   %63 = sext i8 %6 to i64
-  %64 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1, ptr noundef %4, i8 noundef signext 3, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef %storemerge.i, i64 noundef %63, ptr noundef null)
+  %64 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1, ptr noundef readonly %4, i8 noundef signext 3, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef %storemerge.i, i64 noundef %63, ptr noundef null)
   %.not66 = icmp eq i32 %64, 0
   br i1 %.not66, label %68, label %65
 
@@ -30094,7 +30094,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .loopexit81:                                      ; preds = %.critedge.i70, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i68
   %121 = sext i8 %6 to i64
-  %122 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 0, ptr noundef %4, i8 noundef signext 3, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef %121, ptr noundef null)
+  %122 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 0, ptr noundef readonly %4, i8 noundef signext 3, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef %121, ptr noundef null)
   %.not63 = icmp eq i32 %122, 0
   br i1 %.not63, label %126, label %123
 
@@ -30381,7 +30381,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 .loopexit:                                        ; preds = %.critedge.i, %80, %73, %.critedge.preheader.i
   %89 = sext i8 %7 to i64
-  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
+  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
   %.not152 = icmp eq i32 %90, 0
   br i1 %.not152, label %94, label %91
 
@@ -30560,7 +30560,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .loopexit185:                                     ; preds = %.critedge.i162, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i160
   %181 = sext i8 %7 to i64
-  %182 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %181, ptr noundef null)
+  %182 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %181, ptr noundef null)
   %.not145 = icmp eq i32 %182, 0
   br i1 %.not145, label %186, label %183
 
@@ -30820,7 +30820,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 .loopexit:                                        ; preds = %.critedge.i, %80, %73, %.critedge.preheader.i
   %89 = sext i8 %7 to i64
-  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
+  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
   %.not152 = icmp eq i32 %90, 0
   br i1 %.not152, label %94, label %91
 
@@ -30999,7 +30999,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .loopexit185:                                     ; preds = %.critedge.i162, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i160
   %181 = sext i8 %7 to i64
-  %182 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %181, ptr noundef null)
+  %182 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %181, ptr noundef null)
   %.not145 = icmp eq i32 %182, 0
   br i1 %.not145, label %186, label %183
 

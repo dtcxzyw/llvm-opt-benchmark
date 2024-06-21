@@ -202,7 +202,7 @@ _ZNK6cmUuid15CreateHashInputERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt1
 70:                                               ; preds = %69
   %71 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %71, i64 16, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %71, i64 16, i1 false), !noalias !5
   %72 = getelementptr inbounds i8, ptr %5, i64 6
   %73 = load i8, ptr %72, align 2, !noalias !5
   %74 = and i8 %73, 15
@@ -213,7 +213,7 @@ _ZNK6cmUuid15CreateHashInputERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt1
   %78 = and i8 %77, 63
   %79 = or disjoint i8 %78, -128
   store i8 %79, ptr %76, align 8, !noalias !5
-  invoke void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull align 1 poison, ptr noundef nonnull %5)
+  invoke void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 1 poison, ptr noundef nonnull %5)
           to label %80 unwind label %88
 
 80:                                               ; preds = %70
@@ -516,7 +516,7 @@ _ZNK6cmUuid15CreateHashInputERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt1
 70:                                               ; preds = %69
   %71 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %71, i64 16, i1 false), !noalias !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %71, i64 16, i1 false), !noalias !8
   %72 = getelementptr inbounds i8, ptr %5, i64 6
   %73 = load i8, ptr %72, align 2, !noalias !8
   %74 = and i8 %73, 15
@@ -527,7 +527,7 @@ _ZNK6cmUuid15CreateHashInputERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt1
   %78 = and i8 %77, 63
   %79 = or disjoint i8 %78, -128
   store i8 %79, ptr %76, align 8, !noalias !8
-  invoke void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull align 1 poison, ptr noundef nonnull %5)
+  invoke void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 1 poison, ptr noundef nonnull %5)
           to label %80 unwind label %88
 
 80:                                               ; preds = %70

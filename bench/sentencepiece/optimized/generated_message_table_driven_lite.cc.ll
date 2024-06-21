@@ -48,7 +48,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal31MergePartialFromCodedSt
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj127EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj127EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2)
   br label %_ZN6google8protobuf8internal31MergePartialFromCodedStreamImplINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteEEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE.exit
 
 9:                                                ; preds = %3
@@ -56,11 +56,11 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal31MergePartialFromCodedSt
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj16383EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2)
+  %12 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj16383EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2)
   br label %_ZN6google8protobuf8internal31MergePartialFromCodedStreamImplINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteEEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE.exit
 
 13:                                               ; preds = %9
-  %14 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj4294967295EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2)
+  %14 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj4294967295EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2)
   br label %_ZN6google8protobuf8internal31MergePartialFromCodedStreamImplINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteEEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE.exit
 
 _ZN6google8protobuf8internal31MergePartialFromCodedStreamImplINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteEEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE.exit: ; preds = %7, %11, %13

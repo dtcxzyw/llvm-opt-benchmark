@@ -2332,7 +2332,7 @@ define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr n
 267:                                              ; preds = %194
   %268 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %269 = load i32, ptr %268, align 8
-  %270 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %82, ptr noundef nonnull %11, i32 noundef %269, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %270 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %82, ptr noundef nonnull %11, i32 noundef %269, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %271 = icmp slt i32 %270, 0
   br i1 %271, label %DCH_from_char.exit, label %272
 
@@ -2370,7 +2370,7 @@ define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr n
 289:                                              ; preds = %194
   %290 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %291 = load i32, ptr %290, align 8
-  %292 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %81, ptr noundef nonnull %11, i32 noundef %291, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %292 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %81, ptr noundef nonnull %11, i32 noundef %291, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %293 = icmp slt i32 %292, 0
   br i1 %293, label %DCH_from_char.exit, label %294
 
@@ -2520,7 +2520,7 @@ switch.lookup:                                    ; preds = %343
 371:                                              ; preds = %194
   %372 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %373 = load i32, ptr %372, align 8
-  %374 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %77, ptr noundef nonnull %11, i32 noundef %373, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %374 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %77, ptr noundef nonnull %11, i32 noundef %373, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %375 = icmp slt i32 %374, 0
   br i1 %375, label %DCH_from_char.exit, label %376
 
@@ -2850,7 +2850,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 536:                                              ; preds = %194
   %537 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %538 = load i32, ptr %537, align 8
-  %539 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %61, ptr noundef nonnull %11, i32 noundef %538, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %539 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %61, ptr noundef nonnull %11, i32 noundef %538, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %540 = icmp slt i32 %539, 0
   br i1 %540, label %DCH_from_char.exit, label %541
 
@@ -2958,7 +2958,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 596:                                              ; preds = %194
   %597 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %598 = load i32, ptr %597, align 8
-  %599 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %68, ptr noundef nonnull %11, i32 noundef %598, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %599 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %68, ptr noundef nonnull %11, i32 noundef %598, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %600 = icmp slt i32 %599, 0
   br i1 %600, label %DCH_from_char.exit, label %601
 
@@ -3032,7 +3032,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 638:                                              ; preds = %194
   %639 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %640 = load i32, ptr %639, align 8
-  %641 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %67, ptr noundef nonnull %11, i32 noundef %640, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %641 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %67, ptr noundef nonnull %11, i32 noundef %640, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %642 = icmp slt i32 %641, 0
   br i1 %642, label %DCH_from_char.exit, label %643
 
@@ -3070,7 +3070,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 660:                                              ; preds = %194
   %661 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %662 = load i32, ptr %661, align 8
-  %663 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %66, ptr noundef nonnull %11, i32 noundef %662, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %663 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %66, ptr noundef nonnull %11, i32 noundef %662, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %664 = icmp slt i32 %663, 0
   br i1 %664, label %DCH_from_char.exit, label %665
 
@@ -3149,7 +3149,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 705:                                              ; preds = %194, %194
   %706 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %707 = load i32, ptr %706, align 8
-  %708 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %65, ptr noundef nonnull %11, i32 noundef %707, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %708 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %65, ptr noundef nonnull %11, i32 noundef %707, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %709 = icmp slt i32 %708, 0
   br i1 %709, label %DCH_from_char.exit, label %710
 
@@ -3187,7 +3187,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 727:                                              ; preds = %194
   %728 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %729 = load i32, ptr %728, align 8
-  %730 = call fastcc i32 @from_char_parse_int_len(ptr noundef null, ptr noundef nonnull %11, i32 noundef %729, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %730 = call fastcc i32 @from_char_parse_int_len(ptr noundef null, ptr noundef nonnull %11, i32 noundef %729, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %731 = icmp slt i32 %730, 0
   br i1 %731, label %DCH_from_char.exit, label %732
 
@@ -3225,7 +3225,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 749:                                              ; preds = %194
   %750 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %751 = load i32, ptr %750, align 8
-  %752 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %64, ptr noundef nonnull %11, i32 noundef %751, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %752 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %64, ptr noundef nonnull %11, i32 noundef %751, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %753 = icmp slt i32 %752, 0
   br i1 %753, label %DCH_from_char.exit, label %754
 
@@ -3340,7 +3340,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 813:                                              ; preds = %194, %194
   %814 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %815 = load i32, ptr %814, align 8
-  %816 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %815, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %816 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %815, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %817 = icmp slt i32 %816, 0
   br i1 %817, label %DCH_from_char.exit, label %818
 
@@ -3379,7 +3379,7 @@ from_char_set_int.exit472.i:                      ; preds = %524
 835:                                              ; preds = %194, %194
   %836 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %837 = load i32, ptr %836, align 8
-  %838 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %837, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %838 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %837, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %839 = icmp slt i32 %838, 0
   br i1 %839, label %DCH_from_char.exit, label %840
 
@@ -3458,7 +3458,7 @@ adjust_partial_year_to_2020.exit.i:               ; preds = %855, %853, %849, %8
 875:                                              ; preds = %194, %194
   %876 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %877 = load i32, ptr %876, align 8
-  %878 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %877, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %878 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %877, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %879 = icmp slt i32 %878, 0
   br i1 %879, label %DCH_from_char.exit, label %880
 
@@ -3537,7 +3537,7 @@ adjust_partial_year_to_2020.exit489.i:            ; preds = %895, %893, %889, %8
 915:                                              ; preds = %194, %194
   %916 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %917 = load i32, ptr %916, align 8
-  %918 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %917, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %918 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %917, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %919 = icmp slt i32 %918, 0
   br i1 %919, label %DCH_from_char.exit, label %920
 
@@ -3646,7 +3646,7 @@ from_char_set_int.exit496.i:                      ; preds = %957
 969:                                              ; preds = %194
   %970 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %971 = load i32, ptr %970, align 8
-  %972 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %60, ptr noundef nonnull %11, i32 noundef %971, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %972 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %60, ptr noundef nonnull %11, i32 noundef %971, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %973 = icmp slt i32 %972, 0
   br i1 %973, label %DCH_from_char.exit, label %974
 
@@ -3684,7 +3684,7 @@ from_char_set_int.exit496.i:                      ; preds = %957
 991:                                              ; preds = %194
   %992 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %993 = load i32, ptr %992, align 8
-  %994 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %59, ptr noundef nonnull %11, i32 noundef %993, ptr noundef nonnull %.0537.i, ptr noundef %9)
+  %994 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %59, ptr noundef nonnull %11, i32 noundef %993, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %995 = icmp slt i32 %994, 0
   br i1 %995, label %DCH_from_char.exit, label %996
 
@@ -5110,7 +5110,7 @@ NUM_prevent_counter_overflow.exit.i.i:            ; preds = %._crit_edge.i.i.i, 
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %24, i64 912
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %5) #20
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %5) #20
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %NUM_cache_search.exit.i, label %32
 
@@ -5390,7 +5390,7 @@ define internal fastcc void @NUM_processor(ptr nocapture noundef readonly %0, pt
   br i1 %or.cond300.not, label %64, label %get_last_relevant_decnum.exit.thread
 
 64:                                               ; preds = %57
-  %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #20
+  %65 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %3, i32 noundef 46) #20
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %get_last_relevant_decnum.exit.thread, label %.preheader.i.outer
 
@@ -8026,7 +8026,7 @@ define internal fastcc void @parse_format(ptr nocapture noundef %0, ptr noundef 
   %28 = getelementptr inbounds i8, ptr %.013.i, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = tail call i32 @strncmp(ptr noundef nonnull %.092199, ptr noundef nonnull %24, i64 noundef %30) #20
+  %31 = tail call i32 @strncmp(ptr noundef nonnull readonly %.092199, ptr noundef nonnull %24, i64 noundef %30) #20
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %suff_search.exit, label %33
 
@@ -8081,7 +8081,7 @@ suff_search.exit.thread:                          ; preds = %33, %suff_search.ex
   %51 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %54 = tail call i32 @strncmp(ptr noundef nonnull %.193140, ptr noundef %50, i64 noundef %53) #20
+  %54 = tail call i32 @strncmp(ptr noundef nonnull readonly %.193140, ptr noundef %50, i64 noundef %53) #20
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %62, label %56
 
@@ -8518,7 +8518,7 @@ NUMDesc_prepare.exit:                             ; preds = %231, %220, %213, %2
   %241 = getelementptr inbounds i8, ptr %.013.i129, i64 8
   %242 = load i32, ptr %241, align 8
   %243 = sext i32 %242 to i64
-  %244 = tail call i32 @strncmp(ptr noundef nonnull %69, ptr noundef nonnull %237, i64 noundef %243) #20
+  %244 = tail call i32 @strncmp(ptr noundef nonnull readonly %69, ptr noundef nonnull %237, i64 noundef %243) #20
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %suff_search.exit133, label %246
 
@@ -8763,7 +8763,7 @@ DCH_prevent_counter_overflow.exit.i:              ; preds = %._crit_edge.i.i, %2
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %14, i64 1920
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #20
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %27
 

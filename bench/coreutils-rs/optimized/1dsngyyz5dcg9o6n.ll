@@ -907,7 +907,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %"_ZN4core3ptr47dr
   %125 = phi i64 [ 0, %117 ], [ %.pre.i.i, %.noexc47 ]
   %126 = load ptr, ptr %53, align 8, !alias.scope !104, !noalias !102, !nonnull !5, !noundef !5
   %127 = getelementptr inbounds i8, ptr %126, i64 %125
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull align 1 %118, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull readonly align 1 %118, i64 %1, i1 false)
   br label %128
 
 128:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit54", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
@@ -966,7 +966,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %"_ZN4core3ptr47dr
   %148 = phi i64 [ %140, %139 ], [ %.pre.i.i51, %.noexc53 ]
   %149 = load ptr, ptr %53, align 8, !alias.scope !112, !noalias !117, !nonnull !5, !noundef !5
   %150 = getelementptr inbounds i8, ptr %149, i64 %148
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %11, i64 %97, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull readonly align 1 %11, i64 %97, i1 false)
   br label %128
 
 151:                                              ; preds = %63
@@ -1263,7 +1263,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
   %90 = phi i64 [ 0, %82 ], [ %.pre.i.i, %.noexc47 ]
   %91 = load ptr, ptr %18, align 8, !alias.scope !169, !noalias !167, !nonnull !5, !noundef !5
   %92 = getelementptr inbounds i8, ptr %91, i64 %90
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %83, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull readonly align 1 %83, i64 %1, i1 false)
   br label %93
 
 93:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit54", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
@@ -1322,7 +1322,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
   %113 = phi i64 [ %105, %104 ], [ %.pre.i.i51, %.noexc53 ]
   %114 = load ptr, ptr %18, align 8, !alias.scope !177, !noalias !182, !nonnull !5, !noundef !5
   %115 = getelementptr inbounds i8, ptr %114, i64 %113
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull align 1 %7, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull readonly align 1 %7, i64 %62, i1 false)
   br label %93
 
 116:                                              ; preds = %28

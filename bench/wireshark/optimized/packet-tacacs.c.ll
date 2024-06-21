@@ -900,7 +900,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %118 = call ptr @tvb_memdup(ptr noundef %116, ptr noundef %0, i32 noundef 12, i64 noundef %117) #9
   %119 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #10
+  %120 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #10
   %121 = add i64 %120, 6
   %122 = call ptr @wmem_packet_scope() #9
   %123 = add i64 %120, 22
@@ -908,8 +908,8 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %125 = load i32, ptr %6, align 4
   store i32 %125, ptr %124, align 1
   %126 = getelementptr i8, ptr %124, i64 4
-  %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr nonnull align 1 %.0, i64 %127, i1 false)
+  %127 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr nonnull readonly align 1 %.0, i64 %127, i1 false)
   %128 = getelementptr i8, ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 1
   store i8 %66, ptr %128, align 1

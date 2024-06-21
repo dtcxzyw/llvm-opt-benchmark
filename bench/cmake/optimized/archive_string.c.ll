@@ -44,7 +44,7 @@ define dso_local noundef ptr @archive_array_append(ptr noundef %0, ptr nocapture
   %12 = load ptr, ptr %0, align 8
   %13 = load i64, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %14, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %15
 
 15:                                               ; preds = %11, %10
@@ -82,7 +82,7 @@ define dso_local void @archive_string_concat(ptr noundef %0, ptr nocapture nound
   %14 = load ptr, ptr %0, align 8
   %15 = load i64, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %16, ptr align 1 %3, i64 %5, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %16, ptr readonly align 1 %3, i64 %5, i1 false)
   br label %18
 
 17:                                               ; preds = %2
@@ -278,7 +278,7 @@ define dso_local noundef ptr @archive_strncat(ptr noundef returned %0, ptr nocap
   %16 = load ptr, ptr %0, align 8
   %17 = load i64, ptr %8, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %1, i64 %.010.lcssa, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr readonly align 1 %1, i64 %.010.lcssa, i1 false)
   br label %20
 
 19:                                               ; preds = %.critedge
@@ -384,7 +384,7 @@ define dso_local noundef ptr @archive_strcat(ptr noundef returned %0, ptr nocapt
   %15 = load ptr, ptr %0, align 8
   %16 = load i64, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr align 1 %1, i64 %.010.lcssa.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %1, i64 %.010.lcssa.i, i1 false)
   br label %archive_strncat.exit
 
 18:                                               ; preds = %.critedge.i
@@ -787,14 +787,14 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   %.014.i = phi ptr [ %.0.i, %17 ], [ %.012.i, %6 ]
   %8 = getelementptr inbounds i8, ptr %.014.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #27
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #27
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds i8, ptr %.014.i, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %2) #27
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %find_sconv_object.exit, label %17
 
@@ -817,14 +817,14 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br i1 %23, label %77, label %24
 
 24:                                               ; preds = %.thread
-  %25 = tail call noalias ptr @strdup(ptr noundef %20) #24
+  %25 = tail call noalias ptr @strdup(ptr noundef readonly %20) #24
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %25, ptr %26, align 8
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.sink.split, label %28
 
 28:                                               ; preds = %24
-  %29 = tail call noalias ptr @strdup(ptr noundef %21) #24
+  %29 = tail call noalias ptr @strdup(ptr noundef readonly %21) #24
   %30 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %29, ptr %30, align 8
   %31 = icmp eq ptr %29, null
@@ -861,7 +861,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
 
 44:                                               ; preds = %41, %35
   %.not54.i = phi i1 [ false, %41 ], [ %38, %35 ]
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #27
+  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %21) #27
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread60.i, label %47
 
@@ -875,7 +875,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   %.sink.i = phi i32 [ 1, %39 ], [ 1, %44 ], [ %spec.select63.i, %47 ]
   %49 = getelementptr inbounds i8, ptr %22, i64 32
   store i32 %.sink.i, ptr %49, align 8
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.1) #27
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.1) #27
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %54
 
@@ -884,7 +884,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %63
 
 54:                                               ; preds = %.thread60.i
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.4) #27
+  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.4) #27
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -893,7 +893,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %63
 
 59:                                               ; preds = %54
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.5) #27
+  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.5) #27
   %61 = icmp eq i32 %60, 0
   %62 = or i32 %3, 4096
   %spec.select.i = select i1 %61, i32 %62, i32 %3
@@ -901,7 +901,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
 
 63:                                               ; preds = %59, %57, %52
   %.050.i = phi i32 [ %53, %52 ], [ %58, %57 ], [ %spec.select.i, %59 ]
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.1) #27
+  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.1) #27
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %68
 
@@ -910,7 +910,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %79
 
 68:                                               ; preds = %63
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.4) #27
+  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.4) #27
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %73
 
@@ -919,7 +919,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %79
 
 73:                                               ; preds = %68
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.5) #27
+  %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.5) #27
   %75 = icmp eq i32 %74, 0
   %76 = or i32 %.050.i, 8192
   %spec.select57.i = select i1 %75, i32 %76, i32 %.050.i
@@ -1460,7 +1460,7 @@ utf16nbytes.exit.thread77:                        ; preds = %22, %utf16nbytes.ex
   %52 = load ptr, ptr %0, align 8
   %53 = load i64, ptr %45, align 8
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %1, i64 %.05279, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %54, ptr nonnull readonly align 1 %1, i64 %.05279, i1 false)
   %55 = load i64, ptr %45, align 8
   %56 = add i64 %55, %.05279
   store i64 %56, ptr %45, align 8
@@ -1572,7 +1572,7 @@ define dso_local void @archive_mstring_copy(ptr noundef %0, ptr nocapture nounde
   %15 = load ptr, ptr %0, align 8
   %16 = load i64, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %7, i64 %9, i1 false)
   br label %archive_string_concat.exit
 
 18:                                               ; preds = %2
@@ -1606,7 +1606,7 @@ archive_string_concat.exit:                       ; preds = %13, %14
   %34 = load ptr, ptr %23, align 8
   %35 = load i64, ptr %24, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %36, ptr align 1 %26, i64 %28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %36, ptr readonly align 1 %26, i64 %28, i1 false)
   br label %archive_string_concat.exit12
 
 37:                                               ; preds = %archive_string_concat.exit
@@ -2142,7 +2142,7 @@ define dso_local noundef i32 @archive_mstring_copy_mbs(ptr noundef %0, ptr nound
   %19 = load ptr, ptr %0, align 8
   %20 = load i64, ptr %9, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %1, i64 %.010.lcssa.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %21, ptr nonnull readonly align 1 %1, i64 %.010.lcssa.i.i, i1 false)
   br label %archive_mstring_copy_mbs_len.exit
 
 22:                                               ; preds = %.critedge.i.i
@@ -2211,7 +2211,7 @@ define dso_local noundef i32 @archive_mstring_copy_mbs_len(ptr noundef %0, ptr n
   %18 = load ptr, ptr %0, align 8
   %19 = load i64, ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %1, i64 %.010.lcssa.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %20, ptr nonnull readonly align 1 %1, i64 %.010.lcssa.i, i1 false)
   br label %archive_strncat.exit
 
 21:                                               ; preds = %.critedge.i
@@ -2436,7 +2436,7 @@ define dso_local i32 @archive_mstring_copy_utf8(ptr noundef %0, ptr noundef read
   %21 = load ptr, ptr %9, align 8
   %22 = load i64, ptr %10, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %1, i64 %.010.lcssa.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr nonnull readonly align 1 %1, i64 %.010.lcssa.i, i1 false)
   br label %archive_strncat.exit
 
 24:                                               ; preds = %.critedge.i
@@ -2541,7 +2541,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_update_utf8(ptr noundef %
   %21 = load ptr, ptr %9, align 8
   %22 = load i64, ptr %10, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %2, i64 %.010.lcssa.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr nonnull readonly align 1 %2, i64 %.010.lcssa.i, i1 false)
   br label %archive_strncat.exit
 
 24:                                               ; preds = %.critedge.i
@@ -6544,7 +6544,7 @@ utf8_to_unicode.exit.thread126:                   ; preds = %utf8_to_unicode.exi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %5, align 4
-  %156 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %5, ptr noundef %.189.lcssa, i64 noundef %.1.lcssa)
+  %156 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %5, ptr noundef readonly %.189.lcssa, i64 noundef %.1.lcssa)
   %157 = icmp eq i32 %156, 3
   %158 = load i32, ptr %5, align 4
   %159 = and i32 %158, -1024
@@ -6560,7 +6560,7 @@ utf8_to_unicode.exit.thread126:                   ; preds = %utf8_to_unicode.exi
 
 164:                                              ; preds = %161
   %165 = getelementptr inbounds i8, ptr %.189.lcssa, i64 3
-  %166 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %6, ptr noundef nonnull %165, i64 noundef %162)
+  %166 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %6, ptr noundef nonnull readonly %165, i64 noundef %162)
   %.fr.i = freeze i32 %166
   %167 = icmp eq i32 %.fr.i, 3
   %168 = load i32, ptr %6, align 4
@@ -6865,7 +6865,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef 
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr readonly align 1 %1, i64 %2, i1 false)
   %29 = load i64, ptr %16, align 8
   %30 = add i64 %29, %2
   store i64 %30, ptr %16, align 8
@@ -6922,7 +6922,7 @@ archive_string_append.exit26:                     ; preds = %45
   %49 = load ptr, ptr %0, align 8
   %50 = load i64, ptr %13, align 8
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) @utf8_replacement_char, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull readonly align 1 dereferenceable(3) @utf8_replacement_char, i64 3, i1 false)
   br label %70
 
 52:                                               ; preds = %45

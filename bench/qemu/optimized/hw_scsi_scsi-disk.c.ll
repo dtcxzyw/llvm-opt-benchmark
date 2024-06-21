@@ -3835,7 +3835,7 @@ if.end3.i.i.us.i:                                 ; preds = %if.then33.i.us.i
   store ptr %mode_current.i.i.i, ptr %p.i.i.i, align 8
   %conv.i.i.us.i = zext nneg i32 %add.i.i.us.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %mode_current.i.i.i, i8 0, i64 %conv.i.i.us.i, i1 false)
-  %call.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 0)
+  %call.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 0)
   %cmp6.i.i.us.i = icmp sgt i32 %call.i.i.us.i, -1
   %cmp8.not.i.i.us.i = icmp eq i32 %call.i.i.us.i, %add.i.i.us.i
   %or.cond.i.i.us.i = select i1 %cmp6.i.i.us.i, i1 %cmp8.not.i.i.us.i, i1 false
@@ -3844,7 +3844,7 @@ if.end3.i.i.us.i:                                 ; preds = %if.then33.i.us.i
 if.end11.i.i.us.i:                                ; preds = %if.end3.i.i.us.i
   store ptr %mode_changeable.i.i.i, ptr %p.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %mode_changeable.i.i.i, i8 0, i64 %conv.i.i.us.i, i1 false)
-  %call16.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 1)
+  %call16.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 1)
   %cmp17.i.i.us.i = icmp eq i32 %call16.i.i.us.i, %add.i.i.us.i
   br i1 %cmp17.i.i.us.i, label %for.cond.preheader.i.i.us.i, label %if.else.i.i.i
 

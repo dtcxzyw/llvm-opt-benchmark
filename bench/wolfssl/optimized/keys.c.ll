@@ -1262,10 +1262,10 @@ if.then.i:                                        ; preds = %if.then78
   %10 = load i8, ptr %hash_size, align 1
   %conv4.i = zext i8 %10 to i32
   %conv6.i = zext i8 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull align 16 %keyData, i64 %conv6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull readonly align 16 %keyData, i64 %conv6.i, i1 false)
   %server_write_MAC_secret.i = getelementptr inbounds i8, ptr %ssl, i64 780
   %arrayidx12.i = getelementptr inbounds i8, ptr %keyData, i64 %conv6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull readonly align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
   %add14.i = shl nuw nsw i32 %conv4.i, 1
   br label %if.end16.i
 
@@ -1277,12 +1277,12 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %idxprom23.i = zext nneg i32 %i.1.i to i64
   %arrayidx24.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23.i
   %conv25.i = zext i16 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull readonly align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
   %add26.i = add nuw nsw i32 %i.1.i, %conv18.i
   %server_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %idxprom32.i = zext nneg i32 %add26.i to i64
   %arrayidx33.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom32.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull readonly align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
   %add35.i = add nuw nsw i32 %add26.i, %conv18.i
   %12 = load i16, ptr %iv_size, align 2
   %conv38.i = zext i16 %12 to i32
@@ -1290,12 +1290,12 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %idxprom43.i = zext nneg i32 %add35.i to i64
   %arrayidx44.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom43.i
   %conv45.i = zext i16 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull readonly align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
   %add46.i = add nuw nsw i32 %add35.i, %conv38.i
   %server_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 924
   %idxprom52.i = zext nneg i32 %add46.i to i64
   %arrayidx53.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom52.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull readonly align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
   br i1 %cmp.not.i, label %if.then61.i, label %if.end82
 
 if.then61.i:                                      ; preds = %if.end16.i

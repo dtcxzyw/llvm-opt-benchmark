@@ -4054,7 +4054,7 @@ common.resume:                                    ; preds = %.loopexit, %.loopex
   %67 = trunc i64 %66 to i32
   %68 = mul nsw i32 %65, 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %69 = call noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef nonnull %26, i32 noundef %68, i32 noundef %65, i32 noundef %67, i32 noundef 3, ptr noundef nonnull %3)
+  %69 = call noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef nonnull readonly %26, i32 noundef %68, i32 noundef %65, i32 noundef %67, i32 noundef 3, ptr noundef nonnull %3)
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %.thread, label %70
 
@@ -4063,7 +4063,7 @@ common.resume:                                    ; preds = %.loopexit, %.loopex
   br label %77
 
 70:                                               ; preds = %._crit_edge36
-  %71 = call noalias ptr @fopen(ptr noundef %63, ptr noundef nonnull @.str.5)
+  %71 = call noalias ptr @fopen(ptr noundef readonly %63, ptr noundef nonnull @.str.5)
   %.not15.i = icmp eq ptr %71, null
   br i1 %.not15.i, label %.thread28, label %72
 

@@ -1789,7 +1789,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef %1, ptr
 
 37:                                               ; preds = %._crit_edge.i
   %38 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %4, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr readonly align 1 %4, i64 %3, i1 false)
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i

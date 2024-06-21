@@ -2577,7 +2577,7 @@ _ZN8facebook5velox3row10CompactRow12serializeMapEiPc.exit: ; preds = %sw.bb11, %
   %34 = load i64, ptr %33, align 8
   %and.i.i = and i64 %34, 1
   %tobool.i11.i = icmp ne i64 %and.i.i, 0
-  %call10.i29 = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %32, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i11.i, ptr noundef %buffer)
+  %call10.i29 = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %32, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i11.i, ptr noundef %buffer)
   %35 = load ptr, ptr %children_.i27, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 224
   %36 = load ptr, ptr %childIsFixedWidth_.i28, align 8
@@ -2586,7 +2586,7 @@ _ZN8facebook5velox3row10CompactRow12serializeMapEiPc.exit: ; preds = %sw.bb11, %
   %tobool.i16.i = icmp ne i64 %and.i15.i, 0
   %idx.ext.i = sext i32 %call10.i29 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext.i
-  %call17.i = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i.i, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i16.i, ptr noundef %add.ptr.i)
+  %call17.i = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i.i, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i16.i, ptr noundef %add.ptr.i)
   %add.i = add nsw i32 %call17.i, %call10.i29
   br label %return
 

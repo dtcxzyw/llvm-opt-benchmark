@@ -2950,7 +2950,7 @@ sub_0.i:                                          ; preds = %283
   br i1 %.not17.i, label %compare_strings.exit.thread231, label %292
 
 292:                                              ; preds = %.tail.thread.i
-  %293 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %285) #30
+  %293 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %285) #30
   br label %compare_strings.exit
 
 compare_strings.exit:                             ; preds = %290, %292
@@ -3026,7 +3026,7 @@ compare_strings.exit.thread231:                   ; preds = %.tail.thread.i, %29
   %329 = load i64, ptr %328, align 8
   %330 = mul i64 %329, %322
   %331 = getelementptr inbounds i8, ptr %327, i64 %330
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %331, ptr nonnull align 4 %12, i64 %329, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %331, ptr nonnull readonly align 4 %12, i64 %329, i1 false)
   br label %pmix_value_array_append_item.exit
 
 pmix_value_array_append_item.exit:                ; preds = %325, %319, %315, %317, %312

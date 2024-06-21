@@ -1276,7 +1276,7 @@ default.unreachable58:                            ; preds = %3
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %.sroa.7.012.i), !noalias !189
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %.sroa.7.012.i), !noalias !189
   br label %17
 
 17:                                               ; preds = %16, %.lr.ph.i
@@ -1372,7 +1372,7 @@ default.unreachable58:                            ; preds = %3
 
 64:                                               ; preds = %58
   %65 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %65), !noalias !195
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %65), !noalias !195
   br label %.thread80.i
 
 .thread80.i:                                      ; preds = %68, %64, %58, %.preheader.i
@@ -1389,7 +1389,7 @@ default.unreachable58:                            ; preds = %3
   %69 = extractvalue { i16, i1 } %66, 0
   %70 = add nuw i16 %.sroa.017.085.i, 1
   %71 = zext i16 %69 to i32
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %71), !noalias !195
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %71), !noalias !195
   %exitcond.not.i = icmp eq i16 %70, %umax.i
   br i1 %exitcond.not.i, label %.thread80.i, label %.lr.ph.i1
 
@@ -1450,7 +1450,7 @@ default.unreachable58:                            ; preds = %3
   %98 = zext i1 %97 to i16
   %spec.select.i = add nuw i16 %.sroa.024.034.i, %98
   %99 = zext i16 %.sroa.024.034.i to i32
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %99), !noalias !231
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %99), !noalias !231
   %.not.i.i = icmp ule i16 %spec.select.i, %95
   %or.cond31.not.i = select i1 %97, i1 %.not.i.i, i1 false
   br i1 %or.cond31.not.i, label %.lr.ph.i5, label %.loopexit.i
@@ -1479,7 +1479,7 @@ default.unreachable58:                            ; preds = %3
 111:                                              ; preds = %107
   %112 = extractvalue { i16, i1 } %109, 0
   %113 = zext i16 %112 to i32
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %113), !noalias !259
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %113), !noalias !259
   br label %114
 
 114:                                              ; preds = %111, %107
@@ -1509,7 +1509,7 @@ default.unreachable58:                            ; preds = %3
 
 126:                                              ; preds = %122
   %127 = extractvalue { i32, i1 } %124, 0
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %127), !noalias !265
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %127), !noalias !265
   br label %128
 
 128:                                              ; preds = %126, %122
@@ -1554,7 +1554,7 @@ default.unreachable58:                            ; preds = %3
   %144 = icmp ult i32 %.sroa.016.030.i, %143
   %145 = zext i1 %144 to i32
   %spec.select.i17 = add nuw i32 %.sroa.016.030.i, %145
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %.sroa.016.030.i), !noalias !271
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %.sroa.016.030.i), !noalias !271
   %.not.i.i18 = icmp ule i32 %spec.select.i17, %143
   %or.cond.not.i = select i1 %144, i1 %.not.i.i18, i1 false
   br i1 %or.cond.not.i, label %.lr.ph.i16, label %.loopexit.i19
@@ -1597,7 +1597,7 @@ default.unreachable58:                            ; preds = %3
   %161 = icmp ult i32 %.sroa.016.030.i30, %160
   %162 = zext i1 %161 to i32
   %spec.select.i31 = add nuw i32 %.sroa.016.030.i30, %162
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %.sroa.016.030.i30), !noalias !300
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly %1, ptr nonnull %2, i32 noundef %.sroa.016.030.i30), !noalias !300
   %.not.i.i32 = icmp ule i32 %spec.select.i31, %160
   %or.cond.not.i33 = select i1 %161, i1 %.not.i.i32, i1 false
   br i1 %or.cond.not.i33, label %.lr.ph.i29, label %.loopexit.i34
@@ -4024,7 +4024,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !667, !noalias !672, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %4, align 8, !alias.scope !667, !noalias !672, !noundef !4
   %15 = add i64 %14, %2
   store i64 %15, ptr %4, align 8, !alias.scope !667, !noalias !672
@@ -4146,7 +4146,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %8, %
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !680, !noalias !685, !nonnull !4, !noundef !4
   %52 = getelementptr inbounds i8, ptr %51, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
   %53 = load i64, ptr %43, align 8, !alias.scope !680, !noalias !685, !noundef !4
   %54 = add i64 %53, %42
   store i64 %54, ptr %43, align 8, !alias.scope !680, !noalias !685
@@ -5923,7 +5923,7 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces18write_color_spaces17h5b803
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit69, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit" unwind label %176
 
 41:                                               ; preds = %.noexc4, %.noexc3
@@ -6167,7 +6167,7 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces18write_color_spaces17h5b803
   br i1 %135, label %137, label %136
 
 136:                                              ; preds = %175, %132
-  tail call void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  tail call void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   ret void
 
 137:                                              ; preds = %132
@@ -6562,7 +6562,7 @@ define internal fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closur
   %.sroa.57.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.val, i64 1416
   %.sroa.01.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !1036
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.57.0..sroa_idx.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.57.0..sroa_idx.i, i64 24, i1 false)
   store ptr %.sroa.05.0.copyload.i, ptr %9, align 8, !noalias !1036
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 32
   %23 = getelementptr inbounds i8, ptr %9, i64 24
@@ -6832,7 +6832,7 @@ _ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.threa
   %137 = phi i64 [ 4, %121 ], [ 3, %110 ], [ 2, %103 ], [ 1, %101 ]
   %138 = xor i64 %137, 15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi, i8 0, i64 %138, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %137, i1 false)
   %139 = trunc nuw nsw i64 %137 to i8
   %140 = or disjoint i8 %139, -128
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
@@ -7316,7 +7316,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 .loopexit.split-lp238:                            ; preds = %.loopexit.split-lp238.loopexit, %.loopexit.split-lp238.loopexit.split-lp, %.loopexit237
   %lpad.phi241 = phi { ptr, i32 } [ %lpad.loopexit239, %.loopexit237 ], [ %lpad.loopexit256, %.loopexit.split-lp238.loopexit ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp238.loopexit.split-lp ]
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
           to label %.thread unwind label %452
 
 .loopexit259:                                     ; preds = %.noexc56, %.noexc58
@@ -7326,7 +7326,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 192:                                              ; preds = %.loopexit259, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1097
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
           to label %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit61" unwind label %131
 
 "_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit61": ; preds = %192
@@ -7506,7 +7506,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 .loopexit.split-lp233:                            ; preds = %.loopexit.split-lp233.loopexit, %.loopexit.split-lp233.loopexit.split-lp, %.loopexit232
   %lpad.phi236 = phi { ptr, i32 } [ %lpad.loopexit234, %.loopexit232 ], [ %lpad.loopexit253, %.loopexit.split-lp233.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp233.loopexit.split-lp ]
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
           to label %.thread unwind label %452
 
 .loopexit255:                                     ; preds = %.noexc68, %.noexc70
@@ -7516,7 +7516,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 248:                                              ; preds = %.loopexit255, %.noexc67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1140
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
           to label %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit74" unwind label %131
 
 "_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit74": ; preds = %248
@@ -7719,7 +7719,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 .loopexit.split-lp225:                            ; preds = %.loopexit.split-lp225.loopexit, %.loopexit.split-lp225.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp225.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp225.loopexit.split-lp.loopexit, %.loopexit224
   %lpad.phi228 = phi { ptr, i32 } [ %lpad.loopexit226, %.loopexit224 ], [ %lpad.loopexit229, %.loopexit.split-lp225.loopexit ], [ %lpad.loopexit246, %.loopexit.split-lp225.loopexit.split-lp.loopexit ], [ %lpad.loopexit249, %.loopexit.split-lp225.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp250, %.loopexit.split-lp225.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
           to label %.thread unwind label %452
 
 .loopexit252:                                     ; preds = %.noexc81, %.noexc83
@@ -7886,7 +7886,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 361:                                              ; preds = %.loopexit248, %.noexc91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1235
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
           to label %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit96" unwind label %131
 
 "_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit96": ; preds = %361
@@ -8066,7 +8066,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit242, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp243, %.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
           to label %.thread unwind label %452
 
 .loopexit245:                                     ; preds = %.noexc103, %.noexc105
@@ -8076,7 +8076,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.16528140993567049526
 
 417:                                              ; preds = %.loopexit245, %.noexc102
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1269
-  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
+  invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.15772558698018558306"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
           to label %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit109" unwind label %131
 
 "_ZN4core3ptr45drop_in_place$LT$pdf_writer..object..Dict$GT$17h1c2f3cb66e60cd6dE.llvm.15772558698018558306.exit109": ; preds = %417
@@ -8348,7 +8348,7 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
   %65 = extractvalue { i64, ptr } %62, 1
   %66 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %66)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull align 1 %60, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %60, i64 %61, i1 false)
   store i64 %64, ptr %12, align 8, !alias.scope !1325, !noalias !1328
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1325, !noalias !1328

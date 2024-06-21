@@ -481,7 +481,7 @@ ZSTD_seqDecompressedSize.exit.i:                  ; preds = %ZSTD_getSequenceLen
 
 236:                                              ; preds = %234
   %237 = load i64, ptr %54, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull align 4 %64, i64 %237, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull readonly align 4 %64, i64 %237, i1 false)
   %238 = getelementptr inbounds i8, ptr %226, i64 %237
   br label %239
 
@@ -659,7 +659,7 @@ ZSTD_compressSubBlock_literal.exit.i.i:           ; preds = %288, %261, %252, %2
   %334 = trunc i32 %333 to i8
   store i8 %334, ptr %.0662.i.i.i, align 1
   %335 = load i64, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %320, ptr nonnull align 4 %67, i64 %335, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %320, ptr nonnull readonly align 4 %67, i64 %335, i1 false)
   %336 = load i64, ptr %61, align 8
   %337 = getelementptr inbounds i8, ptr %320, i64 %336
   %338 = ptrtoint ptr %337 to i64
@@ -745,7 +745,7 @@ ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlo
   br i1 %.not158.i, label %377, label %376
 
 376:                                              ; preds = %.loopexit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %25, ptr noundef nonnull align 8 dereferenceable(2064) %24, i64 2064, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %25, ptr noundef nonnull readonly align 8 dereferenceable(2064) %24, i64 2064, i1 false)
   br label %377
 
 377:                                              ; preds = %376, %.loopexit.i
@@ -795,7 +795,7 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %386
   %399 = getelementptr inbounds i8, ptr %.1132235.i, i64 2
   store i8 %398, ptr %399, align 1
   %400 = getelementptr inbounds i8, ptr %.1132235.i, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %400, ptr align 1 %.1130236.i, i64 %391, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %400, ptr readonly align 1 %.1130236.i, i64 %391, i1 false)
   %401 = icmp ult i64 %392, -119
   br i1 %401, label %402, label %ZSTD_compressSubBlock_multi.exit
 
@@ -806,7 +806,7 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %386
 
 405:                                              ; preds = %402
   %406 = getelementptr inbounds i8, ptr %24, i64 5616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %406, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull readonly align 8 dereferenceable(12) %406, i64 12, i1 false)
   %407 = icmp ult ptr %29, %.1237.i
   br i1 %407, label %.lr.ph.i, label %._crit_edge.i
 

@@ -265,7 +265,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
   %26 = extractvalue { ptr, i64 } %24, 1
   %27 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %27)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %25, ptr noundef nonnull align 1 dereferenceable(7) @anon.ef0d73fb134f1b782dda14a05d29dcc6.10, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %25, ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.ef0d73fb134f1b782dda14a05d29dcc6.10, i64 7, i1 false)
   store ptr %25, ptr %23, align 8
   %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %26, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
@@ -713,7 +713,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, ptr noundef nonnull align 1 dereferenceable(7) @anon.ef0d73fb134f1b782dda14a05d29dcc6.13, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.ef0d73fb134f1b782dda14a05d29dcc6.13, i64 7, i1 false)
   store ptr %11, ptr %9, align 8
   %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %12, ptr %.sroa.010.sroa.4.0..sroa_idx, align 8
@@ -3368,7 +3368,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %377 = extractvalue { ptr, i64 } %375, 1
   %378 = icmp ne ptr %376, null
   call void @llvm.assume(i1 %378)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %376, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.51, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %376, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.51, i64 11, i1 false)
   store ptr %376, ptr %167, align 8, !noalias !761
   store i64 %377, ptr %.sroa.0172.sroa.4.0..sroa_idx.i, align 8, !noalias !761
   store i64 11, ptr %.sroa.0172.sroa.5.0..sroa_idx.i, align 8, !noalias !761
@@ -3831,7 +3831,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %497 = extractvalue { ptr, i64 } %495, 1
   %498 = icmp ne ptr %496, null
   call void @llvm.assume(i1 %498), !noalias !940
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %496, ptr noundef nonnull align 1 dereferenceable(14) @anon.ef0d73fb134f1b782dda14a05d29dcc6.117, i64 14, i1 false), !noalias !940
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %496, ptr noundef nonnull readonly align 1 dereferenceable(14) @anon.ef0d73fb134f1b782dda14a05d29dcc6.117, i64 14, i1 false), !noalias !940
   store ptr %496, ptr %93, align 8, !noalias !939
   store i64 %497, ptr %.sroa.0335.sroa.4.0..sroa_idx.i, align 8, !noalias !939
   store i64 14, ptr %.sroa.0335.sroa.5.0..sroa_idx.i, align 8, !noalias !939
@@ -7578,7 +7578,7 @@ default.unreachable:                              ; preds = %69
   %111 = extractvalue { ptr, i64 } %109, 1
   %112 = icmp ne ptr %110, null
   call void @llvm.assume(i1 %112)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %110, ptr noundef nonnull align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.8, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %110, ptr noundef nonnull readonly align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.8, i64 12, i1 false)
   store ptr %110, ptr %41, align 8, !noalias !1509
   %.sroa.010.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 8
   store i64 %111, ptr %.sroa.010.sroa.4.0..sroa_idx.i, align 8, !noalias !1509
@@ -7892,7 +7892,7 @@ default.unreachable:                              ; preds = %69
   %213 = extractvalue { ptr, i64 } %211, 1
   %214 = icmp ne ptr %212, null
   call void @llvm.assume(i1 %214)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %212, ptr noundef nonnull align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.7, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %212, ptr noundef nonnull readonly align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.7, i64 12, i1 false)
   store ptr %212, ptr %28, align 8, !noalias !1627
   %.sroa.010.sroa.4.0..sroa_idx.i172 = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %213, ptr %.sroa.010.sroa.4.0..sroa_idx.i172, align 8, !noalias !1627
@@ -8175,7 +8175,7 @@ default.unreachable:                              ; preds = %69
   %305 = extractvalue { ptr, i64 } %303, 1
   %306 = icmp ne ptr %304, null
   call void @llvm.assume(i1 %306)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %304, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.6, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %304, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.6, i64 11, i1 false)
   store ptr %304, ptr %16, align 8, !noalias !1734
   %.sroa.010.sroa.4.0..sroa_idx.i207 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %305, ptr %.sroa.010.sroa.4.0..sroa_idx.i207, align 8, !noalias !1734
@@ -8721,7 +8721,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %59 = extractvalue { ptr, i64 } %57, 1
   %60 = icmp ne ptr %58, null
   tail call void @llvm.assume(i1 %60)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %58, ptr noundef nonnull align 1 dereferenceable(10) @anon.ef0d73fb134f1b782dda14a05d29dcc6.40, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %58, ptr noundef nonnull readonly align 1 dereferenceable(10) @anon.ef0d73fb134f1b782dda14a05d29dcc6.40, i64 10, i1 false)
   store ptr %58, ptr %56, align 8
   %.sroa.0154.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
   store i64 %59, ptr %.sroa.0154.sroa.4.0..sroa_idx, align 8
@@ -9896,7 +9896,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %59 = extractvalue { ptr, i64 } %57, 1
   %60 = icmp ne ptr %58, null
   tail call void @llvm.assume(i1 %60)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %58, ptr noundef nonnull align 1 dereferenceable(10) @anon.ef0d73fb134f1b782dda14a05d29dcc6.40, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %58, ptr noundef nonnull readonly align 1 dereferenceable(10) @anon.ef0d73fb134f1b782dda14a05d29dcc6.40, i64 10, i1 false)
   store ptr %58, ptr %56, align 8
   %.sroa.0154.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
   store i64 %59, ptr %.sroa.0154.sroa.4.0..sroa_idx, align 8
@@ -11003,7 +11003,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %11, ptr noundef nonnull align 1 dereferenceable(10) @anon.ef0d73fb134f1b782dda14a05d29dcc6.49, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %11, ptr noundef nonnull readonly align 1 dereferenceable(10) @anon.ef0d73fb134f1b782dda14a05d29dcc6.49, i64 10, i1 false)
   store ptr %11, ptr %9, align 8
   %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %12, ptr %.sroa.010.sroa.4.0..sroa_idx, align 8
@@ -11229,7 +11229,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
   %42 = extractvalue { ptr, i64 } %40, 1
   %43 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %43)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %41, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.60, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %41, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.60, i64 11, i1 false)
   store ptr %41, ptr %39, align 8
   %.sroa.0155.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %42, ptr %.sroa.0155.sroa.4.0..sroa_idx, align 8
@@ -12066,7 +12066,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %28)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %26, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.66, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %26, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.66, i64 11, i1 false)
   store ptr %26, ptr %24, align 8
   %.sroa.028.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %27, ptr %.sroa.028.sroa.4.0..sroa_idx, align 8
@@ -12226,7 +12226,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   %78 = extractvalue { ptr, i64 } %76, 1
   %79 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %79)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(16) @anon.ef0d73fb134f1b782dda14a05d29dcc6.132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %77, ptr noundef nonnull readonly align 1 dereferenceable(16) @anon.ef0d73fb134f1b782dda14a05d29dcc6.132, i64 16, i1 false)
   store ptr %77, ptr %17, align 8, !noalias !2500
   %.sroa.010.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %78, ptr %.sroa.010.sroa.4.0..sroa_idx.i, align 8, !noalias !2500
@@ -12572,7 +12572,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
   %24 = extractvalue { ptr, i64 } %22, 1
   %25 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %25)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %23, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.68, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %23, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.68, i64 11, i1 false)
   store ptr %23, ptr %21, align 8
   %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %24, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
@@ -12989,7 +12989,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %11, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.71, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %11, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.71, i64 11, i1 false)
   store ptr %11, ptr %9, align 8
   %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %12, ptr %.sroa.010.sroa.4.0..sroa_idx, align 8
@@ -13280,7 +13280,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..LogicalType$u20$as$u20$
   %83 = extractvalue { ptr, i64 } %81, 1
   %84 = icmp ne ptr %82, null
   tail call void @llvm.assume(i1 %84)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %82, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.72, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %82, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.72, i64 11, i1 false)
   store ptr %82, ptr %80, align 8
   %.sroa.0262.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 8
   store i64 %83, ptr %.sroa.0262.sroa.4.0..sroa_idx, align 8
@@ -14857,7 +14857,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   %47 = extractvalue { ptr, i64 } %45, 1
   %48 = icmp ne ptr %46, null
   tail call void @llvm.assume(i1 %48)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %46, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.87, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %46, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.87, i64 11, i1 false)
   store ptr %46, ptr %44, align 8
   %.sroa.041.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 8
   store i64 %47, ptr %.sroa.041.sroa.4.0..sroa_idx, align 8
@@ -15100,7 +15100,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   %134 = extractvalue { ptr, i64 } %132, 1
   %135 = icmp ne ptr %133, null
   call void @llvm.assume(i1 %135)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %133, ptr noundef nonnull align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.98, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %133, ptr noundef nonnull readonly align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.98, i64 12, i1 false)
   store ptr %133, ptr %35, align 8, !noalias !2979
   store i64 %134, ptr %.sroa.064.sroa.4.0..sroa_idx.i, align 8, !noalias !2979
   store i64 12, ptr %.sroa.064.sroa.5.0..sroa_idx.i, align 8, !noalias !2979
@@ -15872,7 +15872,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %129 = extractvalue { ptr, i64 } %127, 1
   %130 = icmp ne ptr %128, null
   tail call void @llvm.assume(i1 %130)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %128, ptr noundef nonnull align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.89, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %128, ptr noundef nonnull readonly align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.89, i64 12, i1 false)
   store ptr %128, ptr %126, align 8
   %.sroa.0227.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %126, i64 8
   store i64 %129, ptr %.sroa.0227.sroa.4.0..sroa_idx, align 8
@@ -16330,7 +16330,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %290 = extractvalue { ptr, i64 } %288, 1
   %291 = icmp ne ptr %289, null
   call void @llvm.assume(i1 %291)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %289, ptr noundef nonnull align 1 dereferenceable(13) @anon.ef0d73fb134f1b782dda14a05d29dcc6.103, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %289, ptr noundef nonnull readonly align 1 dereferenceable(13) @anon.ef0d73fb134f1b782dda14a05d29dcc6.103, i64 13, i1 false)
   store ptr %289, ptr %76, align 8, !noalias !3285
   store i64 %290, ptr %.sroa.0190.sroa.4.0..sroa_idx.i, align 8, !noalias !3285
   store i64 13, ptr %.sroa.0190.sroa.5.0..sroa_idx.i, align 8, !noalias !3285
@@ -18430,7 +18430,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
   %30 = extractvalue { ptr, i64 } %28, 1
   %31 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %31)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %29, ptr noundef nonnull align 1 dereferenceable(13) @anon.ef0d73fb134f1b782dda14a05d29dcc6.112, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %29, ptr noundef nonnull readonly align 1 dereferenceable(13) @anon.ef0d73fb134f1b782dda14a05d29dcc6.112, i64 13, i1 false)
   store ptr %29, ptr %27, align 8
   %.sroa.064.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %30, ptr %.sroa.064.sroa.4.0..sroa_idx, align 8
@@ -18962,7 +18962,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
   %24 = extractvalue { ptr, i64 } %22, 1
   %25 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %25)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @anon.ef0d73fb134f1b782dda14a05d29dcc6.116, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %23, ptr noundef nonnull readonly align 1 dereferenceable(13) @anon.ef0d73fb134f1b782dda14a05d29dcc6.116, i64 13, i1 false)
   store ptr %23, ptr %21, align 8
   %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %24, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
@@ -19509,7 +19509,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
   %94 = extractvalue { ptr, i64 } %92, 1
   %95 = icmp ne ptr %93, null
   tail call void @llvm.assume(i1 %95)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %93, ptr noundef nonnull align 1 dereferenceable(14) @anon.ef0d73fb134f1b782dda14a05d29dcc6.117, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %93, ptr noundef nonnull readonly align 1 dereferenceable(14) @anon.ef0d73fb134f1b782dda14a05d29dcc6.117, i64 14, i1 false)
   store ptr %93, ptr %91, align 8
   %.sroa.0335.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %91, i64 8
   store i64 %94, ptr %.sroa.0335.sroa.4.0..sroa_idx, align 8
@@ -21373,7 +21373,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %28)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %26, ptr noundef nonnull align 1 dereferenceable(15) @anon.ef0d73fb134f1b782dda14a05d29dcc6.130, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %26, ptr noundef nonnull readonly align 1 dereferenceable(15) @anon.ef0d73fb134f1b782dda14a05d29dcc6.130, i64 15, i1 false)
   store ptr %26, ptr %24, align 8
   %.sroa.028.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %27, ptr %.sroa.028.sroa.4.0..sroa_idx, align 8
@@ -21533,7 +21533,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   %78 = extractvalue { ptr, i64 } %76, 1
   %79 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %79)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %77, ptr noundef nonnull align 1 dereferenceable(6) @anon.ef0d73fb134f1b782dda14a05d29dcc6.9, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %77, ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.ef0d73fb134f1b782dda14a05d29dcc6.9, i64 6, i1 false)
   store ptr %77, ptr %17, align 8, !noalias !4066
   %.sroa.010.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %78, ptr %.sroa.010.sroa.4.0..sroa_idx.i, align 8, !noalias !4066
@@ -21918,7 +21918,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %56 = extractvalue { ptr, i64 } %54, 1
   %57 = icmp ne ptr %55, null
   tail call void @llvm.assume(i1 %57)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %55, ptr noundef nonnull align 1 dereferenceable(17) @anon.ef0d73fb134f1b782dda14a05d29dcc6.133, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %55, ptr noundef nonnull readonly align 1 dereferenceable(17) @anon.ef0d73fb134f1b782dda14a05d29dcc6.133, i64 17, i1 false)
   store ptr %55, ptr %53, align 8
   %.sroa.082.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 8
   store i64 %56, ptr %.sroa.082.sroa.4.0..sroa_idx, align 8
@@ -22230,7 +22230,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %154 = extractvalue { ptr, i64 } %152, 1
   %155 = icmp ne ptr %153, null
   call void @llvm.assume(i1 %155)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %153, ptr noundef nonnull align 1 dereferenceable(20) @anon.ef0d73fb134f1b782dda14a05d29dcc6.146, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %153, ptr noundef nonnull readonly align 1 dereferenceable(20) @anon.ef0d73fb134f1b782dda14a05d29dcc6.146, i64 20, i1 false)
   store ptr %153, ptr %28, align 8, !noalias !4287
   %.sroa.028.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %154, ptr %.sroa.028.sroa.4.0..sroa_idx.i, align 8, !noalias !4287
@@ -22376,7 +22376,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %202 = extractvalue { ptr, i64 } %200, 1
   %203 = icmp ne ptr %201, null
   call void @llvm.assume(i1 %203)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %201, ptr noundef nonnull align 1 dereferenceable(19) @anon.ef0d73fb134f1b782dda14a05d29dcc6.145, i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %201, ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.ef0d73fb134f1b782dda14a05d29dcc6.145, i64 19, i1 false)
   store ptr %201, ptr %21, align 8, !noalias !4339
   %.sroa.010.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %202, ptr %.sroa.010.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4339
@@ -22996,7 +22996,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
   %30 = extractvalue { ptr, i64 } %28, 1
   %31 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %31)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %29, ptr noundef nonnull align 1 dereferenceable(17) @anon.ef0d73fb134f1b782dda14a05d29dcc6.138, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %29, ptr noundef nonnull readonly align 1 dereferenceable(17) @anon.ef0d73fb134f1b782dda14a05d29dcc6.138, i64 17, i1 false)
   store ptr %29, ptr %27, align 8
   %.sroa.064.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %30, ptr %.sroa.064.sroa.4.0..sroa_idx, align 8
@@ -23534,7 +23534,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
   %30 = extractvalue { ptr, i64 } %28, 1
   %31 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %31)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %29, ptr noundef nonnull align 1 dereferenceable(17) @anon.ef0d73fb134f1b782dda14a05d29dcc6.138, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %29, ptr noundef nonnull readonly align 1 dereferenceable(17) @anon.ef0d73fb134f1b782dda14a05d29dcc6.138, i64 17, i1 false)
   store ptr %29, ptr %27, align 8
   %.sroa.064.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %30, ptr %.sroa.064.sroa.4.0..sroa_idx, align 8
@@ -24133,7 +24133,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %93 = extractvalue { ptr, i64 } %91, 1
   %94 = icmp ne ptr %92, null
   tail call void @llvm.assume(i1 %94)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %92, ptr noundef nonnull align 1 dereferenceable(19) @anon.ef0d73fb134f1b782dda14a05d29dcc6.142, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %92, ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.ef0d73fb134f1b782dda14a05d29dcc6.142, i64 19, i1 false)
   store ptr %92, ptr %90, align 8
   %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %90, i64 8
   store i64 %93, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
@@ -25098,7 +25098,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %388 = extractvalue { ptr, i64 } %386, 1
   %389 = icmp ne ptr %387, null
   call void @llvm.assume(i1 %389)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %387, ptr noundef nonnull align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.50, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %387, ptr noundef nonnull readonly align 1 dereferenceable(11) @anon.ef0d73fb134f1b782dda14a05d29dcc6.50, i64 11, i1 false)
   store ptr %387, ptr %42, align 8, !noalias !5048
   %.sroa.064.sroa.4.0..sroa_idx.i138 = getelementptr inbounds i8, ptr %42, i64 8
   store i64 %388, ptr %.sroa.064.sroa.4.0..sroa_idx.i138, align 8, !noalias !5048
@@ -25890,7 +25890,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %55 = extractvalue { ptr, i64 } %53, 1
   %56 = icmp ne ptr %54, null
   tail call void @llvm.assume(i1 %56)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %54, ptr noundef nonnull align 1 dereferenceable(20) @anon.ef0d73fb134f1b782dda14a05d29dcc6.148, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %54, ptr noundef nonnull readonly align 1 dereferenceable(20) @anon.ef0d73fb134f1b782dda14a05d29dcc6.148, i64 20, i1 false)
   store ptr %54, ptr %52, align 8
   %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 8
   store i64 %55, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
@@ -26067,7 +26067,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %110 = extractvalue { ptr, i64 } %108, 1
   %111 = icmp ne ptr %109, null
   call void @llvm.assume(i1 %111)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %109, ptr noundef nonnull align 1 dereferenceable(23) @anon.ef0d73fb134f1b782dda14a05d29dcc6.155, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %109, ptr noundef nonnull readonly align 1 dereferenceable(23) @anon.ef0d73fb134f1b782dda14a05d29dcc6.155, i64 23, i1 false)
   store ptr %109, ptr %41, align 8, !noalias !5357
   %.sroa.010.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 8
   store i64 %110, ptr %.sroa.010.sroa.4.0..sroa_idx.i, align 8, !noalias !5357
@@ -26382,7 +26382,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %212 = extractvalue { ptr, i64 } %210, 1
   %213 = icmp ne ptr %211, null
   call void @llvm.assume(i1 %213)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %211, ptr noundef nonnull align 1 dereferenceable(23) @anon.ef0d73fb134f1b782dda14a05d29dcc6.153, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %211, ptr noundef nonnull readonly align 1 dereferenceable(23) @anon.ef0d73fb134f1b782dda14a05d29dcc6.153, i64 23, i1 false)
   store ptr %211, ptr %28, align 8, !noalias !5477
   %.sroa.059.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %212, ptr %.sroa.059.sroa.4.0..sroa_idx.i, align 8, !noalias !5477
@@ -26941,7 +26941,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %28)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %26, ptr noundef nonnull align 1 dereferenceable(22) @anon.ef0d73fb134f1b782dda14a05d29dcc6.151, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %26, ptr noundef nonnull readonly align 1 dereferenceable(22) @anon.ef0d73fb134f1b782dda14a05d29dcc6.151, i64 22, i1 false)
   store ptr %26, ptr %24, align 8
   %.sroa.028.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %27, ptr %.sroa.028.sroa.4.0..sroa_idx, align 8
@@ -27101,7 +27101,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   %78 = extractvalue { ptr, i64 } %76, 1
   %79 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %79)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %77, ptr noundef nonnull align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.102, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %77, ptr noundef nonnull readonly align 1 dereferenceable(12) @anon.ef0d73fb134f1b782dda14a05d29dcc6.102, i64 12, i1 false)
   store ptr %77, ptr %17, align 8, !noalias !5662
   %.sroa.010.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %78, ptr %.sroa.010.sroa.4.0..sroa_idx.i, align 8, !noalias !5662

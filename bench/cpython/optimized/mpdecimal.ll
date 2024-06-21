@@ -1926,7 +1926,7 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
   br label %if.end13.sink.split.i.i
 
 if.end13.sink.split.i.i:                          ; preds = %if.then6.i.i, %if.then3.i.i
-  tail call fastcc void @_mpd_check_exp(ptr noundef nonnull %result, ptr noundef nonnull %ctx, ptr noundef %status)
+  tail call fastcc void @_mpd_check_exp(ptr noundef nonnull %result, ptr noundef nonnull readonly %ctx, ptr noundef %status)
   br label %_mpd_apply_round.exit.i
 
 _mpd_apply_round.exit.thread.i:                   ; preds = %sw.bb33.i.i.i, %sw.bb15.i.i.i, %sw.bb7.i.i.i
@@ -2021,7 +2021,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else
   %len.i16.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15.i, ptr %len.i16.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
-  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2047,7 +2047,7 @@ entry:
   %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
-  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2088,7 +2088,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else
   %len.i16.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15.i, ptr %len.i16.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
-  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2117,7 +2117,7 @@ entry:
   %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
-  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2187,7 +2187,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i7, %if.els
   %len.i16.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15.i, ptr %len.i16.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2370,7 +2370,7 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2499,7 +2499,7 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef %status)
   ret void
 }
 
@@ -2562,7 +2562,7 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %12 = load i32, ptr %status, align 4
   %and = and i32 %12, 4161
   %tobool.not = icmp eq i32 %and, 0
@@ -7486,7 +7486,7 @@ if.then64:                                        ; preds = %if.end61
 if.end65:                                         ; preds = %if.end61
   %47 = load i8, ptr %small, align 8
   %48 = and i8 %47, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %big, ptr noundef nonnull %small, i8 noundef zeroext %48, ptr noundef nonnull %ctx, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %big, ptr noundef nonnull %small, i8 noundef zeroext %48, ptr noundef nonnull readonly %ctx, ptr noundef %status)
   br label %finish
 
 finish:                                           ; preds = %if.end65, %if.then64, %if.then60, %if.then55
@@ -9748,7 +9748,7 @@ entry:
   store i64 %spec.select8, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %1 = load i8, ptr %a, align 8
   %2 = and i8 %1, 14
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9761,7 +9761,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef readonly %ctx, ptr noundef %status)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i7, label %mpd_qadd.exit
 
@@ -9774,8 +9774,8 @@ if.end.i7:                                        ; preds = %if.then.i6
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %3, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %and.i14.i, ptr noundef %ctx, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %and.i14.i, ptr noundef readonly %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef %status)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i6, %if.end.i7, %if.end7.i
@@ -9832,7 +9832,7 @@ entry:
   %conv.i.i = select i1 %div.i.cmp.i.i, i64 2, i64 1
   store i64 %conv.i.i, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %1 = load i8, ptr %a, align 8
   %2 = and i8 %1, 14
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9845,7 +9845,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i5
 
 if.then.i5:                                       ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef readonly %ctx, ptr noundef %status)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i6, label %mpd_qadd.exit
 
@@ -9858,8 +9858,8 @@ if.end.i6:                                        ; preds = %if.then.i5
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %3, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %and.i14.i, ptr noundef %ctx, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %and.i14.i, ptr noundef readonly %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef %status)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i5, %if.end.i6, %if.end7.i
@@ -9914,7 +9914,7 @@ entry:
   store i64 %spec.select8, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %1 = load i8, ptr %a, align 8
   %2 = and i8 %1, 14
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9927,7 +9927,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end8.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef readonly %ctx, ptr noundef %status)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i7, label %mpd_qsub.exit
 
@@ -9942,8 +9942,8 @@ if.end.i7:                                        ; preds = %if.then.i6
 if.end8.i:                                        ; preds = %lor.lhs.false.i
   %and.i19.i = and i8 %3, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %conv13.i, ptr noundef %ctx, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %conv13.i, ptr noundef readonly %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef %status)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i6, %if.end.i7, %if.end8.i
@@ -10000,7 +10000,7 @@ entry:
   %conv.i.i = select i1 %div.i.cmp.i.i, i64 2, i64 1
   store i64 %conv.i.i, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %1 = load i8, ptr %a, align 8
   %2 = and i8 %1, 14
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10013,7 +10013,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end8.i, label %if.then.i5
 
 if.then.i5:                                       ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, ptr noundef readonly %ctx, ptr noundef %status)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i6, label %mpd_qsub.exit
 
@@ -10028,8 +10028,8 @@ if.end.i6:                                        ; preds = %if.then.i5
 if.end8.i:                                        ; preds = %lor.lhs.false.i
   %and.i19.i = and i8 %3, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %conv13.i, ptr noundef %ctx, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %conv13.i, ptr noundef readonly %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef %status)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i5, %if.end.i6, %if.end8.i
@@ -12953,7 +12953,7 @@ entry:
   store i64 %spec.select6, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   call void @mpd_qdiv(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
   %1 = load i8, ptr %bb, align 8
   %tobool.i8.i.not = icmp ult i8 %1, 32
@@ -13008,7 +13008,7 @@ entry:
   %conv.i.i = select i1 %div.i.cmp.i.i, i64 2, i64 1
   store i64 %conv.i.i, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   call void @mpd_qdiv(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
   %1 = load i8, ptr %bb, align 8
   %tobool.i8.i.not = icmp ult i8 %1, 32
@@ -13434,7 +13434,7 @@ lor.lhs.false.i:                                  ; preds = %while.body
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i120
 
 if.then.i120:                                     ; preds = %lor.lhs.false.i, %while.body
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status54)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i121, label %mpd_qadd.exit
 
@@ -13447,8 +13447,8 @@ if.end.i121:                                      ; preds = %if.then.i120
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %76, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
-  call void @mpd_qfinalize(ptr noundef nonnull %t1, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status54)
+  call void @mpd_qfinalize(ptr noundef nonnull %t1, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status54)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i120, %if.end.i121, %if.end7.i
@@ -13464,7 +13464,7 @@ lor.lhs.false.i129:                               ; preds = %mpd_qadd.exit
   br i1 %tobool2.not.i130, label %if.end8.i, label %if.then.i123
 
 if.then.i123:                                     ; preds = %lor.lhs.false.i129, %mpd_qadd.exit
-  %call3.i124 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
+  %call3.i124 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status54)
   %tobool4.not.i125 = icmp eq i32 %call3.i124, 0
   br i1 %tobool4.not.i125, label %if.end.i126, label %mpd_qsub.exit
 
@@ -13479,8 +13479,8 @@ if.end.i126:                                      ; preds = %if.then.i123
 if.end8.i:                                        ; preds = %lor.lhs.false.i129
   %and.i19.i = and i8 %82, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %conv13.i, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
-  call void @mpd_qfinalize(ptr noundef nonnull %t2, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %conv13.i, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status54)
+  call void @mpd_qfinalize(ptr noundef nonnull %t2, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status54)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i123, %if.end.i126, %if.end8.i
@@ -13528,7 +13528,7 @@ mpd_qcmp.exit.thread:                             ; preds = %if.then.i132, %lor.
   br label %if.end66
 
 mpd_qcmp.exit:                                    ; preds = %lor.lhs.false.i136, %lor.lhs.false5.i
-  %call10.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %t1, ptr noundef nonnull %t2)
+  %call10.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %t1, ptr noundef nonnull readonly %t2)
   %cmp62 = icmp eq i32 %call10.i, 0
   br i1 %cmp62, label %mpd_iszero.exit.i, label %if.end66
 
@@ -14584,7 +14584,7 @@ lor.lhs.false.i:                                  ; preds = %if.then4
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i17
 
 if.then.i17:                                      ; preds = %lor.lhs.false.i, %if.then4
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef %c.addr.0, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef %c.addr.0, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i18, label %if.end5
 
@@ -14597,8 +14597,8 @@ if.end.i18:                                       ; preds = %if.then.i17
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %25, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %c.addr.0, i8 noundef zeroext %and.i14.i, ptr noundef %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %c.addr.0, i8 noundef zeroext %and.i14.i, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end7.i, %if.end.i18, %if.then.i17, %if.end3
@@ -15347,20 +15347,20 @@ for.body:                                         ; preds = %mpd_qadd.exit, %for
   %19 = load i8, ptr %result, align 8
   %20 = xor i8 %19, 1
   store i8 %20, ptr %result, align 8
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %tmp, ptr noundef nonnull %static10, ptr noundef nonnull %tmp, ptr noundef nonnull %varcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull %varcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %tmp, ptr noundef nonnull %static10, ptr noundef nonnull %tmp, ptr noundef nonnull readonly %varcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %varcontext, ptr noundef %status)
   %21 = load i8, ptr %tmp, align 8
   %22 = and i8 %21, 14
   %tobool.not.i = icmp eq i8 %22, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i33
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   br label %mpd_qsub.exit
 
 if.then.i33:                                      ; preds = %for.body
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i34, label %mpd_qsub.exit
 
@@ -15382,7 +15382,7 @@ lor.lhs.false.i41:                                ; preds = %mpd_qsub.exit
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i36
 
 if.then.i36:                                      ; preds = %lor.lhs.false.i41, %mpd_qsub.exit
-  %call3.i37 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  %call3.i37 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %tobool4.not.i38 = icmp eq i32 %call3.i37, 0
   br i1 %tobool4.not.i38, label %if.end.i39, label %mpd_qadd.exit
 
@@ -15395,8 +15395,8 @@ if.end.i39:                                       ; preds = %if.then.i36
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i41
   %and.i14.i = and i8 %25, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i36, %if.end.i39, %if.end7.i
@@ -16030,7 +16030,7 @@ lor.lhs.false.i:                                  ; preds = %while.body
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i142
 
 if.then.i142:                                     ; preds = %lor.lhs.false.i, %while.body
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull %workctx, ptr noundef nonnull %status72)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status72)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i143, label %mpd_qadd.exit
 
@@ -16043,8 +16043,8 @@ if.end.i143:                                      ; preds = %if.then.i142
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %85, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull %workctx, ptr noundef nonnull %status72)
-  call void @mpd_qfinalize(ptr noundef nonnull %t1, ptr noundef nonnull %workctx, ptr noundef nonnull %status72)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status72)
+  call void @mpd_qfinalize(ptr noundef nonnull %t1, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status72)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i142, %if.end.i143, %if.end7.i
@@ -16060,7 +16060,7 @@ lor.lhs.false.i151:                               ; preds = %mpd_qadd.exit
   br i1 %tobool2.not.i152, label %if.end8.i, label %if.then.i145
 
 if.then.i145:                                     ; preds = %lor.lhs.false.i151, %mpd_qadd.exit
-  %call3.i146 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull %workctx, ptr noundef nonnull %status72)
+  %call3.i146 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status72)
   %tobool4.not.i147 = icmp eq i32 %call3.i146, 0
   br i1 %tobool4.not.i147, label %if.end.i148, label %mpd_qsub.exit
 
@@ -16075,8 +16075,8 @@ if.end.i148:                                      ; preds = %if.then.i145
 if.end8.i:                                        ; preds = %lor.lhs.false.i151
   %and.i19.i = and i8 %91, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %conv13.i, ptr noundef nonnull %workctx, ptr noundef nonnull %status72)
-  call void @mpd_qfinalize(ptr noundef nonnull %t2, ptr noundef nonnull %workctx, ptr noundef nonnull %status72)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %conv13.i, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status72)
+  call void @mpd_qfinalize(ptr noundef nonnull %t2, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status72)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i145, %if.end.i148, %if.end8.i
@@ -16124,7 +16124,7 @@ mpd_qcmp.exit.thread:                             ; preds = %if.then.i154, %lor.
   br label %if.end85
 
 mpd_qcmp.exit:                                    ; preds = %lor.lhs.false.i157, %lor.lhs.false5.i
-  %call10.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %t1, ptr noundef nonnull %t2)
+  %call10.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %t1, ptr noundef nonnull readonly %t2)
   %cmp80 = icmp eq i32 %call10.i, 0
   br i1 %cmp80, label %if.then82, label %if.end85
 
@@ -16512,7 +16512,7 @@ if.end37:                                         ; preds = %if.else, %if.then29
 if.then45:                                        ; preds = %if.end37
   %call47 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %v, ptr noundef nonnull @one)
   %status48 = getelementptr inbounds i8, ptr %maxcontext, i64 28
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %v, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status48)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %v, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %maxcontext, ptr noundef nonnull %status48)
   %47 = load i32, ptr %status48, align 4
   %and = and i32 %47, 958
   %tobool50.not = icmp eq i32 %and, 0
@@ -16699,20 +16699,20 @@ if.then99:                                        ; preds = %for.body
 
 if.end107:                                        ; preds = %for.body, %if.then99
   %v.sink = phi ptr [ %vtmp, %if.then99 ], [ %v, %for.body ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %tmp, ptr noundef nonnull %v.sink, ptr noundef nonnull %tmp, ptr noundef nonnull %varcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull %varcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %tmp, ptr noundef nonnull %v.sink, ptr noundef nonnull %tmp, ptr noundef nonnull readonly %varcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %varcontext, ptr noundef %status)
   %83 = load i8, ptr %tmp, align 8
   %84 = and i8 %83, 14
   %tobool.not.i109 = icmp eq i8 %84, 0
   br i1 %tobool.not.i109, label %lor.lhs.false.i, label %if.then.i110
 
 lor.lhs.false.i:                                  ; preds = %if.end107
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   br label %mpd_qsub.exit
 
 if.then.i110:                                     ; preds = %if.end107
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef nonnull @one, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i111, label %mpd_qsub.exit
 
@@ -16734,7 +16734,7 @@ lor.lhs.false.i118:                               ; preds = %mpd_qsub.exit
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i113
 
 if.then.i113:                                     ; preds = %lor.lhs.false.i118, %mpd_qsub.exit
-  %call3.i114 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  %call3.i114 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %tobool4.not.i115 = icmp eq i32 %call3.i114, 0
   br i1 %tobool4.not.i115, label %if.end.i116, label %mpd_qadd.exit
 
@@ -16747,8 +16747,8 @@ if.end.i116:                                      ; preds = %if.then.i113
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i118
   %and.i14.i = and i8 %87, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %tmp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i113, %if.end.i116, %if.end7.i
@@ -16776,7 +16776,7 @@ lor.lhs.false.i125:                               ; preds = %for.end
   br i1 %tobool2.not.i126, label %if.end7.i127, label %if.then.i120
 
 if.then.i120:                                     ; preds = %lor.lhs.false.i125, %for.end
-  %call3.i121 = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %tmp, ptr noundef %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  %call3.i121 = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %tmp, ptr noundef %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %tobool4.not.i122 = icmp eq i32 %call3.i121, 0
   br i1 %tobool4.not.i122, label %if.end.i123, label %finish
 
@@ -16789,8 +16789,8 @@ if.end.i123:                                      ; preds = %if.then.i120
 
 if.end7.i127:                                     ; preds = %lor.lhs.false.i125
   %and.i14.i128 = and i8 %95, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull %result, i8 noundef zeroext %and.i14.i128, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull %result, i8 noundef zeroext %and.i14.i128, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   br label %finish
 
 finish:                                           ; preds = %if.end7.i127, %if.end.i123, %if.then.i120, %_settriple.exit, %mpd_seterror.exit88, %mpd_seterror.exit
@@ -17495,7 +17495,7 @@ lor.lhs.false.i:                                  ; preds = %while.body
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i173
 
 if.then.i173:                                     ; preds = %lor.lhs.false.i, %while.body
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull %workctx, ptr noundef nonnull %status77)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status77)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i174, label %mpd_qadd.exit
 
@@ -17508,8 +17508,8 @@ if.end.i174:                                      ; preds = %if.then.i173
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %120, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull %workctx, ptr noundef nonnull %status77)
-  call void @mpd_qfinalize(ptr noundef nonnull %t1, ptr noundef nonnull %workctx, ptr noundef nonnull %status77)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t1, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %and.i14.i, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status77)
+  call void @mpd_qfinalize(ptr noundef nonnull %t1, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status77)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i173, %if.end.i174, %if.end7.i
@@ -17525,7 +17525,7 @@ lor.lhs.false.i182:                               ; preds = %mpd_qadd.exit
   br i1 %tobool2.not.i183, label %if.end8.i, label %if.then.i176
 
 if.then.i176:                                     ; preds = %lor.lhs.false.i182, %mpd_qadd.exit
-  %call3.i177 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull %workctx, ptr noundef nonnull %status77)
+  %call3.i177 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status77)
   %tobool4.not.i178 = icmp eq i32 %call3.i177, 0
   br i1 %tobool4.not.i178, label %if.end.i179, label %mpd_qsub.exit
 
@@ -17540,8 +17540,8 @@ if.end.i179:                                      ; preds = %if.then.i176
 if.end8.i:                                        ; preds = %lor.lhs.false.i182
   %and.i19.i = and i8 %126, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %conv13.i, ptr noundef nonnull %workctx, ptr noundef nonnull %status77)
-  call void @mpd_qfinalize(ptr noundef nonnull %t2, ptr noundef nonnull %workctx, ptr noundef nonnull %status77)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t2, ptr noundef nonnull %result, ptr noundef nonnull %ulp, i8 noundef zeroext %conv13.i, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status77)
+  call void @mpd_qfinalize(ptr noundef nonnull %t2, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status77)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i176, %if.end.i179, %if.end8.i
@@ -17589,7 +17589,7 @@ mpd_qcmp.exit.thread:                             ; preds = %if.then.i185, %lor.
   br label %if.end90
 
 mpd_qcmp.exit:                                    ; preds = %lor.lhs.false.i189, %lor.lhs.false5.i
-  %call10.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %t1, ptr noundef nonnull %t2)
+  %call10.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %t1, ptr noundef nonnull readonly %t2)
   %cmp85 = icmp eq i32 %call10.i, 0
   br i1 %cmp85, label %if.then87, label %if.end90
 
@@ -18827,9 +18827,9 @@ entry:
   store i64 %spec.select6, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef readonly %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef %status)
   %1 = load i8, ptr %bb, align 8
   %tobool.i8.i.not = icmp ult i8 %1, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
@@ -18883,9 +18883,9 @@ entry:
   %conv.i.i = select i1 %div.i.cmp.i.i, i64 2, i64 1
   store i64 %conv.i.i, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
-  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef readonly %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef %status)
   %1 = load i8, ptr %bb, align 8
   %tobool.i8.i.not = icmp ult i8 %1, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
@@ -19247,7 +19247,7 @@ if.end26:                                         ; preds = %if.end19
   br i1 %tobool.not.i77, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end26
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, ptr noundef nonnull %workctx, ptr noundef nonnull %status.i)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i78, label %mpd_qsub.exit
 
@@ -19260,8 +19260,8 @@ if.end.i78:                                       ; preds = %if.then.i
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %if.end26
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, i8 noundef zeroext 1, ptr noundef nonnull %workctx, ptr noundef nonnull %status.i)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef nonnull %status.i)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, i8 noundef zeroext 1, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status.i)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status.i)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i, %if.end.i78, %if.end8.i
@@ -19584,7 +19584,7 @@ if.end27:                                         ; preds = %if.end20
   br i1 %tobool.not.i79, label %if.end7.i81, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end27
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, ptr noundef nonnull %workctx, ptr noundef nonnull %status.i)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i80, label %mpd_qadd.exit
 
@@ -19596,8 +19596,8 @@ if.end.i80:                                       ; preds = %if.then.i
   br label %mpd_qadd.exit
 
 if.end7.i81:                                      ; preds = %if.end27
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, i8 noundef zeroext 0, ptr noundef nonnull %workctx, ptr noundef nonnull %status.i)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef nonnull %status.i)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %tiny, i8 noundef zeroext 0, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status.i)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status.i)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i, %if.end.i80, %if.end7.i81
@@ -20108,7 +20108,7 @@ if.end37:                                         ; preds = %if.then30, %if.end2
   br i1 %tobool39.not, label %if.end53, label %if.then40
 
 if.then40:                                        ; preds = %if.end37
-  %call.i = tail call fastcc i32 @_mpd_cmp(ptr noundef nonnull %base, ptr noundef nonnull @one)
+  %call.i = tail call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %base, ptr noundef nonnull @one)
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %_qcheck_pow_one_inf.exit.thread, label %if.else45
 
@@ -20368,7 +20368,7 @@ if.then70:                                        ; preds = %land.rhs.i
 if.end71:                                         ; preds = %if.end67, %land.rhs.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %workstatus.i)
   store i32 0, ptr %workstatus.i, align 4
-  %call.i190 = tail call fastcc i32 @_mpd_cmp_abs(ptr noundef nonnull %base, ptr noundef nonnull @one)
+  %call.i190 = tail call fastcc i32 @_mpd_cmp_abs(ptr noundef nonnull readonly %base, ptr noundef nonnull @one)
   %cmp1.i191 = icmp eq i32 %call.i190, 0
   br i1 %cmp1.i191, label %if.then.i193, label %_qcheck_pow_one.exit
 
@@ -20483,7 +20483,7 @@ if.end.i208:                                      ; preds = %if.then3.i
   %exp7.i = getelementptr inbounds i8, ptr %base, i64 8
   %146 = load i64, ptr %exp7.i, align 8
   %sub.i209 = sub i64 0, %146
-  call void @mpd_qmul_ssize(ptr noundef %result, ptr noundef nonnull %exp, i64 noundef %sub.i209, ptr noundef %ctx, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qmul_ssize(ptr noundef %result, ptr noundef nonnull %exp, i64 noundef %sub.i209, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus.i)
   %147 = load i32, ptr %workstatus.i, align 4
   %and.i = and i32 %147, 958
   %tobool8.not.i = icmp eq i32 %and.i, 0
@@ -20647,12 +20647,12 @@ if.else8.i.i:                                     ; preds = %if.else.i.i241
   br i1 %tobool.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then.i15.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.else8.i.i
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %scratch.i.i, ptr noundef nonnull %abs_x.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull %maxctx.i.i, ptr noundef %status)
-  call void @mpd_qfinalize(ptr noundef nonnull %scratch.i.i, ptr noundef nonnull %maxctx.i.i, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %scratch.i.i, ptr noundef nonnull %abs_x.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %maxctx.i.i, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %scratch.i.i, ptr noundef nonnull readonly %maxctx.i.i, ptr noundef %status)
   br label %mpd_qsub.exit.i.i
 
 if.then.i15.i.i:                                  ; preds = %if.else8.i.i
-  %call3.i.i.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %scratch.i.i, ptr noundef nonnull %abs_x.i, ptr noundef nonnull @one, ptr noundef nonnull %maxctx.i.i, ptr noundef %status)
+  %call3.i.i.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %scratch.i.i, ptr noundef nonnull %abs_x.i, ptr noundef nonnull @one, ptr noundef nonnull readonly %maxctx.i.i, ptr noundef %status)
   %tobool4.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
   br i1 %tobool4.not.i.i.i, label %if.end.i16.i.i, label %mpd_qsub.exit.i.i
 
@@ -20860,7 +20860,7 @@ _settriple.exit.i262:                             ; preds = %if.then4.i.i42.i, %
   store i64 %conv.i34.i, ptr %len.i.i267, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i30.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %ctx, ptr noundef %status)
   br label %_qcheck_pow_bounds.exit.thread
 
 if.else.i260:                                     ; preds = %if.end.i257
@@ -20926,7 +20926,7 @@ _settriple.exit61.i:                              ; preds = %if.then4.i.i60.i, %
   store i64 %conv.i51.i, ptr %len.i52.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i43.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %ctx, ptr noundef %status)
   br label %_qcheck_pow_bounds.exit.thread
 
 _qcheck_pow_bounds.exit.thread:                   ; preds = %mpd_seterror.exit.i, %_settriple.exit.i262, %_settriple.exit61.i
@@ -21413,8 +21413,8 @@ mpd_isodd.exit.i:                                 ; preds = %land.rhs.i27.i, %if
   br i1 %tobool3.not.i, label %if.end10.i, label %if.then.i98
 
 if.then.i98:                                      ; preds = %mpd_isodd.exit.i
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %tbase, ptr noundef nonnull %workctx, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %tbase, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %workstatus.i)
   %74 = load i32, ptr %workstatus.i, align 4
   %75 = load i32, ptr %status, align 4
   %or.i = or i32 %75, %74
@@ -21437,8 +21437,8 @@ lor.lhs.false.i:                                  ; preds = %if.then.i98
   br i1 %or.cond.i, label %if.end10.i, label %while.end.i
 
 if.end10.i:                                       ; preds = %lor.lhs.false.i, %mpd_isodd.exit.i, %if.end5.i.i, %while.body.i
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %workctx, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %tbase, ptr noundef nonnull %workctx, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %tbase, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %workstatus.i)
   call void @mpd_qdivint(ptr noundef nonnull %texp, ptr noundef nonnull %texp, ptr noundef nonnull %two.i, ptr noundef nonnull %maxctx.i, ptr noundef nonnull %workstatus.i)
   %82 = load i8, ptr %tbase, align 8
   %83 = and i8 %82, 12
@@ -21734,8 +21734,8 @@ if.end:                                           ; preds = %if.end2.i, %entry
   store i32 %23, ptr %allcr7, align 4
   %status8 = getelementptr inbounds i8, ptr %workctx, i64 28
   call void @mpd_qln(ptr noundef %result, ptr noundef %base, ptr noundef nonnull %workctx, ptr noundef nonnull %status8)
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %texp, ptr noundef nonnull %workctx, ptr noundef nonnull %status8)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef nonnull %status8)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %texp, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status8)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status8)
   call void @mpd_qexp(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef %status)
   %24 = load i8, ptr %texp, align 8
   %tobool.i8.i.not = icmp ult i8 %24, 32
@@ -22288,7 +22288,7 @@ if.then79:                                        ; preds = %if.end76
 if.end80:                                         ; preds = %if.end76
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %status81 = getelementptr inbounds i8, ptr %maxcontext, i64 28
-  call fastcc void @_mpd_qrescale(ptr noundef nonnull %tmod, ptr noundef nonnull %mod, i64 noundef 0, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status81)
+  call fastcc void @_mpd_qrescale(ptr noundef nonnull %tmod, ptr noundef nonnull %mod, i64 noundef 0, ptr noundef nonnull readonly %maxcontext, ptr noundef nonnull %status81)
   %72 = load i32, ptr %status81, align 4
   %and = and i32 %72, 958
   %tobool83.not = icmp eq i32 %and, 0
@@ -22303,13 +22303,13 @@ if.end87:                                         ; preds = %if.end80
   %73 = load i8, ptr %tmod, align 8
   %74 = and i8 %73, -2
   store i8 %74, ptr %tmod, align 8
-  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %tbase, ptr noundef nonnull %base, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %tbase, ptr noundef nonnull %base, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %75 = load i8, ptr %tbase, align 8
   %76 = and i8 %75, -2
   store i8 %76, ptr %tbase, align 8
   %77 = load i64, ptr %exp1, align 8
   store i64 0, ptr %exp1, align 8
-  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %texp, ptr noundef nonnull %exp, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %texp, ptr noundef nonnull %exp, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %78 = load i64, ptr %exp3, align 8
   store i64 0, ptr %exp3, align 8
   call void @mpd_qrem(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tmod, ptr noundef nonnull %maxcontext, ptr noundef %status)
@@ -22848,8 +22848,8 @@ entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
   store i32 0, ptr %workstatus, align 4
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   %0 = load i32, ptr %workstatus, align 4
   %1 = load i32, ptr %status, align 4
   %or = or i32 %1, %0
@@ -24103,7 +24103,7 @@ if.then53:                                        ; preds = %if.end48
   %status63 = getelementptr inbounds i8, ptr %workctx, i64 28
   %76 = and i8 %75, 1
   %.sink = xor i8 %76, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %q, ptr noundef nonnull %r, ptr noundef nonnull %b.addr.0, i8 noundef zeroext %.sink, ptr noundef nonnull %workctx, ptr noundef nonnull %status63)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %q, ptr noundef nonnull %r, ptr noundef nonnull %b.addr.0, i8 noundef zeroext %.sink, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status63)
   %status67 = getelementptr inbounds i8, ptr %workctx, i64 28
   %77 = load i32, ptr %status67, align 4
   %and = and i32 %77, 958
@@ -25769,8 +25769,8 @@ for.body.i:                                       ; preds = %mpd_qsub.exit.i, %f
   %mul96.i = shl i64 %113, 1
   %add97.i = add i64 %mul96.i, 2
   store i64 %add97.i, ptr %varcontext.i, align 8
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %s.i, ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %s.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %s.i, ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %s.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
   %114 = load i64, ptr %digits45.i, align 8
   %115 = load i64, ptr %varcontext.i, align 8
   %cmp101.i = icmp sgt i64 %114, %115
@@ -25786,8 +25786,8 @@ if.then103.i:                                     ; preds = %for.body.i
 
 if.end111.i:                                      ; preds = %if.then103.i, %for.body.i
   %v.0.sink.i = phi ptr [ %t.i, %if.then103.i ], [ %v.0.i, %for.body.i ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %t.i, ptr noundef nonnull %v.0.sink.i, ptr noundef nonnull %s.i, ptr noundef nonnull %varcontext.i, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %t.i, ptr noundef nonnull %varcontext.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %t.i, ptr noundef nonnull %v.0.sink.i, ptr noundef nonnull %s.i, ptr noundef nonnull readonly %varcontext.i, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %t.i, ptr noundef nonnull readonly %varcontext.i, ptr noundef nonnull %workstatus.i)
   %117 = load i8, ptr %three.i, align 8
   %118 = and i8 %117, 14
   %tobool.not.i.i = icmp eq i8 %118, 0
@@ -25800,7 +25800,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end111.i
   br i1 %tobool2.not.i.i, label %if.end8.i.i, label %if.then.i137.i
 
 if.then.i137.i:                                   ; preds = %lor.lhs.false.i.i, %if.end111.i
-  %call3.i.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t.i, ptr noundef nonnull %three.i, ptr noundef nonnull %t.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  %call3.i.i = call i32 @mpd_qcheck_nans(ptr noundef nonnull %t.i, ptr noundef nonnull %three.i, ptr noundef nonnull %t.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end.i138.i, label %mpd_qsub.exit.i
 
@@ -25815,15 +25815,15 @@ if.end.i138.i:                                    ; preds = %if.then.i137.i
 if.end8.i.i:                                      ; preds = %lor.lhs.false.i.i
   %and.i19.i.i = and i8 %119, 1
   %conv13.i.i = xor i8 %and.i19.i.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t.i, ptr noundef nonnull %three.i, ptr noundef nonnull %t.i, i8 noundef zeroext %conv13.i.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %t.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %t.i, ptr noundef nonnull %three.i, ptr noundef nonnull %t.i, i8 noundef zeroext %conv13.i.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %t.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
   br label %mpd_qsub.exit.i
 
 mpd_qsub.exit.i:                                  ; preds = %if.end8.i.i, %if.end.i138.i, %if.then.i137.i
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %t.i, ptr noundef nonnull %varcontext.i, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %varcontext.i, ptr noundef nonnull %workstatus.i)
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %one_half.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %t.i, ptr noundef nonnull readonly %varcontext.i, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %varcontext.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %one_half.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp92.i = icmp sgt i64 %indvars.iv.i, 0
   br i1 %cmp92.i, label %for.body.i, label %for.end.i, !llvm.loop !43
@@ -28383,7 +28383,7 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   %12 = or disjoint i8 %11, 64
   store i8 %12, ptr %coeff.i, align 8
   store i64 0, ptr %exp2.i.i, align 8
-  %call10.i.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %coeff.i, ptr noundef nonnull @_coeff_as_uint128.uint128_max)
+  %call10.i.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %coeff.i, ptr noundef nonnull readonly @_coeff_as_uint128.uint128_max)
   %cmp14.i = icmp sgt i32 %call10.i.i, 0
   br i1 %cmp14.i, label %_coeff_as_uint128.exit, label %if.end16.i
 
@@ -29395,8 +29395,8 @@ for.body.i:                                       ; preds = %_mpd_qmul_exact.exi
   %indvars.iv.i = phi i64 [ %59, %for.body.preheader.i ], [ %indvars.iv.next.i, %_mpd_qmul_exact.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %workstatus.i183)
   store i32 0, ptr %workstatus.i183, align 4
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %s.i, ptr noundef nonnull %rr.0, ptr noundef nonnull %rr.0, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i183)
-  call void @mpd_qfinalize(ptr noundef nonnull %s.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i183)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %s.i, ptr noundef nonnull %rr.0, ptr noundef nonnull %rr.0, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i183)
+  call void @mpd_qfinalize(ptr noundef nonnull %s.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i183)
   %60 = load i32, ptr %workstatus.i183, align 4
   %61 = load i32, ptr %status26, align 4
   %or.i184 = or i32 %61, %60
@@ -29465,12 +29465,12 @@ if.then.i92:                                      ; preds = %_mpd_qmul_exact.exi
 
 if.end.i91:                                       ; preds = %if.then.i92, %_mpd_qmul_exact.exit201
   %vtmp.sink.i = phi ptr [ %t.i, %if.then.i92 ], [ %vtmp.i, %_mpd_qmul_exact.exit201 ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %t.i, ptr noundef nonnull %vtmp.sink.i, ptr noundef nonnull %s.i, ptr noundef nonnull %varcontext.i, ptr noundef nonnull %status26)
-  call void @mpd_qfinalize(ptr noundef nonnull %t.i, ptr noundef nonnull %varcontext.i, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %t.i, ptr noundef nonnull %vtmp.sink.i, ptr noundef nonnull %s.i, ptr noundef nonnull readonly %varcontext.i, ptr noundef nonnull %status26)
+  call void @mpd_qfinalize(ptr noundef nonnull %t.i, ptr noundef nonnull readonly %varcontext.i, ptr noundef nonnull %status26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %workstatus.i)
   store i32 0, ptr %workstatus.i, align 4
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %s.i, ptr noundef nonnull %rr.0, ptr noundef nonnull %two.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
-  call void @mpd_qfinalize(ptr noundef nonnull %s.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %s.i, ptr noundef nonnull %rr.0, ptr noundef nonnull %two.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
+  call void @mpd_qfinalize(ptr noundef nonnull %s.i, ptr noundef nonnull readonly %maxcontext.i, ptr noundef nonnull %workstatus.i)
   %76 = load i32, ptr %workstatus.i, align 4
   %77 = load i32, ptr %status26, align 4
   %or.i = or i32 %77, %76
@@ -29588,7 +29588,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %_mpd_qreciprocal.exit
 
 _mpd_qreciprocal.exit:                            ; preds = %if.end.i.i, %if.then3.i.i
-  call void @mpd_qfinalize(ptr noundef nonnull %rr.0, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
+  call void @mpd_qfinalize(ptr noundef nonnull %rr.0, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status26)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %varcontext.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %maxcontext.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vtmp.i)
@@ -29647,7 +29647,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i100, 
   br label %mpd_qtrunc.exit
 
 if.end.i102:                                      ; preds = %_mpd_qreciprocal.exit
-  call fastcc void @_mpd_qround_to_integral(i32 noundef 2, ptr noundef nonnull %qq.0, ptr noundef nonnull %qq.0, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qround_to_integral(i32 noundef 2, ptr noundef nonnull %qq.0, ptr noundef nonnull %qq.0, ptr noundef nonnull readonly %workctx, ptr noundef nonnull %status26)
   br label %mpd_qtrunc.exit
 
 mpd_qtrunc.exit:                                  ; preds = %mpd_seterror.exit.i, %if.end.i102
@@ -30066,7 +30066,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i, label %mpd_qsub.exit
 
@@ -30081,8 +30081,8 @@ if.end.i:                                         ; preds = %if.then.i
 if.end8.i:                                        ; preds = %lor.lhs.false.i
   %and.i19.i = and i8 %2, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %conv13.i, ptr noundef %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %conv13.i, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i, %if.end.i, %if.end8.i
@@ -30164,7 +30164,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i, label %mpd_qadd.exit
 
@@ -30177,8 +30177,8 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %2, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %and.i14.i, ptr noundef %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %and.i14.i, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i, %if.end.i, %if.end7.i
@@ -30411,15 +30411,15 @@ while.body.lr.ph:                                 ; preds = %if.end2
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
   %shr32.in = phi i64 [ %25, %while.body.lr.ph ], [ %shr32, %while.body.backedge ]
   %shr32 = lshr i64 %shr32.in, 1
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   %and = and i64 %shr32, %exp
   %tobool5.not = icmp eq i64 %and, 0
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %while.body
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %base, ptr noundef %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %base, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %while.body

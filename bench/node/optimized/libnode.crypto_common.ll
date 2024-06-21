@@ -2409,7 +2409,7 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr i8, ptr %1, i64 8
   %.val60 = load ptr, ptr %3, align 8
   %conv.i = sext i32 %.val to i64
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %.val60, i64 noundef %conv.i, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val60, i64 noundef %conv.i, i1 noundef zeroext false, ptr noundef null)
   br label %return
 
 if.then4:                                         ; preds = %entry
@@ -2421,7 +2421,7 @@ if.then4:                                         ; preds = %entry
   %6 = getelementptr i8, ptr %4, i64 8
   %.val62 = load ptr, ptr %6, align 8
   %conv.i69 = sext i32 %.val61 to i64
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %.val62, i64 noundef %conv.i69, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val62, i64 noundef %conv.i69, i1 noundef zeroext false, ptr noundef null)
   br label %return
 
 if.then12:                                        ; preds = %entry
@@ -2433,7 +2433,7 @@ if.then12:                                        ; preds = %entry
   %9 = getelementptr i8, ptr %7, i64 8
   %.val64 = load ptr, ptr %9, align 8
   %conv.i70 = sext i32 %.val63 to i64
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %.val64, i64 noundef %conv.i70, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val64, i64 noundef %conv.i70, i1 noundef zeroext false, ptr noundef null)
   br label %return
 
 if.then20:                                        ; preds = %entry
@@ -2614,11 +2614,11 @@ if.else135:                                       ; preds = %sw.epilog
   br i1 %unicode.0, label %if.then139, label %if.else143
 
 if.then139:                                       ; preds = %if.else135
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext true, ptr noundef %prefix.0)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext true, ptr noundef %prefix.0)
   br label %return
 
 if.else143:                                       ; preds = %if.else135
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext false, ptr noundef %prefix.0)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext false, ptr noundef %prefix.0)
   br label %return
 
 if.then152:                                       ; preds = %entry

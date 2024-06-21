@@ -1509,7 +1509,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %11, ptr %3, align 8, !noalias !62
   %12 = getelementptr inbounds i8, ptr %5, i64 4
   %13 = getelementptr inbounds i8, ptr %5, i64 8
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.407, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.408, i64 noundef 4, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.409, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.410, i64 noundef 4, ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.409, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.411, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.19)
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.407, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.408, i64 noundef 4, ptr noundef nonnull readonly align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.409, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.410, i64 noundef 4, ptr noundef nonnull readonly align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.409, ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.411, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !62
   br label %"_ZN90_$LT$cranelift_codegen..machinst..blockorder..LoweredBlock$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c1a1d8bae70daE.exit"
 
@@ -15218,7 +15218,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha2ef6066a84e3a39E.llvm.5781664634918412060.exit": ; preds = %1, %9
   %.sroa.3.0.i.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %11, %9 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i, ptr nonnull align 1 %3, i64 %5, i1 false), !noalias !1204
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i, ptr nonnull readonly align 1 %3, i64 %5, i1 false), !noalias !1204
   store i64 %5, ptr %2, align 8, !alias.scope !1204, !noalias !1209
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %.sroa.3.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1204, !noalias !1209
@@ -16236,7 +16236,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
 
 220:                                              ; preds = %216
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18), !noalias !1366
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %219, i64 12, i1 false), !noalias !1367
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull readonly align 8 dereferenceable(12) %219, i64 12, i1 false), !noalias !1367
   %221 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1368
   %222 = icmp ult i64 %221, 6
   call void @llvm.assume(i1 %222)
@@ -16465,7 +16465,7 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
 
 285:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !1423
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !1420
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull readonly align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !1420
   call void @llvm.experimental.noalias.scope.decl(metadata !1424)
   call void @llvm.experimental.noalias.scope.decl(metadata !1427)
   %286 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1429
@@ -21914,7 +21914,7 @@ define void @"_ZN194_$LT$cranelift_codegen..isa..x64..inst..emit_state..EmitStat
 
 28:                                               ; preds = %22, %10
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %10 ], [ %24, %22 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %17, i64 %18, i1 false), !noalias !2153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %17, i64 %18, i1 false), !noalias !2153
   %29 = extractelement <4 x i32> %13, i64 3
   %30 = extractelement <2 x i32> %14, i64 0
   %31 = add i32 %30, %29
@@ -24120,7 +24120,7 @@ _ZN17cranelift_codegen6cursor6Cursor10after_inst17h51350eb2cbde09f7E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16), !noalias !2582
   store i32 0, ptr %16, align 4, !noalias !2582
   %359 = call noundef i64 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4push17h10b8783ee5310b02E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %291, ptr noalias noundef nonnull align 8 dereferenceable(48) %358), !noalias !2589
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17h72e5f28e5df1f779E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, ptr noundef nonnull @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, ptr noalias noundef nonnull align 8 dereferenceable(48) %358), !noalias !2590
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17h72e5f28e5df1f779E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull readonly @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, ptr noundef nonnull readonly @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, ptr noalias noundef nonnull align 8 dereferenceable(48) %358), !noalias !2590
   %360 = load i32, ptr %16, align 4, !noalias !2582, !noundef !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16), !noalias !2582
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2591

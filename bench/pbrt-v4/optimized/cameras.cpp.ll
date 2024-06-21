@@ -891,11 +891,11 @@ entry:
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
-  tail call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nonnull align 4 poison)
+  tail call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nonnull readnone align 4 poison)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
-  tail call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %0, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nonnull align 4 poison)
+  tail call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %0, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nonnull readnone align 4 poison)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
@@ -1726,11 +1726,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.body
-  call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1448) %3, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull align 4 poison)
+  call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1448) %3, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull readnone align 4 poison)
   br label %_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 sw.bb3.i.i.i:                                     ; preds = %for.body
-  call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1440) %3, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull align 4 poison)
+  call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1440) %3, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull readnone align 4 poison)
   br label %_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 sw.bb4.i.i.i:                                     ; preds = %for.body
@@ -22795,7 +22795,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

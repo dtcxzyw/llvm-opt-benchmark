@@ -8988,7 +8988,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN20cmCTestScriptHandler12ReadInScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #3 align 2 {
   %.val = load ptr, ptr %0, align 8
-  tail call void @_ZN20cmCTestScriptHandler17UpdateElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(824) %.val)
+  tail call void @_ZN20cmCTestScriptHandler17UpdateElapsedTimeEv(ptr noundef nonnull readonly align 8 dereferenceable(824) %.val)
   ret void
 }
 

@@ -401,7 +401,7 @@ if.end22:                                         ; preds = %if.then18, %if.then
   %cond27 = tail call i64 @llvm.umin.i64(i64 %call6, i64 %newsize)
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %p, i64 8) ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull align 8 %p, i64 %cond27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull readonly align 8 %p, i64 %cond27, i1 false)
   tail call void @mi_free(ptr noundef nonnull %p) #8
   br label %return
 

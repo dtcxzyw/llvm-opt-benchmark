@@ -2927,7 +2927,7 @@ get_tri.exit:                                     ; preds = %384
 .lr.ph.preheader.i:                               ; preds = %.loopexit
   %468 = zext nneg i32 %.2425 to i64
   %469 = shl nuw nsw i64 %468, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %465, ptr nonnull align 4 %.2462, i64 %469, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %465, ptr nonnull readonly align 4 %.2462, i64 %469, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -4407,7 +4407,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #18
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -4496,7 +4496,7 @@ gv_calloc.exit.i.i:                               ; preds = %26
 
 agxbnext.exit.i:                                  ; preds = %37, %35
   %41 = phi ptr [ %36, %35 ], [ %40, %37 ]
-  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #18
+  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #18
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %vagxbprint.exit
 

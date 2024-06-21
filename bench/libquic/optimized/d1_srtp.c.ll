@@ -59,7 +59,7 @@ while.body.i:                                     ; preds = %if.end.i, %cond.end
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %ptr.0, i64 noundef %cond) #6
+  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef readonly %ptr.0, i64 noundef %cond) #6
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then5, label %if.end.i
 

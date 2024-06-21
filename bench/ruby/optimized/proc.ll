@@ -2714,7 +2714,7 @@ method_cref.exit.thread:                          ; preds = %74, %method_cref.ex
   %108 = zext i32 %106 to i64
   %109 = shl nuw nsw i64 %108, 3
   %110 = load ptr, ptr %90, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %110, i64 %109, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr readonly align 1 %110, i64 %109, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %107, %83
@@ -6218,7 +6218,7 @@ define internal i64 @top_define_method(i32 noundef %0, ptr nocapture noundef rea
   %.not.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   %spec.select.i = select i1 %.not.i, ptr %4, ptr %15
-  %16 = call fastcc i64 @rb_mod_define_method_with_visibility(i32 noundef %0, ptr noundef %1, i64 noundef %.0, ptr noundef nonnull %spec.select.i)
+  %16 = call fastcc i64 @rb_mod_define_method_with_visibility(i32 noundef %0, ptr noundef readonly %1, i64 noundef %.0, ptr noundef nonnull %spec.select.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i64 %16
 }

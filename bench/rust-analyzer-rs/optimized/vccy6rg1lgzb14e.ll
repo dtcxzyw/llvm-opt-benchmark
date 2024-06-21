@@ -8442,7 +8442,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h6cab5f069b
   %25 = add i16 %.lcssa.i.i, -1
   %26 = and i16 %25, %.lcssa.i.i
   %27 = getelementptr inbounds i8, ptr %23, i64 -16
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17hd9132756776ea10aE.llvm.10267875084465766760"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !1742
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17hd9132756776ea10aE.llvm.10267875084465766760"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27), !noalias !1742
   %28 = icmp eq i64 %24, 0
   br i1 %28, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44acd1251f83c42bE.llvm.10267875084465766760.exit.thread", label %12
 }
@@ -13409,7 +13409,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h7f7ba82
   %32 = add i16 %.lcssa.i.i.i, -1
   %33 = and i16 %32, %.lcssa.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 -16
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17hd9132756776ea10aE.llvm.10267875084465766760"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !2912
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17hd9132756776ea10aE.llvm.10267875084465766760"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34), !noalias !2912
   %35 = icmp eq i64 %31, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h6cab5f069b49ded7E.llvm.10267875084465766760.exit, label %19
 
@@ -17808,7 +17808,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17heb5d43b455fa5397E
 define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17heb78c06c184f4534E.llvm.10267875084465766760"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 -16
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17hd9132756776ea10aE.llvm.10267875084465766760"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17hd9132756776ea10aE.llvm.10267875084465766760"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
   ret void
 }
 
@@ -27177,7 +27177,7 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
 
 57:                                               ; preds = %43
   %58 = getelementptr inbounds i8, ptr %31, i64 -47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.617.i.i, ptr noundef nonnull align 1 dereferenceable(7) %58, i64 7, i1 false), !alias.scope !5732, !noalias !5720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.617.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %58, i64 7, i1 false), !alias.scope !5732, !noalias !5720
   %.sroa.718.1..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 -40
   %.sroa.718.1.copyload.i.i = load ptr, ptr %.sroa.718.1..sroa_idx.i.i, align 1, !alias.scope !5733, !noalias !5720
   %.sroa.919.1..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 -32
@@ -27225,7 +27225,7 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
 
 73:                                               ; preds = %59
   %74 = getelementptr inbounds i8, ptr %31, i64 -47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i, ptr noundef nonnull align 1 dereferenceable(7) %74, i64 7, i1 false), !alias.scope !5742, !noalias !5720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %74, i64 7, i1 false), !alias.scope !5742, !noalias !5720
   %.sroa.7.1..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 -40
   %.sroa.7.1.copyload.i.i = load ptr, ptr %.sroa.7.1..sroa_idx.i.i, align 1, !alias.scope !5743, !noalias !5720
   %.sroa.9.1..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 -32
@@ -27268,7 +27268,7 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
 
 87:                                               ; preds = %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit8.i.i"
   %88 = getelementptr inbounds i8, ptr %31, i64 -23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.620.i.i, ptr noundef nonnull align 1 dereferenceable(7) %88, i64 7, i1 false), !alias.scope !5752, !noalias !5720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.620.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %88, i64 7, i1 false), !alias.scope !5752, !noalias !5720
   %.sroa.721.1..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 -16
   %.sroa.721.1.copyload.i.i = load ptr, ptr %.sroa.721.1..sroa_idx.i.i, align 1, !alias.scope !5753, !noalias !5720
   %.sroa.922.1..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 -8
@@ -27411,7 +27411,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %54 = extractvalue { i64, ptr } %48, 1
   %55 = icmp ne ptr %54, null
   tail call void @llvm.assume(i1 %55)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %45, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %45, i64 %47, i1 false)
   store i64 %53, ptr %3, align 8, !alias.scope !5779, !noalias !5782
   store ptr %54, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !5779, !noalias !5782
   store i64 %47, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !5779, !noalias !5782

@@ -931,7 +931,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %49, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %26, ptr %52, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 1, i128 85999978913095950612276125771701249363, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.11.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %46, i64 noundef %48, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.12.llvm.2916093417710556785, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 1, i128 85999978913095950612276125771701249363, ptr noundef nonnull readonly align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.11.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %46, i64 noundef %48, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.12.llvm.2916093417710556785, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h14ecd9e45add96e6E.exit" unwind label %55
 
 53:                                               ; preds = %39
@@ -1582,7 +1582,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.19.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.20.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.19.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.20.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h7f8623a4b9463967E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -1706,7 +1706,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !284
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !283
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !283
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !285
 
@@ -1763,7 +1763,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !305, !noalias !268
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !305, !noalias !268
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc447ca1c0605737aE.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hc447ca1c0605737aE.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7d80a0b0d227efb6E.exit.i.i"
@@ -2228,7 +2228,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.9.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.10.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.9.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.10.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h10b24b28dcb99cc7E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -2352,7 +2352,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !443
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !442
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !442
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !444
 
@@ -2409,7 +2409,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !464, !noalias !427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !464, !noalias !427
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h994f6f0528608f41E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h994f6f0528608f41E.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdb078df598f3204bE.exit.i.i"
@@ -2874,7 +2874,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.23.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.24.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.23.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.24.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17hf36be310bc737109E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -2998,7 +2998,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !601
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !600
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !600
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !602
 
@@ -3055,7 +3055,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !622, !noalias !585
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !622, !noalias !585
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2b2e72c0446f98b9E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h2b2e72c0446f98b9E.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5677144348e8196cE.exit.i.i"
@@ -3520,7 +3520,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.15.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.16.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.15.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.16.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h73a72f4ab8234ba4E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -3644,7 +3644,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !759
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !758
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !758
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !760
 
@@ -3701,7 +3701,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !780, !noalias !743
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !780, !noalias !743
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb7d7f954e6c992fdE.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hb7d7f954e6c992fdE.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9267c5b84567a035E.exit.i.i"
@@ -4166,7 +4166,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.13.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.14.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.13.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.14.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h34fe439b0e794b35E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -4290,7 +4290,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !917
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !916
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !916
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !918
 
@@ -4347,7 +4347,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !938, !noalias !901
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !938, !noalias !901
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0776aa31ad0d827E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0776aa31ad0d827E.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h712bf2b38c02495dE.exit.i.i"
@@ -4812,7 +4812,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.17.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.18.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.17.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.18.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h795d5e0616d50478E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -4936,7 +4936,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1075
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !1074
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !1074
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !1076
 
@@ -4993,7 +4993,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !1096, !noalias !1059
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !1096, !noalias !1059
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9982f34f9f57faa3E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h9982f34f9f57faa3E.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h785ced3ab8a99c7dE.exit.i.i"
@@ -5458,7 +5458,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %49, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.21.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.22.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.21.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %43, i64 noundef %45, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.22.llvm.2916093417710556785, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17hd6153a8474919816E.exit" unwind label %52
 
 50:                                               ; preds = %36
@@ -5582,7 +5582,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1233
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !1232
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !1232
   %86 = invoke noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hdea9fe260a3e86b1E(ptr noundef nonnull align 8 %9)
           to label %89 unwind label %87, !noalias !1234
 
@@ -5639,7 +5639,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 105:                                              ; preds = %82
   %106 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !1254, !noalias !1217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %106, i64 32, i1 false), !alias.scope !1254, !noalias !1217
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h749e1341dca81460E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h749e1341dca81460E.exit.i": ; preds = %105, %"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30ace8adb71f5cbcE.exit.i.i"
@@ -6110,7 +6110,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store ptr %51, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %26, ptr %54, align 8
-  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.7.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %48, i64 noundef %50, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.8.llvm.2916093417710556785, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
+  invoke void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17h5ff27a693a62f411E.llvm.2916093417710556785"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.7.llvm.2916093417710556785, ptr noalias noundef nonnull readonly align 1 @anon.6f2b4dabceac936bc0864e750de6684b.6, ptr noalias noundef nonnull readonly align 8 %48, i64 noundef %50, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.effce4a3e9175a79c6b71eb2b721a06e.8.llvm.2916093417710556785, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f2b4dabceac936bc0864e750de6684b.7)
           to label %"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$16cached_statement17h0a6dbe868e02d7aeE.exit" unwind label %57
 
 55:                                               ; preds = %41

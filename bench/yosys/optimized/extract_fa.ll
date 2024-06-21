@@ -5066,7 +5066,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc215.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i.i = phi ptr [ %1305, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %1301, %.noexc215.i ]
   %.092.i.i.i.i.i.i.i.i.i = phi ptr [ %1304, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.val28.i.i.i.i.i, %.noexc215.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.092.i.i.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.092.i.i.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !70
   %1304 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 12
   %1305 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1304, %1281
@@ -5360,7 +5360,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_
 .lr.ph.i.i.i.i.i.i21.i.i.i:                       ; preds = %.noexc218.i, %.lr.ph.i.i.i.i.i.i21.i.i.i
   %.03.i.i.i.i.i.i22.i.i.i = phi ptr [ %1429, %.lr.ph.i.i.i.i.i.i21.i.i.i ], [ %1425, %.noexc218.i ]
   %.092.i.i.i.i.i.i23.i.i.i = phi ptr [ %1428, %.lr.ph.i.i.i.i.i.i21.i.i.i ], [ %.val.i.i.i.i.i, %.noexc218.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i22.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.092.i.i.i.i.i.i23.i.i.i, i64 12, i1 false), !alias.scope !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i22.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.092.i.i.i.i.i.i23.i.i.i, i64 12, i1 false), !alias.scope !75
   %1428 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i23.i.i.i, i64 12
   %1429 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i22.i.i.i, i64 12
   %.not.i.i.i.i.i.i24.i.i.i = icmp eq ptr %1428, %1265
@@ -27384,7 +27384,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func2_and_
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %70, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i ], [ %71, %70 ]
   %.092.i.i.i.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i.i.i ], [ %.val28.i.i.i, %70 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.092.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !119
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.092.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !119
   %74 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 12
   %75 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %74, %48
@@ -27474,7 +27474,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func2_and_
 .lr.ph.i.i.i.i.i.i20.i:                           ; preds = %106, %.lr.ph.i.i.i.i.i.i20.i
   %.03.i.i.i.i.i.i21.i = phi ptr [ %111, %.lr.ph.i.i.i.i.i.i20.i ], [ %107, %106 ]
   %.092.i.i.i.i.i.i22.i = phi ptr [ %110, %.lr.ph.i.i.i.i.i.i20.i ], [ %.val.i.i16.i, %106 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i21.i, ptr noundef nonnull align 4 dereferenceable(12) %.092.i.i.i.i.i.i22.i, i64 12, i1 false), !alias.scope !124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.03.i.i.i.i.i.i21.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.092.i.i.i.i.i.i22.i, i64 12, i1 false), !alias.scope !124
   %110 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i22.i, i64 12
   %111 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i21.i, i64 12
   %.not.i.i.i.i.i.i23.i = icmp eq ptr %110, %84

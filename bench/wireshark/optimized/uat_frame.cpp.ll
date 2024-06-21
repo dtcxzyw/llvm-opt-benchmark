@@ -2962,8 +2962,8 @@ define void @_ZN8UatFrame9addRecordEb(ptr nocapture noundef nonnull readonly ali
   store i32 -1, ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  call void @_ZN8UatFrame17checkForErrorHintERK11QModelIndexS2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZN8UatFrame13resizeColumnsEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  call void @_ZN8UatFrame17checkForErrorHintERK11QModelIndexS2_(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZN8UatFrame13resizeColumnsEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 

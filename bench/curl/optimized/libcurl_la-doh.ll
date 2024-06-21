@@ -1419,7 +1419,7 @@ showdoh.exit:                                     ; preds = %for.cond72.preheade
   %85 = load ptr, ptr %host, align 8
   %port = getelementptr inbounds i8, ptr %0, i64 1148
   %86 = load i32, ptr %port, align 4
-  %call.i68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #9
+  %call.i68 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #9
   %add.i69 = add i64 %call.i68, 1
   %tobool.not.i71 = icmp eq i32 %84, 0
   br i1 %tobool.not.i71, label %if.then78, label %for.cond.preheader.i
@@ -1455,7 +1455,7 @@ if.end11.i:                                       ; preds = %for.body.i74
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 %..i
   %ai_canonname.i = getelementptr inbounds i8, ptr %call8.i, i64 24
   store ptr %add.ptr13.i, ptr %ai_canonname.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i, ptr align 1 %85, i64 %add.i69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i, ptr readonly align 1 %85, i64 %add.i69, i1 false)
   %tobool15.not.i = icmp eq ptr %firstai.044.i, null
   %spec.select.i = select i1 %tobool15.not.i, ptr %call8.i, ptr %firstai.044.i
   %tobool18.not.i = icmp eq ptr %prevai.045.i, null
@@ -1487,7 +1487,7 @@ sw.bb.i:                                          ; preds = %if.end20.i
 
 sw.bb31.i:                                        ; preds = %if.end20.i
   %sin6_addr.i = getelementptr inbounds i8, ptr %89, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, ptr noundef nonnull align 4 dereferenceable(16) %ip38.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %ip38.i, i64 16, i1 false)
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb31.i, %sw.bb.i
@@ -1797,7 +1797,7 @@ if.then.i15:                                      ; preds = %if.end10
   %ip.i19 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 4
   %idxprom2.i20 = sext i32 %index to i64
   %arrayidx3.i21 = getelementptr inbounds i8, ptr %doh, i64 %idxprom2.i20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ip.i19, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx3.i21, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ip.i19, ptr noundef nonnull readonly align 1 dereferenceable(16) %arrayidx3.i21, i64 16, i1 false)
   %4 = load i32, ptr %numaddr.i13, align 8
   %inc.i22 = add nsw i32 %4, 1
   store i32 %inc.i22, ptr %numaddr.i13, align 8

@@ -318,7 +318,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define void @Dau_ParseFormulaTest() local_unnamed_addr #1 {
-  %1 = tail call i64 @Dau_ParseFormula_rec(ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 37))
+  %1 = tail call i64 @Dau_ParseFormula_rec(ptr noundef nonnull readonly @.str, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @.str, i64 37))
   ret void
 }
 
@@ -810,9 +810,9 @@ define void @Dau_VerifyFile(ptr nocapture noundef readonly %0) local_unnamed_add
 
 21:                                               ; preds = %20, %14
   %22 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 5) #28
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
+  %23 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #27
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
-  %25 = call i64 @Dau_ParseFormula_rec(ptr noundef nonnull %6, ptr noundef nonnull %24)
+  %25 = call i64 @Dau_ParseFormula_rec(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %24)
   %26 = trunc i64 %25 to i32
   %27 = load i32, ptr %3, align 4
   %.not9 = icmp eq i32 %27, %26

@@ -237,7 +237,7 @@ define hidden noundef i8 @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hefaf3b5e9512876aE.exit.i.i": ; preds = %25
   %.val.i.i.i.i.i.i = load ptr, ptr %.sink6.i.i.i, align 8, !alias.scope !99, !noalias !100, !nonnull !4, !noundef !4
   %.val2.i.i.i.i.i.i = load ptr, ptr %1, align 8, !alias.scope !97, !noalias !98, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i.i.i.i, ptr nonnull %.val.i.i.i.i.i.i, i64 %.val3.i.i.i.i.i.i), !alias.scope !101, !noalias !105
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i.i.i.i, ptr nonnull readonly %.val.i.i.i.i.i.i, i64 %.val3.i.i.i.i.i.i), !alias.scope !101, !noalias !105
   %bcmp.i.i.i.i.i.fr.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i
   %.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i.fr.i.i, 0
   br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0f3b1ac3e5f3663eE.llvm.17048215454070662348.exit.thread", label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0f3b1ac3e5f3663eE.llvm.17048215454070662348.exit"
@@ -2590,7 +2590,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops.
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hefaf3b5e9512876aE.exit.i.i.i": ; preds = %26
   %.val.i.i.i.i.i.i.i = load ptr, ptr %.sink6.i.i.i.i, align 8, !alias.scope !608, !noalias !609, !nonnull !4, !noundef !4
   %.val2.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !alias.scope !606, !noalias !607, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i.i.i.i.i, ptr nonnull %.val.i.i.i.i.i.i.i, i64 %.val3.i.i.i.i.i.i.i), !alias.scope !610, !noalias !614
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i.i.i.i.i, ptr nonnull readonly %.val.i.i.i.i.i.i.i, i64 %.val3.i.i.i.i.i.i.i), !alias.scope !610, !noalias !614
   %bcmp.i.i.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i.i
   %.not.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.fr.i.i.i, 0
   br i1 %.not.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0f3b1ac3e5f3663eE.llvm.17048215454070662348.exit.thread.i", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h86d07523e76c5721E.llvm.17048215454070662348.exit"
@@ -2623,7 +2623,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %7, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %7, i64 %8, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
   %13 = load ptr, ptr %3, align 8, !alias.scope !639, !noalias !640, !nonnull !4, !align !56, !noundef !4
   %14 = load i64, ptr %13, align 8, !noalias !642, !noundef !4
@@ -3067,7 +3067,7 @@ define hidden noundef i8 @"_ZN4core4iter6traits8iterator12iter_compare7compare28
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hefaf3b5e9512876aE.exit": ; preds = %21
   %.val.i.i.i.i = load ptr, ptr %.sink6.i, align 8, !alias.scope !803, !noalias !802, !nonnull !4, !noundef !4
   %.val2.i.i.i.i = load ptr, ptr %1, align 8, !alias.scope !802, !noalias !803, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i.i, ptr nonnull %.val.i.i.i.i, i64 %.val3.i.i.i.i), !alias.scope !804, !noalias !808
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i.i, ptr nonnull readonly %.val.i.i.i.i, i64 %.val3.i.i.i.i), !alias.scope !804, !noalias !808
   %bcmp.i.i.i.i.i.fr = freeze i32 %bcmp.i.i.i.i.i
   %.not = icmp eq i32 %bcmp.i.i.i.i.i.fr, 0
   br i1 %.not, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.17048215454070662348.exit.thread", label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hefaf3b5e9512876aE.exit.thread"
@@ -3139,7 +3139,7 @@ define hidden noundef i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hefaf3b5e9512876aE.exit.i": ; preds = %21
   %.val.i.i.i.i.i = load ptr, ptr %.sink6.i.i, align 8, !alias.scope !844, !noalias !845, !nonnull !4, !noundef !4
   %.val2.i.i.i.i.i = load ptr, ptr %1, align 8, !alias.scope !842, !noalias !843, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i.i.i, ptr nonnull %.val.i.i.i.i.i, i64 %.val3.i.i.i.i.i), !alias.scope !846, !noalias !850
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i.i.i, ptr nonnull readonly %.val.i.i.i.i.i, i64 %.val3.i.i.i.i.i), !alias.scope !846, !noalias !850
   %bcmp.i.i.i.i.i.fr.i = freeze i32 %bcmp.i.i.i.i.i.i
   %.not.i = icmp eq i32 %bcmp.i.i.i.i.i.fr.i, 0
   br i1 %.not.i, label %"_ZN4core4iter6traits8iterator12iter_compare7compare28_$u7b$$u7b$closure$u7d$$u7d$17h948d83b1c8e2fbaaE.llvm.17048215454070662348.exit", label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hefaf3b5e9512876aE.exit.thread.i"
@@ -3179,7 +3179,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !856
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !856
   %5 = call noundef range(i8 5, 4) i8 @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8f0c3d98eb9b40e4E.llvm.17048215454070662348"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !range !766
   %6 = icmp eq i8 %5, 3
   br i1 %6, label %7, label %_ZN4core4iter6traits8iterator12iter_compare17hee540e3425144607E.llvm.17048215454070662348.exit
@@ -3287,7 +3287,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters6cloned14clone_try_fold
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %6, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %6, i64 %7, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !915)
   %12 = load ptr, ptr %0, align 8, !alias.scope !915, !noalias !918, !nonnull !4, !align !56, !noundef !4
   %13 = load i64, ptr %12, align 8, !noalias !920, !noundef !4
@@ -6033,7 +6033,7 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17hf27249603ec573feE.exit": ; preds = %37
   %.val.i.i.i = load ptr, ptr %31, align 8, !alias.scope !1459, !noalias !1461, !nonnull !4, !noundef !4
   %.val2.i.i.i = load ptr, ptr %30, align 8, !alias.scope !1461, !noalias !1459, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i, ptr nonnull %.val.i.i.i, i64 %.val3.i.i.i), !alias.scope !1462, !noalias !1466
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %.val.i.i.i, i64 %.val3.i.i.i), !alias.scope !1462, !noalias !1466
   %40 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %40, label %52, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17hf27249603ec573feE.exit.thread"
 
@@ -8752,7 +8752,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %44 = extractvalue { ptr, i64 } %41, 1
   %45 = icmp ne ptr %43, null
   tail call void @llvm.assume(i1 %45)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %39, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %39, i64 %40, i1 false)
   store i8 %37, ptr %31, align 8, !alias.scope !1928, !noalias !1931
   store ptr %43, ptr %10, align 8, !alias.scope !1928, !noalias !1931
   store i64 %44, ptr %.sroa.4.0..sroa_idx.i76, align 8, !alias.scope !1928, !noalias !1931
@@ -8921,7 +8921,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %102 = extractvalue { ptr, i64 } %97, 1
   %103 = icmp ne ptr %101, null
   call void @llvm.assume(i1 %103)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %95, i64 %96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %95, i64 %96, i1 false)
   store i8 %93, ptr %87, align 8, !alias.scope !1950, !noalias !1953
   store ptr %101, ptr %7, align 8, !alias.scope !1950, !noalias !1953
   store i64 %102, ptr %.sroa.4.0..sroa_idx.i83, align 8, !alias.scope !1950, !noalias !1953
@@ -9283,7 +9283,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN72_$LT$ockam_core..routing..mailbox..Mail
   %.val7.i = load i64, ptr %12, align 8, !alias.scope !1985, !noalias !1982, !noundef !4
   %13 = sub i64 %.val5.i, %.val7.i
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i, i64 %.val7.i)
-  %14 = tail call i32 @memcmp(ptr nonnull %.val.i, ptr nonnull %.val6.i, i64 %..i.i.i), !alias.scope !1987, !noalias !1991
+  %14 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val6.i, i64 %..i.i.i), !alias.scope !1987, !noalias !1991
   %15 = sext i32 %14 to i64
   %16 = icmp eq i32 %14, 0
   %spec.store.select.i.i.i = select i1 %16, i64 %13, i64 %15
@@ -9324,7 +9324,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN79_$LT$ockam_core..routing..mailbox..Mail
   %.val7.i.i = load i64, ptr %12, align 8, !alias.scope !2003, !noalias !2002, !noundef !4
   %13 = sub i64 %.val5.i.i, %.val7.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i, i64 %.val7.i.i)
-  %14 = tail call i32 @memcmp(ptr nonnull %.val.i.i, ptr nonnull %.val6.i.i, i64 %..i.i.i.i), !alias.scope !2004, !noalias !2008
+  %14 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val6.i.i, i64 %..i.i.i.i), !alias.scope !2004, !noalias !2008
   %15 = sext i32 %14 to i64
   %16 = icmp eq i32 %14, 0
   %spec.store.select.i.i.i.i = select i1 %16, i64 %13, i64 %15
@@ -9361,7 +9361,7 @@ define noundef zeroext i1 @"_ZN78_$LT$ockam_core..routing..mailbox..Mailbox$u20$
 11:                                               ; preds = %8
   %.val.i = load ptr, ptr %1, align 8, !alias.scope !2012, !noalias !2009, !nonnull !4, !noundef !4
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !2009, !noalias !2012, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i, ptr nonnull %.val.i, i64 %.val3.i), !alias.scope !2014, !noalias !2018
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i, ptr nonnull readonly %.val.i, i64 %.val3.i), !alias.scope !2014, !noalias !2018
   %12 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit"
 
@@ -9448,7 +9448,7 @@ define void @_ZN10ockam_core7routing7mailbox9Mailboxes12main_address17hba49c3008
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %6, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %6, i64 %7, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %4, ptr %12, align 8
   store ptr %9, ptr %0, align 8
@@ -9481,7 +9481,7 @@ define noundef zeroext i1 @_ZN10ockam_core7routing7mailbox9Mailboxes8contains17h
 "_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit": ; preds = %8
   %.val.i = load ptr, ptr %1, align 8, !alias.scope !2037, !noalias !2034, !nonnull !4, !noundef !4
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !2034, !noalias !2037, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i, ptr nonnull %.val.i, i64 %.val3.i), !alias.scope !2039, !noalias !2043
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i, ptr nonnull readonly %.val.i, i64 %.val3.i), !alias.scope !2039, !noalias !2043
   %11 = icmp eq i32 %bcmp.i.i, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc4deb7430b16a01aE.exit", label %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit.thread"
 
@@ -9518,7 +9518,7 @@ define noundef zeroext i1 @_ZN10ockam_core7routing7mailbox9Mailboxes8contains17h
 
 26:                                               ; preds = %24
   %.val2.i.i.i = load ptr, ptr %19, align 8, !alias.scope !2050, !noalias !2051, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i, ptr nonnull %.val.i.i.i, i64 %.val1.i.i.i), !alias.scope !2056, !noalias !2060
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %.val.i.i.i, i64 %.val1.i.i.i), !alias.scope !2056, !noalias !2060
   %27 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc4deb7430b16a01aE.exit", label %.backedge.i
 
@@ -9553,7 +9553,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN10ockam_core7routing7
 "_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit": ; preds = %8
   %.val.i = load ptr, ptr %1, align 8, !alias.scope !2064, !noalias !2061, !nonnull !4, !noundef !4
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !2061, !noalias !2064, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i, ptr nonnull %.val.i, i64 %.val3.i), !alias.scope !2066, !noalias !2070
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i, ptr nonnull readonly %.val.i, i64 %.val3.i), !alias.scope !2066, !noalias !2070
   %11 = icmp eq i32 %bcmp.i.i, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h067a8f9c2d623af2E.exit", label %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit.thread"
 
@@ -9589,7 +9589,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN10ockam_core7routing7
 
 "_ZN10ockam_core7routing7mailbox9Mailboxes12find_mailbox28_$u7b$$u7b$closure$u7d$$u7d$17h835686c2fbdd73caE.exit.i": ; preds = %25
   %.val2.i.i.i = load ptr, ptr %20, align 8, !alias.scope !2071, !noalias !2074, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i.i, ptr nonnull %.val.i.i.i, i64 %.val1.i.i.i), !alias.scope !2079, !noalias !2083
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %.val.i.i.i, i64 %.val1.i.i.i), !alias.scope !2079, !noalias !2083
   %27 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h067a8f9c2d623af2E.exit", label %"_ZN10ockam_core7routing7mailbox9Mailboxes12find_mailbox28_$u7b$$u7b$closure$u7d$$u7d$17h835686c2fbdd73caE.exit.thread.i"
 
@@ -9663,7 +9663,7 @@ define void @_ZN10ockam_core7routing7mailbox9Mailboxes9addresses17hcab82ebb0e24f
   %24 = extractvalue { ptr, i64 } %19, 1
   %25 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %25)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %17, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %17, i64 %18, i1 false)
   %26 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 %15, ptr %26, align 8
   store ptr %23, ptr %4, align 8
@@ -9868,7 +9868,7 @@ define hidden void @"_ZN76_$LT$ockam_core..routing..address..Address$u20$as$u20$
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %6, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %6, i64 %7, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %4, ptr %12, align 8
   store ptr %9, ptr %0, align 8

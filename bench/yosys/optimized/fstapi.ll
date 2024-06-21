@@ -230,8 +230,8 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %34, %.critedge.i
   br i1 %.not, label %49, label %46
 
 46:                                               ; preds = %_ZL21fstDetermineBreakSizeP16fstWriterContext.exit
-  %47 = call i32 @unlink(ptr noundef nonnull %0) #37
-  %48 = call noalias noundef ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str)
+  %47 = call i32 @unlink(ptr noundef nonnull readonly %0) #37
+  %48 = call noalias noundef ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str)
   store ptr %48, ptr %17, align 8
   %.not57 = icmp eq ptr %48, null
   br i1 %.not57, label %49, label %50
@@ -250,8 +250,8 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %34, %.critedge.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %0, i64 %55, i1 false)
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %56, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #37
-  %57 = call i32 @unlink(ptr noundef %54) #37
-  %58 = call noalias noundef ptr @fopen(ptr noundef %54, ptr noundef nonnull @.str)
+  %57 = call i32 @unlink(ptr noundef readonly %54) #37
+  %58 = call noalias noundef ptr @fopen(ptr noundef readonly %54, ptr noundef nonnull @.str)
   %59 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %17, i64 304
@@ -2174,7 +2174,7 @@ _ZL27fstWriterUint32WithVarint32P16fstWriterContextPjjPKvj.exit: ; preds = %.lr.
   %62 = getelementptr inbounds i8, ptr %.018.lcssa.i, i64 1
   store i8 %61, ptr %.018.lcssa.i, align 1
   %63 = zext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %2, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr readonly align 1 %2, i64 %63, i1 false)
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %55 to i64
   %66 = sub i64 %64, %65
@@ -4133,14 +4133,14 @@ define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %
   br i1 %.not32, label %27, label %25
 
 25:                                               ; preds = %19
-  %26 = tail call noundef ptr @realpath(ptr noundef nonnull %1, ptr noundef null) #37
+  %26 = tail call noundef ptr @realpath(ptr noundef nonnull readonly %1, ptr noundef null) #37
   br label %27
 
 27:                                               ; preds = %19, %25
   %.0 = phi ptr [ %26, %25 ], [ null, %19 ]
   %.not33 = icmp eq ptr %.0, null
   %28 = select i1 %.not33, ptr %1, ptr %.0
-  %29 = tail call noalias ptr @strdup(ptr noundef nonnull %28) #37
+  %29 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %28) #37
   br label %30
 
 30:                                               ; preds = %33, %27
@@ -4223,7 +4223,7 @@ define void @fstWriterSetComment(ptr noundef %0, ptr noundef readonly %1) local_
   br i1 %or.cond.i, label %5, label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #37
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #37
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -4260,7 +4260,7 @@ define void @fstWriterSetValueList(ptr noundef %0, ptr noundef readonly %1) loca
   br i1 %or.cond.i, label %5, label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #37
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #37
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -4297,7 +4297,7 @@ define void @fstWriterSetEnvVar(ptr noundef %0, ptr noundef readonly %1) local_u
   br i1 %or.cond.i, label %5, label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #37
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #37
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -4671,7 +4671,7 @@ define i32 @fstWriterCreateVar2(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 14:                                               ; preds = %9
   %.not = icmp eq ptr %6, null
   %15 = select i1 %.not, ptr @.str.11, ptr %6
-  %16 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #37
+  %16 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %15) #37
   br label %17
 
 17:                                               ; preds = %20, %14
@@ -6367,7 +6367,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
   %64 = getelementptr inbounds i8, ptr %.025.pn.lcssa.i, i64 2
   store i8 %63, ptr %.126.lcssa.i, align 1
   %65 = zext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %2, i64 %65, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr readonly align 1 %2, i64 %65, i1 false)
   %66 = ptrtoint ptr %64 to i64
   %67 = ptrtoint ptr %53 to i64
   %68 = sub i64 %66, %67
@@ -12711,7 +12711,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit.i:       ; preds = %1199, %1196
   %1204 = sext i32 %1203 to i64
   %1205 = getelementptr inbounds i8, ptr %54, i64 %1204
   %1206 = sext i32 %1192 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1205, ptr nonnull align 16 %34, i64 %1206, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1205, ptr nonnull readonly align 16 %34, i64 %1206, i1 false)
   %1207 = load i32, ptr %52, align 8
   %1208 = add nsw i32 %1207, %1192
   store i32 %1208, ptr %52, align 8
@@ -12731,7 +12731,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit.i:       ; preds = %1199, %1196
 _ZL9fstWritexP16fstReaderContextPvi.exit23.i:     ; preds = %1210, %1209
   %1214 = load i32, ptr %53, align 4
   %1215 = zext nneg i32 %1192 to i64
-  %1216 = call i64 @write(i32 noundef %1214, ptr noundef nonnull %34, i64 noundef %1215)
+  %1216 = call i64 @write(i32 noundef %1214, ptr noundef nonnull readonly %34, i64 noundef %1215)
   br label %_ZL9fstWritexP16fstReaderContextPvi.exit1179
 
 1217:                                             ; preds = %_ZL17fstVcdIDForFwritePcj.exit1177

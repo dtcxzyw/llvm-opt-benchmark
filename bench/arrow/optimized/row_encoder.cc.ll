@@ -2431,7 +2431,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %9 = load ptr, ptr %encoded_bytes.addr.1, align 8
   %10 = load i32, ptr %byte_width_, align 8
   %conv.i.i.i.i.i = sext i32 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %data.0.2125.i.i, i64 %conv.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %data.0.2125.i.i, i64 %conv.i.i.i.i.i, i1 false)
   %11 = load i32, ptr %byte_width_, align 8
   %12 = load ptr, ptr %encoded_bytes.addr.1, align 8
   %idx.ext.i.i.i.i.i = sext i32 %11 to i64
@@ -2504,7 +2504,7 @@ if.then25.i.i.i:                                  ; preds = %for.body23.i.i.i
   %23 = load ptr, ptr %encoded_bytes.addr.3, align 8
   %24 = load i32, ptr %byte_width_, align 8
   %conv.i.i32.i.i.i = sext i32 %24 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %data.i.i.0.data.i.i.0.data.i.i.0.data.i.0.data.i.0.data.0.data.0.19.i.i, i64 %conv.i.i32.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %data.i.i.0.data.i.i.0.data.i.i.0.data.i.0.data.i.0.data.0.data.0.19.i.i, i64 %conv.i.i32.i.i.i, i1 false)
   %25 = load i32, ptr %byte_width_, align 8
   %26 = load ptr, ptr %encoded_bytes.addr.3, align 8
   %idx.ext.i.i33.i.i.i = sext i32 %25 to i64

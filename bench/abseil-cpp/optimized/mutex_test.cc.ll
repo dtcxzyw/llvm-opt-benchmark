@@ -1234,7 +1234,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEEE, i64 0) #34
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEEE, i64 0) #34
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -1683,7 +1683,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEEE, i64 0) #34
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEEE, i64 0) #34
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -2235,7 +2235,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEEE, i64 0) #34
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEEE, i64 0) #34
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -13078,7 +13078,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !180
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !180
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 56
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 56
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
@@ -13198,7 +13198,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i81:                           ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i78, %for.body.i.i.i.i.i.i81
   %__cur.03.i.i.i.i.i.i82 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i85, %for.body.i.i.i.i.i.i81 ], [ %cond.i12.i.i.i79, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i78 ]
   %__first.addr.02.i.i.i.i.i.i83 = phi ptr [ %incdec.ptr.i.i.i.i.i.i84, %for.body.i.i.i.i.i.i81 ], [ %this.val.i.i.i63, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i78 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i82, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i83, i64 56, i1 false), !alias.scope !185
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i82, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i83, i64 56, i1 false), !alias.scope !185
   %incdec.ptr.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i83, i64 56
   %incdec.ptr1.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i82, i64 56
   %cmp.not.i.i.i.i.i.i86 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i84, %4
@@ -13318,7 +13318,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i123:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i120, %for.body.i.i.i.i.i.i123
   %__cur.03.i.i.i.i.i.i124 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i127, %for.body.i.i.i.i.i.i123 ], [ %cond.i12.i.i.i121, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i120 ]
   %__first.addr.02.i.i.i.i.i.i125 = phi ptr [ %incdec.ptr.i.i.i.i.i.i126, %for.body.i.i.i.i.i.i123 ], [ %this.val.i.i.i105, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i120 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i124, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i125, i64 56, i1 false), !alias.scope !189
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i124, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i125, i64 56, i1 false), !alias.scope !189
   %incdec.ptr.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i125, i64 56
   %incdec.ptr1.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i124, i64 56
   %cmp.not.i.i.i.i.i.i128 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i126, %7
@@ -13438,7 +13438,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i165:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i162, %for.body.i.i.i.i.i.i165
   %__cur.03.i.i.i.i.i.i166 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i169, %for.body.i.i.i.i.i.i165 ], [ %cond.i12.i.i.i163, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i162 ]
   %__first.addr.02.i.i.i.i.i.i167 = phi ptr [ %incdec.ptr.i.i.i.i.i.i168, %for.body.i.i.i.i.i.i165 ], [ %this.val.i.i.i147, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i162 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i166, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i167, i64 56, i1 false), !alias.scope !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i166, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i167, i64 56, i1 false), !alias.scope !193
   %incdec.ptr.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i167, i64 56
   %incdec.ptr1.i.i.i.i.i.i169 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i166, i64 56
   %cmp.not.i.i.i.i.i.i170 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i168, %10
@@ -13558,7 +13558,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i207:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i204, %for.body.i.i.i.i.i.i207
   %__cur.03.i.i.i.i.i.i208 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i211, %for.body.i.i.i.i.i.i207 ], [ %cond.i12.i.i.i205, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i204 ]
   %__first.addr.02.i.i.i.i.i.i209 = phi ptr [ %incdec.ptr.i.i.i.i.i.i210, %for.body.i.i.i.i.i.i207 ], [ %this.val.i.i.i189, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i204 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i208, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i209, i64 56, i1 false), !alias.scope !197
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i208, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i209, i64 56, i1 false), !alias.scope !197
   %incdec.ptr.i.i.i.i.i.i210 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i209, i64 56
   %incdec.ptr1.i.i.i.i.i.i211 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i208, i64 56
   %cmp.not.i.i.i.i.i.i212 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i210, %13
@@ -13677,7 +13677,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i249:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i246, %for.body.i.i.i.i.i.i249
   %__cur.03.i.i.i.i.i.i250 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i253, %for.body.i.i.i.i.i.i249 ], [ %cond.i12.i.i.i247, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i246 ]
   %__first.addr.02.i.i.i.i.i.i251 = phi ptr [ %incdec.ptr.i.i.i.i.i.i252, %for.body.i.i.i.i.i.i249 ], [ %this.val.i.i.i231, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i246 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i250, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i251, i64 56, i1 false), !alias.scope !201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i250, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i251, i64 56, i1 false), !alias.scope !201
   %incdec.ptr.i.i.i.i.i.i252 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i251, i64 56
   %incdec.ptr1.i.i.i.i.i.i253 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i250, i64 56
   %cmp.not.i.i.i.i.i.i254 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i252, %16
@@ -13805,7 +13805,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i297:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i294, %for.body.i.i.i.i.i.i297
   %__cur.03.i.i.i.i.i.i298 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i301, %for.body.i.i.i.i.i.i297 ], [ %cond.i12.i.i.i295, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i294 ]
   %__first.addr.02.i.i.i.i.i.i299 = phi ptr [ %incdec.ptr.i.i.i.i.i.i300, %for.body.i.i.i.i.i.i297 ], [ %this.val.i.i.i279, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i294 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i298, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i299, i64 56, i1 false), !alias.scope !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i298, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i299, i64 56, i1 false), !alias.scope !205
   %incdec.ptr.i.i.i.i.i.i300 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i299, i64 56
   %incdec.ptr1.i.i.i.i.i.i301 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i298, i64 56
   %cmp.not.i.i.i.i.i.i302 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i300, %19
@@ -13925,7 +13925,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i339:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i336, %for.body.i.i.i.i.i.i339
   %__cur.03.i.i.i.i.i.i340 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i343, %for.body.i.i.i.i.i.i339 ], [ %cond.i12.i.i.i337, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i336 ]
   %__first.addr.02.i.i.i.i.i.i341 = phi ptr [ %incdec.ptr.i.i.i.i.i.i342, %for.body.i.i.i.i.i.i339 ], [ %this.val.i.i.i321, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i336 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i340, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i341, i64 56, i1 false), !alias.scope !209
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i340, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i341, i64 56, i1 false), !alias.scope !209
   %incdec.ptr.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i341, i64 56
   %incdec.ptr1.i.i.i.i.i.i343 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i340, i64 56
   %cmp.not.i.i.i.i.i.i344 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i342, %22
@@ -14044,7 +14044,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
 for.body.i.i.i.i.i.i381:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i378, %for.body.i.i.i.i.i.i381
   %__cur.03.i.i.i.i.i.i382 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i385, %for.body.i.i.i.i.i.i381 ], [ %cond.i12.i.i.i379, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i378 ]
   %__first.addr.02.i.i.i.i.i.i383 = phi ptr [ %incdec.ptr.i.i.i.i.i.i384, %for.body.i.i.i.i.i.i381 ], [ %this.val.i.i.i363, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.i.i.i378 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i382, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i383, i64 56, i1 false), !alias.scope !213
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i382, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i383, i64 56, i1 false), !alias.scope !213
   %incdec.ptr.i.i.i.i.i.i384 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i383, i64 56
   %incdec.ptr1.i.i.i.i.i.i385 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i382, i64 56
   %cmp.not.i.i.i.i.i.i386 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i384, %25
@@ -14325,7 +14325,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 
 if.end:                                           ; preds = %entry, %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %3 = call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_116TimeoutTestParamEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorE, i64 0) #34
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_116TimeoutTestParamEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorE, i64 0) #34
   %cmp1.i = icmp ne ptr %3, null
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %cmp1.i)
   br i1 %call.i, label %_ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorEKNS0_22ParamIteratorInterfaceIS4_EEEEPT_PT0_.exit, label %if.else.i
@@ -14990,7 +14990,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(56) %params)
+  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %params)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
@@ -16071,7 +16071,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -16284,7 +16284,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(56) %params)
+  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %params)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
@@ -16680,7 +16680,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -16800,7 +16800,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(56) %params)
+  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %params)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
@@ -17202,7 +17202,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -17322,7 +17322,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(56) %params)
+  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %params)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
@@ -17814,7 +17814,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -19747,7 +19747,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__source.val5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source.val5, i64 16, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -29145,7 +29145,7 @@ invoke.cont43:                                    ; preds = %for.body42
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(56) %call2.i60, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp44, ptr noundef nonnull readonly align 8 dereferenceable(56) %call2.i60, i64 56, i1 false)
   store i64 %i.0, ptr %index.i, align 8
   invoke void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %param_name, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp44)
           to label %invoke.cont49 unwind label %lpad45
@@ -29514,7 +29514,7 @@ invoke.cont126:                                   ; preds = %invoke.cont122
           to label %.noexc84 unwind label %lpad125
 
 .noexc84:                                         ; preds = %invoke.cont126
-  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i82, ptr noundef nonnull align 8 dereferenceable(56) %call2.i7980)
+  invoke fastcc void @_ZN12_GLOBAL__N_1lsERSoRKNS_16TimeoutTestParamE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i82, ptr noundef nonnull readonly align 8 dereferenceable(56) %call2.i7980)
           to label %invoke.cont.i unwind label %lpad.i83
 
 invoke.cont.i:                                    ; preds = %.noexc84

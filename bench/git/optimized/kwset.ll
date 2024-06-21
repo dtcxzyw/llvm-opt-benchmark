@@ -934,7 +934,7 @@ for.body187:                                      ; preds = %for.cond169.prehead
   br i1 %exitcond.not, label %if.end203, label %for.body187, !llvm.loop !15
 
 if.else198:                                       ; preds = %for.cond169.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %next199, ptr noundef nonnull align 16 dereferenceable(2048) %next, i64 2048, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %next199, ptr noundef nonnull readonly align 16 dereferenceable(2048) %next, i64 2048, i1 false)
   br label %if.end203
 
 if.end203:                                        ; preds = %for.body187, %if.else198, %for.end87

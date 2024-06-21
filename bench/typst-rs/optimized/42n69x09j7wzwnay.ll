@@ -5381,14 +5381,14 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$typst_svg..SVGRenderer$GT$17
 "_ZN4core3ptr41drop_in_place$LT$xmlwriter..XmlWriter$GT$17hfcdc236741857058E.exit": ; preds = %14, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3e5790181f72d887E.exit.i"
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2086)
-  invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$$GT$17h4cc3642df0adf1ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$$GT$17h4cc3642df0adf1ffE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
           to label %22 unwind label %19
 
 19:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$xmlwriter..XmlWriter$GT$17hfcdc236741857058E.exit"
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$std..collections..hash..map..HashMap$LT$u128$C$typst_svg..Id$GT$$GT$17h1a6c4ba96fae9501E.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #21
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$std..collections..hash..map..HashMap$LT$u128$C$typst_svg..Id$GT$$GT$17h1a6c4ba96fae9501E.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21) #21
           to label %.body unwind label %40
 
 22:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$xmlwriter..XmlWriter$GT$17hfcdc236741857058E.exit"
@@ -5613,14 +5613,14 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$typst_svg..SVGRenderer$GT$17
 112:                                              ; preds = %"_ZN4core3ptr73drop_in_place$LT$typst_svg..Deduplicator$LT$typst_svg..PatternRef$GT$$GT$17ha8fb1e782dcfe57cE.exit"
   %113 = getelementptr inbounds i8, ptr %0, i64 456
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2185)
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$$GT$17hde35945836c249a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %113)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$$GT$17hde35945836c249a0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113)
           to label %117 unwind label %114
 
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           cleanup
   %116 = getelementptr inbounds i8, ptr %0, i64 480
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$std..collections..hash..map..HashMap$LT$u128$C$typst_svg..Id$GT$$GT$17h1a6c4ba96fae9501E.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(48) %116) #21
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$std..collections..hash..map..HashMap$LT$u128$C$typst_svg..Id$GT$$GT$17h1a6c4ba96fae9501E.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %116) #21
           to label %.body15 unwind label %135
 
 117:                                              ; preds = %112
@@ -9677,12 +9677,12 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$typst..visualize..image..svg
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(208) %9)
+  invoke void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %9)
           to label %"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..svg..sync..SyncTree$GT$17h76a326767e7f8b2fE.llvm.9341850390877611223.exit" unwind label %11
 
 "_ZN4core3ptr53drop_in_place$LT$typst..foundations..bytes..Bytes$GT$17h81e71ff9eb0f0d00E.exit": ; preds = %1, %6
   %10 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(208) %10)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %10)
   ret void
 
 11:                                               ; preds = %7
@@ -10622,7 +10622,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..ras
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$typst..visualize..image..svg..sync..SyncTree$GT$17h76a326767e7f8b2fE.llvm.9341850390877611223"(ptr noalias nocapture noundef readonly align 8 dereferenceable(248) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %2)
   ret void
 }
 
@@ -10699,7 +10699,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..cell..UnsafeC
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$core..cell..UnsafeCell$LT$usvg_tree..Tree$GT$$GT$17h646848f78d3610f7E.llvm.9341850390877611223"(ptr noalias nocapture noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #3 {
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(208) %0)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %0)
   ret void
 }
 
@@ -10752,7 +10752,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Optio
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr67drop_in_place$LT$std..sync..mutex..Mutex$LT$usvg_tree..Tree$GT$$GT$17he0e1e4f5b5537d4dE.llvm.9341850390877611223"(ptr noalias nocapture noundef readonly align 8 dereferenceable(248) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17h8228f1ff27e07adaE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %2)
   ret void
 }
 
@@ -11071,7 +11071,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$$LP$u128$C$typst_svg..R
 4:                                                ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit"
   %5 = add i64 %.0, 1
   %6 = getelementptr inbounds [0 x { i128, { i64, [10 x i64] }, [1 x i64] }], ptr %0, i64 0, i64 %.0, i32 1
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(88) %6)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %6)
           to label %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit" unwind label %9
 
 7:                                                ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit"
@@ -11090,7 +11090,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$$LP$u128$C$typst_svg..R
 11:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7"
   %12 = add i64 %.1, 1
   %13 = getelementptr inbounds [0 x { i128, { i64, [10 x i64] }, [1 x i64] }], ptr %0, i64 0, i64 %.1, i32 1
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %13)
           to label %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7" unwind label %15
 
 14:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7"
@@ -11432,14 +11432,14 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr72drop_in_place$LT$flate2..gz..read..GzDecoder$LT$$RF$$u5b$u8$u5d$$GT$$GT$17h6bc93a1decbead1aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(208) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4533)
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h1118e0a81f2ca334E.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h1118e0a81f2ca334E.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @"_ZN4core3ptr151drop_in_place$LT$flate2..crc..CrcReader$LT$flate2..deflate..bufread..DeflateDecoder$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h2c27123ad2a69071E.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4) #21
+  tail call void @"_ZN4core3ptr151drop_in_place$LT$flate2..crc..CrcReader$LT$flate2..deflate..bufread..DeflateDecoder$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h2c27123ad2a69071E.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %4) #21
   resume { ptr, i32 } %3
 
 5:                                                ; preds = %1
@@ -12372,7 +12372,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$
 7:                                                ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit.i.i"
   %8 = add i64 %.0.i.i, 1
   %9 = getelementptr inbounds [0 x { i128, { i64, [10 x i64] }, [1 x i64] }], ptr %3, i64 0, i64 %.0.i.i, i32 1
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(88) %9)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %9)
           to label %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit.i.i" unwind label %11, !noalias !4923
 
 "_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i.i": ; preds = %13, %11
@@ -12388,7 +12388,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$
 13:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i.i"
   %14 = add i64 %.1.i.i, 1
   %15 = getelementptr inbounds [0 x { i128, { i64, [10 x i64] }, [1 x i64] }], ptr %3, i64 0, i64 %.1.i.i, i32 1
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %15)
           to label %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i.i" unwind label %16, !noalias !4923
 
 16:                                               ; preds = %13
@@ -14436,7 +14436,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 7:                                                ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit.i"
   %8 = add i64 %.0.i, 1
   %9 = getelementptr inbounds [0 x { i128, { i64, [10 x i64] }, [1 x i64] }], ptr %3, i64 0, i64 %.0.i, i32 1
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(88) %9)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %9)
           to label %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit.i" unwind label %11
 
 "_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i": ; preds = %13, %11
@@ -14452,7 +14452,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 13:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i"
   %14 = add i64 %.1.i, 1
   %15 = getelementptr inbounds [0 x { i128, { i64, [10 x i64] }, [1 x i64] }], ptr %3, i64 0, i64 %.1.i, i32 1
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_svg..RenderedGlyph$GT$17h8c3e0a3e4094469fE.llvm.9341850390877611223"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %15)
           to label %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i" unwind label %17
 
 16:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E.llvm.9341850390877611223.exit7.i"

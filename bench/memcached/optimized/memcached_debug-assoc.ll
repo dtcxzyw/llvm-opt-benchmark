@@ -289,7 +289,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   %7 = and i16 %6, 8
   %cond.i = zext nneg i16 %7 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %data.i, i64 %cond.i
-  %bcmp.i = tail call i32 @bcmp(ptr %key, ptr nonnull %add.ptr.i, i64 %nkey)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %key, ptr nonnull %add.ptr.i, i64 %nkey)
   %tobool17.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool17.not.i, label %if.then, label %while.body.i
 

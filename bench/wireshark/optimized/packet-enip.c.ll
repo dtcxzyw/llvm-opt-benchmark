@@ -4259,7 +4259,7 @@ proto_item_set_generated.exit.i:                  ; preds = %296, %293, %288
   br label %301
 
 301:                                              ; preds = %.sink.split.i, %proto_item_set_generated.exit.i
-  call void @display_fwd_open_connection_path(ptr noundef nonnull %.0179226, ptr noundef %291, ptr noundef %2, ptr noundef %3)
+  call void @display_fwd_open_connection_path(ptr noundef nonnull readonly %.0179226, ptr noundef %291, ptr noundef %2, ptr noundef %3)
   %302 = load i32, ptr @hf_cip_cm_ot_api, align 4
   %303 = getelementptr inbounds i8, ptr %.0179226, i64 164
   %304 = load i32, ptr %303, align 4

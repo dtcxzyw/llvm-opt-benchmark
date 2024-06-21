@@ -1158,7 +1158,7 @@ if.end14.i:                                       ; preds = %do.end.i, %if.end.i
   %idx.ext.i = zext i32 %7 to i64
   %add.ptr.i = getelementptr i8, ptr %tx_fifo.i, i64 %idx.ext.i
   %conv16.i = sext i32 %size.addr.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf, i64 %conv16.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %buf, i64 %conv16.i, i1 false)
   %8 = load i32, ptr %tx_count.i, align 16
   %add.i = add i32 %8, %size.addr.0.i
   store i32 %add.i, ptr %tx_count.i, align 16

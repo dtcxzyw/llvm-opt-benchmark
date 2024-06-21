@@ -3728,7 +3728,7 @@ define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gn
   %10 = getelementptr inbounds i8, ptr %.sroa.013.027, i64 -32
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 -32
-  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %.lr.ph
@@ -3952,7 +3952,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorI
   %29 = getelementptr inbounds i8, ptr %28, i64 -32
   %30 = inttoptr i64 %27 to ptr
   %31 = getelementptr inbounds i8, ptr %30, i64 -32
-  %32 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
+  %32 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
   br i1 %32, label %33, label %97
 
 33:                                               ; preds = %25
@@ -3993,7 +3993,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.051.0, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -32
-  %58 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %50), !noalias !284
+  %58 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %50), !noalias !284
   %59 = xor i64 %54, -1
   %60 = add nsw i64 %.06.i, %59
   %.sroa.051.1 = select i1 %58, ptr %57, ptr %.sroa.051.0
@@ -4034,7 +4034,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %76 = sub nsw i64 0, %75
   %77 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.044.0, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -32
-  %79 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %78), !noalias !288
+  %79 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %78), !noalias !288
   %80 = xor i64 %75, -1
   %81 = add nsw i64 %.06.i33, %80
   %.sroa.044.1 = select i1 %79, ptr %.sroa.044.0, ptr %78
@@ -4949,7 +4949,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
 
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds i8, ptr %.sroa.0106.0, i64 -32
-  %44 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.017.i)
+  %44 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.017.i)
   %45 = getelementptr inbounds i8, ptr %.sroa.0102.0, i64 -32
   br i1 %44, label %46, label %48
 
@@ -5074,7 +5074,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
 98:                                               ; preds = %.outer, %119
   %.sroa.094.0 = phi ptr [ %120, %119 ], [ %.sroa.094.0.ph, %.outer ]
   %.0.i = phi ptr [ %121, %119 ], [ %.0.i.ph, %.outer ]
-  %99 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0.ph.pn)
+  %99 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0.ph.pn)
   br i1 %99, label %100, label %116
 
 100:                                              ; preds = %98
@@ -5144,7 +5144,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %136 = sub nsw i64 0, %135
   %137 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.080.0, i64 %136
   %138 = getelementptr inbounds i8, ptr %137, i64 -32
-  %139 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %131), !noalias !383
+  %139 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %131), !noalias !383
   %140 = xor i64 %135, -1
   %141 = add nsw i64 %.06.i, %140
   %.sroa.080.1 = select i1 %139, ptr %138, ptr %.sroa.080.0
@@ -5185,7 +5185,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %157 = sub nsw i64 0, %156
   %158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.073.0, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 -32
-  %160 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %159), !noalias !386
+  %160 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %159), !noalias !386
   %161 = xor i64 %156, -1
   %162 = add nsw i64 %.06.i65, %161
   %.sroa.073.1 = select i1 %160, ptr %.sroa.073.0, ptr %159
@@ -5266,7 +5266,7 @@ define internal fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cx
   %.ptr6 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i21, %.lr.ph.preheader ]
   %8 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i58, i64 -32
   %9 = getelementptr inbounds i8, ptr %.ptr6, i64 -32
-  %10 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %.lr.ph9
@@ -5364,7 +5364,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt1
 .lr.ph:                                           ; preds = %7, %23
   %.025 = phi ptr [ %.1, %23 ], [ %1, %7 ]
   %.01424 = phi ptr [ %.115, %23 ], [ %3, %7 ]
-  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %.01424, ptr noundef nonnull align 8 dereferenceable(32) %.025)
+  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %.01424, ptr noundef nonnull align 8 dereferenceable(32) %.025)
   %14 = load i64, ptr %5, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds i8, ptr %15, i64 -32
@@ -8374,7 +8374,7 @@ define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gn
   %10 = getelementptr inbounds i8, ptr %.sroa.013.027, i64 -32
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 -32
-  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %.lr.ph
@@ -8598,7 +8598,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorI
   %29 = getelementptr inbounds i8, ptr %28, i64 -32
   %30 = inttoptr i64 %27 to ptr
   %31 = getelementptr inbounds i8, ptr %30, i64 -32
-  %32 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
+  %32 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
   br i1 %32, label %33, label %97
 
 33:                                               ; preds = %25
@@ -8639,7 +8639,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.051.0, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -32
-  %58 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %50), !noalias !644
+  %58 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %50), !noalias !644
   %59 = xor i64 %54, -1
   %60 = add nsw i64 %.06.i, %59
   %.sroa.051.1 = select i1 %58, ptr %57, ptr %.sroa.051.0
@@ -8680,7 +8680,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %76 = sub nsw i64 0, %75
   %77 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.044.0, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -32
-  %79 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %78), !noalias !648
+  %79 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %78), !noalias !648
   %80 = xor i64 %75, -1
   %81 = add nsw i64 %.06.i33, %80
   %.sroa.044.1 = select i1 %79, ptr %.sroa.044.0, ptr %78
@@ -9464,7 +9464,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
 
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds i8, ptr %.sroa.0106.0, i64 -32
-  %44 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.017.i)
+  %44 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.017.i)
   %45 = getelementptr inbounds i8, ptr %.sroa.0102.0, i64 -32
   br i1 %44, label %46, label %48
 
@@ -9589,7 +9589,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
 98:                                               ; preds = %.outer, %119
   %.sroa.094.0 = phi ptr [ %120, %119 ], [ %.sroa.094.0.ph, %.outer ]
   %.0.i = phi ptr [ %121, %119 ], [ %.0.i.ph, %.outer ]
-  %99 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0.ph.pn)
+  %99 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0.ph.pn)
   br i1 %99, label %100, label %116
 
 100:                                              ; preds = %98
@@ -9659,7 +9659,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %136 = sub nsw i64 0, %135
   %137 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.080.0, i64 %136
   %138 = getelementptr inbounds i8, ptr %137, i64 -32
-  %139 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %131), !noalias !730
+  %139 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %131), !noalias !730
   %140 = xor i64 %135, -1
   %141 = add nsw i64 %.06.i, %140
   %.sroa.080.1 = select i1 %139, ptr %138, ptr %.sroa.080.0
@@ -9700,7 +9700,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %157 = sub nsw i64 0, %156
   %158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.073.0, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 -32
-  %160 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %159), !noalias !733
+  %160 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %159), !noalias !733
   %161 = xor i64 %156, -1
   %162 = add nsw i64 %.06.i65, %161
   %.sroa.073.1 = select i1 %160, ptr %.sroa.073.0, ptr %159
@@ -9781,7 +9781,7 @@ define internal fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cx
   %.ptr6 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i21, %.lr.ph.preheader ]
   %8 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i58, i64 -32
   %9 = getelementptr inbounds i8, ptr %.ptr6, i64 -32
-  %10 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %.lr.ph9
@@ -9879,7 +9879,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt1
 .lr.ph:                                           ; preds = %7, %23
   %.025 = phi ptr [ %.1, %23 ], [ %1, %7 ]
   %.01424 = phi ptr [ %.115, %23 ], [ %3, %7 ]
-  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %.01424, ptr noundef nonnull align 8 dereferenceable(32) %.025)
+  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS7_ESaISt4pairIKS7_S9_EEERSt6vectorIS7_SaIS7_EEENK3$_0clERSD_SO_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %.01424, ptr noundef nonnull align 8 dereferenceable(32) %.025)
   %14 = load i64, ptr %5, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds i8, ptr %15, i64 -32

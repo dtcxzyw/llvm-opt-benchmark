@@ -1177,7 +1177,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit147.i: ; preds = %496, 
   %512 = getelementptr inbounds i8, ptr %22, i64 504
   %513 = load ptr, ptr %512, align 8
   %514 = load ptr, ptr %245, align 8
-  call fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t(ptr noundef nonnull align 1 dereferenceable(52) %23, ptr noundef nonnull %93, ptr noundef %96, ptr noundef %511, ptr noundef %513, ptr noundef %514)
+  call fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t(ptr noundef nonnull readonly align 1 dereferenceable(52) %23, ptr noundef nonnull %93, ptr noundef %96, ptr noundef %511, ptr noundef %513, ptr noundef %514)
   br label %515
 
 515:                                              ; preds = %509, %505

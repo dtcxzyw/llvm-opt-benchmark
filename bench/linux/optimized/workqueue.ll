@@ -3897,7 +3897,7 @@ define dso_local i32 @apply_workqueue_attrs(ptr noundef %0, ptr nocapture nounde
   br label %17
 
 17:                                               ; preds = %15, %8
-  %18 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @wq_unbound_cpumask)
+  %18 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull @wq_unbound_cpumask)
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
   br i1 %19, label %20, label %23
 
@@ -4184,7 +4184,7 @@ define dso_local noundef ptr @alloc_workqueue(ptr nocapture noundef readonly %0,
   br label %155
 
 155:                                              ; preds = %153, %146
-  %156 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef %141, ptr noundef nonnull @wq_unbound_cpumask)
+  %156 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef readonly %141, ptr noundef nonnull @wq_unbound_cpumask)
   %157 = icmp ugt ptr %156, inttoptr (i64 -4096 to ptr)
   br i1 %157, label %apply_workqueue_attrs_locked.exit, label %apply_workqueue_attrs_locked.exit.thread16
 
@@ -4265,7 +4265,7 @@ apply_workqueue_attrs_locked.exit:                ; preds = %155
   br label %187
 
 187:                                              ; preds = %185, %178
-  %188 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef %173, ptr noundef nonnull @wq_unbound_cpumask)
+  %188 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef readonly %173, ptr noundef nonnull @wq_unbound_cpumask)
   %189 = icmp ugt ptr %188, inttoptr (i64 -4096 to ptr)
   br i1 %189, label %190, label %193
 
@@ -12810,7 +12810,7 @@ define internal i64 @wq_nice_store(ptr nocapture noundef readonly %0, ptr nocapt
   br label %51
 
 51:                                               ; preds = %49, %42
-  %52 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @wq_unbound_cpumask)
+  %52 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull readonly %8, ptr noundef nonnull @wq_unbound_cpumask)
   %53 = icmp ugt ptr %52, inttoptr (i64 -4096 to ptr)
   br i1 %53, label %54, label %57
 
@@ -12936,7 +12936,7 @@ define internal i64 @wq_cpumask_store(ptr nocapture noundef readonly %0, ptr noc
   br label %48
 
 48:                                               ; preds = %46, %39
-  %49 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @wq_unbound_cpumask)
+  %49 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull readonly %8, ptr noundef nonnull @wq_unbound_cpumask)
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
   br i1 %50, label %51, label %54
 
@@ -13098,7 +13098,7 @@ define internal i64 @wq_affn_scope_store(ptr nocapture noundef readonly %0, ptr 
   br label %57
 
 57:                                               ; preds = %55, %48
-  %58 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull %24, ptr noundef nonnull @wq_unbound_cpumask)
+  %58 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull readonly %24, ptr noundef nonnull @wq_unbound_cpumask)
   %59 = icmp ugt ptr %58, inttoptr (i64 -4096 to ptr)
   br i1 %59, label %60, label %63
 
@@ -13226,7 +13226,7 @@ define internal i64 @wq_affinity_strict_store(ptr nocapture noundef readonly %0,
   br label %48
 
 48:                                               ; preds = %46, %39
-  %49 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef %7, ptr noundef nonnull %12, ptr noundef nonnull @wq_unbound_cpumask)
+  %49 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef %7, ptr noundef nonnull readonly %12, ptr noundef nonnull @wq_unbound_cpumask)
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
   br i1 %50, label %51, label %54
 

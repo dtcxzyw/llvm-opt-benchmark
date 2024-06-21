@@ -1608,7 +1608,7 @@ if.then:                                          ; preds = %for.body19.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %28 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(40) %is)
-  invoke void @_ZN7Imf_3_211TileOffsets9findTilesERNS_7IStreamEbbb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i1 noundef zeroext %isMultiPartFile, i1 noundef zeroext %isDeep, i1 noundef zeroext false)
+  invoke void @_ZN7Imf_3_211TileOffsets9findTilesERNS_7IStreamEbbb(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i1 noundef zeroext %isMultiPartFile, i1 noundef zeroext %isDeep, i1 noundef zeroext false)
           to label %_ZN7Imf_3_211TileOffsets19reconstructFromFileERNS_7IStreamEbb.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then
@@ -2161,7 +2161,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7Imf_
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i2.i.i78, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %call5.i.i.i.i2.i.i78, i64 24, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !39

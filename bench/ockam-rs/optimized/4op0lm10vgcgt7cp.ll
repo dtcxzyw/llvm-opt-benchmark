@@ -118,7 +118,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %scevgep3.i.i = getelementptr i8, ptr %3, i64 %28
   %29 = sub i64 %26, %.promoted.i.i.i24
   %30 = shl i64 %29, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i.i, ptr align 8 %scevgep3.i.i, i64 %30, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i.i, ptr readonly align 8 %scevgep3.i.i, i64 %30, i1 false), !noalias !34
   %31 = add i64 %29, %.sroa.4.0.copyload
   br label %32
 

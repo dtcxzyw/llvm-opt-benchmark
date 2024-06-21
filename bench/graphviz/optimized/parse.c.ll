@@ -1077,7 +1077,7 @@ skipWS.exit:                                      ; preds = %gv_isspace.exit.i
 
 agxblen.exit.i:                                   ; preds = %24
   %26 = zext i8 %.val.i to i64
-  %27 = tail call noalias ptr @strndup(ptr noundef nonnull %1, i64 noundef %26) #15
+  %27 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %1, i64 noundef %26) #15
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %agxbdisown.exit
 

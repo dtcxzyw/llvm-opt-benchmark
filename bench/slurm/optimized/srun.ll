@@ -1654,7 +1654,7 @@ define internal fastcc void @_setup_one_job_env(ptr noundef %0, ptr noundef %1, 
   store i32 -2, ptr %70, align 4
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %73, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %73, ptr noundef nonnull readonly align 8 dereferenceable(12) %1, i64 12, i1 false)
   %74 = getelementptr inbounds i8, ptr %28, i64 32
   %75 = load i16, ptr %74, align 8
   %76 = or i16 %75, 1

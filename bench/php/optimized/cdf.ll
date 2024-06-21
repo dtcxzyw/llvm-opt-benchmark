@@ -267,7 +267,7 @@ cdf_read.exit:                                    ; preds = %16, %9
   store i64 %19, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = load <4 x i16>, ptr %23, align 8
@@ -278,7 +278,7 @@ cdf_read.exit:                                    ; preds = %16, %9
   store i16 %27, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 34
   %29 = getelementptr inbounds i8, ptr %3, i64 34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %28, ptr noundef nonnull align 2 dereferenceable(10) %29, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %28, ptr noundef nonnull readonly align 2 dereferenceable(10) %29, i64 10, i1 false)
   %30 = getelementptr inbounds i8, ptr %1, i64 44
   %31 = getelementptr inbounds i8, ptr %3, i64 44
   %32 = load <4 x i32>, ptr %31, align 4
@@ -1280,7 +1280,7 @@ cdf_read_sector.exit:                             ; preds = %59
   %70 = getelementptr %struct.cdf_directory_t, ptr %69, i64 %.184100
   %71 = shl nuw i64 %.184100, 7
   %72 = getelementptr inbounds i8, ptr %34, i64 %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull align 1 dereferenceable(64) %72, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull readonly align 1 dereferenceable(64) %72, i64 64, i1 false)
   %73 = getelementptr inbounds i8, ptr %70, i64 64
   %74 = getelementptr inbounds i8, ptr %72, i64 64
   %75 = load i16, ptr %74, align 1
@@ -1307,7 +1307,7 @@ cdf_read_sector.exit:                             ; preds = %59
   store i32 %90, ptr %88, align 4
   %91 = getelementptr inbounds i8, ptr %70, i64 80
   %92 = getelementptr inbounds i8, ptr %72, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 1 dereferenceable(16) %92, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull readonly align 1 dereferenceable(16) %92, i64 16, i1 false)
   %93 = getelementptr inbounds i8, ptr %70, i64 96
   %94 = getelementptr inbounds i8, ptr %72, i64 96
   %95 = load i32, ptr %94, align 1
@@ -1577,7 +1577,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #6 {
-  %8 = tail call i32 @cdf_find_stream(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 2)
+  %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.1, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %11
 
@@ -1605,11 +1605,11 @@ define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noun
   br i1 %.not.i.i, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @cdf_read_short_sector_chain(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %16, i64 noundef %19, ptr noundef %6)
+  %26 = tail call i32 @cdf_read_short_sector_chain(ptr noundef nonnull readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %4, i32 noundef %16, i64 noundef %19, ptr noundef %6)
   br label %cdf_read_user_stream.exit
 
 27:                                               ; preds = %23, %11
-  %28 = tail call i32 @cdf_read_long_sector_chain(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %16, i64 noundef %19, ptr noundef %6)
+  %28 = tail call i32 @cdf_read_long_sector_chain(ptr noundef readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, i32 noundef %16, i64 noundef %19, ptr noundef %6)
   br label %cdf_read_user_stream.exit
 
 cdf_read_user_stream.exit:                        ; preds = %10, %25, %27
@@ -1647,11 +1647,11 @@ define hidden range(i32 -1, 1) i32 @cdf_read_user_stream(ptr nocapture noundef r
   br i1 %.not.i, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @cdf_read_short_sector_chain(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %17, i64 noundef %20, ptr noundef %7)
+  %27 = tail call i32 @cdf_read_short_sector_chain(ptr noundef nonnull readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %4, i32 noundef %17, i64 noundef %20, ptr noundef %7)
   br label %cdf_read_sector_chain.exit
 
 28:                                               ; preds = %24, %12
-  %29 = tail call i32 @cdf_read_long_sector_chain(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i64 noundef %20, ptr noundef %7)
+  %29 = tail call i32 @cdf_read_long_sector_chain(ptr noundef readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, i32 noundef %17, i64 noundef %20, ptr noundef %7)
   br label %cdf_read_sector_chain.exit
 
 cdf_read_sector_chain.exit:                       ; preds = %28, %26, %11
@@ -1661,7 +1661,7 @@ cdf_read_sector_chain.exit:                       ; preds = %28, %26, %11
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #6 {
-  %8 = tail call i32 @cdf_find_stream(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 2)
+  %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.2, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %11
 
@@ -1689,11 +1689,11 @@ define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef 
   br i1 %.not.i.i, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @cdf_read_short_sector_chain(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %16, i64 noundef %19, ptr noundef %6)
+  %26 = tail call i32 @cdf_read_short_sector_chain(ptr noundef nonnull readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %4, i32 noundef %16, i64 noundef %19, ptr noundef %6)
   br label %cdf_read_user_stream.exit
 
 27:                                               ; preds = %23, %11
-  %28 = tail call i32 @cdf_read_long_sector_chain(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %16, i64 noundef %19, ptr noundef %6)
+  %28 = tail call i32 @cdf_read_long_sector_chain(ptr noundef readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, i32 noundef %16, i64 noundef %19, ptr noundef %6)
   br label %cdf_read_user_stream.exit
 
 cdf_read_user_stream.exit:                        ; preds = %10, %25, %27

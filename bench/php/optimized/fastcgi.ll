@@ -109,7 +109,7 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 15, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %11, ptr noundef nonnull align 1 dereferenceable(15) @.str, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %11, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str, i64 15, i1 false)
   %12 = getelementptr inbounds i8, ptr %7, i64 39
   store i8 0, ptr %12, align 1
   %13 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #33
@@ -2325,7 +2325,7 @@ fcgi_make_header.exit.i:                          ; preds = %443, %.loopexit.i
   %450 = load i32, ptr %8, align 8
   %451 = getelementptr inbounds i8, ptr %3, i64 %.0.i52
   %452 = sub i64 %448, %.0.i52
-  %453 = call i64 @write(i32 noundef %450, ptr noundef nonnull %451, i64 noundef %452) #32
+  %453 = call i64 @write(i32 noundef %450, ptr noundef nonnull readonly %451, i64 noundef %452) #32
   %454 = trunc i64 %453 to i32
   %455 = icmp sgt i32 %454, 0
   br i1 %455, label %456, label %459
@@ -2596,7 +2596,7 @@ close_packet.exit:                                ; preds = %2, %fcgi_make_heade
   %57 = load i32, ptr %55, align 8
   %58 = getelementptr inbounds i8, ptr %36, i64 %.0.i
   %59 = sub i64 %53, %.0.i
-  %60 = tail call i64 @write(i32 noundef %57, ptr noundef nonnull %58, i64 noundef %59) #32
+  %60 = tail call i64 @write(i32 noundef %57, ptr noundef nonnull readonly %58, i64 noundef %59) #32
   %61 = trunc i64 %60 to i32
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %66
@@ -2908,7 +2908,7 @@ close_packet.exit127:                             ; preds = %95, %fcgi_make_head
   %149 = load i32, ptr %129, align 8
   %150 = getelementptr inbounds i8, ptr %146, i64 %.0.i
   %151 = sub i64 65528, %.0.i
-  %152 = tail call i64 @write(i32 noundef %149, ptr noundef %150, i64 noundef %151) #32
+  %152 = tail call i64 @write(i32 noundef %149, ptr noundef readonly %150, i64 noundef %151) #32
   %153 = trunc i64 %152 to i32
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %155, label %158
@@ -3027,7 +3027,7 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %196
   %208 = load i32, ptr %206, align 8
   %209 = getelementptr inbounds i8, ptr %203, i64 %.0.i130
   %210 = sub i64 %204, %.0.i130
-  %211 = tail call i64 @write(i32 noundef %208, ptr noundef %209, i64 noundef %210) #32
+  %211 = tail call i64 @write(i32 noundef %208, ptr noundef readonly %209, i64 noundef %210) #32
   %212 = trunc i64 %211 to i32
   %213 = icmp sgt i32 %212, 0
   br i1 %213, label %214, label %217
@@ -3205,7 +3205,7 @@ define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr nocapture noundef re
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %39 = load ptr, ptr %38, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %39, ptr %1, i64 %29)
+  %bcmp.i = tail call i32 @bcmp(ptr %39, ptr readonly %1, i64 %29)
   %40 = icmp eq i32 %bcmp.i, 0
   br i1 %40, label %41, label %44
 
@@ -3254,7 +3254,7 @@ define hidden ptr @fcgi_quick_getenv(ptr nocapture noundef readonly %0, ptr noca
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %19 = load ptr, ptr %18, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %19, ptr %1, i64 %9)
+  %bcmp.i = tail call i32 @bcmp(ptr %19, ptr readonly %1, i64 %9)
   %20 = icmp eq i32 %bcmp.i, 0
   br i1 %20, label %21, label %24
 
@@ -3336,7 +3336,7 @@ define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %35, i64 8
   %44 = load ptr, ptr %43, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %44, ptr %1, i64 %33)
+  %bcmp.i = tail call i32 @bcmp(ptr %44, ptr readonly %1, i64 %33)
   %45 = icmp eq i32 %bcmp.i, 0
   br i1 %45, label %46, label %53
 
@@ -3456,7 +3456,7 @@ define internal fastcc ptr @fcgi_hash_set(ptr nocapture noundef %0, i32 noundef 
 
 fcgi_hash_strndup.exit:                           ; preds = %22, %32
   %41 = phi ptr [ %37, %32 ], [ %26, %22 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %4, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr readonly align 1 %4, i64 %27, i1 false)
   %42 = getelementptr inbounds i8, ptr %41, i64 %27
   br label %108
 
@@ -3530,7 +3530,7 @@ fcgi_hash_strndup.exit:                           ; preds = %22, %32
 
 fcgi_hash_strndup.exit57:                         ; preds = %52, %73
   %82 = phi ptr [ %78, %73 ], [ %67, %52 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr align 1 %2, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr readonly align 1 %2, i64 %68, i1 false)
   %83 = getelementptr inbounds i8, ptr %82, i64 %68
   store i8 0, ptr %83, align 1
   %84 = load ptr, ptr %65, align 8
@@ -3570,7 +3570,7 @@ fcgi_hash_strndup.exit57:                         ; preds = %52, %73
 
 fcgi_hash_strndup.exit60:                         ; preds = %fcgi_hash_strndup.exit57, %97
   %106 = phi ptr [ %102, %97 ], [ %91, %fcgi_hash_strndup.exit57 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %4, i64 %92, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr readonly align 1 %4, i64 %92, i1 false)
   %107 = getelementptr inbounds i8, ptr %106, i64 %92
   br label %108
 
@@ -3625,7 +3625,7 @@ define hidden ptr @fcgi_quick_putenv(ptr nocapture noundef %0, ptr nocapture nou
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %15, i64 8
   %24 = load ptr, ptr %23, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %24, ptr %1, i64 %13)
+  %bcmp.i = tail call i32 @bcmp(ptr %24, ptr readonly %1, i64 %13)
   %25 = icmp eq i32 %bcmp.i, 0
   br i1 %25, label %26, label %33
 

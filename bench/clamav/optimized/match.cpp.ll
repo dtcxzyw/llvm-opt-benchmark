@@ -21,7 +21,7 @@ define noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef %0, ptr noundef %1, i32
   br i1 %or.cond3, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %12 = tail call noundef i32 @wcsncmp(ptr noundef %0, ptr noundef %1, i64 noundef %9) #4
+  %12 = tail call noundef i32 @wcsncmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %9) #4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %17
 
@@ -99,7 +99,7 @@ _ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %20, %22
 
 39:                                               ; preds = %37
   %40 = call i64 @wcslen(ptr noundef nonnull %4) #4
-  %41 = call noundef i32 @wcsncmp(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %40) #4
+  %41 = call noundef i32 @wcsncmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %5, i64 noundef %40) #4
   %.not59 = icmp eq i32 %41, 0
   br i1 %.not59, label %.thread64, label %58
 

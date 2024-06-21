@@ -5008,7 +5008,7 @@ _ZN6vectorIN3sat8aig_cuts4nodeELb0EjE9push_backERKS2_.exit: ; preds = %lor.lhs.f
 if.then.i50:                                      ; preds = %_ZN6vectorIN3sat8aig_cuts4nodeELb0EjE9push_backERKS2_.exit
   %m_on_clause_add.i = getelementptr inbounds i8, ptr %this, i64 224
   %shl.i.i = shl i32 %v, 1
-  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i, ptr noundef nonnull align 8 dereferenceable(24) %n, i32 %shl.i.i)
+  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %n, i32 %shl.i.i)
   br label %_ZN3sat8aig_cuts11on_node_addEjRKNS0_4nodeE.exit
 
 _ZN3sat8aig_cuts11on_node_addEjRKNS0_4nodeE.exit: ; preds = %_ZN6vectorIN3sat8aig_cuts4nodeELb0EjE9push_backERKS2_.exit, %if.then.i50
@@ -5495,7 +5495,7 @@ if.then25:                                        ; preds = %_ZNK6vectorIN3sat8a
 if.then.i:                                        ; preds = %if.then25
   %m_on_clause_add.i = getelementptr inbounds i8, ptr %this, i64 224
   %shl.i.i = shl i32 %v, 1
-  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i, ptr noundef nonnull align 8 dereferenceable(24) %n, i32 %shl.i.i)
+  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %n, i32 %shl.i.i)
   %.pre210 = load ptr, ptr %m_aig, align 8
   %arrayidx.i75.phi.trans.insert = getelementptr inbounds %class.svector.8, ptr %.pre210, i64 %idxprom.i
   %.pre211 = load ptr, ptr %arrayidx.i75.phi.trans.insert, align 8
@@ -5659,7 +5659,7 @@ if.then46:                                        ; preds = %if.then44
 if.then.i103:                                     ; preds = %if.then46
   %m_on_clause_del.i = getelementptr inbounds i8, ptr %this, i64 256
   %shl.i.i104 = shl i32 %v, 1
-  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_del.i, ptr noundef nonnull align 8 dereferenceable(24) %55, i32 %shl.i.i104)
+  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_del.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %55, i32 %shl.i.i104)
   br label %_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit
 
 _ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit: ; preds = %if.then46, %if.then.i103
@@ -5671,7 +5671,7 @@ _ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit: ; preds = %if.then46, %if.then
 if.then.i108:                                     ; preds = %_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit
   %m_on_clause_add.i109 = getelementptr inbounds i8, ptr %this, i64 224
   %shl.i.i110 = shl i32 %v, 1
-  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i109, ptr noundef nonnull align 8 dereferenceable(24) %n, i32 %shl.i.i110)
+  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i109, ptr noundef nonnull readonly align 8 dereferenceable(24) %n, i32 %shl.i.i110)
   br label %_ZN3sat8aig_cuts11on_node_addEjRKNS0_4nodeE.exit112
 
 _ZN3sat8aig_cuts11on_node_addEjRKNS0_4nodeE.exit112: ; preds = %_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit, %if.then.i108
@@ -5739,7 +5739,7 @@ if.then80:                                        ; preds = %if.then78
 if.then.i131:                                     ; preds = %if.then80
   %m_on_clause_del.i132 = getelementptr inbounds i8, ptr %this, i64 256
   %shl.i.i133 = shl i32 %v, 1
-  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_del.i132, ptr noundef nonnull align 8 dereferenceable(24) %65, i32 %shl.i.i133)
+  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_del.i132, ptr noundef nonnull readonly align 8 dereferenceable(24) %65, i32 %shl.i.i133)
   br label %_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit135
 
 _ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit135: ; preds = %if.then80, %if.then.i131
@@ -5751,7 +5751,7 @@ _ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit135: ; preds = %if.then80, %if.t
 if.then.i138:                                     ; preds = %_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit135
   %m_on_clause_add.i139 = getelementptr inbounds i8, ptr %this, i64 224
   %shl.i.i140 = shl i32 %v, 1
-  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i139, ptr noundef nonnull align 8 dereferenceable(24) %n, i32 %shl.i.i140)
+  tail call void @_ZN3sat8aig_cuts8node2defERSt8functionIFvRK7svectorINS_7literalEjEEERKNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause_add.i139, ptr noundef nonnull readonly align 8 dereferenceable(24) %n, i32 %shl.i.i140)
   br label %_ZN3sat8aig_cuts11on_node_addEjRKNS0_4nodeE.exit142
 
 _ZN3sat8aig_cuts11on_node_addEjRKNS0_4nodeE.exit142: ; preds = %_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE.exit135, %if.then.i138

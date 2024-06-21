@@ -526,7 +526,7 @@ define i32 @str_to_val(ptr nocapture noundef readonly %0, ptr noundef readonly %
 .lr.ph.i:                                         ; preds = %.preheader.i, %9
   %6 = phi ptr [ %13, %9 ], [ %5, %.preheader.i ]
   %.012.i = phi i32 [ %10, %9 ], [ 0, %.preheader.i ]
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #12
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %str_to_val_idx.exit, label %9
 
@@ -1405,13 +1405,13 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
 
 .lr.ph.i.i.preheader:                             ; preds = %.preheader.i.i
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #12
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %.not14.i.i14 = icmp eq i32 %9, 0
   br i1 %.not14.i.i14, label %try_str_to_str.exit, label %.lr.ph
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
   %10 = load ptr, ptr %14, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #12
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %.not14.i.i = icmp eq i32 %11, 0
   br i1 %.not14.i.i, label %try_str_to_str.exit, label %.lr.ph, !llvm.loop !14
 
@@ -1448,13 +1448,13 @@ define ptr @try_str_to_str(ptr nocapture noundef readonly %0, ptr noundef readon
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #12
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %.not14.i4 = icmp eq i32 %6, 0
   br i1 %.not14.i4, label %try_str_to_str_idx.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %7 = load ptr, ptr %11, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #12
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %.not14.i = icmp eq i32 %8, 0
   br i1 %.not14.i, label %try_str_to_str_idx.exit, label %.lr.ph, !llvm.loop !14
 
@@ -1837,7 +1837,7 @@ define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, p
 
 14:                                               ; preds = %.lr.ph.i
   %15 = load ptr, ptr %10, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %0, i64 %1)
+  %bcmp.i = tail call i32 @bcmp(ptr %15, ptr readonly %0, i64 %1)
   %.not17.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not17.i, label %try_bytesval_to_str.exit, label %16
 
@@ -1930,7 +1930,7 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
 
 13:                                               ; preds = %.lr.ph.i
   %14 = load ptr, ptr %10, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %14, ptr %0, i64 %12)
+  %bcmp.i = tail call i32 @bcmp(ptr %14, ptr readonly %0, i64 %12)
   %.not19.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not19.i, label %try_bytesprefix_to_str.exit, label %15
 

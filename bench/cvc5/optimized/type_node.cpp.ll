@@ -3785,7 +3785,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
   br i1 %spec.select.i.i, label %_ZNK4cvc58internal8TypeNode12isCodatatypeEv.exit, label %lor.lhs.false6
 
 _ZNK4cvc58internal8TypeNode12isCodatatypeEv.exit: ; preds = %lor.lhs.false4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(448) ptr @_ZNK4cvc58internal8TypeNode8getDTypeEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(448) ptr @_ZNK4cvc58internal8TypeNode8getDTypeEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %this)
   %call3.i = tail call noundef zeroext i1 @_ZNK4cvc58internal5DType12isCodatatypeEv(ptr noundef nonnull align 8 dereferenceable(448) %call2.i)
   br i1 %call3.i, label %if.then10, label %_ZNK4cvc58internal8TypeNode12isCodatatypeEv.exit.lor.lhs.false6_crit_edge
 
@@ -4936,7 +4936,7 @@ lor.end:                                          ; preds = %lor.rhs, %_ZNK4cvc5
 define noundef zeroext i1 @_ZNK4cvc58internal8TypeNode12isInstanceOfERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
-  call void @_ZNK4cvc58internal8TypeNode13unifyInternalERKS1_b(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %t, i1 noundef zeroext true)
+  call void @_ZNK4cvc58internal8TypeNode13unifyInternalERKS1_b(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %t, i1 noundef zeroext true)
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = load ptr, ptr %this, align 8
   %bf.load.i.i = load i64, ptr %0, align 8

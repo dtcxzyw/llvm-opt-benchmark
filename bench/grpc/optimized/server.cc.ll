@@ -11215,7 +11215,7 @@ call3.i.noexc:                                    ; preds = %if.end.i
   store ptr %request_metadata, ptr %initial_metadata.i.i, align 8
   %data2.i.i = getelementptr inbounds i8, ptr %call3.i13, i64 88
   store ptr %details, ptr %data2.i.i, align 8
-  %call4.i14 = invoke noundef i32 @_ZN9grpc_core6Server18QueueRequestedCallEmPNS0_13RequestedCallE(ptr noundef nonnull align 8 dereferenceable(592) %server, i64 noundef %idx.0.lcssa.i.i, ptr noundef nonnull %call3.i13)
+  %call4.i14 = invoke noundef i32 @_ZN9grpc_core6Server18QueueRequestedCallEmPNS0_13RequestedCallE(ptr noundef nonnull readonly align 8 dereferenceable(592) %server, i64 noundef %idx.0.lcssa.i.i, ptr noundef nonnull %call3.i13)
           to label %invoke.cont7 unwind label %lpad1
 
 invoke.cont7:                                     ; preds = %call.i.i.i.noexc, %for.end.i.i, %call3.i.noexc
@@ -11574,7 +11574,7 @@ call3.i.noexc:                                    ; preds = %if.end.i
   store ptr %deadline, ptr %deadline4.i.i, align 8
   %optional_payload6.i.i = getelementptr inbounds i8, ptr %call3.i15, i64 104
   store ptr %optional_payload, ptr %optional_payload6.i.i, align 8
-  %call4.i16 = invoke noundef i32 @_ZN9grpc_core6Server18QueueRequestedCallEmPNS0_13RequestedCallE(ptr noundef nonnull align 8 dereferenceable(592) %server, i64 noundef %idx.0.lcssa.i.i, ptr noundef nonnull %call3.i15)
+  %call4.i16 = invoke noundef i32 @_ZN9grpc_core6Server18QueueRequestedCallEmPNS0_13RequestedCallE(ptr noundef nonnull readonly align 8 dereferenceable(592) %server, i64 noundef %idx.0.lcssa.i.i, ptr noundef nonnull %call3.i15)
           to label %invoke.cont7 unwind label %lpad1
 
 invoke.cont7:                                     ; preds = %call.i.i.i.noexc, %land.lhs.true3.i.i.i, %if.end9.i.i, %for.end.i.i, %call3.i.noexc
@@ -18076,7 +18076,7 @@ if.end11.i.i:                                     ; preds = %if.end6.i.i
   store i64 %cond.i2.i19.i.i, ptr %ref.tmp13.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %ref.tmp13.i.i, i64 8
   store ptr %cond.i.i16.i.i, ptr %8, align 8
-  %call15.i.i = call noundef ptr @_ZN9grpc_core6Server11ChannelData19GetRegisteredMethodERKSt17basic_string_viewIcSt11char_traitsIcEES7_(ptr noundef nonnull align 8 dereferenceable(80) %arg, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i.i)
+  %call15.i.i = call noundef ptr @_ZN9grpc_core6Server11ChannelData19GetRegisteredMethodERKSt17basic_string_viewIcSt11char_traitsIcEES7_(ptr noundef nonnull readonly align 8 dereferenceable(80) %arg, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i.i)
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %metadata, i64 2
   %9 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %storemerge.i.i.i.i.i.i = or i16 %9, 2

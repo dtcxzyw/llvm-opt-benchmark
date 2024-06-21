@@ -337,7 +337,7 @@ if.then27:                                        ; preds = %for.body15
   %conv28 = shl nuw nsw i8 %add.tr, 2
   store i8 %conv28, ptr %op.addr.0, align 1
   %add.ptr29 = getelementptr inbounds i8, ptr %op.addr.0, i64 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29, ptr noundef nonnull align 1 dereferenceable(16) %ip.0, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29, ptr noundef nonnull readonly align 1 dereferenceable(16) %ip.0, i64 16, i1 false)
   %add.ptr31 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %2
   %add.ptr33 = getelementptr inbounds i8, ptr %op.addr.0, i64 %2
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr33, i64 2
@@ -414,7 +414,7 @@ if.then.i:                                        ; preds = %while.end
   %conv.i88 = shl i8 %sub.tr23.i, 2
   %incdec.ptr.i = getelementptr inbounds i8, ptr %op.addr.0, i64 1
   store i8 %conv.i88, ptr %op.addr.0, align 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %incdec.ptr.i, ptr noundef nonnull align 1 dereferenceable(16) %ip.0, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %incdec.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %ip.0, i64 16, i1 false)
   %sext = shl i64 %sub.ptr.sub74, 32
   %idx.ext.i = ashr exact i64 %sext, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %idx.ext.i
@@ -508,7 +508,7 @@ if.end12.i:                                       ; preds = %if.else.i93, %do.bo
   %matched.0.i = phi i64 [ 0, %do.body ], [ 8, %if.else.i93 ]
   %s2.addr.0.i = phi ptr [ %add.ptr78, %do.body ], [ %add.ptr11.i, %if.else.i93 ]
   %add.ptr13.i = getelementptr inbounds i8, ptr %candidate.1, i64 68
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr13.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr13.i, i32 0, i32 3, i32 1)
   %add.ptr14.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr14.i, i32 0, i32 3, i32 1)
   %cmp16.not59.i = icmp ugt ptr %s2.addr.0.i, %add.ptr.i89
@@ -780,7 +780,7 @@ _ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit:    ; preds = %if.then.i132, %if.e
   %op.addr.0.i130 = getelementptr i8, ptr %op.pn.i129, i64 1
   %sext182 = shl i64 %sub.ptr.sub121, 32
   %conv6.i = ashr exact i64 %sext182, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.addr.0.i130, ptr align 1 %ip.5, i64 %conv6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.addr.0.i130, ptr readonly align 1 %ip.5, i64 %conv6.i, i1 false)
   %add.ptr8.i131 = getelementptr inbounds i8, ptr %op.addr.0.i130, i64 %conv6.i
   br label %if.end124
 
@@ -2559,7 +2559,7 @@ land.lhs.true5.i:                                 ; preds = %if.then28
 
 if.then36:                                        ; preds = %land.lhs.true5.i
   %9 = load ptr, ptr %curr_iov_output_.i.i, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, ptr noundef nonnull readonly align 1 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
   %10 = load ptr, ptr %curr_iov_output_.i.i, align 8
   %add.ptr.i87 = getelementptr inbounds i8, ptr %10, i64 %conv30
   store ptr %add.ptr.i87, ptr %curr_iov_output_.i.i, align 8
@@ -2939,14 +2939,14 @@ if.end:                                           ; preds = %if.then13
   %add16 = sub i64 %add, %and
   %sub17 = add i64 %add16, %sub10
   %add.ptr18 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.1146
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr18, ptr noundef nonnull align 1 dereferenceable(32) %deferred_src.1147, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr18, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.1147, i64 32, i1 false)
   %cmp.i63 = icmp ugt i64 %deferred_length.1148, 32
   br i1 %cmp.i63, label %if.then.i64, label %_ZN6snappy9MemCopy64EPcPKvm.exit
 
 if.then.i64:                                      ; preds = %if.end
   %add.ptr.i65 = getelementptr inbounds i8, ptr %add.ptr18, i64 32
   %add.ptr1.i = getelementptr inbounds i8, ptr %deferred_src.1147, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i65, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr1.i, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i65, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr1.i, i64 32, i1 false)
   br label %_ZN6snappy9MemCopy64EPcPKvm.exit
 
 _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %if.end, %if.then.i64
@@ -3059,28 +3059,28 @@ if.then36:                                        ; preds = %if.end29
 
 if.end39:                                         ; preds = %if.then36
   %add.ptr40 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.1146
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr40, ptr noundef nonnull align 1 dereferenceable(32) %deferred_src.1147, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr40, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.1147, i64 32, i1 false)
   %cmp.i70 = icmp ugt i64 %deferred_length.1148, 32
   br i1 %cmp.i70, label %if.then.i71, label %for.inc
 
 if.then.i71:                                      ; preds = %if.end39
   %add.ptr.i72 = getelementptr inbounds i8, ptr %add.ptr40, i64 32
   %add.ptr1.i73 = getelementptr inbounds i8, ptr %deferred_src.1147, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i72, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr1.i73, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i72, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr1.i73, i64 32, i1 false)
   br label %for.inc
 
 if.end42:                                         ; preds = %if.end29
   %add.ptr44 = getelementptr inbounds i8, ptr %op_base, i64 %sub33
   %cond = select i1 %cmp37.not, ptr %ip.addr.1145, ptr %add.ptr44
   %add.ptr45 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.1146
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr45, ptr noundef nonnull align 1 dereferenceable(32) %deferred_src.1147, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr45, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.1147, i64 32, i1 false)
   %cmp.i75 = icmp ugt i64 %deferred_length.1148, 32
   br i1 %cmp.i75, label %if.then.i76, label %for.inc
 
 if.then.i76:                                      ; preds = %if.end42
   %add.ptr.i77 = getelementptr inbounds i8, ptr %add.ptr45, i64 32
   %add.ptr1.i78 = getelementptr inbounds i8, ptr %deferred_src.1147, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i77, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr1.i78, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i77, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr1.i78, i64 32, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i76, %if.end42, %if.then.i71, %if.end39, %if.end27
@@ -3111,14 +3111,14 @@ if.end51:                                         ; preds = %do.cond, %if.then36
 
 if.then53:                                        ; preds = %if.end51
   %add.ptr54 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.1138
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr54, ptr noundef nonnull align 1 dereferenceable(32) %deferred_src.1135, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr54, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.1135, i64 32, i1 false)
   %cmp.i80 = icmp ugt i64 %deferred_length.1132, 32
   br i1 %cmp.i80, label %if.then.i81, label %_ZN6snappy9MemCopy64EPcPKvm.exit84
 
 if.then.i81:                                      ; preds = %if.then53
   %add.ptr.i82 = getelementptr inbounds i8, ptr %add.ptr54, i64 32
   %add.ptr1.i83 = getelementptr inbounds i8, ptr %deferred_src.1135, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i82, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr1.i83, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i82, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr1.i83, i64 32, i1 false)
   br label %_ZN6snappy9MemCopy64EPcPKvm.exit84
 
 _ZN6snappy9MemCopy64EPcPKvm.exit84:               ; preds = %if.then53, %if.then.i81
@@ -3998,7 +3998,7 @@ if.then28:                                        ; preds = %if.end23
   br i1 %or.cond1.i, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %if.then28
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %op.1, ptr noundef nonnull align 1 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %op.1, ptr noundef nonnull readonly align 1 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
   %add.ptr.i137 = getelementptr inbounds i8, ptr %op.1, i64 %conv30
   %add.ptr37 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %conv30
   br label %for.cond.backedge.sink.split
@@ -4375,7 +4375,7 @@ if.then28:                                        ; preds = %if.end23
   br i1 %or.cond1.i, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %if.then28
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %17, ptr noundef nonnull readonly align 1 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
   %add.ptr.i93 = getelementptr inbounds i8, ptr %17, i64 %conv30
   store ptr %add.ptr.i93, ptr %op, align 8
   %add.ptr37 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %conv30

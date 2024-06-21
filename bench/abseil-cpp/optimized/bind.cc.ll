@@ -269,7 +269,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %conv.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.013.i.i, i64 16
-  %call10.i.i2 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i.i)
+  %call10.i.i2 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp2.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i.i)
           to label %call10.i.i.noexc unwind label %lpad5.loopexit
 
 call10.i.i.noexc:                                 ; preds = %if.then.i.i
@@ -477,7 +477,7 @@ if.end23.i.i:                                     ; preds = %if.then20.i.i
   %inc.i.i = add nuw nsw i32 %28, 1
   store i32 %inc.i.i, ptr %next_arg.i.i, align 4
   store i32 %inc.i.i, ptr %conv.i7.i, align 4
-  %call29.i.i8 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i7.i)
+  %call29.i.i8 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i7.i)
           to label %call29.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit
 
 call29.i.i.noexc:                                 ; preds = %if.end23.i.i
@@ -502,7 +502,7 @@ call40.i.i.noexc:                                 ; preds = %if.then37.i.i
   br i1 %cmp41.i.i, label %invoke.cont7, label %if.end44.i.i
 
 if.end44.i.i:                                     ; preds = %call40.i.i.noexc
-  %call51.i.i10 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv38.i.i)
+  %call51.i.i10 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv38.i.i)
           to label %call51.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit
 
 call51.i.i.noexc:                                 ; preds = %if.end44.i.i

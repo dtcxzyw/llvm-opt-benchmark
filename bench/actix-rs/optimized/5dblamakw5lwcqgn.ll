@@ -847,7 +847,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %31 = phi i64 [ %25, %23 ], [ %.pre.i, %.noexc ]
   %32 = load ptr, ptr %0, align 8, !alias.scope !80, !noalias !83, !nonnull !7, !noundef !7
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %26, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %26, i64 %27, i1 false)
   %34 = load i64, ptr %10, align 8, !alias.scope !80, !noalias !83, !noundef !7
   %35 = load i64, ptr %9, align 8, !alias.scope !80, !noalias !83, !noundef !7
   %36 = sub i64 %34, %35
@@ -941,7 +941,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %11 = phi i64 [ %6, %.lr.ph.split.us ], [ %.pre.i.us, %9 ]
   %12 = load ptr, ptr %0, align 8, !alias.scope !103, !noalias !106, !nonnull !7, !noundef !7
   %13 = getelementptr inbounds i8, ptr %12, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %5, align 8, !alias.scope !103, !noalias !106, !noundef !7
   %15 = load i64, ptr %4, align 8, !alias.scope !103, !noalias !106, !noundef !7
   %16 = sub i64 %14, %15
@@ -980,7 +980,7 @@ define hidden void @"_ZN92_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..iter.
   %4 = alloca { { ptr, ptr, i64, { ptr } } }, align 8
   %5 = alloca { { ptr, ptr, i64, { ptr } } }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !108
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds i8, ptr %0, i64 8

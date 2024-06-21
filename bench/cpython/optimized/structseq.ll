@@ -1528,7 +1528,7 @@ if.end.i8.i:                                      ; preds = %if.end.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i8.i, %if.end.i
   %call1.i = tail call ptr @_PyType_GetDict(ptr noundef nonnull %type) #8
-  %call2.i = tail call fastcc i32 @initialize_structseq_dict(ptr noundef nonnull %desc, ptr noundef %call1.i, i64 noundef %i.0.lcssa.i, i64 noundef %n_unnamed_members.2)
+  %call2.i = tail call fastcc i32 @initialize_structseq_dict(ptr noundef nonnull readonly %desc, ptr noundef %call1.i, i64 noundef %i.0.lcssa.i, i64 noundef %n_unnamed_members.2)
   %cmp3.i18 = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i18, label %if.then4.i, label %return
 

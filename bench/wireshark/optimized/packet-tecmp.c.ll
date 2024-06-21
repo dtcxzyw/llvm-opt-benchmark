@@ -1279,7 +1279,7 @@ define internal i32 @dissect_tecmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.550) #4
   %85 = load i32, ptr @ett_tecmp_payload, align 4
   %86 = call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #4
-  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %86, i32 noundef 12, i32 noundef 0, i16 noundef zeroext %79, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %86, i32 noundef 12, i32 noundef 0, i16 noundef zeroext %79, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   %87 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.551) #4
   %88 = load i32, ptr @hf_tecmp_payload_ctrl_msg_device_id, align 4
@@ -1399,7 +1399,7 @@ dissect_tecmp_control_msg.exit:                   ; preds = %74, %78, %._crit_ed
   %149 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %146, ptr noundef %0, i32 noundef 12, i32 noundef %148, i32 noundef 0) #4
   %150 = load i32, ptr @ett_tecmp_payload, align 4
   %151 = call ptr @proto_item_add_subtree(ptr noundef %149, i32 noundef %150) #4
-  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %151, i32 noundef 12, i32 noundef %73, i16 noundef zeroext %144, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %28)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %151, i32 noundef 12, i32 noundef %73, i16 noundef zeroext %144, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %28)
   %152 = load i32, ptr @hf_tecmp_payload_status_vendor_id, align 4
   %153 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %151, i32 noundef %152, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #4
   %154 = load i32, ptr @hf_tecmp_payload_status_dev_version, align 4
@@ -2721,7 +2721,7 @@ dissect_tecmp_log_or_replay_stream.exit:          ; preds = %453, %867, %417
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %880, ptr noundef nonnull @.str.589) #4
   %881 = load i32, ptr @ett_tecmp_payload, align 4
   %882 = call ptr @proto_item_add_subtree(ptr noundef %880, i32 noundef %881) #4
-  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %882, i32 noundef 12, i32 noundef 11, i16 noundef zeroext %875, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %882, i32 noundef 12, i32 noundef 11, i16 noundef zeroext %875, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   %883 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %883, i32 noundef 25, ptr noundef nonnull @.str.590) #4
   %884 = load i32, ptr @hf_tecmp_payload_counter_event_device_id, align 4
@@ -2762,7 +2762,7 @@ dissect_tecmp_counter_event.exit:                 ; preds = %870, %874
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %905, ptr noundef nonnull @.str.591) #4
   %906 = load i32, ptr @ett_tecmp_payload, align 4
   %907 = call ptr @proto_item_add_subtree(ptr noundef %905, i32 noundef %906) #4
-  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %907, i32 noundef 12, i32 noundef 12, i16 noundef zeroext %900, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %907, i32 noundef 12, i32 noundef 12, i16 noundef zeroext %900, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   %908 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %908, i32 noundef 25, ptr noundef nonnull @.str.592) #4
   %909 = load i32, ptr @hf_tecmp_payload_timesync_event_device_id, align 4

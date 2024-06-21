@@ -122,7 +122,7 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr nocapture nound
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %13
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 10) #17
+  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 10) #17
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %datebsearch.exit.thread15, label %26
 
@@ -1857,7 +1857,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   br i1 %.not.i.i, label %121, label %118
 
 118:                                              ; preds = %115
-  %119 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %117, i64 noundef 10) #17
+  %119 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %117, i64 noundef 10) #17
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %DecodeSpecial.exit.i, label %121
 
@@ -1881,7 +1881,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %124
-  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %129, i64 noundef 10) #17
+  %135 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %129, i64 noundef 10) #17
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %DecodeSpecial.exit.i, label %137
 
@@ -2256,7 +2256,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %.not.i351, label %317, label %314
 
 314:                                              ; preds = %309
-  %315 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %311, ptr noundef nonnull dereferenceable(1) %313, i64 noundef 10) #17
+  %315 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %311, ptr noundef nonnull dereferenceable(1) %313, i64 noundef 10) #17
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %DecodeSpecial.exit, label %317
 
@@ -2280,7 +2280,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %329, label %330, label %333
 
 330:                                              ; preds = %320
-  %331 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %311, ptr noundef nonnull dereferenceable(1) %325, i64 noundef 10) #17
+  %331 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %311, ptr noundef nonnull dereferenceable(1) %325, i64 noundef 10) #17
   %332 = icmp eq i32 %331, 0
   br i1 %332, label %DecodeSpecial.exit, label %333
 
@@ -3260,7 +3260,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br i1 %.not.i, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %62, i64 noundef 10) #17
+  %64 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %62, i64 noundef 10) #17
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %DecodeSpecial.exit, label %66
 
@@ -3283,7 +3283,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %68
-  %79 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %73, i64 noundef 10) #17
+  %79 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %73, i64 noundef 10) #17
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %DecodeSpecial.exit, label %81
 
@@ -4619,7 +4619,7 @@ define internal fastcc range(i32 0, 2) i32 @pgtypes_defmt_scan(ptr nocapture nou
   br label %42
 
 39:                                               ; preds = %.critedge.i
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
+  %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #17
   %41 = getelementptr i8, ptr %7, i64 %40
   br label %42
 

@@ -154,7 +154,7 @@ if.then25:                                        ; preds = %if.end13
 
 if.end29:                                         ; preds = %if.end13
   store i32 0, ptr %status, align 4
-  %call.i32 = call noalias ptr @fopen(ptr noundef %12, ptr noundef nonnull @.str.22)
+  %call.i32 = call noalias ptr @fopen(ptr noundef readonly %12, ptr noundef nonnull @.str.22)
   %cmp.i33 = icmp eq ptr %call.i32, null
   br i1 %cmp.i33, label %if.then32, label %if.end.i
 

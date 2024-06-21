@@ -1993,7 +1993,7 @@ Gia_ObjIsHead.exit:                               ; preds = %95
   br i1 %108, label %Gia_ObjIsHead.exit.thread, label %109
 
 109:                                              ; preds = %Gia_ObjIsHead.exit
-  %110 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull %0, i32 noundef %97)
+  %110 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull readonly %0, i32 noundef %97)
   %.val59.pre = load i32, ptr %3, align 4
   br label %Gia_ObjIsHead.exit.thread
 
@@ -3711,7 +3711,7 @@ Vec_IntPush.exit263:                              ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %322
   %.pre-phi403 = phi i32 [ %.pre402, %._crit_edge.loopexit ], [ 0, %322 ]
-  %368 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull %0, i32 noundef %.pre-phi403)
+  %368 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull readonly %0, i32 noundef %.pre-phi403)
   %369 = load ptr, ptr %66, align 8
   %370 = getelementptr i8, ptr %369, i64 4
   %.val218334 = load i32, ptr %370, align 4

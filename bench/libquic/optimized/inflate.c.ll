@@ -3297,7 +3297,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %idx.ext.i = zext i32 %255 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds i8, ptr %246, i64 %idx.neg.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %252, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i64 %idx.ext.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %252, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr.i, i64 %idx.ext.i, i1 false)
   %wnext19.i = getelementptr inbounds i8, ptr %247, i64 60
   store i32 0, ptr %wnext19.i, align 4
   %256 = load i32, ptr %wsize.i, align 4
@@ -3316,7 +3316,7 @@ if.else.i:                                        ; preds = %if.end12.i
   %idx.neg33.i = sub nsw i64 0, %idx.ext32.i
   %add.ptr34.i = getelementptr inbounds i8, ptr %246, i64 %idx.neg33.i
   %conv35.i = zext i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31.i, ptr align 1 %add.ptr34.i, i64 %conv35.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31.i, ptr readonly align 1 %add.ptr34.i, i64 %conv35.i, i1 false)
   %tobool.not.not.i = icmp ult i32 %sub.i, %sub1842
   br i1 %tobool.not.not.i, label %if.then37.i, label %if.else46.i
 
@@ -3326,7 +3326,7 @@ if.then37.i:                                      ; preds = %if.else.i
   %idx.ext39.i = zext i32 %sub36.i to i64
   %idx.neg40.i = sub nsw i64 0, %idx.ext39.i
   %add.ptr41.i = getelementptr inbounds i8, ptr %246, i64 %idx.neg40.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr readonly align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
   store i32 %sub36.i, ptr %wnext23.i, align 4
   %259 = load i32, ptr %wsize.i, align 4
   %whave45.i = getelementptr inbounds i8, ptr %247, i64 56
@@ -3634,7 +3634,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %idx.ext.i = zext i32 %11 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i64 %idx.ext.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr.i, i64 %idx.ext.i, i1 false)
   %wnext19.i = getelementptr inbounds i8, ptr %3, i64 60
   store i32 0, ptr %wnext19.i, align 4
   %12 = load i32, ptr %wsize.i, align 4
@@ -3650,7 +3650,7 @@ if.else.i:                                        ; preds = %if.end12.i
   %idx.ext30.i = zext i32 %13 to i64
   %add.ptr31.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext30.i
   %conv35.i = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31.i, ptr align 1 %dictionary, i64 %conv35.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31.i, ptr readonly align 1 %dictionary, i64 %conv35.i, i1 false)
   %tobool.not.not.i = icmp ult i32 %sub.i, %dictLength
   br i1 %tobool.not.not.i, label %if.then37.i, label %if.else46.i
 
@@ -3660,7 +3660,7 @@ if.then37.i:                                      ; preds = %if.else.i
   %idx.ext39.i = zext i32 %sub36.i to i64
   %idx.neg40.i = sub nsw i64 0, %idx.ext39.i
   %add.ptr41.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg40.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
   store i32 %sub36.i, ptr %wnext23.i, align 4
   %15 = load i32, ptr %wsize.i, align 4
   %whave45.i = getelementptr inbounds i8, ptr %3, i64 56

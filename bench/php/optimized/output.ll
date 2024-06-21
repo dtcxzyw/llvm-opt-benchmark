@@ -1410,7 +1410,7 @@ define range(i32 -1, 1) i32 @php_output_start_default() local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 22, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %5, ptr noundef nonnull align 16 dereferenceable(22) @php_output_default_handler_name, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %5, ptr noundef nonnull readonly align 16 dereferenceable(22) @php_output_default_handler_name, i64 22, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 46
   store i8 0, ptr %6, align 1
   %7 = tail call noalias dereferenceable_or_null(80) ptr @_ecalloc(i64 noundef 1, i64 noundef 80) #23
@@ -1658,7 +1658,7 @@ define range(i32 -1, 1) i32 @php_output_start_devnull() local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 19, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull align 16 dereferenceable(19) @php_output_devnull_handler_name, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull readonly align 16 dereferenceable(19) @php_output_devnull_handler_name, i64 19, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 43
   store i8 0, ptr %6, align 1
   %7 = tail call noalias dereferenceable_or_null(80) ptr @_ecalloc(i64 noundef 1, i64 noundef 80) #23
@@ -2119,7 +2119,7 @@ php_output_get_level.exit.i:                      ; preds = %4
 
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %12, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %3)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %17, ptr readonly %2, i64 %3)
   %.not16.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not16.i, label %php_output_handler_started.exit, label %.critedge.i
 

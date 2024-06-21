@@ -1649,7 +1649,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr %40, align 8
-  %133 = call fastcc i32 @cli_hashsect(ptr noundef %132, ptr noundef nonnull %87, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %133 = call fastcc i32 @cli_hashsect(ptr noundef %132, ptr noundef nonnull readonly %87, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %134 = load i8, ptr @cli_debug_flag, align 1
   %.not.i2812 = icmp eq i8 %134, 0
   br i1 %.not.i2812, label %.preheader3254, label %135

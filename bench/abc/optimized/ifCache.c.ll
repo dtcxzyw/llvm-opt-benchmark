@@ -637,7 +637,7 @@ Hsh_IntObj.exit.lr.ph.split.i.i.i:                ; preds = %Hsh_IntObj.exit.lr.
   %133 = mul nsw i32 %132, %.val41.i.i
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i32, ptr %.val42.val.i.i, i64 %134
-  %bcmp25.i.i.i = tail call i32 @bcmp(ptr %107, ptr %135, i64 %129)
+  %bcmp25.i.i.i = tail call i32 @bcmp(ptr readonly %107, ptr %135, i64 %129)
   %.not1626.i.i.i = icmp eq i32 %bcmp25.i.i.i, 0
   br i1 %.not1626.i.i.i, label %Hsh_IntManAdd.exit.i, label %.lr.ph.i53.i.i
 
@@ -656,7 +656,7 @@ Hsh_IntObj.exit.i.i.i:                            ; preds = %.lr.ph.i53.i.i
   %144 = mul nsw i32 %143, %.val41.i.i
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i32, ptr %.val42.val.i.i, i64 %145
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %107, ptr %146, i64 %129)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %107, ptr %146, i64 %129)
   %.not16.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not16.i.i.i, label %Hsh_IntManAdd.exit.i, label %.lr.ph.i53.i.i, !llvm.loop !10
 

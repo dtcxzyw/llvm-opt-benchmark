@@ -443,7 +443,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %call.i = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %msg)
+  %call.i = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull readonly %msg)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end14, label %land.rhs.i
 
@@ -456,7 +456,7 @@ land.rhs.i:                                       ; preds = %if.then9
 
 check_msg_given_cert.exit:                        ; preds = %land.rhs.i
   %call1.i.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.check_cert_path, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.43) #2
-  %call3.i = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull %msg, ptr noundef nonnull %0)
+  %call3.i = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %msg, ptr noundef nonnull %0)
   %tobool.not = icmp eq i32 %call3.i, 0
   br i1 %tobool.not, label %if.end14, label %if.then11
 
@@ -468,7 +468,7 @@ if.then11:                                        ; preds = %land.rhs.i, %check_
 if.end14:                                         ; preds = %if.then9, %check_msg_given_cert.exit
   %call15 = tail call i32 @ossl_cmp_ctx_set1_validatedSrvCert(ptr noundef nonnull %ctx, ptr noundef null) #2
   %call16 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.check_msg_find_cert, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16) #2
-  %call.i44 = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %msg)
+  %call.i44 = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull readonly %msg)
   %tobool.not.i45 = icmp eq i32 %call.i44, 0
   br i1 %tobool.not.i45, label %if.end18, label %land.rhs.i46
 
@@ -481,7 +481,7 @@ land.rhs.i46:                                     ; preds = %if.end14
 
 lor.rhs.i51:                                      ; preds = %land.rhs.i46
   %call1.i.i52 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.check_cert_path, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.43) #2
-  %call3.i53 = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull %msg, ptr noundef nonnull %0)
+  %call3.i53 = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %msg, ptr noundef nonnull %0)
   br label %if.end18
 
 if.end18:                                         ; preds = %lor.rhs.i51, %land.rhs.i46, %if.end14, %if.end6

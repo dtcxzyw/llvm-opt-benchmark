@@ -2067,7 +2067,7 @@ entry:
   store ptr %1, ptr %m_infoGlobal.i.i, align 8
   %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_normal4.i.i = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv.i = getelementptr inbounds i8, ptr %this, i64 40
   %m_total_tangent_dv.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -2089,9 +2089,9 @@ entry:
   %5 = load ptr, ptr %m_contact6.i, align 8
   store ptr %5, ptr %m_contact.i, align 8
   %m_total_normal_dv7.i = getelementptr inbounds i8, ptr %other, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
   %m_total_tangent_dv9.i = getelementptr inbounds i8, ptr %other, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 16), ptr %this, align 8
   %m_node = getelementptr inbounds i8, ptr %this, i64 96
   %m_node2 = getelementptr inbounds i8, ptr %other, i64 96
@@ -2317,7 +2317,7 @@ entry:
   store ptr %1, ptr %m_infoGlobal.i.i, align 8
   %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_normal4.i.i = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV34btDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_total_normal_dv.i = getelementptr inbounds i8, ptr %this, i64 40
   %m_total_tangent_dv.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -2339,9 +2339,9 @@ entry:
   %5 = load ptr, ptr %m_contact6.i, align 8
   store ptr %5, ptr %m_contact.i, align 8
   %m_total_normal_dv7.i = getelementptr inbounds i8, ptr %other, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
   %m_total_tangent_dv9.i = getelementptr inbounds i8, ptr %other, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %this, align 8
   %m_face = getelementptr inbounds i8, ptr %this, i64 96
   %m_face2 = getelementptr inbounds i8, ptr %other, i64 96

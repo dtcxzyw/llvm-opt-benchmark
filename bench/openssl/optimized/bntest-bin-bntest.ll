@@ -8075,7 +8075,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %call.i = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.708)
+  %call.i = tail call fastcc ptr @getBN(ptr noundef readonly %s, ptr noundef nonnull @.str.708)
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %getint.exit.thread, label %lor.lhs.false.i
@@ -8159,7 +8159,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %call.i = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.708)
+  %call.i = tail call fastcc ptr @getBN(ptr noundef readonly %s, ptr noundef nonnull @.str.708)
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %getint.exit.thread, label %lor.lhs.false.i

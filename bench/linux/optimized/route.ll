@@ -1160,8 +1160,8 @@ select.unfold.i:                                  ; preds = %50, %45, %32, %22
   br i1 %66, label %72, label %70
 
 70:                                               ; preds = %select.unfold.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %67, ptr noundef align 4 dereferenceable(16) %.sroa.gep3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %68, ptr noundef align 4 dereferenceable(16) %.sroa.gep12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %67, ptr noundef readonly align 4 dereferenceable(16) %.sroa.gep3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %68, ptr noundef readonly align 4 dereferenceable(16) %.sroa.gep12, i64 16, i1 false)
   %71 = load i32, ptr %.sroa.gep15, align 4
   store i32 %71, ptr %69, align 4
   br label %ip6_multipath_l3_keys.exit
@@ -1416,8 +1416,8 @@ select.unfold.i36:                                ; preds = %188, %183, %170, %1
   %209 = getelementptr inbounds i8, ptr %14, i64 44
   %210 = getelementptr inbounds i8, ptr %14, i64 60
   %211 = getelementptr inbounds i8, ptr %14, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %209, ptr noundef align 4 dereferenceable(16) %.sroa.phi8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %210, ptr noundef align 4 dereferenceable(16) %.sroa.phi11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %209, ptr noundef readonly align 4 dereferenceable(16) %.sroa.phi8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %210, ptr noundef readonly align 4 dereferenceable(16) %.sroa.phi11, i64 16, i1 false)
   %212 = load i32, ptr %.sroa.phi14, align 4
   store i32 %212, ptr %211, align 4
   br label %ip6_multipath_l3_keys.exit38

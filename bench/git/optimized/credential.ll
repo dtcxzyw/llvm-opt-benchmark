@@ -915,12 +915,12 @@ land.lhs.true:                                    ; preds = %credential_format.e
   br i1 %tobool.not.i10, label %if.end23, label %if.end.i11
 
 if.end.i11:                                       ; preds = %land.lhs.true
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.30) #15
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.30) #15
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %do.body, label %proto_is_http.exit
 
 proto_is_http.exit:                               ; preds = %if.end.i11
-  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.31) #15
+  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.31) #15
   %tobool3.not.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i.not, label %do.body, label %if.end23
 
@@ -1335,7 +1335,7 @@ if.end107:                                        ; preds = %while.cond, %while.
   br i1 %tobool.not.i, label %lor.lhs.false112, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end107
-  %call.i75 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 10) #15
+  %call.i75 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 10) #15
   %tobool1.not.i76 = icmp eq ptr %call.i75, null
   br i1 %tobool1.not.i76, label %lor.lhs.false112, label %if.end3.i77
 
@@ -1363,7 +1363,7 @@ lor.lhs.false112:                                 ; preds = %if.end.i, %if.end10
   br i1 %tobool.not.i79, label %lor.lhs.false117, label %if.end.i80
 
 if.end.i80:                                       ; preds = %lor.lhs.false112
-  %call.i81 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 10) #15
+  %call.i81 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 10) #15
   %tobool1.not.i82 = icmp eq ptr %call.i81, null
   br i1 %tobool1.not.i82, label %lor.lhs.false117, label %if.end3.i83
 
@@ -1391,7 +1391,7 @@ lor.lhs.false117:                                 ; preds = %if.end.i80, %lor.lh
   br i1 %tobool.not.i93, label %lor.lhs.false122, label %if.end.i94
 
 if.end.i94:                                       ; preds = %lor.lhs.false117
-  %call.i95 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 10) #15
+  %call.i95 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %16, i32 noundef 10) #15
   %tobool1.not.i96 = icmp eq ptr %call.i95, null
   br i1 %tobool1.not.i96, label %lor.lhs.false122, label %if.end3.i97
 
@@ -1419,7 +1419,7 @@ lor.lhs.false122:                                 ; preds = %if.end.i94, %lor.lh
   br i1 %tobool.not.i107, label %lor.lhs.false127, label %if.end.i108
 
 if.end.i108:                                      ; preds = %lor.lhs.false122
-  %call.i109 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 10) #15
+  %call.i109 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %18, i32 noundef 10) #15
   %tobool1.not.i110 = icmp eq ptr %call.i109, null
   br i1 %tobool1.not.i110, label %lor.lhs.false127, label %if.end3.i111
 
@@ -1447,7 +1447,7 @@ lor.lhs.false127:                                 ; preds = %if.end.i108, %lor.l
   br i1 %tobool.not.i121, label %return, label %if.end.i122
 
 if.end.i122:                                      ; preds = %lor.lhs.false127
-  %call.i123 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 10) #15
+  %call.i123 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %20, i32 noundef 10) #15
   %tobool1.not.i124 = icmp eq ptr %call.i123, null
   br i1 %tobool1.not.i124, label %return, label %if.end3.i125
 

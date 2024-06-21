@@ -533,7 +533,7 @@ while.cond.i:                                     ; preds = %while.body.i
 while.body.i:                                     ; preds = %land.lhs.true, %while.cond.i
   %11 = phi ptr [ %10, %while.cond.i ], [ %9, %land.lhs.true ]
   %names.addr.04.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %8, %land.lhs.true ]
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %call10) #15
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %call10) #15
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end15, label %while.cond.i
 
@@ -804,7 +804,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.not.i, label %if.end3.i, label %stack_try_add.exit.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = call i32 @reftable_addition_add(ptr noundef nonnull %add.i, ptr noundef %write, ptr noundef %arg)
+  %call4.i = call i32 @reftable_addition_add(ptr noundef nonnull %add.i, ptr noundef readonly %write, ptr noundef %arg)
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %stack_try_add.exit.thread, label %stack_try_add.exit
 
@@ -2570,7 +2570,7 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %call317.i = phi ptr [ %call315.i, %while.body.lr.ph.i ], [ %call3.i, %while.cond.backedge.i ]
   %d_name.i = getelementptr inbounds i8, ptr %call317.i, i64 19
-  %call.i.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %d_name.i, i32 noundef 46) #15
+  %call.i.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %d_name.i, i32 noundef 46) #15
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %while.cond.backedge.i, label %is_table_name.exit.i
 

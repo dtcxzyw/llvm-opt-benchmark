@@ -4711,7 +4711,7 @@ if.then.i76:                                      ; preds = %if.then44
   %arrayidx.i = getelementptr inbounds %struct.MergeTuple, ptr %30, i64 %29
   %31 = load ptr, ptr %s, align 8
   %32 = load ptr, ptr %pinnable_val, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
   %s.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store ptr %31, ptr %s.i.i, align 8
   %existing.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
@@ -4756,7 +4756,7 @@ if.else.i:                                        ; preds = %if.then44
   br i1 %cmp.not.i.i75, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
   %s.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %args1.val.i, ptr %s.i.i.i.i.i, align 8
   %existing.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 24
@@ -4826,7 +4826,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIZN7ro
 _ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i21.i.i.i = phi ptr [ null, %_ZNKSt6vectorIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i81, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %struct.MergeTuple, ptr %cond.i21.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
   %s.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   store ptr %args1.val.i, ptr %s.i.i.i.i.i.i, align 8
   %existing.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24

@@ -372,7 +372,7 @@ common.resume:                                    ; preds = %142, %105
   %140 = icmp eq i32 %.0.i.i, %65
   %.0.i6.i = select i1 %140, i64 15, i64 %138
   store i64 0, ptr %.sroa.4.i.i, align 8, !noalias !43
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull align 1 %139, i64 %138, i1 false), !noalias !47
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull readonly align 1 %139, i64 %138, i1 false), !noalias !47
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   %141 = getelementptr inbounds i8, ptr %0, i64 12
@@ -912,7 +912,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %92 = zext nneg i32 %.0.lcssa.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   store i64 0, ptr %.sroa.4.i.i, align 8, !noalias !100
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull align 1 %.sroa.0.0.i.i, i64 %92, i1 false), !noalias !104
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i.i, i64 %92, i1 false), !noalias !104
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$17unsafe_subtendril17h61aa787dcca1b780E.exit"
@@ -1031,7 +1031,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %143 = icmp eq i32 %139, 0
   %.0.i6.i = select i1 %143, i64 15, i64 %141
   store i64 0, ptr %.sroa.4.i.i29, align 8, !noalias !108
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i29, ptr nonnull align 1 %142, i64 %141, i1 false), !noalias !112
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i29, ptr nonnull readonly align 1 %142, i64 %141, i1 false), !noalias !112
   %.sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i38 = load i64, ptr %.sroa.4.i.i29, align 8, !noalias !108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i29)
   %144 = getelementptr inbounds i8, ptr %14, i64 12

@@ -1690,7 +1690,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %uv_try_write2.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i.i
-  %call5.i = tail call fastcc i32 @uv__try_write(ptr noundef nonnull %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef null)
+  %call5.i = tail call fastcc i32 @uv__try_write(ptr noundef nonnull readonly %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef null)
   br label %uv_try_write2.exit
 
 uv_try_write2.exit:                               ; preds = %entry, %lor.lhs.false.i, %if.end.i, %if.end.i.i, %if.end4.i

@@ -6522,7 +6522,7 @@ invoke.cont85.i:                                  ; preds = %_ZN3ue2L18calcWideR
   %394 = load i32, ptr %arb.i, align 4, !noalias !215
   %395 = load i8, ptr %single.i, align 1, !noalias !215
   %tobool.i154 = icmp ne i8 %395, 0
-  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(114) %info, i32 noundef %conv89.i, i32 noundef %conv90.i, i32 noundef %conv91.i, i32 noundef %conv93.i, i32 noundef %394, i1 noundef zeroext %tobool.i154, ptr noundef %392)
+  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 2, ptr noundef nonnull readonly align 8 dereferenceable(114) %info, i32 noundef %conv89.i, i32 noundef %conv90.i, i32 noundef %conv91.i, i32 noundef %conv93.i, i32 noundef %394, i1 noundef zeroext %tobool.i154, ptr noundef %392)
           to label %invoke.cont96.i unwind label %lpad86.i
 
 invoke.cont96.i:                                  ; preds = %invoke.cont85.i
@@ -8440,7 +8440,7 @@ invoke.cont53.i:                                  ; preds = %if.then.i.i.i117.i.
   %659 = load i8, ptr %single.i254, align 1, !noalias !240
   %tobool.i281 = icmp ne i8 %659, 0
   %660 = load ptr, ptr %ref.tmp51, align 8, !alias.scope !240
-  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(114) %info, i32 noundef %conv54.i280, i32 noundef %conv55.i, i32 noundef %conv56.i, i32 noundef %conv58.i, i32 noundef %658, i1 noundef zeroext %tobool.i281, ptr noundef %660)
+  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 1, ptr noundef nonnull readonly align 8 dereferenceable(114) %info, i32 noundef %conv54.i280, i32 noundef %conv55.i, i32 noundef %conv56.i, i32 noundef %conv58.i, i32 noundef %658, i1 noundef zeroext %tobool.i281, ptr noundef %660)
           to label %invoke.cont60.i284 unwind label %lpad52.i
 
 invoke.cont60.i284:                               ; preds = %invoke.cont53.i

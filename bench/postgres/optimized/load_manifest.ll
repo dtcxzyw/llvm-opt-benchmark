@@ -449,7 +449,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   %.01214.i = phi i32 [ %21, %19 ], [ %7, %2 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #19
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %manifest_files_lookup_hash_internal.exit, label %19
 
@@ -485,7 +485,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
   %.01214.i = phi i32 [ %19, %17 ], [ %5, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #19
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %17
 

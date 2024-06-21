@@ -238,7 +238,7 @@ for.body.i:                                       ; preds = %report_result.exit.
 
 if.then.i22.i:                                    ; preds = %for.body.i
   %st4.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %st.i.i, ptr noundef nonnull align 8 dereferenceable(144) %st4.i.i, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %st.i.i, ptr noundef nonnull readonly align 8 dereferenceable(144) %st4.i.i, i64 144, i1 false)
   br label %report_result.exit.i
 
 report_result.exit.i:                             ; preds = %if.then.i22.i, %for.body.i

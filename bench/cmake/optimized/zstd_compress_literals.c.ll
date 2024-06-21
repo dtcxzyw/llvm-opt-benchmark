@@ -161,7 +161,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 38:                                               ; preds = %35, %32, %30
   %39 = getelementptr inbounds i8, ptr %0, i64 %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 40:                                               ; preds = %12
@@ -216,7 +216,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 68:                                               ; preds = %65, %62, %60
   %69 = getelementptr inbounds i8, ptr %0, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 70:                                               ; preds = %40
@@ -301,7 +301,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 114:                                              ; preds = %111, %108, %106
   %115 = getelementptr inbounds i8, ptr %0, i64 %102
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 116:                                              ; preds = %71

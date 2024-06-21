@@ -249,7 +249,7 @@ thread-pre-split:                                 ; preds = %15
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  %35 = call i32 @statvfs(ptr noundef nonnull %5, ptr noundef nonnull %3) #16
+  %35 = call i32 @statvfs(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %36, label %51
 
@@ -384,7 +384,7 @@ thread-pre-split:                                 ; preds = %15
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  %35 = call i32 @statvfs(ptr noundef nonnull %5, ptr noundef nonnull %3) #16
+  %35 = call i32 @statvfs(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %36, label %51
 
@@ -823,7 +823,7 @@ thread-pre-split:                                 ; preds = %16
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %54, i64 24
-  %57 = call ptr @getpwnam(ptr noundef nonnull %56)
+  %57 = call ptr @getpwnam(ptr noundef nonnull readonly %56)
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %php_get_uid_by_name.exit, label %php_get_uid_by_name.exit.thread
 

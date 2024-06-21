@@ -5218,7 +5218,7 @@ if.then13.i:                                      ; preds = %for.body.i
 
 if.else.i:                                        ; preds = %for.body.i
   %41 = load ptr, ptr %apcOutBones, align 8
-  call void @_ZN6Assimp11MDLImporter34AddAnimationBoneTrafoKey_3DGS_MDL7EjPKNS_3MDL18BoneTransform_MDL7EPPNS1_12IntBone_MDL7E(ptr nonnull align 8 poison, i32 noundef %iFrame.079, ptr noundef nonnull %pcBoneTransforms.013.i, ptr noundef %41)
+  call void @_ZN6Assimp11MDLImporter34AddAnimationBoneTrafoKey_3DGS_MDL7EjPKNS_3MDL18BoneTransform_MDL7EPPNS1_12IntBone_MDL7E(ptr nonnull readonly align 8 poison, i32 noundef %iFrame.079, ptr noundef nonnull %pcBoneTransforms.013.i, ptr noundef %41)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then13.i

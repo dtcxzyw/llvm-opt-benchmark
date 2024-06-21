@@ -3732,28 +3732,28 @@ _ZN10IndexGroupD2Ev.exit259:                      ; preds = %_ZNSt6vectorI10Inde
   %.058.i.i.i.i = phi i64 [ %1132, %1130 ], [ %1113, %.lr.ph.preheader.i.i.i.i ]
   %.sroa.038.057.i.i.i.i = phi ptr [ %1131, %1130 ], [ %.sroa.0214.1414.i, %.lr.ph.preheader.i.i.i.i ]
   %.val1.i.i.i.i.i = load ptr, ptr %.sroa.038.057.i.i.i.i, align 8
-  %1116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1116 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1117 = icmp eq i32 %1116, 0
   br i1 %1117, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i", label %1118
 
 1118:                                             ; preds = %.lr.ph.i.i.i.i
   %1119 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 24
   %.val1.i22.i.i.i.i = load ptr, ptr %1119, align 8
-  %1120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i22.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1120 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i22.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1121 = icmp eq i32 %1120, 0
   br i1 %1121, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i.loopexit.split.loop.exit1147", label %1122
 
 1122:                                             ; preds = %1118
   %1123 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 48
   %.val1.i23.i.i.i.i = load ptr, ptr %1123, align 8
-  %1124 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i23.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1124 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i23.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1125 = icmp eq i32 %1124, 0
   br i1 %1125, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i.loopexit.split.loop.exit1145", label %1126
 
 1126:                                             ; preds = %1122
   %1127 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 72
   %.val1.i24.i.i.i.i = load ptr, ptr %1127, align 8
-  %1128 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i24.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1128 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i24.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1129 = icmp eq i32 %1128, 0
   br i1 %1129, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i.loopexit.split.loop.exit", label %1130
 
@@ -3780,7 +3780,7 @@ _ZN10IndexGroupD2Ev.exit259:                      ; preds = %_ZNSt6vectorI10Inde
 
 1135:                                             ; preds = %._crit_edge.i.i.i.i
   %.val1.i25.i.i.i.i = load ptr, ptr %.sroa.038.0.lcssa.i.i.i.i, align 8
-  %1136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i25.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1136 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i25.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1137 = icmp eq i32 %1136, 0
   br i1 %1137, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i", label %1138
 
@@ -3791,7 +3791,7 @@ _ZN10IndexGroupD2Ev.exit259:                      ; preds = %_ZNSt6vectorI10Inde
 1140:                                             ; preds = %1138, %._crit_edge.i.i.i.i
   %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1139, %1138 ]
   %.val1.i26.i.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i.i, align 8
-  %1141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i26.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1141 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i26.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1142 = icmp eq i32 %1141, 0
   br i1 %1142, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i", label %1143
 
@@ -3802,7 +3802,7 @@ _ZN10IndexGroupD2Ev.exit259:                      ; preds = %_ZNSt6vectorI10Inde
 1145:                                             ; preds = %1143, %._crit_edge.i.i.i.i
   %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1144, %1143 ]
   %.val1.i27.i.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i.i, align 8
-  %1146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val1.i27.i.i.i.i, ptr noundef nonnull dereferenceable(1) %1091) #27
+  %1146 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i27.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1091) #27
   %1147 = icmp eq i32 %1146, 0
   %spec.select.i.i.i.i = select i1 %1147, ptr %.sroa.038.2.i.i.i.i, ptr %.sroa.15.0413.i
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP7restp_tSt6vectorIS2_SaIS2_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS4_I10IndexGroupSaISK_EEbbE3$_0ET_SP_SP_T0_.exit.i"
@@ -4217,28 +4217,28 @@ _ZN10IndexGroupD2Ev.exit.i268:                    ; preds = %1265, %_ZNSt6vector
   %.052.i.i.i.i = phi i64 [ %1308, %1306 ], [ %1285, %.lr.ph.preheader.i.i.i116.i ]
   %.sroa.032.051.i.i.i.i = phi ptr [ %1307, %1306 ], [ %.sroa.0182.1436.i, %.lr.ph.preheader.i.i.i116.i ]
   %1288 = load ptr, ptr %.sroa.032.051.i.i.i.i, align 8
-  %1289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1288) #27
+  %1289 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1288) #27
   %1290 = icmp eq i32 %1289, 0
   br i1 %1290, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i", label %1291
 
 1291:                                             ; preds = %.lr.ph.i.i.i118.i
   %1292 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   %1293 = load ptr, ptr %1292, align 8
-  %1294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1293) #27
+  %1294 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1293) #27
   %1295 = icmp eq i32 %1294, 0
   br i1 %1295, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i.loopexit.split.loop.exit1155", label %1296
 
 1296:                                             ; preds = %1291
   %1297 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   %1298 = load ptr, ptr %1297, align 8
-  %1299 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1298) #27
+  %1299 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1298) #27
   %1300 = icmp eq i32 %1299, 0
   br i1 %1300, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i.loopexit.split.loop.exit1153", label %1301
 
 1301:                                             ; preds = %1296
   %1302 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %1303 = load ptr, ptr %1302, align 8
-  %1304 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1303) #27
+  %1304 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1303) #27
   %1305 = icmp eq i32 %1304, 0
   br i1 %1305, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i.loopexit.split.loop.exit", label %1306
 
@@ -4265,7 +4265,7 @@ _ZN10IndexGroupD2Ev.exit.i268:                    ; preds = %1265, %_ZNSt6vector
 
 1311:                                             ; preds = %._crit_edge.i.i.i113.i
   %1312 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i.i, align 8
-  %1313 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1312) #27
+  %1313 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1312) #27
   %1314 = icmp eq i32 %1313, 0
   br i1 %1314, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i", label %1315
 
@@ -4276,7 +4276,7 @@ _ZN10IndexGroupD2Ev.exit.i268:                    ; preds = %1265, %_ZNSt6vector
 1317:                                             ; preds = %1315, %._crit_edge.i.i.i113.i
   %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i113.i ], [ %1316, %1315 ]
   %1318 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8
-  %1319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1318) #27
+  %1319 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1318) #27
   %1320 = icmp eq i32 %1319, 0
   br i1 %1320, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i", label %1321
 
@@ -4287,7 +4287,7 @@ _ZN10IndexGroupD2Ev.exit.i268:                    ; preds = %1265, %_ZNSt6vector
 1323:                                             ; preds = %1321, %._crit_edge.i.i.i113.i
   %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i113.i ], [ %1322, %1321 ]
   %1324 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8
-  %1325 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1281, ptr noundef nonnull dereferenceable(1) %1324) #27
+  %1325 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1281, ptr noundef nonnull readonly dereferenceable(1) %1324) #27
   %1326 = icmp eq i32 %1325, 0
   %spec.select.i.i.i114.i = select i1 %1326, ptr %.sroa.032.2.i.i.i.i, ptr %.sroa.10.1437.i
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEZL13analyse_otherN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK7t_atomsPS5_I10IndexGroupSaISL_EEbbE3$_1ET_SQ_SQ_T0_.exit.i"

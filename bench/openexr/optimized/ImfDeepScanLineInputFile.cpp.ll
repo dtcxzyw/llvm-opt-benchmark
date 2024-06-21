@@ -2001,7 +2001,7 @@ invoke.cont:                                      ; preds = %entry
   %15 = load ptr, ptr %_data, align 8
   %version6.i = getelementptr inbounds i8, ptr %15, i64 96
   store i32 %14, ptr %version6.i, align 8
-  tail call void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %call6)
+  tail call void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %call6)
   %chunkOffsets.i = getelementptr inbounds i8, ptr %call6, i64 80
   %16 = load ptr, ptr %_data, align 8
   %lineOffsets.i = getelementptr inbounds i8, ptr %16, i64 232

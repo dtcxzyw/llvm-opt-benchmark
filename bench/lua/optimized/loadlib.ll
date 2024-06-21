@@ -409,7 +409,7 @@ while.body:                                       ; preds = %if.then3.i, %if.els
   %cmp6.i = icmp eq ptr %call.i, null
   %spec.select.i = select i1 %cmp6.i, ptr %add.ptr12, ptr %call.i
   store i8 0, ptr %spec.select.i, align 1
-  %call.i10 = call noalias ptr @fopen64(ptr noundef nonnull %name.0.i, ptr noundef nonnull @.str.24)
+  %call.i10 = call noalias ptr @fopen64(ptr noundef nonnull readonly %name.0.i, ptr noundef nonnull @.str.24)
   %cmp.i11 = icmp eq ptr %call.i10, null
   br i1 %cmp.i11, label %while.cond, label %if.then18, !llvm.loop !8
 

@@ -23882,7 +23882,7 @@ define void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr nocapt
   br i1 %or.cond.i, label %84, label %85
 
 84:                                               ; preds = %78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %_ZNK11QCPVector2D10normalizedEv.exit
 
 85:                                               ; preds = %78
@@ -23946,7 +23946,7 @@ _ZNK11QCPVector2D10normalizedEv.exit:             ; preds = %84, %85
   br i1 %or.cond.i79, label %110, label %111
 
 110:                                              ; preds = %105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %_ZNK11QCPVector2D10normalizedEv.exit86
 
 111:                                              ; preds = %105
@@ -24775,7 +24775,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit413:   ; preds = %412, %411
   br i1 %or.cond.i414, label %443, label %444
 
 443:                                              ; preds = %.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %450
 
 444:                                              ; preds = %.critedge
@@ -45398,7 +45398,7 @@ _ZN10QCPPainter15setAntialiasingEb.exit:          ; preds = %.noexc297, %429, %.
   br i1 %or.cond.i, label %460, label %461
 
 460:                                              ; preds = %454
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %35, i64 16, i1 false)
   br label %467
 
 461:                                              ; preds = %454
@@ -45527,7 +45527,7 @@ _ZNK13QCPLineEnding10realLengthEv.exit:           ; preds = %467, %469, %472, %4
   br i1 %or.cond.i336, label %516, label %517
 
 516:                                              ; preds = %510
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 8 dereferenceable(16) %35, i64 16, i1 false)
   br label %523
 
 517:                                              ; preds = %510
@@ -54082,7 +54082,7 @@ _ZN16QCPDataSelectionC2ERKS_.exit.i:              ; preds = %90, %_ZNK16QCPDataS
 
 .lr.ph.i.i:                                       ; preds = %_ZN16QCPDataSelectionC2ERKS_.exit.i, %.noexc4.i
   %.05.i.i = phi i32 [ %97, %.noexc4.i ], [ 0, %_ZN16QCPDataSelectionC2ERKS_.exit.i ]
-  %95 = invoke i64 @_ZNK16QCPDataSelection9dataRangeEi(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.05.i.i)
+  %95 = invoke i64 @_ZNK16QCPDataSelection9dataRangeEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %.05.i.i)
           to label %.noexc.i unwind label %101
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
@@ -81059,11 +81059,11 @@ _ZN5QListIP7QCPAxisED2Ev.exit:                    ; preds = %_ZNK23QListSpecialM
   %88 = getelementptr inbounds i8, ptr %.030, i64 336
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %90, ptr noundef nonnull align 8 dereferenceable(25) %14, i64 25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %90, ptr noundef nonnull readonly align 8 dereferenceable(25) %14, i64 25, i1 false)
   call void @_ZN13QCPLineEndingC1ENS_11EndingStyleEddb(ptr noundef nonnull align 8 dereferenceable(25) %15, i32 noundef 8, double noundef 6.000000e+00, double noundef 1.000000e+01, i1 noundef zeroext %86)
   %91 = load ptr, ptr %88, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %92, ptr noundef nonnull align 8 dereferenceable(25) %15, i64 25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %92, ptr noundef nonnull readonly align 8 dereferenceable(25) %15, i64 25, i1 false)
   br label %93
 
 93:                                               ; preds = %82, %76
@@ -81081,7 +81081,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit:                    ; preds = %_ZNK23QListSpecialM
 
 99:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.145) align 8 %4, ptr noundef nonnull align 8 dereferenceable(513) %98)
+  call void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.145) align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(513) %98)
   %100 = getelementptr inbounds i8, ptr %4, i64 16
   %101 = load i64, ptr %100, align 8
   %102 = load ptr, ptr %4, align 8
@@ -86889,7 +86889,7 @@ define void @_ZN11QCPAxisRect13layoutChangedEv(ptr noundef nonnull align 8 deref
 
 17:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.145) align 8 %14, ptr noundef nonnull align 8 dereferenceable(513) %16)
+  call void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.145) align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(513) %16)
   %18 = getelementptr inbounds i8, ptr %14, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %14, align 8
@@ -89455,7 +89455,7 @@ _ZN9QCPLegend8setBrushERK6QBrush.exit:            ; preds = %86
 _ZN9QCPLegend16setSelectedBrushERK6QBrush.exit:   ; preds = %88
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #47
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %12, i32 noundef 2) #47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %42, ptr noundef nonnull align 4 dereferenceable(14) %12, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %42, ptr noundef nonnull readonly align 4 dereferenceable(14) %12, i64 14, i1 false)
   %90 = load ptr, ptr %0, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 248
   %92 = load ptr, ptr %91, align 8
@@ -89495,7 +89495,7 @@ _ZN9QCPLegend16setSelectedBrushERK6QBrush.exit:   ; preds = %88
 
 .noexc28:                                         ; preds = %.noexc27
   %106 = getelementptr inbounds i8, ptr %105, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %106, ptr noundef nonnull align 4 dereferenceable(14) %12, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %106, ptr noundef nonnull readonly align 4 dereferenceable(14) %12, i64 14, i1 false)
   br label %107
 
 107:                                              ; preds = %.noexc28, %.noexc26
@@ -89512,7 +89512,7 @@ _ZN9QCPLegend16setSelectedBrushERK6QBrush.exit:   ; preds = %88
 
 _ZN9QCPLegend12setTextColorERK6QColor.exit:       ; preds = %.noexc29, %.noexc24
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %13, i32 noundef 9) #47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %57, ptr noundef nonnull align 4 dereferenceable(14) %13, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %57, ptr noundef nonnull readonly align 4 dereferenceable(14) %13, i64 14, i1 false)
   %114 = load ptr, ptr %0, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 248
   %116 = load ptr, ptr %115, align 8
@@ -89552,7 +89552,7 @@ _ZN9QCPLegend12setTextColorERK6QColor.exit:       ; preds = %.noexc29, %.noexc24
 
 .noexc37:                                         ; preds = %.noexc36
   %130 = getelementptr inbounds i8, ptr %129, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %130, ptr noundef nonnull align 4 dereferenceable(14) %13, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %130, ptr noundef nonnull readonly align 4 dereferenceable(14) %13, i64 14, i1 false)
   br label %131
 
 131:                                              ; preds = %.noexc37, %.noexc35
@@ -89963,7 +89963,7 @@ define void @_ZN9QCPLegend12setTextColorERK6QColor(ptr noundef nonnull align 8 d
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %.06)
   %19 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QCPAbstractLegendItem16staticMetaObjectE, ptr noundef %18)
   %20 = getelementptr inbounds i8, ptr %19, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull readonly align 4 dereferenceable(14) %1, i64 14, i1 false)
   br label %21
 
 21:                                               ; preds = %.lr.ph, %14
@@ -90007,7 +90007,7 @@ define void @_ZN9QCPLegend20setSelectedTextColorERK6QColor(ptr noundef nonnull a
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %.06)
   %19 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QCPAbstractLegendItem16staticMetaObjectE, ptr noundef %18)
   %20 = getelementptr inbounds i8, ptr %19, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull readonly align 4 dereferenceable(14) %1, i64 14, i1 false)
   br label %21
 
 21:                                               ; preds = %.lr.ph, %14
@@ -92417,7 +92417,7 @@ _ZN16QCPLayoutElement17setMinimumMarginsERK8QMargins.exit: ; preds = %25, %_ZneR
   br i1 %43, label %44, label %_ZN13QCPColorScale12setDataRangeERK8QCPRange.exit
 
 44:                                               ; preds = %38, %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
   %45 = load ptr, ptr %27, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread.i, label %47
@@ -95003,7 +95003,7 @@ _ZN8QCPRange10validRangeERKS_.exit.thread55:      ; preds = %125, %137, %142, %_
   br i1 %or.cond64, label %158, label %_ZN13QCPColorScale12setDataRangeERK8QCPRange.exit
 
 158:                                              ; preds = %_ZN8QCPRange10validRangeERKS_.exit.thread55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
   %159 = getelementptr inbounds i8, ptr %0, i64 304
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
@@ -99073,7 +99073,7 @@ define noundef double @_ZNK8QCPGraph13pointDistanceERK7QPointFRN5QListI12QCPGrap
   %45 = getelementptr inbounds i8, ptr %1, i64 8
   %46 = load double, ptr %45, align 8
   %47 = fsub double %46, %42
-  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %44, double noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %44, double noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %48 = load ptr, ptr %38, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 228
   %50 = load i32, ptr %49, align 4
@@ -99082,7 +99082,7 @@ define noundef double @_ZNK8QCPGraph13pointDistanceERK7QPointFRN5QListI12QCPGrap
   %53 = fadd double %52, %51
   %54 = load double, ptr %45, align 8
   %55 = fadd double %54, %51
-  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %53, double noundef %55, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %53, double noundef %55, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %56 = load double, ptr %6, align 8
   %57 = load double, ptr %7, align 8
   %58 = fcmp ogt double %56, %57
@@ -102393,7 +102393,7 @@ define void @_ZNK8QCPGraph14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef no
   %18 = getelementptr inbounds i8, ptr %0, i64 88
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %20, i32 noundef 256)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %20, i32 noundef 256)
   %21 = load double, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load double, ptr %22, align 8
@@ -102504,7 +102504,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %66, %67
   %85 = getelementptr inbounds i8, ptr %0, i64 89
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
-  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %87, i32 noundef 128)
+  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %87, i32 noundef 128)
   %88 = load i32, ptr %81, align 8
   %89 = icmp eq i32 %88, 16
   br i1 %89, label %90, label %.thread74
@@ -105502,7 +105502,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 88
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %1, i1 noundef zeroext %30, i32 noundef 256)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef nonnull %1, i1 noundef zeroext %30, i32 noundef 256)
   %31 = getelementptr inbounds i8, ptr %0, i64 112
   %32 = load ptr, ptr %31, align 8, !nonnull !115, !noundef !115
   %33 = getelementptr inbounds i8, ptr %32, i64 4
@@ -107738,7 +107738,7 @@ define void @_ZNK8QCPGraph15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15Q
   %5 = getelementptr inbounds i8, ptr %0, i64 89
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %7, i32 noundef 128)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %7, i32 noundef 128)
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = getelementptr inbounds i8, ptr %3, i64 64
   %10 = load i8, ptr %9, align 8
@@ -112928,7 +112928,7 @@ _ZNK12QCPDataRange8adjustedEii.exit:              ; preds = %.critedge
 91:                                               ; preds = %90
   %92 = load i8, ptr %42, align 8
   %93 = trunc i8 %92 to i1
-  invoke void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %93, i32 noundef 256)
+  invoke void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %93, i32 noundef 256)
           to label %_ZNK20QCPAbstractPlottable25applyFillAntialiasingHintEP10QCPPainter.exit unwind label %74
 
 _ZNK20QCPAbstractPlottable25applyFillAntialiasingHintEP10QCPPainter.exit: ; preds = %91
@@ -115101,7 +115101,7 @@ define void @_ZNK8QCPCurve14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef no
   %18 = getelementptr inbounds i8, ptr %0, i64 88
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %20, i32 noundef 256)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %20, i32 noundef 256)
   %21 = load double, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load double, ptr %22, align 8
@@ -115212,7 +115212,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %66, %67
   %85 = getelementptr inbounds i8, ptr %0, i64 89
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
-  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %87, i32 noundef 128)
+  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %87, i32 noundef 128)
   %88 = load i32, ptr %81, align 8
   %89 = icmp eq i32 %88, 16
   br i1 %89, label %90, label %.thread74
@@ -115719,7 +115719,7 @@ define void @_ZNK8QCPCurve15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15Q
   %5 = getelementptr inbounds i8, ptr %0, i64 89
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %7, i32 noundef 128)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %7, i32 noundef 128)
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = getelementptr inbounds i8, ptr %3, i64 64
   %10 = load i8, ptr %9, align 8
@@ -128668,7 +128668,7 @@ define void @_ZNK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwi
   %54 = call double @llvm.fmuladd.f64(double %53, double 5.000000e-01, double %51)
   %55 = getelementptr inbounds i8, ptr %.sroa.0.026, i64 32
   %56 = load double, ptr %55, align 8, !noalias !1057
-  %57 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %54, double noundef %56)
+  %57 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %54, double noundef %56)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %50
@@ -128683,7 +128683,7 @@ define void @_ZNK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwi
   %65 = call double @llvm.fmuladd.f64(double %64, double 5.000000e-01, double %63)
   %66 = getelementptr inbounds i8, ptr %.sroa.0.026, i64 16
   %67 = load double, ptr %66, align 8, !noalias !1057
-  %68 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %65, double noundef %67)
+  %68 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %65, double noundef %67)
           to label %69 unwind label %.loopexit
 
 69:                                               ; preds = %.noexc
@@ -129058,7 +129058,7 @@ _ZNK8QPointerI7QCPAxisEptEv.exit:                 ; preds = %44
   %88 = call double @llvm.fmuladd.f64(double %87, double 5.000000e-01, double %85)
   %89 = getelementptr inbounds i8, ptr %.sroa.061.088, i64 32
   %90 = load double, ptr %89, align 8, !noalias !1061
-  %91 = call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %88, double noundef %90), !noalias !1061
+  %91 = call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %88, double noundef %90), !noalias !1061
   %92 = extractvalue { double, double } %91, 0
   %93 = extractvalue { double, double } %91, 1
   %94 = insertelement <2 x double> poison, double %92, i64 0
@@ -129070,7 +129070,7 @@ _ZNK8QPointerI7QCPAxisEptEv.exit:                 ; preds = %44
   %99 = call double @llvm.fmuladd.f64(double %98, double 5.000000e-01, double %97)
   %100 = getelementptr inbounds i8, ptr %.sroa.061.088, i64 16
   %101 = load double, ptr %100, align 8, !noalias !1061
-  %102 = call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %99, double noundef %101), !noalias !1061
+  %102 = call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %99, double noundef %101), !noalias !1061
   %103 = extractvalue { double, double } %102, 0
   %104 = extractvalue { double, double } %102, 1
   %105 = insertelement <2 x double> poison, double %103, i64 0
@@ -129185,7 +129185,7 @@ _ZN17QArrayDataPointerI6QLineFE5derefEv.exit.i.i.i41: ; preds = %135
           to label %.noexc44 unwind label %135
 
 .noexc44:                                         ; preds = %.noexc
-  %142 = invoke noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %142 = invoke noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %143 unwind label %135
 
 143:                                              ; preds = %.noexc44
@@ -131512,7 +131512,7 @@ define void @_ZNK17QCPStatisticalBox18drawStatisticalBoxEP10QCPPainterN5QListI21
   %18 = tail call double @llvm.fmuladd.f64(double %17, double 5.000000e-01, double %14)
   %19 = getelementptr inbounds i8, ptr %2, i64 32
   %20 = load double, ptr %19, align 8, !noalias !1094
-  %21 = tail call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %18, double noundef %20), !noalias !1094
+  %21 = tail call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %18, double noundef %20), !noalias !1094
   %22 = extractvalue { double, double } %21, 0
   %23 = extractvalue { double, double } %21, 1
   %24 = getelementptr inbounds i8, ptr %7, i64 16
@@ -131525,7 +131525,7 @@ define void @_ZNK17QCPStatisticalBox18drawStatisticalBoxEP10QCPPainterN5QListI21
   %30 = tail call double @llvm.fmuladd.f64(double %29, double 5.000000e-01, double %28)
   %31 = getelementptr inbounds i8, ptr %2, i64 16
   %32 = load double, ptr %31, align 8, !noalias !1094
-  %33 = tail call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %30, double noundef %32), !noalias !1094
+  %33 = tail call { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %30, double noundef %32), !noalias !1094
   %34 = extractvalue { double, double } %33, 0
   %35 = extractvalue { double, double } %33, 1
   %36 = insertelement <2 x double> poison, double %34, i64 0
@@ -131699,7 +131699,7 @@ _ZN5QListI6QLineFED2Ev.exit37:                    ; preds = %_ZN8QPainter9drawLi
   %117 = getelementptr inbounds i8, ptr %0, i64 89
   %118 = load i8, ptr %117, align 1
   %119 = trunc i8 %118 to i1
-  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %1, i1 noundef zeroext %119, i32 noundef 128)
+  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef nonnull %1, i1 noundef zeroext %119, i32 noundef 128)
   %120 = getelementptr inbounds i8, ptr %0, i64 96
   %121 = getelementptr inbounds i8, ptr %3, i64 64
   %122 = load i8, ptr %121, align 8
@@ -132683,9 +132683,9 @@ _ZN6QDebuglsEi.exit9:                             ; preds = %.noexc7, %55
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN15QCPColorMapData8setRangeERK8QCPRangeS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   ret void
 }
 
@@ -134590,7 +134590,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit:              ; preds = %34
   store double 0.000000e+00, ptr %8, align 8
   %61 = load double, ptr %1, align 8
   %62 = load double, ptr %50, align 8
-  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %61, double noundef %62, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %61, double noundef %62, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %63 = load ptr, ptr %15, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %.sroa.0.0.copyload.i17 = load double, ptr %64, align 8
@@ -138529,7 +138529,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit52.thread:     ; preds = %_ZNK8QPointerI7QCPA
   store double 0.000000e+00, ptr %11, align 8
   %87 = load double, ptr %1, align 8
   %88 = load double, ptr %73, align 8
-  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %87, double noundef %88, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %87, double noundef %88, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %89 = load double, ptr %10, align 8
   %90 = load double, ptr %8, align 8
   %91 = fcmp ole double %90, %89
@@ -138634,7 +138634,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit52.thread:     ; preds = %_ZNK8QPointerI7QCPA
   store double 0.000000e+00, ptr %21, align 8
   %154 = load double, ptr %1, align 8
   %155 = load double, ptr %140, align 8
-  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %154, double noundef %155, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  call void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %154, double noundef %155, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %156 = load double, ptr %20, align 8
   %157 = load double, ptr %18, align 8
   %158 = fcmp ole double %157, %156
@@ -143905,7 +143905,7 @@ _ZN17QArrayDataPointerI16QCPErrorBarsDataE5derefEv.exit.i.i: ; preds = %_ZN17QAr
   br label %_ZN5QListI16QCPErrorBarsDataE5clearEv.exit
 
 _ZN5QListI16QCPErrorBarsDataE5clearEv.exit:       ; preds = %2, %_ZN17QArrayDataPointerI16QCPErrorBarsDataE17allocatedCapacityEv.exit.i, %_ZN17QArrayDataPointerI16QCPErrorBarsDataE5derefEv.exit.i.i, %21, %22
-  call void @_ZN12QCPErrorBars7addDataERK5QListIdES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call void @_ZN12QCPErrorBars7addDataERK5QListIdES3_(ptr noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %1)
   ret void
 }
 
@@ -146700,7 +146700,7 @@ _ZN17QArrayDataPointerI6QLineFE5derefEv.exit.i.i.i26: ; preds = %88
           to label %.noexc29 unwind label %88
 
 .noexc29:                                         ; preds = %.noexc
-  %97 = invoke noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %97 = invoke noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %98 unwind label %88
 
 98:                                               ; preds = %.noexc29
@@ -151962,7 +151962,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %133
           to label %.noexc32 unwind label %122
 
 .noexc32:                                         ; preds = %140
-  invoke void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr noundef nonnull align 8 dereferenceable(25) %136, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr noundef nonnull readonly align 8 dereferenceable(25) %136, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd.exit unwind label %122
 
 _ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd.exit: ; preds = %.noexc32
@@ -151995,7 +151995,7 @@ _ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd.exit: ; preds = %.noexc32
           to label %.noexc34 unwind label %122
 
 .noexc34:                                         ; preds = %152
-  invoke void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr noundef nonnull align 8 dereferenceable(25) %148, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr noundef nonnull readonly align 8 dereferenceable(25) %148, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd.exit36 unwind label %122
 
 _ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd.exit36: ; preds = %.noexc34
@@ -153279,9 +153279,9 @@ _ZN11QCPItemText8setBrushERK6QBrush.exit:         ; preds = %119
 _ZN11QCPItemText16setSelectedBrushERK6QBrush.exit: ; preds = %121
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #47
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %16, i32 noundef 2) #47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %90, ptr noundef nonnull align 4 dereferenceable(14) %16, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %90, ptr noundef nonnull readonly align 4 dereferenceable(14) %16, i64 14, i1 false)
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %17, i32 noundef 9) #47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %93, ptr noundef nonnull align 4 dereferenceable(14) %17, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %93, ptr noundef nonnull readonly align 4 dereferenceable(14) %17, i64 14, i1 false)
   ret void
 
 123:                                              ; preds = %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit46, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit38, %_ZN7QStringD2Ev.exit34, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit22, %_ZN7QStringD2Ev.exit, %2
@@ -167583,7 +167583,7 @@ define { double, double } @_ZNK19QCPPolarAxisAngular12coordToPixelEdd(ptr nocapt
   %10 = getelementptr inbounds i8, ptr %0, i64 584
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %12, double noundef %2)
+  %13 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull readonly align 8 dereferenceable(776) %12, double noundef %2)
   %14 = getelementptr inbounds i8, ptr %12, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 264
@@ -167865,7 +167865,7 @@ _ZN18QCPPolarAxisRadial16setupTickVectorsEv.exit: ; preds = %9, %21, %25, %53
   %96 = load ptr, ptr %95, align 8
   %97 = load double, ptr %86, align 8
   %98 = getelementptr inbounds i8, ptr %96, i64 376
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull readonly align 8 dereferenceable(16) %79, i64 16, i1 false)
   %99 = fcmp olt double %97, 1.000000e+00
   %storemerge.i = select i1 %99, double 1.000000e+00, double %97
   %100 = getelementptr inbounds i8, ptr %96, i64 392
@@ -168671,7 +168671,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %85, %86
 108:                                              ; preds = %.loopexit95
   %109 = getelementptr inbounds i8, ptr %0, i64 824
   %110 = getelementptr inbounds i8, ptr %0, i64 840
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull readonly align 8 dereferenceable(16) %13, i64 16, i1 false)
   %111 = load i32, ptr %16, align 4, !noalias !1393
   %112 = and i32 %111, 2
   %.not.i41 = icmp eq i32 %112, 0
@@ -173673,7 +173673,7 @@ _ZNK8QPointerI18QCPPolarAxisRadialEptEv.exit:     ; preds = %11
   %17 = load atomic i32, ptr %12 monotonic, align 4
   %18 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %16, double noundef %2)
+  %19 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull readonly align 8 dereferenceable(776) %16, double noundef %2)
   %20 = getelementptr inbounds i8, ptr %16, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 264
@@ -173753,7 +173753,7 @@ _ZNK8QPointerI18QCPPolarAxisRadialEptEv.exit:     ; preds = %9
   %15 = load atomic i32, ptr %10 monotonic, align 4
   %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
-  %17 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %14, double noundef %2)
+  %17 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull readonly align 8 dereferenceable(776) %14, double noundef %2)
   %18 = getelementptr inbounds i8, ptr %14, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 264
@@ -176458,7 +176458,7 @@ _ZN5QListI7QPointFE6resizeEx.exit:                ; preds = %.noexc, %69, %.lr.p
 
 89:                                               ; preds = %81
   %90 = load double, ptr %85, align 8
-  %91 = call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %29, double noundef %87)
+  %91 = call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull readonly align 8 dereferenceable(776) %29, double noundef %87)
   %92 = load ptr, ptr %77, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 264
   %94 = load double, ptr %93, align 8
@@ -176797,7 +176797,7 @@ _ZN16QCPDataSelectionC2ERKS_.exit.i:              ; preds = %90, %_ZNK16QCPDataS
 
 .lr.ph.i.i:                                       ; preds = %_ZN16QCPDataSelectionC2ERKS_.exit.i, %.noexc4.i
   %.05.i.i = phi i32 [ %97, %.noexc4.i ], [ 0, %_ZN16QCPDataSelectionC2ERKS_.exit.i ]
-  %95 = invoke i64 @_ZNK16QCPDataSelection9dataRangeEi(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.05.i.i)
+  %95 = invoke i64 @_ZNK16QCPDataSelection9dataRangeEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %.05.i.i)
           to label %.noexc.i unwind label %101
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
@@ -177492,7 +177492,7 @@ define void @_ZNK13QCPPolarGraph8drawFillEP10QCPPainterP5QListI7QPointFE(ptr noc
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %6, i32 noundef 256)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %6, i32 noundef 256)
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPainter5brushEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
@@ -177573,7 +177573,7 @@ define void @_ZNK13QCPPolarGraph15drawScatterPlotEP10QCPPainterRK5QListI7QPointF
   %5 = getelementptr inbounds i8, ptr %0, i64 185
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %7, i32 noundef 128)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %7, i32 noundef 128)
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   %9 = getelementptr inbounds i8, ptr %3, i64 64
   %10 = load i8, ptr %9, align 8
@@ -177653,7 +177653,7 @@ define void @_ZNK13QCPPolarGraph14drawLegendIconEP10QCPPainterRK6QRectF(ptr noun
   %18 = getelementptr inbounds i8, ptr %0, i64 184
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %20, i32 noundef 256)
+  tail call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %20, i32 noundef 256)
   %21 = load double, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load double, ptr %22, align 8
@@ -177764,7 +177764,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %66, %67
   %85 = getelementptr inbounds i8, ptr %0, i64 185
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
-  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %87, i32 noundef 128)
+  call void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %87, i32 noundef 128)
   %88 = load i32, ptr %81, align 8
   %89 = icmp eq i32 %88, 16
   br i1 %89, label %90, label %.thread74
@@ -178632,7 +178632,7 @@ _ZN5QListI7QPointFE6resizeEx.exit:                ; preds = %.noexc, %43, %.lr.p
   %61 = load double, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %60, i64 8
   %63 = load double, ptr %62, align 8
-  %64 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %58, double noundef %63)
+  %64 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull readonly align 8 dereferenceable(776) %58, double noundef %63)
   %65 = getelementptr inbounds i8, ptr %58, i64 72
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 264
@@ -216058,7 +216058,7 @@ define linkonce_odr noundef double @_ZNK22QCPAbstractPlottable1DI12QCPGraphDataE
   %61 = getelementptr inbounds i8, ptr %1, i64 8
   %62 = load double, ptr %61, align 8
   %63 = fsub double %62, %58
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %60, double noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %60, double noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
@@ -216070,7 +216070,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
   %69 = fadd double %68, %67
   %70 = load double, ptr %61, align 8
   %71 = fadd double %70, %67
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %69, double noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %69, double noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -216951,7 +216951,7 @@ define linkonce_odr void @_ZNK22QCPAbstractPlottable1DI12QCPGraphDataE14selectTe
   %49 = load double, ptr %2, align 8
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   %51 = load double, ptr %50, align 8
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %49, double noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %49, double noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %48
@@ -216963,7 +216963,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %48
   %57 = getelementptr inbounds i8, ptr %2, i64 24
   %58 = load double, ptr %57, align 8
   %59 = fadd double %56, %58
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %55, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %55, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -222306,7 +222306,7 @@ define linkonce_odr void @_ZNK22QCPAbstractPlottable1DI12QCPCurveDataE14selectTe
   %47 = load double, ptr %2, align 8
   %48 = getelementptr inbounds i8, ptr %2, i64 8
   %49 = load double, ptr %48, align 8
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %47, double noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %47, double noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
@@ -222318,7 +222318,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
   %55 = getelementptr inbounds i8, ptr %2, i64 24
   %56 = load double, ptr %55, align 8
   %57 = fadd double %54, %56
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %53, double noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %53, double noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -227803,7 +227803,7 @@ define linkonce_odr noundef double @_ZNK22QCPAbstractPlottable1DI11QCPBarsDataE1
   %61 = getelementptr inbounds i8, ptr %1, i64 8
   %62 = load double, ptr %61, align 8
   %63 = fsub double %62, %58
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %60, double noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %60, double noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
@@ -227815,7 +227815,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
   %69 = fadd double %68, %67
   %70 = load double, ptr %61, align 8
   %71 = fadd double %70, %67
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %69, double noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %69, double noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -228696,7 +228696,7 @@ define linkonce_odr void @_ZNK22QCPAbstractPlottable1DI11QCPBarsDataE14selectTes
   %49 = load double, ptr %2, align 8
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   %51 = load double, ptr %50, align 8
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %49, double noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %49, double noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %48
@@ -228708,7 +228708,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %48
   %57 = getelementptr inbounds i8, ptr %2, i64 24
   %58 = load double, ptr %57, align 8
   %59 = fadd double %56, %58
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %55, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %55, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -232104,7 +232104,7 @@ define linkonce_odr noundef double @_ZNK22QCPAbstractPlottable1DI21QCPStatistica
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   %60 = load double, ptr %59, align 8
   %61 = fsub double %60, %56
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %58, double noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %58, double noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %44
@@ -232116,7 +232116,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %44
   %67 = fadd double %66, %65
   %68 = load double, ptr %59, align 8
   %69 = fadd double %68, %65
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %67, double noundef %69, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %67, double noundef %69, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -232932,7 +232932,7 @@ define linkonce_odr void @_ZNK22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE1
   %47 = load double, ptr %2, align 8
   %48 = getelementptr inbounds i8, ptr %2, i64 8
   %49 = load double, ptr %48, align 8
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %47, double noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %47, double noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
@@ -232944,7 +232944,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
   %55 = getelementptr inbounds i8, ptr %2, i64 24
   %56 = load double, ptr %55, align 8
   %57 = fadd double %54, %56
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %53, double noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %53, double noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -238123,7 +238123,7 @@ define linkonce_odr noundef double @_ZNK22QCPAbstractPlottable1DI16QCPFinancialD
   %61 = getelementptr inbounds i8, ptr %1, i64 8
   %62 = load double, ptr %61, align 8
   %63 = fsub double %62, %58
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %60, double noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %60, double noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
@@ -238135,7 +238135,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %46
   %69 = fadd double %68, %67
   %70 = load double, ptr %61, align 8
   %71 = fadd double %70, %67
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %69, double noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %69, double noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit39: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit
@@ -239019,7 +239019,7 @@ define linkonce_odr void @_ZNK22QCPAbstractPlottable1DI16QCPFinancialDataE14sele
   %49 = load double, ptr %2, align 8
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   %51 = load double, ptr %50, align 8
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %49, double noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %49, double noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %48
@@ -239031,7 +239031,7 @@ _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit: ; preds = %48
   %57 = getelementptr inbounds i8, ptr %2, i64 24
   %58 = load double, ptr %57, align 8
   %59 = fadd double %56, %58
-  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, double noundef %55, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 dereferenceable(184) %1, double noundef %55, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24 unwind label %.loopexit.split-lp
 
 _ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit24: ; preds = %_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_.exit

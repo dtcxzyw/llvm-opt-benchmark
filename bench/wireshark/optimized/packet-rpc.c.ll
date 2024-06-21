@@ -1252,7 +1252,7 @@ rpc_roundup.exit:                                 ; preds = %4
   %76 = add i32 %2, 24
   %77 = icmp eq i32 %65, 3
   %78 = zext i1 %77 to i32
-  %79 = tail call fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context(ptr noundef %18, ptr noundef %0, i32 noundef %76, ptr noundef %3, i32 noundef 0, i32 noundef %78)
+  %79 = tail call fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context(ptr noundef %18, ptr noundef %0, i32 noundef %76, ptr noundef readonly %3, i32 noundef 0, i32 noundef %78)
   br label %dissect_rpc_authdes_cred.exit
 
 80:                                               ; preds = %15

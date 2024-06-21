@@ -1574,7 +1574,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %93
   %101 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.19, ptr noundef %101) #29
   %103 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
-  %104 = call noalias ptr @popen(ptr noundef %103, ptr noundef nonnull %1)
+  %104 = call noalias ptr @popen(ptr noundef %103, ptr noundef nonnull readonly %1)
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %119
 
@@ -1768,7 +1768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.19, ptr noundef %156) #29
   %158 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  %159 = call noalias ptr @popen(ptr noundef %158, ptr noundef nonnull %1)
+  %159 = call noalias ptr @popen(ptr noundef %158, ptr noundef nonnull readonly %1)
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %176
 

@@ -444,7 +444,7 @@ col_format_to_string.exit.i:                      ; preds = %col_format_to_strin
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %col_format_to_string.exit.i.preheader ]
   %54 = getelementptr [46 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %55) #14
+  %56 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %55) #14
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %get_column_format_from_str.exit, label %58
 

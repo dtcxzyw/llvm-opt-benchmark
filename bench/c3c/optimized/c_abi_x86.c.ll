@@ -886,7 +886,7 @@ type_is_simd_vector.exit.i.i.i:                   ; preds = %104
   br i1 %109, label %x86_stack_alignment.exit.i.i, label %type_is_simd_vector.exit.thread.i.i.i
 
 type_is_simd_vector.exit.thread.i.i.i:            ; preds = %type_is_simd_vector.exit.i.i.i, %104
-  %110 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull %3)
+  %110 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull readonly %3)
   br i1 %110, label %x86_stack_alignment.exit.i.i, label %111
 
 111:                                              ; preds = %type_is_simd_vector.exit.thread.i.i.i, %102
@@ -1094,7 +1094,7 @@ type_is_simd_vector.exit.i.i38.i:                 ; preds = %200
   br i1 %205, label %x86_stack_alignment.exit.i32.i, label %type_is_simd_vector.exit.thread.i.i37.i
 
 type_is_simd_vector.exit.thread.i.i37.i:          ; preds = %type_is_simd_vector.exit.i.i38.i, %200
-  %206 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull %3)
+  %206 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull readonly %3)
   br i1 %206, label %x86_stack_alignment.exit.i32.i, label %207
 
 207:                                              ; preds = %type_is_simd_vector.exit.thread.i.i37.i, %198

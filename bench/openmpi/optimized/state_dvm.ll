@@ -2739,7 +2739,7 @@ pmix_pointer_array_get_item.exit468:              ; preds = %537
   br i1 %or.cond.i, label %.loopexit, label %582
 
 582:                                              ; preds = %573
-  %583 = call ptr @hwloc_get_obj_by_depth(ptr noundef %579, i32 noundef %581, i32 noundef 0) #18
+  %583 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %579, i32 noundef %581, i32 noundef 0) #18
   %.not.i.i = icmp eq ptr %583, null
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
 
@@ -2752,7 +2752,7 @@ pmix_pointer_array_get_item.exit468:              ; preds = %537
   br i1 %.not16.i.i, label %587, label %589
 
 587:                                              ; preds = %.preheader.i.i
-  %588 = call i32 @hwloc_bitmap_isincluded(ptr noundef %585, ptr noundef %580) #18
+  %588 = call i32 @hwloc_bitmap_isincluded(ptr noundef %585, ptr noundef readonly %580) #18
   %.not17.i.i = icmp eq i32 %588, 0
   br i1 %.not17.i.i, label %589, label %hwloc_get_obj_inside_cpuset_by_type.exit
 

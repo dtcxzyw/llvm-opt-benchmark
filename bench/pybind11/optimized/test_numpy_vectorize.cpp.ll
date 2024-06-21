@@ -46011,7 +46011,7 @@ _ZN8pybind116objectD2Ev.exit27.i:                 ; preds = %109, %107, %105, %_
   unreachable
 
 "_ZZN8pybind1112cpp_function10initializeINS_6detail16vectorize_helperIZ30test_submodule_numpy_vectorizeRNS_7module_EE3$_2dJPKddNS_7array_tIdLi16EEERKiRiZ30test_submodule_numpy_vectorizeS5_E11NonPODClassdEEENS_6objectEJS8_SA_SA_NS9_IiLi16EEESD_SE_SA_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clESX_.exit": ; preds = %_ZN8pybind116objectD2Ev.exit27.i, %114, %117
-  call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #25
+  call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %3) #25
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -47019,7 +47019,7 @@ define internal fastcc void @_ZN8pybind116detail15argument_loaderIJPKdNS_7array_
   unreachable
 
 _ZNSt5tupleIJN8pybind116detail11type_casterIdvEENS2_INS0_7array_tIdLi16EEEvEES6_NS2_INS4_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES6_EED2Ev.exit: ; preds = %1, %4, %7
-  tail call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #25
+  tail call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) #25
   ret void
 }
 

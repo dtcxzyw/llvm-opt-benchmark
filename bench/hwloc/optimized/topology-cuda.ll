@@ -235,7 +235,7 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %switch.hole_check, 
   br i1 %.not46, label %90, label %92
 
 90:                                               ; preds = %.thread, %85
-  %91 = call ptr @hwloc_get_obj_by_depth(ptr noundef %10, i32 noundef 0, i32 noundef 0) #11
+  %91 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #11
   br label %92
 
 92:                                               ; preds = %90, %85

@@ -359,7 +359,7 @@ grisu2.exit:                                      ; preds = %lor.rhs.i.i.i, %whi
 
 if.then.i16:                                      ; preds = %grisu2.exit
   %conv.i = sext i32 %retval.0.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 16 %digits, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull readonly align 16 %digits, i64 %conv.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %conv.i
   %conv9.i = zext nneg i32 %K.0 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 48, i64 %conv9.i, i1 false)
@@ -388,7 +388,7 @@ if.then29.i:                                      ; preds = %if.then18.i
   %add.ptr35.i = getelementptr inbounds i8, ptr %add.ptr, i64 %conv33.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %add.ptr35.i, i64 2
   %conv37.i = sext i32 %retval.0.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr nonnull align 16 %digits, i64 %conv37.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr nonnull readonly align 16 %digits, i64 %conv37.i, i1 false)
   %add38.i = add nsw i32 %retval.0.i.i, 2
   %add39.i = sub i32 %add38.i, %add.i
   br label %return
@@ -396,13 +396,13 @@ if.then29.i:                                      ; preds = %if.then18.i
 if.else.i15:                                      ; preds = %if.then18.i
   %sub22.i = sub nuw i32 -348, %reass.sub
   %conv40.i = zext nneg i32 %add.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 16 %digits, i64 %conv40.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull readonly align 16 %digits, i64 %conv40.i, i1 false)
   %arrayidx41.i = getelementptr inbounds i8, ptr %add.ptr, i64 %conv40.i
   store i8 46, ptr %arrayidx41.i, align 1
   %add.ptr44.i = getelementptr inbounds i8, ptr %arrayidx41.i, i64 1
   %add.ptr46.i = getelementptr inbounds i8, ptr %digits, i64 %conv40.i
   %conv48.i = zext nneg i32 %sub22.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr44.i, ptr nonnull align 1 %add.ptr46.i, i64 %conv48.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr44.i, ptr nonnull readonly align 1 %add.ptr46.i, i64 %conv48.i, i1 false)
   %add49.i = add nsw i32 %retval.0.i.i, 1
   br label %return
 
@@ -421,7 +421,7 @@ if.then67.i:                                      ; preds = %if.end50.i
   %add.ptr73.i = getelementptr inbounds i8, ptr %digits, i64 1
   %sub74.i = add nsw i32 %cond61.i, -1
   %conv75.i = zext nneg i32 %sub74.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr72.i, ptr nonnull align 1 %add.ptr73.i, i64 %conv75.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr72.i, ptr nonnull readonly align 1 %add.ptr73.i, i64 %conv75.i, i1 false)
   %add77.i = add nuw nsw i32 %cond61.i, 1
   br label %if.end78.i
 

@@ -1638,13 +1638,13 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 120:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13), !noalias !378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull readonly align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
   %.sroa.72.0..sroa_idx9.i.i = getelementptr inbounds i8, ptr %13, i64 40
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.72.0..sroa_idx9.i.i, align 8, !noalias !382
   %.sroa.811.0..sroa_idx18.i.i = getelementptr inbounds i8, ptr %13, i64 48
   store i8 6, ptr %.sroa.811.0..sroa_idx18.i.i, align 8, !noalias !382
   %.sroa.9.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %13, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx23.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx23.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
   %121 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb5db56d0d26ac7d2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %13)
           to label %.noexc.i unwind label %152, !noalias !348
 
@@ -1665,13 +1665,13 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 129:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12), !noalias !378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull readonly align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
   %.sroa.72.0..sroa_idx7.i.i = getelementptr inbounds i8, ptr %12, i64 40
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.72.0..sroa_idx7.i.i, align 8, !noalias !382
   %.sroa.811.0..sroa_idx16.i.i = getelementptr inbounds i8, ptr %12, i64 48
   store i8 %.sroa.3.0.copyload.i.i, ptr %.sroa.811.0..sroa_idx16.i.i, align 8, !noalias !382
   %.sroa.9.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %12, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx22.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx22.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
   %130 = getelementptr inbounds i8, ptr %21, i64 8
   %131 = load ptr, ptr %130, align 8, !noalias !378, !nonnull !4, !noundef !4
   %132 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1686,13 +1686,13 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 136:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
   %.sroa.72.0..sroa_idx3.i.i = getelementptr inbounds i8, ptr %10, i64 40
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.72.0..sroa_idx3.i.i, align 8, !noalias !382
   %.sroa.811.0..sroa_idx12.i.i = getelementptr inbounds i8, ptr %10, i64 48
   store i8 %.sroa.3.0.copyload.i.i, ptr %.sroa.811.0..sroa_idx12.i.i, align 8, !noalias !382
   %.sroa.9.0..sroa_idx20.i.i = getelementptr inbounds i8, ptr %10, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx20.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx20.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
   %137 = getelementptr inbounds i8, ptr %24, i64 8
   %138 = load ptr, ptr %137, align 8, !noalias !378, !nonnull !4, !noundef !4
   %139 = getelementptr inbounds i8, ptr %24, i64 16
@@ -1708,13 +1708,13 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 144:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11), !noalias !378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull readonly align 8 dereferenceable(40) %117, i64 40, i1 false), !noalias !377
   %.sroa.72.0..sroa_idx5.i.i = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.72.0..sroa_idx5.i.i, align 8, !noalias !382
   %.sroa.811.0..sroa_idx14.i.i = getelementptr inbounds i8, ptr %11, i64 48
   store i8 %.sroa.3.0.copyload.i.i, ptr %.sroa.811.0..sroa_idx14.i.i, align 8, !noalias !382
   %.sroa.9.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %11, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx21.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx21.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.425.0..sroa_idx.i.i, i64 7, i1 false), !noalias !377
   %145 = getelementptr inbounds i8, ptr %18, i64 8
   %146 = load ptr, ptr %145, align 8, !noalias !378, !nonnull !4, !noundef !4
   %147 = getelementptr inbounds i8, ptr %18, i64 16
@@ -1900,7 +1900,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.7540957221847921196.exit
   %209 = getelementptr i8, ptr %205, i64 8
   %.val3.i.i = load ptr, ptr %209, align 8, !noalias !388, !nonnull !4, !noundef !4
   %.val2.i.i.i = load ptr, ptr %.sroa.0207.0259.i, align 8, !noalias !392, !nonnull !4, !align !393, !noundef !4
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val3.i.i, ptr nonnull %.val2.i.i.i, i64 %.pre260.i), !alias.scope !394, !noalias !388
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val3.i.i, ptr nonnull readonly %.val2.i.i.i, i64 %.pre260.i), !alias.scope !394, !noalias !388
   %210 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %210, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h794d9f849a3332ceE.exit.i", label %"_ZN18tree_sitter_loader21LanguageConfiguration16highlight_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h15785312606fd193E.exit.backedge.i.i"
 
@@ -2086,7 +2086,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %218, %.
   %267 = extractvalue { i64, ptr } %264, 1
   %268 = icmp ne ptr %267, null
   call void @llvm.assume(i1 %268)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %267, ptr nonnull align 1 %263, i64 %.pre260.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %267, ptr nonnull readonly align 1 %263, i64 %.pre260.i, i1 false)
   store i64 %266, ptr %14, align 8, !noalias !348
   store ptr %267, ptr %.sroa.4216.0..sroa_idx.i, align 8, !noalias !348
   store i64 %.pre260.i, ptr %.sroa.5217.0..sroa_idx.i, align 8, !noalias !348

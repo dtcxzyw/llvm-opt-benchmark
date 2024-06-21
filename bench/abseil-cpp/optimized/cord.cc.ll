@@ -1161,7 +1161,7 @@ if.then.i:                                        ; preds = %if.end
   store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4
   store i64 %length, ptr %call4.i.i.i.i, align 8
   %storage.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i.i, ptr align 1 %data, i64 %length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i.i, ptr readonly align 1 %data, i64 %length, i1 false)
   br label %return
 
 _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i: ; preds = %if.end
@@ -1170,7 +1170,7 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i: ; preds = %i
   store i64 523986010114, ptr %2, align 8
   store i64 4083, ptr %call4.i.i.i8.i, align 8
   %storage.i.i11.i = getelementptr inbounds i8, ptr %call4.i.i.i8.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4083) %storage.i.i11.i, ptr noundef nonnull align 1 dereferenceable(4083) %data, i64 4083, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4083) %storage.i.i11.i, ptr noundef nonnull readonly align 1 dereferenceable(4083) %data, i64 4083, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 4083
   %sub.i = add i64 %length, -4083
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23

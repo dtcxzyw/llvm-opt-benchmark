@@ -1194,7 +1194,7 @@ define hidden void @"_ZN4core3ptr665drop_in_place$LT$tokio_util..sync..reusable_
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !noalias !440, !nonnull !4, !noundef !4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.3.0..sroa_idx.i, i64 96, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull readonly align 8 dereferenceable(96) %.sroa.3.0..sroa_idx.i, i64 96, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !449)

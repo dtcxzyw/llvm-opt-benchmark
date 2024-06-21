@@ -1443,7 +1443,7 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = 
   store ptr %data, ptr %1, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   store ptr null, ptr %arrayidx.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %node.0.i.i, ptr noundef nonnull align 16 dereferenceable(32) %volume, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %node.0.i.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
   %2 = load ptr, ptr %this, align 8
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %2, ptr noundef nonnull %node.0.i.i)
   %m_leaves = getelementptr inbounds i8, ptr %this, i64 20
@@ -2019,7 +2019,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i13, %if.end, %for.cond.preheader.i, %if.else.i
   %root.1.i = phi ptr [ %30, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %29, %for.cond.i ], [ %root.08.i, %land.rhs.i13 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull align 16 dereferenceable(32) %volume, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1.i, ptr noundef nonnull %leaf)
   br label %return
 
@@ -2133,7 +2133,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i9, %if.end, %for.cond.preheader.i, %if.else.i
   %root.1.i = phi ptr [ %20, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %19, %for.cond.i ], [ %root.08.i, %land.rhs.i9 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull align 16 dereferenceable(32) %volume, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1.i, ptr noundef nonnull %leaf)
   br label %return
 
@@ -2248,7 +2248,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i8, %if.end, %for.cond.preheader.i, %if.else.i
   %root.1.i = phi ptr [ %24, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %23, %for.cond.i ], [ %root.08.i, %land.rhs.i8 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull align 16 dereferenceable(32) %volume, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1.i, ptr noundef nonnull %leaf)
   br label %return
 
@@ -2843,7 +2843,7 @@ invoke.cont9:                                     ; preds = %call.i.i.noexc, %if
   store ptr %13, ptr %15, align 8
   %arrayidx.i.i35 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   store ptr null, ptr %arrayidx.i.i35, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %node.0.i.i, ptr noundef nonnull align 16 dereferenceable(32) %e.sroa.0.0.copyload, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %node.0.i.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %e.sroa.0.0.copyload, i64 32, i1 false)
   store i32 %sub, ptr %m_size.i.i, align 4
   %cmp13.not = icmp eq ptr %e.sroa.6.0.copyload, null
   %16 = getelementptr inbounds i8, ptr %e.sroa.6.0.copyload, i64 40

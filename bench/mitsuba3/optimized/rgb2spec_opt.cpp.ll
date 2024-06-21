@@ -813,7 +813,7 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr nocapture noundef readonly %0
 
 38:                                               ; preds = %37
   call void @_Z7cie_labPd(ptr noundef nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %6)
   br label %39
 
@@ -887,7 +887,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %39
 
 72:                                               ; preds = %71
   call void @_Z7cie_labPd(ptr noundef nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %7)
   br label %73
 
@@ -1010,7 +1010,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr nocapture noundef reado
 
 44:                                               ; preds = %43
   call void @_Z7cie_labPd(ptr noundef nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %9)
   br label %45
 
@@ -1618,32 +1618,32 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.16) #28
+  %13 = tail call i32 @strcasecmp(ptr noundef readonly %12, ptr noundef nonnull @.str.16) #28
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %select.unfold, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.17) #28
+  %15 = tail call i32 @strcasecmp(ptr noundef readonly %12, ptr noundef nonnull @.str.17) #28
   %.not6.i = icmp eq i32 %15, 0
   br i1 %.not6.i, label %select.unfold, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.18) #28
+  %17 = tail call i32 @strcasecmp(ptr noundef readonly %12, ptr noundef nonnull @.str.18) #28
   %.not7.i = icmp eq i32 %17, 0
   br i1 %.not7.i, label %select.unfold, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.19) #28
+  %19 = tail call i32 @strcasecmp(ptr noundef readonly %12, ptr noundef nonnull @.str.19) #28
   %.not8.i = icmp eq i32 %19, 0
   br i1 %.not8.i, label %select.unfold, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.20) #28
+  %21 = tail call i32 @strcasecmp(ptr noundef readonly %12, ptr noundef nonnull @.str.20) #28
   %.not9.i = icmp eq i32 %21, 0
   br i1 %.not9.i, label %select.unfold, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.21) #28
+  %23 = tail call i32 @strcasecmp(ptr noundef readonly %12, ptr noundef nonnull @.str.21) #28
   %.not10.i = icmp eq i32 %23, 0
   br i1 %.not10.i, label %select.unfold, label %_ZL11parse_gamutPKc.exit
 

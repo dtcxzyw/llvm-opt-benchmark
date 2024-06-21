@@ -1934,7 +1934,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @PyModule_ExecDef(ptr noundef %module, ptr nocapture noundef readonly %def) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @PyModule_GetNameObject(ptr noundef %module)
+  %call.i = tail call ptr @PyModule_GetNameObject(ptr noundef readonly %module)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 

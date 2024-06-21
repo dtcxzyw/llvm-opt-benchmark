@@ -6970,7 +6970,7 @@ PyByteArray_AS_STRING.exit47.i.i.i:               ; preds = %if.then.i44.i.i.i, 
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else17.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %PyByteArray_AS_STRING.exit47.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i46.i.i.i, ptr align 1 %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i46.i.i.i, ptr readonly align 1 %new.val, i64 %new.val12, i1 false)
   %sub13.i.i.i = add nsw i64 %count.0.i.i.i, -1
   %result_s.056.i.i.i = getelementptr i8, ptr %retval.0.i46.i.i.i, i64 %new.val12
   %cmp1457.i.i.i = icmp sgt i64 %count.0.i.i.i, 1
@@ -6984,7 +6984,7 @@ for.body.i.i.i:                                   ; preds = %if.then12.i.i.i, %f
   %16 = load i8, ptr %self_s.058.i.i.i, align 1
   %incdec.ptr15.i.i.i = getelementptr i8, ptr %result_s.060.i.i.i, i64 1
   store i8 %16, ptr %result_s.060.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr15.i.i.i, ptr align 1 %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr15.i.i.i, ptr readonly align 1 %new.val, i64 %new.val12, i1 false)
   %inc.i.i.i = add nuw nsw i64 %i.059.i.i.i, 1
   %result_s.0.i.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %new.val12
   %exitcond65.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub13.i.i.i
@@ -7333,7 +7333,7 @@ PyByteArray_AS_STRING.exit32.i.i.i:               ; preds = %if.then.i29.i.i.i, 
   %retval.0.i31.i.i.i = phi ptr [ %36, %if.then.i29.i.i.i ], [ @_PyByteArray_empty_string, %if.end7.i123.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i31.i.i.i, ptr align 1 %retval.0.i.i117.i.i, i64 %self.val.i.i, i1 false)
   %add.ptr.i124.i.i = getelementptr i8, ptr %retval.0.i31.i.i.i, i64 %call.i.i118.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i124.i.i, ptr align 1 %new.val, i64 %old.val11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i124.i.i, ptr readonly align 1 %new.val, i64 %old.val11, i1 false)
   %add.ptr10.i.i.i = getelementptr i8, ptr %retval.0.i31.i.i.i, i64 %self.val.i.i
   %sub.ptr.lhs.cast.i125.i.i = ptrtoint ptr %add.ptr10.i.i.i to i64
   %cmp1135.i.i.i = icmp ugt i64 %maxcount.addr.0.i.i, 1
@@ -7355,7 +7355,7 @@ while.body.i128.i.i:                              ; preds = %if.end15.i.i.i, %wh
 if.end15.i.i.i:                                   ; preds = %while.body.i128.i.i
   %dec37.i132.i.i = add nsw i64 %dec37.in.i129.i.i, -1
   %add.ptr16.i.i.i = getelementptr i8, ptr %start.036.i.i.i, i64 %call.i33.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr16.i.i.i, ptr align 1 %new.val, i64 %old.val11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr16.i.i.i, ptr readonly align 1 %new.val, i64 %old.val11, i1 false)
   %add.i133.i.i = add i64 %call.i33.i.i.i, %old.val11
   %add.ptr17.i.i.i = getelementptr i8, ptr %start.036.i.i.i, i64 %add.i133.i.i
   %cmp11.i134.i.i = icmp sgt i64 %dec37.in.i129.i.i, 2
@@ -7463,7 +7463,7 @@ if.else.i.i.i:                                    ; preds = %if.end19.i.i.i
 if.end34.i.i.i:                                   ; preds = %if.else.i.i.i, %if.end19.i.i.i
   %add.ptr31.sink.i.i.i = phi ptr [ %add.ptr31.i.i.i, %if.else.i.i.i ], [ %result_s.060.i168.i.i, %if.end19.i.i.i ]
   %start.0.pn.i.i.i = phi ptr [ %call15.i.i.i, %if.else.i.i.i ], [ %start.061.i.i.i, %if.end19.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31.sink.i.i.i, ptr align 1 %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31.sink.i.i.i, ptr readonly align 1 %new.val, i64 %new.val12, i1 false)
   %start.1.i.i.i = getelementptr i8, ptr %start.0.pn.i.i.i, i64 1
   %result_s.1.i171.i.i = getelementptr i8, ptr %add.ptr31.sink.i.i.i, i64 %new.val12
   %cmp14.i.i.i = icmp sgt i64 %dec62.in.i.i.i, 1
@@ -7571,7 +7571,7 @@ if.else.i213.i.i:                                 ; preds = %while.body.i201.i.i
 if.end33.i.i.i:                                   ; preds = %if.else.i213.i.i, %while.body.i201.i.i
   %add.ptr30.sink.i.i.i = phi ptr [ %add.ptr30.i.i.i, %if.else.i213.i.i ], [ %result_s.062.i.i.i, %while.body.i201.i.i ]
   %start.0.pn.i204.i.i = phi ptr [ %add.ptr19.i.i.i, %if.else.i213.i.i ], [ %start.063.i.i.i, %while.body.i201.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr30.sink.i.i.i, ptr align 1 %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr30.sink.i.i.i, ptr readonly align 1 %new.val, i64 %new.val12, i1 false)
   %start.1.i205.i.i = getelementptr i8, ptr %start.0.pn.i204.i.i, i64 %old.val11
   %result_s.1.i206.i.i = getelementptr i8, ptr %add.ptr30.sink.i.i.i, i64 %new.val12
   %cmp14.i207.i.i = icmp ugt i64 %dec64.in.i.i.i, 1
@@ -7643,7 +7643,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i.i, %if.en
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %PyByteArray_AS_STRING.exit.i
-  %bcmp.i = call i32 @bcmp(ptr %retval.0.i.i, ptr %prefix.val, i64 %prefix.val1)
+  %bcmp.i = call i32 @bcmp(ptr %retval.0.i.i, ptr readonly %prefix.val, i64 %prefix.val1)
   %cmp3.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp3.i, label %if.then.i, label %if.end.i
 
@@ -7704,7 +7704,7 @@ land.lhs.true.i:                                  ; preds = %PyByteArray_AS_STRI
   %add.ptr.i = getelementptr i8, ptr %retval.0.i.i, i64 %op.val.i.i
   %idx.neg.i = sub i64 0, %suffix.val1
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %bcmp.i = call i32 @bcmp(ptr %add.ptr2.i, ptr %suffix.val, i64 %suffix.val1)
+  %bcmp.i = call i32 @bcmp(ptr %add.ptr2.i, ptr readonly %suffix.val, i64 %suffix.val1)
   %cmp4.i = icmp eq i32 %bcmp.i, 0
   %sub.i = select i1 %cmp4.i, i64 %suffix.val1, i64 0
   %spec.select.i = sub i64 %op.val.i.i, %sub.i
@@ -11191,7 +11191,7 @@ if.then63:                                        ; preds = %for.cond27.preheade
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
   call fastcc void @stringlib__preprocess(ptr noundef %p, i64 noundef %m, ptr noundef nonnull %p.i)
-  %call.i = call fastcc i64 @stringlib__two_way(ptr noundef %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
+  %call.i = call fastcc i64 @stringlib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
   %add70 = add i64 %call.i, %.us-phi89

@@ -831,7 +831,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %319, %314
   br i1 %364, label %cmpLexeme.exit.thread.i, label %365
 
 365:                                              ; preds = %363
-  %366 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.084.val.i, ptr noundef nonnull dereferenceable(1) %360) #11
+  %366 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084.val.i, ptr noundef nonnull dereferenceable(1) %360) #11
   br label %cmpLexeme.exit.i
 
 cmpLexeme.exit.i:                                 ; preds = %365, %361
@@ -1840,7 +1840,7 @@ define internal i32 @cmpTheLexeme(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %8, label %cmpLexeme.exit.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
+  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
   br label %cmpLexeme.exit
 
 cmpLexeme.exit:                                   ; preds = %5, %9
@@ -1919,7 +1919,7 @@ define internal i32 @cmpLexemeQ(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %8, label %cmpLexeme.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
+  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
   br label %cmpLexeme.exit
 
 cmpLexeme.exit:                                   ; preds = %5, %7, %9

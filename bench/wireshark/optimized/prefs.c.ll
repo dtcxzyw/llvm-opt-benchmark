@@ -7130,7 +7130,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %40 ]
   %61 = getelementptr [39 x %struct.heur_pref_name], ptr @__const.deprecated_heur_dissector_pref.heur_prefs, i64 0, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %62) #27
+  %63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %62) #27
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %77
 
@@ -7169,7 +7169,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   %indvars.iv.i391 = phi i64 [ %indvars.iv.next.i392, %78 ], [ 0, %77 ]
   %79 = getelementptr [3 x %struct.dissector_pref_name], ptr @__const.deprecated_enable_dissector_pref.dissector_prefs, i64 0, i64 %indvars.iv.i391
   %80 = load ptr, ptr %79, align 16
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %80) #27
+  %81 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %80) #27
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %78
 

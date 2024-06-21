@@ -512,7 +512,7 @@ get_valid_string_setting.exit.i:                  ; preds = %40
   %48 = getelementptr inbounds [6 x ptr], ptr @project_add_targets.target_desc, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @calloc_arena(i64 noundef 416) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %50, ptr noundef nonnull align 8 dereferenceable(416) %1, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %50, ptr noundef nonnull readonly align 8 dereferenceable(416) %1, i64 416, i1 false)
   %51 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i, label %52, label %55

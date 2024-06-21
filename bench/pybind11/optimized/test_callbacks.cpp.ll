@@ -47675,7 +47675,7 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i: ; preds = %55
 _ZN8pybind117capsuleD2Ev.exit.i.i.i.i:            ; preds = %73, %70, %.critedge.i.i.i.i, %32, %.thread.i.i.i.i, %.noexc.i.i.i.i, %_ZN8pybind116detail12get_functionENS_6handleE.exit.i.i.i.i.i
   store i64 %17, ptr %6, align 8
   store ptr null, ptr %3, align 8
-  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN12func_wrapperC2EOZNS9_4loadESA_bE11func_handle.exit.i.i.i.i unwind label %77
 
 77:                                               ; preds = %_ZN8pybind117capsuleD2Ev.exit.i.i.i.i
@@ -47693,7 +47693,7 @@ _ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_
           to label %.noexc31.i.i.i.i unwind label %94
 
 .noexc31.i.i.i.i:                                 ; preds = %_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN12func_wrapperC2EOZNS9_4loadESA_bE11func_handle.exit.i.i.i.i
-  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
           to label %_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEEC2IZNS0_6detail11type_casterIS6_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit.i.i.i.i.i unwind label %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i.i:       ; preds = %.noexc31.i.i.i.i
@@ -48536,7 +48536,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFdRZ24test_submodul
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #34
-  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %.val6)
+  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %.val6)
           to label %_ZNSt14_Function_base13_Base_managerIZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS1_7module_EE12AbstractBaseEEvE4loadENS1_6handleEbE12func_wrapperE15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i unwind label %8
 
 8:                                                ; preds = %6
@@ -54420,7 +54420,7 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i: ; preds = %57
 _ZN8pybind117capsuleD2Ev.exit.i.i.i.i:            ; preds = %75, %72, %.critedge.i.i.i.i, %34, %.thread.i.i.i.i, %.noexc.i.i.i.i, %_ZN8pybind116detail12get_functionENS_6handleE.exit.i.i.i.i.i
   store i64 %19, ptr %8, align 8
   store ptr null, ptr %5, align 8
-  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN12func_wrapperC2EOZNS9_4loadESA_bE11func_handle.exit.i.i.i.i unwind label %79
 
 79:                                               ; preds = %_ZN8pybind117capsuleD2Ev.exit.i.i.i.i
@@ -54438,7 +54438,7 @@ _ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_
           to label %.noexc31.i.i.i.i unwind label %96
 
 .noexc31.i.i.i.i:                                 ; preds = %_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN12func_wrapperC2EOZNS9_4loadESA_bE11func_handle.exit.i.i.i.i
-  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEEC2IZNS0_6detail11type_casterIS6_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit.i.i.i.i.i unwind label %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i.i:       ; preds = %.noexc31.i.i.i.i
@@ -55328,7 +55328,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRZ24test_submodul
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #34
-  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %.val6)
+  invoke fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %.val6)
           to label %_ZNSt14_Function_base13_Base_managerIZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS1_7module_EE13MovableObjectEEvE4loadENS1_6handleEbE12func_wrapperE15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i unwind label %8
 
 8:                                                ; preds = %6

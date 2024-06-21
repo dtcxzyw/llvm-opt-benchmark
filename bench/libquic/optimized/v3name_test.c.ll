@@ -225,7 +225,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.end.i.thread.i
   %15 = phi ptr [ @.str.67, %if.end.i.thread.i ], [ %14, %for.cond.i.i.i ]
   %p.03.i.i.i = phi ptr [ @exceptions, %if.end.i.thread.i ], [ %incdec.ptr.i.i.i, %for.cond.i.i.i ]
-  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.i.i, ptr noundef nonnull dereferenceable(1) %15) #13
+  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i.i, ptr noundef nonnull dereferenceable(1) %15) #13
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %check_message.exit.i, label %for.cond.i.i.i
 
@@ -296,7 +296,7 @@ for.cond.i.i68.i:                                 ; preds = %for.body.i.i64.i
 for.body.i.i64.i:                                 ; preds = %for.cond.i.i68.i, %if.end.i59.thread.i
   %24 = phi ptr [ @.str.67, %if.end.i59.thread.i ], [ %23, %for.cond.i.i68.i ]
   %p.03.i.i65.i = phi ptr [ @exceptions, %if.end.i59.thread.i ], [ %incdec.ptr.i.i69.i, %for.cond.i.i68.i ]
-  %call.i.i66.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.i57.i, ptr noundef nonnull dereferenceable(1) %24) #13
+  %call.i.i66.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i57.i, ptr noundef nonnull dereferenceable(1) %24) #13
   %cmp.i.i67.i = icmp eq i32 %call.i.i66.i, 0
   br i1 %cmp.i.i67.i, label %check_message.exit74.i, label %for.cond.i.i68.i
 
@@ -351,7 +351,7 @@ for.cond.i.i86.i:                                 ; preds = %for.body.i.i82.i
 for.body.i.i82.i:                                 ; preds = %for.cond.i.i86.i, %if.end.i77.thread.i
   %30 = phi ptr [ @.str.67, %if.end.i77.thread.i ], [ %29, %for.cond.i.i86.i ]
   %p.03.i.i83.i = phi ptr [ @exceptions, %if.end.i77.thread.i ], [ %incdec.ptr.i.i87.i, %for.cond.i.i86.i ]
-  %call.i.i84.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.i75.i, ptr noundef nonnull dereferenceable(1) %30) #13
+  %call.i.i84.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i75.i, ptr noundef nonnull dereferenceable(1) %30) #13
   %cmp.i.i85.i = icmp eq i32 %call.i.i84.i, 0
   br i1 %cmp.i.i85.i, label %check_message.exit92.i, label %for.cond.i.i86.i
 

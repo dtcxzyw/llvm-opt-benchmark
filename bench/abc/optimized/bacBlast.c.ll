@@ -1683,10 +1683,10 @@ Bac_ManNodeNum.exit:                              ; preds = %Bac_NtkBoxNum.exit.
   br i1 %.not.i79, label %Abc_UtilStrsav.exit, label %251
 
 251:                                              ; preds = %Bac_ManNodeNum.exit
-  %252 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %250) #21
+  %252 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %250) #21
   %253 = add i64 %252, 1
   %254 = tail call noalias ptr @malloc(i64 noundef %253) #20
-  %255 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %254, ptr noundef nonnull dereferenceable(1) %250) #17
+  %255 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %254, ptr noundef nonnull readonly dereferenceable(1) %250) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Bac_ManNodeNum.exit, %251
@@ -1698,10 +1698,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Bac_ManNodeNum.exit
   br i1 %.not.i80, label %Abc_UtilStrsav.exit81, label %259
 
 259:                                              ; preds = %Abc_UtilStrsav.exit
-  %260 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %258) #21
+  %260 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %258) #21
   %261 = add i64 %260, 1
   %262 = tail call noalias ptr @malloc(i64 noundef %261) #20
-  %263 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(1) %258) #17
+  %263 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull readonly dereferenceable(1) %258) #17
   br label %Abc_UtilStrsav.exit81
 
 Abc_UtilStrsav.exit81:                            ; preds = %Abc_UtilStrsav.exit, %259
@@ -3766,10 +3766,10 @@ define internal fastcc noundef ptr @Bac_ManDupUserBoxes(ptr nocapture noundef re
   br i1 %.not.i.i, label %Abc_UtilStrsav.exit.i, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val19.i) #21
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val19.i) #21
   %7 = add i64 %6, 1
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #20
-  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %.val19.i) #17
+  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %.val19.i) #17
   br label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %5, %1
@@ -3781,10 +3781,10 @@ Abc_UtilStrsav.exit.i:                            ; preds = %5, %1
   br i1 %.not.i21.i, label %Abc_UtilStrsav.exit22.i, label %12
 
 12:                                               ; preds = %Abc_UtilStrsav.exit.i
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val20.i) #21
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val20.i) #21
   %14 = add i64 %13, 1
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #20
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.val20.i) #17
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %.val20.i) #17
   br label %Abc_UtilStrsav.exit22.i
 
 Abc_UtilStrsav.exit22.i:                          ; preds = %12, %Abc_UtilStrsav.exit.i
@@ -6629,11 +6629,11 @@ Bac_NtkMoveNames.exit:                            ; preds = %318, %.preheader.i
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Bac_ManBlastTest(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Bac_ManExtract(ptr noundef %0, i32 noundef 1, i32 poison)
-  %3 = tail call fastcc ptr @Bac_ManDupUserBoxes(ptr noundef %0)
-  tail call void @Bac_ManMarkNodesGia(ptr noundef %0, ptr noundef %2)
-  tail call void @Bac_ManRemapBarbufs(ptr noundef %3, ptr noundef %0)
+  %3 = tail call fastcc ptr @Bac_ManDupUserBoxes(ptr noundef readonly %0)
+  tail call void @Bac_ManMarkNodesGia(ptr noundef readonly %0, ptr noundef %2)
+  tail call void @Bac_ManRemapBarbufs(ptr noundef %3, ptr noundef readonly %0)
   tail call void @Bac_NtkInsertGia(ptr noundef %3, ptr noundef %2)
-  tail call fastcc void @Bac_ManMoveNames(ptr noundef %3, ptr noundef %0)
+  tail call fastcc void @Bac_ManMoveNames(ptr noundef %3, ptr noundef readonly %0)
   tail call void @Gia_ManStop(ptr noundef %2) #17
   ret ptr %3
 }

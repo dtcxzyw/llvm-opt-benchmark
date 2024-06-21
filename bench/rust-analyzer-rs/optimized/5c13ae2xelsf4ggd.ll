@@ -1428,7 +1428,7 @@ default.unreachable64:                            ; preds = %26, %4
   br i1 %.not.i27, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h656e04c3d0754eddE.exit30", label %.split21
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h656e04c3d0754eddE.exit30": ; preds = %24
-  %bcmp.i29 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %2, ptr noundef nonnull dereferenceable(7) @anon.32968998b21addf02704d5b41de4677c.53, i64 7), !alias.scope !189
+  %bcmp.i29 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %2, ptr noundef nonnull readonly dereferenceable(7) @anon.32968998b21addf02704d5b41de4677c.53, i64 7), !alias.scope !189
   %bcmp.i29.fr = freeze i32 %bcmp.i29
   %25 = icmp eq i32 %bcmp.i29.fr, 0
   br i1 %25, label %.split, label %.split21

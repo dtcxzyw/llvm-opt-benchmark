@@ -260,14 +260,14 @@ if.end6:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end6
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %add.ptr.i, ptr %call.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %name, i64 %namelen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %name, i64 %namelen, i1 false)
   %namelen6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %namelen, ptr %namelen6.i, align 8
   %6 = getelementptr i8, ptr %add.ptr.i, i64 %namelen
   %add.ptr8.i = getelementptr i8, ptr %6, i64 1
   %value9.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %add.ptr8.i, ptr %value9.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr align 1 %value, i64 %valuelen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr readonly align 1 %value, i64 %valuelen, i1 false)
   %valuelen10.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %valuelen, ptr %valuelen10.i, align 8
   %and.i = and i32 %4, 1
@@ -434,7 +434,7 @@ if.end28:                                         ; preds = %if.end23
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %15
   store i8 32, ptr %add.ptr17.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull readonly align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
   %valuelen19.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add2.i, ptr %valuelen19.i, align 8
   %16 = load ptr, ptr %dynhds, align 8

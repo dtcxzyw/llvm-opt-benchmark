@@ -1096,7 +1096,7 @@ get_note_sizes.exit.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i, 
 
 note_name_equal.exit.i.i.i:                       ; preds = %get_note_sizes.exit.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %28, i64 12
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i, label %if.then56.i.i.i, label %if.end73.i.i.i
 
@@ -1398,7 +1398,7 @@ get_note_sizes.exit.i.i82.i.i:                    ; preds = %if.else.i.i.i79.i.i
 
 note_name_equal.exit.i115.i.i:                    ; preds = %get_note_sizes.exit.i.i82.i.i
   %add.ptr.i.i116.i.i = getelementptr i8, ptr %81, i64 12
-  %bcmp.i.i117.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i116.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
+  %bcmp.i.i117.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i116.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i.i118.i.i = icmp eq i32 %bcmp.i.i117.i.i, 0
   br i1 %cmp6.i.i118.i.i, label %if.then57.i.i.i, label %if.end75.i.i.i
 
@@ -3119,7 +3119,7 @@ get_note_sizes.exit.i:                            ; preds = %if.else.i.i, %if.th
 
 note_name_equal.exit:                             ; preds = %get_note_sizes.exit.i
   %add.ptr.i = getelementptr i8, ptr %0, i64 12
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.end, label %return
 

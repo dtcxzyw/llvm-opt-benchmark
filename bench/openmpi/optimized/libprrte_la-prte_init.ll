@@ -120,7 +120,7 @@ define i32 @prte_init_minimum() local_unnamed_addr #0 {
 9:                                                ; preds = %3
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1)
-  %11 = call i32 @stat(ptr noundef %10, ptr noundef nonnull %1) #11
+  %11 = call i32 @stat(ptr noundef readonly %10, ptr noundef nonnull %1) #11
   %12 = icmp eq i32 %11, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   br i1 %12, label %13, label %16

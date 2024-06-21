@@ -120,7 +120,7 @@ define internal fastcc float @calc_rank(ptr nocapture noundef readonly %0, ptr n
 
 24:                                               ; preds = %20
   tail call void @pfree(ptr noundef %21) #11
-  %25 = tail call fastcc float @calc_rank_or(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %25 = tail call fastcc float @calc_rank_or(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br label %calc_rank_and.exit
 
 26:                                               ; preds = %20

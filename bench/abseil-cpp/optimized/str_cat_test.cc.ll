@@ -9594,11 +9594,11 @@ entry:
   %ref.tmp11 = alloca %"class.testing::Message", align 8
   %ref.tmp14 = alloca %"class.testing::internal::AssertHelper", align 8
   %call.i.i.i.i.i = tail call noalias noundef dereferenceable_or_null(37) ptr @malloc(i64 noundef 37) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %call.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(36) @.str.137, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %call.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(36) @.str.137, i64 36, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 36
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %call.i.i.i.i.i20 = tail call noalias noundef dereferenceable_or_null(35) ptr @malloc(i64 noundef 35) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %call.i.i.i.i.i20, ptr noundef nonnull align 1 dereferenceable(34) @.str.138, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %call.i.i.i.i.i20, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.138, i64 34, i1 false)
   %arrayidx.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i.i.i20, i64 34
   store i8 0, ptr %arrayidx.i.i.i13, align 1
   store i64 36, ptr %ref.tmp3, align 8

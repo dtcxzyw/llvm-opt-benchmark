@@ -5603,7 +5603,7 @@ nk_zero.exit.i:                                   ; preds = %if.end19.i.i.i, %if
   %grow_factor.i = getelementptr inbounds i8, ptr %str, i64 80
   store float 2.000000e+00, ptr %grow_factor.i, align 8
   %pool.i = getelementptr inbounds i8, ptr %str, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool.i, ptr noundef nonnull align 8 dereferenceable(24) %alloc, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %alloc, i64 24, i1 false)
   br label %nk_buffer_init.exit
 
 nk_buffer_init.exit:                              ; preds = %entry, %nk_zero.exit.i
@@ -14397,7 +14397,7 @@ nk_draw_list_setup.exit:                          ; preds = %lor.lhs.false8
   %line_AA.i = getelementptr inbounds i8, ptr %ctx, i64 12744
   %8 = load <2 x i32>, ptr %line_AA, align 4
   store ptr %cmds, ptr %buffer.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %config8.i, ptr noundef nonnull align 8 dereferenceable(64) %config, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %config8.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %config, i64 64, i1 false)
   store ptr %elements, ptr %elements9.i, align 8
   store ptr %vertices, ptr %vertices10.i, align 8
   store <2 x i32> %8, ptr %line_AA.i, align 8
@@ -17911,7 +17911,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i, i8 0, i64 56, i1 false)
-  %call.i5 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i)
+  %call.i5 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i)
   %tobool.not.i6 = icmp eq i32 %call.i5, 0
   br i1 %tobool.not.i6, label %if.end7.i, label %if.then.i
 
@@ -17928,7 +17928,7 @@ if.then.i:                                        ; preds = %if.else
   store ptr %call.i.i, ptr %pvertices, align 8
   %pvertices2.i = getelementptr inbounds i8, ptr %output_ctx.i, i64 40
   store ptr %call.i.i, ptr %pvertices2.i, align 8
-  %call3.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i)
+  %call3.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i9
 
@@ -17965,7 +17965,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i, align 8
-  %call.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
+  %call.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
   %tobool.not.i = icmp eq ptr %x0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18219,7 +18219,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i, align 8
-  %call.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
+  %call.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
   %tobool26.not.i = icmp eq i32 %call.i, 0
   %num_vertices.i = getelementptr inbounds i8, ptr %c.i, i64 48
   %1 = load i32, ptr %num_vertices.i, align 8
@@ -20118,7 +20118,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %font, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %tobool1.not.i = icmp eq ptr %ix0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -20229,7 +20229,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %call, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %font, i32 noundef %call, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %tobool1.not.i = icmp eq ptr %ix0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -22860,7 +22860,7 @@ if.end6:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %if.else.i
 
@@ -23007,7 +23007,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %if.else.i
 
@@ -23085,7 +23085,7 @@ entry:
   %sub1.i = sub i32 %sub.neg.i, %oversample_x
   %sub2.neg.i = add i32 %out_h, 1
   %sub3.i = sub i32 %sub2.neg.i, %oversample_y
-  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %sub1.i, i32 noundef %sub3.i, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call)
+  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %info, ptr noundef %output, i32 noundef %sub1.i, i32 noundef %sub3.i, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call)
   %cmp.i = icmp sgt i32 %oversample_x, 1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -23199,16 +23199,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #18 {
 entry:
-  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
-  %call1.i = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
+  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
+  %call1.i = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
   ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind uwtable
 define void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint) local_unnamed_addr #18 {
 entry:
-  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
-  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i)
+  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
+  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i)
   ret void
 }
 
@@ -23627,7 +23627,7 @@ if.then.i56:                                      ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call31, ptr noundef nonnull %c.i.i)
+  %call.i.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call31, ptr noundef nonnull %c.i.i)
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   %23 = load i32, ptr %min_x.i.i, align 8
   %cond.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %23
@@ -24495,7 +24495,7 @@ if.then.i207:                                     ; preds = %cond.end51
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i208 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call53, ptr noundef nonnull %c.i.i)
+  %call.i.i208 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call53, ptr noundef nonnull %c.i.i)
   %tobool1.not.i.i = icmp eq i32 %call.i.i208, 0
   %59 = load i32, ptr %min_x.i.i, align 8
   %cond.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %59
@@ -24659,7 +24659,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %if.end44.i.i, %if.e
   %103 = add <2 x i32> %102, <i32 1, i32 1>
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vertices.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %gbm.i)
-  %call.i = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull %info, i32 noundef %call53, ptr noundef nonnull %vertices.i)
+  %call.i = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %info, i32 noundef %call53, ptr noundef nonnull %vertices.i)
   %104 = load i32, ptr %size.i, align 4
   %tobool.not.i234 = icmp eq i32 %104, 0
   br i1 %tobool.not.i234, label %if.else.i251, label %if.then.i235
@@ -24668,7 +24668,7 @@ if.then.i235:                                     ; preds = %stbtt_GetGlyphBitma
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i232)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i232, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i232, align 8
-  %call.i.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call53, ptr noundef nonnull %c.i.i232)
+  %call.i.i = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call53, ptr noundef nonnull %c.i.i232)
   %tobool1.not.i.i238 = icmp eq i32 %call.i.i, 0
   %105 = load i32, ptr %min_x.i.i239, align 8
   %cond.i.i240 = select i1 %tobool1.not.i.i238, i32 0, i32 %105
@@ -26901,7 +26901,7 @@ stbtt_InitFont_internal.exit:                     ; preds = %for.inc.i469.i, %st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetFontOffsetForIndex(ptr nocapture noundef readonly %data, i32 noundef %index) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call fastcc i32 @stbtt__isfont(ptr noundef %data)
+  %call.i = tail call fastcc i32 @stbtt__isfont(ptr noundef readonly %data)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -27248,7 +27248,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
@@ -28544,7 +28544,7 @@ for.body.i:                                       ; preds = %if.end17.i, %for.bo
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i.i.i)
   store i32 0, ptr %x0.i.i.i, align 4
   store i32 0, ptr %y0.i.i.i, align 4
-  %call.i.i.i = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %f.i, i32 noundef %call3.i, ptr noundef nonnull %x0.i.i.i, ptr noundef nonnull %y0.i.i.i, ptr noundef nonnull %x1.i.i.i, ptr noundef nonnull %y1.i.i.i)
+  %call.i.i.i = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %f.i, i32 noundef %call3.i, ptr noundef nonnull %x0.i.i.i, ptr noundef nonnull %y0.i.i.i, ptr noundef nonnull %x1.i.i.i, ptr noundef nonnull %y1.i.i.i)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %stbtt_GetGlyphBitmapBox.exit.i, label %if.else.i.i.i
 
@@ -28600,7 +28600,7 @@ if.end17.i:                                       ; preds = %stbtt_GetGlyphBitma
   %mul18.i = mul nsw i32 %spec.select.i, %pw
   %idx.ext19.i = sext i32 %mul18.i to i64
   %add.ptr20.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext19.i
-  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull %f.i, ptr noundef %add.ptr20.i, i32 noundef %sub.i, i32 noundef %sub4.i, i32 noundef %pw, float noundef %div.i.i, float noundef %div.i.i, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call3.i)
+  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull readonly %f.i, ptr noundef %add.ptr20.i, i32 noundef %sub.i, i32 noundef %sub4.i, i32 noundef %pw, float noundef %div.i.i, float noundef %div.i.i, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call3.i)
   %conv21.i = trunc i32 %spec.select46.i to i16
   %arrayidx.i = getelementptr inbounds %struct.stbtt_bakedchar, ptr %chardata, i64 %indvars.iv.i
   store i16 %conv21.i, ptr %arrayidx.i, align 4
@@ -28637,7 +28637,7 @@ stbtt_BakeFontBitmap_internal.exit:               ; preds = %if.end17.i, %entry,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetNumberOfFonts(ptr nocapture noundef readonly %data) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call fastcc i32 @stbtt__isfont(ptr noundef %data)
+  %call.i = tail call fastcc i32 @stbtt__isfont(ptr noundef readonly %data)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %stbtt_GetNumberOfFonts_internal.exit
 
@@ -28718,12 +28718,12 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %entry, %if.end.i, %
 define i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %fontdata, ptr nocapture noundef readonly %name, i32 noundef %flags) local_unnamed_addr #30 {
 entry:
   %invariant.gep.i = getelementptr i8, ptr %fontdata, i64 45
-  %call10.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %fontdata, i32 noundef 0)
+  %call10.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly %fontdata, i32 noundef 0)
   %cmp11.i = icmp slt i32 %call10.i, 0
   br i1 %cmp11.i, label %stbtt_FindMatchingFont_internal.exit, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %entry
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #52
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #52
   %conv.i.i = trunc i64 %call.i.i to i32
   %tobool2.not.i.i = icmp eq i32 %flags, 0
   %and10.i.i = and i32 %flags, 7
@@ -28734,7 +28734,7 @@ if.end.i:                                         ; preds = %for.inc.i, %if.end.
   %i.012.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %idx.ext.i.i = zext nneg i32 %call13.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %fontdata, i64 %idx.ext.i.i
-  %call1.i.i = tail call fastcc i32 @stbtt__isfont(ptr noundef %add.ptr.i.i)
+  %call1.i.i = tail call fastcc i32 @stbtt__isfont(ptr noundef readonly %add.ptr.i.i)
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %if.end.i.i
 
@@ -28893,38 +28893,38 @@ if.end18.i.i:                                     ; preds = %stbtt__find_table.e
   br i1 %tobool2.not.i.i, label %if.else.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
-  %call21.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef -1)
+  %call21.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef readonly %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef -1)
   %tobool22.not.i.i = icmp eq i32 %call21.i.i, 0
   br i1 %tobool22.not.i.i, label %if.end24.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end24.i.i:                                     ; preds = %if.then20.i.i
-  %call25.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef -1)
+  %call25.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef readonly %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef -1)
   %tobool26.not.i.i = icmp eq i32 %call25.i.i, 0
   br i1 %tobool26.not.i.i, label %if.end28.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end28.i.i:                                     ; preds = %if.end24.i.i
-  %call29.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1)
+  %call29.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef readonly %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1)
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %for.inc.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.else.i.i:                                      ; preds = %if.end18.i.i
-  %call33.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef 17)
+  %call33.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef readonly %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef 17)
   %tobool34.not.i.i = icmp eq i32 %call33.i.i, 0
   br i1 %tobool34.not.i.i, label %if.end36.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end36.i.i:                                     ; preds = %if.else.i.i
-  %call37.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef 2)
+  %call37.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef readonly %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef 2)
   %tobool38.not.i.i = icmp eq i32 %call37.i.i, 0
   br i1 %tobool38.not.i.i, label %if.end40.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end40.i.i:                                     ; preds = %if.end36.i.i
-  %call41.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1)
+  %call41.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef readonly %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1)
   %tobool42.not.i.i = icmp eq i32 %call41.i.i, 0
   br i1 %tobool42.not.i.i, label %for.inc.i, label %stbtt_FindMatchingFont_internal.exit
 
 for.inc.i:                                        ; preds = %for.inc.i54.i.i, %if.end40.i.i, %if.end28.i.i, %stbtt__find_table.exit85.i.i, %if.end14.i.i, %stbtt__find_table.exit.i.i, %if.then3.i.i, %if.end.i
   %inc.i = add nuw nsw i32 %i.012.i, 1
-  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %fontdata, i32 noundef %inc.i)
+  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly %fontdata, i32 noundef %inc.i)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %stbtt_FindMatchingFont_internal.exit, label %if.end.i
 
@@ -28936,7 +28936,7 @@ stbtt_FindMatchingFont_internal.exit:             ; preds = %if.then20.i.i, %if.
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) local_unnamed_addr #6 {
 entry:
-  %call.i = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %s1, i32 noundef %len1, ptr noundef %s2, i32 noundef %len2)
+  %call.i = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly %s1, i32 noundef %len1, ptr noundef readonly %s2, i32 noundef %len2)
   %cmp.i = icmp eq i32 %call.i, %len1
   %conv.i = zext i1 %cmp.i to i32
   ret i32 %conv.i
@@ -29530,7 +29530,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %permanent = getelementptr inbounds i8, ptr %atlas, i64 16
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull %file_path, ptr noundef nonnull @.str.18)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %file_path, ptr noundef nonnull @.str.18)
   %tobool4.not.i = icmp eq ptr %call.i, null
   br i1 %tobool4.not.i, label %return, label %if.end6.i
 
@@ -30638,7 +30638,7 @@ nk_memset.exit:                                   ; preds = %while.cond.preheade
   %31 = inttoptr i64 %and17.i to ptr
   %ranges.i = getelementptr inbounds i8, ptr %23, i64 112
   store ptr %31, ptr %ranges.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %temporary, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull readonly align 8 dereferenceable(24) %temporary, i64 24, i1 false)
   %32 = load ptr, ptr %alloc10, align 8
   %33 = load i32, ptr %glyph_count, align 8
   %conv = sext i32 %33 to i64
@@ -30776,7 +30776,7 @@ for.body:                                         ; preds = %if.end94, %nk_font_
   br i1 %or.cond1.i119, label %if.end.i.i, label %nk_font_init.exit
 
 if.end.i.i:                                       ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baked.i, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baked.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %69, i64 32, i1 false)
   %fallback.i = getelementptr inbounds i8, ptr %font_iter.0137, i64 96
   store ptr null, ptr %fallback.i, align 8
   %info.i = getelementptr inbounds i8, ptr %font_iter.0137, i64 48
@@ -35382,7 +35382,7 @@ nk_buffer_init.exit:                              ; preds = %if.end19.i.i.thread
   %grow_factor.i = getelementptr inbounds i8, ptr %ctx, i64 9560
   store float 2.000000e+00, ptr %grow_factor.i, align 8
   %pool.i = getelementptr inbounds i8, ptr %ctx, i64 9512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool.i, ptr noundef nonnull align 8 dereferenceable(24) %alloc, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %alloc, i64 24, i1 false)
   %pool = getelementptr inbounds i8, ptr %ctx, i64 18208
   %16 = ptrtoint ptr %pool to i64
   %and.i.i.i15 = and i64 %16, 3
@@ -35403,7 +35403,7 @@ if.end19.i.i.i17:                                 ; preds = %nk_buffer_init.exit
   br label %nk_pool_init.exit
 
 nk_pool_init.exit:                                ; preds = %if.end19.i.i.thread.i23, %if.end19.i.i.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool, ptr noundef nonnull align 8 dereferenceable(24) %alloc, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool, ptr noundef nonnull readonly align 8 dereferenceable(24) %alloc, i64 24, i1 false)
   %capacity2.i = getelementptr inbounds i8, ptr %ctx, i64 18256
   store i32 16, ptr %capacity2.i, align 8
   %type.i22 = getelementptr inbounds i8, ptr %ctx, i64 18232
@@ -35715,7 +35715,7 @@ if.end19.i.i.i21:                                 ; preds = %if.else
   br label %nk_pool_init.exit
 
 nk_pool_init.exit:                                ; preds = %if.end19.i.i.thread.i28, %if.end19.i.i.i21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool7, ptr noundef nonnull align 8 dereferenceable(24) %pool6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool7, ptr noundef nonnull readonly align 8 dereferenceable(24) %pool6, i64 24, i1 false)
   %capacity2.i = getelementptr inbounds i8, ptr %ctx, i64 18256
   store i32 16, ptr %capacity2.i, align 8
   %type.i26 = getelementptr inbounds i8, ptr %ctx, i64 18232
@@ -40741,7 +40741,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
 
 nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %land.rhs.i.preheader.i, %if.end
   %siz.0.lcssa.i.i = phi i32 [ 0, %if.end ], [ 0, %land.rhs.i.preheader.i ], [ %inc.i.i, %while.body.i.i ]
-  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
+  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef readonly %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
   %begin.i.i = getelementptr inbounds i8, ptr %ctx, i64 18280
   %iter.016.i.i = load ptr, ptr %begin.i.i, align 8
   %tobool.not17.i.i = icmp eq ptr %iter.016.i.i, null
@@ -40863,7 +40863,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
 
 nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %land.rhs.i.preheader.i, %if.end
   %siz.0.lcssa.i.i = phi i32 [ 0, %if.end ], [ 0, %land.rhs.i.preheader.i ], [ %inc.i.i, %while.body.i.i ]
-  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
+  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef readonly %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
   %begin.i.i = getelementptr inbounds i8, ptr %ctx, i64 18280
   %iter.016.i.i = load ptr, ptr %begin.i.i, align 8
   %tobool.not17.i.i = icmp eq ptr %iter.016.i.i, null
@@ -40975,7 +40975,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
 
 nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %land.rhs.i.preheader.i, %entry
   %siz.0.lcssa.i.i = phi i32 [ 0, %entry ], [ 0, %land.rhs.i.preheader.i ], [ %inc.i.i, %while.body.i.i ]
-  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
+  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef readonly %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
   %begin.i.i = getelementptr inbounds i8, ptr %ctx, i64 18280
   %iter.016.i.i = load ptr, ptr %begin.i.i, align 8
   %tobool.not17.i.i = icmp eq ptr %iter.016.i.i, null
@@ -41085,7 +41085,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
 
 nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %land.rhs.i.preheader.i, %entry
   %siz.0.lcssa.i.i = phi i32 [ 0, %entry ], [ 0, %land.rhs.i.preheader.i ], [ %inc.i.i, %while.body.i.i ]
-  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
+  %call1.i = tail call i32 @nk_murmur_hash(ptr noundef readonly %name, i32 noundef %siz.0.lcssa.i.i, i32 noundef 64)
   %begin.i.i = getelementptr inbounds i8, ptr %ctx, i64 18280
   %iter.016.i.i = load ptr, ptr %begin.i.i, align 8
   %tobool.not17.i.i = icmp eq ptr %iter.016.i.i, null
@@ -43037,7 +43037,7 @@ if.then7:                                         ; preds = %nk_do_button.exit
 
 if.end9:                                          ; preds = %if.then7, %nk_do_button.exit
   %23 = load i32, ptr %state, align 4
-  %call.i19 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull %bounds, i32 noundef %23, ptr noundef nonnull %style)
+  %call.i19 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %23, ptr noundef nonnull %style)
   %24 = load i32, ptr %call.i19, align 8
   %cmp.i = icmp eq i32 %24, 0
   %data.i = getelementptr inbounds i8, ptr %call.i19, i64 8
@@ -43498,7 +43498,7 @@ if.then41:                                        ; preds = %if.end26
 
 if.end43:                                         ; preds = %if.then41, %if.end26
   %37 = load i32, ptr %state, align 4
-  %call.i27 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull %bounds, i32 noundef %37, ptr noundef nonnull %style)
+  %call.i27 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %37, ptr noundef nonnull %style)
   %38 = load i32, ptr %call.i27, align 8
   %cmp.i = icmp eq i32 %38, 0
   %data.i = getelementptr inbounds i8, ptr %call.i27, i64 8
@@ -43596,7 +43596,7 @@ nk_draw_button_text_image.exit:                   ; preds = %if.end.i.i, %if.end
   %49 = mul nuw nsw i32 %48, 65793
   %50 = or disjoint i32 %49, -16777216
   %retval.sroa.0.0.insert.insert.i33.i = select i1 %cmp.i15.i, i32 -1, i32 %50
-  call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %31, <2 x float> %34, ptr noundef nonnull %img, i32 %retval.sroa.0.0.insert.insert.i33.i)
+  call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %31, <2 x float> %34, ptr noundef nonnull readonly %img, i32 %retval.sroa.0.0.insert.insert.i33.i)
   %draw_end = getelementptr inbounds i8, ptr %style, i64 208
   %51 = load ptr, ptr %draw_end, align 8
   %tobool44.not = icmp eq ptr %51, null
@@ -43865,7 +43865,7 @@ if.then26:                                        ; preds = %if.end24
 
 if.end28:                                         ; preds = %if.then26, %if.end24
   %22 = load i32, ptr %state, align 4
-  %call.i22 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull %bounds, i32 noundef %22, ptr noundef nonnull %style)
+  %call.i22 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %22, ptr noundef nonnull %style)
   %23 = load i32, ptr %call.i22, align 8
   %cmp.i = icmp eq i32 %23, 0
   %data.i = getelementptr inbounds i8, ptr %call.i22, i64 8
@@ -44659,7 +44659,7 @@ if.then13.i:                                      ; preds = %cond.end
 
 if.end15.i:                                       ; preds = %if.then13.i, %cond.end
   %31 = load i32, ptr %last_widget_state, align 4
-  %call.i21.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull %bounds.i, i32 noundef %31, ptr noundef nonnull %menu_button)
+  %call.i21.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull readonly %bounds.i, i32 noundef %31, ptr noundef nonnull %menu_button)
   %color_factor_background.i.i = getelementptr inbounds i8, ptr %ctx, i64 1020
   %32 = load float, ptr %color_factor_background.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %32, 1.000000e+00
@@ -44669,7 +44669,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %cond.
   %34 = mul nuw nsw i32 %33, 65793
   %35 = or disjoint i32 %34, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %35
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %27, <2 x float> %28, ptr noundef nonnull %img14, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %27, <2 x float> %28, ptr noundef nonnull readonly %img14, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 1104
   %36 = load ptr, ptr %draw_end.i, align 8
   %tobool16.not.i = icmp eq ptr %36, null
@@ -44935,7 +44935,7 @@ if.then7:                                         ; preds = %nk_do_button.exit
 
 if.end9:                                          ; preds = %if.then7, %nk_do_button.exit
   %28 = load i32, ptr %state, align 4
-  %call.i19 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull %bounds, i32 noundef %28, ptr noundef nonnull %style)
+  %call.i19 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %28, ptr noundef nonnull %style)
   %29 = load i32, ptr %call.i19, align 8
   %cmp.i = icmp eq i32 %29, 0
   %data.i = getelementptr inbounds i8, ptr %call.i19, i64 8
@@ -48509,7 +48509,7 @@ if.then29.i.i:                                    ; preds = %if.end27.i.i
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end27.i.i
   %111 = phi i32 [ %.pre.i38, %if.then29.i.i ], [ %108, %if.end27.i.i ]
   %112 = load i32, ptr %dummy.i, align 4
-  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %112, ptr noundef nonnull %selectable.i, i32 noundef %111, ptr noundef nonnull %bounds.i.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %title, i32 noundef %siz.0.lcssa.i27, i32 noundef 17, ptr noundef nonnull %98)
+  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %112, ptr noundef nonnull readonly %selectable.i, i32 noundef %111, ptr noundef nonnull %bounds.i.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %title, i32 noundef %siz.0.lcssa.i27, i32 noundef 17, ptr noundef nonnull %98)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %113 = load ptr, ptr %draw_end.i.i, align 8
   %tobool32.not.i.i = icmp eq ptr %113, null
@@ -50424,7 +50424,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -50491,7 +50491,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -50561,7 +50561,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -50631,7 +50631,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   store float %2, ptr %at_y.i, align 4
   store i32 %3, ptr %index8.i, align 4
   %w.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 8
@@ -50681,7 +50681,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   store float %2, ptr %at_y.i, align 4
   store i32 %3, ptr %index8.i, align 4
   %h.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 12
@@ -50741,7 +50741,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %13 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %13, 0
   %.pre = load float, ptr %bounds, align 8
@@ -50854,7 +50854,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %13 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %13, 0
   %.pre = load float, ptr %bounds, align 8
@@ -50946,7 +50946,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %13 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %13, 0
   %.pre = load float, ptr %bounds, align 8
@@ -53035,7 +53035,7 @@ if.then13.i:                                      ; preds = %nk_do_button.exit.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %nk_do_button.exit.i
   %31 = load i32, ptr %last_widget_state, align 4
-  %call.i21.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull %bounds.i, i32 noundef %31, ptr noundef nonnull %style)
+  %call.i21.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull readonly %bounds.i, i32 noundef %31, ptr noundef nonnull %style)
   %color_factor_background.i.i = getelementptr inbounds i8, ptr %style, i64 124
   %32 = load float, ptr %color_factor_background.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %32, 1.000000e+00
@@ -53045,7 +53045,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %nk_do
   %34 = mul nuw nsw i32 %33, 65793
   %35 = or disjoint i32 %34, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %35
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %27, <2 x float> %28, ptr noundef nonnull %img12, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %27, <2 x float> %28, ptr noundef nonnull readonly %img12, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   %draw_end.i = getelementptr inbounds i8, ptr %style, i64 208
   %36 = load ptr, ptr %draw_end.i, align 8
   %tobool16.not.i = icmp eq ptr %36, null
@@ -54016,7 +54016,7 @@ if.then31.i:                                      ; preds = %if.then28.i
   %65 = mul nuw nsw i32 %64, 65793
   %66 = or disjoint i32 %65, -16777216
   %retval.sroa.0.0.insert.insert.i128.i = select i1 %cmp.i110.i, i32 -1, i32 %66
-  tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, ptr noundef nonnull %data32.i, i32 %retval.sroa.0.0.insert.insert.i128.i)
+  tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, ptr noundef nonnull readonly %data32.i, i32 %retval.sroa.0.0.insert.insert.i128.i)
   br label %if.end109
 
 if.else36.i:                                      ; preds = %if.then28.i
@@ -54202,7 +54202,7 @@ if.then31.i168:                                   ; preds = %if.then28.i138
   %81 = mul nuw nsw i32 %80, 65793
   %82 = or disjoint i32 %81, -16777216
   %retval.sroa.0.0.insert.insert.i128.i177 = select i1 %cmp.i110.i169, i32 -1, i32 %82
-  tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, ptr noundef nonnull %data32.i140, i32 %retval.sroa.0.0.insert.insert.i128.i177)
+  tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, ptr noundef nonnull readonly %data32.i140, i32 %retval.sroa.0.0.insert.insert.i128.i177)
   br label %if.end109
 
 if.else36.i141:                                   ; preds = %if.then28.i138
@@ -55147,7 +55147,7 @@ if.then29.i:                                      ; preds = %if.end27.i
 if.end31.i:                                       ; preds = %if.then29.i, %if.end27.i
   %15 = load i32, ptr %last_widget_state, align 4
   %16 = load i32, ptr %value, align 4
-  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer, i32 noundef %15, ptr noundef nonnull %selectable, i32 noundef %16, ptr noundef nonnull %bounds.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
+  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer, i32 noundef %15, ptr noundef nonnull readonly %selectable, i32 noundef %16, ptr noundef nonnull %bounds.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %17 = load ptr, ptr %draw_end.i, align 8
   %tobool32.not.i = icmp eq ptr %17, null
@@ -55479,7 +55479,7 @@ if.then68.i:                                      ; preds = %if.end53.i
 if.end70.i:                                       ; preds = %if.then68.i, %if.end53.i
   %32 = load i32, ptr %last_widget_state, align 4
   %33 = load i32, ptr %value, align 4
-  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer, i32 noundef %32, ptr noundef nonnull %selectable, i32 noundef %33, ptr noundef nonnull %bounds.i, ptr noundef nonnull %icon.i, ptr noundef null, i32 noundef %sym, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
+  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer, i32 noundef %32, ptr noundef nonnull readonly %selectable, i32 noundef %33, ptr noundef nonnull %bounds.i, ptr noundef nonnull %icon.i, ptr noundef null, i32 noundef %sym, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %34 = load ptr, ptr %draw_end.i, align 8
   %tobool71.not.i = icmp eq ptr %34, null
@@ -55614,7 +55614,7 @@ if.then29.i.i:                                    ; preds = %if.end.i.i
 
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end.i.i
   %13 = load i32, ptr %last_widget_state.i, align 4
-  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %13, ptr noundef nonnull %selectable.i, i32 noundef %value.addr.0, ptr noundef nonnull %bounds.i.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
+  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %13, ptr noundef nonnull readonly %selectable.i, i32 noundef %value.addr.0, ptr noundef nonnull %bounds.i.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %14 = load ptr, ptr %draw_end.i.i, align 8
   %tobool32.not.i.i = icmp eq ptr %14, null
@@ -55841,7 +55841,7 @@ if.then29.i.i:                                    ; preds = %if.end.i.i
 
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end.i.i
   %15 = load i32, ptr %last_widget_state.i, align 4
-  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %15, ptr noundef nonnull %selectable.i, i32 noundef %value.addr.0, ptr noundef nonnull %bounds.i.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %5)
+  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %15, ptr noundef nonnull readonly %selectable.i, i32 noundef %value.addr.0, ptr noundef nonnull %bounds.i.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %5)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %16 = load ptr, ptr %draw_end.i.i, align 8
   %tobool32.not.i.i = icmp eq ptr %16, null
@@ -56580,7 +56580,7 @@ if.then50.i.i:                                    ; preds = %nk_rgb_factor.exit1
   %79 = mul nuw nsw i32 %78, 65793
   %80 = or disjoint i32 %79, -16777216
   %retval.sroa.0.0.insert.insert.i205.i.i = select i1 %cmp.i187.i.i, i32 -1, i32 %80
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %visual_cursor.sroa.0.0.vec.insert95.i, <2 x float> %visual_cursor.sroa.8.8.vec.insert.i, ptr noundef nonnull %data51.i.i, i32 %retval.sroa.0.0.insert.insert.i205.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %visual_cursor.sroa.0.0.vec.insert95.i, <2 x float> %visual_cursor.sroa.8.8.vec.insert.i, ptr noundef nonnull readonly %data51.i.i, i32 %retval.sroa.0.0.insert.insert.i205.i.i)
   br label %nk_draw_slider.exit.i
 
 if.else55.i.i:                                    ; preds = %nk_rgb_factor.exit186.i.i
@@ -56940,7 +56940,7 @@ sw.bb.i.i:                                        ; preds = %if.end44.i
   %48 = mul nuw nsw i32 %47, 65793
   %49 = or disjoint i32 %48, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i44.i, i32 -1, i32 %49
-  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %4, <2 x float> %6, ptr noundef nonnull %data.i.i, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %4, <2 x float> %6, ptr noundef nonnull readonly %data.i.i, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   br label %sw.epilog.i.i
 
 sw.bb6.i.i:                                       ; preds = %if.end44.i
@@ -56954,7 +56954,7 @@ sw.bb6.i.i:                                       ; preds = %if.end44.i
   %52 = mul nuw nsw i32 %51, 65793
   %53 = or disjoint i32 %52, -16777216
   %retval.sroa.0.0.insert.insert.i60.i.i = select i1 %cmp.i42.i.i, i32 -1, i32 %53
-  tail call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %4, <2 x float> %6, ptr noundef nonnull %data7.i.i, i32 %retval.sroa.0.0.insert.insert.i60.i.i)
+  tail call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %4, <2 x float> %6, ptr noundef nonnull readonly %data7.i.i, i32 %retval.sroa.0.0.insert.insert.i60.i.i)
   br label %sw.epilog.i.i
 
 sw.bb11.i.i:                                      ; preds = %if.end44.i
@@ -57058,7 +57058,7 @@ sw.bb21.i.i:                                      ; preds = %sw.epilog.i.i
   %64 = mul nuw nsw i32 %63, 65793
   %65 = or disjoint i32 %64, -16777216
   %retval.sroa.0.0.insert.insert.i129.i.i = select i1 %cmp.i111.i.i, i32 -1, i32 %65
-  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %17, <2 x float> %cursor.sroa.6.8.vec.insert.i, ptr noundef nonnull %data22.i.i, i32 %retval.sroa.0.0.insert.insert.i129.i.i)
+  tail call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %17, <2 x float> %cursor.sroa.6.8.vec.insert.i, ptr noundef nonnull readonly %data22.i.i, i32 %retval.sroa.0.0.insert.insert.i129.i.i)
   br label %nk_draw_progress.exit.i
 
 sw.bb26.i.i:                                      ; preds = %sw.epilog.i.i
@@ -57072,7 +57072,7 @@ sw.bb26.i.i:                                      ; preds = %sw.epilog.i.i
   %68 = mul nuw nsw i32 %67, 65793
   %69 = or disjoint i32 %68, -16777216
   %retval.sroa.0.0.insert.insert.i149.i.i = select i1 %cmp.i131.i.i, i32 -1, i32 %69
-  tail call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %17, <2 x float> %cursor.sroa.6.8.vec.insert.i, ptr noundef nonnull %data27.i.i, i32 %retval.sroa.0.0.insert.insert.i149.i.i)
+  tail call void @nk_draw_nine_slice(ptr noundef nonnull %buffer, <2 x float> %17, <2 x float> %cursor.sroa.6.8.vec.insert.i, ptr noundef nonnull readonly %data27.i.i, i32 %retval.sroa.0.0.insert.insert.i149.i.i)
   br label %nk_draw_progress.exit.i
 
 sw.bb31.i.i:                                      ; preds = %sw.epilog.i.i
@@ -59154,7 +59154,7 @@ nk_zero.exit.i.i:                                 ; preds = %if.end19.i.i.i.i, %
   %grow_factor.i.i = getelementptr inbounds i8, ptr %state, i64 104
   store float 2.000000e+00, ptr %grow_factor.i.i, align 8
   %pool.i.i = getelementptr inbounds i8, ptr %state, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool.i.i, ptr noundef nonnull align 8 dereferenceable(24) %alloc, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %alloc, i64 24, i1 false)
   br label %nk_str_init.exit
 
 nk_str_init.exit:                                 ; preds = %nk_memset.exit, %nk_zero.exit.i.i
@@ -62861,7 +62861,7 @@ sw.bb.i.i:                                        ; preds = %nk_rgb_factor.exit.
   %99 = mul nuw nsw i32 %98, 65793
   %100 = or disjoint i32 %99, -16777216
   %retval.sroa.0.0.insert.insert.i45.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %100
-  call void @nk_draw_image(ptr noundef nonnull %buffer51, <2 x float> %11, <2 x float> %13, ptr noundef nonnull %data.i.i, i32 %retval.sroa.0.0.insert.insert.i45.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer51, <2 x float> %11, <2 x float> %13, ptr noundef nonnull readonly %data.i.i, i32 %retval.sroa.0.0.insert.insert.i45.i.i)
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %nk_rgb_factor.exit.i.i
@@ -62872,7 +62872,7 @@ sw.bb16.i.i:                                      ; preds = %nk_rgb_factor.exit.
   %102 = mul nuw nsw i32 %101, 65793
   %103 = or disjoint i32 %102, -16777216
   %retval.sroa.0.0.insert.insert.i65.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %103
-  call void @nk_draw_nine_slice(ptr noundef nonnull %buffer51, <2 x float> %11, <2 x float> %13, ptr noundef nonnull %data20.i.i, i32 %retval.sroa.0.0.insert.insert.i65.i.i)
+  call void @nk_draw_nine_slice(ptr noundef nonnull %buffer51, <2 x float> %11, <2 x float> %13, ptr noundef nonnull readonly %data20.i.i, i32 %retval.sroa.0.0.insert.insert.i65.i.i)
   br label %sw.epilog.i.i
 
 sw.bb24.i.i:                                      ; preds = %nk_rgb_factor.exit.i.i
@@ -66155,7 +66155,7 @@ if.end172:                                        ; preds = %if.else166, %if.the
 if.then176:                                       ; preds = %if.end172
   %51 = load i32, ptr %last_widget_state, align 8
   %52 = load ptr, ptr %style8, align 8
-  %call.i171 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer173, ptr noundef nonnull %button, i32 noundef %51, ptr noundef nonnull %button111)
+  %call.i171 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer173, ptr noundef nonnull readonly %button, i32 noundef %51, ptr noundef nonnull %button111)
   %53 = load i32, ptr %call.i171, align 8
   %cmp.i172 = icmp eq i32 %53, 0
   %data.i = getelementptr inbounds i8, ptr %call.i171, i64 8
@@ -66709,7 +66709,7 @@ nk_rgb_factor.exit160:                            ; preds = %if.end146, %if.end.
 if.then153:                                       ; preds = %nk_rgb_factor.exit160
   %47 = load i32, ptr %last_widget_state, align 8
   %48 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer147, ptr noundef nonnull %button, i32 noundef %47, ptr noundef nonnull %button90)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer147, ptr noundef nonnull readonly %button, i32 noundef %47, ptr noundef nonnull %button90)
   %49 = load i32, ptr %call.i, align 8
   %cmp.i161 = icmp eq i32 %49, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -67099,7 +67099,7 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit1
   tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer148, i32 noundef %symbol, <2 x float> %37, <2 x float> %38, i32 %sym_background.sroa.0.0, i32 %retval.sroa.0.0.insert.insert.i, float noundef 1.000000e+00, ptr noundef %36)
   %39 = load i32, ptr %last_widget_state, align 8
   %40 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer148, ptr noundef nonnull %bounds, i32 noundef %39, ptr noundef nonnull %button101)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer148, ptr noundef nonnull readonly %bounds, i32 noundef %39, ptr noundef nonnull %button101)
   %41 = load i32, ptr %call.i, align 8
   %cmp.i162 = icmp eq i32 %41, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -67690,7 +67690,7 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit2
   %32 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %31)
   %buffer138 = getelementptr inbounds i8, ptr %0, i64 104
   %33 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer138, ptr noundef nonnull %button, i32 noundef %20, ptr noundef nonnull %button115)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer138, ptr noundef nonnull readonly %button, i32 noundef %20, ptr noundef nonnull %button115)
   %34 = load i32, ptr %call.i, align 8
   %cmp.i207 = icmp eq i32 %34, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -68097,7 +68097,7 @@ if.then152:                                       ; preds = %sw.epilog
   %button90 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %47 = load i32, ptr %last_widget_state, align 8
   %48 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer146, ptr noundef nonnull %bounds, i32 noundef %47, ptr noundef nonnull %button90)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer146, ptr noundef nonnull readonly %bounds, i32 noundef %47, ptr noundef nonnull %button90)
   %49 = load i32, ptr %call.i, align 8
   %cmp.i148 = icmp eq i32 %49, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -68466,7 +68466,7 @@ if.then133:                                       ; preds = %sw.epilog
   %button109 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %buffer134 = getelementptr inbounds i8, ptr %0, i64 104
   %33 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer134, ptr noundef nonnull %button, i32 noundef %20, ptr noundef nonnull %button109)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer134, ptr noundef nonnull readonly %button, i32 noundef %20, ptr noundef nonnull %button109)
   %34 = load i32, ptr %call.i, align 8
   %cmp.i178 = icmp eq i32 %34, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -71578,7 +71578,7 @@ if.end8.i:                                        ; preds = %stbtt__cff_index_co
   %idx.sroa.7.8.insert.shift.i = and i64 %agg.tmp.sroa.3.0, -4294967296
   %idx.sroa.3.8.insert.ext.i = zext i32 %idx.sroa.3.1.i to i64
   %idx.sroa.3.8.insert.insert.i = or disjoint i64 %idx.sroa.7.8.insert.shift.i, %idx.sroa.3.8.insert.ext.i
-  %call9.i = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %agg.tmp.sroa.0.0, i64 %idx.sroa.3.8.insert.insert.i, i32 noundef %add.i198)
+  %call9.i = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr readonly %agg.tmp.sroa.0.0, i64 %idx.sroa.3.8.insert.insert.i, i32 noundef %add.i198)
   br label %stbtt__get_subr.exit
 
 stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_count.exit.i, %if.end8.i
@@ -73933,7 +73933,7 @@ if.then126:                                       ; preds = %land.lhs.true122
   %add.ptr128 = getelementptr inbounds i8, ptr %name, i64 %idx.ext127
   %sub = sub nsw i32 %nlen, %inc
   %add.ptr132 = getelementptr inbounds i8, ptr %add.ptr56, i64 %add.i123
-  %call.i = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull %add.ptr128, i32 noundef %sub, ptr noundef %add.ptr132, i32 noundef %conv107)
+  %call.i = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull readonly %add.ptr128, i32 noundef %sub, ptr noundef readonly %add.ptr132, i32 noundef %conv107)
   %cmp.i.not = icmp eq i32 %call.i, %sub
   br i1 %cmp.i.not, label %return, label %for.inc
 

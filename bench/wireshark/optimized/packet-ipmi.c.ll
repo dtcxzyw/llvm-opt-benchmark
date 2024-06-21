@@ -1504,7 +1504,7 @@ get_frame_data.exit.i289:                         ; preds = %159, %153
   store ptr %191, ptr %194, align 8
   %195 = call ptr @wmem_file_scope() #13
   %196 = call noalias ptr @wmem_alloc0(ptr noundef %195, i64 noundef 20) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %196, ptr noundef nonnull align 1 dereferenceable(11) %5, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %196, ptr noundef nonnull readonly align 1 dereferenceable(11) %5, i64 11, i1 false)
   store i8 0, ptr %196, align 4
   %197 = getelementptr inbounds i8, ptr %18, i64 34
   %198 = load i8, ptr %197, align 2
@@ -1561,7 +1561,7 @@ match_request_response.exit:                      ; preds = %189, %183, %179, %9
   %227 = getelementptr inbounds i8, ptr %.018.i, i64 24
   %228 = load ptr, ptr %227, align 8
   %229 = zext i32 %225 to i64
-  %bcmp.i = call i32 @bcmp(ptr %213, ptr %228, i64 %229)
+  %bcmp.i = call i32 @bcmp(ptr readonly %213, ptr %228, i64 %229)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %232, label %230
 

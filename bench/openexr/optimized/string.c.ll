@@ -387,7 +387,7 @@ if.then5.i19:                                     ; preds = %exr_attr_string_ini
   br i1 %cmp6.i.not, label %if.end13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then5.i19
-  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %d, i64 noundef %call) #4
+  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull readonly %d, i64 noundef %call) #4
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.then5.i19
@@ -510,7 +510,7 @@ if.then7.i:                                       ; preds = %if.then5.i
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %d, i64 noundef %conv11.i) #4
+  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull readonly %d, i64 noundef %conv11.i) #4
   br label %if.end13.i
 
 if.else.i:                                        ; preds = %if.then7.i

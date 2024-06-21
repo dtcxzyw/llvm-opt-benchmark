@@ -1368,7 +1368,7 @@ dissect_sane_word.exit9.i.i:                      ; preds = %115, %dissect_sane_
   br label %dissect_sane_net_control_option_request.exit.i
 
 dissect_sane_net_control_option_request.exit.i:   ; preds = %122, %dissect_sane_word.exit9.i.i
-  call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21)
+  call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21)
   br label %dissect_sane_request.exit
 
 124:                                              ; preds = %dissect_sane_word.exit.i, %dissect_sane_word.exit.i, %dissect_sane_word.exit.i, %dissect_sane_word.exit.i, %dissect_sane_word.exit.i
@@ -1532,7 +1532,7 @@ tvb_read_sane_string.exit:                        ; preds = %tvb_read_sane_strin
 
 200:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %6)
+  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %6)
   %201 = load i32, ptr @hf_sane_version, align 4
   %202 = load ptr, ptr %7, align 8
   %203 = load i32, ptr %8, align 8
@@ -1576,7 +1576,7 @@ dissect_sane_net_init_response.exit.i:            ; preds = %209, %200
 230:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 -1, ptr %5, align 4
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %5)
+  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %5)
   %231 = load i32, ptr @hf_sane_device_handle, align 4
   %232 = load ptr, ptr %7, align 8
   %233 = load i32, ptr %8, align 8
@@ -2202,7 +2202,7 @@ dissect_sane_word.exit100.i.i:                    ; preds = %549, %dissect_sane_
   br i1 %exitcond139.not.i.i, label %dissect_sane_request.exit, label %288, !llvm.loop !19
 
 560:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %561 = load i32, ptr @hf_sane_data_port, align 4
   %562 = load ptr, ptr %7, align 8
   %563 = load i32, ptr %8, align 8
@@ -2284,7 +2284,7 @@ tvb_read_sane_string.exit43:                      ; preds = %dissect_sane_net_st
   br label %dissect_sane_request.exit
 
 605:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %606 = load i32, ptr @hf_sane_frame_format, align 4
   %607 = load ptr, ptr %7, align 8
   %608 = load i32, ptr %8, align 8
@@ -2382,7 +2382,7 @@ dissect_sane_word.exit18.i.i:                     ; preds = %648, %dissect_sane_
   br label %dissect_sane_request.exit
 
 661:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %662 = load ptr, ptr %7, align 8
   %663 = load i32, ptr %8, align 8
   %664 = load i32, ptr @hf_sane_control_option_info, align 4
@@ -2401,7 +2401,7 @@ dissect_sane_word.exit18.i.i:                     ; preds = %648, %dissect_sane_
   br label %dissect_sane_net_control_option_response.exit.i
 
 dissect_sane_net_control_option_response.exit.i:  ; preds = %669, %661
-  call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21)
+  call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21)
   %673 = load i32, ptr @hf_sane_resource_name, align 4
   %674 = getelementptr i8, ptr %1, i64 408
   %.val.i37.i = load ptr, ptr %674, align 8
@@ -2451,7 +2451,7 @@ tvb_read_sane_string.exit41:                      ; preds = %dissect_sane_net_co
   br label %dissect_sane_request.exit
 
 699:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %700 = load i32, ptr @hf_sane_array_length, align 4
   %701 = load ptr, ptr %7, align 8
   %702 = load i32, ptr %8, align 8

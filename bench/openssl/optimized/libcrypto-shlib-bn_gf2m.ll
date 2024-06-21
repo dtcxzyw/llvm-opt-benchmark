@@ -1933,7 +1933,7 @@ if.end3.i:                                        ; preds = %if.end.i10
   br i1 %tobool.not.i12, label %err.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %call8.i = tail call i32 @BN_GF2m_mod_exp_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call.i11, ptr noundef nonnull %call1, ptr noundef %ctx)
+  %call8.i = tail call i32 @BN_GF2m_mod_exp_arr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %call.i11, ptr noundef nonnull readonly %call1, ptr noundef %ctx)
   br label %err.i
 
 err.i:                                            ; preds = %if.end7.i, %if.end3.i, %if.end.i10

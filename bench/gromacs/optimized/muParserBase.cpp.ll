@@ -780,7 +780,7 @@ define noundef double @_ZNK2mu10ParserBase11ParseStringEv(ptr noundef nonnull al
 34:                                               ; preds = %2
   store i64 ptrtoint (ptr @_ZNK2mu10ParserBase12ParseCmdCodeEv to i64), ptr %11, align 8
   store i64 0, ptr %.repack10, align 8
-  %35 = invoke noundef double @_ZNK2mu10ParserBase16ParseCmdCodeBulkEii(ptr noundef nonnull align 8 dereferenceable(596) %0, i32 noundef 0, i32 noundef 0)
+  %35 = invoke noundef double @_ZNK2mu10ParserBase16ParseCmdCodeBulkEii(ptr noundef nonnull readonly align 8 dereferenceable(596) %0, i32 noundef 0, i32 noundef 0)
           to label %_ZNK2mu10ParserBase12ParseCmdCodeEv.exit unwind label %14
 
 36:                                               ; preds = %26, %25, %19
@@ -19413,7 +19413,7 @@ define noundef nonnull ptr @_ZNK2mu10ParserBase4EvalERi(ptr noundef nonnull alig
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call noundef double @_ZNK2mu10ParserBase16ParseCmdCodeBulkEii(ptr noundef nonnull align 8 dereferenceable(596) %0, i32 noundef 0, i32 noundef 0)
+  %8 = tail call noundef double @_ZNK2mu10ParserBase16ParseCmdCodeBulkEii(ptr noundef nonnull readonly align 8 dereferenceable(596) %0, i32 noundef 0, i32 noundef 0)
   br label %11
 
 9:                                                ; preds = %2

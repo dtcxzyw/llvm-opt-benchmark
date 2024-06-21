@@ -117,7 +117,7 @@ int_ctrl_cmd_is_null.exit.i.i:                    ; preds = %lor.lhs.false20.i, 
   br i1 %cmp1.i.not.i.i, label %if.then24.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %int_ctrl_cmd_is_null.exit.i.i
-  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.fr.i.i, ptr noundef nonnull dereferenceable(1) %p) #6
+  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.fr.i.i, ptr noundef nonnull readonly dereferenceable(1) %p) #6
   %cmp.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i.i, label %if.end25.i, label %while.body.i.i
 

@@ -58,7 +58,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw i64 %2, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr align 1 %1, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr readonly align 1 %1, i64 %mul.i.i, i1 false)
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %entry, %st_mult.exit.i

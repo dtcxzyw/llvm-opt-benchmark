@@ -488,7 +488,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %edata_list_active_concat.exit.i
-  call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull %self, ptr noundef nonnull %retval.0.i)
+  call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull readonly %self, ptr noundef nonnull %retval.0.i)
   br label %sec_batch_fill_and_alloc.exit
 
 if.else.i:                                        ; preds = %edata_list_active_concat.exit.i
@@ -715,7 +715,7 @@ edata_list_active_prepend.exit.i:                 ; preds = %do.body2.i.i, %sz_p
   br i1 %cmp.i23, label %if.then.i26, label %if.else.i
 
 if.then.i26:                                      ; preds = %edata_list_active_prepend.exit.i
-  tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull %self, ptr noundef nonnull %retval.0.i)
+  tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull readonly %self, ptr noundef nonnull %retval.0.i)
   br label %if.end7
 
 if.else.i:                                        ; preds = %edata_list_active_prepend.exit.i

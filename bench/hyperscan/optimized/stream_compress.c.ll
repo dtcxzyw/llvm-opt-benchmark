@@ -1678,7 +1678,7 @@ if.end12.us.i:                                    ; preds = %for.body.lr.ph.spli
   %idx.ext13.us.i = zext i32 %191 to i64
   %add.ptr14.us.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext13.us.i
   %add.ptr15.us.i = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0265.us.i114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.us.i, ptr align 1 %add.ptr15.us.i, i64 %conv.us.i118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.us.i, ptr readonly align 1 %add.ptr15.us.i, i64 %conv.us.i118, i1 false)
   %192 = load i32, ptr %gep.us.i117, align 4
   %conv19.us.i = zext i32 %192 to i64
   %add20.us.i = add i64 %currOffset.addr.0265.us.i114, %conv19.us.i
@@ -1862,7 +1862,7 @@ if.end12.i20:                                     ; preds = %for.body.i
   %idx.ext13.i = zext i32 %217 to i64
   %add.ptr14.i22 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext13.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0265.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i22, ptr align 1 %add.ptr15.i, i64 %conv.i19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i22, ptr readonly align 1 %add.ptr15.i, i64 %conv.i19, i1 false)
   %218 = load i32, ptr %gep.i18, align 4
   %conv19.i = zext i32 %218 to i64
   %add20.i = add i64 %currOffset.addr.0265.i, %conv19.i
@@ -2104,7 +2104,7 @@ mmbit_compsize.exit.thread.i:                     ; preds = %if.end.i1244.i
   br i1 %cmp.i1164576.i, label %sc_compress.exit, label %if.then6.i1218.i
 
 if.then2.i1219.i:                                 ; preds = %mmbit_compsize.exit.thread581.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr15.i, ptr nonnull align 1 %add.ptr14.i, i64 %conv.i1276.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr15.i, ptr nonnull readonly align 1 %add.ptr14.i, i64 %conv.i1276.i, i1 false)
   br label %if.end.i
 
 if.then6.i1218.i:                                 ; preds = %mmbit_compsize.exit.thread.i
@@ -2287,7 +2287,7 @@ mmbit_compsize.exit1370.thread.i:                 ; preds = %if.end.i1311.i
   br i1 %cmp.i1068591.i, label %sc_compress.exit, label %if.then6.i1122.i
 
 if.then2.i1123.i:                                 ; preds = %mmbit_compsize.exit1370.thread596.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr30.i, ptr nonnull align 1 %add.ptr28.i, i64 %conv.i1369.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr30.i, ptr nonnull readonly align 1 %add.ptr28.i, i64 %conv.i1369.i, i1 false)
   br label %if.end35.i
 
 if.then6.i1122.i:                                 ; preds = %mmbit_compsize.exit1370.thread.i
@@ -2465,7 +2465,7 @@ mmbit_compsize.exit1464.thread.i:                 ; preds = %if.end.i1405.i
   br i1 %cmp.i972607.i, label %sc_compress.exit, label %if.then6.i1026.i
 
 if.then2.i1027.i:                                 ; preds = %mmbit_compsize.exit1464.thread612.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr46.i, ptr nonnull align 1 %add.ptr44.i, i64 %conv.i1463.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr46.i, ptr nonnull readonly align 1 %add.ptr44.i, i64 %conv.i1463.i, i1 false)
   br label %if.end51.i
 
 if.then6.i1026.i:                                 ; preds = %mmbit_compsize.exit1464.thread.i
@@ -2549,7 +2549,7 @@ if.end51.i:                                       ; preds = %if.end28.i985.i, %i
   %longLitState_size.i = getelementptr inbounds i8, ptr %rose, i64 348
   %55 = load i32, ptr %longLitState_size.i, align 4
   %conv60.i = zext i32 %55 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull align 1 %add.ptr59.i, i64 %conv60.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull readonly align 1 %add.ptr59.i, i64 %conv60.i, i1 false)
   %56 = load i32, ptr %longLitState_size.i, align 4
   %conv62.i = zext i32 %56 to i64
   %add63.i = add nuw nsw i64 %add52.i, %conv62.i
@@ -2568,7 +2568,7 @@ do.body71.i:                                      ; preds = %if.end51.i
   %anchorStateSize.i = getelementptr inbounds i8, ptr %rose, i64 72
   %59 = load i32, ptr %anchorStateSize.i, align 8
   %conv75.i = zext i32 %59 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr72.i, ptr nonnull align 1 %add.ptr74.i, i64 %conv75.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr72.i, ptr nonnull readonly align 1 %add.ptr74.i, i64 %conv75.i, i1 false)
   %60 = load i32, ptr %anchorStateSize.i, align 8
   %conv77.i = zext i32 %60 to i64
   %add78.i = add nuw nsw i64 %add63.i, %conv77.i
@@ -2584,7 +2584,7 @@ do.body83.i:                                      ; preds = %do.body71.i, %if.en
   %groups_size.i = getelementptr inbounds i8, ptr %rose, i64 340
   %62 = load i32, ptr %groups_size.i, align 4
   %conv87.i = zext i32 %62 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr84.i, ptr nonnull align 1 %add.ptr86.i, i64 %conv87.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr84.i, ptr nonnull readonly align 1 %add.ptr86.i, i64 %conv87.i, i1 false)
   %63 = load i32, ptr %groups_size.i, align 4
   %conv89.i = zext i32 %63 to i64
   %add90.i = add i64 %currOffset.0.i, %conv89.i
@@ -2597,7 +2597,7 @@ do.body83.i:                                      ; preds = %do.body71.i, %if.en
   %idx.ext101.i = zext i32 %conv..i to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext101.i
   %add.ptr102.i = getelementptr inbounds i8, ptr %add.ptr100.i, i64 %idx.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr98.i, ptr nonnull align 1 %add.ptr102.i, i64 %idx.ext101.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr98.i, ptr nonnull readonly align 1 %add.ptr102.i, i64 %idx.ext101.i, i1 false)
   %add105.i = add i64 %add90.i, %idx.ext101.i
   %exhausted.i = getelementptr inbounds i8, ptr %rose, i64 288
   %66 = load i32, ptr %exhausted.i, align 4
@@ -2701,7 +2701,7 @@ mmbit_compsize.exit1558.thread.i:                 ; preds = %if.end.i1499.i
   br i1 %cmp.i876623.i, label %sc_compress.exit, label %if.then6.i930.i
 
 if.then2.i931.i:                                  ; preds = %mmbit_compsize.exit1558.thread628.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr115.i, ptr nonnull align 1 %add.ptr113.i, i64 %conv.i1557.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr115.i, ptr nonnull readonly align 1 %add.ptr113.i, i64 %conv.i1557.i, i1 false)
   br label %if.end120.i
 
 if.then6.i930.i:                                  ; preds = %mmbit_compsize.exit1558.thread.i
@@ -2882,7 +2882,7 @@ mmbit_compsize.exit1652.thread.i:                 ; preds = %if.end.i1593.i
   br i1 %cmp.i780639.i, label %sc_compress.exit, label %if.then6.i834.i
 
 if.then2.i835.i:                                  ; preds = %mmbit_compsize.exit1652.thread644.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr131.i, ptr nonnull align 1 %add.ptr129.i, i64 %conv.i1651.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr131.i, ptr nonnull readonly align 1 %add.ptr129.i, i64 %conv.i1651.i, i1 false)
   br label %if.end137.i
 
 if.then6.i834.i:                                  ; preds = %mmbit_compsize.exit1652.thread.i
@@ -3060,7 +3060,7 @@ mmbit_compsize.exit1746.thread.i:                 ; preds = %if.end.i1687.i
   br i1 %cmp.i717655.i, label %sc_compress.exit, label %if.then6.i740.i
 
 if.then2.i.i:                                     ; preds = %mmbit_compsize.exit1746.thread660.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr148.i, ptr nonnull align 1 %add.ptr146.i, i64 %conv.i1745.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr148.i, ptr nonnull readonly align 1 %add.ptr146.i, i64 %conv.i1745.i, i1 false)
   br label %if.end153.i
 
 if.then6.i740.i:                                  ; preds = %mmbit_compsize.exit1746.thread.i
@@ -3399,7 +3399,7 @@ do.end166.i:                                      ; preds = %mmbit_iterate.exit.
   %gep.i = getelementptr inbounds i8, ptr %lopCount.i, i64 %idx.ext.i210.i
   %146 = load i32, ptr %gep.i, align 4
   %conv173.i = zext i32 %146 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr170.i, ptr nonnull align 1 %add.ptr172.i, i64 %conv173.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr170.i, ptr nonnull readonly align 1 %add.ptr172.i, i64 %conv173.i, i1 false)
   %147 = load i32, ptr %gep.i, align 4
   %conv175.i = zext i32 %147 to i64
   %add176.i = add i64 %currOffset.1683.i, %conv175.i
@@ -3686,12 +3686,12 @@ mmbit_iterate.exit.i:                             ; preds = %if.then11.i441.i, %
 
 for.end.i:                                        ; preds = %if.end19.i.i, %mmbit_iterate.exit.i, %mmbit_get_flat_block.exit535.i, %for.end.i267.i, %if.else.i338.i, %if.then4.i358.i, %do.end166.i, %if.end19.i419.i, %mmbit_iterate.exit208.i, %mmbit_get_flat_block.exit633.i, %for.end.i.i, %if.end.i227.i, %if.end153.i
   %currOffset.1.lcssa.i = phi i64 [ %add154.i, %mmbit_iterate.exit208.i ], [ %add154.i, %if.end153.i ], [ %add154.i, %if.end.i227.i ], [ %add154.i, %mmbit_get_flat_block.exit633.i ], [ %add154.i, %for.end.i.i ], [ %add176.i, %if.end19.i419.i ], [ %add176.i, %do.end166.i ], [ %add176.i, %if.then4.i358.i ], [ %add176.i, %if.else.i338.i ], [ %add176.i, %for.end.i267.i ], [ %add176.i, %mmbit_get_flat_block.exit535.i ], [ %add176.i, %mmbit_iterate.exit.i ], [ %add154.i, %if.end19.i.i ]
-  %call181.i = tail call fastcc i64 @sc_left_compress(ptr noundef %rose, i64 noundef %currOffset.1.lcssa.i, ptr noundef %stream, ptr noundef nonnull %buf)
+  %call181.i = tail call fastcc i64 @sc_left_compress(ptr noundef readonly %rose, i64 noundef %currOffset.1.lcssa.i, ptr noundef readonly %stream, ptr noundef nonnull %buf)
   %tobool182.not.i = icmp eq i64 %call181.i, 0
   br i1 %tobool182.not.i, label %sc_compress.exit, label %if.end184.i
 
 if.end184.i:                                      ; preds = %for.end.i
-  %call185.i = tail call fastcc i64 @sc_som_compress(ptr noundef %rose, i64 noundef %call181.i, ptr noundef %stream, ptr noundef nonnull %buf, i64 noundef %buf_size)
+  %call185.i = tail call fastcc i64 @sc_som_compress(ptr noundef readonly %rose, i64 noundef %call181.i, ptr noundef readonly %stream, ptr noundef nonnull %buf, i64 noundef %buf_size)
   br label %sc_compress.exit
 
 sc_compress.exit:                                 ; preds = %mmbit_compsize.exit.i, %mmbit_compsize.exit.thread581.i, %mmbit_compsize.exit.thread.i, %mmbit_compsize.exit1370.i, %mmbit_compsize.exit1370.thread596.i, %mmbit_compsize.exit1370.thread.i, %mmbit_compsize.exit1464.i, %mmbit_compsize.exit1464.thread612.i, %mmbit_compsize.exit1464.thread.i, %mmbit_compsize.exit1558.i, %mmbit_compsize.exit1558.thread628.i, %mmbit_compsize.exit1558.thread.i, %mmbit_compsize.exit1652.i, %mmbit_compsize.exit1652.thread644.i, %mmbit_compsize.exit1652.thread.i, %mmbit_compsize.exit1746.i, %mmbit_compsize.exit1746.thread660.i, %mmbit_compsize.exit1746.thread.i, %for.end.i, %if.end184.i

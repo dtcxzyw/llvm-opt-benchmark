@@ -1816,9 +1816,9 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !277
   call void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias nocapture noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b77e373fc5d99dd1308bd865c87f7d91.95, i64 noundef 7), !noalias !281
   %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h0ae9bd404677e494E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.b77e373fc5d99dd1308bd865c87f7d91.96, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b77e373fc5d99dd1308bd865c87f7d91.97)
+  %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h0ae9bd404677e494E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.b77e373fc5d99dd1308bd865c87f7d91.96, i64 noundef 4, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b77e373fc5d99dd1308bd865c87f7d91.97)
   %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h0ae9bd404677e494E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 @anon.b77e373fc5d99dd1308bd865c87f7d91.98, i64 noundef 4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b77e373fc5d99dd1308bd865c87f7d91.97)
+  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h0ae9bd404677e494E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 @anon.b77e373fc5d99dd1308bd865c87f7d91.98, i64 noundef 4, ptr noundef nonnull readonly align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b77e373fc5d99dd1308bd865c87f7d91.97)
   %9 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h27bac3b01d1dda5cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !277
   ret i1 %9
@@ -2921,7 +2921,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
   call void @llvm.experimental.noalias.scope.decl(metadata !541), !noalias !512
   call void @llvm.experimental.noalias.scope.decl(metadata !544), !noalias !512
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !547
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !noalias !522
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull readonly align 16 dereferenceable(32) %6, i64 32, i1 false), !noalias !522
   %48 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i15, align 16, !alias.scope !548, !noalias !522, !noundef !4
   %49 = shl i64 %48, 56
   %50 = load i64, ptr %13, align 8, !alias.scope !548, !noalias !522, !noundef !4
@@ -3027,7 +3027,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
   call void @llvm.experimental.noalias.scope.decl(metadata !600), !noalias !512
   call void @llvm.experimental.noalias.scope.decl(metadata !603), !noalias !512
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !606
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 32, i1 false), !noalias !581
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 16 dereferenceable(32) %9, i64 32, i1 false), !noalias !581
   %94 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i, align 16, !alias.scope !607, !noalias !581, !noundef !4
   %95 = shl i64 %94, 56
   %96 = load i64, ptr %15, align 8, !alias.scope !607, !noalias !581, !noundef !4
@@ -6080,7 +6080,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   call void @llvm.experimental.noalias.scope.decl(metadata !941)
   call void @llvm.experimental.noalias.scope.decl(metadata !944)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !947
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !921
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !921
   %15 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i, align 16, !alias.scope !948, !noalias !921, !noundef !4
   %16 = shl i64 %15, 56
   %17 = getelementptr inbounds i8, ptr %4, i64 56
@@ -7792,7 +7792,7 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread: ;
   %483 = icmp ne ptr %482, null
   call void @llvm.assume(i1 %483)
   %484 = shl i64 %68, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %482, ptr nonnull align 8 %478, i64 %484, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %482, ptr nonnull readonly align 8 %478, i64 %484, i1 false)
   store i64 %481, ptr %27, align 8, !alias.scope !1233, !noalias !1238
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %482, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1233, !noalias !1238
@@ -8042,7 +8042,7 @@ define void @_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_co
   %72 = icmp ne ptr %71, null
   tail call void @llvm.assume(i1 %72)
   %73 = shl i64 %64, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 8 %63, i64 %73, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull readonly align 8 %63, i64 %73, i1 false)
   store i64 %70, ptr %31, align 8, !alias.scope !1274, !noalias !1277
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %71, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1274, !noalias !1277
@@ -9201,7 +9201,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !1452)
   call void @llvm.experimental.noalias.scope.decl(metadata !1455)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1458
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false), !noalias !1433
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull readonly align 16 dereferenceable(32) %11, i64 32, i1 false), !noalias !1433
   %486 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i156.i.i.i, align 16, !alias.scope !1459, !noalias !1433, !noundef !4
   %487 = shl i64 %486, 56
   %488 = load i64, ptr %285, align 8, !alias.scope !1459, !noalias !1433, !noundef !4
@@ -9307,7 +9307,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !1511)
   call void @llvm.experimental.noalias.scope.decl(metadata !1514)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !1517
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %14, i64 32, i1 false), !noalias !1492
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull readonly align 16 dereferenceable(32) %14, i64 32, i1 false), !noalias !1492
   %532 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i127.i.i.i, align 16, !alias.scope !1518, !noalias !1492, !noundef !4
   %533 = shl i64 %532, 56
   %534 = load i64, ptr %287, align 8, !alias.scope !1518, !noalias !1492, !noundef !4
@@ -9450,7 +9450,7 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1570)
   call void @llvm.experimental.noalias.scope.decl(metadata !1573)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !1576
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %15, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false), !noalias !1551
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %15, ptr noundef nonnull readonly align 16 dereferenceable(32) %17, i64 32, i1 false), !noalias !1551
   %591 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i98.i.i.i, align 16, !alias.scope !1577, !noalias !1551, !noundef !4
   %592 = shl i64 %591, 56
   %593 = load i64, ptr %281, align 8, !alias.scope !1577, !noalias !1551, !noundef !4
@@ -9556,7 +9556,7 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1629)
   call void @llvm.experimental.noalias.scope.decl(metadata !1632)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1635
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, ptr noundef nonnull align 16 dereferenceable(32) %20, i64 32, i1 false), !noalias !1610
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, ptr noundef nonnull readonly align 16 dereferenceable(32) %20, i64 32, i1 false), !noalias !1610
   %637 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i.i.i, align 16, !alias.scope !1636, !noalias !1610, !noundef !4
   %638 = shl i64 %637, 56
   %639 = load i64, ptr %283, align 8, !alias.scope !1636, !noalias !1610, !noundef !4

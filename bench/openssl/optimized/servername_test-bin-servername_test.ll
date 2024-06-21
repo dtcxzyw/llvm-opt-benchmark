@@ -663,7 +663,7 @@ lor.lhs.false87:                                  ; preds = %PACKET_get_length_p
   br i1 %tobool91.not, label %end, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %lor.lhs.false87
-  %call.i = call ptr @memchr(ptr noundef %pkt5.val1, i32 noundef 0, i64 noundef %pkt5.val) #5
+  %call.i = call ptr @memchr(ptr noundef readonly %pkt5.val1, i32 noundef 0, i64 noundef %pkt5.val) #5
   %cmp.i129 = icmp ne ptr %call.i, null
   %conv.i130 = zext i1 %cmp.i129 to i32
   %call96 = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @.str.33, i32 noundef %conv.i130) #4

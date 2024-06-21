@@ -1583,7 +1583,7 @@ declare void @lxb_dom_node_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2)
+  %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef readonly %1, i64 noundef 2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
 
@@ -1612,7 +1612,7 @@ declare zeroext i1 @lxb_html_tree_insertion_mode_text(ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lxb_html_tree_generic_rcdata_parsing(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2)
+  %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef readonly %1, i64 noundef 2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
 

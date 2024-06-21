@@ -503,7 +503,7 @@ if.then60:                                        ; preds = %if.then52
   br i1 %tobool.not.i47, label %if.end69, label %qed_fmt_is_raw.exit
 
 qed_fmt_is_raw.exit:                              ; preds = %if.then60
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call62, ptr noundef nonnull dereferenceable(4) @.str.29) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call62, ptr noundef nonnull dereferenceable(4) @.str.29) #20
   %cmp.i = icmp eq i32 %call.i, 0
   %spec.select = select i1 %cmp.i, i64 5, i64 1
   br label %if.end69
@@ -690,7 +690,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.then13, label %qed_fmt_is_raw.exit
 
 qed_fmt_is_raw.exit:                              ; preds = %if.then5
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %backing_fmt, ptr noundef nonnull dereferenceable(4) @.str.29) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %backing_fmt, ptr noundef nonnull dereferenceable(4) @.str.29) #20
   %cmp.i = icmp eq i32 %call.i, 0
   %or9 = or i64 %new_header.sroa.8.0.copyload, 5
   %spec.select = select i1 %cmp.i, i64 %or9, i64 %or

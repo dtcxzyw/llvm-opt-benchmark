@@ -4399,7 +4399,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc122, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %314, %.lr.ph.i.i.i.i.i ], [ %308, %.noexc122 ]
   %.092.i.i.i.i.i = phi ptr [ %313, %.lr.ph.i.i.i.i.i ], [ %.sroa.0297.7577, %.noexc122 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !26
   %313 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
   %314 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i120 = icmp eq ptr %313, %.sroa.11.2576
@@ -4475,7 +4475,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i128:                              ; preds = %.noexc136, %.lr.ph.i.i.i.i.i128
   %.03.i.i.i.i.i129 = phi ptr [ %345, %.lr.ph.i.i.i.i.i128 ], [ %339, %.noexc136 ]
   %.092.i.i.i.i.i130 = phi ptr [ %344, %.lr.ph.i.i.i.i.i128 ], [ %.sroa.0297.7577, %.noexc136 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i129, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i130, i64 16, i1 false), !alias.scope !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i129, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i130, i64 16, i1 false), !alias.scope !31
   %344 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i130, i64 16
   %345 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i129, i64 16
   %.not.i.i.i.i.i131 = icmp eq ptr %344, %.sroa.11.2576
@@ -4555,7 +4555,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i141:                              ; preds = %.noexc147, %.lr.ph.i.i.i.i.i141
   %.03.i.i.i.i.i142 = phi ptr [ %374, %.lr.ph.i.i.i.i.i141 ], [ %368, %.noexc147 ]
   %.092.i.i.i.i.i143 = phi ptr [ %373, %.lr.ph.i.i.i.i.i141 ], [ %.sroa.0297.7577, %.noexc147 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i142, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i143, i64 16, i1 false), !alias.scope !35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i142, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i143, i64 16, i1 false), !alias.scope !35
   %373 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i143, i64 16
   %374 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i142, i64 16
   %.not.i.i.i.i.i144 = icmp eq ptr %373, %.sroa.11.2576
@@ -5531,7 +5531,7 @@ _ZNSt16allocator_traitsISaIN3gmx15analysismodules12_GLOBAL__N_15HBondEEE8allocat
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.noexc10.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %44, %.noexc10.i.i.i.i.i.i ]
   %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val12.i.i.i.i.i.i.i.pre.i.i, %.noexc10.i.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.09.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.09.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %48 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %49 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %48, %.val13.i.i.i.i.i.i.i.pre.i.i
@@ -6226,7 +6226,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allo
 .lr.ph.i.i.i.i.i.i179:                            ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i179
   %.03.i.i.i.i.i.i = phi ptr [ %323, %.lr.ph.i.i.i.i.i.i179 ], [ %320, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %322, %.lr.ph.i.i.i.i.i.i179 ], [ %.sroa.0198.1, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !60, !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !60, !noalias !57
   %322 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 16
   %323 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i180 = icmp eq ptr %322, %.sroa.19.1
@@ -6270,7 +6270,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE17_M_realloc_ins
   br i1 %.not.i55.i, label %332, label %330
 
 330:                                              ; preds = %329
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %288, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.015.025.i, i64 16, i1 false), !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %288, ptr noundef nonnull readonly align 4 dereferenceable(16) %.sroa.015.025.i, i64 16, i1 false), !noalias !57
   %331 = getelementptr inbounds i8, ptr %288, i64 16
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
 
@@ -6307,13 +6307,13 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenE
 _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i60.i: ; preds = %343, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenEmPKc.exit.i.i57.i
   %346 = phi ptr [ null, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenEmPKc.exit.i.i57.i ], [ %345, %343 ]
   %347 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::HBond", ptr %346, i64 %337
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %347, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.015.025.i, i64 16, i1 false), !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %347, ptr noundef nonnull readonly align 4 dereferenceable(16) %.sroa.015.025.i, i64 16, i1 false), !noalias !57
   br i1 %338, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i65.i, label %.lr.ph.i.i.i.i.i61.i
 
 .lr.ph.i.i.i.i.i61.i:                             ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i60.i, %.lr.ph.i.i.i.i.i61.i
   %.03.i.i.i.i.i62.i = phi ptr [ %349, %.lr.ph.i.i.i.i.i61.i ], [ %346, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i60.i ]
   %.092.i.i.i.i.i63.i = phi ptr [ %348, %.lr.ph.i.i.i.i.i61.i ], [ %.sroa.0198.1, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i60.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i62.i, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i63.i, i64 16, i1 false), !alias.scope !64, !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i62.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i63.i, i64 16, i1 false), !alias.scope !64, !noalias !57
   %348 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i63.i, i64 16
   %349 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i62.i, i64 16
   %.not.i.i.i.i.i64.i = icmp eq ptr %348, %.sroa.19.1
@@ -12268,7 +12268,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allo
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i ], [ %43, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i ]
   %.092.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i ], [ %.val16.i.i, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !142
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !142
   %45 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
   %46 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %45, %9
@@ -12322,7 +12322,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EED2Ev.exit: ; pre
   br i1 %.not.i47, label %56, label %54
 
 54:                                               ; preds = %52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.015.022, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %.sroa.015.022, i64 16, i1 false)
   %55 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %55, ptr %6, align 8
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
@@ -12361,13 +12361,13 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenE
 _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i52: ; preds = %68, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenEmPKc.exit.i.i49
   %71 = phi ptr [ null, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE12_M_check_lenEmPKc.exit.i.i49 ], [ %70, %68 ]
   %72 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::HBond", ptr %71, i64 %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.015.022, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull readonly align 4 dereferenceable(16) %.sroa.015.022, i64 16, i1 false)
   br i1 %63, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i57, label %.lr.ph.i.i.i.i.i53
 
 .lr.ph.i.i.i.i.i53:                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i52, %.lr.ph.i.i.i.i.i53
   %.03.i.i.i.i.i54 = phi ptr [ %74, %.lr.ph.i.i.i.i.i53 ], [ %71, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i52 ]
   %.092.i.i.i.i.i55 = phi ptr [ %73, %.lr.ph.i.i.i.i.i53 ], [ %.val16.i.i48, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE11_M_allocateEm.exit.i.i52 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i54, ptr noundef nonnull align 4 dereferenceable(16) %.092.i.i.i.i.i55, i64 16, i1 false), !alias.scope !146
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.03.i.i.i.i.i54, ptr noundef nonnull readonly align 4 dereferenceable(16) %.092.i.i.i.i.i55, i64 16, i1 false), !alias.scope !146
   %73 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i55, i64 16
   %74 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i54, i64 16
   %.not.i.i.i.i.i56 = icmp eq ptr %73, %9

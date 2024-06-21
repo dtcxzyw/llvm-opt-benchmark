@@ -3220,7 +3220,7 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef
   br label %.preheader.split.us.i
 
 .loopexit.i:                                      ; preds = %18, %.preheader.split.us.i, %.preheader.split.us.i, %5
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #13
   br label %yytnamerr.exit
 
 yytnamerr.exit:                                   ; preds = %.preheader.split.us.i, %.loopexit.i
@@ -3295,7 +3295,7 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %.preheader.split.us.i90
 
 yytnamerr.exit96:                                 ; preds = %.preheader.split.us.i90, %.preheader.split.us.i90, %52, %43
-  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #13
+  %57 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #13
   %.not81 = icmp slt i64 %57, 0
   br i1 %.not81, label %.loopexit, label %yytnamerr.exit96.thread
 
@@ -3420,7 +3420,7 @@ yytnamerr.exit96.thread:                          ; preds = %.preheader.split.us
   br label %yytnamerr.exit106
 
 .loopexit.thread.i:                               ; preds = %92, %.preheader.split.i, %.preheader.split.i, %83
-  %99 = tail call ptr @stpcpy(ptr noundef nonnull %.064, ptr noundef nonnull %87) #12
+  %99 = tail call ptr @stpcpy(ptr noundef nonnull %.064, ptr noundef nonnull readonly %87) #12
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %.064 to i64
   %102 = sub i64 %100, %101

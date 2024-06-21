@@ -252,7 +252,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl13base_inte
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %cond.i.i, ptr noundef nonnull align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %cond.i.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
   %next_.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 280
   store i64 64, ptr %next_.i.i, align 8
   %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64

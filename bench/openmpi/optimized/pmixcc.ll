@@ -270,7 +270,7 @@ data_init.exit:                                   ; preds = %43
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv.i
   %77 = load ptr, ptr %76, align 8
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %77) #18
+  %78 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %77) #18
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.loopexit12.loopexit.i, label %69
 

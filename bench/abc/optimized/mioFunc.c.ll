@@ -44,10 +44,10 @@ define i32 @Mio_GateCollectNames(ptr noundef readonly %0, ptr nocapture noundef 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #13
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #12
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %3
@@ -116,10 +116,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
   br i1 %23, label %Abc_UtilStrsav.exit38, label %31
 
 Abc_UtilStrsav.exit38:                            ; preds = %21, %._crit_edge
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.13143) #11
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.13143) #11
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #13
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.13143) #12
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.13143) #12
   %28 = add nsw i32 %.02944, 1
   %29 = sext i32 %.02944 to i64
   %30 = getelementptr inbounds ptr, ptr %1, i64 %29
@@ -433,11 +433,11 @@ sub_1:                                            ; preds = %sub_0
   %123 = load ptr, ptr %115, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 112
   %125 = load ptr, ptr %124, align 8
-  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %119) #11
+  %126 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %119) #11
   %127 = trunc i64 %126 to i32
   %128 = add i32 %127, 1
   %129 = call ptr @Mem_FlexEntryFetch(ptr noundef %125, i32 noundef %128) #12
-  %130 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %119) #12
+  %130 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull readonly dereferenceable(1) %119) #12
   br label %Mio_SopRegister.exit
 
 Mio_SopRegister.exit:                             ; preds = %111, %122

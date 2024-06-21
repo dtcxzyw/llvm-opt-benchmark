@@ -948,7 +948,7 @@ _ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci.exit:  ; preds = %entry
   %call5.i.i = tail call noundef ptr @BIO_get_data(ptr noundef %bio) #16
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  tail call void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i, ptr noundef %str, i64 noundef %conv.i)
+  tail call void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i, ptr noundef readonly %str, i64 noundef %conv.i)
   ret i32 %conv
 }
 

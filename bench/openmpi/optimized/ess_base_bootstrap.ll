@@ -275,7 +275,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %.095.ph.lcssa164, i64 5
-  %99 = tail call noalias ptr @fopen(ptr noundef nonnull %98, ptr noundef nonnull @.str.1)
+  %99 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %98, ptr noundef nonnull @.str.1)
   %100 = icmp eq ptr %99, null
   br i1 %100, label %245, label %.preheader.i.i
 

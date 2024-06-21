@@ -8107,7 +8107,7 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %while.body.i
   %second.i.le = getelementptr inbounds i8, ptr %it.sroa.0.013.i, i64 40
-  %call.i5.i = tail call noundef zeroext i1 @_ZN7rocksdb7blob_db10BlobDBImpl28MarkBlobFileObsoleteIfNeededERKSt10shared_ptrINS0_8BlobFileEEm(ptr noundef nonnull align 8 dereferenceable(2448) %this, ptr noundef nonnull align 8 dereferenceable(16) %second.i.le, i64 noundef 0)
+  %call.i5.i = tail call noundef zeroext i1 @_ZN7rocksdb7blob_db10BlobDBImpl28MarkBlobFileObsoleteIfNeededERKSt10shared_ptrINS0_8BlobFileEEm(ptr noundef nonnull align 8 dereferenceable(2448) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i.le, i64 noundef 0)
   br i1 %call.i5.i, label %if.end17.i, label %while.end.i
 
 if.end17.i:                                       ; preds = %if.end.i
@@ -12117,7 +12117,7 @@ if.end.i:                                         ; preds = %while.body.i
   %4 = load ptr, ptr %second.i.le, align 8
   %mutex_.i.i = getelementptr inbounds i8, ptr %4, i64 248
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %mutex_.i.i)
-  %call2.i.i = invoke noundef zeroext i1 @_ZN7rocksdb7blob_db10BlobDBImpl28MarkBlobFileObsoleteIfNeededERKSt10shared_ptrINS0_8BlobFileEEm(ptr noundef nonnull align 8 dereferenceable(2448) %this, ptr noundef nonnull align 8 dereferenceable(16) %second.i.le, i64 noundef %call)
+  %call2.i.i = invoke noundef zeroext i1 @_ZN7rocksdb7blob_db10BlobDBImpl28MarkBlobFileObsoleteIfNeededERKSt10shared_ptrINS0_8BlobFileEEm(ptr noundef nonnull align 8 dereferenceable(2448) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i.le, i64 noundef %call)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end.i

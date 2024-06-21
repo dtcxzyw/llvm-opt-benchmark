@@ -40511,7 +40511,7 @@ define hidden noundef ptr @"_ZN64_$LT$bincode..de..read..SliceReader$u20$as$u20$
   %7 = load ptr, ptr %0, align 8, !alias.scope !16998, !noalias !17001, !nonnull !4, !align !141, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 %2
   %9 = sub i64 %5, %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %7, i64 %2, i1 false), !alias.scope !17004, !noalias !17008
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %7, i64 %2, i1 false), !alias.scope !17004, !noalias !17008
   store ptr %8, ptr %0, align 8, !alias.scope !16998, !noalias !17001
   store i64 %9, ptr %4, align 8, !alias.scope !16998, !noalias !17001
   br label %"_ZN64_$LT$bincode..de..read..SliceReader$u20$as$u20$std..io..Read$GT$4read17h156a83c083e648b7E.llvm.7452288157325931747.exit"
@@ -40534,7 +40534,7 @@ define hidden void @"_ZN64_$LT$bincode..de..read..SliceReader$u20$as$u20$std..io
   %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !141, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 %3
   %10 = sub i64 %6, %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %8, i64 %3, i1 false), !alias.scope !17010, !noalias !17014
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %8, i64 %3, i1 false), !alias.scope !17010, !noalias !17014
   store ptr %9, ptr %1, align 8
   store i64 %10, ptr %5, align 8
   br label %11
@@ -41071,7 +41071,7 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !17154
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !17154
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc86818deb12c23e1E.llvm.7452288157325931747.exit"
 
 7:                                                ; preds = %2
@@ -41138,7 +41138,7 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !alias.scope !17206
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i64 48, i1 false), !alias.scope !17206
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb1c5e7b6949696e3E.llvm.7452288157325931747.exit"
 
 7:                                                ; preds = %2
@@ -41832,7 +41832,7 @@ _ZN7bincode6config3int11IntEncoding15deserialize_len17h88c2b2125419152fE.llvm.74
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34), !noalias !17812
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %28, i64 %.cast, i1 false), !noalias !17812
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %28, i64 %.cast, i1 false), !noalias !17812
   %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.cast, ptr %.sroa.5.0..sroa_idx.i10, align 8, !alias.scope !17826, !noalias !17834
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7d2a7ac3b5af67a4E.exit"
@@ -51207,7 +51207,7 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !alias.scope !25213, !noalias !25214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i64 48, i1 false), !alias.scope !25213, !noalias !25214
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h855b1a7bed78dff1E.llvm.7452288157325931747.exit"
 
 32:                                               ; preds = %28
@@ -51983,7 +51983,7 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !25725, !noalias !25726
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !25725, !noalias !25726
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h779ac817d4ab6d59E.llvm.7452288157325931747.exit"
 
 32:                                               ; preds = %28

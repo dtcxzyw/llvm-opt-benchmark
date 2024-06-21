@@ -15155,7 +15155,7 @@ if.then23:                                        ; preds = %if.end20
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_25) #34
   %sext.i = shl i64 %.sroa.speculated.i, 32
   %conv3.i = ashr exact i64 %sext.i, 32
-  %call4.i = tail call i32 @memcmp(ptr noundef %value, ptr noundef %call2.i, i64 noundef %conv3.i) #40
+  %call4.i = tail call i32 @memcmp(ptr noundef readonly %value, ptr noundef %call2.i, i64 noundef %conv3.i) #40
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15192,7 +15192,7 @@ if.then35:                                        ; preds = %if.end33
   %call2.i11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_38) #34
   %sext.i12 = shl i64 %.sroa.speculated.i10, 32
   %conv3.i13 = ashr exact i64 %sext.i12, 32
-  %call4.i14 = tail call i32 @memcmp(ptr noundef %value, ptr noundef %call2.i11, i64 noundef %conv3.i13) #40
+  %call4.i14 = tail call i32 @memcmp(ptr noundef readonly %value, ptr noundef %call2.i11, i64 noundef %conv3.i13) #40
   %tobool.not.i15 = icmp eq i32 %call4.i14, 0
   br i1 %tobool.not.i15, label %if.end.i17, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21
 
@@ -15266,7 +15266,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #34
   %sext.i = shl i64 %.sroa.speculated.i, 32
   %conv3.i = ashr exact i64 %sext.i, 32
-  %call4.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %call2.i, i64 noundef %conv3.i) #40
+  %call4.i = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef %call2.i, i64 noundef %conv3.i) #40
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15307,7 +15307,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false13
   %call2.i6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #34
   %sext.i7 = shl i64 %.sroa.speculated.i5, 32
   %conv3.i8 = ashr exact i64 %sext.i7, 32
-  %call4.i9 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %call2.i6, i64 noundef %conv3.i8) #40
+  %call4.i9 = tail call i32 @memcmp(ptr noundef readonly %9, ptr noundef %call2.i6, i64 noundef %conv3.i8) #40
   %tobool.not.i10 = icmp eq i32 %call4.i9, 0
   br i1 %tobool.not.i10, label %if.end.i12, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16
 
@@ -15394,7 +15394,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true3.land
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #34
   %sext.i = shl i64 %.sroa.speculated.i, 32
   %conv3.i = ashr exact i64 %sext.i, 32
-  %call4.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %call2.i, i64 noundef %conv3.i) #40
+  %call4.i = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef %call2.i, i64 noundef %conv3.i) #40
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i12, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15423,7 +15423,7 @@ land.lhs.true27:                                  ; preds = %if.end25
   %call2.i18 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #34
   %sext.i19 = shl i64 %.sroa.speculated.i17, 32
   %conv3.i20 = ashr exact i64 %sext.i19, 32
-  %call4.i21 = tail call i32 @memcmp(ptr noundef %5, ptr noundef %call2.i18, i64 noundef %conv3.i20) #40
+  %call4.i21 = tail call i32 @memcmp(ptr noundef readonly %5, ptr noundef %call2.i18, i64 noundef %conv3.i20) #40
   %tobool.not.i22 = icmp eq i32 %call4.i21, 0
   br i1 %tobool.not.i22, label %if.end.i24, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit28
 

@@ -732,12 +732,12 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   br i1 %67, label %._crit_edge.thread.i, label %68
 
 68:                                               ; preds = %65
-  %69 = call noalias ptr @strdup(ptr noundef nonnull %3) #9
+  %69 = call noalias ptr @strdup(ptr noundef nonnull readonly %3) #9
   %70 = icmp eq ptr %69, null
   br i1 %70, label %._crit_edge.thread.i, label %71
 
 71:                                               ; preds = %68
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
+  %72 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #10
   %73 = lshr i64 %72, 1
   %74 = add nuw i64 %73, 2
   %75 = call noalias ptr @calloc(i64 noundef %74, i64 noundef 8) #11

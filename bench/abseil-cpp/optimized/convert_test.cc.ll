@@ -47825,7 +47825,7 @@ _ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i.i) #28
-  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull align 8 dereferenceable(24) %type_names)
+  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -65980,7 +65980,7 @@ _ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i.i) #28
-  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull align 8 dereferenceable(24) %type_names)
+  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -80146,7 +80146,7 @@ invoke.cont44.i.i.i:                              ; preds = %invoke.cont40.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i) #28
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i, ptr noundef %23, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
           to label %invoke.cont14.i.i unwind label %lpad1.i.i
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %invoke.cont12.i.i
@@ -80601,7 +80601,7 @@ invoke.cont43.i.i.i.i:                            ; preds = %invoke.cont39.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i) #28
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
           to label %invoke.cont8.i112 unwind label %lpad1.i.i.i
 
 lpad.i.i41.i.i:                                   ; preds = %call.i.noexc.i.i.i.i, %invoke.cont12.i.i.i

@@ -2942,7 +2942,7 @@ if.end122:                                        ; preds = %invoke.cont107
   %44 = load ptr, ptr %sampleCountTablePtr.i, align 8
   %sampleCountTableSize.i = getelementptr inbounds i8, ptr %31, i64 80
   %45 = load i64, ptr %sampleCountTableSize.i, align 8
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114writePixelDataEPNS_17OutputStreamMutexEPNS_22DeepScanLineOutputFile4DataEiPKcmmS7_m(ptr noundef %39, ptr noundef nonnull %37, i32 noundef %40, ptr noundef %41, i64 noundef %42, i64 noundef %43, ptr noundef %44, i64 noundef %45)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114writePixelDataEPNS_17OutputStreamMutexEPNS_22DeepScanLineOutputFile4DataEiPKcmmS7_m(ptr noundef %39, ptr noundef nonnull readonly %37, i32 noundef %40, ptr noundef %41, i64 noundef %42, i64 noundef %43, ptr noundef %44, i64 noundef %45)
           to label %invoke.cont126 unwind label %lpad33.loopexit.loopexit
 
 invoke.cont126:                                   ; preds = %if.end122

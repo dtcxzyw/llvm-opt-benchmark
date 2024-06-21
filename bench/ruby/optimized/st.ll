@@ -1578,7 +1578,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %12
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %26
 
 26:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %19, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %19, i64 %25, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %26
@@ -1595,7 +1595,7 @@ rbimpl_size_mul_or_raise.exit19:                  ; preds = %ruby_nonempty_memcp
 
 31:                                               ; preds = %rbimpl_size_mul_or_raise.exit19
   %32 = load ptr, ptr %13, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %27, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %27, i64 %30, i1 false)
   br label %ruby_nonempty_memcpy.exit21
 
 ruby_nonempty_memcpy.exit21:                      ; preds = %31, %rbimpl_size_mul_or_raise.exit19, %ruby_nonempty_memcpy.exit
@@ -1608,7 +1608,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 48, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1652,7 +1652,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %12
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %27
 
 27:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %20, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr readonly align 1 %20, i64 %26, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %27, %rbimpl_size_mul_or_raise.exit.i
@@ -1668,7 +1668,7 @@ rbimpl_size_mul_or_raise.exit19.i:                ; preds = %ruby_nonempty_memcp
   br i1 %.not.i20.i, label %rb_st_replace.exit, label %32
 
 32:                                               ; preds = %rbimpl_size_mul_or_raise.exit19.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %28, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %28, i64 %31, i1 false)
   br label %rb_st_replace.exit
 
 rb_st_replace.exit:                               ; preds = %32, %rbimpl_size_mul_or_raise.exit19.i, %ruby_nonempty_memcpy.exit.i
@@ -3753,7 +3753,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %11
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %25
 
 25:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %20, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr readonly align 1 %20, i64 %24, i1 false)
   %.pre.i = load ptr, ptr %19, align 8
   br label %ruby_nonempty_memcpy.exit.i
 

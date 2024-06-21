@@ -47,7 +47,7 @@ define noundef ptr @Mio_ParseFormulaOper(ptr nocapture readnone %0, i32 noundef 
   br label %293
 
 19:                                               ; preds = %4
-  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef %16, ptr noundef %12, i32 noundef 1, i32 noundef 1)
+  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef readonly %16, ptr noundef readonly %12, i32 noundef 1, i32 noundef 1)
   %21 = getelementptr i8, ptr %20, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %22 = load i32, ptr %.val.i.i, align 4

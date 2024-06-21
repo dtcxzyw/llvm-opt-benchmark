@@ -3217,7 +3217,7 @@ entry:
   br i1 %cmp.i.i.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
+  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   %agg.tmp.sroa.0.0.copyload.i.i3.pre.i = load i64, ptr %selfHandle.coerce, align 8
   %.pre.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i3.pre.i, 281474976710655
   %.pre4.i = inttoptr i64 %.pre.i to ptr
@@ -3339,7 +3339,7 @@ entry:
   br i1 %cmp.i.i.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
+  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   %agg.tmp.sroa.0.0.copyload.i.i3.pre.i = load i64, ptr %selfHandle.coerce, align 8
   %.pre.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i3.pre.i, 281474976710655
   %.pre4.i = inttoptr i64 %.pre.i to ptr

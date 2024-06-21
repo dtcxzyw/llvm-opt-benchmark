@@ -1226,7 +1226,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   %330 = getelementptr inbounds i8, ptr %30, i64 152
   store ptr %329, ptr %330, align 8
   %331 = getelementptr inbounds i8, ptr %30, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %331, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %331, ptr noundef nonnull readonly align 8 dereferenceable(12) %0, i64 12, i1 false)
   %332 = getelementptr inbounds i8, ptr %12, i64 88
   %333 = load i32, ptr %332, align 8
   %334 = getelementptr inbounds i8, ptr %30, i64 172
@@ -3209,7 +3209,7 @@ _is_openmpi_port_error.exit:                      ; preds = %137, %139
   %.val103 = load ptr, ptr %154, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
   %155 = getelementptr inbounds i8, ptr %.val103, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %155, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %155, i64 12, i1 false)
   %.b4.i = load i1, ptr @retry_step_begin, align 1
   %.pre.i = load i32, ptr @retry_step_cnt, align 4
   br i1 %.b4.i, label %158, label %156

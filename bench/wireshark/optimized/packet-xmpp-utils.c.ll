@@ -495,7 +495,7 @@ define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %6, align 8
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #9
   %21 = trunc i64 %20 to i32
   %22 = shl i64 %20, 32
   %sext.i = add i64 %22, 4294967296
@@ -556,7 +556,7 @@ xmpp_ep_string_upcase.exit.tail:                  ; preds = %xmpp_ep_string_upca
   %48 = load ptr, ptr %7, align 8
   %49 = load ptr, ptr %6, align 8
   %50 = load ptr, ptr %9, align 8
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #9
+  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #9
   %52 = trunc i64 %51 to i32
   %53 = shl i64 %51, 32
   %sext.i31 = add i64 %53, 4294967296
@@ -672,7 +672,7 @@ define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, 
   %33 = load i32, ptr %24, align 4
   %34 = load ptr, ptr %25, align 8
   %35 = load ptr, ptr %28, align 8
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #9
+  %36 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #9
   %37 = trunc i64 %36 to i32
   %38 = shl i64 %36, 32
   %sext.i = add i64 %38, 4294967296
@@ -795,7 +795,7 @@ define hidden void @xmpp_simple_cdata_elem(ptr noundef %0, ptr noundef %1, ptr n
   %16 = getelementptr inbounds i8, ptr %2, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #9
   %20 = trunc i64 %19 to i32
   %21 = shl i64 %19, 32
   %sext.i = add i64 %21, 4294967296
@@ -2118,13 +2118,13 @@ xmpp_get_attr.exit.i:                             ; preds = %29, %.lr.ph.i
 
 36:                                               ; preds = %xmpp_get_attr.exit.i
   %37 = load ptr, ptr %25, align 8
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %22) #9
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %22) #9
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %xmpp_get_attr.exit.thread23.i
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %.012.i.i, align 8
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %24) #9
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %24) #9
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %select.unfold, label %xmpp_get_attr.exit.thread23.i
 
@@ -2214,7 +2214,7 @@ xmpp_get_attr.exit.i105:                          ; preds = %79, %.lr.ph.i102
 
 86:                                               ; preds = %xmpp_get_attr.exit.i105
   %87 = load ptr, ptr %.012.i.i106, align 8
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) %74) #9
+  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(1) %74) #9
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %select.unfold117, label %xmpp_get_attr.exit.thread21.i
 

@@ -1269,7 +1269,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %52 = extractvalue { ptr, i64 } %45, 0
   %53 = extractvalue { ptr, i64 } %44, 0
   %54 = mul i64 %47, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %53, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr readonly align 8 %53, i64 %54, i1 false)
   %55 = load i64, ptr %10, align 8, !noundef !3
   %56 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds i8, ptr %56, i64 802
@@ -1381,7 +1381,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %52 = extractvalue { ptr, i64 } %45, 0
   %53 = extractvalue { ptr, i64 } %44, 0
   %54 = mul i64 %47, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %53, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr readonly align 8 %53, i64 %54, i1 false)
   %55 = load i64, ptr %10, align 8, !noundef !3
   %56 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds i8, ptr %56, i64 802
@@ -1493,7 +1493,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %52 = extractvalue { ptr, i64 } %45, 0
   %53 = extractvalue { ptr, i64 } %44, 0
   %54 = mul i64 %47, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %53, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr readonly align 8 %53, i64 %54, i1 false)
   %55 = load i64, ptr %10, align 8, !noundef !3
   %56 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds i8, ptr %56, i64 802
@@ -1605,7 +1605,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %52 = extractvalue { ptr, i64 } %45, 0
   %53 = extractvalue { ptr, i64 } %44, 0
   %54 = mul i64 %47, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %53, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr readonly align 8 %53, i64 %54, i1 false)
   %55 = load i64, ptr %10, align 8, !noundef !3
   %56 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds i8, ptr %56, i64 802
@@ -1852,7 +1852,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 32:                                               ; preds = %26, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h29d664afafcdf048E.exit"
   %33 = getelementptr inbounds { [6 x i64] }, ptr %21, i64 %23
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false)
   %34 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %35 = getelementptr inbounds i8, ptr %34, i64 802
   %36 = trunc i64 %11 to i16
@@ -1936,7 +1936,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 32:                                               ; preds = %26, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h841d5073a8771142E.exit"
   %33 = getelementptr inbounds { [6 x i64] }, ptr %21, i64 %23
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false)
   %34 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %35 = getelementptr inbounds i8, ptr %34, i64 802
   %36 = trunc i64 %11 to i16
@@ -2334,7 +2334,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %43 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %43)
   store ptr %39, ptr %6, align 8
-  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h20d1aadbbda0a8cdE"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }) align 8 %5, ptr nonnull align 8 %12, ptr nonnull align 8 %39)
+  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h20d1aadbbda0a8cdE"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }) align 8 %5, ptr nonnull readonly align 8 %12, ptr nonnull align 8 %39)
           to label %48 unwind label %44
 
 44:                                               ; preds = %.noexc
@@ -2494,7 +2494,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %43 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %43)
   store ptr %39, ptr %6, align 8
-  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h9ccb48a681e10f2aE"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %5, ptr nonnull align 8 %12, ptr nonnull align 8 %39)
+  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h9ccb48a681e10f2aE"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %5, ptr nonnull readonly align 8 %12, ptr nonnull align 8 %39)
           to label %48 unwind label %44
 
 44:                                               ; preds = %.noexc
@@ -2655,7 +2655,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %36 = extractvalue { ptr, i64 } %29, 0
   %37 = extractvalue { ptr, i64 } %24, 0
   %38 = shl i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr readonly align 8 %37, i64 %38, i1 false)
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8, !noundef !3
   %41 = load i16, ptr %11, align 2, !noundef !3
@@ -2805,7 +2805,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %36 = extractvalue { ptr, i64 } %29, 0
   %37 = extractvalue { ptr, i64 } %24, 0
   %38 = shl i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr readonly align 8 %37, i64 %38, i1 false)
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8, !noundef !3
   %41 = load i16, ptr %11, align 2, !noundef !3
@@ -2923,7 +2923,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h5a6649dcc10f3764E.exit": ; preds = %28, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h8e172c1fb66862cdE.exit"
   %34 = getelementptr inbounds { [6 x i64] }, ptr %23, i64 %25
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false)
   %35 = add nuw nsw i64 %12, 2
   %36 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %37 = getelementptr inbounds i8, ptr %36, i64 808
@@ -3060,7 +3060,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h6e33ed09111e5ba6E.exit": ; preds = %28, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17hca54d06e95efffe3E.exit"
   %34 = getelementptr inbounds { [6 x i64] }, ptr %23, i64 %25
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false)
   %35 = add nuw nsw i64 %12, 2
   %36 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %37 = getelementptr inbounds i8, ptr %36, i64 808

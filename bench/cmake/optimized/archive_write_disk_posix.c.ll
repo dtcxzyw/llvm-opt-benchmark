@@ -1446,7 +1446,7 @@ current_fixup.exit:                               ; preds = %350
   %354 = load ptr, ptr %353, align 8
   store ptr %354, ptr %351, align 8
   store ptr %351, ptr %353, align 8
-  %355 = call noalias ptr @strdup(ptr noundef %347) #19
+  %355 = call noalias ptr @strdup(ptr noundef readonly %347) #19
   %356 = getelementptr inbounds i8, ptr %351, i64 168
   store ptr %355, ptr %356, align 8
   store ptr %351, ptr %19, align 8
@@ -1504,7 +1504,7 @@ current_fixup.exit214:                            ; preds = %376
   %380 = load ptr, ptr %379, align 8
   store ptr %380, ptr %377, align 8
   store ptr %377, ptr %379, align 8
-  %381 = call noalias ptr @strdup(ptr noundef %373) #19
+  %381 = call noalias ptr @strdup(ptr noundef readonly %373) #19
   %382 = getelementptr inbounds i8, ptr %377, i64 168
   store ptr %381, ptr %382, align 8
   store ptr %377, ptr %19, align 8
@@ -1618,7 +1618,7 @@ current_fixup.exit216:                            ; preds = %431
   %435 = load ptr, ptr %434, align 8
   store ptr %435, ptr %432, align 8
   store ptr %432, ptr %434, align 8
-  %436 = call noalias ptr @strdup(ptr noundef %428) #19
+  %436 = call noalias ptr @strdup(ptr noundef readonly %428) #19
   %437 = getelementptr inbounds i8, ptr %432, i64 168
   store ptr %436, ptr %437, align 8
   store ptr %432, ptr %19, align 8
@@ -2319,7 +2319,7 @@ current_fixup.exit.i:                             ; preds = %295
   %299 = load ptr, ptr %298, align 8
   store ptr %299, ptr %296, align 8
   store ptr %296, ptr %298, align 8
-  %300 = call noalias ptr @strdup(ptr noundef %291) #19
+  %300 = call noalias ptr @strdup(ptr noundef readonly %291) #19
   %301 = getelementptr inbounds i8, ptr %296, i64 168
   store ptr %300, ptr %301, align 8
   store ptr %296, ptr %292, align 8
@@ -2922,7 +2922,7 @@ define internal fastcc ptr @current_fixup(ptr noundef %0, ptr nocapture noundef 
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %7, align 8
   store ptr %7, ptr %11, align 8
-  %13 = tail call noalias ptr @strdup(ptr noundef %1) #19
+  %13 = tail call noalias ptr @strdup(ptr noundef readonly %1) #19
   %14 = getelementptr inbounds i8, ptr %7, i64 168
   store ptr %13, ptr %14, align 8
   br label %new_fixup.exit
@@ -3831,7 +3831,7 @@ new_fixup.exit.thread:                            ; preds = %53
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %54, align 8
   store ptr %54, ptr %57, align 8
-  %59 = tail call noalias ptr @strdup(ptr noundef %1) #19
+  %59 = tail call noalias ptr @strdup(ptr noundef readonly %1) #19
   %60 = getelementptr inbounds i8, ptr %54, i64 168
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %54, i64 160

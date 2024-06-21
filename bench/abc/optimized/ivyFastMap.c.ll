@@ -621,15 +621,15 @@ Abc_Clock.exit139:                                ; preds = %253, %256
   br i1 %294, label %295, label %298
 
 295:                                              ; preds = %272
-  %296 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull %0, i32 %.val78.i)
+  %296 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val78.i)
   %.val11.i.i = load i32, ptr %266, align 8
-  %297 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull %0, i32 %.val11.i.i)
+  %297 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull readonly %0, i32 %.val11.i.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit.i
 
 298:                                              ; preds = %272
-  %299 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull %0, i32 %.val78.i)
+  %299 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull readonly %0, i32 %.val78.i)
   %.val12.i.i = load i32, ptr %266, align 8
-  %300 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull %0, i32 %.val12.i.i)
+  %300 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val12.i.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit.i
 
 Ivy_FastMapNodeAreaDerefed.exit.i:                ; preds = %298, %295
@@ -640,7 +640,7 @@ Ivy_FastMapNodeAreaDerefed.exit.i:                ; preds = %298, %295
   br i1 %.not.i142, label %Ivy_FastMapNodeAreaDerefed.exit.i.thread, label %Ivy_FastMapNodeAreaDerefed.exit.i.thread199
 
 Ivy_FastMapNodeAreaDerefed.exit.i.thread199:      ; preds = %Ivy_FastMapNodeAreaDerefed.exit.i
-  %301 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull %0, i32 %.val88.pre128.i)
+  %301 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull readonly %0, i32 %.val88.pre128.i)
   %.val88.pre.i = load i32, ptr %266, align 8
   br label %Ivy_FastMapNodeAreaDerefed.exit.i.thread
 
@@ -879,9 +879,9 @@ Ivy_FastMapNodeDelay.exit122.i:                   ; preds = %._crit_edge.loopexi
 
 403:                                              ; preds = %Ivy_FastMapNodeDelay.exit122.i
   %.val8.i125.i = load i32, ptr %266, align 8
-  %404 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull %0, i32 %.val8.i125.i)
+  %404 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val8.i125.i)
   %.val11.i126.i = load i32, ptr %266, align 8
-  %405 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull %0, i32 %.val11.i126.i)
+  %405 = call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull readonly %0, i32 %.val11.i126.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit127.i
 
 Ivy_FastMapNodeAreaDerefed.exit127.i:             ; preds = %403, %Ivy_FastMapNodeDelay.exit122.i, %Ivy_FastMapNodeDelay.exit122.i
@@ -913,7 +913,7 @@ Ivy_FastMapNodeAreaDerefed.exit127.i:             ; preds = %403, %Ivy_FastMapNo
 
 418:                                              ; preds = %417
   %.val91.i = load i32, ptr %266, align 8
-  %419 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull %0, i32 %.val91.i)
+  %419 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val91.i)
   br label %Ivy_FastMapNodeArea.exit
 
 Ivy_FastMapNodeArea.exit:                         ; preds = %418, %417, %.lr.ph226, %268
@@ -1641,9 +1641,9 @@ Ivy_FastMapNodeDelay.exit.i:                      ; preds = %._crit_edge.loopexi
 
 63:                                               ; preds = %61
   %.val8.i.i = load i32, ptr %30, align 8
-  %64 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i.i)
+  %64 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i.i)
   %.val12.i.i = load i32, ptr %30, align 8
-  %65 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i.i)
+  %65 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i.i)
   br label %Ivy_FastMapNodeAreaRefed.exit.i
 
 Ivy_FastMapNodeAreaRefed.exit.i:                  ; preds = %63, %61, %61
@@ -1948,7 +1948,7 @@ Ivy_FastMapNodeFaninCost.exit.i:                  ; preds = %194, %188
 
 Ivy_FastMapNodeFaninCompact_int.exit.i.i:         ; preds = %Ivy_FastMapNodeFaninCost.exit.i80, %Ivy_FastMapNodeFaninCost.exit.i55, %Ivy_FastMapNodeFaninCost.exit.i
   %.lcssa111.sink = phi ptr [ %163, %Ivy_FastMapNodeFaninCost.exit.i ], [ %120, %Ivy_FastMapNodeFaninCost.exit.i55 ], [ %71, %Ivy_FastMapNodeFaninCost.exit.i80 ]
-  tail call void @Ivy_FastMapNodeFaninUpdate(ptr noundef nonnull %0, ptr noundef nonnull %.lcssa111.sink, ptr noundef nonnull %3)
+  tail call void @Ivy_FastMapNodeFaninUpdate(ptr noundef nonnull readonly %0, ptr noundef nonnull %.lcssa111.sink, ptr noundef nonnull %3)
   %.val.i57 = load i32, ptr %5, align 4
   %204 = icmp sgt i32 %.val.i57, 0
   br i1 %204, label %.lr.ph.i58, label %Ivy_FastMapCutCost.exit74.i, !llvm.loop !22
@@ -1967,7 +1967,7 @@ Ivy_FastMapCutCost.exit74.i:                      ; preds = %Ivy_FastMapNodeFani
   %209 = mul nsw i32 %.val16.val.i76.i, %.val17.i.i
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr %.val16.val18.i77.i, i64 %210
-  %212 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val17.i.i)
+  %212 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val17.i.i)
   %213 = trunc i32 %.val.i57131 to i8
   store i8 %213, ptr %211, align 4
   br i1 %205, label %.lr.ph.i79.i, label %Ivy_FastMapNodeUpdate.exit.i
@@ -1991,7 +1991,7 @@ Ivy_FastMapCutCost.exit74.i:                      ; preds = %Ivy_FastMapNodeFani
 
 Ivy_FastMapNodeUpdate.exit.i:                     ; preds = %216, %Ivy_FastMapCutCost.exit74.i
   %.val21.i.i = load i32, ptr %30, align 8
-  %221 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val21.i.i)
+  %221 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val21.i.i)
   %.val45.i = load i32, ptr %30, align 8
   %.val16.i83.i = load ptr, ptr %24, align 8
   %222 = getelementptr i8, ptr %.val16.i83.i, i64 8
@@ -2050,9 +2050,9 @@ Ivy_FastMapNodeDelay.exit100.i:                   ; preds = %._crit_edge.loopexi
 
 244:                                              ; preds = %Ivy_FastMapNodeDelay.exit100.i
   %.val8.i103.i = load i32, ptr %30, align 8
-  %245 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i103.i)
+  %245 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i103.i)
   %.val12.i104.i = load i32, ptr %30, align 8
-  %246 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i104.i)
+  %246 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i104.i)
   br label %Ivy_FastMapNodeAreaRefed.exit105.i
 
 Ivy_FastMapNodeAreaRefed.exit105.i:               ; preds = %244, %Ivy_FastMapNodeDelay.exit100.i, %Ivy_FastMapNodeDelay.exit100.i
@@ -2077,7 +2077,7 @@ Ivy_FastMapNodeAreaRefed.exit105.i:               ; preds = %244, %Ivy_FastMapNo
   %256 = mul nsw i32 %.val16.val.i108.i, %.val17.i107.i
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds i8, ptr %.val16.val18.i109.i, i64 %257
-  %259 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val17.i107.i)
+  %259 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val17.i107.i)
   %.val15.i110.i = load i32, ptr %13, align 4
   %260 = trunc i32 %.val15.i110.i to i8
   store i8 %260, ptr %258, align 4
@@ -2103,7 +2103,7 @@ Ivy_FastMapNodeAreaRefed.exit105.i:               ; preds = %244, %Ivy_FastMapNo
 
 Ivy_FastMapNodeUpdate.exit118.i:                  ; preds = %264, %253
   %.val21.i112.i = load i32, ptr %30, align 8
-  %269 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val21.i112.i)
+  %269 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val21.i112.i)
   %.val10.i119.i = load i32, ptr %33, align 8
   %270 = and i32 %.val10.i119.i, 15
   switch i32 %270, label %271 [
@@ -2113,9 +2113,9 @@ Ivy_FastMapNodeUpdate.exit118.i:                  ; preds = %264, %253
 
 271:                                              ; preds = %Ivy_FastMapNodeUpdate.exit118.i
   %.val8.i121.i = load i32, ptr %30, align 8
-  %272 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i121.i)
+  %272 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i121.i)
   %.val12.i122.i = load i32, ptr %30, align 8
-  %273 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i122.i)
+  %273 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i122.i)
   br label %Ivy_FastMapNodeAreaRefed.exit123.i
 
 Ivy_FastMapNodeAreaRefed.exit123.i:               ; preds = %271, %Ivy_FastMapNodeUpdate.exit118.i, %Ivy_FastMapNodeUpdate.exit118.i
@@ -3775,7 +3775,7 @@ define void @Ivy_FastMapNodeFaninCompact(ptr nocapture noundef readonly %0, ptr 
   br label %Ivy_FastMapNodeFaninCompact_int.exit
 
 Ivy_FastMapNodeFaninCompact_int.exit:             ; preds = %Ivy_FastMapNodeFaninCompact_int.exit.backedge, %4
-  %6 = tail call i32 @Ivy_FastMapNodeFaninCompact0(ptr noundef %0, ptr poison, i32 poison, ptr noundef %3)
+  %6 = tail call i32 @Ivy_FastMapNodeFaninCompact0(ptr noundef readonly %0, ptr readnone poison, i32 poison, ptr noundef %3)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %Ivy_FastMapNodeFaninCompact_int.exit.backedge
 
@@ -3788,7 +3788,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.backedge:    ; preds = %Ivy_FastMapNodeFani
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @Ivy_FastMapNodeFaninCompact1(ptr noundef %0, ptr poison, i32 poison, ptr noundef nonnull %3)
+  %10 = tail call i32 @Ivy_FastMapNodeFaninCompact1(ptr noundef readonly %0, ptr readnone poison, i32 poison, ptr noundef nonnull %3)
   %.not17.i = icmp eq i32 %10, 0
   br i1 %.not17.i, label %._crit_edge.i, label %Ivy_FastMapNodeFaninCompact_int.exit.backedge
 
@@ -3802,7 +3802,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.backedge:    ; preds = %Ivy_FastMapNodeFani
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @Ivy_FastMapNodeFaninCompact2(ptr noundef %0, ptr poison, i32 poison, ptr noundef nonnull %3)
+  %14 = tail call i32 @Ivy_FastMapNodeFaninCompact2(ptr noundef readonly %0, ptr readnone poison, i32 poison, ptr noundef nonnull %3)
   %.not18.i = icmp eq i32 %14, 0
   br i1 %.not18.i, label %15, label %Ivy_FastMapNodeFaninCompact_int.exit.backedge
 
@@ -4204,9 +4204,9 @@ define void @Ivy_FastMapNodeRecover2(ptr noundef %0, ptr nocapture noundef %1, i
   ]
 
 18:                                               ; preds = %17
-  %19 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull %0, i32 %.val40)
+  %19 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val40)
   %.val11.i = load i32, ptr %1, align 8
-  %20 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull %0, i32 %.val11.i)
+  %20 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull readonly %0, i32 %.val11.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit
 
 21:                                               ; preds = %5
@@ -4216,9 +4216,9 @@ define void @Ivy_FastMapNodeRecover2(ptr noundef %0, ptr nocapture noundef %1, i
   ]
 
 22:                                               ; preds = %21
-  %23 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull %0, i32 %.val40)
+  %23 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef nonnull readonly %0, i32 %.val40)
   %.val12.i = load i32, ptr %1, align 8
-  %24 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull %0, i32 %.val12.i)
+  %24 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val12.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit
 
 Ivy_FastMapNodeAreaDerefed.exit:                  ; preds = %22, %18
@@ -4245,7 +4245,7 @@ Ivy_FastMapNodeAreaDerefed.exit.thread.thread100: ; preds = %21, %21, %Ivy_FastM
   br label %Ivy_FastMapNodeFaninCompact_int.exit.i
 
 Ivy_FastMapNodeFaninCompact_int.exit.i:           ; preds = %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge, %Ivy_FastMapNodeAreaDerefed.exit.thread.thread100
-  %29 = tail call i32 @Ivy_FastMapNodeFaninCompact0(ptr noundef %0, ptr nonnull poison, i32 poison, ptr noundef %3)
+  %29 = tail call i32 @Ivy_FastMapNodeFaninCompact0(ptr noundef readonly %0, ptr nonnull readnone poison, i32 poison, ptr noundef %3)
   %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %30, label %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge
 
@@ -4255,7 +4255,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.i:           ; preds = %Ivy_FastMapNodeFani
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = tail call i32 @Ivy_FastMapNodeFaninCompact1(ptr noundef %0, ptr nonnull poison, i32 poison, ptr noundef nonnull %3)
+  %33 = tail call i32 @Ivy_FastMapNodeFaninCompact1(ptr noundef readonly %0, ptr nonnull readnone poison, i32 poison, ptr noundef nonnull %3)
   %.not17.i.i = icmp eq i32 %33, 0
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge
 
@@ -4269,7 +4269,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.i:           ; preds = %Ivy_FastMapNodeFani
   br i1 %35, label %36, label %Ivy_FastMapCutCost.exit65
 
 36:                                               ; preds = %34
-  %37 = tail call i32 @Ivy_FastMapNodeFaninCompact2(ptr noundef %0, ptr nonnull poison, i32 poison, ptr noundef nonnull %3)
+  %37 = tail call i32 @Ivy_FastMapNodeFaninCompact2(ptr noundef readonly %0, ptr nonnull readnone poison, i32 poison, ptr noundef nonnull %3)
   %.not18.i.i = icmp eq i32 %37, 0
   br i1 %.not18.i.i, label %Ivy_FastMapCutCost.exit65, label %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge
 
@@ -4286,7 +4286,7 @@ Ivy_FastMapCutCost.exit65:                        ; preds = %36, %34
   %40 = mul nsw i32 %.val16.val.i, %.val17.i
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %.val16.val18.i, i64 %41
-  %43 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val17.i)
+  %43 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val17.i)
   %.val15.i = load i32, ptr %28, align 4
   %44 = trunc i32 %.val15.i to i8
   store i8 %44, ptr %42, align 4
@@ -4315,7 +4315,7 @@ Ivy_FastMapCutCost.exit65:                        ; preds = %36, %34
 
 Ivy_FastMapNodeUpdate.exit:                       ; preds = %48, %Ivy_FastMapCutCost.exit65
   %.val21.i = load i32, ptr %1, align 8
-  %55 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val21.i)
+  %55 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val21.i)
   %56 = getelementptr i8, ptr %1, i64 8
   %.val10.i70 = load i32, ptr %56, align 8
   %57 = and i32 %.val10.i70, 15
@@ -4326,9 +4326,9 @@ Ivy_FastMapNodeUpdate.exit:                       ; preds = %48, %Ivy_FastMapCut
 
 58:                                               ; preds = %Ivy_FastMapNodeUpdate.exit
   %.val8.i72 = load i32, ptr %1, align 8
-  %59 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i72)
+  %59 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i72)
   %.val12.i73 = load i32, ptr %1, align 8
-  %60 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i73)
+  %60 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i73)
   br label %Ivy_FastMapNodeAreaRefed.exit74
 
 Ivy_FastMapNodeAreaRefed.exit74:                  ; preds = %Ivy_FastMapNodeUpdate.exit, %Ivy_FastMapNodeUpdate.exit, %58
@@ -4346,7 +4346,7 @@ Ivy_FastMapNodeAreaRefed.exit74:                  ; preds = %Ivy_FastMapNodeUpda
   %65 = mul nsw i32 %.val16.val.i77, %.val17.i76
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %.val16.val18.i78, i64 %66
-  %68 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val17.i76)
+  %68 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val17.i76)
   %69 = getelementptr i8, ptr %4, i64 4
   %.val15.i79 = load i32, ptr %69, align 4
   %70 = trunc i32 %.val15.i79 to i8
@@ -4376,7 +4376,7 @@ Ivy_FastMapNodeAreaRefed.exit74:                  ; preds = %Ivy_FastMapNodeUpda
 
 Ivy_FastMapNodeUpdate.exit87:                     ; preds = %74, %62
   %.val21.i81 = load i32, ptr %1, align 8
-  %81 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val21.i81)
+  %81 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val21.i81)
   %.val10.i88 = load i32, ptr %56, align 8
   %82 = and i32 %.val10.i88, 15
   switch i32 %82, label %83 [
@@ -4386,9 +4386,9 @@ Ivy_FastMapNodeUpdate.exit87:                     ; preds = %74, %62
 
 83:                                               ; preds = %Ivy_FastMapNodeUpdate.exit87
   %.val8.i90 = load i32, ptr %1, align 8
-  %84 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i90)
+  %84 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i90)
   %.val12.i91 = load i32, ptr %1, align 8
-  %85 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i91)
+  %85 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i91)
   br label %Ivy_FastMapNodeAreaRefed.exit92
 
 Ivy_FastMapNodeAreaRefed.exit92:                  ; preds = %83, %Ivy_FastMapNodeUpdate.exit87, %Ivy_FastMapNodeUpdate.exit87, %Ivy_FastMapNodeAreaRefed.exit74
@@ -4476,9 +4476,9 @@ Ivy_FastMapNodeDelay.exit:                        ; preds = %5, %._crit_edge.loo
 
 36:                                               ; preds = %35
   %.val8.i = load i32, ptr %1, align 8
-  %37 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val8.i)
+  %37 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val8.i)
   %.val11.i = load i32, ptr %1, align 8
-  %38 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val11.i)
+  %38 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val11.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit
 
 39:                                               ; preds = %Ivy_FastMapNodeDelay.exit
@@ -4489,9 +4489,9 @@ Ivy_FastMapNodeDelay.exit:                        ; preds = %5, %._crit_edge.loo
 
 40:                                               ; preds = %39
   %.val8.i58 = load i32, ptr %1, align 8
-  %41 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i58)
+  %41 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i58)
   %.val12.i = load i32, ptr %1, align 8
-  %42 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i)
+  %42 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i)
   br label %Ivy_FastMapNodeAreaDerefed.exit
 
 Ivy_FastMapNodeAreaDerefed.exit:                  ; preds = %40, %36
@@ -4518,7 +4518,7 @@ Ivy_FastMapNodeAreaDerefed.exit.thread.thread142: ; preds = %39, %39, %Ivy_FastM
   br label %Ivy_FastMapNodeFaninCompact_int.exit.i
 
 Ivy_FastMapNodeFaninCompact_int.exit.i:           ; preds = %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge, %Ivy_FastMapNodeAreaDerefed.exit.thread.thread142
-  %47 = tail call i32 @Ivy_FastMapNodeFaninCompact0(ptr noundef %0, ptr poison, i32 poison, ptr noundef %3)
+  %47 = tail call i32 @Ivy_FastMapNodeFaninCompact0(ptr noundef readonly %0, ptr readnone poison, i32 poison, ptr noundef %3)
   %.not.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i, label %48, label %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge
 
@@ -4528,7 +4528,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.i:           ; preds = %Ivy_FastMapNodeFani
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
-  %51 = tail call i32 @Ivy_FastMapNodeFaninCompact1(ptr noundef %0, ptr poison, i32 poison, ptr noundef nonnull %3)
+  %51 = tail call i32 @Ivy_FastMapNodeFaninCompact1(ptr noundef readonly %0, ptr readnone poison, i32 poison, ptr noundef nonnull %3)
   %.not17.i.i = icmp eq i32 %51, 0
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge
 
@@ -4542,7 +4542,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.i:           ; preds = %Ivy_FastMapNodeFani
   br i1 %53, label %54, label %Ivy_FastMapCutCost.exit85
 
 54:                                               ; preds = %52
-  %55 = tail call i32 @Ivy_FastMapNodeFaninCompact2(ptr noundef %0, ptr poison, i32 poison, ptr noundef nonnull %3)
+  %55 = tail call i32 @Ivy_FastMapNodeFaninCompact2(ptr noundef readonly %0, ptr readnone poison, i32 poison, ptr noundef nonnull %3)
   %.not18.i.i = icmp eq i32 %55, 0
   br i1 %.not18.i.i, label %Ivy_FastMapCutCost.exit85, label %Ivy_FastMapNodeFaninCompact_int.exit.i.backedge
 
@@ -4559,7 +4559,7 @@ Ivy_FastMapCutCost.exit85:                        ; preds = %54, %52
   %58 = mul nsw i32 %.val16.val.i87, %.val17.i
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %.val16.val18.i88, i64 %59
-  %61 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val17.i)
+  %61 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val17.i)
   %.val15.i89 = load i32, ptr %46, align 4
   %62 = trunc i32 %.val15.i89 to i8
   store i8 %62, ptr %60, align 4
@@ -4588,7 +4588,7 @@ Ivy_FastMapCutCost.exit85:                        ; preds = %54, %52
 
 Ivy_FastMapNodeUpdate.exit:                       ; preds = %66, %Ivy_FastMapCutCost.exit85
   %.val21.i = load i32, ptr %1, align 8
-  %73 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val21.i)
+  %73 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val21.i)
   %.val52 = load i32, ptr %1, align 8
   %.val16.i94 = load ptr, ptr %6, align 8
   %74 = getelementptr i8, ptr %.val16.i94, i64 8
@@ -4649,9 +4649,9 @@ Ivy_FastMapNodeDelay.exit111:                     ; preds = %Ivy_FastMapNodeUpda
 
 98:                                               ; preds = %Ivy_FastMapNodeDelay.exit111
   %.val8.i114 = load i32, ptr %1, align 8
-  %99 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i114)
+  %99 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i114)
   %.val12.i115 = load i32, ptr %1, align 8
-  %100 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i115)
+  %100 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i115)
   br label %Ivy_FastMapNodeAreaRefed.exit116
 
 Ivy_FastMapNodeAreaRefed.exit116:                 ; preds = %Ivy_FastMapNodeDelay.exit111, %Ivy_FastMapNodeDelay.exit111, %98
@@ -4676,7 +4676,7 @@ Ivy_FastMapNodeAreaRefed.exit116:                 ; preds = %Ivy_FastMapNodeDela
   %110 = mul nsw i32 %.val16.val.i119, %.val17.i118
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %.val16.val18.i120, i64 %111
-  %113 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val17.i118)
+  %113 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val17.i118)
   %114 = getelementptr i8, ptr %4, i64 4
   %.val15.i121 = load i32, ptr %114, align 4
   %115 = trunc i32 %.val15.i121 to i8
@@ -4706,7 +4706,7 @@ Ivy_FastMapNodeAreaRefed.exit116:                 ; preds = %Ivy_FastMapNodeDela
 
 Ivy_FastMapNodeUpdate.exit129:                    ; preds = %119, %107
   %.val21.i123 = load i32, ptr %1, align 8
-  %126 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val21.i123)
+  %126 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val21.i123)
   %.val10.i130 = load i32, ptr %96, align 8
   %127 = and i32 %.val10.i130, 15
   switch i32 %127, label %128 [
@@ -4716,9 +4716,9 @@ Ivy_FastMapNodeUpdate.exit129:                    ; preds = %119, %107
 
 128:                                              ; preds = %Ivy_FastMapNodeUpdate.exit129
   %.val8.i132 = load i32, ptr %1, align 8
-  %129 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef %0, i32 %.val8.i132)
+  %129 = tail call fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly %0, i32 %.val8.i132)
   %.val12.i133 = load i32, ptr %1, align 8
-  %130 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef %0, i32 %.val12.i133)
+  %130 = tail call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly %0, i32 %.val12.i133)
   br label %Ivy_FastMapNodeAreaRefed.exit134
 
 Ivy_FastMapNodeAreaRefed.exit134:                 ; preds = %Ivy_FastMapNodeUpdate.exit129, %Ivy_FastMapNodeUpdate.exit129, %128

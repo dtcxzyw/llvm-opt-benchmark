@@ -697,7 +697,7 @@ lor.rhs:                                          ; preds = %if.else10
 
 lor.end:                                          ; preds = %lor.rhs, %if.else10
   %conv21 = trunc i64 %call13 to i32
-  %call.i = call i64 @strspn(ptr noundef %call14, ptr noundef nonnull @.str.50) #10
+  %call.i = call i64 @strspn(ptr noundef readonly %call14, ptr noundef nonnull @.str.50) #10
   %add.ptr.i = getelementptr inbounds i8, ptr %call14, i64 %call.i
   %3 = load i8, ptr %add.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %3, 45

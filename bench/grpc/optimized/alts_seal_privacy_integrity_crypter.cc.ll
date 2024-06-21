@@ -23,7 +23,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 20)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i, ptr noundef nonnull align 16 dereferenceable(20) @__const._Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i, ptr noundef nonnull readonly align 16 dereferenceable(20) @__const._Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg, i64 20, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -70,7 +70,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %if.then3.i
   %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 19)
   store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull align 16 dereferenceable(19) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull readonly align 16 dereferenceable(19) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg, i64 19, i1 false)
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -85,7 +85,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 if.then.i7.i:                                     ; preds = %if.then6.i
   %call2.i10.i = tail call ptr @gpr_malloc(i64 noundef 77)
   store ptr %call2.i10.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %call2.i10.i, ptr noundef nonnull align 16 dereferenceable(77) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg.1, i64 77, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %call2.i10.i, ptr noundef nonnull readonly align 16 dereferenceable(77) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg.1, i64 77, i1 false)
   br label %return
 
 if.end:                                           ; preds = %if.end4.i

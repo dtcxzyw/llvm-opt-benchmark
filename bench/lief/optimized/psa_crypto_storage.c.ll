@@ -178,7 +178,7 @@ define hidden range(i32 -153, 1) i32 @psa_parse_key_data_from_storage(ptr nocapt
   br i1 %6, label %55, label %7
 
 7:                                                ; preds = %5
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %8, label %55
 
@@ -377,7 +377,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %84 = getelementptr inbounds i8, ptr %12, i64 33
   store i8 %83, ptr %84, align 1
   %85 = getelementptr inbounds i8, ptr %12, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   %87 = load i32, ptr %86, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -496,7 +496,7 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   br i1 %22, label %psa_parse_key_data_from_storage.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %14, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %14, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %24, label %psa_parse_key_data_from_storage.exit.thread
 
@@ -544,7 +544,7 @@ psa_crypto_storage_load.exit:                     ; preds = %18
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %14, i64 36
   %52 = load i64, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %51, i64 %52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %51, i64 %52, i1 false)
   br label %53
 
 53:                                               ; preds = %50, %46

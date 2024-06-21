@@ -19446,7 +19446,7 @@ define void @_ZTv0_n280_N3nix11RemoteStore13optimiseStoreEv(ptr nocapture nounde
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %3, ptr noundef nonnull align 8 dereferenceable(25) %7)
+  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(25) %7)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
@@ -20246,7 +20246,7 @@ define void @_ZTv0_n376_N3nix11RemoteStore10getVersionB5cxx11Ev(ptr dead_on_unwi
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %3, ptr noundef nonnull align 8 dereferenceable(25) %7), !noalias !131
+  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(25) %7), !noalias !131
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !131
   %10 = getelementptr inbounds i8, ptr %9, i64 208
@@ -20293,7 +20293,7 @@ define void @_ZTv0_n336_N3nix11RemoteStore7connectEv(ptr nocapture noundef reado
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %2, ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %2, ptr noundef nonnull readonly align 8 dereferenceable(25) %6)
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   ret void
@@ -20353,7 +20353,7 @@ define i16 @_ZTv0_n352_N3nix11RemoteStore15isTrustedClientEv(ptr nocapture nound
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %2, ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %2, ptr noundef nonnull readonly align 8 dereferenceable(25) %6)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 172
@@ -45407,7 +45407,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore10addToStoreERKNS1_13ValidPathInfoERNS1_6SourceENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
@@ -45742,7 +45742,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

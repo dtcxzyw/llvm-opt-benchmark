@@ -2015,7 +2015,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit.i.i.i.i: ; preds =
   store i32 -1, ptr %elf_type.i.i.i.i.i.i, align 4
   %elf_header2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i36.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %elf_header2.i.i.i.i.i.i, i8 0, i64 288, i1 false)
-  %call.i.i27.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cursor.335.i.i.i.i) #22
+  %call.i.i27.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %cursor.335.i.i.i.i) #22
   %add.i37.i.i.i.i = add i64 %call.i.i27.i.i.i, 1
   %75 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i38.i.i.i.i = inttoptr i64 %75 to ptr
@@ -2034,7 +2034,7 @@ do.body4.i.i.i.i.i:                               ; preds = %call3.i.i.noexc.i.i
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i37.i.i.i, ptr align 1 %cursor.335.i.i.i.i, i64 %add.i37.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i37.i.i.i, ptr readonly align 1 %cursor.335.i.i.i.i, i64 %add.i37.i.i.i.i, i1 false)
   store ptr %call3.i.i37.i.i.i, ptr %arrayidx.i36.i.i.i.i, align 8
   %start_addr44.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i36.i.i.i.i, i64 8
   store ptr %start_address.137.i.i.i.i, ptr %start_addr44.i.i.i.i, align 8
@@ -3306,7 +3306,7 @@ for.body.i.i139.i.i:                              ; preds = %for.body.i.i139.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %for.body.i.i139.i.i
   store ptr %pc, ptr %arrayidx.i.i4.i.le, align 8
-  %call.i.i142.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %symbol_buf_.i) #22
+  %call.i.i142.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #22
   %add.i.i143.i.i = add i64 %call.i.i142.i.i, 1
   %158 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %158 to ptr
@@ -3319,7 +3319,7 @@ do.body4.i.i.i.i:                                 ; preds = %_ZN4absl18debugging
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i144.i.i, ptr nonnull align 2 %symbol_buf_.i, i64 %add.i.i143.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i144.i.i, ptr nonnull readonly align 2 %symbol_buf_.i, i64 %add.i.i143.i.i, i1 false)
   %name8.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i133.i.i, i64 32
   %arrayidx9.i.i.i = getelementptr inbounds [4 x ptr], ptr %name8.i.i.i, i64 0, i64 %i.052.i.i.i
   store ptr %call3.i.i144.i.i, ptr %arrayidx9.i.i.i, align 8
@@ -3360,7 +3360,7 @@ do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging
   call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %161)
   %arrayidx29.i.i.i = getelementptr inbounds [4 x ptr], ptr %arrayidx.i.i133.i.i, i64 0, i64 %oldest_index.1.i.i.i
   store ptr %pc, ptr %arrayidx29.i.i.i, align 8
-  %call.i39.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %symbol_buf_.i) #22
+  %call.i39.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #22
   %add.i40.i.i.i = add i64 %call.i39.i.i.i, 1
   %162 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i41.i.i.i = inttoptr i64 %162 to ptr
@@ -3373,7 +3373,7 @@ do.body4.i44.i.i.i:                               ; preds = %do.end25.i.i.i
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i: ; preds = %do.end25.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i42.i.i.i, ptr nonnull align 2 %symbol_buf_.i, i64 %add.i40.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i42.i.i.i, ptr nonnull readonly align 2 %symbol_buf_.i, i64 %add.i40.i.i.i, i1 false)
   store ptr %call3.i42.i.i.i, ptr %arrayidx27.i.i.i, align 8
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i
 

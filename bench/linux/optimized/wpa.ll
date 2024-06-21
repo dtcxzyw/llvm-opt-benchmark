@@ -1079,7 +1079,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   store i16 %137, ptr %141, align 2
   %142 = getelementptr inbounds i8, ptr %4, i64 4
   %143 = getelementptr inbounds i8, ptr %79, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %142, ptr noundef align 2 dereferenceable(18) %143, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %142, ptr noundef readonly align 2 dereferenceable(18) %143, i64 18, i1 false)
   %144 = getelementptr inbounds i8, ptr %79, i64 22
   %145 = load i8, ptr %144, align 2
   %146 = and i8 %145, 15
@@ -1092,7 +1092,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
 
 150:                                              ; preds = %136
   %151 = getelementptr inbounds i8, ptr %79, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %149, ptr noundef align 2 dereferenceable(6) %151, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %149, ptr noundef readonly align 2 dereferenceable(6) %151, i64 6, i1 false)
   %152 = getelementptr inbounds i8, ptr %4, i64 30
   store i8 %138, ptr %152, align 2
   %153 = getelementptr inbounds i8, ptr %4, i64 31
@@ -1112,9 +1112,9 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   store i8 %156, ptr %157, align 1
   %158 = getelementptr inbounds i8, ptr %5, i64 2
   %159 = getelementptr inbounds i8, ptr %79, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %158, ptr noundef align 2 dereferenceable(6) %159, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %158, ptr noundef readonly align 2 dereferenceable(6) %159, i64 6, i1 false)
   %160 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %160, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %160, ptr noundef nonnull readonly align 1 dereferenceable(6) %3, i64 6, i1 false)
   %161 = getelementptr inbounds i8, ptr %11, i64 152
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr i8, ptr %81, i64 8
@@ -1652,7 +1652,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   store i16 0, ptr %118, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %117, i64 6, i1 false)
   %119 = getelementptr inbounds i8, ptr %4, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %119, ptr noundef nonnull align 1 dereferenceable(6) %2, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %119, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i64 6, i1 false)
   %120 = getelementptr inbounds i8, ptr %4, i64 14
   store i8 0, ptr %120, align 2
   %121 = getelementptr inbounds i8, ptr %4, i64 15

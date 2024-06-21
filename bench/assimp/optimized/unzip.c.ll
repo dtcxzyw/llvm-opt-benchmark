@@ -2409,7 +2409,7 @@ if.then10:                                        ; preds = %while.body
   br i1 %cmp1.i18, label %if.then2.i, label %for.cond.i.i
 
 if.then2.i:                                       ; preds = %if.then10
-  %call.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %szCurrentFileName, ptr noundef nonnull dereferenceable(1) %szFileName) #13
+  %call.i20 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %szCurrentFileName, ptr noundef nonnull readonly dereferenceable(1) %szFileName) #13
   br label %unzStringFileNameCompare.exit
 
 for.cond.i.i:                                     ; preds = %if.then10, %if.end27.i.i

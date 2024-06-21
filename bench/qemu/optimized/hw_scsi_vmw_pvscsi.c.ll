@@ -1605,7 +1605,7 @@ trace_pvscsi_process_io.exit:                     ; preds = %while.body, %land.l
   %dev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %s, ptr %dev.i.i, align 8
   %req.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull align 8 dereferenceable(128) %descr, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %descr, i64 128, i1 false)
   %15 = load i64, ptr %req.i.i, align 8
   %cmp.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 216
   store i64 %15, ptr %cmp.i.i, align 8

@@ -491,7 +491,7 @@ H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimi
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
   %40 = zext i32 %.017.lcssa to i64
   %41 = shl nuw nsw i64 %40, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 16 %8, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull readonly align 16 %8, i64 %41, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph46.thread.i:                                ; preds = %.lr.ph, %14
@@ -1214,7 +1214,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9)
   %320 = zext i32 %.2.ph to i64
   %321 = shl nuw nsw i64 %320, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 16 %10, i64 %321, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull readonly align 16 %10, i64 %321, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.loopexit
@@ -1281,7 +1281,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
 
 .lr.ph61.split.i:                                 ; preds = %.lr.ph61.i, %.lr.ph61.split.i
   %.03260.i = phi i64 [ %344, %.lr.ph61.split.i ], [ 0, %.lr.ph61.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %319, ptr align 1 %326, i64 %.1173.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %319, ptr readonly align 1 %326, i64 %.1173.ph, i1 false)
   %344 = add nuw i64 %.03260.i, 1
   %exitcond.not.i = icmp eq i64 %344, %325
   br i1 %exitcond.not.i, label %H5VM_stride_copy.exit, label %.lr.ph61.split.i
@@ -1293,7 +1293,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %345 = getelementptr inbounds i8, ptr %4, i64 %.1181
   %346 = getelementptr inbounds i8, ptr %7, i64 %.1128178
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %345, ptr align 1 %346, i64 %.1173, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %345, ptr readonly align 1 %346, i64 %.1173, i1 false)
   br label %H5VM_stride_copy.exit
 
 H5VM_stride_copy.exit:                            ; preds = %.lr.ph61.split.i, %._crit_edge.us.i, %H5VM_vector_reduce_product.exit.i, %.loopexit209

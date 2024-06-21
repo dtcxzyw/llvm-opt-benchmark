@@ -118,7 +118,7 @@ for.end26:                                        ; preds = %for.inc25, %if.end1
 
 if.then29:                                        ; preds = %for.end26
   %key1.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key1.i, ptr align 1 %key, i64 %key_len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key1.i, ptr readonly align 1 %key, i64 %key_len, i1 false)
   %key_len2.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %key_len, ptr %key_len2.i, align 8
   %ptr.i = getelementptr inbounds i8, ptr %call.i, i64 24

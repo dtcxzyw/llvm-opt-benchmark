@@ -1034,7 +1034,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not24.i, label %18, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %15) #6
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %15) #6
   %.not25.i = icmp eq i32 %17, 0
   br i1 %.not25.i, label %37, label %18
 
@@ -1045,7 +1045,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not26.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %20) #6
+  %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %20) #6
   %.not27.i = icmp eq i32 %22, 0
   br i1 %.not27.i, label %37, label %23
 
@@ -1056,7 +1056,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not28.i, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25) #6
+  %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25) #6
   %.not29.i = icmp eq i32 %27, 0
   br i1 %.not29.i, label %37, label %28
 
@@ -1067,7 +1067,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not30.i, label %33, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %30) #6
+  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %30) #6
   %.not31.i = icmp eq i32 %32, 0
   br i1 %.not31.i, label %37, label %33
 

@@ -252,7 +252,7 @@ save_param_name.exit.i:                           ; preds = %56
 
 67:                                               ; preds = %64
   %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #15
-  %69 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #15
+  %69 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(5) @.str.3, i64 noundef 4) #15
   %70 = icmp eq i32 %69, 0
   %spec.select.idx.i.i = select i1 %70, i64 4, i64 0
   %spec.select.i.i = getelementptr inbounds i8, ptr %65, i64 %spec.select.idx.i.i
@@ -303,7 +303,7 @@ save_param_name.exit.i:                           ; preds = %56
 
 trim_name.exit.i:                                 ; preds = %91, %.critedge.i.i
   %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #15
-  %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #15
+  %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(6) @.str.4, i64 noundef 5) #15
   %96 = icmp eq i32 %95, 0
   %spec.select.idx.i28.i = select i1 %96, i64 5, i64 0
   %spec.select.i29.i = getelementptr inbounds i8, ptr %65, i64 %spec.select.idx.i28.i

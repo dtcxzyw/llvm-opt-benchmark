@@ -452,7 +452,7 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
   br i1 %7, label %dissect_iwarp_mpa.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly %3, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %207, label %10
 

@@ -1025,7 +1025,7 @@ yy_syntax_error_arguments.exit.thread8:           ; preds = %28, %.loopexit.i.i.
   br label %.preheader.split.us.i
 
 yytnamerr.exit:                                   ; preds = %.preheader.split.us.i, %.preheader.split.us.i, %54, %.lr.ph
-  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #13
+  %59 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #13
   %.not47 = icmp slt i64 %59, 0
   br i1 %.not47, label %yy_syntax_error_arguments.exit.thread10, label %yytnamerr.exit.thread
 
@@ -1111,7 +1111,7 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
   br label %yytnamerr.exit58
 
 .loopexit.thread.i:                               ; preds = %83, %.preheader.split.i, %.preheader.split.i, %71
-  %90 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull %78) #12
+  %90 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull readonly %78) #12
   %91 = ptrtoint ptr %90 to i64
   %92 = ptrtoint ptr %.036 to i64
   %93 = sub i64 %91, %92

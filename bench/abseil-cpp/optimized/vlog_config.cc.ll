@@ -1395,7 +1395,7 @@ invoke.cont.i:                                    ; preds = %_ZN4absl12log_inter
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i11.i
 
 if.then.i11.i:                                    ; preds = %invoke.cont.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc.i unwind label %lpad15.i
 
 .noexc.i:                                         ; preds = %if.then.i11.i
@@ -1405,7 +1405,7 @@ if.then.i11.i:                                    ; preds = %invoke.cont.i
   br label %invoke.cont16.i
 
 if.else.i.i:                                      ; preds = %invoke.cont.i
-  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %if.else.i.i, %.noexc.i
@@ -1641,7 +1641,7 @@ if.then.i.i16.i:                                  ; preds = %invoke.cont.i
   br i1 %cmp.i.i.i.i, label %if.then13.i.i.i, label %if.else.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then.i.i16.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc.i unwind label %lpad21.i
 
 .noexc.i:                                         ; preds = %if.then13.i.i.i
@@ -1654,7 +1654,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i16.i
   store ptr %12, ptr %__tmp.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i, i64 8
   store i8 0, ptr %_M_storage.i.i.i.i, align 8
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc17.i unwind label %lpad21.i
 
 .noexc17.i:                                       ; preds = %if.else.i.i.i
@@ -1707,7 +1707,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.
 
 if.else26.i.i.i:                                  ; preds = %invoke.cont.i
   %add.ptr.i16.i.i.i = getelementptr inbounds i8, ptr %this.val10.i.i.i, i64 %sub.ptr.sub.i.i.i.i
-  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %add.ptr.i16.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %add.ptr.i16.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %invoke.cont22.i unwind label %lpad21.i
 
 invoke.cont22.i:                                  ; preds = %if.else26.i.i.i, %invoke.cont.i.i.i, %.noexc.i

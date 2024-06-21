@@ -3231,7 +3231,7 @@ _ZNK7openvdb5v11_06points12AttributeSet4findERKNSt7__cxx1112basic_stringIcSt11ch
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZNK7openvdb5v11_06points12AttributeSet4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  tail call void @_ZN7openvdb5v11_06points12AttributeSet10makeUniqueEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %6)
+  tail call void @_ZN7openvdb5v11_06points12AttributeSet10makeUniqueEm(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %6)
   %9 = load ptr, ptr %mAttrs, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %9, i64 %6
   %10 = load ptr, ptr %add.ptr.i.i, align 8
@@ -4998,7 +4998,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  tail call void @_ZN7openvdb5v11_06points12AttributeSet10makeUniqueEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef 0)
+  tail call void @_ZN7openvdb5v11_06points12AttributeSet10makeUniqueEm(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef 0)
   %mAttrs.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %mAttrs.i, align 8
   %9 = load ptr, ptr %8, align 8
@@ -12990,7 +12990,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor16canCompactGroupsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %call.i = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor15availableGroupsEv(ptr noundef nonnull align 8 dereferenceable(240) %this)
+  %call.i = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor15availableGroupsEv(ptr noundef nonnull readonly align 8 dereferenceable(240) %this)
   %cmp.i = icmp ne i64 %call.i, 0
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %_M_node_count.i.i.i, align 8
@@ -13003,7 +13003,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17unusedGroupOffsetEm(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, i64 noundef %hint) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor15availableGroupsEv(ptr noundef nonnull align 8 dereferenceable(240) %this)
+  %call.i = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor15availableGroupsEv(ptr noundef nonnull readonly align 8 dereferenceable(240) %this)
   %cmp.i = icmp eq i64 %call.i, 0
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %_M_node_count.i.i.i, align 8

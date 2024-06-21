@@ -647,7 +647,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true.i.us:                               ; preds = %for.body.us
   %name1.i.us = getelementptr inbounds i8, ptr %ce.018.us, i64 108
-  %bcmp.i.us = call i32 @bcmp(ptr %name, ptr nonnull %name1.i.us, i64 %conv)
+  %bcmp.i.us = call i32 @bcmp(ptr readonly %name, ptr nonnull readonly %name1.i.us, i64 %conv)
   %tobool.not.i.us = icmp eq i32 %bcmp.i.us, 0
   br i1 %tobool.not.i.us, label %return, label %for.inc.us
 
@@ -681,7 +681,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 land.lhs.true.i:                                  ; preds = %for.body
   %name1.i = getelementptr inbounds i8, ptr %ce.018, i64 108
-  %bcmp.i = call i32 @bcmp(ptr %name, ptr nonnull %name1.i, i64 %conv)
+  %bcmp.i = call i32 @bcmp(ptr readonly %name, ptr nonnull readonly %name1.i, i64 %conv)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %return, label %while.body.i.i
 

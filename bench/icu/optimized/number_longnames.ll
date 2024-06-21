@@ -8908,7 +8908,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_119InflectedPluralSink17loadForPluralFormERKN6icu_7513ResourceTableERS2_RNS1_13ResourceValueER10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %call3.i9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119InflectedPluralSink13loadForGenderERKN6icu_7513ResourceTableEPKcRS2_RNS1_13ResourceValueER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(37) %genderTable, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(37) %caseTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call3.i9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119InflectedPluralSink13loadForGenderERKN6icu_7513ResourceTableEPKcRS2_RNS1_13ResourceValueER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(37) %genderTable, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(37) %caseTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br i1 %call3.i9, label %if.then8, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
@@ -8918,11 +8918,11 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp7.not.i, label %_ZN12_GLOBAL__N_119InflectedPluralSink17loadForPluralFormERKN6icu_7513ResourceTableERS2_RNS1_13ResourceValueER10UErrorCode.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call8.i = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119InflectedPluralSink13loadForGenderERKN6icu_7513ResourceTableEPKcRS2_RNS1_13ResourceValueER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(37) %genderTable, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(37) %caseTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call8.i = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119InflectedPluralSink13loadForGenderERKN6icu_7513ResourceTableEPKcRS2_RNS1_13ResourceValueER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(37) %genderTable, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(37) %caseTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br i1 %call8.i, label %if.then8, label %_ZN12_GLOBAL__N_119InflectedPluralSink17loadForPluralFormERKN6icu_7513ResourceTableERS2_RNS1_13ResourceValueER10UErrorCode.exit
 
 _ZN12_GLOBAL__N_119InflectedPluralSink17loadForPluralFormERKN6icu_7513ResourceTableERS2_RNS1_13ResourceValueER10UErrorCode.exit: ; preds = %if.end6, %if.end.i, %land.lhs.true.i
-  %call12.i = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119InflectedPluralSink13loadForGenderERKN6icu_7513ResourceTableEPKcRS2_RNS1_13ResourceValueER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(37) %genderTable, ptr noundef nonnull @.str.38, ptr noundef nonnull align 8 dereferenceable(37) %caseTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call12.i = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119InflectedPluralSink13loadForGenderERKN6icu_7513ResourceTableEPKcRS2_RNS1_13ResourceValueER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(37) %genderTable, ptr noundef nonnull @.str.38, ptr noundef nonnull align 8 dereferenceable(37) %caseTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br i1 %call12.i, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %land.lhs.true.i, %if.then.i, %_ZN12_GLOBAL__N_119InflectedPluralSink17loadForPluralFormERKN6icu_7513ResourceTableERS2_RNS1_13ResourceValueER10UErrorCode.exit

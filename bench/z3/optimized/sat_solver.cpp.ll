@@ -16639,7 +16639,7 @@ if.end.i:                                         ; preds = %if.then10
   tail call void @_ZN3sat4ddfwC2Ev(ptr noundef nonnull align 8 dereferenceable(920) %call2.i)
   %m_local_search.i = getelementptr inbounds i8, ptr %this, i64 4152
   store ptr %call2.i, ptr %m_local_search.i, align 8
-  %call3.i = tail call noundef i32 @_ZN3sat6solver19invoke_local_searchEjPKNS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %num_lits, ptr noundef %lits)
+  %call3.i = tail call noundef i32 @_ZN3sat6solver19invoke_local_searchEjPKNS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %num_lits, ptr noundef readonly %lits)
   br label %return
 
 if.end13:                                         ; preds = %if.end9
@@ -16667,7 +16667,7 @@ if.then23:                                        ; preds = %if.end20
   tail call void @_ZN3sat12local_searchC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %call.i15)
   %m_local_search.i16 = getelementptr inbounds i8, ptr %this, i64 4152
   store ptr %call.i15, ptr %m_local_search.i16, align 8
-  %call2.i17 = tail call noundef i32 @_ZN3sat6solver19invoke_local_searchEjPKNS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %num_lits, ptr noundef %lits)
+  %call2.i17 = tail call noundef i32 @_ZN3sat6solver19invoke_local_searchEjPKNS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %num_lits, ptr noundef readonly %lits)
   br label %return
 
 if.end27:                                         ; preds = %if.end20
@@ -20221,7 +20221,7 @@ invoke.cont28:                                    ; preds = %invoke.cont21
 
 invoke.cont31:                                    ; preds = %invoke.cont28
   store ptr %this, ptr %ref.tmp, align 8
-  invoke void @_ZNK3sat7mk_stat7displayERSo(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call32)
+  invoke void @_ZNK3sat7mk_stat7displayERSo(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call32)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %invoke.cont31
@@ -40024,7 +40024,7 @@ _ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i:    ; preds = %_ZNK6vectorIN3sat7l
   %78 = zext i32 %77 to i64
   %arrayidx.i1.i.i = getelementptr inbounds %"class.sat::literal", ptr %75, i64 %78
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i1.i.i, align 4
-  %call7.i92 = invoke noundef zeroext i1 @_ZN3sat6solver27extract_fixed_consequences1ENS_7literalERKNS_11literal_setER16tracked_uint_setR6vectorI7svectorIS1_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %assumptions, ptr noundef nonnull align 8 dereferenceable(16) %unfixed_vars, ptr noundef nonnull align 8 dereferenceable(8) %conseq)
+  %call7.i92 = invoke noundef zeroext i1 @_ZN3sat6solver27extract_fixed_consequences1ENS_7literalERKNS_11literal_setER16tracked_uint_setR6vectorI7svectorIS1_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %assumptions, ptr noundef nonnull readonly align 8 dereferenceable(16) %unfixed_vars, ptr noundef nonnull align 8 dereferenceable(8) %conseq)
           to label %call7.i.noexc unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call7.i.noexc:                                    ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i
@@ -41663,7 +41663,7 @@ _ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i:    ; preds = %_ZNK6vectorIN3sat7l
   %17 = zext i32 %16 to i64
   %arrayidx.i1.i.i = getelementptr inbounds %"class.sat::literal", ptr %14, i64 %17
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i1.i.i, align 4
-  %call7.i = tail call noundef zeroext i1 @_ZN3sat6solver27extract_fixed_consequences1ENS_7literalERKNS_11literal_setER16tracked_uint_setR6vectorI7svectorIS1_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %assumptions, ptr noundef nonnull align 8 dereferenceable(16) %unfixed, ptr noundef nonnull align 8 dereferenceable(8) %conseq)
+  %call7.i = tail call noundef zeroext i1 @_ZN3sat6solver27extract_fixed_consequences1ENS_7literalERKNS_11literal_setER16tracked_uint_setR6vectorI7svectorIS1_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %assumptions, ptr noundef nonnull readonly align 8 dereferenceable(16) %unfixed, ptr noundef nonnull align 8 dereferenceable(8) %conseq)
   br i1 %call7.i, label %if.then.i, label %if.end.i10
 
 if.then.i:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i
@@ -42039,7 +42039,7 @@ _ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i:    ; preds = %_ZNK6vectorIN3sat7l
   %19 = zext i32 %18 to i64
   %arrayidx.i1.i.i = getelementptr inbounds %"class.sat::literal", ptr %16, i64 %19
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i1.i.i, align 4
-  %call7.i = tail call noundef zeroext i1 @_ZN3sat6solver27extract_fixed_consequences1ENS_7literalERKNS_11literal_setER16tracked_uint_setR6vectorI7svectorIS1_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %assumptions, ptr noundef nonnull align 8 dereferenceable(16) %unfixed_vars, ptr noundef nonnull align 8 dereferenceable(8) %conseq)
+  %call7.i = tail call noundef zeroext i1 @_ZN3sat6solver27extract_fixed_consequences1ENS_7literalERKNS_11literal_setER16tracked_uint_setR6vectorI7svectorIS1_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %assumptions, ptr noundef nonnull readonly align 8 dereferenceable(16) %unfixed_vars, ptr noundef nonnull align 8 dereferenceable(8) %conseq)
   br i1 %call7.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i

@@ -3938,7 +3938,7 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
   %84 = phi i64 [ %81, %.lr.ph.split.us.i ], [ %.pre.i.i.us.i, %83 ]
   %85 = load ptr, ptr %57, align 8, !alias.scope !724, !noalias !730, !nonnull !21, !noundef !21
   %86 = getelementptr inbounds i8, ptr %85, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %77, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull readonly align 1 %77, i64 %62, i1 false)
   %87 = load i64, ptr %16, align 8, !alias.scope !724, !noalias !730, !noundef !21
   %88 = add i64 %87, %62
   store i64 %88, ptr %16, align 8, !alias.scope !724, !noalias !730
@@ -3998,7 +3998,7 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
   %105 = phi i64 [ %102, %.lr.ph.split.us.i35 ], [ %.pre.i.i.us.i37, %104 ]
   %106 = load ptr, ptr %57, align 8, !alias.scope !750, !noalias !755, !nonnull !21, !noundef !21
   %107 = getelementptr inbounds i8, ptr %106, i64 %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %108 = load i64, ptr %16, align 8, !alias.scope !750, !noalias !755, !noundef !21
   %109 = add i64 %108, %4
   store i64 %109, ptr %16, align 8, !alias.scope !750, !noalias !755
@@ -4019,7 +4019,7 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
   %116 = extractvalue { i64, ptr } %114, 1
   %117 = icmp ne ptr %116, null
   tail call void @llvm.assume(i1 %117)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !767
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7c6b99a18e7f743E.llvm.1597650999041595525"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38)
           to label %.noexc unwind label %124
@@ -5527,7 +5527,7 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
   %21 = load ptr, ptr %20, align 8, !nonnull !21, !noundef !21
   %22 = getelementptr inbounds i8, ptr %17, i64 128
   %23 = load ptr, ptr %22, align 8, !nonnull !21, !noundef !21
-  %bcmp.i = call i32 @bcmp(ptr nonnull %21, ptr nonnull %23, i64 %16), !alias.scope !1013
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %21, ptr nonnull readonly %23, i64 %16), !alias.scope !1013
   %24 = icmp eq i32 %bcmp.i, 0
   br i1 %24, label %25, label %"_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hecce0df2b025891dE.exit"
 
@@ -5960,7 +5960,7 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h750f0bad83d83049E.exit": ; preds = %29
   %32 = getelementptr inbounds i8, ptr %25, i64 32
   %33 = load ptr, ptr %32, align 8, !alias.scope !1138, !nonnull !21, !noundef !21
-  %bcmp.i = call i32 @bcmp(ptr nonnull %22, ptr nonnull %33, i64 %24), !alias.scope !1145
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %22, ptr nonnull readonly %33, i64 %24), !alias.scope !1145
   %34 = icmp eq i32 %bcmp.i, 0
   br i1 %34, label %35, label %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h9cfcbc0542ae0045E.exit"
 
@@ -6380,7 +6380,7 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
   %23 = load ptr, ptr %22, align 8, !alias.scope !1236, !nonnull !21, !noundef !21
   %24 = getelementptr inbounds i8, ptr %16, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !1229, !nonnull !21, !noundef !21
-  %bcmp.i = call i32 @bcmp(ptr nonnull %25, ptr nonnull %23, i64 %18), !alias.scope !1243
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %25, ptr nonnull readonly %23, i64 %18), !alias.scope !1243
   %26 = icmp eq i32 %bcmp.i, 0
   br i1 %26, label %27, label %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit"
 

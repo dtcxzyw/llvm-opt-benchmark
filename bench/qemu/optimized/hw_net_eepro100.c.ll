@@ -209,7 +209,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 16
-  %call.i18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %call2) #12
+  %call.i18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %call2) #12
   %cmp2.i = icmp eq i32 %call.i18, 0
   br i1 %cmp2.i, label %eepro100_get_class_by_name.exit, label %for.cond.i
 
@@ -284,7 +284,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %entr
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i
   %0 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %call.i) #12
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %call.i) #12
   %cmp2.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.i.i, label %eepro100_get_class.exit, label %for.cond.i.i
 
@@ -310,7 +310,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %ee
   %indvars.iv.i.i.i = phi i64 [ 0, %eepro100_get_class.exit ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %arrayidx.i.i.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 16
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %call.i.i37) #12
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %call.i.i37) #12
   %cmp2.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.i, label %eepro100_get_class.exit.i, label %for.cond.i.i.i
 

@@ -287,7 +287,7 @@ select.unfold:                                    ; preds = %58
 
 74:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !12
   %75 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17h61cda993706c72dfE(i8 noundef 39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread" unwind label %.loopexit.split-lp
 
@@ -396,7 +396,7 @@ select.unfold:                                    ; preds = %58
 
 102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.563.0..sroa_idx, i64 48, i1 false), !noalias !35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.sroa.563.0..sroa_idx, i64 48, i1 false), !noalias !35
   %103 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17h61cda993706c72dfE(i8 noundef 39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
           to label %106 unwind label %.loopexit.split-lp
 
@@ -449,7 +449,7 @@ select.unfold:                                    ; preds = %58
   %118 = extractvalue { i64, ptr } %112, 1
   %119 = icmp ne ptr %118, null
   call void @llvm.assume(i1 %119)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %118, ptr nonnull align 1 %110, i64 %111, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %118, ptr nonnull readonly align 1 %110, i64 %111, i1 false)
   store i64 %117, ptr %5, align 8, !noalias !45
   store ptr %118, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !45
   store i64 %111, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !45
@@ -635,7 +635,7 @@ define void @_ZN8grep_cli10decompress20DecompressionMatcher3new17h4e5df2edd4ed45
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !86
   %12 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !81
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !81
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.15, i64 noundef 45, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3c5cc9fce359c7972b92ff857e630f2.14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3c5cc9fce359c7972b92ff857e630f2.17) #17
           to label %15 unwind label %13, !noalias !86
 
@@ -655,7 +655,7 @@ define void @_ZN8grep_cli10decompress20DecompressionMatcher3new17h4e5df2edd4ed45
   unreachable
 
 18:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !alias.scope !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %4, i64 56, i1 false), !alias.scope !86
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$grep_cli..decompress..DecompressionCommand$GT$$GT$17h96f975b7185d405aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

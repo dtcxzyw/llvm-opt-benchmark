@@ -563,7 +563,7 @@ set_stack_entry_location.exit:                    ; preds = %15, %16
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %43
   %.012.i = phi ptr [ %46, %43 ], [ %34, %.preheader.i ]
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %.012.i) #31
+  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %.012.i) #31
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %matches_backtrace_functions.exit, label %43
 
@@ -877,7 +877,7 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #2 {
   store i1 false, ptr @saved_timeval_set, align 1
   store i8 0, ptr @formatted_log_time, align 16
   %30 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %30, ptr noundef %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %30, ptr noundef readonly %9)
   %31 = load i32, ptr %9, align 8
   %switch.tableidx = add i32 %31, -10
   %32 = icmp ult i32 %switch.tableidx, 14
@@ -1095,7 +1095,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %137, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %137, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #28
   %138 = load ptr, ptr %134, align 8
   %139 = load i8, ptr %138, align 1
@@ -1177,7 +1177,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 
 179:                                              ; preds = %176
   %180 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %180, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %180, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #28
   %181 = load ptr, ptr %177, align 8
   %182 = load i8, ptr %181, align 1
@@ -1263,7 +1263,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 
 222:                                              ; preds = %219
   %223 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %223, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %223, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.53) #28
   %224 = load ptr, ptr %220, align 8
   %225 = load i8, ptr %224, align 1
@@ -1349,7 +1349,7 @@ append_with_tabs.exit91.i:                        ; preds = %260, %222
 
 265:                                              ; preds = %262
   %266 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %266, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %266, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #28
   %267 = load ptr, ptr %263, align 8
   %268 = load i8, ptr %267, align 1
@@ -1441,7 +1441,7 @@ append_with_tabs.exit98.i:                        ; preds = %303, %265
 
 312:                                              ; preds = %308
   %313 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %313, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %313, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.55) #28
   %314 = load ptr, ptr %306, align 8
   %315 = load i8, ptr %314, align 1
@@ -1538,7 +1538,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
 
 359:                                              ; preds = %358
   %360 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %360, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %360, ptr noundef nonnull readonly %9)
   %361 = load ptr, ptr %356, align 8
   %362 = load ptr, ptr %.phi.trans.insert.i, align 8
   %363 = getelementptr inbounds i8, ptr %9, i64 16
@@ -1551,7 +1551,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
 
 366:                                              ; preds = %365
   %367 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %367, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %367, ptr noundef nonnull readonly %9)
   %368 = load ptr, ptr %.phi.trans.insert.i, align 8
   %369 = getelementptr inbounds i8, ptr %9, i64 16
   %370 = load i32, ptr %369, align 8
@@ -1566,7 +1566,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
 
 373:                                              ; preds = %.thread.i
   %374 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %374, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %374, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.58) #28
   %375 = load ptr, ptr %371, align 8
   %376 = load i8, ptr %375, align 1
@@ -1682,7 +1682,7 @@ append_with_tabs.exit112.i:                       ; preds = %411, %373
 
 432:                                              ; preds = %426
   %433 = load ptr, ptr @Log_line_prefix, align 8
-  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %433, ptr noundef nonnull %9)
+  call void @log_status_format(ptr noundef nonnull %6, ptr noundef %433, ptr noundef nonnull readonly %9)
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.59) #28
   %434 = load ptr, ptr @debug_query_string, align 8
   %435 = load i8, ptr %434, align 1
@@ -2050,7 +2050,7 @@ write_pipe_chunks.exit.i:                         ; preds = %592, %582
   %604 = load ptr, ptr @stderr, align 8
   %605 = call i32 @fileno(ptr noundef %604) #28
   %606 = sext i32 %581 to i64
-  %607 = call i64 @write(i32 noundef %605, ptr noundef %579, i64 noundef %606) #28
+  %607 = call i64 @write(i32 noundef %605, ptr noundef readonly %579, i64 noundef %606) #28
   br label %608
 
 608:                                              ; preds = %603, %write_pipe_chunks.exit.i, %569

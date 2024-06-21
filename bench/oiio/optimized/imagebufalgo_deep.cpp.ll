@@ -36127,8 +36127,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IfEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IfEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -36151,7 +36151,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -36480,8 +36480,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IhEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IhEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -36504,7 +36504,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -36862,8 +36862,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_I4halfEEbRNS_8ImageBufERKS2_NS_3ROIEiENKUlS6_E_clES6_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_I4halfEEbRNS_8ImageBufERKS2_NS_3ROIEiENKUlS6_E_clES6_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -36886,7 +36886,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -37272,8 +37272,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_ItEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_ItEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -37296,7 +37296,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -37650,8 +37650,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IcEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IcEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -37674,7 +37674,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -38028,8 +38028,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IsEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IsEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -38052,7 +38052,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -38406,8 +38406,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IjEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IjEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -38430,7 +38430,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -38785,8 +38785,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IiEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IiEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -38809,7 +38809,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -39164,8 +39164,8 @@ define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
-  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IdEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call fastcc void @_ZZN18OpenImageIO_v2_6_0L8flatten_IdEEbRNS_8ImageBufERKS1_NS_3ROIEiENKUlS5_E_clES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -39188,7 +39188,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

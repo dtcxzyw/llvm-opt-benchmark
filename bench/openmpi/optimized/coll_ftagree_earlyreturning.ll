@@ -2879,7 +2879,7 @@ era_build_tree_structure.exit.i.i.i:              ; preds = %.critedge.i.i.i.i, 
 
 ._crit_edge.i.i.i.i:                              ; preds = %369, %344
   %.021.lcssa.i.i.i.i = phi i32 [ 0, %344 ], [ %.1.i.i.i.i, %369 ]
-  call fastcc void @era_merge_new_dead_list(ptr noundef %.0.i39, i32 noundef %.021.lcssa.i.i.i.i, ptr noundef %348)
+  call fastcc void @era_merge_new_dead_list(ptr noundef readonly %.0.i39, i32 noundef %.021.lcssa.i.i.i.i, ptr noundef %348)
   call void @free(ptr noundef %348) #19
   %.pre54.i.i.i = load ptr, ptr %231, align 8
   %.phi.trans.insert55.i.i.i = getelementptr inbounds i8, ptr %.pre54.i.i.i, i64 56
@@ -3809,7 +3809,7 @@ era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %36
 
 era_tree_rank_from_comm_rank.exit.i:              ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i, %era_tree_rank_from_comm_rank.exit.i
   %46 = phi i32 [ %51, %era_tree_rank_from_comm_rank.exit.i ], [ %41, %era_tree_rank_from_comm_rank.exit.preheader.i ]
-  call fastcc void @era_tree_remove_node(ptr noundef nonnull %19, i32 noundef %46)
+  call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %19, i32 noundef %46)
   %47 = load ptr, ptr %28, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -5271,7 +5271,7 @@ era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %16
 
 era_tree_rank_from_comm_rank.exit.i:              ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i, %era_tree_rank_from_comm_rank.exit.i
   %26 = phi i32 [ %31, %era_tree_rank_from_comm_rank.exit.i ], [ %21, %era_tree_rank_from_comm_rank.exit.preheader.i ]
-  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %26)
+  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %26)
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -5365,7 +5365,7 @@ era_tree_rank_from_comm_rank.exit.preheader.i39:  ; preds = %66
 
 era_tree_rank_from_comm_rank.exit.i41:            ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i39, %era_tree_rank_from_comm_rank.exit.i41
   %76 = phi i32 [ %81, %era_tree_rank_from_comm_rank.exit.i41 ], [ %71, %era_tree_rank_from_comm_rank.exit.preheader.i39 ]
-  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %76)
+  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %76)
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
@@ -7028,7 +7028,7 @@ era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %38
 
 era_tree_rank_from_comm_rank.exit.i:              ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i, %era_tree_rank_from_comm_rank.exit.i
   %48 = phi i32 [ %53, %era_tree_rank_from_comm_rank.exit.i ], [ %43, %era_tree_rank_from_comm_rank.exit.preheader.i ]
-  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %48)
+  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %48)
   %49 = load ptr, ptr %30, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
@@ -7089,7 +7089,7 @@ era_tree_rank_from_comm_rank.exit45.preheader.i:  ; preds = %66
   br i1 %78, label %era_next_child.exit, label %era_tree_rank_from_comm_rank.exit45.i
 
 era_tree_rank_from_comm_rank.exit45.i:            ; preds = %.lr.ph54.i
-  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %73)
+  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %73)
   %79 = load ptr, ptr %30, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8

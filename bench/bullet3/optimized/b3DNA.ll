@@ -1309,12 +1309,12 @@ lor.rhs:                                          ; preds = %for.body
 lor.end:                                          ; preds = %lor.rhs, %for.body
   %4 = phi i1 [ true, %for.body ], [ %cmp13, %lor.rhs ]
   %frombool14 = zext i1 %4 to i8
-  %call4.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cp.0117, i32 noundef 91) #21
+  %call4.i = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %cp.0117, i32 noundef 91) #21
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %_ZL13name_is_arrayPcPiS0_.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %lor.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cp.0117) #21
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %cp.0117) #21
   %sext.i = shl i64 %call.i, 32
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %cp.0117, i64 %idx.ext.i

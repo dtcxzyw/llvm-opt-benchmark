@@ -556,7 +556,7 @@ make_aux_edge.exit.i.i:                           ; preds = %243, %gv_alloc.exit
   %304 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx217.i.i
   %305 = getelementptr inbounds i8, ptr %304, i64 56
   %306 = load ptr, ptr %305, align 8
-  %307 = tail call fastcc noundef zeroext i1 @go(ptr noundef %306, ptr noundef %302)
+  %307 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %306, ptr noundef readonly %302)
   br i1 %307, label %342, label %308
 
 308:                                              ; preds = %259
@@ -630,7 +630,7 @@ gv_alloc.exit22.i199.i.i:                         ; preds = %gv_alloc.exit.i198.
   %350 = getelementptr inbounds i8, ptr %spec.select195.i.i, i64 %.idx219.i.i
   %351 = getelementptr inbounds i8, ptr %350, i64 56
   %352 = load ptr, ptr %351, align 8
-  %353 = tail call fastcc noundef zeroext i1 @go(ptr noundef %352, ptr noundef %348)
+  %353 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %352, ptr noundef readonly %348)
   br i1 %353, label %389, label %354
 
 354:                                              ; preds = %342

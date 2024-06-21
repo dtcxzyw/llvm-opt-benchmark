@@ -3910,7 +3910,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit: ; preds = %1344, %1342, %811
 
 1431:                                             ; preds = %1429
   store i32 %1430, ptr %379, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_dsp_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1716) %133, ptr noundef nonnull align 8 dereferenceable(24) %134)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_dsp_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1716) %133, ptr noundef nonnull readonly align 8 dereferenceable(24) %134)
           to label %_ZN12_GLOBAL__N_113xilinx_dsp_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellESaIS7_EE.exit unwind label %1506
 
 1432:                                             ; preds = %1357
@@ -8581,7 +8581,7 @@ _ZNSt8functionIFvRN12_GLOBAL__N_113xilinx_dsp_pmEEED2Ev.exit65: ; preds = %.body
 
 2994:                                             ; preds = %2992
   store i32 %2993, ptr %306, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116xilinx_dsp48a_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1636) %136, ptr noundef nonnull align 8 dereferenceable(24) %137)
+  invoke fastcc void @_ZN12_GLOBAL__N_116xilinx_dsp48a_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1636) %136, ptr noundef nonnull readonly align 8 dereferenceable(24) %137)
           to label %_ZN12_GLOBAL__N_116xilinx_dsp48a_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellESaIS7_EE.exit unwind label %3100
 
 2995:                                             ; preds = %2924
@@ -16635,7 +16635,7 @@ _ZNSt8functionIFvRN12_GLOBAL__N_118xilinx_dsp_CREG_pmEEED2Ev.exit: ; preds = %59
 
 6013:                                             ; preds = %6011
   store i32 %6012, ptr %768, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_121xilinx_dsp_cascade_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1196) %142, ptr noundef nonnull align 8 dereferenceable(24) %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_121xilinx_dsp_cascade_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1196) %142, ptr noundef nonnull readonly align 8 dereferenceable(24) %143)
           to label %_ZN12_GLOBAL__N_121xilinx_dsp_cascade_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellESaIS7_EE.exit unwind label %6100
 
 6014:                                             ; preds = %5927
@@ -92858,7 +92858,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113xilinx_dsp_pm19run_xilinx_dsp_packESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113xilinx_dsp_pm19run_xilinx_dsp_packESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113xilinx_dsp_pm19run_xilinx_dsp_packESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -123435,7 +123435,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_116xilinx_dsp48a_pm22run_xilinx_dsp48a_packESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_116xilinx_dsp48a_pm22run_xilinx_dsp48a_packESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_116xilinx_dsp48a_pm22run_xilinx_dsp48a_packESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -126888,7 +126888,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118xilinx_dsp_CREG_pm20run_xilinx_dsp_packCESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118xilinx_dsp_CREG_pm20run_xilinx_dsp_packCESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118xilinx_dsp_CREG_pm20run_xilinx_dsp_packCESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4

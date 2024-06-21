@@ -1826,7 +1826,7 @@ _ZL10find_valuePKc.exit.thread.i.i.i:             ; preds = %.noexc202, %.prehea
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i103.i.i.i ], [ %indvars.iv.next.i.i.i.i, %579 ]
   %575 = getelementptr inbounds ptr, ptr %573, i64 %indvars.iv.i.i.i.i
   %576 = load ptr, ptr %575, align 8
-  %577 = call i32 @strncmp(ptr noundef %576, ptr noundef nonnull %564, i64 noundef %569) #25
+  %577 = call i32 @strncmp(ptr noundef %576, ptr noundef nonnull readonly %564, i64 noundef %569) #25
   %578 = icmp eq i32 %577, 0
   br i1 %578, label %_ZL22lambda_components_findPK19lambda_components_tPKcm.exit.i.i.i, label %579
 
@@ -2872,7 +2872,7 @@ _ZL21lambda_components_addP19lambda_components_tPKcm.exit208.i: ; preds = %.noex
   %1010 = sext i32 %1009 to i64
   %1011 = getelementptr inbounds ptr, ptr %1008, i64 %1010
   %1012 = load ptr, ptr %1011, align 8
-  %1013 = call ptr @strncpy(ptr noundef %1012, ptr noundef %991, i64 noundef %992) #24
+  %1013 = call ptr @strncpy(ptr noundef %1012, ptr noundef readonly %991, i64 noundef %992) #24
   %1014 = load i32, ptr %198, align 8
   %1015 = add nsw i32 %1014, 1
   store i32 %1015, ptr %198, align 8
@@ -9557,7 +9557,7 @@ _ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us: ; preds = %.lr.
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call ptr @strncpy(ptr noundef %60, ptr noundef nonnull %.064.us.us, i64 noundef %40) #24
+  %61 = tail call ptr @strncpy(ptr noundef %60, ptr noundef nonnull readonly %.064.us.us, i64 noundef %40) #24
   %62 = load i32, ptr %22, align 8
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %22, align 8
@@ -9676,7 +9676,7 @@ switch.early.test.us:                             ; preds = %85
   br i1 %brmerge.i.us, label %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.us, label %101
 
 101:                                              ; preds = %.thread31.i.us
-  %102 = tail call i32 @strncmp(ptr noundef nonnull %97, ptr noundef nonnull %.064.us, i64 noundef %90) #25
+  %102 = tail call i32 @strncmp(ptr noundef nonnull %97, ptr noundef nonnull readonly %.064.us, i64 noundef %90) #25
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.thread
 

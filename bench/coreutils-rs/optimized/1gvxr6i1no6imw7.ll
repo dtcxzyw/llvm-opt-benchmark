@@ -1031,7 +1031,7 @@ define void @_ZN11uu_basename8basename17hcb46eee7073df0d1E(ptr noalias nocapture
   unreachable
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf28534e2f4a1712E.exit": ; preds = %71
-  %bcmp.i = call i32 @bcmp(ptr nonnull %67, ptr nonnull %3, i64 %4), !alias.scope !311
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %67, ptr nonnull readonly %3, i64 %4), !alias.scope !311
   %73 = icmp eq i32 %bcmp.i, 0
   br i1 %73, label %76, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf28534e2f4a1712E.exit.thread"
 
@@ -1042,7 +1042,7 @@ define void @_ZN11uu_basename8basename17hcb46eee7073df0d1E(ptr noalias nocapture
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h68e7e8d7a8961e79E.exit.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf28534e2f4a1712E.exit.thread"
   %74 = getelementptr inbounds i8, ptr %67, i64 %.pre.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull %3, ptr nonnull %74, i64 %4), !alias.scope !315
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %74, i64 %4), !alias.scope !315
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %75 = icmp eq i32 %bcmp.i.i.fr.i, 0
   %spec.select.i = select i1 %75, ptr %67, ptr null

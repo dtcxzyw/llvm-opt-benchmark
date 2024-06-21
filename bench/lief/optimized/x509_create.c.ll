@@ -96,7 +96,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef %.058106, i64 noundef %13) #4
+  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef readonly %.058106, i64 noundef %13) #4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %x509_attr_descr_from_name.exit, label %22
 

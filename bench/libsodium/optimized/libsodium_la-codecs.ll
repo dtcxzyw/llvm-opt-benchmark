@@ -886,7 +886,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.else.i:                                        ; preds = %if.end.i
   %conv.i = sext i8 %42 to i32
-  %call7.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ignore, i32 noundef %conv.i) #8
+  %call7.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %ignore, i32 noundef %conv.i) #8
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %return.sink.split.i, label %if.end13.i
 

@@ -1848,7 +1848,7 @@ invoke.cont19.i.i:                                ; preds = %while.cond.preheade
   %m2.sroa.0.0650.i.i = phi ptr [ %m2.sroa.0.0650.i.i.be, %invoke.cont19.i.i.backedge ], [ %7, %while.cond.preheader.i.i ]
   %i1.sroa.0.0649.i.i = phi ptr [ %i1.sroa.0.0649.i.i.be, %invoke.cont19.i.i.backedge ], [ %sts.val.i23.pre.i, %while.cond.preheader.i.i ]
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %i1.sroa.0.0649.i.i, i64 32
-  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i1.sroa.0.0649.i.i) #18
+  %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %i1.sroa.0.0649.i.i) #18
   %cmp.i50.not637.i.i = icmp eq ptr %call.i.i.i.i.i.i, %7
   br i1 %cmp.i50.not637.i.i, label %for.inc62.i.i, label %for.body26.lr.ph.i.i
 
@@ -2799,7 +2799,7 @@ if.end73.i.i:                                     ; preds = %for.end64.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i199.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i200.i.i)
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_18TeddySetC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %nts.i.i, ptr noundef nonnull align 8 dereferenceable(152) %_M_storage.i.i196.i.i)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_18TeddySetC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %nts.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %_M_storage.i.i196.i.i)
           to label %.noexc221.i.i unwind label %lpad.loopexit.split-lp.i.i
 
 .noexc221.i.i:                                    ; preds = %if.end73.i.i
@@ -4074,7 +4074,7 @@ lor.end.i.i:                                      ; preds = %if.else.i.i.i.i.i.i
   %23 = phi i1 [ true, %if.then.i ], [ %cmp.i4.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i14.i ], [ false, %while.body.i.i.i.i.i.i11.i ], [ true, %if.else.i.i.i.i.i.i16.i ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #19
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_18TeddySetC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %__x)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_18TeddySetC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %__x)
           to label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18TeddySetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %lor.end.i.i

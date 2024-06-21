@@ -1094,7 +1094,7 @@ fmap_readn.exit:                                  ; preds = %86, %96
 
 107:                                              ; preds = %.lr.ph.i
   %108 = getelementptr inbounds i8, ptr %106, i64 1
-  %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull %26, i64 %28)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull readonly %26, i64 %28)
   %.not32.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not32.i, label %cli_memmem.exit.thread59, label %109
 

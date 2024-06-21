@@ -118,7 +118,7 @@ pmix_mca_base_component_parse_requested.exit.thread: ; preds = %22, %26, %32, %2
 .lr.ph.i:                                         ; preds = %.preheader.i, %47
   %50 = phi ptr [ %49, %47 ], [ %46, %.preheader.i ]
   %.016.i = phi ptr [ %48, %47 ], [ %.159, %.preheader.i ]
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %50) #13
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %50) #13
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %use_component.exit, label %47
 
@@ -281,7 +281,7 @@ use_component.exit.thread.us.i:                   ; preds = %.lr.ph.i44, %use_co
 .lr.ph.i.us.i:                                    ; preds = %.preheader.i.us.i, %119
   %116 = phi ptr [ %121, %119 ], [ %113, %.preheader.i.us.i ]
   %.016.i.us.i = phi ptr [ %120, %119 ], [ %.159, %.preheader.i.us.i ]
-  %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %116) #13
+  %117 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %116) #13
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %use_component.exit.us.i, label %119
 
@@ -321,7 +321,7 @@ use_component.exit.thr_comm.us.i:                 ; preds = %119, %use_component
 .lr.ph.i.i45:                                     ; preds = %.preheader.i.i, %129
   %132 = phi ptr [ %131, %129 ], [ %128, %.preheader.i.i ]
   %.016.i.i = phi ptr [ %130, %129 ], [ %.159, %.preheader.i.i ]
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %132) #13
+  %133 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %132) #13
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %use_component.exit.i, label %129
 
@@ -543,7 +543,7 @@ pmix_mca_base_component_parse_requested.exit:     ; preds = %10
 .lr.ph.i:                                         ; preds = %.preheader.i, %27
   %30 = phi ptr [ %29, %27 ], [ %26, %.preheader.i ]
   %.016.i = phi ptr [ %28, %27 ], [ %17, %.preheader.i ]
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %30) #13
+  %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %30) #13
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %use_component.exit, label %27
 

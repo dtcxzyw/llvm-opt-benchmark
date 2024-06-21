@@ -13955,11 +13955,11 @@ entry:
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN8intblast6solver16add_value_pluginEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %n, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %values)
+  tail call void @_ZN8intblast6solver16add_value_pluginEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %n, ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %values)
   br label %_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN8intblast6solver16add_value_solverEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %n, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %values)
+  tail call void @_ZN8intblast6solver16add_value_solverEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %n, ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %values)
   br label %_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE.exit
 
 _ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE.exit: ; preds = %if.then.i, %if.else.i

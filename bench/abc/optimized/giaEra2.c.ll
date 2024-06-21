@@ -1522,7 +1522,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_e
   br i1 %.not.i.i, label %19, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  tail call void @Gia_ManArePrintCube(ptr noundef nonnull %0, ptr noundef nonnull %.018.i)
+  tail call void @Gia_ManArePrintCube(ptr noundef nonnull readonly %0, ptr noundef nonnull %.018.i)
   %.val11.pre.i = load ptr, ptr %7, align 8
   %.val12.pre.i = load i32, ptr %8, align 8
   %.val10.val.pre.i = load ptr, ptr %.val11.pre.i, align 8
@@ -1776,7 +1776,7 @@ define i32 @Gia_ManAreFindBestVar(ptr nocapture noundef readonly %0, i32 %1) loc
   br i1 %.not.i.i, label %73, label %72
 
 72:                                               ; preds = %.lr.ph.i
-  tail call void @Gia_ManArePrintCube(ptr noundef nonnull %0, ptr noundef nonnull %.018.i)
+  tail call void @Gia_ManArePrintCube(ptr noundef nonnull readonly %0, ptr noundef nonnull %.018.i)
   %.val11.pre.i = load ptr, ptr %61, align 8
   %.val12.pre.i = load i32, ptr %62, align 8
   %.val10.val.pre.i = load ptr, ptr %.val11.pre.i, align 8
@@ -5371,7 +5371,7 @@ Gia_ManAreCreateStaInit.exit:                     ; preds = %.lr.ph.i, %47, %38
   %102 = getelementptr inbounds i8, ptr %40, i64 40
   %103 = load i32, ptr %102, align 8
   %104 = load i32, ptr %101, align 8
-  %105 = call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull %40, i32 %104, i32 noundef %103)
+  %105 = call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull readonly %40, i32 %104, i32 noundef %103)
   %106 = load i32, ptr %63, align 4
   %107 = add nsw i32 %106, -1
   %108 = getelementptr i8, ptr %40, i64 24

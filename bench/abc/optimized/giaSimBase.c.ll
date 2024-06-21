@@ -2346,10 +2346,10 @@ Vec_IntAlloc.exit:                                ; preds = %1, %28
   br i1 %.not.i66, label %Abc_UtilStrsav.exit, label %37
 
 37:                                               ; preds = %Vec_IntAlloc.exit
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #31
+  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #31
   %39 = add i64 %38, 1
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #29
-  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %36) #30
+  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %36) #30
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntAlloc.exit, %37
@@ -2361,10 +2361,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntAlloc.exit, 
   br i1 %.not.i67, label %Abc_UtilStrsav.exit68, label %45
 
 45:                                               ; preds = %Abc_UtilStrsav.exit
-  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #31
+  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #31
   %47 = add i64 %46, 1
   %48 = tail call noalias ptr @malloc(i64 noundef %47) #29
-  %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %44) #30
+  %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull readonly dereferenceable(1) %44) #30
   br label %Abc_UtilStrsav.exit68
 
 Abc_UtilStrsav.exit68:                            ; preds = %Abc_UtilStrsav.exit, %45
@@ -5815,7 +5815,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -5834,7 +5834,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !82
 
@@ -5984,7 +5984,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -6004,7 +6004,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !82
 
@@ -6187,7 +6187,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
   %273 = load ptr, ptr %186, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val = load i32, ptr %274, align 4
@@ -19710,7 +19710,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %133
   %163 = mul nsw i32 %162, %137
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i64, ptr %161, i64 %164
-  %bcmp.i243 = call i32 @bcmp(ptr %165, ptr %135, i64 %157)
+  %bcmp.i243 = call i32 @bcmp(ptr %165, ptr readonly %135, i64 %157)
   %.not15.i244 = icmp eq i32 %bcmp.i243, 0
   br i1 %.not15.i244, label %Vec_MemHashLookup.exit, label %.lr.ph245
 
@@ -19729,7 +19729,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %133
   %174 = mul nsw i32 %173, %137
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i64, ptr %172, i64 %175
-  %bcmp.i = call i32 @bcmp(ptr %176, ptr %135, i64 %157)
+  %bcmp.i = call i32 @bcmp(ptr %176, ptr readonly %135, i64 %157)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit.loopexit, label %177, !llvm.loop !82
 
@@ -19807,7 +19807,7 @@ Vec_MemHashKey.exit.i171:                         ; preds = %.lr.ph.i.i186, %Abc
   %208 = mul nsw i32 %207, %137
   %209 = sext i32 %208 to i64
   %210 = getelementptr inbounds i64, ptr %206, i64 %209
-  %bcmp.i178249 = call i32 @bcmp(ptr %210, ptr %135, i64 %202)
+  %bcmp.i178249 = call i32 @bcmp(ptr %210, ptr readonly %135, i64 %202)
   %.not15.i179250 = icmp eq i32 %bcmp.i178249, 0
   br i1 %.not15.i179250, label %Vec_MemHashLookup.exit191, label %.lr.ph251
 
@@ -19826,7 +19826,7 @@ Vec_MemHashKey.exit.i171:                         ; preds = %.lr.ph.i.i186, %Abc
   %219 = mul nsw i32 %218, %137
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i64, ptr %217, i64 %220
-  %bcmp.i178 = call i32 @bcmp(ptr %221, ptr %135, i64 %202)
+  %bcmp.i178 = call i32 @bcmp(ptr %221, ptr readonly %135, i64 %202)
   %.not15.i179 = icmp eq i32 %bcmp.i178, 0
   br i1 %.not15.i179, label %Vec_MemHashLookup.exit191.loopexit, label %222, !llvm.loop !82
 

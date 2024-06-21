@@ -260,7 +260,7 @@ if.end4:                                          ; preds = %for.end107.i, %if.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfds.i)
   %add.i.i.i = add i64 %uri.sroa.10.0, 1
   %call.i.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i.i, ptr nonnull align 1 %uri.sroa.0.0, i64 %uri.sroa.10.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i.i, ptr nonnull readonly align 1 %uri.sroa.0.0, i64 %uri.sroa.10.0, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %uri.sroa.10.0
   store i8 0, ptr %arrayidx.i.i.i, align 1
   store ptr %call.i.i.i, ptr %req.i, align 8
@@ -268,14 +268,14 @@ if.end4:                                          ; preds = %for.end107.i, %if.e
   store i16 %uri.sroa.16.0, ptr %port2.i.i, align 4
   %add.i11.i.i = add i64 %uri.sroa.6.0, 1
   %call.i12.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i11.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i12.i.i, ptr align 1 %uri.sroa.4.0, i64 %uri.sroa.6.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i12.i.i, ptr readonly align 1 %uri.sroa.4.0, i64 %uri.sroa.6.0, i1 false)
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %call.i12.i.i, i64 %uri.sroa.6.0
   store i8 0, ptr %arrayidx.i13.i.i, align 1
   %path4.i.i = getelementptr inbounds i8, ptr %req.i, i64 8
   store ptr %call.i12.i.i, ptr %path4.i.i, align 8
   %add.i14.i.i = add i64 %sub.ptr.sub.i, 1
   %call.i15.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i14.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i15.i.i, ptr nonnull align 1 %arrayidx.i, i64 %sub.ptr.sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i15.i.i, ptr nonnull readonly align 1 %arrayidx.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %call.i15.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i16.i.i, align 1
   %hostport6.i.i = getelementptr inbounds i8, ptr %req.i, i64 16

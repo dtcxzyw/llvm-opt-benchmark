@@ -1496,7 +1496,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   store i8 0, ptr %414, align 1
   %415 = getelementptr i8, ptr %267, i64 68
   %416 = zext i16 %.0372.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %415, ptr align 1 %97, i64 %416, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %415, ptr readonly align 1 %97, i64 %416, i1 false)
   br label %vwr_read_s1_W_rec.exit
 
 417:                                              ; preds = %13
@@ -2338,7 +2338,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %971 = zext i32 %970 to i64
   %972 = getelementptr i8, ptr %11, i64 %971
   %973 = zext nneg i32 %.0414.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %969, ptr align 1 %972, i64 %973, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %969, ptr readonly align 1 %972, i64 %973, i1 false)
   br label %vwr_read_s1_W_rec.exit
 
 974:                                              ; preds = %13
@@ -3707,7 +3707,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1753 = zext nneg i32 %.1708836879934.i to i64
   %1754 = getelementptr i8, ptr %11, i64 %1753
   %1755 = getelementptr i8, ptr %1754, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1752, ptr noundef nonnull align 1 dereferenceable(16) %1755, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1752, ptr noundef nonnull readonly align 1 dereferenceable(16) %1755, i64 16, i1 false)
   %1756 = add i32 %.19940.i, 32
   %1757 = getelementptr i8, ptr %.0709835881933.i, i64 12
   %1758 = getelementptr i8, ptr %.0709835881933.i, i64 13
@@ -3830,7 +3830,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1839 = zext i32 %1838 to i64
   %1840 = getelementptr i8, ptr %11, i64 %1839
   %1841 = zext i32 %.3731827897925.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1835, ptr align 1 %1840, i64 %1841, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1835, ptr readonly align 1 %1840, i64 %1841, i1 false)
   br label %vwr_read_s3_W_rec.exit
 
 vwr_read_s3_W_rec.exit:                           ; preds = %978, %1001, %1008, %1065, %1225, %1390, %1681, %1811
@@ -4465,7 +4465,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2274 = getelementptr i8, ptr %2165, i64 60
   %2275 = zext i16 %.0355.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2273, i8 0, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2274, ptr nonnull align 1 %11, i64 %2275, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2274, ptr nonnull readonly align 1 %11, i64 %2275, i1 false)
   br label %vwr_read_s1_W_rec.exit
 
 2276:                                             ; preds = %13

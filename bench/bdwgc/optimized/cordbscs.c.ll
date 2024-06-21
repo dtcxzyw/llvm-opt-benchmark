@@ -821,7 +821,7 @@ define ptr @CORD_substr(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_un
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %CORD_len.exit
 
 9:                                                ; preds = %5
@@ -1678,7 +1678,7 @@ define range(i32 0, 2) i32 @CORD_riter(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %CORD_len.exit
 
 9:                                                ; preds = %5

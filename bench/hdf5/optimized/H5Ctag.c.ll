@@ -1222,19 +1222,19 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   store i8 0, ptr %10, align 8
   store i8 0, ptr %11, align 2
   %.val.i.us = load ptr, ptr %12, align 8
-  %13 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i.us, i64 noundef %1, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
+  %13 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i.us, i64 noundef %1, ptr noundef nonnull readonly @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.split12.us, label %15
 
 15:                                               ; preds = %.split.us
   %.val14.i.us = load ptr, ptr %12, align 8
-  %16 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val14.i.us, i64 noundef 5, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
+  %16 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val14.i.us, i64 noundef 5, ptr noundef nonnull readonly @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.split12.us, label %18
 
 18:                                               ; preds = %15
   %.val15.i.us = load ptr, ptr %12, align 8
-  %19 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val15.i.us, i64 noundef 6, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
+  %19 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val15.i.us, i64 noundef 6, ptr noundef nonnull readonly @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.split12.us, label %21
 
@@ -1248,7 +1248,7 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   store i8 0, ptr %10, align 8
   store i8 0, ptr %11, align 2
   %.val.i = load ptr, ptr %12, align 8
-  %24 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i, i64 noundef %1, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
+  %24 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i, i64 noundef %1, ptr noundef nonnull readonly @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.split12.us, label %26
 
@@ -1376,19 +1376,19 @@ define range(i32 -1, 1) i32 @H5C_flush_tagged_entries(ptr noundef %0, i64 nounde
 13:                                               ; preds = %2
   %14 = getelementptr i8, ptr %6, i64 524728
   %.val.i = load ptr, ptr %14, align 8
-  %15 = tail call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i, i64 noundef %1, ptr noundef nonnull @H5C__flush_tagged_entries_cb, ptr noundef %6)
+  %15 = tail call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i, i64 noundef %1, ptr noundef nonnull readonly @H5C__flush_tagged_entries_cb, ptr noundef %6)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %13
   %.val14.i = load ptr, ptr %14, align 8
-  %18 = tail call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val14.i, i64 noundef 5, ptr noundef nonnull @H5C__flush_tagged_entries_cb, ptr noundef nonnull %6)
+  %18 = tail call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val14.i, i64 noundef 5, ptr noundef nonnull readonly @H5C__flush_tagged_entries_cb, ptr noundef nonnull %6)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
   %.val15.i = load ptr, ptr %14, align 8
-  %21 = tail call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val15.i, i64 noundef 6, ptr noundef nonnull @H5C__flush_tagged_entries_cb, ptr noundef nonnull %6)
+  %21 = tail call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val15.i, i64 noundef 6, ptr noundef nonnull readonly @H5C__flush_tagged_entries_cb, ptr noundef nonnull %6)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %H5C__iter_tagged_entries.exit
 
@@ -2340,7 +2340,7 @@ define range(i32 -1, 1) i32 @H5C_expunge_tag_type_metadata(ptr noundef %0, i64 n
   store i32 %3, ptr %11, align 4
   %12 = getelementptr i8, ptr %9, i64 524728
   %.val.i = load ptr, ptr %12, align 8
-  %13 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i, i64 noundef %1, ptr noundef nonnull @H5C__expunge_tag_type_metadata_cb, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr %.val.i, i64 noundef %1, ptr noundef nonnull readonly @H5C__expunge_tag_type_metadata_cb, ptr noundef nonnull %5)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %H5C__iter_tagged_entries.exit
 

@@ -2053,7 +2053,7 @@ define void @Aig_ManDump(ptr noundef %0) local_unnamed_addr #1 {
 
 Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %.critedge6.i
   %.09.i.i = phi i32 [ 1, %.critedge6.i ], [ %68, %.lr.ph.i.i ]
-  %69 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.32)
+  %69 = call noalias ptr @fopen(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.32)
   %70 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 51, i64 1, ptr %69)
   %71 = load ptr, ptr %0, align 8
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.34, ptr noundef %71) #24

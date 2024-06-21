@@ -997,7 +997,7 @@ for.body.i.us:                                    ; preds = %for.body.us103, %fo
   br i1 %cmp2.not.i.us, label %for.inc.i.us, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.i.us
-  %call.i79.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %31) #32
+  %call.i79.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %31) #32
   %cmp4.i.us = icmp eq i32 %call.i79.us, 0
   br i1 %cmp4.i.us, label %for.inc.us108, label %for.inc.i.us
 
@@ -1051,7 +1051,7 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %40) #32
+  %call.i79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %40) #32
   %cmp4.i = icmp eq i32 %call.i79, 0
   br i1 %cmp4.i, label %for.inc, label %for.inc.i
 
@@ -4778,7 +4778,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool1.not.i, label %event_mm_strdup_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %method) #32
+  %call3.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %method) #32
   %cmp.i = icmp eq i64 %call3.i, -1
   br i1 %cmp.i, label %event_mm_strdup_.exit.thread, label %if.end5.i
 
@@ -4789,7 +4789,7 @@ if.end5.i:                                        ; preds = %if.then2.i
   br i1 %tobool7.not.i, label %event_mm_strdup_.exit.thread, label %event_mm_strdup_.exit.thread20
 
 event_mm_strdup_.exit.thread20:                   ; preds = %if.end5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call6.i, ptr noundef nonnull align 1 dereferenceable(1) %method, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call6.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %method, i64 %add.i, i1 false)
   %avoid_method22 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store ptr %call6.i, ptr %avoid_method22, align 8
   br label %do.body
@@ -4803,7 +4803,7 @@ event_mm_strdup_.exit.thread:                     ; preds = %if.then2.i, %if.end
   br label %if.then4
 
 event_mm_strdup_.exit:                            ; preds = %if.end.i
-  %call11.i = tail call noalias ptr @strdup(ptr noundef nonnull %method) #26
+  %call11.i = tail call noalias ptr @strdup(ptr noundef nonnull readonly %method) #26
   %avoid_method = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store ptr %call11.i, ptr %avoid_method, align 8
   %cmp3 = icmp eq ptr %call11.i, null
@@ -5819,7 +5819,7 @@ if.end17:                                         ; preds = %land.lhs.true, %lor
 if.then20:                                        ; preds = %land.lhs.true, %lor.lhs.false
   %ev_timeout.le = getelementptr inbounds i8, ptr %13, i64 104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i, ptr noundef nonnull align 8 dereferenceable(16) %ev_timeout.le, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ev_timeout.le, i64 16, i1 false)
   %tv_usec.i18 = getelementptr inbounds i8, ptr %timeout.i, i64 8
   %19 = load i64, ptr %tv_usec.i18, align 8
   %and.i = and i64 %19, 1048575

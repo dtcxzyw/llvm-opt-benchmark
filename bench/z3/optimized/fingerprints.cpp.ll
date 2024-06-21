@@ -370,7 +370,7 @@ if.end10:                                         ; preds = %for.end
   %18 = shl nuw nsw i64 %conv.i, 3
   %call.i.i15 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %15, i64 noundef %18)
   store ptr %call.i.i15, ptr %m_args.i14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i15, ptr align 8 %17, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i15, ptr readonly align 8 %17, i64 %18, i1 false)
   %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load ptr, ptr %m_fingerprints, align 8
   %cmp.i16 = icmp eq ptr %19, null

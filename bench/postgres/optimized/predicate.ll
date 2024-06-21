@@ -1676,7 +1676,7 @@ PredicateLockExists.exit:                         ; preds = %1
 
 PredicateLockExists.exit.thread:                  ; preds = %1, %PredicateLockExists.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = getelementptr inbounds i8, ptr %7, i64 12
   %16 = getelementptr inbounds i8, ptr %7, i64 4

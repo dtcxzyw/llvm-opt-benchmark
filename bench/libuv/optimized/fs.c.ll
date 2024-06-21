@@ -762,7 +762,7 @@ uv__fs_statx.exit.i170:                           ; preds = %sw.epilog.i.i171, %
 
 if.end.i124:                                      ; preds = %sw.default.i.i169, %sw.bb51
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i121)
-  %call.i6.i125 = call noundef i32 @lstat64(ptr noundef %69, ptr noundef nonnull %pbuf.i122) #15
+  %call.i6.i125 = call noundef i32 @lstat64(ptr noundef readonly %69, ptr noundef nonnull %pbuf.i122) #15
   %cmp2.i126 = icmp eq i32 %call.i6.i125, 0
   br i1 %cmp2.i126, label %if.then3.i128, label %uv__fs_lstat.exit
 
@@ -1539,7 +1539,7 @@ uv__fs_statx.exit.i307:                           ; preds = %sw.epilog.i.i308, %
 
 if.end.i261:                                      ; preds = %sw.default.i.i306, %sw.bb100
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i258)
-  %call.i6.i262 = call noundef i32 @stat64(ptr noundef %168, ptr noundef nonnull %pbuf.i259) #15
+  %call.i6.i262 = call noundef i32 @stat64(ptr noundef readonly %168, ptr noundef nonnull %pbuf.i259) #15
   %cmp2.i263 = icmp eq i32 %call.i6.i262, 0
   br i1 %cmp2.i263, label %if.then3.i265, label %uv__fs_stat.exit
 

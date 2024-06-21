@@ -1392,7 +1392,7 @@ if.end256:                                        ; preds = %invoke.cont251, %if
   br i1 %cmp.i125, label %if.then.i126, label %if.end.i
 
 if.then.i126:                                     ; preds = %if.end256
-  call void @perror(ptr noundef nonnull @.str.35) #26
+  call void @perror(ptr noundef nonnull readonly @.str.35) #26
   br label %invoke.cont258.thread
 
 if.end.i:                                         ; preds = %if.end256
@@ -1422,7 +1422,7 @@ call11.i.noexc:                                   ; preds = %if.end10.i
 
 if.then13.i.invoke:                               ; preds = %call11.i.noexc, %if.end5.i, %if.end.i
   %.str.36.sink = phi ptr [ @.str.36, %if.end.i ], [ @.str.38, %if.end5.i ], [ @.str.39, %call11.i.noexc ]
-  call void @perror(ptr noundef nonnull %.str.36.sink) #26
+  call void @perror(ptr noundef nonnull readonly %.str.36.sink) #26
   %38 = invoke noundef i32 @close(i32 noundef %call.i)
           to label %invoke.cont258.thread unwind label %lpad
 

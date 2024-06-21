@@ -45,10 +45,10 @@ define ptr @Cec_ManFraSpecReduction(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #20
   %21 = add i64 %20, 1
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #21
-  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %18) #19
+  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %18) #19
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %13, %19
@@ -60,10 +60,10 @@ Abc_UtilStrsav.exit:                              ; preds = %13, %19
   br i1 %.not.i166, label %Abc_UtilStrsav.exit167, label %27
 
 27:                                               ; preds = %Abc_UtilStrsav.exit
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #20
+  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #20
   %29 = add i64 %28, 1
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #21
-  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %26) #19
+  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %26) #19
   br label %Abc_UtilStrsav.exit167
 
 Abc_UtilStrsav.exit167:                           ; preds = %Abc_UtilStrsav.exit, %27

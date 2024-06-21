@@ -2163,7 +2163,7 @@ define range(i32 -1, 1) i32 @H5S_select_elements(ptr noundef %0, i32 noundef %1,
   %61 = getelementptr inbounds i64, ptr %3, i64 %60
   %62 = zext i32 %58 to i64
   %63 = shl nuw nsw i64 %62, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %61, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr readonly align 8 %61, i64 %63, i1 false)
   %64 = icmp eq ptr %.093.i, null
   br i1 %64, label %66, label %65
 

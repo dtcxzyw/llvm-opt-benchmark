@@ -533,7 +533,7 @@ if.end63:                                         ; preds = %if.else61, %if.then
   %dir.0 = phi ptr [ %call60, %if.then58 ], [ %call62, %if.else61 ]
   tail call void @strip_dir_trailing_slashes(ptr noundef %dir.0) #17
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %sb.i)
-  %call.i = call i32 @stat64(ptr noundef %dir.0, ptr noundef nonnull %sb.i) #17
+  %call.i = call i32 @stat64(ptr noundef readonly %dir.0, ptr noundef nonnull %sb.i) #17
   %tobool.not.i.not = icmp eq i32 %call.i, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %sb.i)
   br i1 %tobool.not.i.not, label %land.lhs.true66, label %if.end71
@@ -555,7 +555,7 @@ if.end71:                                         ; preds = %land.lhs.true66, %i
 
 if.then73:                                        ; preds = %if.end71
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %sb.i162)
-  %call.i163 = call i32 @stat64(ptr noundef nonnull %15, ptr noundef nonnull %sb.i162) #17
+  %call.i163 = call i32 @stat64(ptr noundef nonnull readonly %15, ptr noundef nonnull %sb.i162) #17
   %tobool.not.i164.not = icmp eq i32 %call.i163, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %sb.i162)
   br i1 %tobool.not.i164.not, label %land.lhs.true76, label %if.end82
@@ -589,7 +589,7 @@ if.else87:                                        ; preds = %if.end82
 
 land.lhs.true90:                                  ; preds = %if.else87
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %sb.i166)
-  %call.i167 = call i32 @stat64(ptr noundef nonnull %call88, ptr noundef nonnull %sb.i166) #17
+  %call.i167 = call i32 @stat64(ptr noundef nonnull readonly %call88, ptr noundef nonnull %sb.i166) #17
   %tobool.not.i168.not = icmp eq i32 %call.i167, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %sb.i166)
   br i1 %tobool.not.i168.not, label %if.then93, label %if.then100
@@ -1569,11 +1569,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %old_oid, ptr noundef nonnull dereferenceable(32) %call.i257, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %old_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i257, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %old_oid, ptr noundef nonnull dereferenceable(20) %call.i257, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %old_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i257, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -2349,14 +2349,14 @@ for.body.i7.i:                                    ; preds = %write_remote_refs.e
   br i1 %tobool1.not.i10.i, label %for.inc.i12.i, label %if.end.i.i312
 
 if.end.i.i312:                                    ; preds = %for.body.i7.i
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i8.i) #19
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.i8.i) #19
   %cmp.i.i.i.i.i = icmp ult i64 %call.i.i.i.i, 3
   br i1 %cmp.i.i.i.i.i, label %if.end7.i.i, label %ends_with.exit.i.i
 
 ends_with.exit.i.i:                               ; preds = %if.end.i.i312
   %245 = getelementptr i8, ptr %name.i8.i, i64 %call.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %245, i64 -3
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.203, i64 3)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.203, i64 3)
   %tobool.not.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.not.i.i, label %for.inc.i12.i, label %if.end7.i.i
 

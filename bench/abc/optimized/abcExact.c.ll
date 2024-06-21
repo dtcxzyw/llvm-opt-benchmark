@@ -406,7 +406,7 @@ define internal fastcc void @Abc_ExactNormalizeArrivalTimesForNetwork(i32 nounde
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #24
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %1, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr readonly align 4 %1, i64 %10, i1 false)
   %13 = icmp sgt i8 %5, 0
   br i1 %13, label %.lr.ph, label %.preheader63
 
@@ -6418,7 +6418,7 @@ Abc_Clock.exit42:                                 ; preds = %395, %398
   br i1 %.not449.i, label %417, label %415
 
 415:                                              ; preds = %405
-  %416 = call fastcc i32 @Ses_ManCreateTruthTableClause(ptr noundef nonnull %0, i32 noundef %.0411900.i)
+  %416 = call fastcc i32 @Ses_ManCreateTruthTableClause(ptr noundef nonnull readonly %0, i32 noundef %.0411900.i)
   %.not450.i = icmp eq i32 %416, 0
   br i1 %.not450.i, label %Ses_ManCreateClauses.exit, label %._crit_edge1105.i
 

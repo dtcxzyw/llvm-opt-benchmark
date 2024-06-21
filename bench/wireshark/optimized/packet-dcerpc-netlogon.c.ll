@@ -7509,7 +7509,7 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %156, i8 0, i64 16, i1 false)
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %155, ptr noundef nonnull dereferenceable(16) %7, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %155, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not.i84 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i84, label %162, label %.preheader.i
 

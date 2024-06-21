@@ -307,7 +307,7 @@ if.then13.i:                                      ; preds = %while.body11.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %while.body11.i
-  %call16.i = tail call noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport10writeValueEPNS_5ValueERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef nonnull %nextValue.016.i, ptr noundef nonnull align 8 dereferenceable(32) %statement)
+  %call16.i = tail call noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport10writeValueEPNS_5ValueERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 poison, ptr noundef nonnull %nextValue.016.i, ptr noundef nonnull align 8 dereferenceable(32) %statement)
   %m_next.i = getelementptr inbounds i8, ptr %nextValue.016.i, i64 24
   %inc.i = add i64 %idx.015.i, 1
   %nextValue.0.i = load ptr, ptr %m_next.i, align 8

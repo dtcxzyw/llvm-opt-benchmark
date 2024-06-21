@@ -4070,7 +4070,7 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %77, label %79, label %80
 
 79:                                               ; preds = %67
-  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %74, ptr noundef nonnull %8, i1 noundef zeroext %2)
+  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %74, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
   br label %ReindexIndex.exit
 
 80:                                               ; preds = %67
@@ -4081,7 +4081,7 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %or.cond.i, label %84, label %86
 
 84:                                               ; preds = %80
-  %85 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %74, ptr noundef nonnull %8)
+  %85 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %74, ptr noundef nonnull readonly %8)
   br label %ReindexIndex.exit
 
 86:                                               ; preds = %80
@@ -4107,7 +4107,7 @@ ReindexIndex.exit:                                ; preds = %79, %84, %86
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %88
-  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %92, ptr noundef nonnull %8, i1 noundef zeroext %2)
+  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %92, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
   br label %ReindexTable.exit
 
 96:                                               ; preds = %88
@@ -4119,7 +4119,7 @@ ReindexIndex.exit:                                ; preds = %79, %84, %86
   br i1 %.not21.i, label %107, label %99
 
 99:                                               ; preds = %97
-  %100 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %92, ptr noundef nonnull %8)
+  %100 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %92, ptr noundef nonnull readonly %8)
   br i1 %100, label %ReindexTable.exit, label %101
 
 101:                                              ; preds = %99
@@ -4407,7 +4407,7 @@ ReindexMultipleTables.exit:                       ; preds = %.backedge.i, %160
   %237 = load ptr, ptr %236, align 8
   call void %237(ptr noundef nonnull %163) #12
   call void @table_close(ptr noundef %162, i32 noundef 1) #12
-  call fastcc void @ReindexMultipleInternal(ptr noundef %1, ptr noundef %.058.lcssa.i, ptr noundef nonnull %8)
+  call fastcc void @ReindexMultipleInternal(ptr noundef %1, ptr noundef %.058.lcssa.i, ptr noundef nonnull readonly %8)
   call void @MemoryContextDelete(ptr noundef %161) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   br label %242

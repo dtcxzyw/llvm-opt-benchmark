@@ -856,7 +856,7 @@ if.end10:                                         ; preds = %if.then, %if.then2,
   %name.addr.0 = phi ptr [ %name, %if.else9 ], [ %add.ptr, %if.then2 ], [ %name, %if.else7 ], [ %name, %if.then ]
   %call11 = call ptr @alloc_ref(ptr noundef %name.addr.0) #10
   %old_oid = getelementptr inbounds i8, ptr %call11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i20 = getelementptr inbounds i8, ptr %oid, i64 32
   %6 = load i32, ptr %algo.i20, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call11, i64 40

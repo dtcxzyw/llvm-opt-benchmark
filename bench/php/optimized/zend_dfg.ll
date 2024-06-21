@@ -1651,7 +1651,7 @@ zend_bitset_last.exit:                            ; preds = %.preheader, %541
   %567 = mul nsw i32 %566, %9
   %568 = sext i32 %567 to i64
   %569 = getelementptr inbounds i64, ptr %17, i64 %568
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %563, ptr align 8 %569, i64 %519, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %563, ptr readonly align 8 %569, i64 %519, i1 false)
   %570 = load i32, ptr %559, align 4
   %571 = icmp sgt i32 %570, 1
   br i1 %571, label %.lr.ph346, label %.loopexit328
@@ -1719,7 +1719,7 @@ zend_bitset_union.exit:                           ; preds = %zend_bitset_union.e
 
 zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loopexit328
   %601 = getelementptr inbounds i64, ptr %17, i64 %562
-  %bcmp.i = tail call i32 @bcmp(ptr %601, ptr %11, i64 %519)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %601, ptr readonly %11, i64 %519)
   %602 = icmp eq i32 %bcmp.i, 0
   br i1 %602, label %.lr.ph.i.preheader.backedge, label %603
 
@@ -1727,7 +1727,7 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loop
   br label %.lr.ph.i.preheader
 
 603:                                              ; preds = %zend_bitset_union_with_difference.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %601, ptr align 8 %11, i64 %519, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %601, ptr readonly align 8 %11, i64 %519, i1 false)
   %604 = load ptr, ptr %520, align 8
   %605 = getelementptr inbounds i8, ptr %554, i64 28
   %606 = load i32, ptr %605, align 4

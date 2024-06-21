@@ -467,7 +467,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr nocapture nound
   br i1 %.not.i, label %no_mesg.exit.thread, label %no_mesg.exit
 
 no_mesg.exit:                                     ; preds = %16
-  %17 = tail call i32 @chmod(ptr noundef nonnull %14, i32 noundef 384) #10
+  %17 = tail call i32 @chmod(ptr noundef nonnull readonly %14, i32 noundef 384) #10
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %23, label %no_mesg.exit.thread
 

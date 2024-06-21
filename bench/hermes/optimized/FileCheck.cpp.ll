@@ -2747,12 +2747,12 @@ if.end10.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i343.i.i, label %if.end.i.i.i, label %_ZN4llvh9StringRefC2EPKc.exit91.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end10.i.i
-  %bcmp39.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.57, i64 5)
+  %bcmp39.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.57, i64 5)
   %cmp5.i347.i.i = icmp eq i32 %bcmp39.i.i, 0
   br i1 %cmp5.i347.i.i, label %cleanup.i, label %if.end.i359.i.i
 
 if.end.i359.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp40.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.58, i64 5)
+  %bcmp40.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.58, i64 5)
   %cmp5.i336.i.i = icmp eq i32 %bcmp40.i.i, 0
   br i1 %cmp5.i336.i.i, label %cleanup.i, label %if.end.i368.i.i
 
@@ -2761,12 +2761,12 @@ _ZN4llvh9StringRefC2EPKc.exit91.i.i:              ; preds = %if.end10.i.i
   br i1 %cmp.i321.i.i, label %if.end.i368.i.i, label %if.end18.i
 
 if.end.i368.i.i:                                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit91.i.i, %if.end.i359.i.i
-  %bcmp41.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.59, i64 4)
+  %bcmp41.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.59, i64 4)
   %cmp5.i325.i.i = icmp eq i32 %bcmp41.i.i, 0
   br i1 %cmp5.i325.i.i, label %cleanup.i, label %if.end.i377.i.i
 
 if.end.i377.i.i:                                  ; preds = %if.end.i368.i.i
-  %bcmp42.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.60, i64 4)
+  %bcmp42.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.60, i64 4)
   %cmp5.i314.i.i = icmp eq i32 %bcmp42.i.i, 0
   br i1 %cmp5.i314.i.i, label %cleanup.i, label %_ZN4llvh9StringRefC2EPKc.exit111.i.i
 
@@ -2775,12 +2775,12 @@ _ZN4llvh9StringRefC2EPKc.exit111.i.i:             ; preds = %if.end.i377.i.i
   br i1 %cmp.i299.i.i, label %if.end.i386.i.i, label %if.end18.i
 
 if.end.i386.i.i:                                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit111.i.i
-  %bcmp43.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.61, i64 6)
+  %bcmp43.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.61, i64 6)
   %cmp5.i303.i.i = icmp eq i32 %bcmp43.i.i, 0
   br i1 %cmp5.i303.i.i, label %cleanup.i, label %if.end.i395.i.i
 
 if.end.i395.i.i:                                  ; preds = %if.end.i386.i.i
-  %bcmp44.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.62, i64 6)
+  %bcmp44.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.62, i64 6)
   %cmp5.i292.i.i = icmp eq i32 %bcmp44.i.i, 0
   br i1 %cmp5.i292.i.i, label %cleanup.i, label %_ZN4llvh9StringRefC2EPKc.exit131.i.i
 
@@ -2789,12 +2789,12 @@ _ZN4llvh9StringRefC2EPKc.exit131.i.i:             ; preds = %if.end.i395.i.i
   br i1 %cmp.i277.i.i, label %if.end.i404.i.i, label %if.end18.i
 
 if.end.i404.i.i:                                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit131.i.i
-  %bcmp45.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(8) @.str.63, i64 8)
+  %bcmp45.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(8) @.str.63, i64 8)
   %cmp5.i281.i.i = icmp eq i32 %bcmp45.i.i, 0
   br i1 %cmp5.i281.i.i, label %cleanup.i, label %if.end.i413.i.i
 
 if.end.i413.i.i:                                  ; preds = %if.end.i404.i.i
-  %bcmp46.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(8) @.str.64, i64 8)
+  %bcmp46.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(8) @.str.64, i64 8)
   %cmp5.i270.i.i = icmp eq i32 %bcmp46.i.i, 0
   br i1 %cmp5.i270.i.i, label %cleanup.i, label %_ZN4llvh9StringRefC2EPKc.exit151.i.i
 
@@ -2803,22 +2803,22 @@ _ZN4llvh9StringRefC2EPKc.exit151.i.i:             ; preds = %if.end.i413.i.i
   br i1 %cmp.i255.not.i.i, label %if.end18.i, label %if.end.i422.i.i
 
 if.end.i422.i.i:                                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit151.i.i
-  %bcmp47.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.65, i64 9)
+  %bcmp47.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.65, i64 9)
   %cmp5.i259.i.i = icmp eq i32 %bcmp47.i.i, 0
   br i1 %cmp5.i259.i.i, label %cleanup.i, label %if.end.i431.i.i
 
 if.end.i431.i.i:                                  ; preds = %if.end.i422.i.i
-  %bcmp48.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.66, i64 9)
+  %bcmp48.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.66, i64 9)
   %cmp5.i248.i.i = icmp eq i32 %bcmp48.i.i, 0
   br i1 %cmp5.i248.i.i, label %cleanup.i, label %if.end.i440.i.i
 
 if.end.i440.i.i:                                  ; preds = %if.end.i431.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.67, i64 9)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.67, i64 9)
   %45 = icmp eq i32 %bcmp.i.i, 0
   br i1 %45, label %cleanup.i, label %if.end.i449.i.i
 
 if.end.i449.i.i:                                  ; preds = %if.end.i440.i.i
-  %bcmp88.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.68, i64 9)
+  %bcmp88.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.68, i64 9)
   %46 = icmp eq i32 %bcmp88.i.i, 0
   br i1 %46, label %cleanup.i, label %_ZN4llvh9StringRefC2EPKc.exit191.i.i
 
@@ -2827,12 +2827,12 @@ _ZN4llvh9StringRefC2EPKc.exit191.i.i:             ; preds = %if.end.i449.i.i
   br i1 %cmp.i211.i.i, label %if.end.i458.i.i, label %if.end18.i
 
 if.end.i458.i.i:                                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit191.i.i
-  %bcmp89.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.69, i64 10)
+  %bcmp89.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.69, i64 10)
   %47 = icmp eq i32 %bcmp89.i.i, 0
   br i1 %47, label %cleanup.i, label %if.end.i467.i.i
 
 if.end.i467.i.i:                                  ; preds = %if.end.i458.i.i
-  %bcmp90.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.70, i64 10)
+  %bcmp90.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.70, i64 10)
   %48 = icmp eq i32 %bcmp90.i.i, 0
   br i1 %48, label %cleanup.i, label %if.end18.i
 
@@ -3818,7 +3818,7 @@ if.end11:                                         ; preds = %if.end3
   %agg.tmp.sroa.2.0.copyload.i37 = load i64, ptr %agg.tmp.sroa.2.0.Prefix.sroa_idx.i36, align 8
   %Loc.i38 = getelementptr inbounds i8, ptr %this, i64 152
   %agg.tmp1.sroa.0.0.copyload.i = load ptr, ptr %Loc.i38, align 8
-  tail call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp.sroa.0.0.copyload.i35, i64 %agg.tmp.sroa.2.0.copyload.i37, ptr %agg.tmp1.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr %add.ptr.i37, i64 %sub.i39, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %call6, i64 noundef %1, i8 %Req.val, i8 %Req.val31)
+  tail call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp.sroa.0.0.copyload.i35, i64 %agg.tmp.sroa.2.0.copyload.i37, ptr %agg.tmp1.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %this, ptr %add.ptr.i37, i64 %sub.i39, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %call6, i64 noundef %1, i8 %Req.val, i8 %Req.val31)
   br i1 %IsLabelScanMode, label %if.end28, label %if.then14
 
 if.then14:                                        ; preds = %if.end11

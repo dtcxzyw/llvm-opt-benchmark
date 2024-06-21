@@ -90,14 +90,14 @@ land.lhs.true16:                                  ; preds = %land.lhs.true15
   %pack_lockfiles = getelementptr inbounds i8, ptr %.else.val89, i64 80
   %3 = load ptr, ptr %pack_lockfiles, align 8
   %4 = load ptr, ptr %3, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #11
   %cmp.i.i = icmp ult i64 %call.i, 5
   br i1 %cmp.i.i, label %if.end25, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true16
   %sub.i.i = add i64 %call.i, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str, i64 5)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then19, label %if.end25
 

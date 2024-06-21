@@ -3108,7 +3108,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Wri
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !223, !noalias !228, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !223, !noalias !228, !noundef !4
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !223, !noalias !228
@@ -4397,7 +4397,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !343, !noalias !352, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !363
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !363
   %74 = load i64, ptr %50, align 8, !alias.scope !343, !noalias !352, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !343, !noalias !352
@@ -4551,7 +4551,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !382, !noalias !391, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !402
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !402
   %74 = load i64, ptr %50, align 8, !alias.scope !382, !noalias !391, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !382, !noalias !391
@@ -4705,7 +4705,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !421, !noalias !430, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !441
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !441
   %74 = load i64, ptr %50, align 8, !alias.scope !421, !noalias !430, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !421, !noalias !430
@@ -4859,7 +4859,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !460, !noalias !469, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !480
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !480
   %74 = load i64, ptr %50, align 8, !alias.scope !460, !noalias !469, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !460, !noalias !469
@@ -5005,7 +5005,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !485, !noalias !494, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %68, i64 %47, i1 false), !noalias !519
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %68, i64 %47, i1 false), !noalias !519
   %72 = load i64, ptr %48, align 8, !alias.scope !485, !noalias !494, !noundef !4
   %73 = add i64 %72, %47
   store i64 %73, ptr %48, align 8, !alias.scope !485, !noalias !494
@@ -5158,7 +5158,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !538, !noalias !547, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !558
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !558
   %74 = load i64, ptr %50, align 8, !alias.scope !538, !noalias !547, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !538, !noalias !547
@@ -5312,7 +5312,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !577, !noalias !586, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !597
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !597
   %74 = load i64, ptr %50, align 8, !alias.scope !577, !noalias !586, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !577, !noalias !586
@@ -5430,7 +5430,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hc8e3981a7ebb6
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !616, !noalias !625, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %48, i64 %27, i1 false), !noalias !636
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %48, i64 %27, i1 false), !noalias !636
   %52 = load i64, ptr %28, align 8, !alias.scope !616, !noalias !625, !noundef !4
   %53 = add i64 %52, %27
   store i64 %53, ptr %28, align 8, !alias.scope !616, !noalias !625
@@ -5584,7 +5584,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !655, !noalias !664, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !675
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !675
   %74 = load i64, ptr %50, align 8, !alias.scope !655, !noalias !664, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !655, !noalias !664
@@ -5738,7 +5738,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !694, !noalias !703, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %70, i64 %49, i1 false), !noalias !714
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %70, i64 %49, i1 false), !noalias !714
   %74 = load i64, ptr %50, align 8, !alias.scope !694, !noalias !703, !noundef !4
   %75 = add i64 %74, %49
   store i64 %75, ptr %50, align 8, !alias.scope !694, !noalias !703
@@ -5783,7 +5783,7 @@ define hidden void @_ZN4time10formatting5write17h55ed8727e4fb65a1E(ptr noalias n
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !716, !noalias !723, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %16, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %18 = load i64, ptr %5, align 8, !alias.scope !716, !noalias !723, !noundef !4
   %19 = add i64 %18, %3
   store i64 %19, ptr %5, align 8, !alias.scope !716, !noalias !723
@@ -6859,9 +6859,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr271dro
   call void @llvm.experimental.noalias.scope.decl(metadata !813)
   call void @llvm.experimental.noalias.scope.decl(metadata !816)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4), !noalias !818
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false), !noalias !826
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull readonly align 8 dereferenceable(24) %107, i64 24, i1 false), !noalias !826
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(152) %106, i64 152, i1 false), !noalias !828
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull readonly align 8 dereferenceable(152) %106, i64 152, i1 false), !noalias !828
   %116 = load <2 x ptr>, ptr %109, align 8, !alias.scope !816, !noalias !826
   store <2 x ptr> %116, ptr %110, align 8, !noalias !818
   %117 = icmp eq i64 %.sroa.010.i.sroa.7.0, %.sroa.010.i.sroa.0.0

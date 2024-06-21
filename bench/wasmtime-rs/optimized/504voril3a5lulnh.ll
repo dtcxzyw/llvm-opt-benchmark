@@ -18589,7 +18589,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2e6ae6580188ee69E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !745
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !745
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2e6ae6580188ee69E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h2e6ae6580188ee69E.exit": ; preds = %7, %11
@@ -18786,7 +18786,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h02610b8c0988f2c9E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !756
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !756
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h02610b8c0988f2c9E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h02610b8c0988f2c9E.exit": ; preds = %7, %11
@@ -18983,7 +18983,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb27a87faca764c23E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !767
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !767
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb27a87faca764c23E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hb27a87faca764c23E.exit": ; preds = %7, %11
@@ -19180,7 +19180,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h434301e6cd250d56E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !778
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !778
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h434301e6cd250d56E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h434301e6cd250d56E.exit": ; preds = %7, %11
@@ -19377,7 +19377,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hde3ff518a5c93753E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !789
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !789
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hde3ff518a5c93753E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hde3ff518a5c93753E.exit": ; preds = %7, %11
@@ -19574,7 +19574,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6f48bb7f7f7e890bE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !800
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !800
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6f48bb7f7f7e890bE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6f48bb7f7f7e890bE.exit": ; preds = %7, %11
@@ -19771,7 +19771,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e5f32d8ddd99781E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !811
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !811
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e5f32d8ddd99781E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e5f32d8ddd99781E.exit": ; preds = %7, %11
@@ -19968,7 +19968,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5cc85b2ff6a19c23E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !822
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !822
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5cc85b2ff6a19c23E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h5cc85b2ff6a19c23E.exit": ; preds = %7, %11
@@ -20165,7 +20165,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0d6acef081ae25c1E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !833
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !833
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0d6acef081ae25c1E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0d6acef081ae25c1E.exit": ; preds = %7, %11
@@ -20362,7 +20362,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types.._..InternalBi
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hafe9b92f0c80ad8cE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !844
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !844
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hafe9b92f0c80ad8cE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hafe9b92f0c80ad8cE.exit": ; preds = %7, %11

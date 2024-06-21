@@ -2876,7 +2876,7 @@ call.i.i.i4.i.noexc:                              ; preds = %if.then.i15.i.i.i
 invoke.cont46:                                    ; preds = %invoke.cont43, %call.i.i.i4.i.noexc
   %x_.i = getelementptr inbounds i8, ptr %call44, i64 16
   %x_3.i = getelementptr inbounds i8, ptr %23, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, ptr noundef nonnull align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
   br label %invoke.cont50
 
 lpad45:                                           ; preds = %call.i.i.i4.i.noexc, %if.then.i15.i.i.i

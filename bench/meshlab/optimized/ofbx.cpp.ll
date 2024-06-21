@@ -4289,7 +4289,7 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.val.i.i = load ptr, ptr %67, align 8, !noalias !132
   call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %7), !noalias !129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !129
-  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN4ofbxmlERKNS_6MatrixES2_.exit
 
@@ -4320,7 +4320,7 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.val.i.i10 = load ptr, ptr %73, align 8, !noalias !144
   call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.val.i.i10, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3), !noalias !141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !141
-  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.ofbx::Matrix") align 8 %14, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.ofbx::Matrix") align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   br label %.preheader18.i
@@ -13854,7 +13854,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i:             ; preds = %46, %40
   br i1 %57, label %.lr.ph.preheader.i.i.i, label %72
 
 .lr.ph.preheader.i.i.i:                           ; preds = %55
-  %58 = tail call i64 @strtoull(ptr nocapture noundef %.014.i.i, ptr noundef null, i32 noundef 10) #29
+  %58 = tail call i64 @strtoull(ptr nocapture noundef readonly %.014.i.i, ptr noundef null, i32 noundef 10) #29
   store i64 %58, ptr %.0.i34.i, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i.i to i64
@@ -14013,7 +14013,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i:             ; preds = %46, %40
   br i1 %57, label %.lr.ph.preheader.i.i.i, label %72
 
 .lr.ph.preheader.i.i.i:                           ; preds = %55
-  %58 = tail call i64 @atoll(ptr nocapture noundef %.014.i.i) #30
+  %58 = tail call i64 @atoll(ptr nocapture noundef readonly %.014.i.i) #30
   store i64 %58, ptr %.0.i34.i, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i.i to i64
@@ -14172,7 +14172,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %72
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call double @atof(ptr noundef %.014.i) #30
+  %58 = tail call double @atof(ptr noundef readonly %.014.i) #30
   store double %58, ptr %.0.i34, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i to i64
@@ -14337,7 +14337,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %72
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call i32 @atoi(ptr nocapture noundef %.014.i) #30
+  %58 = tail call i32 @atoi(ptr nocapture noundef readonly %.014.i) #30
   store i32 %58, ptr %.0.i34, align 4
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i to i64
@@ -14496,7 +14496,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %73
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call double @atof(ptr noundef %.014.i) #30
+  %58 = tail call double @atof(ptr noundef readonly %.014.i) #30
   %59 = fptrunc double %58 to float
   store float %59, ptr %.0.i34, align 4
   %60 = ptrtoint ptr %56 to i64
@@ -16310,7 +16310,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %62
   %.015.i.i = phi i32 [ 0, %.lr.ph16.i.i ], [ %121, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i.i ]
   %.0614.i.i = phi ptr [ %85, %.lr.ph16.i.i ], [ %spec.select.i.i.i, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i.i ]
   %88 = load ptr, ptr %86, align 8
-  %89 = call double @atof(ptr noundef %.0614.i.i) #30
+  %89 = call double @atof(ptr noundef readonly %.0614.i.i) #30
   %90 = icmp ult ptr %.0614.i.i, %88
   br i1 %90, label %.lr.ph.preheader.i.i.i, label %_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_.exit.i.i
 
@@ -17470,7 +17470,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %.015.i = phi i32 [ 0, %.lr.ph16.i ], [ %89, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.0614.i = phi ptr [ %45, %.lr.ph16.i ], [ %spec.select.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %50 = load ptr, ptr %46, align 8
-  %51 = tail call i32 @atoi(ptr nocapture noundef %.0614.i) #30
+  %51 = tail call i32 @atoi(ptr nocapture noundef readonly %.0614.i) #30
   %52 = icmp ult ptr %.0614.i, %50
   br i1 %52, label %.lr.ph.preheader.i.i, label %_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_.exit.i
 
@@ -20933,7 +20933,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %.015.i = phi i32 [ 0, %.lr.ph16.i ], [ %90, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %.0614.i = phi ptr [ %45, %.lr.ph16.i ], [ %spec.select.i.i, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %50 = load ptr, ptr %46, align 8
-  %51 = tail call double @atof(ptr noundef %.0614.i) #30
+  %51 = tail call double @atof(ptr noundef readonly %.0614.i) #30
   %52 = fptrunc double %51 to float
   %53 = icmp ult ptr %.0614.i, %50
   br i1 %53, label %.lr.ph.preheader.i.i, label %_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_.exit.i

@@ -98,7 +98,7 @@ if.then14:                                        ; preds = %if.end12
   %7 = load ptr, ptr %argv, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %file.i)
-  %call.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %file.i, ptr noundef nonnull dereferenceable(1) %8) #9
+  %call.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %file.i, ptr noundef nonnull readonly dereferenceable(1) %8) #9
   %9 = load i8, ptr %8, align 1
   %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i

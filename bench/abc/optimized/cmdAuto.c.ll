@@ -362,10 +362,10 @@ define noundef ptr @Cmd_DeriveConvertIntoString(i32 noundef %0, ptr nocapture no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
+  %8 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #24
   %9 = add i64 %8, 1
   %10 = call noalias ptr @malloc(i64 noundef %9) #23
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %3) #21
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %3) #21
   ret ptr %10
 }
 
@@ -1001,10 +1001,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i, label %Cmd_DeriveConvertIntoString.exit, label %.lr.ph.i, !llvm.loop !11
 
 Cmd_DeriveConvertIntoString.exit:                 ; preds = %.lr.ph.i, %Vec_PtrPush.exit
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #24
+  %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #24
   %56 = add i64 %55, 1
   %57 = call noalias noundef ptr @malloc(i64 noundef %56) #23
-  %58 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %6) #21
+  %58 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull readonly dereferenceable(1) %6) #21
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %6)
   %59 = load i32, ptr %21, align 4
   %60 = load i32, ptr %4, align 8

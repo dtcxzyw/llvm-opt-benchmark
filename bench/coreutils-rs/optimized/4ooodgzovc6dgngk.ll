@@ -107,7 +107,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %42 = phi i64 [ %34, %33 ], [ %.pre.i.i, %38 ]
   %43 = load ptr, ptr %11, align 8, !alias.scope !6, !noalias !11, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i8, ptr %43, i64 %42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %.lcssa, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %.lcssa, i64 %16, i1 false)
   br label %62
 
 45:                                               ; preds = %._crit_edge
@@ -147,7 +147,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %59 = phi i64 [ %52, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41b93b830701d463E.exit" ], [ %.pre.i.i12, %55 ]
   %60 = load ptr, ptr %11, align 8, !alias.scope !23, !noalias !28, !nonnull !4, !noundef !4
   %61 = getelementptr inbounds i8, ptr %60, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull readonly align 1 dereferenceable(1) %.lcssa, i64 %49, i1 false)
   br label %62
 
 62:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit13", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit"
@@ -463,7 +463,7 @@ default.unreachable:                              ; preds = %26
   %52 = getelementptr inbounds i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !alias.scope !65, !noalias !70, !nonnull !4, !noundef !4
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %7, i64 %.ph1619, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1619, i1 false)
   %55 = load i64, ptr %50, align 8, !alias.scope !65, !noalias !70, !noundef !4
   %56 = add i64 %55, %.ph1619
   store i64 %56, ptr %50, align 8, !alias.scope !65, !noalias !70
@@ -558,7 +558,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   br label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h954e2940dfb42274E.exit.thread.i"
 
 25:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %20, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !126, !noalias !130
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %20, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !126, !noalias !130
   %26 = sub i64 %19, %.0.sroa.speculated.i.i.i.i.i
   %27 = getelementptr inbounds i8, ptr %20, i64 %.0.sroa.speculated.i.i.i.i.i
   store ptr %27, ptr %.val.i, align 8, !alias.scope !119, !noalias !120
@@ -668,7 +668,7 @@ default.unreachable:                              ; preds = %39
   %65 = getelementptr inbounds i8, ptr %2, i64 8
   %66 = load ptr, ptr %65, align 8, !alias.scope !93, !noalias !98, !nonnull !4, !noundef !4
   %67 = getelementptr inbounds i8, ptr %66, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %7, i64 %.ph1619, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %7, i64 %.ph1619, i1 false)
   %68 = load i64, ptr %63, align 8, !alias.scope !93, !noalias !98, !noundef !4
   %69 = add i64 %68, %.ph1619
   store i64 %69, ptr %63, align 8, !alias.scope !93, !noalias !98
@@ -899,7 +899,7 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i
   br i1 %89, label %.thread.i.i.i.i.i.i.split.us, label %90
 
 90:                                               ; preds = %86
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %88, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.us, i1 false), !alias.scope !192, !noalias !196
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %88, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.us, i1 false), !alias.scope !192, !noalias !196
   %91 = sub i64 %87, %.0.sroa.speculated.i.i.i.i.i.i.i.i.us
   %92 = getelementptr inbounds i8, ptr %88, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.us
   store ptr %92, ptr %.val.i, align 8, !alias.scope !189, !noalias !190
@@ -1056,7 +1056,7 @@ default.unreachable:                              ; preds = %146
   br label %"_ZN3std2io4Read8read_buf28_$u7b$$u7b$closure$u7d$$u7d$17h6bce9694bef61f30E.exit.thread.i.i.i44.i"
 
 133:                                              ; preds = %126
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %128, i64 %.0.sroa.speculated.i.i.i.i.i.i.i34.i, i1 false), !alias.scope !255, !noalias !259
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %128, i64 %.0.sroa.speculated.i.i.i.i.i.i.i34.i, i1 false), !alias.scope !255, !noalias !259
   %134 = sub i64 %127, %.0.sroa.speculated.i.i.i.i.i.i.i34.i
   %135 = getelementptr inbounds i8, ptr %128, i64 %.0.sroa.speculated.i.i.i.i.i.i.i34.i
   store ptr %135, ptr %.val.i, align 8, !alias.scope !249, !noalias !250
@@ -2317,7 +2317,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   %81 = phi i64 [ %73, %72 ], [ %.pre.i.i.i.i, %.noexc17 ]
   %82 = load ptr, ptr %7, align 8, !alias.scope !417, !noalias !422, !nonnull !4, !noundef !4
   %83 = getelementptr inbounds i8, ptr %82, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull align 1 %68, i64 %69, i1 false), !noalias !405
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull readonly align 1 %68, i64 %69, i1 false), !noalias !405
   br label %101
 
 84:                                               ; preds = %.noexc15
@@ -2369,7 +2369,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   %98 = phi i64 [ %91, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41b93b830701d463E.exit.i.i" ], [ %.pre.i.i12.i.i, %.noexc21 ]
   %99 = load ptr, ptr %7, align 8, !alias.scope !427, !noalias !432, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds i8, ptr %99, i64 %98
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull align 1 dereferenceable(1) %68, i64 %88, i1 false), !noalias !405
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull readonly align 1 dereferenceable(1) %68, i64 %88, i1 false), !noalias !405
   br label %101
 
 101:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit13.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit.i.i"

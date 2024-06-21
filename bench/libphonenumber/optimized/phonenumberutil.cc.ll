@@ -7909,7 +7909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58: ; 
   %83 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #26
   %84 = load ptr, ptr %75, align 8
   %spec.select.i = select i1 %83, ptr %10, ptr %84
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil35FormatNationalNumberWithCarrierCodeERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i, ptr noundef nonnull %4)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil35FormatNationalNumberWithCarrierCodeERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i, ptr noundef nonnull %4)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil44FormatNationalNumberWithPreferredCarrierCodeERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit unwind label %89
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil44FormatNationalNumberWithPreferredCarrierCodeERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58
@@ -8006,7 +8006,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112ba
   br i1 %119, label %121, label %.invoke71
 
 121:                                              ; preds = %120
-  %122 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(280) %.0.i, i32 noundef 11)
+  %122 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(280) %.0.i, i32 noundef 11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit unwind label %123
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit: ; preds = %121
@@ -9425,7 +9425,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %12
           to label %14 unwind label %23
 
 14:                                               ; preds = %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit
-  %15 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %7)
+  %15 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %7)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %25
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %14
@@ -9436,11 +9436,11 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11
 16:                                               ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull %5)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, ptr noundef nonnull %5)
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
-  %18 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %18 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.thread unwind label %19
 
 19:                                               ; preds = %17, %16
@@ -12700,7 +12700,7 @@ switch.lookup:                                    ; preds = %_ZNK4i18n12phonenum
 94:                                               ; preds = %87
   %95 = getelementptr inbounds i8, ptr %90, i64 64
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %3)
+  %97 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %3)
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %128, label %99
 
@@ -13013,17 +13013,17 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7
           to label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit unwind label %99
 
 _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %.lr.ph
-  %92 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %10)
+  %92 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %10)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %.loopexit48
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull %4)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, ptr noundef nonnull %4)
           to label %93 unwind label %95
 
 93:                                               ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit
-  %94 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %94 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %97 unwind label %95
 
 95:                                               ; preds = %93, %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit
@@ -13436,7 +13436,7 @@ switch.lookup:                                    ; preds = %_ZNK4i18n12phonenum
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc39
-  %154 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %2)
+  %154 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %2)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %164
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -13901,7 +13901,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i1
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc50
-  %122 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %2)
+  %122 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %2)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %142
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -14728,7 +14728,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
           to label %232 unwind label %244
 
 232:                                              ; preds = %230
-  %233 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(280) %.149, i32 noundef 11)
+  %233 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(280) %.149, i32 noundef 11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit unwind label %244
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit: ; preds = %232
@@ -16219,7 +16219,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_17IsMatchERKNS0_10MatcherApiERKNSt7__cxx1112b
   br i1 %138, label %142, label %139
 
 139:                                              ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_17IsMatchERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit81, %_ZN4i18n12phonenumbers12_GLOBAL__N_17IsMatchERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit
-  %140 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef 11)
+  %140 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef 11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit unwind label %154
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit: ; preds = %139
@@ -16832,7 +16832,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossibleNumberERKNS0_11PhoneNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 {
-  %3 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 11)
+  %3 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef 11)
   %4 = icmp ult i32 %3, 2
   ret i1 %4
 }
@@ -16941,7 +16941,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil26HasValidCountryCallingCodeEi.exit.thre
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil25IsPossibleNumberForStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   call void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef null)
-  %5 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %4)
+  %5 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %4)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %10
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %3
@@ -16949,7 +16949,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit
-  %8 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 11)
+  %8 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %4, i32 noundef 11)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossibleNumberERKNS0_11PhoneNumberE.exit unwind label %10
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossibleNumberERKNS0_11PhoneNumberE.exit: ; preds = %7
@@ -17406,11 +17406,11 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil21T
   %5 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %4)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull %4)
           to label %6 unwind label %8
 
 6:                                                ; preds = %2
-  %7 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil13IsValidNumberERKNS0_11PhoneNumberE.exit unwind label %8
 
 common.resume:                                    ; preds = %.body, %8
@@ -17443,7 +17443,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil13IsValidNumberERKNS0_11PhoneNumberE.exi
   %18 = or i32 %17, 8
   store i32 %18, ptr %13, align 8
   store i64 %16, ptr %14, align 8
-  %19 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 11)
+  %19 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, i32 noundef 11)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE.exit unwind label %22
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE.exit: ; preds = %15
@@ -17465,11 +17465,11 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11Pho
 24:                                               ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %3)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull %3)
           to label %25 unwind label %27
 
 25:                                               ; preds = %24
-  %26 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNumberForRegionERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %29 unwind label %27
 
 27:                                               ; preds = %25, %24
@@ -18879,7 +18879,7 @@ _ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %6
           to label %.noexc11 unwind label %.thread
 
 .noexc11:                                         ; preds = %35, %.noexc
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil19NormalizeDigitsOnlyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %2)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil19NormalizeDigitsOnlyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull %2)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil9NormalizeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread unwind label %.thread
 
 .thread:                                          ; preds = %.noexc11, %35, %26, %22
@@ -18932,7 +18932,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %3
           to label %.noexc14 unwind label %38
 
 .noexc14:                                         ; preds = %57, %.noexc13
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil19NormalizeDigitsOnlyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %2)
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil19NormalizeDigitsOnlyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull %2)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil9NormalizeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16 unwind label %38
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil9NormalizeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16: ; preds = %.noexc14
@@ -19347,7 +19347,7 @@ define dso_local noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil27IsNumber
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc38
-  %17 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %4)
+  %17 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %4)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %24
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -19407,7 +19407,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %26
   br label %.body43
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; preds = %.noexc42
-  %30 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %7)
+  %30 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %7)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit47 unwind label %37
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit47: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45
@@ -19587,7 +19587,7 @@ define dso_local noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsNumber
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc34
-  %14 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %4)
+  %14 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %4)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit unwind label %21
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -19640,7 +19640,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11
           to label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit unwind label %33
 
 _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %28
-  %29 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %8)
+  %29 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil11ParseHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbPNS0_11PhoneNumberE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %8)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit38 unwind label %35
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit38: ; preds = %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit

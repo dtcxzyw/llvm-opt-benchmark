@@ -1337,7 +1337,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %68 = getelementptr inbounds i8, ptr %1, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %.0, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readonly align 8 dereferenceable(80) %.0, i64 80, i1 false)
   store i32 %70, ptr %1, align 8
   store i32 %69, ptr %68, align 4
   %71 = load i32, ptr %61, align 8

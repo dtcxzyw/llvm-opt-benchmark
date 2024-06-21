@@ -99,7 +99,7 @@ define range(i32 -157, 1) i32 @pmix_cmd_line_parse(ptr noundef %0, ptr noundef %
   br i1 %30, label %57, label %31
 
 31:                                               ; preds = %25
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #13
+  %32 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %29) #13
   %33 = icmp ult i64 %32, 3
   br i1 %33, label %57, label %sub_0.i
 

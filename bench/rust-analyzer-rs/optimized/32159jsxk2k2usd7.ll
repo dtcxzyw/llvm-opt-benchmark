@@ -453,7 +453,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !45
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %5, ptr %3, align 8, !noalias !45
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.178, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.179, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.180, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.181, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.182)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.178, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.179, i64 noundef 5, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.180, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.181, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.182)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !45
   ret i1 %6
 }
@@ -1372,7 +1372,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !285
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !289
   %9 = getelementptr inbounds { i32, i16, i16 }, ptr %6, i64 %8
-  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hae8f0c9c72d6b56bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6, ptr noundef nonnull %9), !noalias !278
+  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hae8f0c9c72d6b56bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %9), !noalias !278
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !278
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !285
   ret i1 %11
@@ -1485,7 +1485,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !316
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %6, ptr %3, align 8, !noalias !316
-  %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.103, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.104, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.105, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.106, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.107, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.108)
+  %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.103, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.104, i64 noundef 5, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.105, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.106, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.107, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.108)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !316
   ret i1 %7
 }
@@ -1941,7 +1941,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !391
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %3, align 8, !noalias !391
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.176, i64 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.90, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.171, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.177)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.176, i64 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.90, i64 noundef 6, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.171, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.177)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !391
   ret i1 %6
 }
@@ -2206,7 +2206,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !474
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %3, align 8, !noalias !474
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.89, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.90, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.91, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.93)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.89, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.90, i64 noundef 6, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.91, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !474
   ret i1 %6
 }
@@ -2418,7 +2418,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !504
   %8 = getelementptr inbounds i8, ptr %.val, i64 24
   store ptr %8, ptr %3, align 8, !noalias !504
-  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.193, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.104, i64 noundef 5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.105, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.106, i64 noundef 5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.107, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.194, i64 noundef 19, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.195, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.196, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.197)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.193, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.104, i64 noundef 5, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.105, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.106, i64 noundef 5, ptr noundef nonnull readonly align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.107, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.194, i64 noundef 19, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.195, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.196, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.197)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !504
   ret i1 %9
 }
@@ -2652,7 +2652,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !553
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %3, align 8, !noalias !553
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.167, i64 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.90, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.171, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.172)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.167, i64 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.90, i64 noundef 6, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.171, ptr noalias noundef nonnull readonly align 1 @anon.e8178081a04f5a40d05a21ea80afa5d9.92, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8178081a04f5a40d05a21ea80afa5d9.172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !553
   ret i1 %6
 }
@@ -3988,7 +3988,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %2, i64 %1), !alias.scope !791
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !791
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit"
 
@@ -4836,7 +4836,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %13, i64 %5), !alias.scope !1044, !noalias !1051
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %14, ptr nonnull readonly %13, i64 %5), !alias.scope !1044, !noalias !1051
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb515f74d3d22f41E.llvm.13980997071044408516.exit"
 
@@ -13452,7 +13452,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %13, i64 %5), !alias.scope !3761
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %14, ptr nonnull readonly %13, i64 %5), !alias.scope !3761
   %15 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.13980997071044408516.exit"
 
@@ -14093,7 +14093,7 @@ default.unreachable:                              ; preds = %12
   %52 = load ptr, ptr %51, align 8, !alias.scope !3968, !noalias !3965, !nonnull !11, !noundef !11
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !alias.scope !3965, !noalias !3968, !nonnull !11, !noundef !11
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %54, ptr nonnull %52, i64 %48), !alias.scope !3970, !noalias !3974
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %54, ptr nonnull readonly %52, i64 %48), !alias.scope !3970, !noalias !3974
   %55 = icmp eq i32 %bcmp.i.i, 0
   br i1 %55, label %56, label %"_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit"
 
@@ -14122,7 +14122,7 @@ default.unreachable:                              ; preds = %12
   %66 = load ptr, ptr %65, align 8, !alias.scope !3981, !noalias !3980, !nonnull !11, !noundef !11
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !3980, !noalias !3981, !nonnull !11, !noundef !11
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %68, ptr nonnull %66, i64 %61), !alias.scope !3982, !noalias !3986
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %66, i64 %61), !alias.scope !3982, !noalias !3986
   %69 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit"
 

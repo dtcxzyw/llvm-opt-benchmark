@@ -4054,7 +4054,7 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit.i:     ; preds = %if.end.i.i9.i, %for
   %add.ptr.i.i = getelementptr inbounds %class.checked_int64, ptr %10, i64 %idx.ext.i.i
   %add.ptr.i.i.i = getelementptr inbounds %class.checked_int64, ptr %add.ptr.i.i, i64 %retval.0.i.i11.i
   store ptr %add.ptr.i.i.i, ptr %v.i, align 8
-  %call8.i = call i64 @_ZNK13hilbert_basis10get_weightERKNS_6valuesERK6vectorI13checked_int64ILb1EELb1EjE(ptr noundef nonnull align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(8) %v.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i)
+  %call8.i = call i64 @_ZNK13hilbert_basis10get_weightERKNS_6valuesERK6vectorI13checked_int64ILb1EELb1EjE(ptr noundef nonnull readonly align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(8) %v.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i)
   %cmp.i12.i = icmp sgt i64 %call8.i, 0
   %call8.lobit.i = lshr i64 %call8.i, 63
   %inc13.i = trunc nuw nsw i64 %call8.lobit.i to i32

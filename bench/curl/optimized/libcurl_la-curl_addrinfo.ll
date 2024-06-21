@@ -440,7 +440,7 @@ if.end.i7:                                        ; preds = %if.then4
 
 if.end4.i10:                                      ; preds = %if.end.i7
   %addrentry7.i = getelementptr inbounds i8, ptr %call.i5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7.i, ptr noundef nonnull align 4 dereferenceable(16) %in6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %in6, i64 16, i1 false)
   store ptr %call1.i8, ptr %call.i5, align 8
   br label %return.sink.split.sink.split
 

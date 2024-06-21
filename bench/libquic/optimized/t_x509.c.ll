@@ -273,11 +273,11 @@ if.end120:                                        ; preds = %if.end115
   ]
 
 if.then.i:                                        ; preds = %if.end120
-  %call.i90 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull %18)
+  %call.i90 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull readonly %18)
   br label %ASN1_TIME_print.exit
 
 if.then3.i:                                       ; preds = %if.end120
-  %call4.i = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef nonnull %18)
+  %call4.i = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef nonnull readonly %18)
   br label %ASN1_TIME_print.exit
 
 ASN1_TIME_print.exit.thread:                      ; preds = %if.end120

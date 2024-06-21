@@ -1759,7 +1759,7 @@ if.end19.i:                                       ; preds = %while.end.i
 
 if.end19.split.i:                                 ; preds = %if.end19.i
   store ptr null, ptr %data109, align 8
-  call fastcc void @_mpd_add_sep_dot(ptr noundef nonnull %result, ptr noundef %sign.0.i, ptr noundef %dp.0.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %32, ptr noundef %incdec.ptr17.i, i64 noundef %sub.i, ptr noundef nonnull %spec.addr.1)
+  call fastcc void @_mpd_add_sep_dot(ptr noundef nonnull %result, ptr noundef %sign.0.i, ptr noundef %dp.0.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %32, ptr noundef %incdec.ptr17.i, i64 noundef %sub.i, ptr noundef nonnull readonly %spec.addr.1)
   br label %if.end34.i
 
 land.lhs.true.i:                                  ; preds = %if.end19.i, %if.end19.thread.i
@@ -1780,7 +1780,7 @@ lor.lhs.false29.i:                                ; preds = %land.lhs.true.i
 
 lor.lhs.false29.split.i:                          ; preds = %lor.lhs.false29.i
   store ptr null, ptr %data109, align 8
-  call fastcc void @_mpd_add_sep_dot(ptr noundef nonnull %result, ptr noundef %sign.0.i, ptr noundef %dp.0.i, i64 noundef %sub.ptr.sub.i, ptr noundef null, ptr noundef %dp.244.i, i64 noundef %sub45.i, ptr noundef nonnull %spec.addr.1)
+  call fastcc void @_mpd_add_sep_dot(ptr noundef nonnull %result, ptr noundef %sign.0.i, ptr noundef %dp.0.i, i64 noundef %sub.ptr.sub.i, ptr noundef null, ptr noundef %dp.244.i, i64 noundef %sub45.i, ptr noundef nonnull readonly %spec.addr.1)
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %lor.lhs.false29.split.i, %if.end19.split.i
@@ -1803,7 +1803,7 @@ _mpd_apply_lconv.exit.thread79:                   ; preds = %if.end34.i
   br label %error
 
 _mpd_apply_lconv.exit:                            ; preds = %if.end34.i
-  call fastcc void @_mpd_add_sep_dot(ptr noundef nonnull %result, ptr noundef %sign.0.i, ptr noundef %dp.0.i, i64 noundef %sub.ptr.sub.i, ptr noundef %dot.041.i, ptr noundef %dp.243.i, i64 noundef %sub46.i, ptr noundef nonnull %spec.addr.1)
+  call fastcc void @_mpd_add_sep_dot(ptr noundef nonnull %result, ptr noundef %sign.0.i, ptr noundef %dp.0.i, i64 noundef %sub.ptr.sub.i, ptr noundef %dot.041.i, ptr noundef %dp.243.i, i64 noundef %sub46.i, ptr noundef nonnull readonly %spec.addr.1)
   %41 = load ptr, ptr @mpd_free, align 8
   call void %41(ptr noundef nonnull %25) #18
   br label %if.end136
@@ -1824,7 +1824,7 @@ if.then.i54:                                      ; preds = %if.then139
   %44 = load i8, ptr %align1.i, align 1
   store i8 0, ptr %err.i, align 1
   %fill.i = getelementptr inbounds i8, ptr %spec.addr.1, i64 19
-  %call.i55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fill.i) #21
+  %call.i55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %fill.i) #21
   %sub.i56 = sub i64 %42, %43
   %mul.i = mul i64 %call.i55, %sub.i56
   %45 = load ptr, ptr %data109, align 8

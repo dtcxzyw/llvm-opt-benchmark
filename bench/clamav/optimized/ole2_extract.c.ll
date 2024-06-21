@@ -987,7 +987,7 @@ define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocaptu
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %46, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(72) %63, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5, ptr noundef nonnull readonly align 1 dereferenceable(72) %63, i64 72, i1 false)
   %64 = getelementptr inbounds i8, ptr %4, i64 256
   store i32 128, ptr %64, align 4
   %65 = call fastcc i32 @generate_key_aes(ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -2133,7 +2133,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   br i1 %189, label %190, label %246
 
 190:                                              ; preds = %186
-  %191 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef %.065106.i)
+  %191 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull readonly %0, ptr noundef nonnull %158, i32 noundef %.065106.i)
   br i1 %191, label %193, label %192
 
 192:                                              ; preds = %190
@@ -2153,7 +2153,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   %203 = getelementptr inbounds i8, ptr %158, i64 %202
   %204 = sext i32 %195 to i64
   %.064..i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %204)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %203, i64 noundef %.064..i, ptr noundef %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %203, i64 noundef %.064..i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
   %205 = load i32, ptr %174, align 8
   %206 = shl nuw i32 1, %205
   %207 = sext i32 %206 to i64
@@ -2170,7 +2170,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.015.i.i = phi i32 [ %211, %.lr.ph.i.i ], [ %209, %.lr.ph.preheader.i.i ]
   %.01014.i.i = phi i32 [ %212, %.lr.ph.i.i ], [ %210, %.lr.ph.preheader.i.i ]
-  %211 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i.i)
+  %211 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i.i)
   %212 = add nsw i32 %.01014.i.i, -1
   %213 = icmp ugt i32 %.01014.i.i, 1
   br i1 %213, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -2301,8 +2301,8 @@ ole2_get_next_sbat_block.exit.i:                  ; preds = %241, %236, %.thread
   %278 = shl nuw i32 1, %277
   %279 = sext i32 %278 to i64
   %.064.81.i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %279)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %158, i64 noundef %.064.81.i, ptr noundef %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
-  %280 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull %0, i32 noundef %.065106.i)
+  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %158, i64 noundef %.064.81.i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  %280 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.065106.i)
   %281 = load i16, ptr %153, align 2
   %282 = zext nneg i16 %281 to i32
   %283 = shl nuw i32 1, %282
@@ -2551,7 +2551,7 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr nocapture noundef re
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
   %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
-  %107 = call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i)
+  %107 = call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
   %109 = icmp ugt i32 %.01014.i, 1
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i
@@ -2947,7 +2947,7 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr nocapture nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
   %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
-  %107 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i)
+  %107 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
   %109 = icmp ugt i32 %.01014.i, 1
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i
@@ -3501,7 +3501,7 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr nocapture noundef readonly
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %86, %.lr.ph.i ], [ %84, %.lr.ph.preheader.i ]
   %.01014.i = phi i32 [ %87, %.lr.ph.i ], [ %85, %.lr.ph.preheader.i ]
-  %86 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.015.i)
+  %86 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %87 = add nsw i32 %.01014.i, -1
   %88 = icmp ugt i32 %.01014.i, 1
   br i1 %88, label %.lr.ph.i, label %._crit_edge.i
@@ -4492,7 +4492,7 @@ define internal fastcc void @print_ole2_property(ptr nocapture noundef readonly 
 
 22:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef %12) #21
-  %23 = tail call ptr @cli_ole2_get_property_name2(ptr noundef %0, i32 noundef %5)
+  %23 = tail call ptr @cli_ole2_get_property_name2(ptr noundef readonly %0, i32 noundef %5)
   br label %get_property_name.exit
 
 24:                                               ; preds = %.lr.ph.i

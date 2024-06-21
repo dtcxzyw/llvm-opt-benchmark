@@ -1489,7 +1489,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   %50 = phi i64 [ %44, %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i ], [ %.pre.i.i.i, %49 ]
   %51 = load ptr, ptr %0, align 8, !alias.scope !192, !noalias !197, !nonnull !5, !noundef !5
   %52 = getelementptr inbounds i8, ptr %51, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %53 = load i64, ptr %43, align 8, !alias.scope !192, !noalias !197, !noundef !5
   %54 = add i64 %53, %42
   store i64 %54, ptr %43, align 8, !alias.scope !192, !noalias !197
@@ -1543,7 +1543,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %11 = phi i64 [ %5, %3 ], [ %.pre.i.i, %10 ]
   %12 = load ptr, ptr %0, align 8, !alias.scope !205, !noalias !210, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %12, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %4, align 8, !alias.scope !205, !noalias !210, !noundef !5
   %15 = add i64 %14, %2
   store i64 %15, ptr %4, align 8, !alias.scope !205, !noalias !210
@@ -3161,7 +3161,7 @@ common.ret:                                       ; preds = %1817, %214, %179
   br i1 %.not.i.i.i427.i, label %587, label %.thread916.i
 
 587:                                              ; preds = %586
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %578, ptr nonnull %.val415.i, i64 %.val416.i), !alias.scope !512, !noalias !427
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %578, ptr nonnull readonly %.val415.i, i64 %.val416.i), !alias.scope !512, !noalias !427
   %588 = icmp eq i32 %bcmp.i.i.i.i, 0
   %589 = zext i1 %588 to i8
   br label %866
@@ -3389,13 +3389,13 @@ common.ret:                                       ; preds = %1817, %214, %179
   br label %866
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %.thread.i.i.i.i, %619
-  %bcmp.i.i.i.us22.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.val415.i, ptr noundef nonnull dereferenceable(1) %578, i64 %580), !alias.scope !549, !noalias !553
+  %bcmp.i.i.i.us22.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %.val415.i, ptr noundef nonnull readonly dereferenceable(1) %578, i64 %580), !alias.scope !549, !noalias !553
   %699 = icmp eq i32 %bcmp.i.i.i.us22.i.i.i.i.i, 0
   br i1 %699, label %.thread.i, label %.critedge.backedge.us.i.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i": ; preds = %.critedge.backedge.us.i.i.i.i.i
   %700 = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 1
-  %bcmp.i.i.i.us.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %700, ptr noundef nonnull dereferenceable(1) %578, i64 %580), !alias.scope !549, !noalias !553
+  %bcmp.i.i.i.us.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %700, ptr noundef nonnull readonly dereferenceable(1) %578, i64 %580), !alias.scope !549, !noalias !553
   %701 = icmp eq i32 %bcmp.i.i.i.us.i.i.i.i.i, 0
   br i1 %701, label %.thread.i, label %.critedge.backedge.us.i.i.i.i.i
 
@@ -11731,7 +11731,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   %1411 = getelementptr inbounds i8, ptr %1407, i64 40
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15), !noalias !1777
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !1777
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1411, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %1411, i64 24, i1 false)
   invoke void @"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h5856c7e65066737bE"(ptr noalias nocapture noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }) align 8 dereferenceable(72) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14)
           to label %.noexc975 unwind label %1427
 
@@ -11765,7 +11765,7 @@ common.ret:                                       ; preds = %1504, %1466, %940, 
   %1420 = getelementptr inbounds i8, ptr %1415, i64 112
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !1789
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1789
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1420, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %1420, i64 24, i1 false)
   invoke void @"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h5856c7e65066737bE"(ptr noalias nocapture noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }) align 8 dereferenceable(72) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
           to label %.noexc977 unwind label %1421
 
@@ -13447,7 +13447,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   %203 = getelementptr inbounds i8, ptr %1, i64 8
   %204 = load ptr, ptr %203, align 8, !nonnull !5, !align !180, !noundef !5
   %.val194 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr nonnull align 1 %.val194, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !1942, !noalias !1946
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr nonnull readonly align 1 %.val194, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !1942, !noalias !1946
   %205 = load ptr, ptr %203, align 8, !nonnull !5, !align !180, !noundef !5
   %206 = load i64, ptr %195, align 8, !noundef !5
   %207 = icmp ugt i64 %.0.sroa.speculated.i.i.i, %206

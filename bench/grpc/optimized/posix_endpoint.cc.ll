@@ -2208,7 +2208,7 @@ _ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i.i:      ; preds = %20, %lpad.i.i
 
 invoke.cont.i:                                    ; preds = %17, %invoke.cont2.i.i
   store ptr %exec_ctx.i, ptr %1, align 8
-  invoke fastcc void @"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl10HandleReadEN4absl12lts_202308026StatusEEN3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2)
+  invoke fastcc void @"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl10HandleReadEN4absl12lts_202308026StatusEEN3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2)
           to label %invoke.cont2.i unwind label %lpad1.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
@@ -2357,7 +2357,7 @@ ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i, %
   br label %ehcleanup
 
 if.else.i:                                        ; preds = %_ZN9grpc_core7ExecCtx3GetEv.exit.i
-  invoke fastcc void @"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl10HandleReadEN4absl12lts_202308026StatusEEN3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2)
+  invoke fastcc void @"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl10HandleReadEN4absl12lts_202308026StatusEEN3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i23.i, %if.then9.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i, %invoke.cont.i18.i, %if.else.i

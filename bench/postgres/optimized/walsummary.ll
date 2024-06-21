@@ -56,13 +56,13 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
 14:                                               ; preds = %IsWalSummaryFilename.exit.backedge.us.us, %.lr.ph.us
   %15 = phi ptr [ %13, %.lr.ph.us ], [ %38, %IsWalSummaryFilename.exit.backedge.us.us ]
   %16 = getelementptr inbounds i8, ptr %15, i64 19
-  %17 = call i64 @strspn(ptr noundef nonnull %16, ptr noundef nonnull @.str.12) #12
+  %17 = call i64 @strspn(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.12) #12
   %18 = icmp eq i64 %17, 40
   br i1 %18, label %19, label %IsWalSummaryFilename.exit.backedge.us.us
 
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %15, i64 59
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.13) #12
+  %21 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.13) #12
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %IsWalSummaryFilename.exit.backedge.us.us
 
@@ -113,13 +113,13 @@ IsWalSummaryFilename.exit.backedge.us.us:         ; preds = %23, %19, %14
 46:                                               ; preds = %.lr.ph, %IsWalSummaryFilename.exit.backedge
   %47 = phi ptr [ %45, %.lr.ph ], [ %58, %IsWalSummaryFilename.exit.backedge ]
   %48 = getelementptr inbounds i8, ptr %47, i64 19
-  %49 = call i64 @strspn(ptr noundef nonnull %48, ptr noundef nonnull @.str.12) #12
+  %49 = call i64 @strspn(ptr noundef nonnull readonly %48, ptr noundef nonnull @.str.12) #12
   %50 = icmp eq i64 %49, 40
   br i1 %50, label %51, label %IsWalSummaryFilename.exit.backedge
 
 51:                                               ; preds = %46
   %52 = getelementptr i8, ptr %47, i64 59
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(9) @.str.13) #12
+  %53 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull dereferenceable(9) @.str.13) #12
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %IsWalSummaryFilename.exit.backedge
 

@@ -34,7 +34,7 @@ if.then.i:                                        ; preds = %_ZN10ODDLParser4Tex
   store i64 %add.i, ptr %this, align 8
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #11
   store ptr %call.i, ptr %m_buffer, align 8
-  %call5.i = tail call ptr @strncpy(ptr noundef nonnull %call.i, ptr noundef %buffer, i64 noundef %numChars) #12
+  %call5.i = tail call ptr @strncpy(ptr noundef nonnull %call.i, ptr noundef readonly %buffer, i64 noundef %numChars) #12
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %numChars
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN10ODDLParser4Text3setEPKcm.exit
@@ -243,7 +243,7 @@ if.then.i.i:                                      ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i.i
   %m_buffer.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call.i.i3, ptr %m_buffer.i, align 8
-  %call5.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3, ptr noundef %2, i64 noundef %3) #12
+  %call5.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3, ptr noundef readonly %2, i64 noundef %3) #12
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 %3
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %invoke.cont
@@ -353,7 +353,7 @@ if.then.i.i.i:                                    ; preds = %call.i.noexc
 call.i.i.noexc.i:                                 ; preds = %if.then.i.i.i
   %m_buffer.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
   store ptr %call.i.i3.i, ptr %m_buffer.i.i, align 8
-  %call5.i.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3.i, ptr noundef %8, i64 noundef %9) #12
+  %call5.i.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3.i, ptr noundef readonly %8, i64 noundef %9) #12
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 %9
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %invoke.cont

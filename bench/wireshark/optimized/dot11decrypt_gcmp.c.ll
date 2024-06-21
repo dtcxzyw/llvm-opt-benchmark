@@ -34,7 +34,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptGcmpDecrypt(ptr noundef %0, i32 n
   %28 = getelementptr i8, ptr %12, i64 5
   %29 = load i8, ptr %28, align 1
   %30 = getelementptr inbounds i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) %30, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull readonly align 1 dereferenceable(6) %30, i64 6, i1 false)
   %31 = lshr i16 %22, 8
   %32 = trunc nuw i16 %31 to i8
   %33 = getelementptr inbounds i8, ptr %7, i64 6

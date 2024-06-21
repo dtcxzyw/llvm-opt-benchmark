@@ -2346,7 +2346,7 @@ common.resume:                                    ; preds = %196, %.body
   %189 = extractvalue { i64, ptr } %187, 1
   %190 = icmp ne ptr %189, null
   call void @llvm.assume(i1 %190)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %189, ptr nonnull align 1 %183, i64 %185, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %189, ptr nonnull readonly align 1 %183, i64 %185, i1 false)
   br label %_ZN5uu_wc7WcError14files_disabled17h9f5f80d22c0b38b3E.exit
 
 _ZN5uu_wc7WcError14files_disabled17h9f5f80d22c0b38b3E.exit: ; preds = %172, %186

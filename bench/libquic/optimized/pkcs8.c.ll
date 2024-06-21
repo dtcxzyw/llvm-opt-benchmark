@@ -181,7 +181,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i)
   %conv.i = sext i32 %.val to i64
-  %call.i = call fastcc i32 @pbe_crypt(ptr noundef %0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %.val2, i64 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef nonnull %out_len.i, i32 noundef 0)
+  %call.i = call fastcc i32 @pbe_crypt(ptr noundef readonly %0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %.val2, i64 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef nonnull %out_len.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -313,7 +313,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %conv.i = sext i32 %call1.i to i64
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %call4.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull %pbe.0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %crypt_len.i, i32 noundef 1)
+  %call4.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull readonly %pbe.0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %crypt_len.i, i32 noundef 1)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %pkcs12_item_i2d_encrypt.exit
 

@@ -5005,7 +5005,7 @@ define void @_ZNK4cvc58internal6parser11SymbolTable29getOverloadedFunctionForTyp
 entry:
   %0 = load ptr, ptr %this, align 8
   %d_overload_trie.i = getelementptr inbounds i8, ptr %0, i64 320
-  tail call void @_ZNK4cvc58internal6parser18OverloadedTypeTrie29getOverloadedFunctionForTypesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISC_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %d_overload_trie.i, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %argTypes)
+  tail call void @_ZNK4cvc58internal6parser18OverloadedTypeTrie29getOverloadedFunctionForTypesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISC_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %d_overload_trie.i, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(24) %argTypes)
   ret void
 }
 

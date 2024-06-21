@@ -1165,7 +1165,7 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
 ruby_nonempty_memcpy.exit:                        ; preds = %59
   %63 = add nuw nsw i64 %61, 1
   %64 = alloca i8, i64 %63, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %64, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %63, i1 false)
   br i1 %.not79110116, label %65, label %88
 
 65:                                               ; preds = %ruby_nonempty_memcpy.exit
@@ -2355,7 +2355,7 @@ define hidden i32 @rb_enc_find_index2(ptr nocapture noundef readonly %0, i64 nou
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %6
 
 6:                                                ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %0, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %0, i64 %1, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %5, %6

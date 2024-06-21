@@ -876,7 +876,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp1.i, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call.i = call ptr @u_strFindFirst_75(ptr noundef %s, i32 noundef %count, ptr noundef nonnull %c.addr.i, i32 noundef 1)
+  %call.i = call ptr @u_strFindFirst_75(ptr noundef readonly %s, i32 noundef %count, ptr noundef nonnull %c.addr.i, i32 noundef 1)
   br label %u_memchr_75.exit
 
 if.else3.i:                                       ; preds = %if.else.i
@@ -1429,7 +1429,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp1.i, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call.i = call ptr @u_strFindLast_75(ptr noundef %s, i32 noundef %count, ptr noundef nonnull %c.addr.i, i32 noundef 1)
+  %call.i = call ptr @u_strFindLast_75(ptr noundef readonly %s, i32 noundef %count, ptr noundef nonnull %c.addr.i, i32 noundef 1)
   br label %u_memrchr_75.exit
 
 if.else3.i:                                       ; preds = %if.else.i
@@ -1803,7 +1803,7 @@ if.else:                                          ; preds = %entry
 
 if.end3:                                          ; preds = %if.else, %if.then
   %1 = phi ptr [ %src, %if.then ], [ %0, %if.else ]
-  %call.i = tail call fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef nonnull %1, ptr noundef %delim, i8 noundef signext 0)
+  %call.i = tail call fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef nonnull readonly %1, ptr noundef readonly %delim, i8 noundef signext 0)
   %call.lobit.i = ashr i32 %call.i, 31
   %retval.0.i = xor i32 %call.lobit.i, %call.i
   %idxprom = zext nneg i32 %retval.0.i to i64
@@ -1813,7 +1813,7 @@ if.end3:                                          ; preds = %if.else, %if.then
   br i1 %tobool4.not, label %return.sink.split, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %call.i17 = tail call fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef nonnull %arrayidx, ptr noundef %delim, i8 noundef signext 1)
+  %call.i17 = tail call fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef nonnull readonly %arrayidx, ptr noundef readonly %delim, i8 noundef signext 1)
   %cmp.i = icmp slt i32 %call.i17, 0
   br i1 %cmp.i, label %return.sink.split, label %if.then8
 

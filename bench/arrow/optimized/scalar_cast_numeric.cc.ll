@@ -72369,7 +72369,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.047.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i.i.i.i.i.i)
   %9 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp3.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, i32 noundef %9)
@@ -72426,7 +72426,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i.i19.i.i.i.i)
   %18 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp3.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i20.i.i.i.i, i32 noundef %18)
@@ -72585,7 +72585,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.047.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i.i.i.i.i.i)
   %9 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp3.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, i32 noundef %9, i1 noundef zeroext false)
@@ -72642,7 +72642,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i.i19.i.i.i.i)
   %18 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp3.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i20.i.i.i.i, i32 noundef %18, i1 noundef zeroext false)
@@ -72799,7 +72799,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.044.i.i.i.i = phi i64 [ %inc.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   %call.i.i.i.i.i.i.i6 = invoke { i64, i64 } @_ZNK5arrow7compute8internal18SafeRescaleDecimal4CallINS_10Decimal128ENS_10Decimal256EEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 4 dereferenceable(12) %functor, ptr noundef %ctx, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %call.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
@@ -72856,7 +72856,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i19.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   %call.i.i.i21.i.i.i.i7 = invoke { i64, i64 } @_ZNK5arrow7compute8internal18SafeRescaleDecimal4CallINS_10Decimal128ENS_10Decimal256EEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 4 dereferenceable(12) %functor, ptr noundef %ctx, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %call.i.i.i21.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -82700,7 +82700,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.043.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i.i.i.i.i)
   %9 = load i32, ptr %functor, align 4, !noalias !935
   invoke void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, i32 noundef %9)
@@ -82756,7 +82756,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i19.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i19.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i20.i.i.i.i)
   %17 = load i32, ptr %functor, align 4, !noalias !939
   invoke void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.sroa.0.i.i.i20.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i19.i.i.i.i, i32 noundef %17)
@@ -82912,7 +82912,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.043.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i.i.i.i.i)
   %9 = load i32, ptr %functor, align 4, !noalias !947
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i.i.i, i32 noundef %9, i1 noundef zeroext false)
@@ -82968,7 +82968,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i19.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i19.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i20.i.i.i.i)
   %17 = load i32, ptr %functor, align 4, !noalias !951
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.sroa.0.i.i.i20.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i19.i.i.i.i, i32 noundef %17, i1 noundef zeroext false)
@@ -83124,7 +83124,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.043.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   invoke void @_ZNK5arrow7compute8internal18SafeRescaleDecimal4CallINS_10Decimal256ES4_EET_PNS0_13KernelContextET0_PNS_6StatusE(ptr nonnull sret(%"class.arrow::Decimal256") align 8 %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %functor, ptr noundef %ctx, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %.noexc6 unwind label %lpad.loopexit
@@ -83179,7 +83179,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i19.i.i.i.i)
   invoke void @_ZNK5arrow7compute8internal18SafeRescaleDecimal4CallINS_10Decimal256ES4_EET_PNS0_13KernelContextET0_PNS_6StatusE(ptr nonnull sret(%"class.arrow::Decimal256") align 8 %ref.tmp.i.i.i19.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %functor, ptr noundef %ctx, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %agg.tmp1.i.i20.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %.noexc7 unwind label %lpad.loopexit.split-lp.loopexit
@@ -92228,7 +92228,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIaNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.0100.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIaNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %14
@@ -92444,7 +92444,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %39 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %39
@@ -92743,7 +92743,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIaNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.099.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIaNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %14, i1 noundef zeroext false)
@@ -92958,7 +92958,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %39 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %39, i1 noundef zeroext false)
@@ -97502,7 +97502,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIsNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.0100.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIsNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %14
@@ -97719,7 +97719,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %40 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %40
@@ -98016,7 +98016,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIsNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.099.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIsNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %14, i1 noundef zeroext false)
@@ -98232,7 +98232,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %40 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %40, i1 noundef zeroext false)
@@ -102764,7 +102764,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIiNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.0100.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIiNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %14
@@ -102981,7 +102981,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %40 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %40
@@ -103278,7 +103278,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIiNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.099.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIiNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %14, i1 noundef zeroext false)
@@ -103494,7 +103494,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %40 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %40, i1 noundef zeroext false)
@@ -108143,7 +108143,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIlNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.098.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIlNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %14
@@ -108359,7 +108359,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %40 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %40
@@ -108655,7 +108655,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIlNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.097.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIlNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %14 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %14, i1 noundef zeroext false)
@@ -108870,7 +108870,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %40 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %40, i1 noundef zeroext false)
@@ -113224,7 +113224,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIhNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.0100.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIhNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %12
@@ -113439,7 +113439,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %37 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %37
@@ -113733,7 +113733,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIhNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.099.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIhNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %12, i1 noundef zeroext false)
@@ -113947,7 +113947,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %37 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %37, i1 noundef zeroext false)
@@ -118342,7 +118342,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerItNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.0100.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerItNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %12
@@ -118558,7 +118558,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %38 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %38
@@ -118852,7 +118852,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerItNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.099.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerItNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %12, i1 noundef zeroext false)
@@ -119067,7 +119067,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %38 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %38, i1 noundef zeroext false)
@@ -123390,7 +123390,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIjNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.0100.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIjNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %12
@@ -123606,7 +123606,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %38 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %38
@@ -123900,7 +123900,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIjNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.099.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerIjNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %12, i1 noundef zeroext false)
@@ -124115,7 +124115,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %38 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %38, i1 noundef zeroext false)
@@ -128415,7 +128415,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerImNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.098.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerImNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   %sub.i.i.i.i.i.i.i.i = sub nsw i32 0, %12
@@ -128630,7 +128630,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %38 = load i32, ptr %functor, align 4
   %sub.i.i.i.i22.i.i.i.i = sub nsw i32 0, %38
@@ -128923,7 +128923,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK5arrow7compute8
   %data.1.i.i.i = phi ptr [ %data.0.i.i.i, %for.body.preheader.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerImNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   %i.097.i.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %_ZNK5arrow7compute8internal21DecimalToIntegerMixin9ToIntegerImNS_15BasicDecimal256EEET_PNS0_13KernelContextERKT0_PNS_6StatusE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %12 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i.i, i32 noundef %12, i1 noundef zeroext false)
@@ -129137,7 +129137,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i20.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i19.i.i.i.i)
   %38 = load i32, ptr %functor, align 4
   invoke void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr nonnull sret(%"class.arrow::BasicDecimal256") align 8 %ref.tmp.i.i.i.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i20.i.i.i.i, i32 noundef %38, i1 noundef zeroext false)
@@ -131447,7 +131447,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.noexc ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.043.i.i.i.i = phi i64 [ %inc.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.noexc ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   %9 = load i32, ptr %functor, align 4
   %call.i.i.i.i.i.i.i.i.i6 = invoke noundef float @_ZNK5arrow10Decimal2567ToFloatEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, i32 noundef %9)
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -131501,7 +131501,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i19.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   %17 = load i32, ptr %functor, align 4
   %call.i.i.i.i.i21.i.i.i.i7 = invoke noundef float @_ZNK5arrow10Decimal2567ToFloatEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, i32 noundef %17)
           to label %call.i.i.i.i.i21.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
@@ -132714,7 +132714,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %data.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.noexc ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.043.i.i.i.i = phi i64 [ %inc.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.noexc ], [ 0, %for.cond.preheader.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i.i, i64 32, i1 false)
   %9 = load i32, ptr %functor, align 4
   %call.i.i.i.i.i.i.i.i.i6 = invoke noundef double @_ZNK5arrow10Decimal2568ToDoubleEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i, i32 noundef %9)
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -132768,7 +132768,7 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i19.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i.i, i64 32, i1 false)
   %17 = load i32, ptr %functor, align 4
   %call.i.i.i.i.i21.i.i.i.i7 = invoke noundef double @_ZNK5arrow10Decimal2568ToDoubleEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i19.i.i.i.i, i32 noundef %17)
           to label %call.i.i.i.i.i21.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit

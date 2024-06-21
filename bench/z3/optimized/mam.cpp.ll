@@ -2978,7 +2978,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN12_GLO
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN12_GLOBAL__N_19code_tree16reset_candidatesEv.exit
   %__begin2.039 = phi ptr [ %m_to_match.val, %for.body.lr.ph ], [ %incdec.ptr, %_ZN12_GLOBAL__N_19code_tree16reset_candidatesEv.exit ]
   %2 = load ptr, ptr %__begin2.039, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111interpreter4initEPNS_9code_treeE(ptr noundef nonnull align 8 dereferenceable(176) %m_interpreter, ptr noundef %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_111interpreter4initEPNS_9code_treeE(ptr noundef nonnull align 8 dereferenceable(176) %m_interpreter, ptr noundef readonly %2)
   %3 = getelementptr i8, ptr %2, i64 20
   %t.val.i = load i8, ptr %3, align 4
   %tobool.i.i = trunc i8 %t.val.i to i1
@@ -3019,7 +3019,7 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   br i1 %call8.i, label %if.then10.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then7.i
-  %call9.i = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111interpreter12execute_coreEPNS_9code_treeEPN3smt5enodeE(ptr noundef nonnull align 8 dereferenceable(176) %m_interpreter, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %call9.i = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111interpreter12execute_coreEPNS_9code_treeEPN3smt5enodeE(ptr noundef nonnull align 8 dereferenceable(176) %m_interpreter, ptr noundef nonnull readonly %2, ptr noundef nonnull %7)
   br i1 %call9.i, label %if.end20.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %lor.lhs.false.i, %if.then7.i
@@ -3122,7 +3122,7 @@ if.then52.i:                                      ; preds = %for.body49.i
   br i1 %call54.i, label %if.end8, label %lor.lhs.false55.i
 
 lor.lhs.false55.i:                                ; preds = %if.then52.i
-  %call56.i = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111interpreter12execute_coreEPNS_9code_treeEPN3smt5enodeE(ptr noundef nonnull align 8 dereferenceable(176) %m_interpreter, ptr noundef nonnull %2, ptr noundef nonnull %18)
+  %call56.i = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111interpreter12execute_coreEPNS_9code_treeEPN3smt5enodeE(ptr noundef nonnull align 8 dereferenceable(176) %m_interpreter, ptr noundef nonnull readonly %2, ptr noundef nonnull %18)
   br i1 %call56.i, label %for.inc60.i, label %if.end8
 
 for.inc60.i:                                      ; preds = %lor.lhs.false55.i, %for.body49.i
@@ -6146,7 +6146,7 @@ if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_112
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %72, ptr noundef nonnull %17, ptr noundef %qa, ptr noundef %mp)
+  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %72, ptr noundef nonnull readonly %17, ptr noundef %qa, ptr noundef %mp)
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %if.end.i.i14.i, %if.then5.i.i
@@ -6189,7 +6189,7 @@ if.end.i.i14.i:                                   ; preds = %lor.lhs.false8.i.i.
 
 if.then12.i.i:                                    ; preds = %lor.lhs.false8.i.i.i, %lor.lhs.false5.i.i.i, %lor.lhs.false.i.i.i, %for.cond.i.i.i
   %82 = load ptr, ptr %arrayidx4.i.i, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %82, ptr noundef nonnull %call.i, ptr noundef %qa, ptr noundef %mp)
+  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %82, ptr noundef nonnull readonly %call.i, ptr noundef %qa, ptr noundef %mp)
   br label %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -6227,9 +6227,9 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %l
   %89 = load i32, ptr %arrayidx10.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %89, 1
   store i32 %inc.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 4
-  %call25.i.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %17, ptr noundef %qa, ptr noundef %mp)
+  %call25.i.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull readonly %17, ptr noundef %qa, ptr noundef %mp)
   store ptr %call25.i.i, ptr %arrayidx4.i.i, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %call25.i.i, ptr noundef nonnull %call.i, ptr noundef %qa, ptr noundef %mp)
+  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %call25.i.i, ptr noundef nonnull readonly %call.i, ptr noundef %qa, ptr noundef %mp)
   br label %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i
 
 if.else39.i.i:                                    ; preds = %_ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit
@@ -6495,7 +6495,7 @@ if.end22:                                         ; preds = %if.then20, %if.then
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i49
 
 if.then.i49:                                      ; preds = %if.end22
-  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %126, ptr noundef nonnull %call.i, ptr noundef %qa, ptr noundef %mp)
+  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %126, ptr noundef nonnull readonly %call.i, ptr noundef %qa, ptr noundef %mp)
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end22
@@ -6533,7 +6533,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i54, %l
   %133 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %133, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
-  %call.i53 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %call.i, ptr noundef %qa, ptr noundef %mp)
+  %call.i53 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull readonly %call.i, ptr noundef %qa, ptr noundef %mp)
   store ptr %call.i53, ptr %arrayidx3.i, align 8
   br label %for.inc
 
@@ -6838,7 +6838,7 @@ _ZN12_GLOBAL__N_18mam_impl12update_clblsEP9func_decl.exit: ; preds = %for.inc.i7
   br i1 %tobool.not.i108, label %if.else.i111, label %if.then.i109
 
 if.then.i109:                                     ; preds = %_ZN12_GLOBAL__N_18mam_impl12update_clblsEP9func_decl.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %176, ptr noundef nonnull %call.i, ptr noundef %qa, ptr noundef %mp)
+  tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %176, ptr noundef nonnull readonly %call.i, ptr noundef %qa, ptr noundef %mp)
   br label %_ZN12_GLOBAL__N_18mam_impl9update_pcEhhPNS_4pathEP10quantifierP3app.exit131
 
 if.else.i111:                                     ; preds = %_ZN12_GLOBAL__N_18mam_impl12update_clblsEP9func_decl.exit
@@ -6876,7 +6876,7 @@ invoke.cont.i121:                                 ; preds = %if.then.i.i.i127, %
   %183 = load i32, ptr %arrayidx10.i.i.i124, align 4
   %inc.i.i.i125 = add i32 %183, 1
   store i32 %inc.i.i.i125, ptr %arrayidx10.i.i.i124, align 4
-  %call.i126 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %call.i, ptr noundef %qa, ptr noundef %mp)
+  %call.i126 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull readonly %call.i, ptr noundef %qa, ptr noundef %mp)
   store ptr %call.i126, ptr %arrayidx3.i107, align 8
   br label %_ZN12_GLOBAL__N_18mam_impl9update_pcEhhPNS_4pathEP10quantifierP3app.exit131
 
@@ -8559,7 +8559,7 @@ _Z9is_groundPK4expr.exit.i158.i:                  ; preds = %land.lhs.true8.i.i
   br i1 %tobool.i.i.not.i165.i, label %if.else43.i, label %_ZNK12_GLOBAL__N_18compiler18is_semi_compatibleEPNS_5checkE.exit.i
 
 _ZNK12_GLOBAL__N_18compiler18is_semi_compatibleEPNS_5checkE.exit.i: ; preds = %_Z9is_groundPK4expr.exit.i158.i
-  %call12.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %99)
+  %call12.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %99)
   %108 = load ptr, ptr %80, align 8
   %m_lbl_hash.i11.i.i = getelementptr inbounds i8, ptr %108, i64 53
   %109 = load i8, ptr %m_lbl_hash.i11.i.i, align 1
@@ -8771,7 +8771,7 @@ _Z9is_groundPK4expr.exit.i270.i:                  ; preds = %land.lhs.true.i264.
   br i1 %tobool.i.i.not.i278.i, label %if.else81.i, label %_ZNK12_GLOBAL__N_18compiler21is_cfilter_compatibleEPNS_6filterE.exit.i
 
 _ZNK12_GLOBAL__N_18compiler21is_cfilter_compatibleEPNS_6filterE.exit.i: ; preds = %_Z9is_groundPK4expr.exit.i270.i
-  %call5.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %151)
+  %call5.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %151)
   %m_lbl_set.i.i = getelementptr inbounds i8, ptr %storemerge785.i, i64 24
   %156 = load i64, ptr %m_lbl_set.i.i, align 8
   %and.i.i.i.i280.i = and i32 %call5.i.i, 63
@@ -8840,7 +8840,7 @@ _Z9is_groundPK4expr.exit.i325.i:                  ; preds = %land.lhs.true.i319.
   br i1 %tobool.i.i.not.i332.i, label %_ZNK12_GLOBAL__N_18compiler13is_compatibleEPNS_6filterE.exit.i, label %land.lhs.true.i357.i
 
 _ZNK12_GLOBAL__N_18compiler13is_compatibleEPNS_6filterE.exit.i: ; preds = %_Z9is_groundPK4expr.exit.i325.i
-  %call9.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %164)
+  %call9.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %164)
   %m_lbl_set.i334.i = getelementptr inbounds i8, ptr %storemerge785.i, i64 24
   %169 = load i64, ptr %m_lbl_set.i334.i, align 8
   %and.i.i.i.i335.i = and i32 %call9.i.i, 63
@@ -9599,7 +9599,7 @@ _Z9is_groundPK4expr.exit.i79.i.i.i:               ; preds = %land.lhs.true8.i.i.
   br i1 %tobool.i.i.not.i86.i.i.i, label %sw.epilog.i.i.i, label %_ZNK12_GLOBAL__N_18compiler18is_semi_compatibleEPNS_5checkE.exit.i.i.i
 
 _ZNK12_GLOBAL__N_18compiler18is_semi_compatibleEPNS_5checkE.exit.i.i.i: ; preds = %_Z9is_groundPK4expr.exit.i79.i.i.i
-  %call12.i.i.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %265)
+  %call12.i.i.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %265)
   %274 = load ptr, ptr %251, align 8
   %m_lbl_hash.i11.i.i.i.i = getelementptr inbounds i8, ptr %274, i64 53
   %275 = load i8, ptr %m_lbl_hash.i11.i.i.i.i, align 1
@@ -9641,7 +9641,7 @@ _Z9is_groundPK4expr.exit.i101.i.i.i:              ; preds = %land.lhs.true.i95.i
   br i1 %tobool.i.i.not.i109.i.i.i, label %sw.epilog.i.i.i, label %_ZNK12_GLOBAL__N_18compiler21is_cfilter_compatibleEPNS_6filterE.exit.i.i.i
 
 _ZNK12_GLOBAL__N_18compiler21is_cfilter_compatibleEPNS_6filterE.exit.i.i.i: ; preds = %_Z9is_groundPK4expr.exit.i101.i.i.i
-  %call5.i.i.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %276)
+  %call5.i.i.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %276)
   %m_lbl_set.i.i.i.i = getelementptr inbounds i8, ptr %curr.0238.i.i.i, i64 24
   %281 = load i64, ptr %m_lbl_set.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i32 %call5.i.i.i.i, 63
@@ -9685,7 +9685,7 @@ _Z9is_groundPK4expr.exit.i123.i.i.i:              ; preds = %land.lhs.true.i117.
   br i1 %tobool.i.i.not.i130.i.i.i, label %_ZNK12_GLOBAL__N_18compiler13is_compatibleEPNS_6filterE.exit.i.i.i, label %land.lhs.true.i140.i.i.i
 
 _ZNK12_GLOBAL__N_18compiler13is_compatibleEPNS_6filterE.exit.i.i.i: ; preds = %_Z9is_groundPK4expr.exit.i123.i.i.i
-  %call9.i.i.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %282)
+  %call9.i.i.i.i = call fastcc noundef i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %282)
   %m_lbl_set.i132.i.i.i = getelementptr inbounds i8, ptr %curr.0238.i.i.i, i64 24
   %287 = load i64, ptr %m_lbl_set.i132.i.i.i, align 8
   %and.i.i.i.i133.i.i.i = and i32 %call9.i.i.i.i, 63
@@ -11472,7 +11472,7 @@ if.end.i:                                         ; preds = %for.body6.i
   %arrayidx.i52.i = getelementptr inbounds [0 x ptr], ptr %m_args.i.i, i64 0, i64 %indvars.iv.i
   %31 = load ptr, ptr %arrayidx.i52.i, align 8
   store i8 0, ptr %has_unbound_vars.i, align 1
-  %call.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18compiler23get_num_bound_vars_coreEP3appRb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %has_unbound_vars.i)
+  %call.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18compiler23get_num_bound_vars_coreEP3appRb(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef readonly %31, ptr noundef nonnull align 1 dereferenceable(1) %has_unbound_vars.i)
   %32 = load i8, ptr %has_unbound_vars.i, align 1
   %tobool12.i = trunc i8 %32 to i1
   %33 = trunc nuw i64 %indvars.iv.i to i32
@@ -12479,7 +12479,7 @@ invoke.cont170.i:                                 ; preds = %if.end165.i
   store i32 %44, ptr %m_oreg.i.i, align 4
   store i64 %s.sroa.0.0.i, ptr %m_lbl_set.i.i.i.i, align 8
   %m_joints.i.i = getelementptr inbounds i8, ptr %call.i.i335.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_joints.i.i, ptr align 8 %132, i64 %mul.i.i26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_joints.i.i, ptr readonly align 8 %132, i64 %mul.i.i26, i1 false)
   %135 = load ptr, ptr %m_seq, align 8
   %cmp.i336.i = icmp eq ptr %135, null
   br i1 %cmp.i336.i, label %if.then.i345.i, label %lor.lhs.false.i337.i
@@ -12615,7 +12615,7 @@ for.end:                                          ; preds = %if.end, %for.end.lo
   %m_num_bindings.i = getelementptr inbounds i8, ptr %call.i.i40, i64 32
   store i16 %conv4.i, ptr %m_num_bindings.i, align 8
   %m_bindings.i = getelementptr inbounds i8, ptr %call.i.i40, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_bindings.i, ptr align 4 %.pre, i64 %conv.i39.pre-phi, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_bindings.i, ptr readonly align 4 %.pre, i64 %conv.i39.pre-phi, i1 false)
   %155 = load ptr, ptr %m_seq, align 8
   %cmp.i42 = icmp eq ptr %155, null
   br i1 %cmp.i42, label %if.then.i48, label %lor.lhs.false.i
@@ -13208,7 +13208,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i109,
 if.else58:                                        ; preds = %if.then53
   store i32 0, ptr %sz, align 4
   store i32 0, ptr %num_unbound_vars, align 4
-  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %sz, ptr noundef nonnull align 4 dereferenceable(4) %num_unbound_vars)
+  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %sz, ptr noundef nonnull align 4 dereferenceable(4) %num_unbound_vars)
   %76 = load i32, ptr %num_unbound_vars, align 4
   %cmp60 = icmp eq i32 %76, 0
   br i1 %cmp60, label %if.then66, label %lor.lhs.false
@@ -13297,7 +13297,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit148:         ; preds = %lor.lhs.false.i136,
 if.else75:                                        ; preds = %if.end51
   store i32 0, ptr %first_app_sz, align 4
   store i32 0, ptr %first_app_num_unbound_vars, align 4
-  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %first_app_sz, ptr noundef nonnull align 4 dereferenceable(4) %first_app_num_unbound_vars)
+  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %first_app_sz, ptr noundef nonnull align 4 dereferenceable(4) %first_app_num_unbound_vars)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else75, %_ZN6vectorIjLb0EjE9push_backERKj.exit134, %_ZN6vectorIjLb0EjE9push_backERKj.exit148, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit, %if.else, %_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit91, %_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit72
@@ -13495,7 +13495,7 @@ invoke.cont107:                                   ; preds = %for.end100
   %m_num_args.i176 = getelementptr inbounds i8, ptr %call.i.i174177, i64 32
   store i16 %conv83, ptr %m_num_args.i176, align 8
   %m_iregs.i = getelementptr inbounds i8, ptr %call.i.i174177, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_iregs.i, ptr align 4 %113, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_iregs.i, ptr readonly align 4 %113, i64 %mul.i, i1 false)
   %m_seq101 = getelementptr inbounds i8, ptr %this, i64 168
   %117 = load ptr, ptr %m_seq101, align 8
   %cmp.i178 = icmp eq ptr %117, null
@@ -14571,7 +14571,7 @@ invoke.cont47:                                    ; preds = %call.i.i66.noexc
   %m_num_args.i69 = getelementptr inbounds i8, ptr %call.i.i6670, i64 32
   store i16 %conv6.i, ptr %m_num_args.i69, align 8
   %m_iregs.i = getelementptr inbounds i8, ptr %call.i.i6670, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_iregs.i, ptr align 4 %36, i64 %conv.i.pre-phi, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_iregs.i, ptr readonly align 4 %36, i64 %conv.i.pre-phi, i1 false)
   %m_seq42 = getelementptr inbounds i8, ptr %this, i64 168
   %45 = load ptr, ptr %m_seq42, align 8
   %cmp.i72 = icmp eq ptr %45, null

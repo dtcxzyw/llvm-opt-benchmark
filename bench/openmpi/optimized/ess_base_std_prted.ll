@@ -211,7 +211,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %38 = tail call ptr @prte_hwloc_base_get_topo_signature(ptr noundef %37) #16
   store ptr %38, ptr @prte_topo_signature, align 8
   %39 = load ptr, ptr @prte_hwloc_topology, align 8
-  %40 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %39, i32 noundef 0, i32 noundef 0) #18
+  %40 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %39, i32 noundef 0, i32 noundef 0) #18
   %41 = getelementptr inbounds i8, ptr %40, i64 224
   %42 = load i32, ptr %41, align 8
   %.not250 = icmp eq i32 %42, 0

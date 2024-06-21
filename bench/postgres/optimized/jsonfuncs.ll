@@ -9050,7 +9050,7 @@ populate_array_assign_ndims.exit:                 ; preds = %41, %16
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr %48, align 8
   %65 = load ptr, ptr %49, align 8
-  %66 = call fastcc i64 @populate_record_field(ptr noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef null, ptr noundef %64, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef %65)
+  %66 = call fastcc i64 @populate_record_field(ptr noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef null, ptr noundef %64, i64 noundef 0, ptr noundef nonnull readonly %7, ptr noundef nonnull %4, ptr noundef %65)
   %67 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %populate_array_element.exit.thread, label %68
@@ -9322,7 +9322,7 @@ define internal range(i32 0, 20) i32 @populate_array_element_end(ptr nocapture n
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %6, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %44)
+  %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef nonnull readonly %4, ptr noundef nonnull %3, ptr noundef %44)
   %46 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %populate_array_element.exit.thread, label %47

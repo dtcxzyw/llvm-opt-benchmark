@@ -8342,7 +8342,7 @@ invoke.cont8.i:                                   ; preds = %for.inc.i, %invoke.
   br i1 %cmp.not.i.i11, label %if.else.i.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %invoke.cont8.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef nonnull %17, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %priority_child_numbers.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef nonnull %17, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
           to label %.noexc16.i unwind label %lpad.loopexit.i, !noalias !83
 
 .noexc16.i:                                       ; preds = %if.then.i12.i
@@ -8377,7 +8377,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i20.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i18.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i14.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::PriorityEndpointIterator::DiscoveryMechanismResult", ptr %cond.i20.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef %add.ptr.i.i14.i, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %priority_child_numbers.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef %add.ptr.i.i14.i, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !83
 
 invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i

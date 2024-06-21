@@ -856,7 +856,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_125GaussianDistributionTestsEEE, i64 0) #32
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_125GaussianDistributionTestsEEE, i64 0) #32
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -1047,7 +1047,7 @@ define internal void @_ZN12_GLOBAL__N_149gtest_AllGaussianDistributionTests_Eval
 entry:
   %call5.i.i.i.i5.i1.i = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #35, !noalias !7
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 608
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(608) @constinit, i64 608, i1 false), !noalias !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(608) @constinit, i64 608, i1 false), !noalias !7
   invoke fastcc void @_ZN7testing8ValuesInISt6vectorIN12_GLOBAL__N_15ParamESaIS3_EEEENS_8internal14ParamGeneratorINT_10value_typeEEERKS8_(ptr noalias align 8 %agg.result, ptr nonnull %call5.i.i.i.i5.i1.i, ptr nonnull %add.ptr.i4.i.i)
           to label %_ZNSt6vectorIN12_GLOBAL__N_15ParamESaIS1_EED2Ev.exit unwind label %_ZNSt6vectorIN12_GLOBAL__N_15ParamESaIS1_EED2Ev.exit8
 
@@ -1072,7 +1072,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call5.i.i.i.i5.i1.i = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #35, !noalias !10
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 608
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(608) @constinit, i64 608, i1 false), !noalias !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(608) @constinit, i64 608, i1 false), !noalias !10
   invoke fastcc void @_ZN7testing8ValuesInISt6vectorIN12_GLOBAL__N_15ParamESaIS3_EEEENS_8internal14ParamGeneratorINT_10value_typeEEERKS8_(ptr noalias nonnull align 8 %ref.tmp, ptr nonnull %call5.i.i.i.i5.i1.i, ptr nonnull %add.ptr.i4.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -4647,7 +4647,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 
 if.end:                                           ; preds = %entry, %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %3 = call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_15ParamEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_15ParamEE8IteratorE, i64 0) #32
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_15ParamEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_15ParamEE8IteratorE, i64 0) #32
   %cmp1.i = icmp ne ptr %3, null
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %cmp1.i)
   br i1 %call.i, label %_ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_15ParamEE8IteratorEKNS0_22ParamIteratorInterfaceIS4_EEEEPT_PT0_.exit, label %if.else.i
@@ -27320,7 +27320,7 @@ invoke.cont43:                                    ; preds = %for.body42
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %call2.i60, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull readonly align 8 dereferenceable(32) %call2.i60, i64 32, i1 false)
   store i64 %i.0, ptr %index.i, align 8
   invoke void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %param_name, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp44)
           to label %invoke.cont49 unwind label %lpad45

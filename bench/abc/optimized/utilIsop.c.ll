@@ -2660,7 +2660,7 @@ default.unreachable:                              ; preds = %21
   unreachable
 
 Abc_IsopPrintCover.exit:                          ; preds = %._crit_edge.us.i, %14, %16
-  call void @Abc_IsopBuildTruth(ptr noundef nonnull %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
+  call void @Abc_IsopBuildTruth(ptr noundef nonnull readonly %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
   %30 = load i64, ptr %1, align 8
   %.not.i.i = icmp eq i64 %30, 8685324408917096584
   br i1 %.not.i.i, label %Abc_IsopVerify.exit, label %31

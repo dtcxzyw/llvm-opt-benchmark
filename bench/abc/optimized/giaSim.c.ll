@@ -362,7 +362,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %67 = sub nsw i64 0, %66
   %68 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %40, i64 %67
   store i32 0, ptr %24, align 4
-  call void @Gia_ManSimCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef nonnull %23)
+  call void @Gia_ManSimCollect_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %68, ptr noundef nonnull %23)
   %69 = load i32, ptr %24, align 4
   %70 = icmp slt i32 %69, 2
   br i1 %70, label %Gia_ManSimCollect.exit, label %71
@@ -2757,7 +2757,7 @@ define void @Gia_ManSimSimulatePattern(ptr nocapture noundef readonly %0, ptr no
   %20 = getelementptr i8, ptr %.val18, i64 4
   %.val18.val = load i32, ptr %20, align 4
   %21 = sub nsw i32 %.val18.val, %.val17
-  %22 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.11)
+  %22 = tail call noalias ptr @fopen(ptr noundef readonly %2, ptr noundef nonnull @.str.11)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %Gia_ManSimWriteFile.exit.thread, label %.preheader.i
 
@@ -3886,7 +3886,7 @@ Gia_ManBuiltInSimPack.exit.thread:                ; preds = %.critedge.us.i, %13
 
 66:                                               ; preds = %61
   %67 = trunc nuw nsw i64 %indvars.iv.i162 to i32
-  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull %0, i32 noundef %67)
+  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull readonly %0, i32 noundef %67)
   %.pre.i = load i32, ptr %57, align 8
   br label %68
 
@@ -3946,7 +3946,7 @@ Gia_ManBuiltInSimResimulate.exit:                 ; preds = %Gia_ManBuiltInSimRe
 
 93:                                               ; preds = %88
   %94 = trunc nuw nsw i64 %indvars.iv.i165 to i32
-  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull %0, i32 noundef %94)
+  tail call void @Gia_ManBuiltInSimPerformInt(ptr noundef nonnull readonly %0, i32 noundef %94)
   %.pre.i171 = load i32, ptr %84, align 8
   br label %95
 

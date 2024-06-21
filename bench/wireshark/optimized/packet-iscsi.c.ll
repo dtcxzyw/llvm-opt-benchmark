@@ -2374,7 +2374,7 @@ select.unfold:                                    ; preds = %66, %58, %70
 
 290:                                              ; preds = %288
   %291 = sub i32 %.1.i, %269
-  %292 = call fastcc i32 @handleDataDigest(ptr noundef nonnull %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %269, i32 noundef %291)
+  %292 = call fastcc i32 @handleDataDigest(ptr noundef nonnull readonly %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %269, i32 noundef %291)
   br label %proto_item_set_generated.exit1619
 
 293:                                              ; preds = %245
@@ -2449,7 +2449,7 @@ select.unfold:                                    ; preds = %66, %58, %70
 
 339:                                              ; preds = %337
   %340 = sub i32 %.1.i1595, %318
-  %341 = call fastcc i32 @handleDataDigest(ptr noundef nonnull %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %318, i32 noundef %340)
+  %341 = call fastcc i32 @handleDataDigest(ptr noundef nonnull readonly %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %318, i32 noundef %340)
   br label %proto_item_set_generated.exit1619
 
 342:                                              ; preds = %245
@@ -2629,7 +2629,7 @@ select.unfold:                                    ; preds = %66, %58, %70
 
 447:                                              ; preds = %445
   %448 = sub i32 %.1.i1602, %426
-  %449 = call fastcc i32 @handleDataDigest(ptr noundef %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %426, i32 noundef %448)
+  %449 = call fastcc i32 @handleDataDigest(ptr noundef readonly %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %426, i32 noundef %448)
   br label %handleDataSegment.exit1606
 
 handleDataSegment.exit1606:                       ; preds = %.loopexit, %445, %447

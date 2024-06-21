@@ -3659,7 +3659,7 @@ if.then8.i:                                       ; preds = %if.end.i
   br i1 %cmp15.i, label %if.then27.i, label %if.end
 
 if.end22.i:                                       ; preds = %if.end.i
-  %call21.i = tail call i32 @codebook_decode_scalar_raw(ptr noundef nonnull %f, ptr noundef nonnull %c)
+  %call21.i = tail call i32 @codebook_decode_scalar_raw(ptr noundef nonnull %f, ptr noundef nonnull readonly %c)
   %cmp25.i = icmp slt i32 %call21.i, 0
   br i1 %cmp25.i, label %if.then27.i, label %if.end
 
@@ -3795,7 +3795,7 @@ if.then8.i:                                       ; preds = %if.end.i
   br i1 %cmp15.i, label %if.then27.i, label %if.end
 
 if.end22.i:                                       ; preds = %if.end.i
-  %call21.i = tail call i32 @codebook_decode_scalar_raw(ptr noundef nonnull %f, ptr noundef nonnull %c)
+  %call21.i = tail call i32 @codebook_decode_scalar_raw(ptr noundef nonnull %f, ptr noundef nonnull readonly %c)
   %cmp25.i = icmp slt i32 %call21.i, 0
   br i1 %cmp25.i, label %if.then27.i, label %if.end
 
@@ -4478,7 +4478,7 @@ if.end.i.i.us.us:                                 ; preds = %if.then4.i.i.us.us,
   br i1 %cmp6.i.i.us.us, label %if.then8.i.i.us.us, label %if.end22.i.i.us.us
 
 if.end22.i.i.us.us:                               ; preds = %if.end.i.i.us.us
-  %call21.i.i.us.us = call i32 @codebook_decode_scalar_raw(ptr noundef nonnull %f, ptr noundef nonnull %add.ptr438.us287.us)
+  %call21.i.i.us.us = call i32 @codebook_decode_scalar_raw(ptr noundef nonnull %f, ptr noundef nonnull readonly %add.ptr438.us287.us)
   %cmp25.i.i.us.us = icmp slt i32 %call21.i.i.us.us, 0
   br i1 %cmp25.i.i.us.us, label %if.then27.i.i, label %if.end.i229.us.us
 
@@ -4642,7 +4642,7 @@ for.body.i223.us.us.us.us:                        ; preds = %for.cond.i.us.us.us
   %76 = trunc nuw nsw i64 %indvars.iv.i224.us.us.us.us to i32
   %77 = add i32 %add432.us.us.us.us, %76
   %sub4.i.us.us.us.us = sub i32 %73, %77
-  %call.i225.us.us.us.us = call i32 @codebook_decode_step(ptr noundef %f, ptr noundef nonnull %add.ptr438.us.us.us.us, ptr noundef %add.ptr3.i.us.us.us.us, i32 noundef %sub4.i.us.us.us.us, i32 noundef %div.i.us.us.us.us)
+  %call.i225.us.us.us.us = call i32 @codebook_decode_step(ptr noundef %f, ptr noundef nonnull readonly %add.ptr438.us.us.us.us, ptr noundef %add.ptr3.i.us.us.us.us, i32 noundef %sub4.i.us.us.us.us, i32 noundef %div.i.us.us.us.us)
   %tobool.not.i226.us.us.us.us = icmp eq i32 %call.i225.us.us.us.us, 0
   br i1 %tobool.not.i226.us.us.us.us, label %done, label %for.cond.i.us.us.us.us
 
@@ -8905,7 +8905,7 @@ if.then88:                                        ; preds = %if.end84
   br label %return
 
 if.end90:                                         ; preds = %if.end84
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %header, ptr noundef nonnull dereferenceable(6) @__const.vorbis_validate.vorbis, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %header, ptr noundef nonnull dereferenceable(6) @__const.vorbis_validate.vorbis, i64 6)
   %cmp.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.not, label %if.end96, label %if.then94
 
@@ -9049,7 +9049,7 @@ for.body:                                         ; preds = %if.end168, %for.bod
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !87
 
 for.end:                                          ; preds = %for.body
-  %bcmp.i866 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %header, ptr noundef nonnull dereferenceable(6) @__const.vorbis_validate.vorbis, i64 6)
+  %bcmp.i866 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %header, ptr noundef nonnull dereferenceable(6) @__const.vorbis_validate.vorbis, i64 6)
   %cmp.i867.not = icmp eq i32 %bcmp.i866, 0
   br i1 %cmp.i867.not, label %if.end185, label %if.then183
 
@@ -9291,7 +9291,7 @@ for.body311:                                      ; preds = %crc32_init.exit, %f
   br i1 %exitcond1286.not, label %for.end318, label %for.body311, !llvm.loop !92
 
 for.end318:                                       ; preds = %for.body311
-  %bcmp.i885 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %header, ptr noundef nonnull dereferenceable(6) @__const.vorbis_validate.vorbis, i64 6)
+  %bcmp.i885 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %header, ptr noundef nonnull dereferenceable(6) @__const.vorbis_validate.vorbis, i64 6)
   %cmp.i886.not = icmp eq i32 %bcmp.i885, 0
   br i1 %cmp.i886.not, label %if.end324, label %if.then322
 
@@ -12560,7 +12560,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %alloc.i = getelementptr inbounds i8, ptr %p, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull align 8 dereferenceable(16) %alloc, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %alloc, i64 16, i1 false)
   %alloc_buffer_length_in_bytes.i = getelementptr inbounds i8, ptr %p, i64 136
   %0 = load i32, ptr %alloc_buffer_length_in_bytes.i, align 8
   %and.i = and i32 %0, -8
@@ -15365,7 +15365,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %alloc.i = getelementptr inbounds i8, ptr %p, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull align 8 dereferenceable(16) %alloc, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %alloc, i64 16, i1 false)
   %alloc_buffer_length_in_bytes.i = getelementptr inbounds i8, ptr %p, i64 136
   %0 = load i32, ptr %alloc_buffer_length_in_bytes.i, align 8
   %and.i = and i32 %0, -8
@@ -15572,7 +15572,7 @@ if.end3:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end3
   %alloc.i = getelementptr inbounds i8, ptr %p, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull align 8 dereferenceable(16) %alloc, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %alloc, i64 16, i1 false)
   %alloc_buffer_length_in_bytes.i = getelementptr inbounds i8, ptr %p, i64 136
   %0 = load i32, ptr %alloc_buffer_length_in_bytes.i, align 8
   %and.i = and i32 %0, -8
@@ -16484,7 +16484,7 @@ if.then1.i:                                       ; preds = %if.then
   %channels.i = getelementptr inbounds i8, ptr %f, i64 4
   %0 = load i32, ptr %channels.i, align 4
   %1 = load ptr, ptr %output.i, align 8
-  call void @convert_samples_short(i32 noundef 1, ptr noundef nonnull %buffer.addr, i32 noundef 0, i32 noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %spec.select.i)
+  call void @convert_samples_short(i32 noundef 1, ptr noundef nonnull readonly %buffer.addr, i32 noundef 0, i32 noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %spec.select.i)
   br label %stb_vorbis_get_frame_short.exit
 
 stb_vorbis_get_frame_short.exit:                  ; preds = %if.then, %if.then1.i
@@ -16627,7 +16627,7 @@ while.end:                                        ; preds = %if.end12, %if.end6,
 define i32 @stb_vorbis_decode_filename(ptr nocapture noundef readonly %filename, ptr nocapture noundef writeonly %channels, ptr noundef writeonly %sample_rate, ptr nocapture noundef writeonly %output) local_unnamed_addr #26 {
 entry:
   %error = alloca i32, align 4
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
+  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %stb_vorbis_open_filename.exit
 

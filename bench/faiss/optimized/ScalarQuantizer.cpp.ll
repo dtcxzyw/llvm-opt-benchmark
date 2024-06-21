@@ -441,8 +441,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
 
 61:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
   %62 = ashr exact i64 %sext, 30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %57, ptr align 4 %2, i64 %62, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr align 4 %2, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %57, ptr readonly align 4 %2, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr readonly align 4 %2, i64 %62, i1 false)
   %63 = icmp ugt i64 %1, 1
   br i1 %63, label %.lr.ph76.i.preheader, label %._crit_edge77.i
 

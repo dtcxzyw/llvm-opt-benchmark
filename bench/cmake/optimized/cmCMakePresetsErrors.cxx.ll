@@ -2932,7 +2932,7 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !278
-  call void @_ZN20cmCMakePresetsErrors13getPresetNameB5cxx11EP11cmJSONState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef %.val), !noalias !283
+  call void @_ZN20cmCMakePresetsErrors13getPresetNameB5cxx11EP11cmJSONState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef readonly %.val), !noalias !283
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !283
   store i64 23, ptr %5, align 8, !alias.scope !286, !noalias !289
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8

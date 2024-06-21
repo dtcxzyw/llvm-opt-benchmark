@@ -168,12 +168,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp11.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %agg.tmp11.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %if.then, label %if.end
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i: ; preds = %for.body
-  %bcmp.i6.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp11.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(6) @.str, i64 6)
+  %bcmp.i6.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %agg.tmp11.sroa.2.0.copyload, ptr noundef nonnull readonly dereferenceable(6) @.str, i64 6)
   %cmp.i.i7.i = icmp eq i32 %bcmp.i6.i, 0
   br i1 %cmp.i.i7.i, label %if.then, label %if.end
 
@@ -354,12 +354,12 @@ land.lhs.true:                                    ; preds = %if.end
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i33: ; preds = %land.lhs.true
-  %bcmp.i.i34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %bcmp.i.i34 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %cmp.i.i.i35 = icmp eq i32 %bcmp.i.i34, 0
   br i1 %cmp.i.i.i35, label %if.then27, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i115
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i29: ; preds = %land.lhs.true
-  %bcmp.i6.i30 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
+  %bcmp.i6.i30 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull readonly dereferenceable(4) @.str.2, i64 4)
   %cmp.i.i7.i31 = icmp eq i32 %bcmp.i6.i30, 0
   br i1 %cmp.i.i7.i31, label %if.then27, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i111
 
@@ -500,12 +500,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i90: ; preds = %if
   br i1 %cmp.i.i.i.i.i.i92, label %for.inc.sink.split, label %for.inc
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i115: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i33
-  %bcmp.i.i116 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %bcmp.i.i116 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %cmp.i.i.i117 = icmp eq i32 %bcmp.i.i116, 0
   br i1 %cmp.i.i.i117, label %if.then39, label %for.inc
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i111: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i29
-  %bcmp.i6.i112 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
+  %bcmp.i6.i112 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %agg.tmp21.sroa.2.0.copyload, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 4)
   %cmp.i.i7.i113 = icmp eq i32 %bcmp.i6.i112, 0
   br i1 %cmp.i.i7.i113, label %if.then39, label %for.inc
 

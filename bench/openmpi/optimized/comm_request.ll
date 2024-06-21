@@ -570,7 +570,7 @@ opal_obj_new.exit.thread20.i:                     ; preds = %.lr.ph.i.i.i, %13
   %23 = getelementptr inbounds i8, ptr %8, i64 48
   %24 = zext nneg i32 %3 to i64
   %25 = shl nuw nsw i64 %24, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %2, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr readonly align 8 %2, i64 %25, i1 false)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %opal_obj_new.exit.thread20.i

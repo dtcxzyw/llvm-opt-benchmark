@@ -220,7 +220,7 @@ agdictof.exit.i:                                  ; preds = %31, %28, %25, %22, 
   br i1 %.not82.i, label %44, label %39
 
 39:                                               ; preds = %38
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.1) #8
+  %40 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.1) #8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %44
 

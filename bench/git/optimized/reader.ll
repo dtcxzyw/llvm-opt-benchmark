@@ -118,7 +118,7 @@ if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %arg.i, align 8
   %call.i22 = call i32 %4(ptr noundef %5, ptr noundef nonnull %header, i64 noundef 0, i32 noundef %add) #11
   %source1.i = getelementptr inbounds i8, ptr %header, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i, ptr noundef nonnull align 8 dereferenceable(16) %source, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %source, i64 16, i1 false)
   %cmp4.not = icmp eq i32 %call.i22, %add
   br i1 %cmp4.not, label %if.end7, label %done
 
@@ -159,7 +159,7 @@ if.end20:                                         ; preds = %if.end10
   %12 = load ptr, ptr %arg.i, align 8
   %call.i25 = call i32 %11(ptr noundef %12, ptr noundef nonnull %footer, i64 noundef %8, i32 noundef %call29) #11
   %source1.i26 = getelementptr inbounds i8, ptr %footer, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i26, ptr noundef nonnull align 8 dereferenceable(16) %source, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i26, ptr noundef nonnull readonly align 8 dereferenceable(16) %source, i64 16, i1 false)
   %13 = load i32, ptr %version, align 4
   %call32 = call i32 @footer_size(i32 noundef %13) #11
   %cmp33.not = icmp eq i32 %call.i25, %call32
@@ -176,7 +176,7 @@ if.end.i:                                         ; preds = %if.end36
   %16 = load i32, ptr %version, align 4
   %call1.i = call i32 @header_size(i32 noundef %16) #11
   %conv.i = sext i32 %call1.i to i64
-  %bcmp53.i = call i32 @bcmp(ptr %14, ptr %15, i64 %conv.i)
+  %bcmp53.i = call i32 @bcmp(ptr %14, ptr readonly %15, i64 %conv.i)
   %tobool3.not.i = icmp eq i32 %bcmp53.i, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %done
 
@@ -633,7 +633,7 @@ reader_get_block.exit:                            ; preds = %cond.end5
   %5 = load ptr, ptr %arg.i.i, align 8
   %call.i.i = call i32 %4(ptr noundef %5, ptr noundef nonnull %block, i64 noundef %next_off, i32 noundef %sz.addr.0.i) #11
   %source1.i.i = getelementptr inbounds i8, ptr %block, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %source.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %source.i, i64 16, i1 false)
   %cmp9 = icmp slt i32 %call.i.i, 0
   br i1 %cmp9, label %done, label %if.end11
 
@@ -691,7 +691,7 @@ reader_get_block.exit36:                          ; preds = %if.then27
   %11 = load ptr, ptr %read_block.i.i32, align 8
   %12 = load ptr, ptr %arg.i.i, align 8
   %call.i.i34 = call i32 %11(ptr noundef %12, ptr noundef nonnull %block, i64 noundef %next_off, i32 noundef %sz.addr.0.i30) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %source.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %source.i, i64 16, i1 false)
   %cmp29 = icmp slt i32 %call.i.i34, 0
   br i1 %cmp29, label %done, label %if.end33
 

@@ -1344,7 +1344,7 @@ define internal fastcc range(i32 0, 3) i32 @process_cap_file(ptr noundef %0, i32
   br i1 %.b.i, label %calculate_hashes.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.67)
+  %28 = call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.67)
   %29 = icmp ne ptr %28, null
   %30 = load ptr, ptr @hd, align 8
   %31 = icmp ne ptr %30, null

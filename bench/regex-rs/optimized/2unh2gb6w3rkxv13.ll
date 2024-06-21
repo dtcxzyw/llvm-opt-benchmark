@@ -423,7 +423,7 @@ define hidden void @_ZN5regex8builders7Builder16build_one_string17hf82c4a9885309
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !38
   %106 = extractvalue { ptr, i64 } %104, 0
   %107 = getelementptr inbounds i8, ptr %106, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %96, i64 %98, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
   %108 = icmp ne ptr %106, null
   call void @llvm.assume(i1 %108)
   %109 = extractvalue { ptr, i64 } %104, 1
@@ -840,7 +840,7 @@ define hidden void @_ZN5regex8builders7Builder15build_one_bytes17hfc277fc41c11dd
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !116
   %106 = extractvalue { ptr, i64 } %104, 0
   %107 = getelementptr inbounds i8, ptr %106, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %96, i64 %98, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
   %108 = icmp ne ptr %106, null
   call void @llvm.assume(i1 %108)
   %109 = extractvalue { ptr, i64 } %104, 1
@@ -1201,7 +1201,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
   %87 = getelementptr inbounds i8, ptr %1, i64 136
   %88 = load i64, ptr %87, align 8, !noundef !5
   %89 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %86, i64 %88
-  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull %86, ptr noundef nonnull %89, i64 noundef %88)
+  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly %86, ptr noundef nonnull readonly %89, i64 noundef %88)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %82
 
 "_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit": ; preds = %84
@@ -1564,7 +1564,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
   %87 = getelementptr inbounds i8, ptr %1, i64 136
   %88 = load i64, ptr %87, align 8, !noundef !5
   %89 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %86, i64 %88
-  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull %86, ptr noundef nonnull %89, i64 noundef %88)
+  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly %86, ptr noundef nonnull readonly %89, i64 noundef %88)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %82
 
 "_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit": ; preds = %84

@@ -5732,7 +5732,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %170 = load ptr, ptr %m_assigned_literals.i.i, align 8
   %arrayidx.i6.i = getelementptr inbounds %"class.sat::literal", ptr %170, i64 %indvars.iv.i
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i6.i, align 4
-  invoke void @_ZN3smt7context26extract_fixed_consequencesEN3sat7literalERK9hashtableIj6u_hash4u_eqER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(20) %_assumptions, ptr noundef nonnull align 8 dereferenceable(16) %conseq)
+  invoke void @_ZN3smt7context26extract_fixed_consequencesEN3sat7literalERK9hashtableIj6u_hash4u_eqER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %_assumptions, ptr noundef nonnull align 8 dereferenceable(16) %conseq)
           to label %.noexc403 unwind label %lpad235.loopexit
 
 .noexc403:                                        ; preds = %for.body.i
@@ -6130,7 +6130,7 @@ for.body.i435:                                    ; preds = %.noexc443, %for.bod
   %205 = load ptr, ptr %m_assigned_literals.i.i, align 8
   %arrayidx.i6.i437 = getelementptr inbounds %"class.sat::literal", ptr %205, i64 %indvars.iv.i436
   %agg.tmp.sroa.0.0.copyload.i438 = load i32, ptr %arrayidx.i6.i437, align 4
-  invoke void @_ZN3smt7context26extract_fixed_consequencesEN3sat7literalERK9hashtableIj6u_hash4u_eqER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 %agg.tmp.sroa.0.0.copyload.i438, ptr noundef nonnull align 8 dereferenceable(20) %_assumptions, ptr noundef nonnull align 8 dereferenceable(16) %conseq)
+  invoke void @_ZN3smt7context26extract_fixed_consequencesEN3sat7literalERK9hashtableIj6u_hash4u_eqER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 %agg.tmp.sroa.0.0.copyload.i438, ptr noundef nonnull readonly align 8 dereferenceable(20) %_assumptions, ptr noundef nonnull align 8 dereferenceable(16) %conseq)
           to label %.noexc443 unwind label %lpad272.loopexit.split-lp.loopexit
 
 .noexc443:                                        ; preds = %for.body.i435

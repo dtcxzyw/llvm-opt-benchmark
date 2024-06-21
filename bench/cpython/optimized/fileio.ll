@@ -1973,7 +1973,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = call fastcc ptr @_io_FileIO_readall_impl(ptr noundef nonnull %self)
+  %call7.i = call fastcc ptr @_io_FileIO_readall_impl(ptr noundef nonnull readonly %self)
   br label %_io_FileIO_read_impl.exit
 
 if.end8.i:                                        ; preds = %if.end4.i

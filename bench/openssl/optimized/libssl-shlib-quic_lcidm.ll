@@ -99,7 +99,7 @@ if.end.i:                                         ; preds = %entry
   %id.i = getelementptr inbounds i8, ptr %a, i64 1
   %id8.i = getelementptr inbounds i8, ptr %b, i64 1
   %conv11.i = zext nneg i8 %0 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i, i64 %conv11.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
   %cmp12.i = icmp ne i32 %bcmp.i, 0
   %2 = zext i1 %cmp12.i to i32
   br label %ossl_quic_conn_id_eq.exit
@@ -564,7 +564,7 @@ ossl_quic_conn_id_eq.exit:                        ; preds = %land.lhs.true
   %id.i = getelementptr inbounds i8, ptr %2, i64 1
   %id8.i = getelementptr inbounds i8, ptr %containing_pkt_dcid, i64 1
   %conv11.i = zext nneg i8 %3 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i, i64 %conv11.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
   %cmp12.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp12.i.not, label %return, label %if.end13
 
@@ -682,7 +682,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key.i, ptr noundef nonnull align 1 dereferenceable(21) %lcid, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %lcid, i64 21, i1 false)
   %0 = load i8, ptr %key.i, align 8
   %cmp.i = icmp ugt i8 %0, 20
   br i1 %cmp.i, label %lcidm_get0_lcid.exit.thread, label %lcidm_get0_lcid.exit

@@ -5281,7 +5281,7 @@ _ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit:
   %.sink = phi i32 [ 1, %6 ], [ 1, %9 ], [ 2, %11 ], [ 2, %14 ], [ %.sink13, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split ]
   %19 = load i8, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink, align 1
   %20 = trunc nuw i8 %19 to i1
-  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %1, i64 %2, i32 noundef %.sink, i1 noundef zeroext %20)
+  tail call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr readonly %1, i64 %2, i32 noundef %.sink, i1 noundef zeroext %20)
   ret void
 }
 
@@ -6063,7 +6063,7 @@ _ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE.exit: ; preds =
   %.sink.i = phi i32 [ 1, %6 ], [ 1, %9 ], [ 2, %11 ], [ 2, %14 ], [ %.sink13.i, %_ZN5vcpkg3msg32write_unlocalized_text_to_stdoutENS_5ColorENS_10StringViewE.exit.sink.split.i ]
   %19 = load i8, ptr %_ZZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewEE8is_a_tty.sink.i, align 1
   %20 = trunc nuw i8 %19 to i1
-  call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr %.fca.0.load.i, i64 %.fca.1.load.i, i32 noundef %.sink.i, i1 noundef zeroext %20)
+  call fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr readonly %.fca.0.load.i, i64 %.fca.1.load.i, i32 noundef %.sink.i, i1 noundef zeroext %20)
   %21 = load i32, ptr @_ZN5vcpkg3msg21default_output_streamE, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %28

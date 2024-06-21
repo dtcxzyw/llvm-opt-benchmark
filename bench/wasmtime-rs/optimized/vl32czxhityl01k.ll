@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
   %3 = alloca { { { [4 x i64], i64, [3 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %3, ptr noundef nonnull align 16 dereferenceable(192) %1, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %3, ptr noundef nonnull readonly align 16 dereferenceable(192) %1, i64 192, i1 false)
   call fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias align 8 %0, ptr nonnull align 16 %3)
   ret void
 }

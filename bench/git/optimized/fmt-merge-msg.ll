@@ -334,7 +334,7 @@ if.end22.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %do.body.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end22.i
-  %call.i.i = call fastcc ptr @find_merge_parent(ptr noundef nonnull %merge_parents, ptr noundef nonnull %oid24.i, ptr noundef nonnull %oid25.i)
+  %call.i.i = call fastcc ptr @find_merge_parent(ptr noundef nonnull %merge_parents, ptr noundef nonnull readonly %oid24.i, ptr noundef nonnull readonly %oid25.i)
   %tobool1.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool1.not.i.i, label %do.body.i.i, label %while.cond.backedge.i
 
@@ -369,13 +369,13 @@ do.end.i.i:                                       ; preds = %do.body.i.i, %st_mu
   %div.add.i.i179 = phi i32 [ %div.add.i.i, %st_mult.exit.i.i ], [ %div.add.i.i180, %do.body.i.i ]
   %idxprom.i.i = sext i32 %inc.i.i177 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.merge_parent, ptr %.pre.i.i182, i64 %idxprom.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(32) %oid24.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid24.i, i64 32, i1 false)
   %algo.i.i.i = getelementptr inbounds i8, ptr %call18.i, i64 36
   %10 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   store i32 %10, ptr %algo3.i.i.i, align 4
   %commit31.i.i = getelementptr inbounds %struct.merge_parent, ptr %.pre.i.i182, i64 %idxprom.i.i, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %commit31.i.i, ptr noundef nonnull align 4 dereferenceable(32) %oid25.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %commit31.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid25.i, i64 32, i1 false)
   %algo.i22.i.i = getelementptr inbounds i8, ptr %call19.i, i64 36
   %11 = load i32, ptr %algo.i22.i.i, align 4
   %algo3.i23.i.i = getelementptr inbounds i8, ptr %commit31.i.i, i64 32
@@ -443,11 +443,11 @@ if.end.i.i.us:                                    ; preds = %if.then.i.i.us, %if
   br i1 %cmp.i.i35.i.us, label %if.then.i.i36.i.us, label %if.end.i.i.i.us
 
 if.end.i.i.i.us:                                  ; preds = %if.end.i.i.us
-  %bcmp.i.i.i.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %commit.i.us, ptr noundef nonnull dereferenceable(20) %oid39.i.us, i64 20)
+  %bcmp.i.i.i.us = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %commit.i.us, ptr noundef nonnull readonly dereferenceable(20) %oid39.i.us, i64 20)
   br label %oideq.exit.i.us
 
 if.then.i.i36.i.us:                               ; preds = %if.end.i.i.us
-  %bcmp3.i.i.i.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %commit.i.us, ptr noundef nonnull dereferenceable(32) %oid39.i.us, i64 32)
+  %bcmp3.i.i.i.us = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %commit.i.us, ptr noundef nonnull readonly dereferenceable(32) %oid39.i.us, i64 32)
   br label %oideq.exit.i.us
 
 oideq.exit.i.us:                                  ; preds = %if.then.i.i36.i.us, %if.end.i.i.i.us
@@ -639,11 +639,11 @@ if.end.i.us.i:                                    ; preds = %if.then.i.us.i, %if
   br i1 %cmp.i.i.us.i, label %if.then.i.i.us.i, label %if.end.i.i.us.i
 
 if.end.i.i.us.i:                                  ; preds = %if.end.i.us.i
-  %bcmp.i.i.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %arrayidx.us.i, ptr noundef nonnull dereferenceable(20) %oid.i31, i64 20)
+  %bcmp.i.i.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %arrayidx.us.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i31, i64 20)
   br label %oideq.exit.us.i
 
 if.then.i.i.us.i:                                 ; preds = %if.end.i.us.i
-  %bcmp3.i.i.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %arrayidx.us.i, ptr noundef nonnull dereferenceable(32) %oid.i31, i64 32)
+  %bcmp3.i.i.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %arrayidx.us.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i31, i64 32)
   br label %oideq.exit.us.i
 
 oideq.exit.us.i:                                  ; preds = %if.then.i.i.us.i, %if.end.i.i.us.i
@@ -658,7 +658,7 @@ for.inc.us35.i:                                   ; preds = %oideq.exit.us.i
 
 if.end26.i:                                       ; preds = %oideq.exit.us.i
   %call27.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call27.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i31, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call27.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i31, i64 32, i1 false)
   %38 = load i32, ptr %algo.i.i43, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call27.i, i64 32
   store i32 %38, ptr %algo3.i.i, align 4
@@ -1571,8 +1571,8 @@ if.then.i7.i.i:                                   ; preds = %sane_qsort.exit.i.i
   br label %add_people_info.exit.i
 
 add_people_info.exit.i:                           ; preds = %if.then.i7.i.i, %sane_qsort.exit.i.i
-  call fastcc void @credit_people(ptr noundef %out, ptr noundef nonnull %authors.i, i32 noundef 97)
-  call fastcc void @credit_people(ptr noundef %out, ptr noundef nonnull %committers.i, i32 noundef 99)
+  call fastcc void @credit_people(ptr noundef %out, ptr noundef nonnull readonly %authors.i, i32 noundef 97)
+  call fastcc void @credit_people(ptr noundef %out, ptr noundef nonnull readonly %committers.i, i32 noundef 99)
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %add_people_info.exit.i, %while.end.i121
@@ -1874,11 +1874,11 @@ if.end.i15.us:                                    ; preds = %if.then.i26.us, %if
   br i1 %cmp.i.i18.us, label %if.then.i.i24.us, label %if.end.i.i19.us
 
 if.end.i.i19.us:                                  ; preds = %if.end.i15.us
-  %bcmp.i.i20.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %commit8.us, ptr noundef nonnull dereferenceable(20) %commit, i64 20)
+  %bcmp.i.i20.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %commit8.us, ptr noundef nonnull readonly dereferenceable(20) %commit, i64 20)
   br label %oideq.exit28.us
 
 if.then.i.i24.us:                                 ; preds = %if.end.i15.us
-  %bcmp3.i.i25.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %commit8.us, ptr noundef nonnull dereferenceable(32) %commit, i64 32)
+  %bcmp3.i.i25.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %commit8.us, ptr noundef nonnull readonly dereferenceable(32) %commit, i64 32)
   br label %oideq.exit28.us
 
 oideq.exit28.us:                                  ; preds = %if.then.i.i24.us, %if.end.i.i19.us
@@ -1920,11 +1920,11 @@ if.end.i.us:                                      ; preds = %if.then.i.us, %if.e
   br i1 %cmp.i.i.us, label %if.then.i.i.us, label %if.end.i.i.us
 
 if.end.i.i.us:                                    ; preds = %if.end.i.us
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %arrayidx.us, ptr noundef nonnull dereferenceable(20) %given, i64 20)
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %arrayidx.us, ptr noundef nonnull readonly dereferenceable(20) %given, i64 20)
   br label %oideq.exit.us
 
 if.then.i.i.us:                                   ; preds = %if.end.i.us
-  %bcmp3.i.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %arrayidx.us, ptr noundef nonnull dereferenceable(32) %given, i64 32)
+  %bcmp3.i.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %arrayidx.us, ptr noundef nonnull readonly dereferenceable(32) %given, i64 32)
   br label %oideq.exit.us
 
 oideq.exit.us:                                    ; preds = %if.then.i.i.us, %if.end.i.i.us
@@ -1962,11 +1962,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %arrayidx, ptr noundef nonnull dereferenceable(32) %given, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %arrayidx, ptr noundef nonnull readonly dereferenceable(32) %given, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %arrayidx, ptr noundef nonnull dereferenceable(20) %given, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %arrayidx, ptr noundef nonnull readonly dereferenceable(20) %given, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -1998,11 +1998,11 @@ if.end.i15:                                       ; preds = %if.else.i12, %if.th
   br i1 %cmp.i.i18, label %if.then.i.i24, label %if.end.i.i19
 
 if.then.i.i24:                                    ; preds = %if.end.i15
-  %bcmp3.i.i25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %commit8, ptr noundef nonnull dereferenceable(32) %commit, i64 32)
+  %bcmp3.i.i25 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %commit8, ptr noundef nonnull readonly dereferenceable(32) %commit, i64 32)
   br label %oideq.exit28
 
 if.end.i.i19:                                     ; preds = %if.end.i15
-  %bcmp.i.i20 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %commit8, ptr noundef nonnull dereferenceable(20) %commit, i64 20)
+  %bcmp.i.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %commit8, ptr noundef nonnull readonly dereferenceable(20) %commit, i64 20)
   br label %oideq.exit28
 
 oideq.exit28:                                     ; preds = %if.then.i.i24, %if.end.i.i19

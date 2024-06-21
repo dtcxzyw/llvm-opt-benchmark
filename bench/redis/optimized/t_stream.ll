@@ -484,7 +484,7 @@ cond.end39:                                       ; preds = %if.end.i
   %call8.i = call ptr @raxNew() #16
   %consumers.i = getelementptr inbounds i8, ptr %call6.i, i64 32
   store ptr %call8.i, ptr %consumers.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, i64 16, i1 false)
   %entries_read9.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   store i64 %13, ptr %entries_read9.i, align 8
   %16 = load ptr, ptr %cgroups.i, align 8
@@ -5027,12 +5027,12 @@ if.then6:                                         ; preds = %land.lhs.true
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
   %sub = add i64 %retval.0.i, -1
   %call7 = tail call ptr @createStringObject(ptr noundef nonnull %add.ptr, i64 noundef %sub) #16
-  %call.i = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %call7, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef null)
+  %call.i = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef readonly %call7, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef null)
   tail call void @decrRefCount(ptr noundef %call7) #16
   br label %if.end14
 
 if.else:                                          ; preds = %land.lhs.true.thread, %sdslen.exit.thread, %sdslen.exit, %land.lhs.true
-  %call.i12 = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef nonnull %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null)
+  %call.i12 = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef nonnull readonly %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then6
@@ -5635,7 +5635,7 @@ if.end118:                                        ; preds = %land.lhs.true89, %l
   %idxprom121 = sext i32 %add120 to i64
   %arrayidx122 = getelementptr inbounds ptr, ptr %25, i64 %idxprom121
   %26 = load ptr, ptr %arrayidx122, align 8
-  %call.i = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %26, ptr noundef nonnull %minid, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef readonly %26, ptr noundef nonnull %minid, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp124.not = icmp eq i32 %call.i, 0
   br i1 %cmp124.not, label %if.end127, label %return
 
@@ -5682,7 +5682,7 @@ if.then157:                                       ; preds = %land.lhs.true154
 
 if.then160:                                       ; preds = %land.lhs.true154
   %seq_given = getelementptr inbounds i8, ptr %args, i64 20
-  %call.i96 = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %4, ptr noundef nonnull %args, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %seq_given)
+  %call.i96 = tail call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull readonly %4, ptr noundef nonnull %args, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %seq_given)
   %cmp165.not = icmp eq i32 %call.i96, 0
   br i1 %cmp165.not, label %if.end168, label %return
 
@@ -6489,7 +6489,7 @@ if.end173:                                        ; preds = %if.then170
 if.end181:                                        ; preds = %if.else162.tail
   %idx.ext = sext i32 %sub113 to i64
   %add.ptr = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %idx.ext
-  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %46, ptr noundef %add.ptr, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull readonly %46, ptr noundef %add.ptr, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp186.not = icmp eq i32 %call.i, 0
   br i1 %cmp186.not, label %for.inc190, label %cleanup
 
@@ -7589,7 +7589,7 @@ if.end116.thread:                                 ; preds = %if.then104
   br label %if.then118
 
 if.else109:                                       ; preds = %if.then98, %if.then98.tail
-  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %42, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull readonly %42, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp113.not = icmp eq i32 %call.i, 0
   br i1 %cmp113.not, label %if.end116, label %if.end249
 
@@ -7691,7 +7691,7 @@ if.then138:                                       ; preds = %if.end.i108
   %call8.i = call ptr @raxNew() #16
   %consumers.i = getelementptr inbounds i8, ptr %call6.i, i64 32
   store ptr %call8.i, ptr %consumers.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6.i, ptr noundef nonnull align 8 dereferenceable(16) %id, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %id, i64 16, i1 false)
   %entries_read9.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   store i64 %60, ptr %entries_read9.i, align 8
   %63 = load ptr, ptr %cgroups.i106, align 8
@@ -7748,7 +7748,7 @@ if.then164:                                       ; preds = %if.then157.tail
   br label %if.end174
 
 if.else166:                                       ; preds = %if.then157, %if.then157.tail
-  %call.i111 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %71, ptr noundef nonnull %id158, i64 noundef 0, i32 noundef 0, ptr noundef null)
+  %call.i111 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull readonly %71, ptr noundef nonnull %id158, i64 noundef 0, i32 noundef 0, ptr noundef null)
   %cmp170.not = icmp eq i32 %call.i111, 0
   br i1 %cmp170.not, label %if.end174, label %if.end249
 
@@ -8010,7 +8010,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
-  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef readonly %1, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %while.cond.preheader, label %return
 
@@ -8069,7 +8069,7 @@ if.else20:                                        ; preds = %while.body
 if.then25:                                        ; preds = %if.else20
   %arrayidx29 = getelementptr i8, ptr %arrayidx5, i64 8
   %14 = load ptr, ptr %arrayidx29, align 8
-  %call.i40 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull %max_xdel_id, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i40 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef readonly %14, ptr noundef nonnull %max_xdel_id, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp31.not = icmp eq i32 %call.i40, 0
   br i1 %cmp31.not, label %if.else33, label %return
 
@@ -8382,7 +8382,7 @@ for.body:                                         ; preds = %if.end15, %for.cond
   %21 = load ptr, ptr %arrayidx20, align 8
   %22 = add nsw i64 %indvars.iv, -3
   %arrayidx23 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %22
-  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %21, ptr noundef %arrayidx23, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef readonly %21, ptr noundef %arrayidx23, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp25.not = icmp eq i32 %call.i, 0
   br i1 %cmp25.not, label %for.cond, label %cleanup
 
@@ -9176,7 +9176,7 @@ for.body:                                         ; preds = %if.end30, %for.inc
   %24 = load ptr, ptr %arrayidx35, align 8
   %25 = add nsw i64 %indvars.iv, -5
   %arrayidx38 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %25
-  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %24, ptr noundef %arrayidx38, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef readonly %24, ptr noundef %arrayidx38, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp40.not = icmp eq i32 %call.i, 0
   br i1 %cmp40.not, label %for.inc, label %for.end.loopexit
 
@@ -9284,7 +9284,7 @@ if.then114:                                       ; preds = %if.else109
   %idxprom117 = sext i32 %.neg to i64
   %arrayidx118 = getelementptr inbounds ptr, ptr %31, i64 %idxprom117
   %38 = load ptr, ptr %arrayidx118, align 8
-  %call.i135 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %38, ptr noundef nonnull %last_id, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i135 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef readonly %38, ptr noundef nonnull %last_id, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp120.not = icmp eq i32 %call.i135, 0
   br i1 %cmp120.not, label %for.inc131, label %cleanup
 
@@ -10446,7 +10446,7 @@ for.body:                                         ; preds = %if.end5, %for.cond
   %10 = load ptr, ptr %arrayidx10, align 8
   %11 = add nsw i64 %indvars.iv, -2
   %arrayidx13 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %11
-  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %arrayidx13, i64 noundef 0, i32 noundef 1, ptr noundef null)
+  %call.i = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef readonly %10, ptr noundef %arrayidx13, i64 noundef 0, i32 noundef 1, ptr noundef null)
   %cmp15.not = icmp eq i32 %call.i, 0
   br i1 %cmp15.not, label %for.cond, label %cleanup
 

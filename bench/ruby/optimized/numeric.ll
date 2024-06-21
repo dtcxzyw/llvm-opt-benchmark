@@ -12080,7 +12080,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %15
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %45
 
 45:                                               ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %31, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr readonly align 1 %31, i64 %44, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
@@ -12191,7 +12191,7 @@ RSTRING_PTR.exit53:                               ; preds = %88, %101
   %108 = sext i32 %107 to i64
   %109 = sub nsw i64 0, %108
   %110 = getelementptr i8, ptr %102, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull align 16 %2, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull readonly align 16 %2, i64 %44, i1 false)
   br label %ruby_nonempty_memcpy.exit55
 
 111:                                              ; preds = %86, %59

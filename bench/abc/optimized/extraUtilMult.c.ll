@@ -731,8 +731,8 @@ define void @Abc_BddPrintTest(ptr noundef %0) local_unnamed_addr #2 {
 
 Abc_BddPrint.exit:                                ; preds = %1, %13
   %putchar.i = tail call i32 @putchar(i32 10)
-  %14 = tail call i32 @Abc_BddCount_rec(ptr noundef nonnull %0, i32 noundef %7)
-  tail call void @Abc_BddUnmark_rec(ptr noundef nonnull %0, i32 noundef %7)
+  %14 = tail call i32 @Abc_BddCount_rec(ptr noundef nonnull readonly %0, i32 noundef %7)
+  tail call void @Abc_BddUnmark_rec(ptr noundef nonnull readonly %0, i32 noundef %7)
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %14)
   ret void
 }
@@ -1064,9 +1064,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.014.i = phi i32 [ %150, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %147 = getelementptr inbounds i32, ptr %.val11.i, i64 %indvars.iv.i
   %148 = load i32, ptr %147, align 4
-  %149 = tail call i32 @Abc_BddCount_rec(ptr noundef %5, i32 noundef %148)
+  %149 = tail call i32 @Abc_BddCount_rec(ptr noundef readonly %5, i32 noundef %148)
   %150 = add nsw i32 %149, %.014.i
-  tail call void @Abc_BddUnmark_rec(ptr noundef %5, i32 noundef %148)
+  tail call void @Abc_BddUnmark_rec(ptr noundef readonly %5, i32 noundef %148)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %146
   br i1 %exitcond.not, label %Abc_BddCountNodesArray2.exit, label %.lr.ph.i, !llvm.loop !9

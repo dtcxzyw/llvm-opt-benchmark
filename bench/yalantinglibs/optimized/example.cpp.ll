@@ -98575,7 +98575,7 @@ if.then5.i:
   %v = getelementptr inbounds i8, ptr %p, i64 8
   %p2 = getelementptr inbounds i8, ptr %p, i64 16
   %handler_ = getelementptr inbounds i8, ptr %base, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler, ptr noundef nonnull align 8 dereferenceable(16) %handler_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler, ptr noundef nonnull readonly align 8 dereferenceable(16) %handler_, i64 16, i1 false)
   store ptr null, ptr %p2, align 8
   %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %3 = load ptr, ptr %2, align 8

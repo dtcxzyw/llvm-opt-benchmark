@@ -840,7 +840,7 @@ RSTRING_PTR.exit.i:                               ; preds = %39, %rb_type.exit.t
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 7
   %48 = add nsw i64 %41, -7
-  %49 = tail call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef %47, i64 noundef %48, i32 noundef 1)
+  %49 = tail call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef readonly %47, i64 noundef %48, i32 noundef 1)
   br label %rlimit_type_by_sym.exit
 
 rlimit_type_by_sym.exit:                          ; preds = %RSTRING_PTR.exit.i, %43, %46
@@ -1918,7 +1918,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %29 = phi ptr [ %25, %rbimpl_size_mul_or_raise.exit.thread ], [ %28, %rbimpl_size_mul_or_raise.exit ]
   %.pre-phi69 = phi i64 [ %21, %rbimpl_size_mul_or_raise.exit.thread ], [ %.pre66, %rbimpl_size_mul_or_raise.exit ]
   %30 = shl nuw nsw i64 %.pre-phi69, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr readonly align 1 %1, i64 %30, i1 false)
   %31 = zext nneg i32 %0 to i64
   %32 = getelementptr i64, ptr %29, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -8
@@ -2549,7 +2549,7 @@ RSTRING_PTR.exit.i.i:                             ; preds = %282, %._crit_edge17
   br i1 %.not.i.i153.i, label %rb_imemo_tmpbuf_auto_free_pointer_new_from_an_RString.exit.i, label %284
 
 284:                                              ; preds = %RSTRING_PTR.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %283, ptr align 1 %.sroa.2.0.i.i.i, i64 %278, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %283, ptr readonly align 1 %.sroa.2.0.i.i.i, i64 %278, i1 false)
   br label %rb_imemo_tmpbuf_auto_free_pointer_new_from_an_RString.exit.i
 
 rb_imemo_tmpbuf_auto_free_pointer_new_from_an_RString.exit.i: ; preds = %284, %RSTRING_PTR.exit.i.i
@@ -3311,7 +3311,7 @@ RSTRING_PTR.exit.i:                               ; preds = %327, %._crit_edge14
   br i1 %.not.i.i125, label %rb_imemo_tmpbuf_auto_free_pointer_new_from_an_RString.exit, label %329
 
 329:                                              ; preds = %RSTRING_PTR.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %328, ptr align 1 %.sroa.2.0.i.i, i64 %323, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %328, ptr readonly align 1 %.sroa.2.0.i.i, i64 %323, i1 false)
   br label %rb_imemo_tmpbuf_auto_free_pointer_new_from_an_RString.exit
 
 rb_imemo_tmpbuf_auto_free_pointer_new_from_an_RString.exit: ; preds = %RSTRING_PTR.exit.i, %329
@@ -3490,7 +3490,7 @@ define dso_local noundef i64 @rb_f_exec(i32 noundef %0, ptr nocapture noundef re
 
 RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %13, %2
   %15 = phi ptr [ %14, %13 ], [ %12, %2 ]
-  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef %7)
+  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef readonly %1, i32 noundef 1, i64 noundef %7)
   %16 = getelementptr inbounds i8, ptr %15, i64 64
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 8192
@@ -5450,7 +5450,7 @@ define dso_local void @rb_exit(i32 noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rbimpl_str_new_cstr(ptr noundef nonnull %0) unnamed_addr #1 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #27
   %3 = tail call i64 @rb_str_new_static(ptr noundef nonnull %0, i64 noundef %2) #26
   ret i64 %3
 }
@@ -5614,7 +5614,7 @@ define dso_local i32 @rb_spawn_err(i32 noundef %0, ptr nocapture noundef readonl
 
 RTYPEDDATA_GET_DATA.exit.i.i:                     ; preds = %12, %4
   %14 = phi ptr [ %13, %12 ], [ %11, %4 ]
-  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef %6)
+  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef readonly %1, i32 noundef 1, i64 noundef %6)
   %15 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 8192
@@ -5658,7 +5658,7 @@ define dso_local i32 @rb_spawn(i32 noundef %0, ptr nocapture noundef readonly %1
 
 RTYPEDDATA_GET_DATA.exit.i.i:                     ; preds = %10, %2
   %12 = phi ptr [ %11, %10 ], [ %9, %2 ]
-  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef %4)
+  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef readonly %1, i32 noundef 1, i64 noundef %4)
   %13 = getelementptr inbounds i8, ptr %12, i64 64
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 8192
@@ -6700,7 +6700,7 @@ rb_execarg_new.exit:
   %11 = getelementptr i8, ptr %10, i64 48
   %.val.i = load ptr, ptr %11, align 8
   %12 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 176, ptr noundef nonnull @exec_arg_data_type) #26
-  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef %12)
+  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef readonly %1, i32 noundef 1, i64 noundef %12)
   store i64 %12, ptr %4, align 8
   %13 = tail call ptr @rb_check_typeddata(i64 noundef %12, ptr noundef nonnull @exec_arg_data_type) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
@@ -6816,7 +6816,7 @@ define internal range(i64 1, 0) i64 @rb_f_spawn(i32 noundef %0, ptr nocapture no
 
 RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %14, %3
   %16 = phi ptr [ %15, %14 ], [ %13, %3 ]
-  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef %8)
+  tail call fastcc void @rb_execarg_init(i32 noundef %0, ptr noundef readonly %1, i32 noundef 1, i64 noundef %8)
   %17 = getelementptr inbounds i8, ptr %16, i64 64
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, 8192
@@ -11081,7 +11081,7 @@ declare i64 @rb_str_cat_cstr(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rbimpl_str_cat_cstr(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #27
   %4 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %3) #26
   ret void
 }
@@ -11550,7 +11550,7 @@ define internal fastcc void @send_child_error(i32 noundef %0, ptr noundef %1, i6
   br label %7
 
 7:                                                ; preds = %10, %3
-  %8 = call i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #26
+  %8 = call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %4, i64 noundef 4) #26
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %write_retry.exit
 
@@ -11579,7 +11579,7 @@ write_retry.exit:                                 ; preds = %7, %14
   br i1 %.not, label %write_retry.exit12, label %.preheader
 
 .preheader:                                       ; preds = %18, %24
-  %22 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %21) #26
+  %22 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %21) #26
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %write_retry.exit12
 
@@ -11813,7 +11813,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_spawn_process(i64 nou
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @rb_exec_atfork(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 {
-  %4 = tail call fastcc i32 @exec_async_signal_safe(ptr noundef %0, ptr noundef %1, i64 noundef %2)
+  %4 = tail call fastcc i32 @exec_async_signal_safe(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2)
   %5 = tail call ptr @rb_errno_ptr() #26
   store i32 %4, ptr %5, align 4
   ret i32 -1
@@ -12340,7 +12340,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %rb_type.exit.t
   %.pn = phi ptr [ %30, %27 ], [ %19, %23 ], [ %19, %rb_type.exit.thread14 ]
   %.08.in = getelementptr inbounds i8, ptr %.pn, i64 16
   %.08 = load i64, ptr %.08.in, align 8
-  %38 = call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef %.09, i64 noundef %.08, i32 noundef 0)
+  %38 = call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef readonly %.09, i64 noundef %.08, i32 noundef 0)
   %.not = icmp eq i32 %38, -1
   br i1 %.not, label %39, label %41
 

@@ -1570,7 +1570,7 @@ lpad.i9:                                          ; preds = %if.then.i
   br label %ehcleanup25
 
 invoke.cont4:                                     ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i55, ptr noundef nonnull readonly align 8 dereferenceable(24) %call.i.i2.i6, i64 24, i1 false)
   store ptr %call.i.i.i.i55, ptr %agg.tmp, align 8
   %_M_invoker.i8 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvN4absl12lts_202308026StatusEEZ36grpc_tls_certificate_verifier_verifyE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %_M_invoker.i8, align 8
@@ -3512,7 +3512,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

@@ -1977,7 +1977,7 @@ define internal fastcc void @phar_file_action(ptr noundef %0, ptr noundef %1, pt
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #21
+  %67 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #21
   %68 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 400), align 8
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %phar_mung_server_vars.exit, label %70
@@ -2077,7 +2077,7 @@ define internal fastcc void @phar_file_action(ptr noundef %0, ptr noundef %1, pt
   br i1 %120, label %121, label %140
 
 121:                                              ; preds = %115
-  %bcmp350.i = call i32 @bcmp(ptr nonnull %117, ptr nonnull %7, i64 %67)
+  %bcmp350.i = call i32 @bcmp(ptr nonnull %117, ptr nonnull readonly %7, i64 %67)
   %.not351.i = icmp eq i32 %bcmp350.i, 0
   br i1 %.not351.i, label %122, label %140
 
@@ -2132,7 +2132,7 @@ define internal fastcc void @phar_file_action(ptr noundef %0, ptr noundef %1, pt
   br i1 %150, label %151, label %170
 
 151:                                              ; preds = %145
-  %bcmp355.i = call i32 @bcmp(ptr nonnull %147, ptr nonnull %7, i64 %67)
+  %bcmp355.i = call i32 @bcmp(ptr nonnull %147, ptr nonnull readonly %7, i64 %67)
   %.not356.i = icmp eq i32 %bcmp355.i, 0
   br i1 %.not356.i, label %152, label %170
 
@@ -6729,32 +6729,32 @@ define hidden void @zim_Phar_setAlias(ptr nocapture noundef readonly %0, ptr noc
 .thread:                                          ; preds = %..thread_crit_edge, %64
   %84 = phi i64 [ %.pre106, %..thread_crit_edge ], [ 0, %64 ]
   %85 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre105.pre, %64 ]
-  %86 = call ptr @memchr(ptr noundef %85, i32 noundef 47, i64 noundef %84) #21
+  %86 = call ptr @memchr(ptr noundef readonly %85, i32 noundef 47, i64 noundef %84) #21
   %.not.i = icmp eq ptr %86, null
   br i1 %.not.i, label %87, label %phar_validate_alias.exit.thread
 
 87:                                               ; preds = %.thread
-  %88 = call ptr @memchr(ptr noundef %85, i32 noundef 92, i64 noundef %84) #21
+  %88 = call ptr @memchr(ptr noundef readonly %85, i32 noundef 92, i64 noundef %84) #21
   %.not11.i = icmp eq ptr %88, null
   br i1 %.not11.i, label %89, label %phar_validate_alias.exit.thread
 
 89:                                               ; preds = %87
-  %90 = call ptr @memchr(ptr noundef %85, i32 noundef 58, i64 noundef %84) #21
+  %90 = call ptr @memchr(ptr noundef readonly %85, i32 noundef 58, i64 noundef %84) #21
   %.not12.i = icmp eq ptr %90, null
   br i1 %.not12.i, label %91, label %phar_validate_alias.exit.thread
 
 91:                                               ; preds = %89
-  %92 = call ptr @memchr(ptr noundef %85, i32 noundef 59, i64 noundef %84) #21
+  %92 = call ptr @memchr(ptr noundef readonly %85, i32 noundef 59, i64 noundef %84) #21
   %.not13.i = icmp eq ptr %92, null
   br i1 %.not13.i, label %93, label %phar_validate_alias.exit.thread
 
 93:                                               ; preds = %91
-  %94 = call ptr @memchr(ptr noundef %85, i32 noundef 10, i64 noundef %84) #21
+  %94 = call ptr @memchr(ptr noundef readonly %85, i32 noundef 10, i64 noundef %84) #21
   %.not14.i = icmp eq ptr %94, null
   br i1 %.not14.i, label %phar_validate_alias.exit, label %phar_validate_alias.exit.thread
 
 phar_validate_alias.exit:                         ; preds = %93
-  %95 = call ptr @memchr(ptr noundef %85, i32 noundef 13, i64 noundef %84) #21
+  %95 = call ptr @memchr(ptr noundef readonly %85, i32 noundef 13, i64 noundef %84) #21
   %.not104 = icmp eq ptr %95, null
   br i1 %.not104, label %102, label %phar_validate_alias.exit.thread
 

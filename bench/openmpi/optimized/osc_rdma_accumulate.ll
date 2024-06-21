@@ -4689,7 +4689,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i96.i:  ; preds = %207, %205, %.split.
   %242 = load i64, ptr %70, align 8
   %243 = getelementptr inbounds i8, ptr %.06519.i, i64 %242
   %244 = call i32 %241(i32 noundef -1, i32 noundef -1, ptr noundef %240, ptr noundef %243, i64 noundef %239, i32 noundef 3) #13
-  call fastcc void @ompi_op_reduce(ptr noundef %13, ptr noundef %240, ptr noundef nonnull %194, i64 noundef 1, ptr noundef nonnull %12)
+  call fastcc void @ompi_op_reduce(ptr noundef readonly %13, ptr noundef %240, ptr noundef nonnull %194, i64 noundef 1, ptr noundef nonnull %12)
   call void @free(ptr noundef %240) #13
   br label %251
 
@@ -4701,7 +4701,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i96.i:  ; preds = %207, %205, %.split.
   %248 = load i64, ptr %70, align 8
   %249 = add nsw i64 %248, %192
   %250 = inttoptr i64 %249 to ptr
-  call fastcc void @ompi_op_reduce(ptr noundef %13, ptr noundef %250, ptr noundef nonnull %194, i64 noundef 1, ptr noundef nonnull %12)
+  call fastcc void @ompi_op_reduce(ptr noundef readonly %13, ptr noundef %250, ptr noundef nonnull %194, i64 noundef 1, ptr noundef nonnull %12)
   br label %251
 
 251:                                              ; preds = %247, %238

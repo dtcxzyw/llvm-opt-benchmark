@@ -1148,7 +1148,7 @@ cpuid_or_from_dump.exit217:                       ; preds = %279, %._crit_edge.i
 315:                                              ; preds = %308, %306
   %.070.us.i = phi ptr [ %307, %306 ], [ null, %308 ]
   %316 = getelementptr inbounds %struct.procinfo, ptr %54, i64 %indvars.iv99.i
-  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef nonnull %316, i64 noundef %1, i32 noundef %.0274281, i32 noundef %.1275327340, ptr noundef nonnull %8, i32 noundef %.0117, ptr noundef %.070.us.i)
+  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef nonnull %316, i64 noundef %1, i32 noundef %.0274281, i32 noundef %.1275327340, ptr noundef nonnull readonly %8, i32 noundef %.0117, ptr noundef %.070.us.i)
   %317 = load ptr, ptr %17, align 8
   %.not89.us.i = icmp eq ptr %317, null
   br i1 %.not89.us.i, label %323, label %318
@@ -1176,7 +1176,7 @@ cpuiddump_free.exit.us.i:                         ; preds = %320, %318
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %345
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %345 ], [ 0, %.lr.ph.i ]
   %324 = trunc nuw i64 %indvars.iv.i to i32
-  %325 = call i32 @hwloc_bitmap_isset(ptr noundef nonnull %.0113, i32 noundef %324) #23
+  %325 = call i32 @hwloc_bitmap_isset(ptr noundef nonnull readonly %.0113, i32 noundef %324) #23
   %.not85.i = icmp eq i32 %325, 0
   br i1 %.not85.i, label %345, label %326
 
@@ -1205,7 +1205,7 @@ cpuiddump_free.exit.us.i:                         ; preds = %320, %318
 337:                                              ; preds = %330, %328
   %.070.i = phi ptr [ %329, %328 ], [ null, %330 ]
   %338 = getelementptr inbounds %struct.procinfo, ptr %54, i64 %indvars.iv.i
-  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef nonnull %338, i64 noundef %1, i32 noundef %.0274281, i32 noundef %.1275327340, ptr noundef nonnull %8, i32 noundef %.0117, ptr noundef %.070.i)
+  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef nonnull %338, i64 noundef %1, i32 noundef %.0274281, i32 noundef %.1275327340, ptr noundef nonnull readonly %8, i32 noundef %.0117, ptr noundef %.070.i)
   %339 = load ptr, ptr %17, align 8
   %.not89.i = icmp eq ptr %339, null
   br i1 %.not89.i, label %345, label %340
@@ -3729,7 +3729,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond.i.us, label %.loopexit482, label %34
 
 34:                                               ; preds = %.lr.ph509.split.us
-  %35 = call ptr @hwloc_get_obj_by_depth(ptr noundef %10, i32 noundef %33, i32 noundef 0) #23
+  %35 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef %33, i32 noundef 0) #23
   %.not.i.i.us = icmp eq ptr %35, null
   br i1 %.not.i.i.us, label %.loopexit482, label %.preheader.i.i.us
 
@@ -3737,7 +3737,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %.01.i.i.us = phi ptr [ %48, %46 ], [ %35, %34 ]
   %36 = getelementptr inbounds i8, ptr %.01.i.i.us, i64 184
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @hwloc_bitmap_intersects(ptr noundef %31, ptr noundef %37) #23
+  %38 = call i32 @hwloc_bitmap_intersects(ptr noundef readonly %31, ptr noundef %37) #23
   %.not12.i.i.us = icmp eq i32 %38, 0
   br i1 %.not12.i.i.us, label %46, label %39
 
@@ -3800,7 +3800,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 
 .loopexit482:                                     ; preds = %34, %.lr.ph509.split.us, %46
   call void @hwloc_bitmap_free(ptr noundef %31) #22
-  %68 = call ptr @hwloc_get_obj_by_depth(ptr noundef %10, i32 noundef 0, i32 noundef 0) #23
+  %68 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #23
   %69 = zext i32 %30 to i64
   %70 = getelementptr inbounds %struct.procinfo, ptr %1, i64 %69
   call fastcc void @hwloc_x86_add_cpuinfos(ptr noundef %68, ptr noundef %70)
@@ -4376,7 +4376,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
   br i1 %or.cond.i450, label %.loopexit, label %314
 
 314:                                              ; preds = %310
-  %315 = call ptr @hwloc_get_obj_by_depth(ptr noundef %10, i32 noundef %313, i32 noundef 0) #23
+  %315 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef %313, i32 noundef 0) #23
   %.not.i.i451 = icmp eq ptr %315, null
   br i1 %.not.i.i451, label %.loopexit, label %.preheader.i.i452
 
@@ -4384,7 +4384,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
   %.01.i.i453 = phi ptr [ %321, %319 ], [ %315, %314 ]
   %316 = getelementptr inbounds i8, ptr %.01.i.i453, i64 184
   %317 = load ptr, ptr %316, align 8
-  %318 = call i32 @hwloc_bitmap_intersects(ptr noundef %311, ptr noundef %317) #23
+  %318 = call i32 @hwloc_bitmap_intersects(ptr noundef readonly %311, ptr noundef %317) #23
   %.not12.i.i454 = icmp eq i32 %318, 0
   br i1 %.not12.i.i454, label %319, label %322
 

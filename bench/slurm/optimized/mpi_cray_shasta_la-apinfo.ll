@@ -1800,7 +1800,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_pals_nodes(i32 noundef %0, p
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.37, ptr noundef nonnull %13) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
-  %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #11
+  %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %13, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #11
   %16 = icmp slt i32 %15, 1
   %17 = load i32, ptr %3, align 4
   %18 = icmp slt i32 %17, 0

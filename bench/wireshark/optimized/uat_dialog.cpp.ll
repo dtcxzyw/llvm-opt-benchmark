@@ -3378,7 +3378,7 @@ define void @_ZN9UatDialog9addRecordEb(ptr nocapture noundef nonnull readonly al
   store i32 -1, ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  call void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3386,7 +3386,7 @@ define void @_ZN9UatDialog9addRecordEb(ptr nocapture noundef nonnull readonly al
   %79 = call noundef zeroext i1 @_ZNK8UatModel9hasErrorsEv(ptr noundef nonnull align 8 dereferenceable(72) %78)
   %80 = xor i1 %79, true
   call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %76, i1 noundef zeroext %80)
-  call void @_ZN9UatDialog13resizeColumnsEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
+  call void @_ZN9UatDialog13resizeColumnsEv(ptr noundef nonnull readonly align 8 dereferenceable(112) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 

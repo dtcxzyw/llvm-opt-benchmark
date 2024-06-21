@@ -161,7 +161,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %39 = getelementptr inbounds i8, ptr %1, i64 24
   %40 = zext nneg i32 %23 to i64
   %41 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %38, i1 false)
   tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %39)
   %42 = add nuw nsw i64 %38, 63
   %43 = icmp ult i64 %42, %26
@@ -170,7 +170,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
 .lr.ph.i10:                                       ; preds = %37, %.lr.ph.i10
   %.031.i = phi i64 [ %45, %.lr.ph.i10 ], [ %38, %37 ]
   %44 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @MD4Transform(ptr noundef %1, ptr noundef nonnull %44)
+  tail call fastcc void @MD4Transform(ptr noundef %1, ptr noundef nonnull readonly %44)
   %45 = add nuw nsw i64 %.031.i, 64
   %46 = add nuw nsw i64 %.031.i, 127
   %47 = icmp ult i64 %46, %26
@@ -187,7 +187,7 @@ PHP_MD4Update.exit:                               ; preds = %.lr.ph.i10, %37, %4
   %51 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %.028.i
   %52 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
   %53 = sub i64 %26, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %52, i64 %53, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %52, i64 %53, i1 false)
   %54 = load i32, ptr %4, align 4
   %55 = lshr i32 %54, 3
   %56 = and i32 %55, 63
@@ -206,7 +206,7 @@ PHP_MD4Update.exit:                               ; preds = %.lr.ph.i10, %37, %4
   %64 = zext nneg i32 %63 to i64
   %65 = zext nneg i32 %56 to i64
   %66 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %64, i1 false)
   tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %50)
   br label %PHP_MD4Update.exit16
 
@@ -220,7 +220,7 @@ PHP_MD4Update.exit16:                             ; preds = %67, %62
   %69 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %.028.i12
   %70 = getelementptr inbounds i8, ptr %3, i64 %.1.i13
   %71 = sub nuw nsw i64 8, %.1.i13
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull align 1 %70, i64 %71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull readonly align 1 %70, i64 %71, i1 false)
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %PHP_MD4Update.exit16

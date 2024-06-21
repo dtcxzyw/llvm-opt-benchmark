@@ -5506,7 +5506,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   br label %_ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exit331
 
 47:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %9, ptr noundef nonnull align 32 dereferenceable(32) %13, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %9, ptr noundef nonnull readonly align 32 dereferenceable(32) %13, i64 32, i1 false)
   %48 = getelementptr inbounds double, ptr %9, i64 %indvars.iv
   %49 = load double, ptr %48, align 8
   %50 = fsub contract double %49, %45
@@ -5524,7 +5524,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   %57 = icmp eq i64 %56, %.0381
   %spec.store.select.i = select i1 %57, i64 0, i64 %56
   %58 = getelementptr inbounds %"struct.mitsuba::Point.166", ptr %13, i64 %spec.store.select.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %10, ptr noundef nonnull align 32 dereferenceable(32) %58, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %10, ptr noundef nonnull readonly align 32 dereferenceable(32) %58, i64 32, i1 false)
   %59 = load double, ptr %52, align 8
   %60 = fsub contract double %59, %45
   %61 = fcmp contract oge double %60, 0.000000e+00
@@ -5536,7 +5536,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
 62:                                               ; preds = %55
   %63 = add i64 %.0121136.i, 1
   %64 = getelementptr inbounds %"struct.mitsuba::Point.166", ptr %14, i64 %.0121136.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %64, ptr noundef nonnull align 32 dereferenceable(32) %58, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %64, ptr noundef nonnull readonly align 32 dereferenceable(32) %58, i64 32, i1 false)
   br label %96
 
 65:                                               ; preds = %55
@@ -5608,7 +5608,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   br i1 %100, label %_ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exit331, label %101
 
 101:                                              ; preds = %_ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %5, ptr noundef nonnull align 32 dereferenceable(32) %14, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %5, ptr noundef nonnull readonly align 32 dereferenceable(32) %14, i64 32, i1 false)
   %102 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
   %103 = load double, ptr %102, align 8
   %104 = fsub contract double %103, %99
@@ -5626,7 +5626,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   %111 = icmp eq i64 %110, %.1.i
   %spec.store.select.i322 = select i1 %111, i64 0, i64 %110
   %112 = getelementptr inbounds %"struct.mitsuba::Point.166", ptr %14, i64 %spec.store.select.i322
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %6, ptr noundef nonnull align 32 dereferenceable(32) %112, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %6, ptr noundef nonnull readonly align 32 dereferenceable(32) %112, i64 32, i1 false)
   %113 = load double, ptr %106, align 8
   %114 = fsub contract double %113, %99
   %115 = fcmp contract ole double %114, 0.000000e+00
@@ -5638,7 +5638,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
 116:                                              ; preds = %109
   %117 = add i64 %.0121136.i320, 1
   %118 = getelementptr inbounds %"struct.mitsuba::Point.166", ptr %13, i64 %.0121136.i320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %118, ptr noundef nonnull align 32 dereferenceable(32) %112, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %118, ptr noundef nonnull readonly align 32 dereferenceable(32) %112, i64 32, i1 false)
   br label %150
 
 119:                                              ; preds = %109

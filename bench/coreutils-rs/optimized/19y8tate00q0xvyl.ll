@@ -98,7 +98,7 @@ define hidden noundef i32 @_ZN6uu_cat6splice10copy_exact17ha0a210ba6891ea05E(i32
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit": ; preds = %.preheader
   %22 = sub nuw nsw i64 %13, %.01948
   %23 = getelementptr inbounds i8, ptr %7, i64 %.01948
-  %24 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull %23, i64 noundef %22), !noalias !10
+  %24 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly %23, i64 noundef %22), !noalias !10
   switch i64 %24, label %27 [
     i64 -1, label %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
     i64 0, label %26

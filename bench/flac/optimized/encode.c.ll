@@ -5410,11 +5410,11 @@ if.then660:                                       ; preds = %sw.bb649
 
 if.else662:                                       ; preds = %sw.bb649
   %sub.i = sub i64 2000, %call650
-  %call1.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef %307, i64 noundef %sub.i) #19
+  %call1.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef readonly %307, i64 noundef %sub.i) #19
   store i8 0, ptr %arrayidx.i528, align 1
   %call.i529 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %apodizations) #22
   %sub.i530 = sub i64 2000, %call.i529
-  %call1.i531 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef nonnull @.str.129, i64 noundef %sub.i530) #19
+  %call1.i531 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef nonnull readonly @.str.129, i64 noundef %sub.i530) #19
   store i8 0, ptr %arrayidx.i528, align 1
   br label %for.inc728
 

@@ -4844,7 +4844,7 @@ if.then.i.i.i174:                                 ; preds = %lor.rhs.i.i.i, %_ZN
 
 call5.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %if.then.i.i.i174
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i65.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__begin3.sroa.0.012.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__begin3.sroa.0.012.i.i, i64 24, i1 false)
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i65.i, i64 56
   %214 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i65.i, i64 64
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i65.i, i64 80

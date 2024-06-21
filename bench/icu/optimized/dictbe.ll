@@ -4044,11 +4044,11 @@ if.then50:                                        ; preds = %invoke.cont44
           to label %invoke.cont53 unwind label %lpad46
 
 invoke.cont53:                                    ; preds = %if.then50
-  invoke void @_ZN6icu_7514CjkBreakEngine22loadJapaneseExtensionsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_7514CjkBreakEngine22loadJapaneseExtensionsER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %.noexc unwind label %lpad46
 
 .noexc:                                           ; preds = %invoke.cont53
-  invoke void @_ZN6icu_7514CjkBreakEngine12loadHiraganaER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_7514CjkBreakEngine12loadHiraganaER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end55 unwind label %lpad46
 
 lpad43:                                           ; preds = %invoke.cont42

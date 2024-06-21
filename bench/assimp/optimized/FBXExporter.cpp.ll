@@ -34957,7 +34957,7 @@ while.body.i.i.i4719:                             ; preds = %while.body.i.i.i471
   %_M_storage.i.i.i.i.i4720 = getelementptr inbounds i8, ptr %__x.014.i.i.i, i64 32
   %1286 = load ptr, ptr %_M_storage.i.i.i.i.i4720, align 8
   %data.i1.i.i.i.i = getelementptr inbounds i8, ptr %1286, i64 4
-  %call4.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %data.i1.i.i.i.i) #34
+  %call4.i.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i.i.i.i) #34
   %cmp.i.i.i.i4721 = icmp slt i32 %call4.i.i.i.i, 0
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i4721, i64 16, i64 24
   %cond.in.i.i.i = getelementptr i8, ptr %__x.014.i.i.i, i64 %cond.in.v.i.i.i
@@ -34985,7 +34985,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i4727, 
   %__y.0.lcssa19.i.i.i = phi ptr [ %__y.0.lcssa18.i.i.i, %if.else.i.i.i4727 ], [ %__x.014.i.i.i, %while.end.i.i.i ]
   %data.i.i6.i.i.i = getelementptr inbounds i8, ptr %1287, i64 4
   %data.i1.i7.i.i.i = getelementptr inbounds i8, ptr %n2381.val, i64 4
-  %call4.i8.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i.i6.i.i.i, ptr noundef nonnull dereferenceable(1) %data.i1.i7.i.i.i) #34
+  %call4.i8.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i.i6.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i7.i.i.i) #34
   %cmp.i9.i.i.i = icmp slt i32 %call4.i8.i.i.i, 0
   br i1 %cmp.i9.i.i.i, label %if.then.i.i4725, label %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit
 
@@ -34999,7 +34999,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i4725
   %1288 = load ptr, ptr %_M_storage.i.i.i.i6.i.i, align 8
   %data.i.i.i7.i.i = getelementptr inbounds i8, ptr %n2381.val, i64 4
   %data.i1.i.i8.i.i = getelementptr inbounds i8, ptr %1288, i64 4
-  %call4.i.i9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i.i.i7.i.i, ptr noundef nonnull dereferenceable(1) %data.i1.i.i8.i.i) #34
+  %call4.i.i9.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i.i.i7.i.i, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i.i8.i.i) #34
   %cmp.i.i10.i.i = icmp slt i32 %call4.i.i9.i.i, 0
   br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
@@ -35052,7 +35052,7 @@ while.body.i.i.i4734:                             ; preds = %while.body.i.i.i473
   %_M_storage.i.i.i.i.i4735 = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i, i64 32
   %1293 = load ptr, ptr %_M_storage.i.i.i.i.i4735, align 8
   %data.i.i.i.i.i4736 = getelementptr inbounds i8, ptr %1293, i64 4
-  %call4.i.i.i.i4737 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i.i.i.i.i4736, ptr noundef nonnull dereferenceable(1) %data.i1.i.i.i.i4733) #34
+  %call4.i.i.i.i4737 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i.i.i.i.i4736, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i.i.i.i4733) #34
   %cmp.i.i.i.i4738 = icmp slt i32 %call4.i.i.i.i4737, 0
   %__y.addr.1.i.i.i4739 = select i1 %cmp.i.i.i.i4738, ptr %__y.addr.02.i.i.i, ptr %__x.addr.03.i.i.i
   %__x.addr.1.in.v.i.i.i4740 = select i1 %cmp.i.i.i.i4738, i64 24, i64 16
@@ -35070,7 +35070,7 @@ invoke.cont2435:                                  ; preds = %_ZNKSt8_Rb_treeIPK6
   %__y.addr.1.i.i.i4739.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i4739.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1294 = load ptr, ptr %__y.addr.1.i.i.i4739.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %data.i1.i.i.i = getelementptr inbounds i8, ptr %1294, i64 4
-  %call4.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1.i.i.i.i4733, ptr noundef nonnull dereferenceable(1) %data.i1.i.i.i) #34
+  %call4.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i1.i.i.i.i4733, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i.i.i) #34
   %cmp.i4.i.i4747 = icmp slt i32 %call4.i.i.i, 0
   br i1 %cmp.i4.i.i4747, label %if.end2439, label %for.end2519
 

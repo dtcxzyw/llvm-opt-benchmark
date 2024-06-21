@@ -1359,7 +1359,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !374, !noalias !372, !nonnull !20, !noundef !20
   %14 = getelementptr inbounds i8, ptr %13, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %4, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %4, i64 %6, i1 false)
   %15 = load i64, ptr %7, align 8, !alias.scope !374, !noalias !372, !noundef !20
   %16 = add i64 %15, %6
   store i64 %16, ptr %7, align 8, !alias.scope !374, !noalias !372

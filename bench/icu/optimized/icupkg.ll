@@ -160,7 +160,7 @@ if.then37:                                        ; preds = %if.then35
   br label %return
 
 if.else40:                                        ; preds = %if.end24
-  %call.i108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #15
+  %call.i108 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #15
   %conv.i = trunc i64 %call.i108 to i32
   %cmp.i = icmp sgt i32 %conv.i, 4
   br i1 %cmp.i, label %_ZL13isPackageNamePKc.exit, label %if.end47.thread
@@ -169,7 +169,7 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %if.else40
   %sub.i = add i64 %call.i108, 4294967292
   %idx.ext.i = and i64 %sub.i, 4294967295
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 %idx.ext.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(5) @.str.44) #15
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(5) @.str.44) #15
   %cmp2.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i.not, label %if.then44, label %if.end47.thread
 

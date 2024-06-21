@@ -1196,7 +1196,7 @@ merge_block.exit.thread144:                       ; preds = %226
 
 341:                                              ; preds = %.loopexit.i, %338
   %.4157.i = phi i32 [ 0, %338 ], [ %.7.i, %.loopexit.i ]
-  %342 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %340, ptr noundef %.197, ptr noundef nonnull %9)
+  %342 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %340, ptr noundef readonly %.197, ptr noundef nonnull %9)
   %.not.i62 = icmp eq i32 %342, 0
   br i1 %.not.i62, label %344, label %343
 
@@ -1450,7 +1450,7 @@ parse_tables.exit:                                ; preds = %.preheader.i, %.loo
   br label %.loopexit
 
 475:                                              ; preds = %470, %467
-  %476 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %453, ptr noundef %.298, ptr noundef nonnull %12)
+  %476 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %453, ptr noundef readonly %.298, ptr noundef nonnull %12)
   %.not108.i.i = icmp eq i32 %476, 0
   br i1 %.not108.i.i, label %477, label %do_uncompress_block.exit.i.thread
 
@@ -1558,7 +1558,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
 
 540:                                              ; preds = %decode_code_length.exit.i.i, %decode_code_length.exit.thread171.i.i
   %.015.i173.i.i = phi i32 [ %.021.i.i.i, %decode_code_length.exit.thread171.i.i ], [ %538, %decode_code_length.exit.i.i ]
-  %541 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %459, ptr noundef %.298, ptr noundef nonnull %13)
+  %541 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %459, ptr noundef readonly %.298, ptr noundef nonnull %13)
   %.not114.i.i = icmp eq i32 %541, 0
   br i1 %.not114.i.i, label %543, label %542
 
@@ -1645,7 +1645,7 @@ read_bits_32.exit.i.i:                            ; preds = %555
 
 597:                                              ; preds = %559, %554
   %.1.i87.i = phi i32 [ %596, %559 ], [ %.094.i.i, %554 ]
-  %598 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %460, ptr noundef %.298, ptr noundef nonnull %14)
+  %598 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %460, ptr noundef readonly %.298, ptr noundef nonnull %14)
   %.not118.i.i = icmp eq i32 %598, 0
   br i1 %.not118.i.i, label %600, label %599
 
@@ -1800,12 +1800,12 @@ copy_string.exit.i.i:                             ; preds = %._crit_edge.loopexi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %.val.i.i.i = load ptr, ptr %20, align 8
   %.val.val.i.i.i = load ptr, ptr %.val.i.i.i, align 8
-  %680 = call fastcc i32 @parse_filter_data(ptr noundef %0, ptr noundef %.val.val.i.i.i, ptr noundef %.298, ptr noundef nonnull %10)
+  %680 = call fastcc i32 @parse_filter_data(ptr noundef %0, ptr noundef %.val.val.i.i.i, ptr noundef readonly %.298, ptr noundef nonnull %10)
   %.not.i128.i.i = icmp eq i32 %680, 0
   br i1 %.not.i128.i.i, label %681, label %parse_filter.exit.thread.i.i
 
 681:                                              ; preds = %679
-  %682 = call fastcc i32 @parse_filter_data(ptr noundef nonnull %0, ptr noundef %.val.val.i.i.i, ptr noundef %.298, ptr noundef nonnull %11)
+  %682 = call fastcc i32 @parse_filter_data(ptr noundef nonnull %0, ptr noundef %.val.val.i.i.i, ptr noundef readonly %.298, ptr noundef nonnull %11)
   %.not41.i.i.i = icmp eq i32 %682, 0
   br i1 %.not41.i.i.i, label %683, label %parse_filter.exit.thread.i.i
 
@@ -2068,7 +2068,7 @@ copy_string.exit142.thread.i.i:                   ; preds = %._crit_edge.loopexi
 
 dist_cache_touch.exit.i.i:                        ; preds = %.lr.ph.i144.i.i, %826
   store i32 %830, ptr %455, align 4
-  %836 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %456, ptr noundef %.298, ptr noundef nonnull %15)
+  %836 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %456, ptr noundef readonly %.298, ptr noundef nonnull %15)
   %.not109.i.i = icmp eq i32 %836, 0
   br i1 %.not109.i.i, label %837, label %do_uncompress_block.exit.i.thread
 
@@ -2397,14 +2397,14 @@ process_block.exit.thread162:                     ; preds = %skip_base_block.exi
   %1011 = add i64 %1000, 1
   %1012 = sub i64 %1011, %1007
   %1013 = getelementptr inbounds i8, ptr %998, i64 %1007
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr nonnull align 1 %1013, i64 %1012, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr nonnull readonly align 1 %1013, i64 %1012, i1 false)
   %1014 = getelementptr inbounds i8, ptr %959, i64 %1012
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1014, ptr align 1 %998, i64 %1008, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1014, ptr readonly align 1 %998, i64 %1008, i1 false)
   br label %circular_memcpy.exit.i.i.i
 
 1015:                                             ; preds = %995
   %1016 = getelementptr inbounds i8, ptr %998, i64 %1007
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr align 1 %1016, i64 %1005, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr readonly align 1 %1016, i64 %1005, i1 false)
   br label %circular_memcpy.exit.i.i.i
 
 circular_memcpy.exit.i.i.i:                       ; preds = %1015, %1010
@@ -2449,15 +2449,15 @@ circular_memcpy.exit.i.i.i:                       ; preds = %1015, %1010
   %1043 = add i64 %1025, 1
   %1044 = sub i64 %1043, %1037
   %1045 = getelementptr inbounds i8, ptr %1019, i64 %1037
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull align 1 %1045, i64 %1044, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull readonly align 1 %1045, i64 %1044, i1 false)
   %1046 = getelementptr inbounds i8, ptr %19, i64 %1044
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1046, ptr nonnull align 1 %1019, i64 %1040, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1046, ptr nonnull readonly align 1 %1019, i64 %1040, i1 false)
   br label %read_filter_data.exit.i.i.i
 
 1047:                                             ; preds = %1031
   %1048 = getelementptr inbounds i8, ptr %1019, i64 %1037
   %1049 = sub nsw i64 %1039, %1037
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %1048, i64 %1049, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %19, ptr noundef nonnull readonly align 1 dereferenceable(1) %1048, i64 %1049, i1 false)
   br label %read_filter_data.exit.i.i.i
 
 read_filter_data.exit.i.i.i:                      ; preds = %1047, %1042
@@ -2539,14 +2539,14 @@ read_filter_data.exit.i.i.i:                      ; preds = %1047, %1042
   %1092 = add i64 %1081, 1
   %1093 = sub i64 %1092, %1088
   %1094 = getelementptr inbounds i8, ptr %1079, i64 %1088
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr nonnull align 1 %1094, i64 %1093, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr nonnull readonly align 1 %1094, i64 %1093, i1 false)
   %1095 = getelementptr inbounds i8, ptr %959, i64 %1093
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1095, ptr align 1 %1079, i64 %1089, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1095, ptr readonly align 1 %1079, i64 %1089, i1 false)
   br label %circular_memcpy.exit.i31.i.i
 
 1096:                                             ; preds = %1077
   %1097 = getelementptr inbounds i8, ptr %1079, i64 %1088
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr align 1 %1097, i64 %1086, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %959, ptr readonly align 1 %1097, i64 %1086, i1 false)
   br label %circular_memcpy.exit.i31.i.i
 
 circular_memcpy.exit.i31.i.i:                     ; preds = %1096, %1091
@@ -2583,15 +2583,15 @@ circular_memcpy.exit.i31.i.i:                     ; preds = %1096, %1091
   %1119 = add i64 %1106, 1
   %1120 = sub i64 %1119, %1113
   %1121 = getelementptr inbounds i8, ptr %1100, i64 %1113
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull align 1 %1121, i64 %1120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull readonly align 1 %1121, i64 %1120, i1 false)
   %1122 = getelementptr inbounds i8, ptr %18, i64 %1120
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1122, ptr nonnull align 1 %1100, i64 %1116, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1122, ptr nonnull readonly align 1 %1100, i64 %1116, i1 false)
   br label %read_filter_data.exit.i34.i.i
 
 1123:                                             ; preds = %1111
   %1124 = getelementptr inbounds i8, ptr %1100, i64 %1113
   %1125 = sub nsw i64 %1115, %1113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %18, ptr noundef nonnull align 1 dereferenceable(1) %1124, i64 %1125, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %18, ptr noundef nonnull readonly align 1 dereferenceable(1) %1124, i64 %1125, i1 false)
   br label %read_filter_data.exit.i34.i.i
 
 read_filter_data.exit.i34.i.i:                    ; preds = %1123, %1118

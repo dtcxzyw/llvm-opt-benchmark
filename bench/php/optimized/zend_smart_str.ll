@@ -930,7 +930,7 @@ smart_str_erealloc.exit191:                       ; preds = %138, %132, %126
   %153 = getelementptr inbounds i8, ptr %151, i64 16
   %154 = load i64, ptr %153, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %154, i64 %2)
-  tail call void @smart_str_append_escaped(ptr noundef nonnull %0, ptr noundef nonnull %152, i64 noundef %..i)
+  tail call void @smart_str_append_escaped(ptr noundef nonnull %0, ptr noundef nonnull readonly %152, i64 noundef %..i)
   %155 = load i64, ptr %153, align 8
   %156 = icmp ugt i64 %155, %2
   br i1 %156, label %157, label %smart_str_append_escaped_truncated.exit

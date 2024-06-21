@@ -564,7 +564,7 @@ declare i64 @rb_enc_str_new_static(ptr noundef, i64 noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rbimpl_str_cat_cstr(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %4 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %3) #27
   ret void
 }
@@ -10004,7 +10004,7 @@ RSTRING_END.exit.i:                               ; preds = %38, %32
   br i1 %.not.i.i, label %append_basename.exit, label %57
 
 57:                                               ; preds = %50
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.060, ptr align 1 %51, i64 %.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.060, ptr readonly align 1 %51, i64 %.0.i, i1 false)
   br label %append_basename.exit
 
 append_basename.exit:                             ; preds = %50, %57
@@ -10113,7 +10113,7 @@ RSTRING_PTR.exit.i:                               ; preds = %65, %59
   %100 = sub i64 %99, %98
   %101 = sub i64 0, %100
   %102 = getelementptr i8, ptr %.2.lcssa.i, i64 %101
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull align 1 %.04060.i, i64 %100, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull readonly align 1 %.04060.i, i64 %100, i1 false)
   br label %.backedge.i
 
 103:                                              ; preds = %27
@@ -10178,7 +10178,7 @@ RSTRING_END.exit.i84:                             ; preds = %113, %105
   br i1 %.not.i.i81, label %append_basename.exit89, label %132
 
 132:                                              ; preds = %125
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.060, ptr align 1 %126, i64 %.0.i80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.060, ptr readonly align 1 %126, i64 %.0.i80, i1 false)
   br label %append_basename.exit89
 
 append_basename.exit89:                           ; preds = %125, %132
@@ -10289,7 +10289,7 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
   %177 = sub i64 %176, %175
   %178 = sub i64 0, %177
   %179 = getelementptr i8, ptr %.2.lcssa.i111, i64 %178
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %179, ptr nonnull align 1 %.04060.i98, i64 %177, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %179, ptr nonnull readonly align 1 %.04060.i98, i64 %177, i1 false)
   br label %.backedge.i101
 
 180:                                              ; preds = %27

@@ -496,7 +496,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
 empty_line.exit.thread84:                         ; preds = %.lr.ph.i
   %151 = shl i32 %.06194, 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %7, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126, ptr noundef nonnull %127, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %130, ptr noundef nonnull %131, ptr noundef nonnull %132, ptr noundef nonnull %133, ptr noundef nonnull %134) #9
+  %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %7, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126, ptr noundef nonnull %127, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %130, ptr noundef nonnull %131, ptr noundef nonnull %132, ptr noundef nonnull %133, ptr noundef nonnull %134) #9
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %parse_single_hex_dump_line.exit.thread, label %154
 

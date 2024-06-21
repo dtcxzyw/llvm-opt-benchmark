@@ -1749,7 +1749,7 @@ for.body.preheader.i.i:                           ; preds = %for.cond.preheader.
   %123 = shl nuw nsw i64 %idx.0.lcssa28.i.i, 2
   %gep768 = getelementptr i8, ptr %invariant.gep767, i64 %123
   %124 = sub nuw nsw i64 16, %123
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep768, ptr align 4 %dist_cache, i64 %124, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep768, ptr readonly align 4 %dist_cache, i64 %124, i1 false)
   br label %ComputeDistanceCache.exit.i
 
 while.body.i.i558:                                ; preds = %if.then.i557, %while.body.i.i558
@@ -1784,7 +1784,7 @@ ComputeDistanceCache.exit.i:                      ; preds = %for.body.preheader.
   %and.i22.i = xor i64 %not.i.i, 7
   %cond.i.i.i.i = call i64 @llvm.umin.i64(i64 %inc.i.i, i64 8)
   %arrayidx.i23.i = getelementptr inbounds %struct.PosData, ptr %queue, i64 %and.i22.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i23.i, ptr noundef nonnull align 8 dereferenceable(32) %posdata.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i23.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %posdata.i, i64 32, i1 false)
   %cmp17.i.i = icmp ugt i64 %inc.i.i, 1
   br i1 %cmp17.i.i, label %for.body.i24.i, label %StartPosQueuePush.exit.i
 
@@ -2846,7 +2846,7 @@ ComputeDistanceCache.exit:                        ; preds = %for.body.preheader.
   %and.i22 = xor i64 %not.i, 7
   %cond.i.i.i = tail call i64 @llvm.umin.i64(i64 %inc.i, i64 8)
   %arrayidx.i23 = getelementptr inbounds %struct.PosData, ptr %queue, i64 %and.i22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i23, ptr noundef nonnull align 8 dereferenceable(32) %posdata, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i23, ptr noundef nonnull readonly align 8 dereferenceable(32) %posdata, i64 32, i1 false)
   %cmp17.i = icmp ugt i64 %inc.i, 1
   br i1 %cmp17.i, label %for.body.i24, label %StartPosQueuePush.exit
 
@@ -4596,7 +4596,7 @@ for.body.i642:                                    ; preds = %for.inc.i648, %for.
   %139 = load i32, ptr %arrayidx3.i643, align 4
   %conv.i644 = zext i32 %139 to i64
   %arrayidx4.i = getelementptr inbounds %struct.BackwardMatch, ptr %matches.0.lcssa, i64 %cur_match_pos.061.i
-  %call5.i = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.062.i, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef %params, i64 noundef %sub.i628, ptr noundef %dist_cache, i64 noundef %conv.i644, ptr noundef %arrayidx4.i, ptr noundef %call12, ptr noundef nonnull %queue.i, ptr noundef nonnull %cond165676)
+  %call5.i = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.062.i, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %params, i64 noundef %sub.i628, ptr noundef readonly %dist_cache, i64 noundef %conv.i644, ptr noundef readonly %arrayidx4.i, ptr noundef readonly %call12, ptr noundef nonnull %queue.i, ptr noundef nonnull %cond165676)
   %cmp6.i645 = icmp ult i64 %call5.i, 16384
   %spec.store.select.i = select i1 %cmp6.i645, i64 0, i64 %call5.i
   %140 = load i32, ptr %arrayidx3.i643, align 4
@@ -4710,7 +4710,7 @@ for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.
   %152 = shl nuw nsw i64 %idx.0.lcssa28.i.i.i, 2
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %152
   %153 = sub nuw nsw i64 16, %152
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep.i, ptr align 4 %dist_cache, i64 %153, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep.i, ptr readonly align 4 %dist_cache, i64 %153, i1 false)
   br label %ComputeDistanceCache.exit.i.i
 
 while.body.i.i.i659:                              ; preds = %if.then.i.i657, %while.body.i.i.i659
@@ -4745,7 +4745,7 @@ ComputeDistanceCache.exit.i.i:                    ; preds = %for.body.preheader.
   %and.i22.i.i = xor i64 %not.i.i.i, 7
   %cond.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %inc.i.i.i, i64 8)
   %arrayidx.i23.i.i = getelementptr inbounds %struct.PosData, ptr %queue.i, i64 %and.i22.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i23.i.i, ptr noundef nonnull align 8 dereferenceable(32) %posdata.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i23.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %posdata.i.i, i64 32, i1 false)
   %cmp17.i.i.i = icmp ugt i64 %inc.i.i.i, 1
   br i1 %cmp17.i.i.i, label %for.body.i24.i.i, label %StartPosQueuePush.exit.i.i
 

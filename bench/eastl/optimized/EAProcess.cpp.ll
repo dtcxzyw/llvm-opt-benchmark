@@ -256,7 +256,7 @@ entry:
   %name8 = alloca [260 x i8], align 16
   %value8 = alloca [260 x i8], align 16
   %call = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %name8, ptr noundef %pName, i64 noundef 260, i64 noundef -1)
-  %call.i = call ptr @getenv(ptr noundef nonnull %name8) #14
+  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name8) #14
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %_ZN2EA4StdC17GetEnvironmentVarEPKcPcm.exit
 
@@ -396,7 +396,7 @@ define dso_local noundef i32 @_ZN2EA4StdC19ExecuteShellCommandEPKDs(ptr noundef 
 entry:
   %command8 = alloca [260 x i8], align 16
   %call = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %command8, ptr noundef %pCommand, i64 noundef 260, i64 noundef -1)
-  %call.i = call noundef i32 @system(ptr noundef nonnull %command8)
+  %call.i = call noundef i32 @system(ptr noundef nonnull readonly %command8)
   ret i32 %call.i
 }
 

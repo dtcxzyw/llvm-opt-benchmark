@@ -49080,14 +49080,14 @@ _ZZN8pybind1112cpp_function10initializeIRPFRZ24test_submodule_operatorsRNS_7modu
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ24test_submodule_operatorsRNS_7module_EE5NestBE21make_copy_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIKS7_EEEtlPFPvPKvEEEPS8_ENUlSB_E_8__invokeESB_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ24test_submodule_operatorsRNS_7module_EE5NestBE21make_move_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIOS7_EEEtlPFPvPKvEEEPKS7_ENUlSB_E_8__invokeESB_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   ret ptr %2
 }
 
@@ -50079,14 +50079,14 @@ _ZZN8pybind1112cpp_function10initializeIRPFRZ24test_submodule_operatorsRNS_7modu
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ24test_submodule_operatorsRNS_7module_EE5NestCE21make_copy_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIKS7_EEEtlPFPvPKvEEEPS8_ENUlSB_E_8__invokeESB_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ24test_submodule_operatorsRNS_7module_EE5NestCE21make_move_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIOS7_EEEtlPFPvPKvEEEPKS7_ENUlSB_E_8__invokeESB_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
   ret ptr %2
 }
 
@@ -50337,7 +50337,7 @@ _ZN8pybind116detail7cast_opIRZ24test_submodule_operatorsRNS_7module_EE5NestCEENS
 
 _ZNO8pybind116detail15argument_loaderIJRZ24test_submodule_operatorsRNS_7module_EE5NestCRKZ24test_submodule_operatorsS3_E5NestBEE4callIvNS0_9void_typeERZNS_6class_IS4_JEE13def_readwriteIS4_S6_JEEERSD_PKcMT_T0_DpRKT1_EUlS5_S8_E_EENSt9enable_ifIXsr3std7is_voidISI_EE5valueESB_E4typeEOT1_.exit: ; preds = %_ZN8pybind116detail7cast_opIRZ24test_submodule_operatorsRNS_7module_EE5NestCEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit.i.i
   %52 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val19.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %.val17.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull readonly align 4 dereferenceable(12) %.val17.i, i64 12, i1 false)
   %53 = load i64, ptr @_Py_NoneStruct, align 8
   %54 = add nsw i64 %53, 1
   store i64 %54, ptr @_Py_NoneStruct, align 8

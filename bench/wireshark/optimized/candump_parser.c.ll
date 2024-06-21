@@ -372,11 +372,11 @@ yy_find_shift_action.exit:                        ; preds = %24, %.sink.split.i
   store i8 %128, ptr %6, align 8
   %129 = getelementptr i8, ptr %50, i64 -95
   %130 = zext i8 %126 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %129, i64 %130, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %129, i64 %130, i1 false)
   %131 = getelementptr [64 x i8], ptr %14, i64 0, i64 %130
   %132 = getelementptr inbounds i8, ptr %50, i64 9
   %133 = zext i8 %127 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr nonnull align 1 %132, i64 %133, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr nonnull readonly align 1 %132, i64 %133, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %124, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yy_reduce.exit
 

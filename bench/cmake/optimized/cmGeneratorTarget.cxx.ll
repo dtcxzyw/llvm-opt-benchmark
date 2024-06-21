@@ -5313,7 +5313,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %6
   br i1 %12, label %_ZN24cmTargetPropertyComputer11GetPropertyI17cmGeneratorTargetEE7cmValuePKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile.exit, label %_ZN24cmTargetPropertyComputer11GetPropertyI17cmGeneratorTargetEE7cmValuePKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile.exit.thread
 
 _ZN24cmTargetPropertyComputer11GetPropertyI17cmGeneratorTargetEE7cmValuePKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile.exit: ; preds = %10
-  %13 = tail call noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %13 = tail call noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZN24cmTargetPropertyComputer11GetPropertyI17cmGeneratorTargetEE7cmValuePKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile.exit.thread, label %_ZN24cmTargetPropertyComputer11GetPropertyI17cmGeneratorTargetEE7cmValuePKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile.exit.thread5
 
@@ -5881,7 +5881,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %156
   br i1 %160, label %161, label %.noexc58.thread
 
 161:                                              ; preds = %158
-  %162 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %162 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc58 unwind label %.loopexit97
 
 .noexc58:                                         ; preds = %161
@@ -6754,7 +6754,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %65
   br i1 %69, label %70, label %.noexc53.thread
 
 70:                                               ; preds = %67
-  %71 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %71 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc53 unwind label %136
 
 .noexc53:                                         ; preds = %70
@@ -6846,7 +6846,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i76: ; preds = %95
   br i1 %99, label %100, label %.noexc61.thread
 
 100:                                              ; preds = %97
-  %101 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %101 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc61 unwind label %134
 
 .noexc61:                                         ; preds = %100
@@ -7696,7 +7696,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %242
   br i1 %246, label %247, label %.noexc124.thread
 
 247:                                              ; preds = %244
-  %248 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %248 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc124 unwind label %284
 
 .noexc124:                                        ; preds = %247
@@ -7781,7 +7781,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i177: ; preds = %268
   br i1 %272, label %273, label %.noexc133.thread
 
 273:                                              ; preds = %270
-  %274 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %274 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc133 unwind label %288
 
 .noexc133:                                        ; preds = %273
@@ -8316,7 +8316,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %65
   br i1 %69, label %70, label %.noexc53.thread
 
 70:                                               ; preds = %67
-  %71 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %71 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc53 unwind label %136
 
 .noexc53:                                         ; preds = %70
@@ -8408,7 +8408,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i76: ; preds = %95
   br i1 %99, label %100, label %.noexc61.thread
 
 100:                                              ; preds = %97
-  %101 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %101 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc61 unwind label %134
 
 .noexc61:                                         ; preds = %100
@@ -8657,7 +8657,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %25
   br i1 %29, label %30, label %.noexc.thread
 
 30:                                               ; preds = %27
-  %31 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %31 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %30
@@ -8831,7 +8831,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %22
   br i1 %26, label %27, label %.noexc.thread
 
 27:                                               ; preds = %24
-  %28 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %28 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %27
@@ -27595,7 +27595,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %73
   br i1 %77, label %78, label %.noexc55.thread
 
 78:                                               ; preds = %75
-  %79 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %79 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc55 unwind label %129
 
 .noexc55:                                         ; preds = %78
@@ -27689,7 +27689,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i108: ; preds = %101
   br i1 %105, label %106, label %.noexc63.thread
 
 106:                                              ; preds = %103
-  %107 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %107 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc63 unwind label %133
 
 .noexc63:                                         ; preds = %106
@@ -28381,7 +28381,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %50
   br i1 %54, label %55, label %.noexc21.thread
 
 55:                                               ; preds = %52
-  %56 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %56 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc21 unwind label %94
 
 .noexc21:                                         ; preds = %55
@@ -28797,7 +28797,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %30
   br i1 %34, label %35, label %.noexc14.thread
 
 35:                                               ; preds = %32
-  %36 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %36 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc14 unwind label %50
 
 .noexc14:                                         ; preds = %35
@@ -29058,7 +29058,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %33
   br i1 %37, label %38, label %.noexc20.thread
 
 38:                                               ; preds = %35
-  %39 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %39 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc20 unwind label %77
 
 .noexc20:                                         ; preds = %38
@@ -29289,7 +29289,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %19
   br i1 %23, label %24, label %.noexc11.thread
 
 24:                                               ; preds = %21
-  %25 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %25 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc11 unwind label %36
 
 .noexc11:                                         ; preds = %24
@@ -29402,7 +29402,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i35: ; preds = %53
   br i1 %57, label %58, label %.noexc19.thread
 
 58:                                               ; preds = %55
-  %59 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %59 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc19 unwind label %70
 
 .noexc19:                                         ; preds = %58
@@ -32549,7 +32549,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %67
   br i1 %71, label %72, label %.noexc.thread
 
 72:                                               ; preds = %69
-  %73 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %73 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %72
@@ -32630,7 +32630,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i50: ; preds = %93
   br i1 %97, label %98, label %.noexc31.thread
 
 98:                                               ; preds = %95
-  %99 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %99 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc31 unwind label %58
 
 .noexc31:                                         ; preds = %98
@@ -57090,7 +57090,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %59
   br i1 %63, label %64, label %.noexc24.thread
 
 64:                                               ; preds = %61
-  %65 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %65 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc24 unwind label %89
 
 .noexc24:                                         ; preds = %64
@@ -59243,7 +59243,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %44
   br i1 %48, label %49, label %.noexc16.thread
 
 49:                                               ; preds = %46
-  %50 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %50 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc16 unwind label %.loopexit
 
 .noexc16:                                         ; preds = %49
@@ -64751,7 +64751,7 @@ _Z6cmIsOnPKc.exit5:                               ; preds = %7
   br label %44
 
 16:                                               ; preds = %7
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #33
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %1) #33
   %18 = icmp eq i32 %17, 0
   %19 = zext i1 %18 to i8
   %20 = select i1 %18, ptr %0, ptr null
@@ -74138,7 +74138,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %96
   br i1 %100, label %101, label %.noexc88.thread
 
 101:                                              ; preds = %98
-  %102 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %102 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc88 unwind label %73
 
 .noexc88:                                         ; preds = %101
@@ -74197,7 +74197,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i127: ; preds = %117
   br i1 %121, label %122, label %.noexc91.thread
 
 122:                                              ; preds = %119
-  %123 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %123 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc91 unwind label %73
 
 .noexc91:                                         ; preds = %122
@@ -74286,7 +74286,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i134: ; preds = %146
   br i1 %150, label %151, label %.noexc102.thread
 
 151:                                              ; preds = %148
-  %152 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %152 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc102 unwind label %203
 
 .noexc102:                                        ; preds = %151
@@ -75210,7 +75210,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %164
   br i1 %168, label %169, label %.noexc55.thread
 
 169:                                              ; preds = %166
-  %170 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %170 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc55 unwind label %178
 
 .noexc55:                                         ; preds = %169
@@ -75289,7 +75289,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i74: ; preds = %188
   br i1 %192, label %193, label %.noexc63.thread
 
 193:                                              ; preds = %190
-  %194 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %194 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc63 unwind label %204
 
 .noexc63:                                         ; preds = %193
@@ -77537,7 +77537,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %102
   br i1 %106, label %107, label %.noexc42.thread
 
 107:                                              ; preds = %104
-  %108 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %108 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc42 unwind label %93
 
 .noexc42:                                         ; preds = %107
@@ -77619,7 +77619,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i84: ; preds = %128
   br i1 %132, label %133, label %.noexc45.thread
 
 133:                                              ; preds = %130
-  %134 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %134 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc45 unwind label %93
 
 .noexc45:                                         ; preds = %133
@@ -79506,7 +79506,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %97
   br i1 %101, label %102, label %.noexc90.thread
 
 102:                                              ; preds = %99
-  %103 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %103 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc90 unwind label %132
 
 .noexc90:                                         ; preds = %102
@@ -79565,7 +79565,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i286: ; preds = %118
   br i1 %122, label %123, label %.noexc93.thread
 
 123:                                              ; preds = %120
-  %124 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %124 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc93 unwind label %132
 
 .noexc93:                                         ; preds = %123
@@ -79831,7 +79831,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i293: ; preds = %225
   br i1 %229, label %230, label %.noexc124.thread
 
 230:                                              ; preds = %227
-  %231 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %231 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc124 unwind label %239
 
 .noexc124:                                        ; preds = %230
@@ -79910,7 +79910,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i300: ; preds = %249
   br i1 %253, label %254, label %.noexc131.thread
 
 254:                                              ; preds = %251
-  %255 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %255 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc131 unwind label %268
 
 .noexc131:                                        ; preds = %254
@@ -80029,7 +80029,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i307: ; preds = %290
   br i1 %294, label %295, label %.noexc141.thread
 
 295:                                              ; preds = %292
-  %296 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %296 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc141 unwind label %304
 
 .noexc141:                                        ; preds = %295
@@ -80129,7 +80129,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i314: ; preds = %320
   br i1 %324, label %325, label %.noexc151.thread
 
 325:                                              ; preds = %322
-  %326 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %326 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc151 unwind label %339
 
 .noexc151:                                        ; preds = %325
@@ -80248,7 +80248,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i321: ; preds = %361
   br i1 %365, label %366, label %.noexc161.thread
 
 366:                                              ; preds = %363
-  %367 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %367 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc161 unwind label %375
 
 .noexc161:                                        ; preds = %366
@@ -80327,7 +80327,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i328: ; preds = %385
   br i1 %389, label %390, label %.noexc171.thread
 
 390:                                              ; preds = %387
-  %391 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %391 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc171 unwind label %401
 
 .noexc171:                                        ; preds = %390
@@ -80468,7 +80468,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i335: ; preds = %436
   br i1 %440, label %441, label %.noexc184.thread
 
 441:                                              ; preds = %438
-  %442 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %442 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc184 unwind label %450
 
 .noexc184:                                        ; preds = %441
@@ -80568,7 +80568,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i342: ; preds = %466
   br i1 %470, label %471, label %.noexc194.thread
 
 471:                                              ; preds = %468
-  %472 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %472 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc194 unwind label %485
 
 .noexc194:                                        ; preds = %471
@@ -80678,7 +80678,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i349: ; preds = %503
   br i1 %507, label %508, label %.noexc203.thread
 
 508:                                              ; preds = %505
-  %509 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %509 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc203 unwind label %517
 
 .noexc203:                                        ; preds = %508
@@ -80757,7 +80757,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i356: ; preds = %527
   br i1 %531, label %532, label %.noexc213.thread
 
 532:                                              ; preds = %529
-  %533 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %533 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc213 unwind label %546
 
 .noexc213:                                        ; preds = %532
@@ -80867,7 +80867,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i363: ; preds = %566
   br i1 %570, label %571, label %.noexc223.thread
 
 571:                                              ; preds = %568
-  %572 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %572 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc223 unwind label %581
 
 .noexc223:                                        ; preds = %571
@@ -80951,7 +80951,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i370: ; preds = %591
   br i1 %595, label %596, label %.noexc233.thread
 
 596:                                              ; preds = %593
-  %597 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %597 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc233 unwind label %610
 
 .noexc233:                                        ; preds = %596
@@ -81074,7 +81074,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i377: ; preds = %626
   br i1 %630, label %631, label %.noexc246.thread
 
 631:                                              ; preds = %628
-  %632 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %632 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc246 unwind label %646
 
 .noexc246:                                        ; preds = %631
@@ -81165,7 +81165,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i384: ; preds = %654
   br i1 %658, label %659, label %.noexc252.thread
 
 659:                                              ; preds = %656
-  %660 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %660 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc252 unwind label %644
 
 .noexc252:                                        ; preds = %659
@@ -81268,7 +81268,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i391: ; preds = %688
   br i1 %692, label %693, label %.noexc265.thread
 
 693:                                              ; preds = %690
-  %694 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %694 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc265 unwind label %702
 
 .noexc265:                                        ; preds = %693
@@ -81352,7 +81352,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i398: ; preds = %712
   br i1 %716, label %717, label %.noexc275.thread
 
 717:                                              ; preds = %714
-  %718 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %718 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc275 unwind label %728
 
 .noexc275:                                        ; preds = %717
@@ -83308,7 +83308,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %721
   br i1 %725, label %726, label %.noexc213.thread
 
 726:                                              ; preds = %723
-  %727 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %727 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc213 unwind label %.loopexit
 
 .noexc213:                                        ; preds = %726
@@ -85378,7 +85378,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %20
   br i1 %24, label %25, label %.noexc6.thread
 
 25:                                               ; preds = %22
-  %26 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %26 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc6 unwind label %41
 
 .noexc6:                                          ; preds = %25
@@ -85507,7 +85507,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %21
   br i1 %25, label %26, label %.noexc5.thread
 
 26:                                               ; preds = %23
-  %27 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
+  %27 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %1)
           to label %.noexc5 unwind label %38
 
 .noexc5:                                          ; preds = %26
@@ -86276,7 +86276,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %53
   br i1 %57, label %58, label %.noexc21.thread
 
 58:                                               ; preds = %55
-  %59 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %59 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc21 unwind label %73
 
 .noexc21:                                         ; preds = %58
@@ -88099,7 +88099,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %27
   br i1 %31, label %32, label %.noexc14.thread
 
 32:                                               ; preds = %29
-  %33 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %33 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc14 unwind label %46
 
 .noexc14:                                         ; preds = %32
@@ -88397,7 +88397,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.i: ; preds = %30
   br i1 %34, label %35, label %.noexc11.thread
 
 35:                                               ; preds = %32
-  %36 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
+  %36 = invoke noundef ptr @_ZNK17cmGeneratorTarget18GetSourcesPropertyEv(ptr noundef nonnull readonly align 8 dereferenceable(2728) %0)
           to label %.noexc11 unwind label %51
 
 .noexc11:                                         ; preds = %35

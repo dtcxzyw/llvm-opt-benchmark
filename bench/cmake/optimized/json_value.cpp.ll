@@ -968,7 +968,7 @@ define dso_local void @_ZN4Json5Value8CZStringC2ERKS1_(ptr nocapture noundef non
   resume { ptr, i32 } %.pn.i
 
 _ZN4JsonL20duplicateStringValueEPKcm.exit:        ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %.pre, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %.pre, i64 %11, i1 false)
   %23 = getelementptr inbounds i8, ptr %13, i64 %11
   store i8 0, ptr %23, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -1689,7 +1689,7 @@ define dso_local void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 derefe
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
           to label %7 unwind label %14
 
 7:                                                ; preds = %4
@@ -2054,12 +2054,12 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value
   %3 = alloca %"class.Json::Value", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %4, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %1)
           to label %5 unwind label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %_ZN4Json5Value8CommentsaSEOS1_.exit.i.i unwind label %8
 
 8:                                                ; preds = %5, %2
@@ -2209,10 +2209,10 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEED2Ev.exit.i.
   br label %_ZN4Json5Value11copyPayloadERKS0_.exit
 
 _ZN4Json5Value11copyPayloadERKS0_.exit:           ; preds = %2, %5, %7, %9, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEED2Ev.exit.i.i
-  tail call void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  tail call void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1)
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %18)
   %21 = getelementptr inbounds i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2239,7 +2239,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK4Json5Value7compareERKS0_(ptr
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noundef zeroext i1 @_ZNK4Json5ValueltERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %5 = tail call noundef zeroext i1 @_ZNK4Json5ValueltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 8 dereferenceable(40) %0)
   %. = zext i1 %5 to i32
   br label %6
 
@@ -4822,11 +4822,11 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %57, %55, %.critedge
   %61 = getelementptr inbounds i8, ptr %7, i64 16
   %62 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr null, ptr %62, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4Json5Value13nullSingletonEvE10nullStatic)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) @_ZZN4Json5Value13nullSingletonEvE10nullStatic)
           to label %63 unwind label %.body.i
 
 63:                                               ; preds = %.noexc13
-  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
+  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
           to label %73 unwind label %.body.i
 
 .body.i:                                          ; preds = %63, %.noexc13
@@ -5463,11 +5463,11 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %60, %58, %.critedge
   %64 = getelementptr inbounds i8, ptr %7, i64 16
   %65 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr null, ptr %65, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4Json5Value13nullSingletonEvE10nullStatic)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull readonly align 8 dereferenceable(40) @_ZZN4Json5Value13nullSingletonEvE10nullStatic)
           to label %66 unwind label %.body.i
 
 66:                                               ; preds = %.noexc15
-  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
+  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
           to label %76 unwind label %.body.i
 
 .body.i:                                          ; preds = %66, %.noexc15
@@ -5742,11 +5742,11 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %64, %62, %.critedge
   %68 = getelementptr inbounds i8, ptr %8, i64 16
   %69 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr null, ptr %69, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4Json5Value13nullSingletonEvE10nullStatic)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull readonly align 8 dereferenceable(40) @_ZZN4Json5Value13nullSingletonEvE10nullStatic)
           to label %70 unwind label %.body.i
 
 70:                                               ; preds = %.noexc16
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN4Json5Value13nullSingletonEvE10nullStatic, i64 16))
           to label %80 unwind label %.body.i
 
 .body.i:                                          ; preds = %70, %.noexc16
@@ -5863,12 +5863,12 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %4, %8, %10
   %15 = select i1 %14, ptr %3, ptr %5
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %16, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %15)
           to label %17 unwind label %20
 
 17:                                               ; preds = %_ZN4Json5Value13nullSingletonEv.exit
   %18 = getelementptr inbounds i8, ptr %15, i64 16
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull readonly align 8 dereferenceable(8) %18)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %20
 
 20:                                               ; preds = %17, %_ZN4Json5Value13nullSingletonEv.exit
@@ -6169,12 +6169,12 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value
   %3 = alloca %"class.Json::Value", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %4, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %1)
           to label %5 unwind label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %8
 
 common.resume:                                    ; preds = %15, %8
@@ -6345,12 +6345,12 @@ define dso_local noundef zeroext i1 @_ZN4Json5Value6insertEjRKS0_(ptr nocapture 
   %4 = alloca %"class.Json::Value", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %5, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %6 unwind label %9
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %9
 
 common.resume:                                    ; preds = %16, %9
@@ -6475,12 +6475,12 @@ define dso_local void @_ZNK4Json5Value3getEPKcS2_RKS0_(ptr dead_on_unwind noalia
   %7 = select i1 %.not, ptr %4, ptr %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %7)
           to label %9 unwind label %12
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull readonly align 8 dereferenceable(8) %10)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %12
 
 12:                                               ; preds = %9, %5
@@ -6506,17 +6506,17 @@ define dso_local void @_ZNK4Json5Value3getEPKcRKS0_(ptr dead_on_unwind noalias w
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %7 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %6), !noalias !18
+  %7 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %6), !noalias !18
   %.not.i = icmp eq ptr %7, null
   %8 = select i1 %.not.i, ptr %3, ptr %7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %9, align 8, !alias.scope !18
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %8)
           to label %10 unwind label %13
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %8, i64 16
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 8 dereferenceable(8) %11)
           to label %_ZNK4Json5Value3getEPKcS2_RKS0_.exit unwind label %13
 
 13:                                               ; preds = %10, %4
@@ -6544,17 +6544,17 @@ define dso_local void @_ZNK4Json5Value3getERKNSt7__cxx1112basic_stringIcSt11char
   %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   %8 = getelementptr inbounds i8, ptr %6, i64 %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %9 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %5, ptr noundef %8), !noalias !21
+  %9 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %5, ptr noundef %8), !noalias !21
   %.not.i = icmp eq ptr %9, null
   %10 = select i1 %.not.i, ptr %3, ptr %9
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %11, align 8, !alias.scope !21
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %10)
           to label %12 unwind label %15
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull readonly align 8 dereferenceable(8) %13)
           to label %_ZNK4Json5Value3getEPKcS2_RKS0_.exit unwind label %15
 
 15:                                               ; preds = %12, %4
@@ -6883,12 +6883,12 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.e
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %33 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr null, ptr %33, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %32)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull readonly align 8 dereferenceable(40) %32)
           to label %34 unwind label %37
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 64
-  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull readonly align 8 dereferenceable(8) %35)
           to label %_ZN4Json5ValueaSERKS0_.exit unwind label %37
 
 37:                                               ; preds = %34, %31
@@ -7123,12 +7123,12 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   store ptr null, ptr %73, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %78)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %78)
           to label %124 unwind label %127
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds i8, ptr %78, i64 16
-  %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(8) %125)
+  %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull readonly align 8 dereferenceable(8) %125)
           to label %129 unwind label %127
 
 127:                                              ; preds = %124, %122
@@ -7315,7 +7315,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8isMemberEPKcS2_(ptr nocaptu
 define dso_local noundef zeroext i1 @_ZNK4Json5Value8isMemberEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
   %4 = getelementptr inbounds i8, ptr %1, i64 %3
-  %5 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %4)
+  %5 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %4)
   %6 = icmp ne ptr %5, null
   ret i1 %6
 }
@@ -7326,7 +7326,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8isMemberERKNSt7__cxx1112bas
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
-  %7 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %3, ptr noundef %6)
+  %7 = tail call noundef ptr @_ZNK4Json5Value4findEPKcS2_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %3, ptr noundef %6)
   %8 = icmp ne ptr %7, null
   ret i1 %8
 }
@@ -9060,12 +9060,12 @@ _ZNK4Json5Value12isValidIndexEj.exit:             ; preds = %15
 _ZNK4Json5Value12isValidIndexEj.exit.thread:      ; preds = %15, %_ZNK4Json5Value12isValidIndexEj.exit, %10
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %28, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %3)
           to label %29 unwind label %32
 
 29:                                               ; preds = %_ZNK4Json5Value12isValidIndexEj.exit.thread
   %30 = getelementptr inbounds i8, ptr %3, i64 16
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %30)
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull readonly align 8 dereferenceable(8) %30)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %32
 
 common.resume:                                    ; preds = %72, %64, %46, %32
@@ -9093,12 +9093,12 @@ common.resume:                                    ; preds = %72, %64, %46, %32
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %42, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %3)
           to label %43 unwind label %46
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %3, i64 16
-  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull readonly align 8 dereferenceable(8) %44)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %46
 
 46:                                               ; preds = %43, %41
@@ -9133,12 +9133,12 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %48, %52, %54
 59:                                               ; preds = %_ZN4Json5Value13nullSingletonEv.exit
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %60, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %3)
           to label %61 unwind label %64
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %3, i64 16
-  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %62)
+  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull readonly align 8 dereferenceable(8) %62)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %64
 
 64:                                               ; preds = %61, %59
@@ -9156,12 +9156,12 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %48, %52, %54
   %.0.lcssa = phi ptr [ %2, %4 ], [ %.1, %66 ]
   %68 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %68, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %.0.lcssa)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0.lcssa)
           to label %69 unwind label %72
 
 69:                                               ; preds = %._crit_edge
   %70 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %70)
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull readonly align 8 dereferenceable(8) %70)
           to label %_ZN4Json5ValueC2ERKS0_.exit unwind label %72
 
 72:                                               ; preds = %69, %._crit_edge
@@ -9433,7 +9433,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pair
 
 8:                                                ; preds = %.noexc
   %9 = getelementptr inbounds i8, ptr %2, i64 32
-  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %9)
           to label %25 unwind label %.body6
 
 .body6:                                           ; preds = %8, %.noexc
@@ -10136,12 +10136,12 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pair
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr null, ptr %7, align 8
-  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
+  invoke void @_ZN4Json5Value10dupPayloadERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull readonly align 8 dereferenceable(40) %6)
           to label %8 unwind label %.body.i.i.i
 
 8:                                                ; preds = %.noexc
   %9 = getelementptr inbounds i8, ptr %2, i64 32
-  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %9)
           to label %25 unwind label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %8, %.noexc

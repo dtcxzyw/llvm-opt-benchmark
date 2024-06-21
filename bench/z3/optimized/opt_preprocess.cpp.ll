@@ -2604,13 +2604,13 @@ if.then.i.i95.i:                                  ; preds = %_ZN6vectorIjLb0EjE3
   %241 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %240, i1 true)
   %sub.i.i.i.i = shl nuw nsw i64 %241, 1
   %mul.i.i.i = xor i64 %sub.i.i.i.i, 126
-  call fastcc void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_T0_T1_(ptr noundef nonnull %next.sroa.0.7.i, ptr noundef nonnull %add.ptr.i94.i, i64 noundef %mul.i.i.i, ptr nonnull %conns)
+  call fastcc void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_T0_T1_(ptr noundef nonnull %next.sroa.0.7.i, ptr noundef nonnull %add.ptr.i94.i, i64 noundef %mul.i.i.i, ptr nonnull readonly %conns)
   %cmp.i.i.i.i247 = icmp ugt i32 %239, 16
   br i1 %cmp.i.i.i.i247, label %if.then.i.i.i.i257, label %if.else.i.i.i.i248
 
 if.then.i.i.i.i257:                               ; preds = %if.then.i.i95.i
   %add.ptr.i.i.i96.i = getelementptr inbounds i8, ptr %next.sroa.0.7.i, i64 64
-  call fastcc void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_T0_(ptr noundef nonnull %next.sroa.0.7.i, ptr noundef nonnull %add.ptr.i.i.i96.i, ptr nonnull %conns)
+  call fastcc void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_T0_(ptr noundef nonnull %next.sroa.0.7.i, ptr noundef nonnull %add.ptr.i.i.i96.i, ptr nonnull readonly %conns)
   br label %for.body.i.i.i.i97.i
 
 for.body.i.i.i.i97.i:                             ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_.exit.i.i.i.i.i, %if.then.i.i.i.i257
@@ -3001,7 +3001,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliq
   br i1 %cmp.not.i.i.i.i99.i, label %_ZN6vectorIjLb0EjE3endEv.exit107.i, label %for.body.i.i.i.i97.i, !llvm.loop !17
 
 if.else.i.i.i.i248:                               ; preds = %if.then.i.i95.i
-  call fastcc void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_T0_(ptr noundef nonnull %next.sroa.0.7.i, ptr noundef nonnull %add.ptr.i94.i, ptr nonnull %conns)
+  call fastcc void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_T0_(ptr noundef nonnull %next.sroa.0.7.i, ptr noundef nonnull %add.ptr.i94.i, ptr nonnull readonly %conns)
   br label %_ZN6vectorIjLb0EjE3endEv.exit107.i
 
 _ZN6vectorIjLb0EjE3endEv.exit107.i:               ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_.exit.i.i.i.i.i, %if.else.i.i.i.i248

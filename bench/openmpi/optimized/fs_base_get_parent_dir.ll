@@ -28,7 +28,7 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %9 = call i32 @lstat(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
+  %9 = call i32 @lstat(ptr noundef nonnull readonly %0, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %15
 
@@ -47,13 +47,13 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %3)
-  %18 = call i64 @readlink(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4096) #10
+  %18 = call i64 @readlink(ptr noundef nonnull readonly %0, ptr noundef nonnull %3, i64 noundef 4096) #10
   %19 = and i64 %18, 4294967295
   %20 = icmp eq i64 %19, 4294967295
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17
-  %22 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
+  %22 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #10
   br label %mca_fs_base_get_real_filename.exit
 
 23:                                               ; preds = %17

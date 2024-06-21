@@ -442,14 +442,14 @@ if.end.i10:                                       ; preds = %if.then8
 
 if.then2.i:                                       ; preds = %if.end.i10
   %17 = load i64, ptr %start.i, align 8
-  %call3.i = call fastcc ptr @read_multiple(ptr noundef nonnull %self, i64 noundef %call2.i.i14, i64 noundef %17)
+  %call3.i = call fastcc ptr @read_multiple(ptr noundef nonnull readonly %self, i64 noundef %call2.i.i14, i64 noundef %17)
   br label %subscript_slice.exit
 
 if.end4.i:                                        ; preds = %if.end.i10
   %18 = load i64, ptr %stop.i, align 8
   %19 = load i64, ptr %start.i, align 8
   %sub.i = sub i64 %18, %19
-  %call5.i = call fastcc ptr @read_multiple(ptr noundef nonnull %self, i64 noundef %sub.i, i64 noundef %19)
+  %call5.i = call fastcc ptr @read_multiple(ptr noundef nonnull readonly %self, i64 noundef %sub.i, i64 noundef %19)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %subscript_slice.exit, label %if.end8.i
 
@@ -755,7 +755,7 @@ if.then9.i.i25:                                   ; preds = %if.end.i19.i
 if.else17.i:                                      ; preds = %if.else.i
   %35 = load i64, ptr %stop.i, align 8
   %sub.i = sub i64 %35, %28
-  %call18.i = call fastcc ptr @read_multiple(ptr noundef nonnull %self, i64 noundef %sub.i, i64 noundef %28)
+  %call18.i = call fastcc ptr @read_multiple(ptr noundef nonnull readonly %self, i64 noundef %sub.i, i64 noundef %28)
   %cmp19.not.i = icmp eq ptr %call18.i, null
   br i1 %cmp19.not.i, label %if.end29.i, label %if.then20.i
 

@@ -225,7 +225,7 @@ if.end11.i:                                       ; preds = %if.end7.i
   store ptr %call.i14, ptr %aad8.i, align 8
   %5 = load i64, ptr %aad_len3.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i14, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr nonnull align 1 %in, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr nonnull readonly align 1 %in, i64 %len, i1 false)
   %6 = load i64, ptr %aad_len3.i, align 8
   %add16.i = add i64 %6, %len
   store i64 %add16.i, ptr %aad_len3.i, align 8

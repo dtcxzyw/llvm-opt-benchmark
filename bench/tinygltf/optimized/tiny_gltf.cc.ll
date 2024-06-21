@@ -1604,7 +1604,7 @@ define void @stbi_set_flip_vertically_on_load_thread(i32 noundef %0) local_unnam
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
@@ -1616,7 +1616,7 @@ define noundef ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture n
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   %11 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 52
@@ -1691,7 +1691,7 @@ stbi_load_from_file.exit:                         ; preds = %_ZL16stbi__start_fi
 define noundef ptr @stbi_load_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -1909,7 +1909,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 define noundef ptr @stbi_load_from_file_16(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -2122,7 +2122,7 @@ _ZL19stbi__vertical_flipPviii.exit:               ; preds = %._crit_edge.i30, %4
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
@@ -2134,7 +2134,7 @@ define noundef ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocaptur
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   %11 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 52
@@ -2232,7 +2232,7 @@ define noundef ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, ptr
 define noundef ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -2309,7 +2309,7 @@ define noundef ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr no
 define noundef ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -2963,7 +2963,7 @@ _ZL23stbi__float_postprocessPfPiS0_S0_i.exit:     ; preds = %.loopexit.i, %_ZL17
 define noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -3016,7 +3016,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
@@ -3028,7 +3028,7 @@ define noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr nocapture 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   %11 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 52
@@ -3088,7 +3088,7 @@ stbi_loadf_from_file.exit:                        ; preds = %30, %32
 define noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -3343,7 +3343,7 @@ _ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit20: ; preds = %_ZL10stbi__get8P1
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = alloca %struct.stbi__context, align 8
-  %3 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %35, label %4
 
@@ -3351,7 +3351,7 @@ define noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) local_unnamed
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2)
   %5 = tail call i64 @ftell(ptr noundef nonnull %3)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 52
@@ -3413,7 +3413,7 @@ define noundef i32 @stbi_is_hdr_from_file(ptr noundef %0) local_unnamed_addr #5 
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 52
@@ -3471,7 +3471,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #6
 define noundef i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.stbi__context, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 52
@@ -5057,7 +5057,7 @@ define void @stbi_convert_iphone_png_to_rgb_thread(i32 noundef %0) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.stbi__context, align 8
-  %6 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
 
@@ -5070,7 +5070,7 @@ define range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5)
   %10 = tail call i64 @ftell(ptr noundef nonnull %6)
   %11 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %6, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 52
@@ -5132,7 +5132,7 @@ define noundef range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noun
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call i64 @ftell(ptr noundef %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 52
@@ -5435,7 +5435,7 @@ _ZL14stbi__bmp_infoP13stbi__contextPiS1_S1_.exit.thread: ; preds = %_ZL14stbi__b
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = alloca %struct.stbi__context, align 8
-  %3 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
@@ -5448,7 +5448,7 @@ define range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %0) lo
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2)
   %7 = tail call i64 @ftell(ptr noundef nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 52
@@ -5510,7 +5510,7 @@ define noundef range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) loc
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 52
@@ -5689,7 +5689,7 @@ define noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 no
 define noundef range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -5766,7 +5766,7 @@ define noundef range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0, i
 define noundef range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.stbi__context, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 52
@@ -5868,7 +5868,7 @@ define range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef readonly %0, i3
   %6 = alloca %struct.stbi__write_context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
-  %8 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
@@ -6325,7 +6325,7 @@ define range(i32 0, 2) i32 @stbi_write_tga(ptr nocapture noundef readonly %0, i3
   %6 = alloca %struct.stbi__write_context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
-  %8 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
@@ -6805,7 +6805,7 @@ define range(i32 0, 2) i32 @stbi_write_hdr(ptr nocapture noundef readonly %0, i3
   %6 = alloca %struct.stbi__write_context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
-  %8 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
@@ -9209,7 +9209,7 @@ define range(i32 0, 2) i32 @stbi_write_png(ptr nocapture noundef readonly %0, i3
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %11 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.sink.split, label %12
 
@@ -9874,7 +9874,7 @@ define range(i32 0, 2) i32 @stbi_write_jpg(ptr nocapture noundef readonly %0, i3
   %7 = alloca %struct.stbi__write_context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 72, i1 false)
-  %9 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
+  %9 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
@@ -16171,7 +16171,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   %37 = getelementptr inbounds i8, ptr %2, i64 56
   %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %39 = call ptr @stbi_write_png_to_mem(ptr noundef %38, i32 noundef 0, i32 noundef %32, i32 noundef %34, i32 noundef %36, ptr noundef nonnull %10)
+  %39 = call ptr @stbi_write_png_to_mem(ptr noundef readonly %38, i32 noundef 0, i32 noundef %32, i32 noundef %34, i32 noundef %36, ptr noundef nonnull %10)
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %41
 
@@ -16246,7 +16246,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   store ptr @_ZN8tinygltfL18WriteToMemory_stbiEPvS0_i, ptr %8, align 8
   %82 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %13, ptr %82, align 8
-  %83 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_bmp_coreP19stbi__write_contextiiiPKv(ptr noundef nonnull %8, i32 noundef %74, i32 noundef %76, i32 noundef %78, ptr noundef %80)
+  %83 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_bmp_coreP19stbi__write_contextiiiPKv(ptr noundef nonnull %8, i32 noundef %74, i32 noundef %76, i32 noundef %78, ptr noundef readonly %80)
           to label %84 unwind label %28
 
 84:                                               ; preds = %72
@@ -21329,7 +21329,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i.i: ; preds = %844, %_Z
 
 _ZNSt6vectorIhSaIhEE2atEm.exit.i.i.i:             ; preds = %.noexc11.i.i
   %855 = load i64, ptr %28, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %852, ptr nonnull align 1 %686, i64 %855, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %852, ptr nonnull readonly align 1 %686, i64 %855, i1 false)
   br label %889
 
 856:                                              ; preds = %744
@@ -52603,7 +52603,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %352)
   %2270 = load ptr, ptr %421, align 8
   store ptr %2270, ptr %351, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1776, ptr noundef nonnull align 8 dereferenceable(24) %1777, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1776, ptr noundef nonnull readonly align 8 dereferenceable(24) %1777, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %352, ptr noundef nonnull align 8 dereferenceable(16) %2255, ptr noundef nonnull %351)
           to label %_ZN8tinygltf6detail5EraseERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEERNS1_6detail9iter_implISE_EE.exit.i unwind label %2182
 
@@ -52642,7 +52642,7 @@ _ZN8tinygltf6detail7IsEmptyERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %350)
   %2285 = load ptr, ptr %420, align 8
   store ptr %2285, ptr %349, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1778, ptr noundef nonnull align 8 dereferenceable(24) %1779, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1778, ptr noundef nonnull readonly align 8 dereferenceable(24) %1779, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %350, ptr noundef nonnull align 8 dereferenceable(16) %521, ptr noundef nonnull %349)
           to label %_ZN8tinygltf6detail5EraseERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEERNS1_6detail9iter_implISE_EE.exit156.i unwind label %2182
 
@@ -54933,7 +54933,7 @@ _ZN8tinygltf6detail10FindMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258)
   %3061 = load ptr, ptr %303, align 8
   store ptr %3061, ptr %257, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2751, ptr noundef nonnull align 8 dereferenceable(24) %2752, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2751, ptr noundef nonnull readonly align 8 dereferenceable(24) %2752, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %258, ptr noundef nonnull align 8 dereferenceable(16) %3047, ptr noundef nonnull %257)
           to label %.noexc402 unwind label %3418
 
@@ -54972,7 +54972,7 @@ _ZN8tinygltf6detail7IsEmptyERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256)
   %3076 = load ptr, ptr %302, align 8
   store ptr %3076, ptr %255, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2753, ptr noundef nonnull align 8 dereferenceable(24) %2754, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2753, ptr noundef nonnull readonly align 8 dereferenceable(24) %2754, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %256, ptr noundef nonnull align 8 dereferenceable(16) %525, ptr noundef nonnull %255)
           to label %.noexc403 unwind label %3418
 
@@ -55495,7 +55495,7 @@ _ZN8tinygltf6detail10FindMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232)
   %3216 = load ptr, ptr %310, align 8
   store ptr %3216, ptr %231, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2782, ptr noundef nonnull align 8 dereferenceable(24) %2783, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2782, ptr noundef nonnull readonly align 8 dereferenceable(24) %2783, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %232, ptr noundef nonnull align 8 dereferenceable(16) %3202, ptr noundef nonnull %231)
           to label %.noexc414 unwind label %3418
 
@@ -55534,7 +55534,7 @@ _ZN8tinygltf6detail7IsEmptyERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %230)
   %3231 = load ptr, ptr %309, align 8
   store ptr %3231, ptr %229, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2784, ptr noundef nonnull align 8 dereferenceable(24) %2785, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2784, ptr noundef nonnull readonly align 8 dereferenceable(24) %2785, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %230, ptr noundef nonnull align 8 dereferenceable(16) %525, ptr noundef nonnull %229)
           to label %.noexc415 unwind label %3418
 
@@ -56056,7 +56056,7 @@ _ZN8tinygltf6detail10FindMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206)
   %3373 = load ptr, ptr %317, align 8
   store ptr %3373, ptr %205, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2811, ptr noundef nonnull align 8 dereferenceable(24) %2812, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2811, ptr noundef nonnull readonly align 8 dereferenceable(24) %2812, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %206, ptr noundef nonnull align 8 dereferenceable(16) %3359, ptr noundef nonnull %205)
           to label %.noexc426 unwind label %3418
 
@@ -56095,7 +56095,7 @@ _ZN8tinygltf6detail7IsEmptyERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204)
   %3388 = load ptr, ptr %316, align 8
   store ptr %3388, ptr %203, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2813, ptr noundef nonnull align 8 dereferenceable(24) %2814, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2813, ptr noundef nonnull readonly align 8 dereferenceable(24) %2814, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %204, ptr noundef nonnull align 8 dereferenceable(16) %525, ptr noundef nonnull %203)
           to label %.noexc427 unwind label %3418
 
@@ -57001,7 +57001,7 @@ _ZN8tinygltf6detail10FindMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167)
   %3657 = load ptr, ptr %200, align 8
   store ptr %3657, ptr %166, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3494, ptr noundef nonnull align 8 dereferenceable(24) %3495, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3494, ptr noundef nonnull readonly align 8 dereferenceable(24) %3495, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %167, ptr noundef nonnull align 8 dereferenceable(16) %3643, ptr noundef nonnull %166)
           to label %.noexc468 unwind label %3683
 
@@ -57040,7 +57040,7 @@ _ZN8tinygltf6detail7IsEmptyERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165)
   %3672 = load ptr, ptr %199, align 8
   store ptr %3672, ptr %164, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3496, ptr noundef nonnull align 8 dereferenceable(24) %3497, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3496, ptr noundef nonnull readonly align 8 dereferenceable(24) %3497, i64 24, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE5eraseINS_6detail9iter_implISC_EETnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISI_NSF_IKSC_EEEE5valueEiE4typeELi0EEESI_SI_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::detail::iter_impl.145") align 8 %165, ptr noundef nonnull align 8 dereferenceable(16) %529, ptr noundef nonnull %164)
           to label %.noexc469 unwind label %3683
 
@@ -62843,7 +62843,7 @@ _ZN8tinygltf6detail12JsonToStringERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__
           to label %.noexc149 unwind label %310
 
 .noexc149:                                        ; preds = %_ZN8tinygltf6detail12JsonToStringERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEEi.exit
-  %304 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21WriteBinaryGltfStreamERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(24) %26)
+  %304 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21WriteBinaryGltfStreamERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull readonly align 8 dereferenceable(24) %26)
           to label %307 unwind label %305
 
 305:                                              ; preds = %.noexc149
@@ -88123,7 +88123,7 @@ _ZL18stbiw__write_flushP19stbi__write_context.exit.us.i: ; preds = %._crit_edge.
   %36 = add nsw i64 %indvars.iv.i, %28
   %37 = mul nsw i64 %36, %24
   %38 = getelementptr inbounds i8, ptr %7, i64 %37
-  call fastcc void @_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh(ptr noundef %0, i32 noundef %5, i32 noundef %8, i32 noundef %6, ptr noundef %38)
+  call fastcc void @_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh(ptr noundef %0, i32 noundef %5, i32 noundef %8, i32 noundef %6, ptr noundef readonly %38)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %35, !llvm.loop !1964

@@ -3159,7 +3159,7 @@ lor.lhs.false11.i:                                ; preds = %lor.lhs.false8.i
 
 if.then14.i:                                      ; preds = %lor.lhs.false11.i, %lor.lhs.false8.i, %if.then.i
   %23 = load i32, ptr %next.i.i, align 4
-  %call.i.i = call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %0, i32 noundef %div, i32 noundef %23)
+  %call.i.i = call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %0, i32 noundef %div, i32 noundef %23)
   %24 = load i32, ptr %next.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %call.i.i, %24
   br i1 %cmp.not.i.i, label %if.end.i.i.i, label %if.then87
@@ -3634,7 +3634,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
 
 if.then37:                                        ; preds = %for.body34
   %14 = load i32, ptr %next.i, align 4
-  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef %0, i32 noundef %i.1102, i32 noundef %14)
+  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %0, i32 noundef %i.1102, i32 noundef %14)
   %15 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i77, %15
   br i1 %cmp.not.i, label %if.end.i.i, label %if.else
@@ -4355,7 +4355,7 @@ if.then.i20:                                      ; preds = %array_get.exit.i
   %param.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load i32, ptr %param.i, align 8
   %11 = load i32, ptr %next121.i, align 4
-  %call.i.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11)
+  %call.i.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11)
   %12 = load i32, ptr %next121.i, align 4
   %cmp.not.i.i = icmp ult i32 %call.i.i, %12
   br i1 %cmp.not.i.i, label %if.end.i.i.i, label %if.then1
@@ -4513,7 +4513,7 @@ if.then33.i:                                      ; preds = %land.lhs.true.i, %l
   %shl.i.i = shl nuw i32 %conv2.i.i, 16
   %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
   %32 = load i32, ptr %next121.i, align 4
-  %call.i112.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %or.i.i, i32 noundef %32)
+  %call.i112.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i.i, i32 noundef %32)
   %33 = load i32, ptr %next121.i, align 4
   %cmp.not.i113.i = icmp ult i32 %call.i112.i, %33
   br i1 %cmp.not.i113.i, label %if.end.i.i115.i, label %if.then1
@@ -4675,7 +4675,7 @@ if.end103.i:                                      ; preds = %if.end94.i
 
 for.body124.lr.ph.i:                              ; preds = %if.end103.i
   %53 = load ptr, ptr %add.ptr.i.i, align 8
-  %call.i137.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 47) #19
+  %call.i137.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %53, i32 noundef 47) #19
   %cmp.i138.i = icmp eq ptr %call.i137.i, null
   %add.ptr.i139.i = getelementptr i8, ptr %call.i137.i, i64 1
   %retval.0.i140.i = select i1 %cmp.i138.i, ptr %53, ptr %add.ptr.i139.i
@@ -5020,7 +5020,7 @@ entry:
   %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #22
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %1 = load i32, ptr %next.i, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef %s, i32 noundef %cluster_num, i32 noundef %1)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %s, i32 noundef %cluster_num, i32 noundef %1)
   %2 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i, %2
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -5082,11 +5082,11 @@ if.end:                                           ; preds = %find_mapping_for_cl
 if.then7:                                         ; preds = %if.end
   %path8 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %7 = load ptr, ptr %path8, align 8
-  %call.i86 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 47) #19
+  %call.i86 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %7, i32 noundef 47) #19
   %cmp.i = icmp eq ptr %call.i86, null
   %add.ptr.i = getelementptr i8, ptr %call.i86, i64 1
   %retval.0.i87 = select i1 %cmp.i, ptr %7, ptr %add.ptr.i
-  %call.i88 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %path, i32 noundef 47) #19
+  %call.i88 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #19
   %cmp.i89 = icmp eq ptr %call.i88, null
   %add.ptr.i90 = getelementptr i8, ptr %call.i88, i64 1
   %retval.0.i91 = select i1 %cmp.i89, ptr %path, ptr %add.ptr.i90
@@ -5842,13 +5842,13 @@ if.end:                                           ; preds = %vvfat_close_current
   br i1 %tobool.not, label %if.end32, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call.i76 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %path, i32 noundef 47) #19
+  %call.i76 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #19
   %cmp.i = icmp eq ptr %call.i76, null
   %add.ptr.i = getelementptr i8, ptr %call.i76, i64 1
   %retval.0.i = select i1 %cmp.i, ptr %path, ptr %add.ptr.i
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %5 = load i32, ptr %next.i, align 4
-  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %or.i, i32 noundef %5)
+  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %5)
   %6 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i77, %6
   br i1 %cmp.not.i, label %if.end.i.i, label %if.else24
@@ -5908,7 +5908,7 @@ if.else17:                                        ; preds = %if.end8
 if.end18:                                         ; preds = %if.end8
   %path11 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   %12 = load ptr, ptr %path11, align 8
-  %call.i79 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 47) #19
+  %call.i79 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #19
   %cmp.i80 = icmp eq ptr %call.i79, null
   %add.ptr.i81 = getelementptr i8, ptr %call.i79, i64 1
   %retval.0.i82 = select i1 %cmp.i80, ptr %12, ptr %add.ptr.i81
@@ -6034,7 +6034,7 @@ lor.lhs.false41:                                  ; preds = %lor.lhs.false
 
 if.then43:                                        ; preds = %lor.lhs.false41, %lor.lhs.false, %if.then38
   %24 = load i32, ptr %next.i95, align 4
-  %call.i96 = call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %cluster_num.0, i32 noundef %24)
+  %call.i96 = call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %cluster_num.0, i32 noundef %24)
   %25 = load i32, ptr %next.i95, align 4
   %cmp.not.i97 = icmp ult i32 %call.i96, %25
   br i1 %cmp.not.i97, label %if.end.i.i99, label %if.end117
@@ -6097,7 +6097,7 @@ if.else56:                                        ; preds = %if.then51
 if.then58:                                        ; preds = %if.else56
   %path60 = getelementptr inbounds i8, ptr %mapping.2172, i64 24
   %34 = load ptr, ptr %path60, align 8
-  %call.i114 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 47) #19
+  %call.i114 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %34, i32 noundef 47) #19
   %cmp.i115 = icmp eq ptr %call.i114, null
   %add.ptr.i116 = getelementptr i8, ptr %call.i114, i64 1
   %retval.0.i117 = select i1 %cmp.i115, ptr %34, ptr %add.ptr.i116
@@ -6446,7 +6446,7 @@ cond.end:                                         ; preds = %array_get.exit, %co
   %cond = phi i32 [ %or.i, %cond.false ], [ 0, %array_get.exit ]
   %next.i87 = getelementptr inbounds i8, ptr %s, i64 32892
   %5 = load i32, ptr %next.i87, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %cond, i32 noundef %5)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %cond, i32 noundef %5)
   %6 = load i32, ptr %next.i87, align 4
   %cmp.not.i = icmp ult i32 %call.i, %6
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -6844,7 +6844,7 @@ land.lhs.true:                                    ; preds = %is_directory.exit16
 
 if.then110:                                       ; preds = %land.lhs.true
   %49 = load i32, ptr %next.i87, align 4
-  %call.i168 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %cond, i32 noundef %49)
+  %call.i168 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %cond, i32 noundef %49)
   %50 = load i32, ptr %next.i87, align 4
   %cmp.not.i169 = icmp ult i32 %call.i168, %50
   br i1 %cmp.not.i169, label %if.end.i.i171, label %return
@@ -7019,7 +7019,7 @@ array_get.exit59:                                 ; preds = %if.end.i52
   %shl.i = shl nuw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl.i, %conv.i
   %12 = load i32, ptr %next.i63, align 4
-  %call.i61 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %or.i, i32 noundef %12)
+  %call.i61 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %12)
   %13 = load i32, ptr %next.i63, align 4
   %cmp.not.i = icmp ult i32 %call.i61, %13
   br i1 %cmp.not.i, label %if.end.i.i, label %if.else
@@ -7085,7 +7085,7 @@ sw.bb24:                                          ; preds = %array_get.exit
   %param26 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %21 = load i32, ptr %param26, align 8
   %22 = load i32, ptr %next.i63, align 4
-  %call.i64 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %21, i32 noundef %22)
+  %call.i64 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %21, i32 noundef %22)
   %23 = load i32, ptr %next.i63, align 4
   %cmp.not.i65 = icmp ult i32 %call.i64, %23
   br i1 %cmp.not.i65, label %if.end.i.i67, label %find_mapping_for_cluster.exit81
@@ -7887,7 +7887,7 @@ define internal fastcc void @commit_mappings(ptr nocapture noundef %s, i32 nound
 entry:
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %0 = load i32, ptr %next.i, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef %s, i32 noundef %first_cluster, i32 noundef %0)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %s, i32 noundef %first_cluster, i32 noundef %0)
   %1 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i, %1
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -8659,7 +8659,7 @@ array_get.exit:                                   ; preds = %if.end.i
   %or.i = or disjoint i32 %shl.i, %conv.i
   %next.i66 = getelementptr inbounds i8, ptr %s, i64 32892
   %5 = load i32, ptr %next.i66, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %or.i, i32 noundef %5)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %5)
   %6 = load i32, ptr %next.i66, align 4
   %cmp.not.i = icmp ult i32 %call.i, %6
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit

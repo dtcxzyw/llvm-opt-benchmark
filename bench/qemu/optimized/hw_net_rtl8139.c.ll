@@ -602,9 +602,9 @@ sw.bb31.i:                                        ; preds = %sw.bb2
   br label %rtl8139_io_readw.exit
 
 sw.default.i:                                     ; preds = %sw.bb2
-  %call36.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %conv3)
+  %call36.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %conv3)
   %add.i = add i8 %conv3, 1
-  %call39.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add.i)
+  %call39.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add.i)
   %shl.i = shl i32 %call39.i, 8
   %or.i = or i32 %shl.i, %call36.i
   br label %rtl8139_io_readw.exit
@@ -729,17 +729,17 @@ sw.bb21.i5:                                       ; preds = %sw.bb6
   br label %rtl8139_io_readl.exit
 
 sw.default.i23:                                   ; preds = %sw.bb6
-  %call25.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %conv7)
+  %call25.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %conv7)
   %add.i24 = add i8 %conv7, 1
-  %call28.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add.i24)
+  %call28.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add.i24)
   %shl.i25 = shl i32 %call28.i, 8
   %or.i26 = or i32 %shl.i25, %call25.i
   %add30.i = add i8 %conv7, 2
-  %call32.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add30.i)
+  %call32.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add30.i)
   %shl33.i = shl i32 %call32.i, 16
   %or34.i = or i32 %or.i26, %shl33.i
   %add36.i = add i8 %conv7, 3
-  %call38.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %add36.i)
+  %call38.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add36.i)
   %shl39.i = shl i32 %call38.i, 24
   %or40.i = or i32 %or34.i, %shl39.i
   br label %rtl8139_io_readl.exit

@@ -96,7 +96,7 @@ define void @_ZN12grep_printer4util11PrinterPath14with_separator17ha7fabe1939492
   %11 = extractvalue { i64, ptr } %10, 1
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i, i1 false)
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.5.0.i.i
   %14 = icmp eq i64 %.sroa.5.0.i.i, 0
   br i1 %14, label %.loopexit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e644820c2e53a7eE.exit.i"

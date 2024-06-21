@@ -3606,7 +3606,7 @@ LINK_FRAG.exit258.i:                              ; preds = %._crit_edge.i.i254.
   br label %414
 
 414:                                              ; preds = %410, %407
-  call fastcc void @fragment_defragment_and_free(ptr noundef nonnull %.045, ptr noundef %3)
+  call fastcc void @fragment_defragment_and_free(ptr noundef nonnull %.045, ptr noundef readonly %3)
   br label %fragment_add_seq_work.exit
 
 fragment_add_seq_work.exit:                       ; preds = %._crit_edge.i.i231.i, %330, %.loopexit260.i, %._crit_edge.i.i208.i, %288, %.loopexit261.i, %._crit_edge.i.i185.i, %226, %.loopexit262.i, %._crit_edge.i.i.i, %169, %.loopexit259.i, %414, %304, %._crit_edge287.i, %.preheader.i, %LINK_FRAG.exit258.i, %349, %29, %30, %34, %35, %46
@@ -3640,7 +3640,7 @@ define ptr @fragment_add_seq_check(ptr nocapture noundef readonly %0, ptr nounde
   br label %fragment_add_seq_check_work.exit
 
 24:                                               ; preds = %9
-  %25 = call fastcc ptr @fragment_add_seq_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 0, ptr noundef nonnull %11)
+  %25 = call fastcc ptr @fragment_add_seq_common(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 0, ptr noundef nonnull %11)
   %.not23.i = icmp eq ptr %25, null
   br i1 %.not23.i, label %fragment_add_seq_check_work.exit, label %26
 
@@ -3655,7 +3655,7 @@ define ptr @fragment_add_seq_check(ptr nocapture noundef readonly %0, ptr nounde
   br label %30
 
 30:                                               ; preds = %28, %26
-  call fastcc void @fragment_reassembled(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %3, i32 noundef %4)
+  call fastcc void @fragment_reassembled(ptr noundef readonly %0, ptr noundef nonnull %25, ptr noundef nonnull %3, i32 noundef %4)
   br label %fragment_add_seq_check_work.exit
 
 fragment_add_seq_check_work.exit:                 ; preds = %17, %24, %30
@@ -3691,7 +3691,7 @@ define ptr @fragment_add_seq_802_11(ptr nocapture noundef readonly %0, ptr nound
   br label %fragment_add_seq_check_work.exit
 
 24:                                               ; preds = %9
-  %25 = call fastcc ptr @fragment_add_seq_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %11)
+  %25 = call fastcc ptr @fragment_add_seq_common(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %11)
   %.not23.i = icmp eq ptr %25, null
   br i1 %.not23.i, label %fragment_add_seq_check_work.exit, label %26
 
@@ -3706,7 +3706,7 @@ define ptr @fragment_add_seq_802_11(ptr nocapture noundef readonly %0, ptr nound
   br label %30
 
 30:                                               ; preds = %28, %26
-  call fastcc void @fragment_reassembled(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %3, i32 noundef %4)
+  call fastcc void @fragment_reassembled(ptr noundef readonly %0, ptr noundef nonnull %25, ptr noundef nonnull %3, i32 noundef %4)
   br label %fragment_add_seq_check_work.exit
 
 fragment_add_seq_check_work.exit:                 ; preds = %17, %24, %30
@@ -3742,7 +3742,7 @@ define ptr @fragment_add_seq_next(ptr nocapture noundef readonly %0, ptr noundef
   br label %fragment_add_seq_check_work.exit
 
 23:                                               ; preds = %8
-  %24 = call fastcc ptr @fragment_add_seq_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef %6, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %10)
+  %24 = call fastcc ptr @fragment_add_seq_common(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef %6, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %10)
   %.not23.i = icmp eq ptr %24, null
   br i1 %.not23.i, label %fragment_add_seq_check_work.exit, label %25
 
@@ -3757,7 +3757,7 @@ define ptr @fragment_add_seq_next(ptr nocapture noundef readonly %0, ptr noundef
   br label %29
 
 29:                                               ; preds = %27, %25
-  call fastcc void @fragment_reassembled(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %3, i32 noundef %4)
+  call fastcc void @fragment_reassembled(ptr noundef readonly %0, ptr noundef nonnull %24, ptr noundef nonnull %3, i32 noundef %4)
   br label %fragment_add_seq_check_work.exit
 
 fragment_add_seq_check_work.exit:                 ; preds = %16, %23, %29
@@ -5890,7 +5890,7 @@ define noundef i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef 
   store i32 0, ptr %20, align 4
   store i32 0, ptr %21, align 8
   %104 = load i32, ptr %94, align 4
-  %105 = call fastcc ptr @fragment_add_common(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %1, i32 noundef %.1254447, ptr noundef null, i32 noundef %.0252448, i32 noundef %.4260.ph391, i32 noundef %.4251.ph392, i32 noundef 1, i32 noundef %104)
+  %105 = call fastcc ptr @fragment_add_common(ptr noundef nonnull readonly %6, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %1, i32 noundef %.1254447, ptr noundef null, i32 noundef %.0252448, i32 noundef %.4260.ph391, i32 noundef %.4251.ph392, i32 noundef 1, i32 noundef %104)
   %.not297 = icmp eq ptr %105, null
   br i1 %.not297, label %125, label %107
 
@@ -6275,7 +6275,7 @@ fragment_set_partial_reassembly.exit:             ; preds = %lookup_fd_head.exit
   %.2255 = phi i32 [ %279, %277 ], [ %256, %266 ]
   %281 = getelementptr inbounds i8, ptr %1, i64 20
   %282 = load i32, ptr %281, align 4
-  %283 = call fastcc ptr @fragment_add_common(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %.4349, ptr noundef nonnull %1, i32 noundef %.2255, ptr noundef null, i32 noundef 0, i32 noundef %.4239348, i32 noundef 1, i32 noundef 1, i32 noundef %282)
+  %283 = call fastcc ptr @fragment_add_common(ptr noundef nonnull readonly %6, ptr noundef %0, i32 noundef %.4349, ptr noundef nonnull %1, i32 noundef %.2255, ptr noundef null, i32 noundef 0, i32 noundef %.4239348, i32 noundef 1, i32 noundef 1, i32 noundef %282)
   %.not294 = icmp eq ptr %283, null
   br i1 %.not294, label %proto_item_set_generated.exit310, label %284
 

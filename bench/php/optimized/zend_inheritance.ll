@@ -1910,7 +1910,7 @@ do_inherit_class_constant.exit:                   ; preds = %606, %538, %535, %5
 
 731:                                              ; preds = %729
   %732 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %732, ptr noundef nonnull align 8 dereferenceable(152) %652, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %732, ptr noundef nonnull readonly align 8 dereferenceable(152) %652, i64 152, i1 false)
   br label %757
 
 733:                                              ; preds = %729
@@ -1947,7 +1947,7 @@ do_inherit_class_constant.exit:                   ; preds = %606, %538, %535, %5
 
 753:                                              ; preds = %744, %742
   %.074.i = phi ptr [ %735, %742 ], [ %748, %744 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull align 8 dereferenceable(152) %652, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %652, i64 152, i1 false)
   %754 = getelementptr inbounds i8, ptr %.074.i, i64 4
   %755 = load i32, ptr %754, align 4
   %756 = or i32 %755, 33554432
@@ -2132,7 +2132,7 @@ zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_inte
 
 852:                                              ; preds = %850
   %853 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %853, ptr noundef nonnull align 8 dereferenceable(152) %832, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %853, ptr noundef nonnull readonly align 8 dereferenceable(152) %832, i64 152, i1 false)
   br label %878
 
 854:                                              ; preds = %850
@@ -2169,7 +2169,7 @@ zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_inte
 
 874:                                              ; preds = %865, %863
   %.074.i1195 = phi ptr [ %856, %863 ], [ %869, %865 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i1195, ptr noundef nonnull align 8 dereferenceable(152) %832, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i1195, ptr noundef nonnull readonly align 8 dereferenceable(152) %832, i64 152, i1 false)
   %875 = getelementptr inbounds i8, ptr %.074.i1195, i64 4
   %876 = load i32, ptr %875, align 4
   %877 = or i32 %876, 33554432
@@ -3279,7 +3279,7 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
 
 108:                                              ; preds = %106
   %109 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %109, ptr noundef nonnull align 8 dereferenceable(152) %91, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %109, ptr noundef nonnull readonly align 8 dereferenceable(152) %91, i64 152, i1 false)
   br label %134
 
 110:                                              ; preds = %106
@@ -3316,7 +3316,7 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
 
 130:                                              ; preds = %121, %119
   %.074.i = phi ptr [ %112, %119 ], [ %125, %121 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull align 8 dereferenceable(152) %91, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.074.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %91, i64 152, i1 false)
   %131 = getelementptr inbounds i8, ptr %.074.i, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = or i32 %132, 33554432
@@ -4758,7 +4758,7 @@ zend_traits_init_trait_structures.exit.i:         ; preds = %461, %356, %350
   %486 = load ptr, ptr %485, align 8
   %487 = load ptr, ptr %.07190.i.i, align 8
   %488 = load ptr, ptr %479, align 8
-  call fastcc void @zend_traits_copy_functions(ptr noundef %486, ptr noundef %487, ptr noundef %.0329, ptr noundef %488, ptr noundef %.0192.i.i)
+  call fastcc void @zend_traits_copy_functions(ptr noundef %486, ptr noundef %487, ptr noundef %.0329, ptr noundef %488, ptr noundef readonly %.0192.i.i)
   br label %489
 
 489:                                              ; preds = %484, %480
@@ -4820,7 +4820,7 @@ zend_traits_init_trait_structures.exit.i:         ; preds = %461, %356, %350
   %516 = getelementptr inbounds i8, ptr %.07294.i.i, i64 24
   %517 = load ptr, ptr %516, align 8
   %518 = load ptr, ptr %.07294.i.i, align 8
-  call fastcc void @zend_traits_copy_functions(ptr noundef %517, ptr noundef %518, ptr noundef %.0329, ptr noundef null, ptr noundef %.0192.i.i)
+  call fastcc void @zend_traits_copy_functions(ptr noundef %517, ptr noundef %518, ptr noundef %.0329, ptr noundef null, ptr noundef readonly %.0192.i.i)
   br label %519
 
 519:                                              ; preds = %515, %.lr.ph96.i.i
@@ -4999,7 +4999,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 601:                                              ; preds = %593
   %602 = getelementptr i8, ptr %594, i64 32
   %.val.i.i.i = load ptr, ptr %602, align 8
-  %603 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val.i.i.i)
+  %603 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val.i.i.i)
   %604 = getelementptr inbounds i8, ptr %603, i64 8
   %605 = load ptr, ptr %604, align 8
   %606 = getelementptr inbounds i8, ptr %605, i64 24
@@ -5032,7 +5032,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 627:                                              ; preds = %616
   %628 = getelementptr i8, ptr %594, i64 32
   %.val148.i.i.i = load ptr, ptr %628, align 8
-  %629 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val148.i.i.i)
+  %629 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val148.i.i.i)
   %630 = getelementptr inbounds i8, ptr %629, i64 8
   %631 = load ptr, ptr %630, align 8
   %632 = getelementptr inbounds i8, ptr %631, i64 24
@@ -5070,7 +5070,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 656:                                              ; preds = %643
   %657 = getelementptr i8, ptr %594, i64 32
   %.val149.i.i.i = load ptr, ptr %657, align 8
-  %658 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef nonnull %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val149.i.i.i)
+  %658 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef nonnull readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val149.i.i.i)
   %659 = getelementptr inbounds i8, ptr %658, i64 8
   %660 = load ptr, ptr %659, align 8
   %661 = getelementptr inbounds i8, ptr %660, i64 24
@@ -5242,7 +5242,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 .critedge147.i.i.i:                               ; preds = %735, %.critedge147.sink.split.i.i.i
   %736 = getelementptr i8, ptr %594, i64 32
   %.val150.i.i.i = load ptr, ptr %736, align 8
-  %737 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val150.i.i.i)
+  %737 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0120155.i.i, ptr noundef %589, ptr noundef %.val150.i.i.i)
   %738 = getelementptr inbounds i8, ptr %737, i64 8
   %739 = load ptr, ptr %738, align 8
   %740 = getelementptr inbounds i8, ptr %739, i64 24
@@ -5731,7 +5731,7 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
 .critedge226.i.i:                                 ; preds = %1001, %880, %875, %857, %.critedge226.sink.split.i.i
   %1002 = getelementptr inbounds i8, ptr %847, i64 32
   %1003 = load ptr, ptr %1002, align 8
-  %1004 = call fastcc ptr @find_first_property_definition(ptr noundef %.0329, ptr noundef %.0331, i64 noundef %.0183248.i.i, ptr noundef %841, ptr noundef %1003)
+  %1004 = call fastcc ptr @find_first_property_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0183248.i.i, ptr noundef %841, ptr noundef %1003)
   %1005 = getelementptr inbounds i8, ptr %1004, i64 8
   %1006 = load ptr, ptr %1005, align 8
   %1007 = getelementptr inbounds i8, ptr %1006, i64 24
@@ -10021,11 +10021,11 @@ define internal fastcc void @perform_delayable_implementation_check(ptr noundef 
   br i1 %12, label %14, label %15
 
 14:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull readonly align 8 dereferenceable(152) %1, i64 152, i1 false)
   br label %16
 
 15:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef nonnull align 8 dereferenceable(240) %1, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef nonnull readonly align 8 dereferenceable(240) %1, i64 240, i1 false)
   br label %16
 
 16:                                               ; preds = %15, %14
@@ -10035,11 +10035,11 @@ define internal fastcc void @perform_delayable_implementation_check(ptr noundef 
   br i1 %18, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, ptr noundef nonnull readonly align 8 dereferenceable(152) %3, i64 152, i1 false)
   br label %22
 
 21:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull align 8 dereferenceable(240) %3, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull readonly align 8 dereferenceable(240) %3, i64 240, i1 false)
   br label %22
 
 22:                                               ; preds = %21, %20

@@ -1094,7 +1094,7 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
 
 374:                                              ; preds = %373, %373, %373, %373
   %375 = add i32 %324, %329
-  call fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef %1, ptr noundef %.0158.i, i32 noundef %324, i32 noundef %375, ptr noundef nonnull %20, i32 noundef 0, i32 noundef 0)
+  call fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef %1, ptr noundef %.0158.i, i32 noundef %324, i32 noundef %375, ptr noundef nonnull readonly %20, i32 noundef 0, i32 noundef 0)
   br label %438
 
 376:                                              ; preds = %373

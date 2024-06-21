@@ -5091,12 +5091,12 @@ membr_bits.exit163.i.i:                           ; preds = %390, %membr_fill.ex
 
 419:                                              ; preds = %418
   %420 = zext nneg i32 %.0108.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %415, ptr nonnull align 1 %.0107.i.i, i64 %420, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %415, ptr nonnull readonly align 1 %.0107.i.i, i64 %420, i1 false)
   br label %create_filter.exit.i.i
 
 create_filter.exit.i.i:                           ; preds = %419, %418
   %421 = getelementptr inbounds i8, ptr %410, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull readonly align 16 dereferenceable(32) %5, i64 32, i1 false)
   %422 = getelementptr inbounds i8, ptr %410, i64 56
   store i64 %spec.select.i.i, ptr %422, align 8
   %423 = getelementptr inbounds i8, ptr %410, i64 64

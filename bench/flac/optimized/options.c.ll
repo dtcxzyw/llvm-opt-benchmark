@@ -699,7 +699,7 @@ if.else242.i:                                     ; preds = %if.else230.i
 if.then245.i:                                     ; preds = %if.else242.i
   %call246.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 26)
   %argument247.i = getelementptr inbounds i8, ptr %call246.i, i64 8
-  %call2.i.i = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.67) #20
+  %call2.i.i = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.67) #20
   store ptr %call2.i.i, ptr %argument247.i, align 8
   br label %parse_option.exit
 
@@ -829,7 +829,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then334.i
   br i1 %cmp1.i.i, label %if.then340.i, label %parse_string.exit.i
 
 parse_string.exit.i:                              ; preds = %lor.lhs.false.i.i
-  %call2.i270.i = call noalias ptr @strdup(ptr noundef nonnull %7) #20
+  %call2.i270.i = call noalias ptr @strdup(ptr noundef nonnull readonly %7) #20
   store ptr %call2.i270.i, ptr %argument336.i, align 8
   br label %parse_option.exit
 
@@ -855,7 +855,7 @@ lor.lhs.false.i272.i:                             ; preds = %if.then346.i
   br i1 %cmp1.i274.i, label %if.then352.i, label %parse_string.exit278.i
 
 parse_string.exit278.i:                           ; preds = %lor.lhs.false.i272.i
-  %call2.i276.i = call noalias ptr @strdup(ptr noundef nonnull %7) #20
+  %call2.i276.i = call noalias ptr @strdup(ptr noundef nonnull readonly %7) #20
   store ptr %call2.i276.i, ptr %argument348.i, align 8
   br label %parse_option.exit
 
@@ -909,7 +909,7 @@ lor.lhs.false.i283.i:                             ; preds = %if.end363.i
   br i1 %cmp1.i285.i, label %if.then368.i, label %parse_string.exit289.i
 
 parse_string.exit289.i:                           ; preds = %lor.lhs.false.i283.i
-  %call2.i287.i = call noalias ptr @strdup(ptr noundef nonnull %7) #20
+  %call2.i287.i = call noalias ptr @strdup(ptr noundef nonnull readonly %7) #20
   store ptr %call2.i287.i, ptr %argument365.i, align 8
   br label %parse_option.exit
 
@@ -935,7 +935,7 @@ lor.lhs.false.i291.i:                             ; preds = %if.then374.i
   br i1 %cmp1.i293.i, label %if.then380.i, label %parse_string.exit297.i
 
 parse_string.exit297.i:                           ; preds = %lor.lhs.false.i291.i
-  %call2.i295.i = call noalias ptr @strdup(ptr noundef nonnull %7) #20
+  %call2.i295.i = call noalias ptr @strdup(ptr noundef nonnull readonly %7) #20
   store ptr %call2.i295.i, ptr %argument376.i, align 8
   br label %parse_option.exit
 
@@ -961,7 +961,7 @@ lor.lhs.false.i299.i:                             ; preds = %if.then386.i
   br i1 %cmp1.i301.i, label %if.then392.i, label %parse_string.exit305.i
 
 parse_string.exit305.i:                           ; preds = %lor.lhs.false.i299.i
-  %call2.i303.i = call noalias ptr @strdup(ptr noundef nonnull %7) #20
+  %call2.i303.i = call noalias ptr @strdup(ptr noundef nonnull readonly %7) #20
   store ptr %call2.i303.i, ptr %argument388.i, align 8
   br label %parse_option.exit
 
@@ -1010,7 +1010,7 @@ lor.lhs.false.i318.i:                             ; preds = %find_argument.exit.
   br i1 %cmp1.i320.i, label %if.then405.i, label %parse_string.exit324.i
 
 parse_string.exit324.i:                           ; preds = %lor.lhs.false.i318.i
-  %call2.i322.i = call noalias ptr @strdup(ptr noundef nonnull %7) #20
+  %call2.i322.i = call noalias ptr @strdup(ptr noundef nonnull readonly %7) #20
   store ptr %call2.i322.i, ptr %argument401.i, align 8
   br label %if.end407.i
 
@@ -1130,7 +1130,7 @@ if.else453.i:                                     ; preds = %if.else440.i
 if.then456.i:                                     ; preds = %if.else453.i
   %call457.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 34)
   %argument458.i = getelementptr inbounds i8, ptr %call457.i, i64 8
-  %call.i339.i = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #20
+  %call.i339.i = call i64 @strtoul(ptr nocapture noundef readonly %7, ptr noundef null, i32 noundef 10) #20
   %conv.i.i = trunc i64 %call.i339.i to i32
   store i32 %conv.i.i, ptr %argument458.i, align 4
   %conv.highbits.i.i = lshr i32 %conv.i.i, %0

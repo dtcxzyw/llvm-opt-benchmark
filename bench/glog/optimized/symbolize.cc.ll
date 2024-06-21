@@ -370,7 +370,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_9Symbolize
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 %25
   %29 = sub i64 %2, %25
-  %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull dereferenceable(2) @.str.2, i64 noundef %29) #19
+  %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull readonly dereferenceable(2) @.str.2, i64 noundef %29) #19
   %31 = getelementptr i8, ptr %1, i64 %2
   %32 = getelementptr i8, ptr %31, i64 -1
   store i8 0, ptr %32, align 1
@@ -1171,7 +1171,7 @@ _ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit.i: ; preds = %
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit60.i: ; preds = %285
   %289 = getelementptr inbounds i8, ptr %1, i64 %286
   %290 = sub i64 %2, %286
-  %291 = call ptr @strncpy(ptr noundef nonnull %289, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %290) #19
+  %291 = call ptr @strncpy(ptr noundef nonnull %289, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %290) #19
   store i8 0, ptr %32, align 1
   %292 = load i64, ptr %20, align 8
   %293 = sub i64 %22, %292
@@ -1231,7 +1231,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i: ; preds = %.lr.ph.
 315:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i
   %316 = getelementptr inbounds i8, ptr %1, i64 %312
   %317 = sub i64 %2, %312
-  %318 = call ptr @strncpy(ptr noundef nonnull %316, ptr noundef %.0.i.i.i, i64 noundef %317) #19
+  %318 = call ptr @strncpy(ptr noundef nonnull %316, ptr noundef readonly %.0.i.i.i, i64 noundef %317) #19
   store i8 0, ptr %32, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11)
   %319 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
@@ -1245,7 +1245,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i: ; preds = %.lr.ph.
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds = %315
   %322 = getelementptr inbounds i8, ptr %1, i64 %319
   %323 = sub i64 %2, %319
-  %324 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %323) #19
+  %324 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %323) #19
   store i8 0, ptr %32, align 1
   br label %496
 
@@ -1560,7 +1560,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i: ; p
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i: ; preds = %443
   %449 = getelementptr inbounds i8, ptr %.050.i, i64 %446
   %450 = sub i64 %.051.i, %446
-  %451 = call ptr @strncpy(ptr noundef %449, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %450) #19
+  %451 = call ptr @strncpy(ptr noundef %449, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %450) #19
   %452 = getelementptr i8, ptr %.050.i, i64 %.051.i
   %453 = getelementptr i8, ptr %452, i64 -1
   store i8 0, ptr %453, align 1
@@ -1622,7 +1622,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 477:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i
   %478 = getelementptr inbounds i8, ptr %.050.i, i64 %474
   %479 = sub i64 %.051.i, %474
-  %480 = call ptr @strncpy(ptr noundef %478, ptr noundef %.0.i.i93.i, i64 noundef %479) #19
+  %480 = call ptr @strncpy(ptr noundef %478, ptr noundef readonly %.0.i.i93.i, i64 noundef %479) #19
   store i8 0, ptr %453, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %6)
   %481 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #18
@@ -1636,7 +1636,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds = %477
   %484 = getelementptr inbounds i8, ptr %.050.i, i64 %481
   %485 = sub i64 %.051.i, %481
-  %486 = call ptr @strncpy(ptr noundef %484, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %485) #19
+  %486 = call ptr @strncpy(ptr noundef %484, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %485) #19
   store i8 0, ptr %453, align 1
   br label %496
 
@@ -1814,7 +1814,7 @@ define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOB
   br label %2
 
 2:                                                ; preds = %5, %1
-  %3 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0)
+  %3 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef readonly %0, i32 noundef 0)
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %.critedge
 

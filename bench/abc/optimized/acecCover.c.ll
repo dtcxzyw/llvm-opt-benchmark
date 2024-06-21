@@ -530,7 +530,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
   %167 = and i64 %166, 536870911
   %168 = sub nsw i64 0, %167
   %169 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %165, i64 %168
-  tail call void @Gia_AcecCollectXors_rec(ptr noundef nonnull %0, ptr noundef nonnull %169, ptr noundef nonnull %14, ptr noundef nonnull %155)
+  tail call void @Gia_AcecCollectXors_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %169, ptr noundef nonnull readnone %14, ptr noundef nonnull %155)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %Vec_BitFree.exit, label %170
 
@@ -653,10 +653,10 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
   store i64 %222, ptr %220, align 4
   %223 = getelementptr inbounds i8, ptr %205, i64 12
   %224 = load i32, ptr %223, align 4
-  tail call void @Gia_AcecMark_rec(ptr noundef %0, i32 noundef %224, i32 noundef 1)
+  tail call void @Gia_AcecMark_rec(ptr noundef readonly %0, i32 noundef %224, i32 noundef 1)
   %225 = getelementptr inbounds i8, ptr %205, i64 16
   %226 = load i32, ptr %225, align 4
-  tail call void @Gia_AcecMark_rec(ptr noundef %0, i32 noundef %226, i32 noundef 1)
+  tail call void @Gia_AcecMark_rec(ptr noundef readonly %0, i32 noundef %226, i32 noundef 1)
   %227 = add nuw nsw i32 %202, 1
   %.val134 = load i32, ptr %80, align 4
   %228 = sdiv i32 %.val134, 5
@@ -720,9 +720,9 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
   %265 = or i64 %264, 1073741824
   store i64 %265, ptr %263, align 4
   %266 = load i32, ptr %235, align 4
-  tail call void @Gia_AcecMark_rec(ptr noundef nonnull %0, i32 noundef %266, i32 noundef 1)
+  tail call void @Gia_AcecMark_rec(ptr noundef nonnull readonly %0, i32 noundef %266, i32 noundef 1)
   %267 = load i32, ptr %242, align 4
-  tail call void @Gia_AcecMark_rec(ptr noundef nonnull %0, i32 noundef %267, i32 noundef 1)
+  tail call void @Gia_AcecMark_rec(ptr noundef nonnull readonly %0, i32 noundef %267, i32 noundef 1)
   %268 = add nsw i32 %.187193, 1
   %.val135.pre = load i32, ptr %77, align 4
   br label %269
@@ -988,10 +988,10 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #1 {
   store i64 %31, ptr %29, align 4
   %32 = getelementptr inbounds i8, ptr %14, i64 12
   %33 = load i32, ptr %32, align 4
-  call void @Gia_AcecMark_rec(ptr noundef %0, i32 noundef %33, i32 noundef 1)
+  call void @Gia_AcecMark_rec(ptr noundef readonly %0, i32 noundef %33, i32 noundef 1)
   %34 = getelementptr inbounds i8, ptr %14, i64 16
   %35 = load i32, ptr %34, align 4
-  call void @Gia_AcecMark_rec(ptr noundef %0, i32 noundef %35, i32 noundef 1)
+  call void @Gia_AcecMark_rec(ptr noundef readonly %0, i32 noundef %35, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val20 = load i32, ptr %4, align 4
   %36 = sdiv i32 %.val20, 5

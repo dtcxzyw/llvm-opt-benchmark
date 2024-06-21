@@ -758,7 +758,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
 20:                                               ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %5)
-  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %22 = icmp eq i32 %21, 2
   br i1 %22, label %23, label %hsts_add.exit.i
 

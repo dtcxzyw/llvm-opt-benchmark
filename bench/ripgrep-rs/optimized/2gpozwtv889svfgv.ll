@@ -56,7 +56,7 @@ define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..
   %16 = getelementptr inbounds i8, ptr %3, i64 %7
   %17 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !17
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call { i64, ptr } %18(i8 noundef %15, ptr noundef nonnull %13, ptr noundef nonnull %16), !noalias !17
+  %19 = tail call { i64, ptr } %18(i8 noundef %15, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %16), !noalias !17
   %20 = extractvalue { i64, ptr } %19, 0
   %switch8.i.i.not = icmp eq i64 %20, 0
   br i1 %switch8.i.i.not, label %22, label %24
@@ -142,7 +142,7 @@ define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noal
   %15 = getelementptr inbounds i8, ptr %2, i64 %6
   %16 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !35
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call { i64, ptr } %17(i8 noundef %14, ptr noundef nonnull %12, ptr noundef nonnull %15), !noalias !35
+  %18 = tail call { i64, ptr } %17(i8 noundef %14, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %15), !noalias !35
   %19 = extractvalue { i64, ptr } %18, 0
   %switch8.i.i.not = icmp eq i64 %19, 0
   br i1 %switch8.i.i.not, label %21, label %23
@@ -225,7 +225,7 @@ define noundef i64 @_ZN13grep_searcher5lines9preceding17h1b06264c3937d2d9E(ptr n
   %15 = getelementptr inbounds i8, ptr %0, i64 %.125.i
   %16 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr11memrchr_raw2FN17h2219dfc322f79655E monotonic, align 8, !noalias !51
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call { i64, ptr } %17(i8 noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %15), !noalias !54
+  %18 = tail call { i64, ptr } %17(i8 noundef %2, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15), !noalias !54
   %19 = extractvalue { i64, ptr } %18, 0
   %switch8.i.not.i = icmp eq i64 %19, 0
   br i1 %switch8.i.not.i, label %_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E.exit, label %20

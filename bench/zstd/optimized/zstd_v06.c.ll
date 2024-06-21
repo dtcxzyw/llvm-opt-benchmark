@@ -3817,7 +3817,7 @@ for.end87:                                        ; preds = %for.cond73.for.inc8
   %sub6289 = phi i32 [ %sub62, %for.end60 ], [ %sub6285, %for.end60.thread ], [ %sub62, %for.cond73.for.inc85_crit_edge.us ]
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i)
   %sub.i = sub i32 %2, %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i, ptr noundef nonnull align 16 dereferenceable(68) %rankVal, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i, ptr noundef nonnull readonly align 16 dereferenceable(68) %rankVal, i64 68, i1 false)
   %cmp34.not.i = icmp eq i32 %nextRankStart.0.lcssa, 0
   br i1 %cmp34.not.i, label %HUFv06_fillDTableX4.exit, label %for.body.preheader.i
 
@@ -3856,7 +3856,7 @@ if.then.i:                                        ; preds = %for.body.i
   %add.ptr24.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol, i64 %idx.ext23.i
   %sub25.i = sub i32 %nextRankStart.0.lcssa, %18
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx21.i, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull readonly align 4 dereferenceable(68) %arrayidx21.i, i64 68, i1 false)
   %cmp.i.i42 = icmp sgt i32 %add.i, 1
   br i1 %cmp.i.i42, label %if.then.i.i, label %if.end.i.i
 
@@ -6538,7 +6538,7 @@ if.end3.i84.i.i:                                  ; preds = %if.end.i81.i.i
   br label %ZSTDv06_buildSeqTable.exit96.thread128.i.i
 
 sw.bb4.i77.i.i:                                   ; preds = %if.end51.i.i
-  %call5.i78.i.i = tail call i64 @FSEv06_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
+  %call5.i78.i.i = tail call i64 @FSEv06_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull readonly @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
   br label %ZSTDv06_buildSeqTable.exit96.thread128.i.i
 
 sw.bb10.i89.i.i:                                  ; preds = %if.end51.i.i
@@ -7296,12 +7296,12 @@ if.end39.i.i:                                     ; preds = %if.then32.i.i
   br i1 %cmp47.not.i.i, label %if.end50.i.i, label %if.then48.i.i
 
 if.then48.i.i:                                    ; preds = %if.end39.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i216.i, ptr align 1 %add.ptr44.i.i, i64 %add71.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i216.i, ptr readonly align 1 %add.ptr44.i.i, i64 %add71.i.i, i1 false)
   br label %ZSTDv06_execSequence.exit.i
 
 if.end50.i.i:                                     ; preds = %if.end39.i.i
   %diff.neg.i.i = sub i64 0, %sub.ptr.sub42.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i216.i, ptr align 1 %add.ptr44.i.i, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i216.i, ptr readonly align 1 %add.ptr44.i.i, i64 %diff.neg.i.i, i1 false)
   %add.ptr54.i.i = getelementptr inbounds i8, ptr %add.ptr.i216.i, i64 %diff.neg.i.i
   %sub.i233.i = add i64 %sub.ptr.sub42.neg.i.i, %add71.i.i
   %cmp56.i.i = icmp ugt ptr %add.ptr54.i.i, %add.ptr3.i219.i
@@ -7472,7 +7472,7 @@ return:                                           ; preds = %if.end79.thread.i, 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv06_decompress_usingPreparedDCtx(ptr noundef %dctx, ptr nocapture noundef readonly %refDCtx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21619) %dctx, ptr noundef nonnull align 8 dereferenceable(21619) %refDCtx, i64 21619, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21619) %dctx, ptr noundef nonnull readonly align 8 dereferenceable(21619) %refDCtx, i64 21619, i1 false)
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
   %cmp.not.i = icmp eq ptr %0, %dst
@@ -7642,7 +7642,7 @@ sw.bb27:                                          ; preds = %if.end22
   br i1 %or.cond.i, label %sw.epilog.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %sw.bb27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %op.079, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %op.079, ptr nonnull readonly align 1 %add.ptr18, i64 %retval.0.i.ph, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end3.i, %if.end22.thread, %sw.bb
@@ -8330,7 +8330,7 @@ sw.epilog.thread80:                               ; preds = %sw.bb52
   br label %return
 
 if.end3.i:                                        ; preds = %sw.bb52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %dst, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %dst, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end3.i, %sw.bb50
@@ -8739,7 +8739,7 @@ if.end144:                                        ; preds = %sw.bb132
 if.then.i:                                        ; preds = %if.end144
   %31 = load ptr, ptr %inBuff, align 8
   %add.ptr147 = getelementptr inbounds i8, ptr %31, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr147, ptr align 1 %ip.0192, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr147, ptr readonly align 1 %ip.0192, i64 %cond.i, i1 false)
   %.pre201 = load i64, ptr %inPos, align 8
   br label %ZBUFFv06_limitCopy.exit
 
@@ -8793,7 +8793,7 @@ sw.bb182:                                         ; preds = %while.body.sw.bb182
 if.then.i160:                                     ; preds = %sw.bb182
   %41 = load ptr, ptr %outBuff, align 8
   %add.ptr191 = getelementptr inbounds i8, ptr %41, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0191.ph, ptr align 1 %add.ptr191, i64 %cond.i158, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0191.ph, ptr readonly align 1 %add.ptr191, i64 %cond.i158, i1 false)
   %.pre204 = load i64, ptr %outStart, align 8
   br label %ZBUFFv06_limitCopy.exit162
 

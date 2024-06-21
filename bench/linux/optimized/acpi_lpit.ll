@@ -106,7 +106,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %40 = select i1 %36, i64 %39, i64 %35
   %41 = call i64 @llvm.umax.i64(i64 %40, i64 1)
   store i64 %41, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 16), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_mem, ptr noundef align 1 dereferenceable(12) %25, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_mem, ptr noundef readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
   %42 = load i8, ptr @residency_info_mem, align 8
   switch i8 %42, label %lpit_update_residency.exit.sink.split [
     i8 0, label %43
@@ -150,7 +150,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %67 = select i1 %63, i64 %66, i64 %62
   %68 = call i64 @llvm.umax.i64(i64 %67, i64 1)
   store i64 %68, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 16), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_ffh, ptr noundef align 1 dereferenceable(12) %25, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_ffh, ptr noundef readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
   %69 = load i8, ptr @residency_info_ffh, align 8
   switch i8 %69, label %lpit_update_residency.exit.sink.split [
     i8 0, label %70

@@ -45,7 +45,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not.i9, label %if.end.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %sw.bb2
-  %call.i.i = tail call i64 @wcslen(ptr noundef nonnull %3) #8
+  %call.i.i = tail call i64 @wcslen(ptr noundef nonnull readonly %3) #8
   %dwPropertyDataType.i.i = getelementptr i8, ptr %call, i64 14
   store i32 1, ptr %dwPropertyDataType.i.i, align 1
   %dwPropertyNameLength_lo.i.i.i = getelementptr i8, ptr %call, i64 18

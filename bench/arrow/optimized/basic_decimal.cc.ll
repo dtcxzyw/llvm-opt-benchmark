@@ -699,7 +699,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i: ; preds = %if.end
   br i1 %cmp.not.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal128EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
@@ -1667,7 +1667,7 @@ if.end:                                           ; preds = %entry
 
 while.end6.i:                                     ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i, i8 0, i64 16, i1 false)
-  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef %out, ptr noundef nonnull %remainder.i)
+  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %multiplier, ptr noundef %out, ptr noundef nonnull %remainder.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %remainder.i, ptr noundef nonnull dereferenceable(16) %ref.tmp.i, i64 16)
   %bcmp.i.i.i.i.i.i.i.i.fr = freeze i32 %bcmp.i.i.i.i.i.i.i.i
@@ -2183,7 +2183,7 @@ for.end:                                          ; preds = %for.body
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 align 2 {
 entry:
   %result.i = alloca %"class.arrow::BasicDecimal256", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull align 8 dereferenceable(32) %right, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %right, i64 32, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -2453,7 +2453,7 @@ entry:
   %1 = load i64, ptr %arrayidx.i.i.i2, align 8
   %shr.i21 = xor i64 %1, %0
   %isneg = icmp sgt i64 %shr.i21, -1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false)
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 24
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp9.i.i.i = icmp slt i64 %2, 0
@@ -2475,7 +2475,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   br i1 %exitcond.not.i.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit, label %for.body.i.i.i, !llvm.loop !14
 
 _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %for.body.i.i.i, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i5, ptr noundef nonnull align 8 dereferenceable(32) %right, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i5, ptr noundef nonnull readonly align 8 dereferenceable(32) %right, i64 32, i1 false)
   %arrayidx.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %result.i5, i64 24
   %5 = load i64, ptr %arrayidx.i.i.i.i.i.i6, align 8
   %cmp9.i.i.i7 = icmp slt i64 %5, 0
@@ -2577,7 +2577,7 @@ entry:
   store i32 0, ptr %dividend_array.i, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %dividend_array.i, i64 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %positive_value.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %positive_value.i.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %positive_value.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %positive_value.i.i, i64 24
   %0 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp slt i64 %0, 0
@@ -2651,7 +2651,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i: ; preds = %for.inc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %positive_value.i.i)
   %add.i = add nuw nsw i64 %next_index.1.lcssa.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %positive_value.i63.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %positive_value.i63.i, ptr noundef nonnull align 8 dereferenceable(32) %divisor, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %positive_value.i63.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %divisor, i64 32, i1 false)
   %arrayidx.i.i.i.i64.i = getelementptr inbounds i8, ptr %positive_value.i63.i, i64 24
   %5 = load i64, ptr %arrayidx.i.i.i.i64.i, align 8
   %cmp.i.i65.i = icmp slt i64 %5, 0
@@ -2727,7 +2727,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit107.i: ; preds = %for.in
   br i1 %cmp.not.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit107.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal256EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
@@ -3327,15 +3327,15 @@ if.end:                                           ; preds = %entry
 
 while.end6.i:                                     ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder.i, i8 0, i64 32, i1 false)
-  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(32) %multiplier, ptr noundef %out, ptr noundef nonnull %remainder.i)
+  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(32) %value, ptr noundef nonnull readonly align 8 dereferenceable(32) %multiplier, ptr noundef %out, ptr noundef nonnull %remainder.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %remainder.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal256EEEbRKT_iS4_PS2_.exit
 
 if.end.i:                                         ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 8 dereferenceable(32) %value, i64 32, i1 false)
-  %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 8 dereferenceable(32) %multiplier)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %value, i64 32, i1 false)
+  %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %multiplier)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, i64 32, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
@@ -3438,8 +3438,8 @@ define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr noalias nonnull 
 entry:
   %idxprom = sext i32 %increase_by to i64
   %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx)
   ret void
 }
 
@@ -3586,7 +3586,7 @@ define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr no
 entry:
   %result.i = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !33
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 24
   %0 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp9.i.i.i = icmp slt i64 %0, 0
@@ -3695,7 +3695,7 @@ entry:
   %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 -1, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull readonly align 16 dereferenceable(32) %arrayidx, i64 32, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry

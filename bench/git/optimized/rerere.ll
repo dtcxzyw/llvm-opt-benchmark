@@ -780,7 +780,7 @@ rerere_path.exit23.i.i.i:                         ; preds = %if.end5.i18.i.i.i, 
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %for.inc.critedge.i.i
 
 if.end.i.i.i:                                     ; preds = %rerere_path.exit23.i.i.i
-  %call4.i45.i.i = call fastcc i32 @try_merge(ptr noundef %10, ptr noundef nonnull %vid.i.i, ptr noundef %12, ptr noundef nonnull %cur.i.i.i, ptr noundef nonnull %result.i.i.i)
+  %call4.i45.i.i = call fastcc i32 @try_merge(ptr noundef %10, ptr noundef nonnull readonly %vid.i.i, ptr noundef %12, ptr noundef nonnull %cur.i.i.i, ptr noundef nonnull %result.i.i.i)
   %tobool5.not.i.i.i = icmp eq i32 %call4.i45.i.i, 0
   br i1 %tobool5.not.i.i.i, label %if.end7.i.i.i, label %for.inc.critedge.i.i
 
@@ -1982,7 +1982,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %call281.i = phi ptr [ %call2.i, %if.end20.i ], [ %call278.i, %while.cond.preheader.i ]
   %d_name.i = getelementptr inbounds i8, ptr %call281.i, i64 19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep.i.i)
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull dereferenceable(10) @.str.22) #17
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull readonly dereferenceable(10) @.str.22) #17
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %is_rr_file.exit.thread63.i, label %do.body.i.i.preheader.i
 
@@ -2082,7 +2082,7 @@ fit_variant.exit.i:                               ; preds = %if.then16.i.i, %do.
 
 if.else.i:                                        ; preds = %is_rr_file.exit.i, %is_rr_file.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep.i11.i)
-  %call.i12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull dereferenceable(9) @.str.23) #17
+  %call.i12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull readonly dereferenceable(9) @.str.23) #17
   %tobool.not.i13.i = icmp eq i32 %call.i12.i, 0
   br i1 %tobool.not.i13.i, label %is_rr_file.exit35.thread71.i, label %do.body.i.i14.preheader.i
 
@@ -2258,7 +2258,7 @@ if.end5.i.i:                                      ; preds = %if.then4
 unlink_rr_item.exit:                              ; preds = %if.then2.i.i, %if.end5.i.i
   %retval.0.i.i = phi ptr [ %call4.i.i, %if.then2.i.i ], [ %call8.i.i, %if.end5.i.i ]
   %call1.i = tail call i32 @unlink_or_warn(ptr noundef %retval.0.i.i) #14
-  tail call fastcc void @remove_variant(ptr noundef nonnull %3)
+  tail call fastcc void @remove_variant(ptr noundef nonnull readonly %3)
   %8 = load ptr, ptr %3, align 8
   %status.i8 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %status.i8, align 8

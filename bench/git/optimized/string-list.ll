@@ -134,7 +134,7 @@ st_mult.exit.i.i:                                 ; preds = %if.then26.i
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %9, i64 %conv.i
   %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %mul.i.i.i = shl nuw i64 %sub34.i, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr align 1 %add.ptr.i, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr readonly align 1 %add.ptr.i, i64 %mul.i.i.i, i1 false)
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %st_mult.exit.i.i, %do.end.i
@@ -255,7 +255,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw i64 %sub, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr14, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull readonly align 1 %add.ptr14, i64 %mul.i.i, i1 false)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end13.i, %entry, %st_mult.exit.i, %if.end9

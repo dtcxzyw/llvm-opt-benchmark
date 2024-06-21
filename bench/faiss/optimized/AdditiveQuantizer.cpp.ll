@@ -2589,7 +2589,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 50:                                               ; preds = %.lr.ph32.i
   %51 = shl i64 4, %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0.0, ptr align 4 %38, i64 %51, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0.0, ptr readonly align 4 %38, i64 %51, i1 false)
   br label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph32.i
@@ -3168,7 +3168,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 58:                                               ; preds = %.lr.ph32.i
   %59 = shl i64 4, %56
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0.0, ptr align 4 %40, i64 %59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0.0, ptr readonly align 4 %40, i64 %59, i1 false)
   br label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph32.i

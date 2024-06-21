@@ -11223,7 +11223,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit238
 189:                                              ; preds = %.critedge215
   %190 = getelementptr inbounds i8, ptr %116, i64 8
   %191 = getelementptr inbounds i8, ptr %179, i64 8
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %191, ptr nonnull %190, i64 %186), !alias.scope !1079, !noalias !1086
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %191, ptr nonnull readonly %190, i64 %186), !alias.scope !1079, !noalias !1086
   %192 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %192, label %194, label %234
 

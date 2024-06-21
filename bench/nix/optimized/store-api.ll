@@ -32780,7 +32780,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %68, %64
   %.017.i.i.i = phi i64 [ %69, %68 ], [ %65, %64 ]
   %66 = getelementptr inbounds i8, ptr %.val, i64 %.017.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %66, ptr noundef nonnull dereferenceable(3) @.str.84, i64 3), !noalias !250
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %66, ptr noundef nonnull dereferenceable(3) @.str.84, i64 3), !noalias !250
   %67 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm.exit.i, label %68
 
@@ -78725,7 +78725,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
@@ -82123,7 +82123,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9Stor
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.val6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
@@ -83499,7 +83499,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9StorePat
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %.val6, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
@@ -83650,7 +83650,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store14addToStoreSlowESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EESt8optionalINS1_4HashEEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store14addToStoreSlowESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EESt8optionalINS1_4HashEEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix5Store14addToStoreSlowESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EESt8optionalINS1_4HashEEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -83686,7 +83686,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store14addToStoreSlowESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EESt8optionalINS1_4HashEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store14addToStoreSlowESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EESt8optionalINS1_4HashEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix5Store14addToStoreSlowESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EESt8optionalINS1_4HashEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -91651,7 +91651,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_13copyStoreP
           to label %_ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit.i.i.i unwind label %"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZZN3nix13copyStorePathERNS5_5StoreES7_RKNS5_9StorePathENS5_10RepairFlagENS5_13CheckSigsFlagEENK3$_0clERNS5_4SinkEEUlS3_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit.i.i.i"
 
 _ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit.i.i.i: ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %12, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZZN3nix13copyStorePathERNS5_5StoreES7_RKNS5_9StorePathENS5_10RepairFlagENS5_13CheckSigsFlagEENK3$_0clERNS5_4SinkEEUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_", ptr %13, align 8
@@ -91732,7 +91732,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
@@ -91831,7 +91831,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
@@ -92093,7 +92093,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix13copySt
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -96092,7 +96092,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix11Realisa
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_12RealisedPathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_12RealisedPathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_12RealisedPathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -97095,7 +97095,7 @@ _ZN3nix12PushActivityC2Em.exit.i.i.i:             ; preds = %.noexc.i.i.i
           to label %_ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit.i.i.i unwind label %"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZZN3nix9copyPathsERNS5_5StoreES7_RKSt3setINS5_9StorePathESt4lessIS9_ESaIS9_EENS5_10RepairFlagENS5_13CheckSigsFlagENS5_14SubstituteFlagEENK3$_0clERNS5_4SinkEEUlS3_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit73.i.i.i"
 
 _ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit.i.i.i: ; preds = %114
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %117, ptr noundef nonnull readonly align 8 dereferenceable(24) %113, i64 24, i1 false)
   store ptr %117, ptr %115, align 8
   %118 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZZN3nix9copyPathsERNS5_5StoreES7_RKSt3setINS5_9StorePathESt4lessIS9_ESaIS9_EENS5_10RepairFlagENS5_13CheckSigsFlagENS5_14SubstituteFlagEENK3$_0clERNS5_4SinkEEUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_", ptr %118, align 8
@@ -97333,7 +97333,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
@@ -97406,7 +97406,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 

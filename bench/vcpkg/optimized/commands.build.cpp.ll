@@ -25800,7 +25800,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN5vcpkg10StringV
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL16do_build_packageERKNS1_17VcpkgCmdArgumentsERKNS1_10VcpkgPathsERKNS1_17InstallPlanActionEbE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL16do_build_packageERKNS1_17VcpkgCmdArgumentsERKNS1_10VcpkgPathsERKNS1_17InstallPlanActionEbE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN5vcpkgL16do_build_packageERKNS1_17VcpkgCmdArgumentsERKNS1_10VcpkgPathsERKNS1_17InstallPlanActionEbE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -29192,7 +29192,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN5vcpkg10StringV
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 

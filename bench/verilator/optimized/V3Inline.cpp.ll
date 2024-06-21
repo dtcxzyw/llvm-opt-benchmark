@@ -1294,7 +1294,7 @@ _ZN13InlineVisitorC2EP7AstNodeR17AstUser1AllocatorI13AstNodeModuleN12_GLOBAL__N_
 
 .body15:                                          ; preds = %.loopexit, %.loopexit.split-lp, %92, %80
   %eh.lpad-body16 = phi { ptr, i32 } [ %.pn.pn.i, %80 ], [ %.pn.i17, %92 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #21
+  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %4) #21
   br label %.body
 
 110:                                              ; preds = %97
@@ -1336,7 +1336,7 @@ _ZN13InlineVisitorC2EP7AstNodeR17AstUser1AllocatorI13AstNodeModuleN12_GLOBAL__N_
           to label %.invoke unwind label %.loopexit.split-lp
 
 ._crit_edge:                                      ; preds = %110, %_ZN13InlineVisitorC2EP7AstNodeR17AstUser1AllocatorI13AstNodeModuleN12_GLOBAL__N_111ModuleStateEE.exit
-  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #21
+  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %4) #21
   invoke void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
           to label %_ZN12VNUser1InUseD2Ev.exit unwind label %126
 

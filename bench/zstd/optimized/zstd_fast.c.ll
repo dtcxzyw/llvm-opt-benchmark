@@ -10089,7 +10089,7 @@ entry:
   %switch.tableidx = add i32 %0, -5
   %1 = icmp ult i32 %switch.tableidx, 3
   %spec.select = select i1 %1, i32 %0, i32 4
-  %call.i19 = tail call fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef nonnull %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %spec.select)
+  %call.i19 = tail call fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef nonnull readonly %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %spec.select)
   ret i64 %call.i19
 }
 

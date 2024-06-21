@@ -574,25 +574,25 @@ define dso_local void @_ZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_str
   %.sroa.010.0.i.i = phi ptr [ %39, %38 ], [ %20, %18 ]
   %27 = phi i64 [ %42, %38 ], [ %22, %18 ]
   %.018.i.i.i = phi i64 [ %40, %38 ], [ %25, %18 ]
-  %28 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %27), !noalias !45
+  %28 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %27), !noalias !45
   br i1 %28, label %"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEENS1_5__ops10_Iter_predIZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESP_E3$_0EEET_ST_ST_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.i.i", label %29
 
 29:                                               ; preds = %.lr.ph.i.i.i
   %30 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i, i64 -8
   %.cast.i.i.i = ptrtoint ptr %30 to i64
-  %31 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.cast.i.i.i), !noalias !45
+  %31 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %.cast.i.i.i), !noalias !45
   br i1 %31, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESN_E3$_0ET_SQ_SQ_T0_.exit", label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i, i64 -16
   %.cast16.i.i.i = ptrtoint ptr %33 to i64
-  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.cast16.i.i.i), !noalias !45
+  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %.cast16.i.i.i), !noalias !45
   br i1 %34, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESN_E3$_0ET_SQ_SQ_T0_.exit", label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i, i64 -24
   %.cast17.i.i.i = ptrtoint ptr %36 to i64
-  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.cast17.i.i.i), !noalias !45
+  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %.cast17.i.i.i), !noalias !45
   br i1 %37, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESN_E3$_0ET_SQ_SQ_T0_.exit", label %38
 
 38:                                               ; preds = %35
@@ -626,7 +626,7 @@ define dso_local void @_ZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_str
   br label %57
 
 45:                                               ; preds = %._crit_edge.i.i.i
-  %46 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %43), !noalias !45
+  %46 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %43), !noalias !45
   %47 = ptrtoint ptr %.sroa.010.1.i.i to i64
   br i1 %46, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESN_E3$_0ET_SQ_SQ_T0_.exit", label %48
 
@@ -639,7 +639,7 @@ define dso_local void @_ZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_str
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge.i._crit_edge33.i.i ], [ %50, %48 ]
   %.sroa.010.2.i.i = phi ptr [ %.sroa.010.1.i.i, %._crit_edge.i._crit_edge33.i.i ], [ %49, %48 ]
   %52 = phi i64 [ %43, %._crit_edge.i._crit_edge33.i.i ], [ %50, %48 ]
-  %53 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %52), !noalias !45
+  %53 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %52), !noalias !45
   br i1 %53, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESN_E3$_0ET_SQ_SQ_T0_.exit", label %54
 
 54:                                               ; preds = %51
@@ -650,7 +650,7 @@ define dso_local void @_ZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_str
 57:                                               ; preds = %54, %._crit_edge.i._crit_edge.i.i
   %.pre-phi35.i.i = phi i64 [ %.pre34.i.i, %._crit_edge.i._crit_edge.i.i ], [ %56, %54 ]
   %58 = phi i64 [ %43, %._crit_edge.i._crit_edge.i.i ], [ %56, %54 ]
-  %59 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %58), !noalias !45
+  %59 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %58), !noalias !45
   %spec.select.i.i = select i1 %59, i64 %.pre-phi35.i.i, i64 %23
   br label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESN_E3$_0ET_SQ_SQ_T0_.exit"
 
@@ -763,25 +763,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.sroa.010.0.i.i = phi ptr [ %45, %44 ], [ %26, %24 ]
   %33 = phi i64 [ %48, %44 ], [ %28, %24 ]
   %.018.i.i.i = phi i64 [ %46, %44 ], [ %31, %24 ]
-  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %33), !noalias !68
+  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %33), !noalias !68
   br i1 %34, label %"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEENS1_5__ops10_Iter_predIZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESQ_E3$_0EEET_SU_SU_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.i.i", label %35
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i, i64 -8
   %.cast.i.i.i = ptrtoint ptr %36 to i64
-  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.cast.i.i.i), !noalias !68
+  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %.cast.i.i.i), !noalias !68
   br i1 %37, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESO_E3$_0ET_SR_SR_T0_.exit", label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i, i64 -16
   %.cast16.i.i.i = ptrtoint ptr %39 to i64
-  %40 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.cast16.i.i.i), !noalias !68
+  %40 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %.cast16.i.i.i), !noalias !68
   br i1 %40, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESO_E3$_0ET_SR_SR_T0_.exit", label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i, i64 -24
   %.cast17.i.i.i = ptrtoint ptr %42 to i64
-  %43 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.cast17.i.i.i), !noalias !68
+  %43 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %.cast17.i.i.i), !noalias !68
   br i1 %43, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESO_E3$_0ET_SR_SR_T0_.exit", label %44
 
 44:                                               ; preds = %41
@@ -815,7 +815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %63
 
 51:                                               ; preds = %._crit_edge.i.i.i
-  %52 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %49), !noalias !68
+  %52 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %49), !noalias !68
   %53 = ptrtoint ptr %.sroa.010.1.i.i to i64
   br i1 %52, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESO_E3$_0ET_SR_SR_T0_.exit", label %54
 
@@ -828,7 +828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge.i._crit_edge33.i.i ], [ %56, %54 ]
   %.sroa.010.2.i.i = phi ptr [ %.sroa.010.1.i.i, %._crit_edge.i._crit_edge33.i.i ], [ %55, %54 ]
   %58 = phi i64 [ %49, %._crit_edge.i._crit_edge33.i.i ], [ %56, %54 ]
-  %59 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %58), !noalias !68
+  %59 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %58), !noalias !68
   br i1 %59, label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESO_E3$_0ET_SR_SR_T0_.exit", label %60
 
 60:                                               ; preds = %57
@@ -839,7 +839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 63:                                               ; preds = %60, %._crit_edge.i._crit_edge.i.i
   %.pre-phi35.i.i = phi i64 [ %.pre34.i.i, %._crit_edge.i._crit_edge.i.i ], [ %62, %60 ]
   %64 = phi i64 [ %49, %._crit_edge.i._crit_edge.i.i ], [ %62, %60 ]
-  %65 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %64), !noalias !68
+  %65 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5vcpkg16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7TripletESB_E3$_0EclISt16reverse_iteratorINS_17__normal_iteratorIPKSt10unique_ptrINS2_15StatusParagraphESt14default_deleteISJ_EESt6vectorISM_SaISM_EEEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 %64), !noalias !68
   %spec.select.i.i = select i1 %65, i64 %.pre-phi35.i.i, i64 %29
   br label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEZNKS4_16StatusParagraphs4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TripletESO_E3$_0ET_SR_SR_T0_.exit"
 

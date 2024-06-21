@@ -14332,7 +14332,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb
   br i1 %2, label %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i, label %dynamic_cast.notnull.i.i.i
 
 dynamic_cast.notnull.i.i.i:                       ; preds = %land.lhs.true.i
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %call.val11.pr.pre.i, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #37
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call.val11.pr.pre.i, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #37
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i, label %dynamic_cast.notnull.i.i12.i
 
@@ -14562,7 +14562,7 @@ cond.end.i:                                       ; preds = %_ZN5boost13intrusiv
 invoke.cont.i:                                    ; preds = %cond.end.i
   %45 = load ptr, ptr %call15.i, align 8
   %46 = load ptr, ptr %values.i, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_(ptr noundef nonnull align 8 dereferenceable(17) %43, ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(36) %rows, ptr noundef nonnull align 8 dereferenceable(64) %46)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_(ptr noundef nonnull align 8 dereferenceable(17) %43, ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull readonly align 8 dereferenceable(36) %rows, ptr noundef nonnull align 8 dereferenceable(64) %46)
           to label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i.i28.i unwind label %lpad.i
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i.i28.i: ; preds = %invoke.cont.i
@@ -17185,7 +17185,7 @@ if.then.i.i:                                      ; preds = %_ZNK8facebook5velox
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %.noexc28.i
   %row.012.i.i = phi i32 [ %inc.i.i, %.noexc28.i ], [ %47, %if.then.i.i ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i, ptr nonnull %flatVector.i, i32 noundef %row.012.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %row.012.i.i)
           to label %.noexc28.i unwind label %lpad7.loopexit.i
 
 .noexc28.i:                                       ; preds = %for.body.i.i
@@ -17235,7 +17235,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %56 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %56 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %54, %cast.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i, ptr nonnull %flatVector.i, i32 noundef %add.i26.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i26.i.i.i.i.i)
           to label %.noexc29.i unwind label %lpad7.loopexit.split-lp.loopexit.i
 
 .noexc29.i:                                       ; preds = %while.body.i.i.i.i.i.i
@@ -17273,7 +17273,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %.noexc30.i, %while.
   %58 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %58 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i, ptr nonnull %flatVector.i, i32 noundef %add.i45.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i45.i.i.i.i.i)
           to label %.noexc30.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc30.i:                                       ; preds = %while.body.i42.i.i.i.i.i
@@ -17326,7 +17326,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i:                             ; preds = %.noexc31.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.018.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %.noexc31.i ]
   %conv7.i.i.i.i.i.i = trunc i64 %row.018.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i, ptr nonnull %flatVector.i, i32 noundef %conv7.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %conv7.i.i.i.i.i.i)
           to label %.noexc31.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc31.i:                                       ; preds = %for.body.i.i.i.i.i.i
@@ -17508,7 +17508,7 @@ while.body.i73.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %92 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i, i1 true)
   %cast.i75.i.i.i.i.i = trunc nuw nsw i64 %92 to i32
   %add.i76.i.i.i.i.i = or disjoint i32 %54, %cast.i75.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i, ptr nonnull %flatVector.i, i32 noundef %add.i76.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i76.i.i.i.i.i)
           to label %.noexc35.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc35.i:                                       ; preds = %while.body.i73.i.i.i.i.i
@@ -17519,7 +17519,7 @@ while.body.i73.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont10.i:                                  ; preds = %.noexc35.i, %.noexc29.i, %.noexc28.i, %if.then19.i.i.i.i.i, %for.end.i.i.i7.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i.i
   %93 = load ptr, ptr %flatVector.i, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %93, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(88) %10)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %93, ptr noundef nonnull readonly align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(88) %10)
           to label %invoke.cont16.invoke.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 lpad1.i:                                          ; preds = %invoke.cont.i
@@ -18094,7 +18094,7 @@ invoke.cont16.i:                                  ; preds = %.noexc165.i, %.noex
 
 invoke.cont16.invoke.i:                           ; preds = %invoke.cont16.i, %invoke.cont10.i
   %169 = phi ptr [ %168, %invoke.cont16.i ], [ %93, %invoke.cont10.i ]
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %169, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(88) %10)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %169, ptr noundef nonnull readonly align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(88) %10)
           to label %if.end.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end.i:                                         ; preds = %invoke.cont16.invoke.i
@@ -18492,7 +18492,7 @@ if.then.i.i313:                                   ; preds = %_ZNK8facebook5velox
 
 for.body.i.i315:                                  ; preds = %if.then.i.i313, %.noexc32.i319
   %row.012.i.i316 = phi i32 [ %inc.i.i320, %.noexc32.i319 ], [ %230, %if.then.i.i313 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4, ptr nonnull %flatVector.i5, i32 noundef %row.012.i.i316)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %row.012.i.i316)
           to label %.noexc32.i319 unwind label %lpad7.loopexit.i317
 
 .noexc32.i319:                                    ; preds = %for.body.i.i315
@@ -18542,7 +18542,7 @@ while.body.i.i.i.i.i.i305:                        ; preds = %if.then3.i.i.i.i.i2
   %239 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i306, i1 true)
   %cast.i.i.i.i.i.i307 = trunc nuw nsw i64 %239 to i32
   %add.i26.i.i.i.i.i308 = or disjoint i32 %237, %cast.i.i.i.i.i.i307
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4, ptr nonnull %flatVector.i5, i32 noundef %add.i26.i.i.i.i.i308)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i26.i.i.i.i.i308)
           to label %.noexc33.i unwind label %lpad7.loopexit.split-lp.loopexit.i309
 
 .noexc33.i:                                       ; preds = %while.body.i.i.i.i.i.i305
@@ -18580,7 +18580,7 @@ while.body.i42.i.i.i.i.i161:                      ; preds = %.noexc34.i, %while.
   %241 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i162, i1 true)
   %cast.i44.i.i.i.i.i163 = trunc nuw nsw i64 %241 to i32
   %add.i45.i.i.i.i.i164 = or disjoint i32 %mul.i41.i.i.i.i.i160, %cast.i44.i.i.i.i.i163
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4, ptr nonnull %flatVector.i5, i32 noundef %add.i45.i.i.i.i.i164)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i45.i.i.i.i.i164)
           to label %.noexc34.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i165
 
 .noexc34.i:                                       ; preds = %while.body.i42.i.i.i.i.i161
@@ -18633,7 +18633,7 @@ for.body.lr.ph.i.i.i.i.i.i213:                    ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i215:                          ; preds = %.noexc35.i220, %for.body.lr.ph.i.i.i.i.i.i213
   %row.018.i.i.i.i.i.i216 = phi i64 [ %conv.i.i.i.i.i.i214, %for.body.lr.ph.i.i.i.i.i.i213 ], [ %inc.i.i.i.i.i.i221, %.noexc35.i220 ]
   %conv7.i.i.i.i.i.i217 = trunc i64 %row.018.i.i.i.i.i.i216 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4, ptr nonnull %flatVector.i5, i32 noundef %conv7.i.i.i.i.i.i217)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %conv7.i.i.i.i.i.i217)
           to label %.noexc35.i220 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i218
 
 .noexc35.i220:                                    ; preds = %for.body.i.i.i.i.i.i215
@@ -18865,7 +18865,7 @@ while.body.i73.i.i.i.i.i199:                      ; preds = %if.then19.i.i.i.i.i
   %284 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i200, i1 true)
   %cast.i75.i.i.i.i.i201 = trunc nuw nsw i64 %284 to i32
   %add.i76.i.i.i.i.i202 = or disjoint i32 %237, %cast.i75.i.i.i.i.i201
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4, ptr nonnull %flatVector.i5, i32 noundef %add.i76.i.i.i.i.i202)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i76.i.i.i.i.i202)
           to label %.noexc41.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i203
 
 .noexc41.i:                                       ; preds = %while.body.i73.i.i.i.i.i199
@@ -18876,12 +18876,12 @@ while.body.i73.i.i.i.i.i199:                      ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i:                                   ; preds = %.noexc41.i, %.noexc33.i, %.noexc32.i319, %if.then19.i.i.i.i.i189, %for.end.i.i.i7.i.i187, %if.then3.i.i.i.i.i287, %if.else.i.i137, %if.then.i.i313
   %285 = load ptr, ptr %flatVector.i5, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %285, ptr noundef nonnull align 8 dereferenceable(36) %186, ptr noundef nonnull align 8 dereferenceable(80) %188, ptr noundef %191, ptr noundef nonnull align 8 dereferenceable(88) %193)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %285, ptr noundef nonnull readonly align 8 dereferenceable(36) %186, ptr noundef nonnull align 8 dereferenceable(80) %188, ptr noundef %191, ptr noundef nonnull align 8 dereferenceable(88) %193)
           to label %invoke.cont10.invoke.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont10.invoke.i:                           ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i
   %286 = load ptr, ptr %flatVector.i5, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %286, ptr noundef nonnull align 8 dereferenceable(36) %186, ptr noundef nonnull align 8 dereferenceable(80) %188, ptr noundef %191, ptr noundef nonnull align 8 dereferenceable(88) %193)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %286, ptr noundef nonnull readonly align 8 dereferenceable(36) %186, ptr noundef nonnull align 8 dereferenceable(80) %188, ptr noundef %191, ptr noundef nonnull align 8 dereferenceable(88) %193)
           to label %if.end.i72 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 lpad1.i42:                                        ; preds = %invoke.cont.i40
@@ -19161,7 +19161,7 @@ if.then3.i.i.i9.i.i:                              ; preds = %if.end.i.i.i6.i.i91
 if.then3.i.i.i9.i.invoke.i:                       ; preds = %if.then19.i.i.i.i74.i, %if.then3.i.i.i9.i.i
   %327 = phi i64 [ %and7.i.i.i.i110.i, %if.then3.i.i.i9.i.i ], [ %sub.i35.i.i.i.i.i, %if.then19.i.i.i.i74.i ]
   %328 = ashr i32 %324, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i, i32 noundef %328, i64 noundef %327)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i, i32 noundef %328, i64 noundef %327)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end8.i.i.i.i60.i:                              ; preds = %if.end.i.i.i6.i.i91
@@ -19177,7 +19177,7 @@ if.then10.i.i.i.i62.i:                            ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i = sub nsw i32 64, %sub12.i.i.i.i64.i
   %sh_prom.i29.i.i.i.i.i = zext nneg i32 %sub.i28.i.i.i.i.i to i64
   %shl.i30.i.i.i.i.i = shl i64 %sub.i.i27.i.i.i.i.i, %sh_prom.i29.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i, i32 noundef %div11.i.i.i.i63.i, i64 noundef %shl.i30.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i, i32 noundef %div11.i.i.i.i63.i, i64 noundef %shl.i30.i.i.i.i.i)
           to label %if.end14.i.i.i.i65.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end14.i.i.i.i65.i:                             ; preds = %if.then10.i.i.i.i62.i, %if.end8.i.i.i.i60.i
@@ -19825,7 +19825,7 @@ if.then.i.i943:                                   ; preds = %_ZNK8facebook5velox
 
 for.body.i.i945:                                  ; preds = %if.then.i.i943, %.noexc32.i949
   %row.012.i.i946 = phi i32 [ %inc.i.i950, %.noexc32.i949 ], [ %423, %if.then.i.i943 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i371, ptr nonnull %flatVector.i372, i32 noundef %row.012.i.i946)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i371, ptr nonnull readonly %flatVector.i372, i32 noundef %row.012.i.i946)
           to label %.noexc32.i949 unwind label %lpad7.loopexit.i947
 
 .noexc32.i949:                                    ; preds = %for.body.i.i945
@@ -19875,7 +19875,7 @@ while.body.i.i.i.i.i.i933:                        ; preds = %if.then3.i.i.i.i.i9
   %432 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i934, i1 true)
   %cast.i.i.i.i.i.i935 = trunc nuw nsw i64 %432 to i32
   %add.i26.i.i.i.i.i936 = or disjoint i32 %430, %cast.i.i.i.i.i.i935
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i371, ptr nonnull %flatVector.i372, i32 noundef %add.i26.i.i.i.i.i936)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i371, ptr nonnull readonly %flatVector.i372, i32 noundef %add.i26.i.i.i.i.i936)
           to label %.noexc33.i939 unwind label %lpad7.loopexit.split-lp.loopexit.i937
 
 .noexc33.i939:                                    ; preds = %while.body.i.i.i.i.i.i933
@@ -19913,7 +19913,7 @@ while.body.i42.i.i.i.i.i755:                      ; preds = %.noexc34.i761, %whi
   %434 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i756, i1 true)
   %cast.i44.i.i.i.i.i757 = trunc nuw nsw i64 %434 to i32
   %add.i45.i.i.i.i.i758 = or disjoint i32 %mul.i41.i.i.i.i.i754, %cast.i44.i.i.i.i.i757
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i371, ptr nonnull %flatVector.i372, i32 noundef %add.i45.i.i.i.i.i758)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i371, ptr nonnull readonly %flatVector.i372, i32 noundef %add.i45.i.i.i.i.i758)
           to label %.noexc34.i761 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i759
 
 .noexc34.i761:                                    ; preds = %while.body.i42.i.i.i.i.i755
@@ -19966,7 +19966,7 @@ for.body.lr.ph.i.i.i.i.i.i810:                    ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i812:                          ; preds = %.noexc35.i817, %for.body.lr.ph.i.i.i.i.i.i810
   %row.018.i.i.i.i.i.i813 = phi i64 [ %conv.i.i.i.i.i.i811, %for.body.lr.ph.i.i.i.i.i.i810 ], [ %inc.i.i.i.i.i.i818, %.noexc35.i817 ]
   %conv7.i.i.i.i.i.i814 = trunc i64 %row.018.i.i.i.i.i.i813 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i371, ptr nonnull %flatVector.i372, i32 noundef %conv7.i.i.i.i.i.i814)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i371, ptr nonnull readonly %flatVector.i372, i32 noundef %conv7.i.i.i.i.i.i814)
           to label %.noexc35.i817 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i815
 
 .noexc35.i817:                                    ; preds = %for.body.i.i.i.i.i.i812
@@ -20198,7 +20198,7 @@ while.body.i73.i.i.i.i.i794:                      ; preds = %if.then19.i.i.i.i.i
   %477 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i795, i1 true)
   %cast.i75.i.i.i.i.i796 = trunc nuw nsw i64 %477 to i32
   %add.i76.i.i.i.i.i797 = or disjoint i32 %430, %cast.i75.i.i.i.i.i796
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i371, ptr nonnull %flatVector.i372, i32 noundef %add.i76.i.i.i.i.i797)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i371, ptr nonnull readonly %flatVector.i372, i32 noundef %add.i76.i.i.i.i.i797)
           to label %.noexc41.i800 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i798
 
 .noexc41.i800:                                    ; preds = %while.body.i73.i.i.i.i.i794
@@ -20209,12 +20209,12 @@ while.body.i73.i.i.i.i.i794:                      ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i732:                                ; preds = %.noexc41.i800, %.noexc33.i939, %.noexc32.i949, %if.then19.i.i.i.i.i784, %for.end.i.i.i7.i.i782, %if.then3.i.i.i.i.i915, %if.else.i.i730, %if.then.i.i943
   %478 = load ptr, ptr %flatVector.i372, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %478, ptr noundef nonnull align 8 dereferenceable(36) %379, ptr noundef nonnull align 8 dereferenceable(80) %381, ptr noundef %384, ptr noundef nonnull align 8 dereferenceable(88) %386)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %478, ptr noundef nonnull readonly align 8 dereferenceable(36) %379, ptr noundef nonnull align 8 dereferenceable(80) %381, ptr noundef %384, ptr noundef nonnull align 8 dereferenceable(88) %386)
           to label %invoke.cont10.invoke.i452 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i453
 
 invoke.cont10.invoke.i452:                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i650, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i732
   %479 = load ptr, ptr %flatVector.i372, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %479, ptr noundef nonnull align 8 dereferenceable(36) %379, ptr noundef nonnull align 8 dereferenceable(80) %381, ptr noundef %384, ptr noundef nonnull align 8 dereferenceable(88) %386)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %479, ptr noundef nonnull readonly align 8 dereferenceable(36) %379, ptr noundef nonnull align 8 dereferenceable(80) %381, ptr noundef %384, ptr noundef nonnull align 8 dereferenceable(88) %386)
           to label %if.end.i457 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i453
 
 lpad1.i410:                                       ; preds = %invoke.cont.i408
@@ -20494,7 +20494,7 @@ if.then3.i.i.i9.i.i637:                           ; preds = %if.end.i.i.i6.i.i49
 if.then3.i.i.i9.i.invoke.i534:                    ; preds = %if.then19.i.i.i.i74.i529, %if.then3.i.i.i9.i.i637
   %520 = phi i64 [ %and7.i.i.i.i110.i649, %if.then3.i.i.i9.i.i637 ], [ %sub.i35.i.i.i.i.i533, %if.then19.i.i.i.i74.i529 ]
   %521 = ashr i32 %517, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i367, i32 noundef %521, i64 noundef %520)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i367, i32 noundef %521, i64 noundef %520)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i453
 
 if.end8.i.i.i.i60.i501:                           ; preds = %if.end.i.i.i6.i.i497
@@ -20510,7 +20510,7 @@ if.then10.i.i.i.i62.i503:                         ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i509 = sub nsw i32 64, %sub12.i.i.i.i64.i505
   %sh_prom.i29.i.i.i.i.i510 = zext nneg i32 %sub.i28.i.i.i.i.i509 to i64
   %shl.i30.i.i.i.i.i511 = shl i64 %sub.i.i27.i.i.i.i.i508, %sh_prom.i29.i.i.i.i.i510
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i367, i32 noundef %div11.i.i.i.i63.i504, i64 noundef %shl.i30.i.i.i.i.i511)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i367, i32 noundef %div11.i.i.i.i63.i504, i64 noundef %shl.i30.i.i.i.i.i511)
           to label %if.end14.i.i.i.i65.i512 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i453
 
 if.end14.i.i.i.i65.i512:                          ; preds = %if.then10.i.i.i.i62.i503, %if.end8.i.i.i.i60.i501
@@ -21158,7 +21158,7 @@ if.then.i.i1573:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i1575:                                 ; preds = %if.then.i.i1573, %.noexc32.i1579
   %row.012.i.i1576 = phi i32 [ %inc.i.i1580, %.noexc32.i1579 ], [ %616, %if.then.i.i1573 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1001, ptr nonnull %flatVector.i1002, i32 noundef %row.012.i.i1576)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1001, ptr nonnull readonly %flatVector.i1002, i32 noundef %row.012.i.i1576)
           to label %.noexc32.i1579 unwind label %lpad7.loopexit.i1577
 
 .noexc32.i1579:                                   ; preds = %for.body.i.i1575
@@ -21208,7 +21208,7 @@ while.body.i.i.i.i.i.i1563:                       ; preds = %if.then3.i.i.i.i.i1
   %625 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i1564, i1 true)
   %cast.i.i.i.i.i.i1565 = trunc nuw nsw i64 %625 to i32
   %add.i26.i.i.i.i.i1566 = or disjoint i32 %623, %cast.i.i.i.i.i.i1565
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1001, ptr nonnull %flatVector.i1002, i32 noundef %add.i26.i.i.i.i.i1566)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1001, ptr nonnull readonly %flatVector.i1002, i32 noundef %add.i26.i.i.i.i.i1566)
           to label %.noexc33.i1569 unwind label %lpad7.loopexit.split-lp.loopexit.i1567
 
 .noexc33.i1569:                                   ; preds = %while.body.i.i.i.i.i.i1563
@@ -21246,7 +21246,7 @@ while.body.i42.i.i.i.i.i1385:                     ; preds = %.noexc34.i1391, %wh
   %627 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i1386, i1 true)
   %cast.i44.i.i.i.i.i1387 = trunc nuw nsw i64 %627 to i32
   %add.i45.i.i.i.i.i1388 = or disjoint i32 %mul.i41.i.i.i.i.i1384, %cast.i44.i.i.i.i.i1387
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1001, ptr nonnull %flatVector.i1002, i32 noundef %add.i45.i.i.i.i.i1388)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1001, ptr nonnull readonly %flatVector.i1002, i32 noundef %add.i45.i.i.i.i.i1388)
           to label %.noexc34.i1391 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1389
 
 .noexc34.i1391:                                   ; preds = %while.body.i42.i.i.i.i.i1385
@@ -21299,7 +21299,7 @@ for.body.lr.ph.i.i.i.i.i.i1440:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i1442:                         ; preds = %.noexc35.i1447, %for.body.lr.ph.i.i.i.i.i.i1440
   %row.018.i.i.i.i.i.i1443 = phi i64 [ %conv.i.i.i.i.i.i1441, %for.body.lr.ph.i.i.i.i.i.i1440 ], [ %inc.i.i.i.i.i.i1448, %.noexc35.i1447 ]
   %conv7.i.i.i.i.i.i1444 = trunc i64 %row.018.i.i.i.i.i.i1443 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1001, ptr nonnull %flatVector.i1002, i32 noundef %conv7.i.i.i.i.i.i1444)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1001, ptr nonnull readonly %flatVector.i1002, i32 noundef %conv7.i.i.i.i.i.i1444)
           to label %.noexc35.i1447 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1445
 
 .noexc35.i1447:                                   ; preds = %for.body.i.i.i.i.i.i1442
@@ -21531,7 +21531,7 @@ while.body.i73.i.i.i.i.i1424:                     ; preds = %if.then19.i.i.i.i.i
   %670 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i1425, i1 true)
   %cast.i75.i.i.i.i.i1426 = trunc nuw nsw i64 %670 to i32
   %add.i76.i.i.i.i.i1427 = or disjoint i32 %623, %cast.i75.i.i.i.i.i1426
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1001, ptr nonnull %flatVector.i1002, i32 noundef %add.i76.i.i.i.i.i1427)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1001, ptr nonnull readonly %flatVector.i1002, i32 noundef %add.i76.i.i.i.i.i1427)
           to label %.noexc41.i1430 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i1428
 
 .noexc41.i1430:                                   ; preds = %while.body.i73.i.i.i.i.i1424
@@ -21542,12 +21542,12 @@ while.body.i73.i.i.i.i.i1424:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i1362:                               ; preds = %.noexc41.i1430, %.noexc33.i1569, %.noexc32.i1579, %if.then19.i.i.i.i.i1414, %for.end.i.i.i7.i.i1412, %if.then3.i.i.i.i.i1545, %if.else.i.i1360, %if.then.i.i1573
   %671 = load ptr, ptr %flatVector.i1002, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %671, ptr noundef nonnull align 8 dereferenceable(36) %572, ptr noundef nonnull align 8 dereferenceable(80) %574, ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(88) %579)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %671, ptr noundef nonnull readonly align 8 dereferenceable(36) %572, ptr noundef nonnull align 8 dereferenceable(80) %574, ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(88) %579)
           to label %invoke.cont10.invoke.i1082 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1083
 
 invoke.cont10.invoke.i1082:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i1280, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i1362
   %672 = load ptr, ptr %flatVector.i1002, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %672, ptr noundef nonnull align 8 dereferenceable(36) %572, ptr noundef nonnull align 8 dereferenceable(80) %574, ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(88) %579)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %672, ptr noundef nonnull readonly align 8 dereferenceable(36) %572, ptr noundef nonnull align 8 dereferenceable(80) %574, ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(88) %579)
           to label %if.end.i1087 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1083
 
 lpad1.i1040:                                      ; preds = %invoke.cont.i1038
@@ -21827,7 +21827,7 @@ if.then3.i.i.i9.i.i1267:                          ; preds = %if.end.i.i.i6.i.i11
 if.then3.i.i.i9.i.invoke.i1164:                   ; preds = %if.then19.i.i.i.i74.i1159, %if.then3.i.i.i9.i.i1267
   %713 = phi i64 [ %and7.i.i.i.i110.i1279, %if.then3.i.i.i9.i.i1267 ], [ %sub.i35.i.i.i.i.i1163, %if.then19.i.i.i.i74.i1159 ]
   %714 = ashr i32 %710, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i997, i32 noundef %714, i64 noundef %713)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i997, i32 noundef %714, i64 noundef %713)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1083
 
 if.end8.i.i.i.i60.i1131:                          ; preds = %if.end.i.i.i6.i.i1127
@@ -21843,7 +21843,7 @@ if.then10.i.i.i.i62.i1133:                        ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i1139 = sub nsw i32 64, %sub12.i.i.i.i64.i1135
   %sh_prom.i29.i.i.i.i.i1140 = zext nneg i32 %sub.i28.i.i.i.i.i1139 to i64
   %shl.i30.i.i.i.i.i1141 = shl i64 %sub.i.i27.i.i.i.i.i1138, %sh_prom.i29.i.i.i.i.i1140
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i997, i32 noundef %div11.i.i.i.i63.i1134, i64 noundef %shl.i30.i.i.i.i.i1141)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i997, i32 noundef %div11.i.i.i.i63.i1134, i64 noundef %shl.i30.i.i.i.i.i1141)
           to label %if.end14.i.i.i.i65.i1142 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1083
 
 if.end14.i.i.i.i65.i1142:                         ; preds = %if.then10.i.i.i.i62.i1133, %if.end8.i.i.i.i60.i1131
@@ -22491,7 +22491,7 @@ if.then.i.i2203:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i2205:                                 ; preds = %if.then.i.i2203, %.noexc32.i2209
   %row.012.i.i2206 = phi i32 [ %inc.i.i2210, %.noexc32.i2209 ], [ %809, %if.then.i.i2203 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1631, ptr nonnull %flatVector.i1632, i32 noundef %row.012.i.i2206)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1631, ptr nonnull readonly %flatVector.i1632, i32 noundef %row.012.i.i2206)
           to label %.noexc32.i2209 unwind label %lpad7.loopexit.i2207
 
 .noexc32.i2209:                                   ; preds = %for.body.i.i2205
@@ -22541,7 +22541,7 @@ while.body.i.i.i.i.i.i2193:                       ; preds = %if.then3.i.i.i.i.i2
   %818 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i2194, i1 true)
   %cast.i.i.i.i.i.i2195 = trunc nuw nsw i64 %818 to i32
   %add.i26.i.i.i.i.i2196 = or disjoint i32 %816, %cast.i.i.i.i.i.i2195
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1631, ptr nonnull %flatVector.i1632, i32 noundef %add.i26.i.i.i.i.i2196)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1631, ptr nonnull readonly %flatVector.i1632, i32 noundef %add.i26.i.i.i.i.i2196)
           to label %.noexc33.i2199 unwind label %lpad7.loopexit.split-lp.loopexit.i2197
 
 .noexc33.i2199:                                   ; preds = %while.body.i.i.i.i.i.i2193
@@ -22579,7 +22579,7 @@ while.body.i42.i.i.i.i.i2015:                     ; preds = %.noexc34.i2021, %wh
   %820 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i2016, i1 true)
   %cast.i44.i.i.i.i.i2017 = trunc nuw nsw i64 %820 to i32
   %add.i45.i.i.i.i.i2018 = or disjoint i32 %mul.i41.i.i.i.i.i2014, %cast.i44.i.i.i.i.i2017
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1631, ptr nonnull %flatVector.i1632, i32 noundef %add.i45.i.i.i.i.i2018)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1631, ptr nonnull readonly %flatVector.i1632, i32 noundef %add.i45.i.i.i.i.i2018)
           to label %.noexc34.i2021 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2019
 
 .noexc34.i2021:                                   ; preds = %while.body.i42.i.i.i.i.i2015
@@ -22632,7 +22632,7 @@ for.body.lr.ph.i.i.i.i.i.i2070:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i2072:                         ; preds = %.noexc35.i2077, %for.body.lr.ph.i.i.i.i.i.i2070
   %row.018.i.i.i.i.i.i2073 = phi i64 [ %conv.i.i.i.i.i.i2071, %for.body.lr.ph.i.i.i.i.i.i2070 ], [ %inc.i.i.i.i.i.i2078, %.noexc35.i2077 ]
   %conv7.i.i.i.i.i.i2074 = trunc i64 %row.018.i.i.i.i.i.i2073 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1631, ptr nonnull %flatVector.i1632, i32 noundef %conv7.i.i.i.i.i.i2074)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1631, ptr nonnull readonly %flatVector.i1632, i32 noundef %conv7.i.i.i.i.i.i2074)
           to label %.noexc35.i2077 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2075
 
 .noexc35.i2077:                                   ; preds = %for.body.i.i.i.i.i.i2072
@@ -22864,7 +22864,7 @@ while.body.i73.i.i.i.i.i2054:                     ; preds = %if.then19.i.i.i.i.i
   %863 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i2055, i1 true)
   %cast.i75.i.i.i.i.i2056 = trunc nuw nsw i64 %863 to i32
   %add.i76.i.i.i.i.i2057 = or disjoint i32 %816, %cast.i75.i.i.i.i.i2056
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i1631, ptr nonnull %flatVector.i1632, i32 noundef %add.i76.i.i.i.i.i2057)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1631, ptr nonnull readonly %flatVector.i1632, i32 noundef %add.i76.i.i.i.i.i2057)
           to label %.noexc41.i2060 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i2058
 
 .noexc41.i2060:                                   ; preds = %while.body.i73.i.i.i.i.i2054
@@ -22875,12 +22875,12 @@ while.body.i73.i.i.i.i.i2054:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i1992:                               ; preds = %.noexc41.i2060, %.noexc33.i2199, %.noexc32.i2209, %if.then19.i.i.i.i.i2044, %for.end.i.i.i7.i.i2042, %if.then3.i.i.i.i.i2175, %if.else.i.i1990, %if.then.i.i2203
   %864 = load ptr, ptr %flatVector.i1632, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %864, ptr noundef nonnull align 8 dereferenceable(36) %765, ptr noundef nonnull align 8 dereferenceable(80) %767, ptr noundef %770, ptr noundef nonnull align 8 dereferenceable(88) %772)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %864, ptr noundef nonnull readonly align 8 dereferenceable(36) %765, ptr noundef nonnull align 8 dereferenceable(80) %767, ptr noundef %770, ptr noundef nonnull align 8 dereferenceable(88) %772)
           to label %invoke.cont10.invoke.i1712 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1713
 
 invoke.cont10.invoke.i1712:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i1910, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i1992
   %865 = load ptr, ptr %flatVector.i1632, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %865, ptr noundef nonnull align 8 dereferenceable(36) %765, ptr noundef nonnull align 8 dereferenceable(80) %767, ptr noundef %770, ptr noundef nonnull align 8 dereferenceable(88) %772)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %865, ptr noundef nonnull readonly align 8 dereferenceable(36) %765, ptr noundef nonnull align 8 dereferenceable(80) %767, ptr noundef %770, ptr noundef nonnull align 8 dereferenceable(88) %772)
           to label %if.end.i1717 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1713
 
 lpad1.i1670:                                      ; preds = %invoke.cont.i1668
@@ -23160,7 +23160,7 @@ if.then3.i.i.i9.i.i1897:                          ; preds = %if.end.i.i.i6.i.i17
 if.then3.i.i.i9.i.invoke.i1794:                   ; preds = %if.then19.i.i.i.i74.i1789, %if.then3.i.i.i9.i.i1897
   %906 = phi i64 [ %and7.i.i.i.i110.i1909, %if.then3.i.i.i9.i.i1897 ], [ %sub.i35.i.i.i.i.i1793, %if.then19.i.i.i.i74.i1789 ]
   %907 = ashr i32 %903, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i1627, i32 noundef %907, i64 noundef %906)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i1627, i32 noundef %907, i64 noundef %906)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1713
 
 if.end8.i.i.i.i60.i1761:                          ; preds = %if.end.i.i.i6.i.i1757
@@ -23176,7 +23176,7 @@ if.then10.i.i.i.i62.i1763:                        ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i1769 = sub nsw i32 64, %sub12.i.i.i.i64.i1765
   %sh_prom.i29.i.i.i.i.i1770 = zext nneg i32 %sub.i28.i.i.i.i.i1769 to i64
   %shl.i30.i.i.i.i.i1771 = shl i64 %sub.i.i27.i.i.i.i.i1768, %sh_prom.i29.i.i.i.i.i1770
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i1627, i32 noundef %div11.i.i.i.i63.i1764, i64 noundef %shl.i30.i.i.i.i.i1771)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i1627, i32 noundef %div11.i.i.i.i63.i1764, i64 noundef %shl.i30.i.i.i.i.i1771)
           to label %if.end14.i.i.i.i65.i1772 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1713
 
 if.end14.i.i.i.i65.i1772:                         ; preds = %if.then10.i.i.i.i62.i1763, %if.end8.i.i.i.i60.i1761
@@ -23824,7 +23824,7 @@ if.then.i.i2792:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i2794:                                 ; preds = %if.then.i.i2792, %.noexc32.i2798
   %row.012.i.i2795 = phi i32 [ %inc.i.i2799, %.noexc32.i2798 ], [ %1002, %if.then.i.i2792 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2261, ptr nonnull %flatVector.i2262, i32 noundef %row.012.i.i2795)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2261, ptr nonnull readonly %flatVector.i2262, i32 noundef %row.012.i.i2795)
           to label %.noexc32.i2798 unwind label %lpad7.loopexit.i2796
 
 .noexc32.i2798:                                   ; preds = %for.body.i.i2794
@@ -23874,7 +23874,7 @@ while.body.i.i.i.i.i.i2782:                       ; preds = %if.then3.i.i.i.i.i2
   %1011 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i2783, i1 true)
   %cast.i.i.i.i.i.i2784 = trunc nuw nsw i64 %1011 to i32
   %add.i26.i.i.i.i.i2785 = or disjoint i32 %1009, %cast.i.i.i.i.i.i2784
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2261, ptr nonnull %flatVector.i2262, i32 noundef %add.i26.i.i.i.i.i2785)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2261, ptr nonnull readonly %flatVector.i2262, i32 noundef %add.i26.i.i.i.i.i2785)
           to label %.noexc33.i2788 unwind label %lpad7.loopexit.split-lp.loopexit.i2786
 
 .noexc33.i2788:                                   ; preds = %while.body.i.i.i.i.i.i2782
@@ -23912,7 +23912,7 @@ while.body.i42.i.i.i.i.i2608:                     ; preds = %.noexc34.i2614, %wh
   %1013 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i2609, i1 true)
   %cast.i44.i.i.i.i.i2610 = trunc nuw nsw i64 %1013 to i32
   %add.i45.i.i.i.i.i2611 = or disjoint i32 %mul.i41.i.i.i.i.i2607, %cast.i44.i.i.i.i.i2610
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2261, ptr nonnull %flatVector.i2262, i32 noundef %add.i45.i.i.i.i.i2611)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2261, ptr nonnull readonly %flatVector.i2262, i32 noundef %add.i45.i.i.i.i.i2611)
           to label %.noexc34.i2614 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2612
 
 .noexc34.i2614:                                   ; preds = %while.body.i42.i.i.i.i.i2608
@@ -23965,7 +23965,7 @@ for.body.lr.ph.i.i.i.i.i.i2663:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i2665:                         ; preds = %.noexc35.i2670, %for.body.lr.ph.i.i.i.i.i.i2663
   %row.018.i.i.i.i.i.i2666 = phi i64 [ %conv.i.i.i.i.i.i2664, %for.body.lr.ph.i.i.i.i.i.i2663 ], [ %inc.i.i.i.i.i.i2671, %.noexc35.i2670 ]
   %conv7.i.i.i.i.i.i2667 = trunc i64 %row.018.i.i.i.i.i.i2666 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2261, ptr nonnull %flatVector.i2262, i32 noundef %conv7.i.i.i.i.i.i2667)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2261, ptr nonnull readonly %flatVector.i2262, i32 noundef %conv7.i.i.i.i.i.i2667)
           to label %.noexc35.i2670 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2668
 
 .noexc35.i2670:                                   ; preds = %for.body.i.i.i.i.i.i2665
@@ -24198,7 +24198,7 @@ while.body.i73.i.i.i.i.i2647:                     ; preds = %if.then19.i.i.i.i.i
   %1055 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i2648, i1 true)
   %cast.i75.i.i.i.i.i2649 = trunc nuw nsw i64 %1055 to i32
   %add.i76.i.i.i.i.i2650 = or disjoint i32 %1009, %cast.i75.i.i.i.i.i2649
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2261, ptr nonnull %flatVector.i2262, i32 noundef %add.i76.i.i.i.i.i2650)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2261, ptr nonnull readonly %flatVector.i2262, i32 noundef %add.i76.i.i.i.i.i2650)
           to label %.noexc41.i2653 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i2651
 
 .noexc41.i2653:                                   ; preds = %while.body.i73.i.i.i.i.i2647
@@ -24209,12 +24209,12 @@ while.body.i73.i.i.i.i.i2647:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i2585:                               ; preds = %.noexc41.i2653, %.noexc33.i2788, %.noexc32.i2798, %if.then19.i.i.i.i.i2637, %for.end.i.i.i7.i.i2635, %if.then3.i.i.i.i.i2764, %if.else.i.i2583, %if.then.i.i2792
   %1056 = load ptr, ptr %flatVector.i2262, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1056, ptr noundef nonnull align 8 dereferenceable(36) %958, ptr noundef nonnull align 8 dereferenceable(80) %960, ptr noundef %963, ptr noundef nonnull align 8 dereferenceable(88) %965)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1056, ptr noundef nonnull readonly align 8 dereferenceable(36) %958, ptr noundef nonnull align 8 dereferenceable(80) %960, ptr noundef %963, ptr noundef nonnull align 8 dereferenceable(88) %965)
           to label %invoke.cont10.invoke.i2342 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2343
 
 invoke.cont10.invoke.i2342:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i2506, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i2585
   %1057 = load ptr, ptr %flatVector.i2262, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1057, ptr noundef nonnull align 8 dereferenceable(36) %958, ptr noundef nonnull align 8 dereferenceable(80) %960, ptr noundef %963, ptr noundef nonnull align 8 dereferenceable(88) %965)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1057, ptr noundef nonnull readonly align 8 dereferenceable(36) %958, ptr noundef nonnull align 8 dereferenceable(80) %960, ptr noundef %963, ptr noundef nonnull align 8 dereferenceable(88) %965)
           to label %if.end.i2347 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2343
 
 lpad1.i2300:                                      ; preds = %invoke.cont.i2298
@@ -24495,7 +24495,7 @@ if.then3.i.i.i9.i.i2493:                          ; preds = %if.end.i.i.i6.i.i23
 if.then3.i.i.i9.i.invoke.i2424:                   ; preds = %if.then19.i.i.i.i74.i2419, %if.then3.i.i.i9.i.i2493
   %1097 = phi i64 [ %and7.i.i.i.i110.i2505, %if.then3.i.i.i9.i.i2493 ], [ %sub.i35.i.i.i.i.i2423, %if.then19.i.i.i.i74.i2419 ]
   %1098 = ashr i32 %1094, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2257, i32 noundef %1098, i64 noundef %1097)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2257, i32 noundef %1098, i64 noundef %1097)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2343
 
 if.end8.i.i.i.i60.i2391:                          ; preds = %if.end.i.i.i6.i.i2387
@@ -24511,7 +24511,7 @@ if.then10.i.i.i.i62.i2393:                        ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i2399 = sub nsw i32 64, %sub12.i.i.i.i64.i2395
   %sh_prom.i29.i.i.i.i.i2400 = zext nneg i32 %sub.i28.i.i.i.i.i2399 to i64
   %shl.i30.i.i.i.i.i2401 = shl i64 %sub.i.i27.i.i.i.i.i2398, %sh_prom.i29.i.i.i.i.i2400
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2257, i32 noundef %div11.i.i.i.i63.i2394, i64 noundef %shl.i30.i.i.i.i.i2401)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2257, i32 noundef %div11.i.i.i.i63.i2394, i64 noundef %shl.i30.i.i.i.i.i2401)
           to label %if.end14.i.i.i.i65.i2402 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2343
 
 if.end14.i.i.i.i65.i2402:                         ; preds = %if.then10.i.i.i.i62.i2393, %if.end8.i.i.i.i60.i2391
@@ -25161,7 +25161,7 @@ if.then.i.i3422:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i3424:                                 ; preds = %if.then.i.i3422, %.noexc32.i3428
   %row.012.i.i3425 = phi i32 [ %inc.i.i3429, %.noexc32.i3428 ], [ %1191, %if.then.i.i3422 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2850, ptr nonnull %flatVector.i2851, i32 noundef %row.012.i.i3425)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2850, ptr nonnull readonly %flatVector.i2851, i32 noundef %row.012.i.i3425)
           to label %.noexc32.i3428 unwind label %lpad7.loopexit.i3426
 
 .noexc32.i3428:                                   ; preds = %for.body.i.i3424
@@ -25211,7 +25211,7 @@ while.body.i.i.i.i.i.i3412:                       ; preds = %if.then3.i.i.i.i.i3
   %1200 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i3413, i1 true)
   %cast.i.i.i.i.i.i3414 = trunc nuw nsw i64 %1200 to i32
   %add.i26.i.i.i.i.i3415 = or disjoint i32 %1198, %cast.i.i.i.i.i.i3414
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2850, ptr nonnull %flatVector.i2851, i32 noundef %add.i26.i.i.i.i.i3415)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2850, ptr nonnull readonly %flatVector.i2851, i32 noundef %add.i26.i.i.i.i.i3415)
           to label %.noexc33.i3418 unwind label %lpad7.loopexit.split-lp.loopexit.i3416
 
 .noexc33.i3418:                                   ; preds = %while.body.i.i.i.i.i.i3412
@@ -25249,7 +25249,7 @@ while.body.i42.i.i.i.i.i3234:                     ; preds = %.noexc34.i3240, %wh
   %1202 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i3235, i1 true)
   %cast.i44.i.i.i.i.i3236 = trunc nuw nsw i64 %1202 to i32
   %add.i45.i.i.i.i.i3237 = or disjoint i32 %mul.i41.i.i.i.i.i3233, %cast.i44.i.i.i.i.i3236
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2850, ptr nonnull %flatVector.i2851, i32 noundef %add.i45.i.i.i.i.i3237)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2850, ptr nonnull readonly %flatVector.i2851, i32 noundef %add.i45.i.i.i.i.i3237)
           to label %.noexc34.i3240 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3238
 
 .noexc34.i3240:                                   ; preds = %while.body.i42.i.i.i.i.i3234
@@ -25302,7 +25302,7 @@ for.body.lr.ph.i.i.i.i.i.i3289:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i3291:                         ; preds = %.noexc35.i3296, %for.body.lr.ph.i.i.i.i.i.i3289
   %row.018.i.i.i.i.i.i3292 = phi i64 [ %conv.i.i.i.i.i.i3290, %for.body.lr.ph.i.i.i.i.i.i3289 ], [ %inc.i.i.i.i.i.i3297, %.noexc35.i3296 ]
   %conv7.i.i.i.i.i.i3293 = trunc i64 %row.018.i.i.i.i.i.i3292 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2850, ptr nonnull %flatVector.i2851, i32 noundef %conv7.i.i.i.i.i.i3293)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2850, ptr nonnull readonly %flatVector.i2851, i32 noundef %conv7.i.i.i.i.i.i3293)
           to label %.noexc35.i3296 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3294
 
 .noexc35.i3296:                                   ; preds = %for.body.i.i.i.i.i.i3291
@@ -25534,7 +25534,7 @@ while.body.i73.i.i.i.i.i3273:                     ; preds = %if.then19.i.i.i.i.i
   %1245 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i3274, i1 true)
   %cast.i75.i.i.i.i.i3275 = trunc nuw nsw i64 %1245 to i32
   %add.i76.i.i.i.i.i3276 = or disjoint i32 %1198, %cast.i75.i.i.i.i.i3275
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i2850, ptr nonnull %flatVector.i2851, i32 noundef %add.i76.i.i.i.i.i3276)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2850, ptr nonnull readonly %flatVector.i2851, i32 noundef %add.i76.i.i.i.i.i3276)
           to label %.noexc41.i3279 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i3277
 
 .noexc41.i3279:                                   ; preds = %while.body.i73.i.i.i.i.i3273
@@ -25545,12 +25545,12 @@ while.body.i73.i.i.i.i.i3273:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i3211:                               ; preds = %.noexc41.i3279, %.noexc33.i3418, %.noexc32.i3428, %if.then19.i.i.i.i.i3263, %for.end.i.i.i7.i.i3261, %if.then3.i.i.i.i.i3394, %if.else.i.i3209, %if.then.i.i3422
   %1246 = load ptr, ptr %flatVector.i2851, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1246, ptr noundef nonnull align 8 dereferenceable(36) %1147, ptr noundef nonnull align 8 dereferenceable(80) %1149, ptr noundef %1152, ptr noundef nonnull align 8 dereferenceable(88) %1154)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1246, ptr noundef nonnull readonly align 8 dereferenceable(36) %1147, ptr noundef nonnull align 8 dereferenceable(80) %1149, ptr noundef %1152, ptr noundef nonnull align 8 dereferenceable(88) %1154)
           to label %invoke.cont10.invoke.i2931 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2932
 
 invoke.cont10.invoke.i2931:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i3129, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i3211
   %1247 = load ptr, ptr %flatVector.i2851, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1247, ptr noundef nonnull align 8 dereferenceable(36) %1147, ptr noundef nonnull align 8 dereferenceable(80) %1149, ptr noundef %1152, ptr noundef nonnull align 8 dereferenceable(88) %1154)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1247, ptr noundef nonnull readonly align 8 dereferenceable(36) %1147, ptr noundef nonnull align 8 dereferenceable(80) %1149, ptr noundef %1152, ptr noundef nonnull align 8 dereferenceable(88) %1154)
           to label %if.end.i2936 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2932
 
 lpad1.i2889:                                      ; preds = %invoke.cont.i2887
@@ -25830,7 +25830,7 @@ if.then3.i.i.i9.i.i3116:                          ; preds = %if.end.i.i.i6.i.i29
 if.then3.i.i.i9.i.invoke.i3013:                   ; preds = %if.then19.i.i.i.i74.i3008, %if.then3.i.i.i9.i.i3116
   %1288 = phi i64 [ %and7.i.i.i.i110.i3128, %if.then3.i.i.i9.i.i3116 ], [ %sub.i35.i.i.i.i.i3012, %if.then19.i.i.i.i74.i3008 ]
   %1289 = ashr i32 %1285, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2846, i32 noundef %1289, i64 noundef %1288)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2846, i32 noundef %1289, i64 noundef %1288)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2932
 
 if.end8.i.i.i.i60.i2980:                          ; preds = %if.end.i.i.i6.i.i2976
@@ -25846,7 +25846,7 @@ if.then10.i.i.i.i62.i2982:                        ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i2988 = sub nsw i32 64, %sub12.i.i.i.i64.i2984
   %sh_prom.i29.i.i.i.i.i2989 = zext nneg i32 %sub.i28.i.i.i.i.i2988 to i64
   %shl.i30.i.i.i.i.i2990 = shl i64 %sub.i.i27.i.i.i.i.i2987, %sh_prom.i29.i.i.i.i.i2989
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2846, i32 noundef %div11.i.i.i.i63.i2983, i64 noundef %shl.i30.i.i.i.i.i2990)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i2846, i32 noundef %div11.i.i.i.i63.i2983, i64 noundef %shl.i30.i.i.i.i.i2990)
           to label %if.end14.i.i.i.i65.i2991 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2932
 
 if.end14.i.i.i.i65.i2991:                         ; preds = %if.then10.i.i.i.i62.i2982, %if.end8.i.i.i.i60.i2980
@@ -26494,7 +26494,7 @@ if.then.i.i4052:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i4054:                                 ; preds = %if.then.i.i4052, %.noexc32.i4058
   %row.012.i.i4055 = phi i32 [ %inc.i.i4059, %.noexc32.i4058 ], [ %1384, %if.then.i.i4052 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i3480, ptr nonnull %flatVector.i3481, i32 noundef %row.012.i.i4055)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3480, ptr nonnull readonly %flatVector.i3481, i32 noundef %row.012.i.i4055)
           to label %.noexc32.i4058 unwind label %lpad7.loopexit.i4056
 
 .noexc32.i4058:                                   ; preds = %for.body.i.i4054
@@ -26544,7 +26544,7 @@ while.body.i.i.i.i.i.i4042:                       ; preds = %if.then3.i.i.i.i.i4
   %1393 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i4043, i1 true)
   %cast.i.i.i.i.i.i4044 = trunc nuw nsw i64 %1393 to i32
   %add.i26.i.i.i.i.i4045 = or disjoint i32 %1391, %cast.i.i.i.i.i.i4044
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i3480, ptr nonnull %flatVector.i3481, i32 noundef %add.i26.i.i.i.i.i4045)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3480, ptr nonnull readonly %flatVector.i3481, i32 noundef %add.i26.i.i.i.i.i4045)
           to label %.noexc33.i4048 unwind label %lpad7.loopexit.split-lp.loopexit.i4046
 
 .noexc33.i4048:                                   ; preds = %while.body.i.i.i.i.i.i4042
@@ -26582,7 +26582,7 @@ while.body.i42.i.i.i.i.i3864:                     ; preds = %.noexc34.i3870, %wh
   %1395 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i3865, i1 true)
   %cast.i44.i.i.i.i.i3866 = trunc nuw nsw i64 %1395 to i32
   %add.i45.i.i.i.i.i3867 = or disjoint i32 %mul.i41.i.i.i.i.i3863, %cast.i44.i.i.i.i.i3866
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i3480, ptr nonnull %flatVector.i3481, i32 noundef %add.i45.i.i.i.i.i3867)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3480, ptr nonnull readonly %flatVector.i3481, i32 noundef %add.i45.i.i.i.i.i3867)
           to label %.noexc34.i3870 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3868
 
 .noexc34.i3870:                                   ; preds = %while.body.i42.i.i.i.i.i3864
@@ -26635,7 +26635,7 @@ for.body.lr.ph.i.i.i.i.i.i3919:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i3921:                         ; preds = %.noexc35.i3926, %for.body.lr.ph.i.i.i.i.i.i3919
   %row.018.i.i.i.i.i.i3922 = phi i64 [ %conv.i.i.i.i.i.i3920, %for.body.lr.ph.i.i.i.i.i.i3919 ], [ %inc.i.i.i.i.i.i3927, %.noexc35.i3926 ]
   %conv7.i.i.i.i.i.i3923 = trunc i64 %row.018.i.i.i.i.i.i3922 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i3480, ptr nonnull %flatVector.i3481, i32 noundef %conv7.i.i.i.i.i.i3923)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3480, ptr nonnull readonly %flatVector.i3481, i32 noundef %conv7.i.i.i.i.i.i3923)
           to label %.noexc35.i3926 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3924
 
 .noexc35.i3926:                                   ; preds = %for.body.i.i.i.i.i.i3921
@@ -26867,7 +26867,7 @@ while.body.i73.i.i.i.i.i3903:                     ; preds = %if.then19.i.i.i.i.i
   %1438 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i3904, i1 true)
   %cast.i75.i.i.i.i.i3905 = trunc nuw nsw i64 %1438 to i32
   %add.i76.i.i.i.i.i3906 = or disjoint i32 %1391, %cast.i75.i.i.i.i.i3905
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i3480, ptr nonnull %flatVector.i3481, i32 noundef %add.i76.i.i.i.i.i3906)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3480, ptr nonnull readonly %flatVector.i3481, i32 noundef %add.i76.i.i.i.i.i3906)
           to label %.noexc41.i3909 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i3907
 
 .noexc41.i3909:                                   ; preds = %while.body.i73.i.i.i.i.i3903
@@ -26878,12 +26878,12 @@ while.body.i73.i.i.i.i.i3903:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i3841:                               ; preds = %.noexc41.i3909, %.noexc33.i4048, %.noexc32.i4058, %if.then19.i.i.i.i.i3893, %for.end.i.i.i7.i.i3891, %if.then3.i.i.i.i.i4024, %if.else.i.i3839, %if.then.i.i4052
   %1439 = load ptr, ptr %flatVector.i3481, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1439, ptr noundef nonnull align 8 dereferenceable(36) %1340, ptr noundef nonnull align 8 dereferenceable(80) %1342, ptr noundef %1345, ptr noundef nonnull align 8 dereferenceable(88) %1347)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1439, ptr noundef nonnull readonly align 8 dereferenceable(36) %1340, ptr noundef nonnull align 8 dereferenceable(80) %1342, ptr noundef %1345, ptr noundef nonnull align 8 dereferenceable(88) %1347)
           to label %invoke.cont10.invoke.i3561 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3562
 
 invoke.cont10.invoke.i3561:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i3759, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i3841
   %1440 = load ptr, ptr %flatVector.i3481, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1440, ptr noundef nonnull align 8 dereferenceable(36) %1340, ptr noundef nonnull align 8 dereferenceable(80) %1342, ptr noundef %1345, ptr noundef nonnull align 8 dereferenceable(88) %1347)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1440, ptr noundef nonnull readonly align 8 dereferenceable(36) %1340, ptr noundef nonnull align 8 dereferenceable(80) %1342, ptr noundef %1345, ptr noundef nonnull align 8 dereferenceable(88) %1347)
           to label %if.end.i3566 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3562
 
 lpad1.i3519:                                      ; preds = %invoke.cont.i3517
@@ -27163,7 +27163,7 @@ if.then3.i.i.i9.i.i3746:                          ; preds = %if.end.i.i.i6.i.i36
 if.then3.i.i.i9.i.invoke.i3643:                   ; preds = %if.then19.i.i.i.i74.i3638, %if.then3.i.i.i9.i.i3746
   %1481 = phi i64 [ %and7.i.i.i.i110.i3758, %if.then3.i.i.i9.i.i3746 ], [ %sub.i35.i.i.i.i.i3642, %if.then19.i.i.i.i74.i3638 ]
   %1482 = ashr i32 %1478, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i3476, i32 noundef %1482, i64 noundef %1481)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i3476, i32 noundef %1482, i64 noundef %1481)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3562
 
 if.end8.i.i.i.i60.i3610:                          ; preds = %if.end.i.i.i6.i.i3606
@@ -27179,7 +27179,7 @@ if.then10.i.i.i.i62.i3612:                        ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i3618 = sub nsw i32 64, %sub12.i.i.i.i64.i3614
   %sh_prom.i29.i.i.i.i.i3619 = zext nneg i32 %sub.i28.i.i.i.i.i3618 to i64
   %shl.i30.i.i.i.i.i3620 = shl i64 %sub.i.i27.i.i.i.i.i3617, %sh_prom.i29.i.i.i.i.i3619
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i3476, i32 noundef %div11.i.i.i.i63.i3613, i64 noundef %shl.i30.i.i.i.i.i3620)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i3476, i32 noundef %div11.i.i.i.i63.i3613, i64 noundef %shl.i30.i.i.i.i.i3620)
           to label %if.end14.i.i.i.i65.i3621 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3562
 
 if.end14.i.i.i.i65.i3621:                         ; preds = %if.then10.i.i.i.i62.i3612, %if.end8.i.i.i.i60.i3610
@@ -27827,7 +27827,7 @@ if.then.i.i4550:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i4552:                                 ; preds = %if.then.i.i4550, %.noexc28.i4556
   %row.012.i.i4553 = phi i32 [ %inc.i.i4557, %.noexc28.i4556 ], [ %1577, %if.then.i.i4550 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4109, ptr nonnull %flatVector.i4110, i32 noundef %row.012.i.i4553)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4109, ptr nonnull readonly %flatVector.i4110, i32 noundef %row.012.i.i4553)
           to label %.noexc28.i4556 unwind label %lpad7.loopexit.i4554
 
 .noexc28.i4556:                                   ; preds = %for.body.i.i4552
@@ -27877,7 +27877,7 @@ while.body.i.i.i.i.i.i4540:                       ; preds = %if.then3.i.i.i.i.i4
   %1586 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i4541, i1 true)
   %cast.i.i.i.i.i.i4542 = trunc nuw nsw i64 %1586 to i32
   %add.i26.i.i.i.i.i4543 = or disjoint i32 %1584, %cast.i.i.i.i.i.i4542
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4109, ptr nonnull %flatVector.i4110, i32 noundef %add.i26.i.i.i.i.i4543)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4109, ptr nonnull readonly %flatVector.i4110, i32 noundef %add.i26.i.i.i.i.i4543)
           to label %.noexc29.i4546 unwind label %lpad7.loopexit.split-lp.loopexit.i4544
 
 .noexc29.i4546:                                   ; preds = %while.body.i.i.i.i.i.i4540
@@ -27915,7 +27915,7 @@ while.body.i42.i.i.i.i.i4388:                     ; preds = %.noexc30.i4394, %wh
   %1588 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i4389, i1 true)
   %cast.i44.i.i.i.i.i4390 = trunc nuw nsw i64 %1588 to i32
   %add.i45.i.i.i.i.i4391 = or disjoint i32 %mul.i41.i.i.i.i.i4387, %cast.i44.i.i.i.i.i4390
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4109, ptr nonnull %flatVector.i4110, i32 noundef %add.i45.i.i.i.i.i4391)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4109, ptr nonnull readonly %flatVector.i4110, i32 noundef %add.i45.i.i.i.i.i4391)
           to label %.noexc30.i4394 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4392
 
 .noexc30.i4394:                                   ; preds = %while.body.i42.i.i.i.i.i4388
@@ -27968,7 +27968,7 @@ for.body.lr.ph.i.i.i.i.i.i4443:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i4445:                         ; preds = %.noexc31.i4450, %for.body.lr.ph.i.i.i.i.i.i4443
   %row.018.i.i.i.i.i.i4446 = phi i64 [ %conv.i.i.i.i.i.i4444, %for.body.lr.ph.i.i.i.i.i.i4443 ], [ %inc.i.i.i.i.i.i4451, %.noexc31.i4450 ]
   %conv7.i.i.i.i.i.i4447 = trunc i64 %row.018.i.i.i.i.i.i4446 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4109, ptr nonnull %flatVector.i4110, i32 noundef %conv7.i.i.i.i.i.i4447)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4109, ptr nonnull readonly %flatVector.i4110, i32 noundef %conv7.i.i.i.i.i.i4447)
           to label %.noexc31.i4450 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4448
 
 .noexc31.i4450:                                   ; preds = %for.body.i.i.i.i.i.i4445
@@ -28147,7 +28147,7 @@ while.body.i73.i.i.i.i.i4427:                     ; preds = %if.then19.i.i.i.i.i
   %1621 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i4428, i1 true)
   %cast.i75.i.i.i.i.i4429 = trunc nuw nsw i64 %1621 to i32
   %add.i76.i.i.i.i.i4430 = or disjoint i32 %1584, %cast.i75.i.i.i.i.i4429
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4109, ptr nonnull %flatVector.i4110, i32 noundef %add.i76.i.i.i.i.i4430)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4109, ptr nonnull readonly %flatVector.i4110, i32 noundef %add.i76.i.i.i.i.i4430)
           to label %.noexc35.i4433 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i4431
 
 .noexc35.i4433:                                   ; preds = %while.body.i73.i.i.i.i.i4427
@@ -28158,7 +28158,7 @@ while.body.i73.i.i.i.i.i4427:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i4366:                               ; preds = %.noexc35.i4433, %.noexc29.i4546, %.noexc28.i4556, %if.then19.i.i.i.i.i4417, %for.end.i.i.i7.i.i4415, %if.then3.i.i.i.i.i4522, %if.else.i.i4364, %if.then.i.i4550
   %1622 = load ptr, ptr %flatVector.i4110, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1622, ptr noundef nonnull align 8 dereferenceable(36) %1533, ptr noundef nonnull align 8 dereferenceable(80) %1535, ptr noundef %1538, ptr noundef nonnull align 8 dereferenceable(88) %1540)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1622, ptr noundef nonnull readonly align 8 dereferenceable(36) %1533, ptr noundef nonnull align 8 dereferenceable(80) %1535, ptr noundef %1538, ptr noundef nonnull align 8 dereferenceable(88) %1540)
           to label %invoke.cont14.invoke.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4187
 
 lpad1.i4148:                                      ; preds = %invoke.cont.i4146
@@ -28715,7 +28715,7 @@ invoke.cont14.i4186:                              ; preds = %.noexc162.i4270, %.
 
 invoke.cont14.invoke.i:                           ; preds = %invoke.cont14.i4186, %invoke.cont8.i4366
   %1692 = phi ptr [ %1691, %invoke.cont14.i4186 ], [ %1622, %invoke.cont8.i4366 ]
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1692, ptr noundef nonnull align 8 dereferenceable(36) %1533, ptr noundef nonnull align 8 dereferenceable(80) %1535, ptr noundef %1538, ptr noundef nonnull align 8 dereferenceable(88) %1540)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1692, ptr noundef nonnull readonly align 8 dereferenceable(36) %1533, ptr noundef nonnull align 8 dereferenceable(80) %1535, ptr noundef %1538, ptr noundef nonnull align 8 dereferenceable(88) %1540)
           to label %if.end.i4190 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4187
 
 if.end.i4190:                                     ; preds = %invoke.cont14.invoke.i
@@ -29113,7 +29113,7 @@ if.then.i.i5187:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i5189:                                 ; preds = %if.then.i.i5187, %.noexc28.i5193
   %row.012.i.i5190 = phi i32 [ %inc.i.i5194, %.noexc28.i5193 ], [ %1753, %if.then.i.i5187 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4607, ptr nonnull %flatVector.i4608, i32 noundef %row.012.i.i5190)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4607, ptr nonnull readonly %flatVector.i4608, i32 noundef %row.012.i.i5190)
           to label %.noexc28.i5193 unwind label %lpad7.loopexit.i5191
 
 .noexc28.i5193:                                   ; preds = %for.body.i.i5189
@@ -29163,7 +29163,7 @@ while.body.i.i.i.i.i.i5177:                       ; preds = %if.then3.i.i.i.i.i5
   %1762 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i5178, i1 true)
   %cast.i.i.i.i.i.i5179 = trunc nuw nsw i64 %1762 to i32
   %add.i26.i.i.i.i.i5180 = or disjoint i32 %1760, %cast.i.i.i.i.i.i5179
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4607, ptr nonnull %flatVector.i4608, i32 noundef %add.i26.i.i.i.i.i5180)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4607, ptr nonnull readonly %flatVector.i4608, i32 noundef %add.i26.i.i.i.i.i5180)
           to label %.noexc29.i5183 unwind label %lpad7.loopexit.split-lp.loopexit.i5181
 
 .noexc29.i5183:                                   ; preds = %while.body.i.i.i.i.i.i5177
@@ -29201,7 +29201,7 @@ while.body.i42.i.i.i.i.i5021:                     ; preds = %.noexc30.i5027, %wh
   %1764 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i5022, i1 true)
   %cast.i44.i.i.i.i.i5023 = trunc nuw nsw i64 %1764 to i32
   %add.i45.i.i.i.i.i5024 = or disjoint i32 %mul.i41.i.i.i.i.i5020, %cast.i44.i.i.i.i.i5023
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4607, ptr nonnull %flatVector.i4608, i32 noundef %add.i45.i.i.i.i.i5024)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4607, ptr nonnull readonly %flatVector.i4608, i32 noundef %add.i45.i.i.i.i.i5024)
           to label %.noexc30.i5027 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5025
 
 .noexc30.i5027:                                   ; preds = %while.body.i42.i.i.i.i.i5021
@@ -29254,7 +29254,7 @@ for.body.lr.ph.i.i.i.i.i.i5076:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i5078:                         ; preds = %.noexc31.i5083, %for.body.lr.ph.i.i.i.i.i.i5076
   %row.018.i.i.i.i.i.i5079 = phi i64 [ %conv.i.i.i.i.i.i5077, %for.body.lr.ph.i.i.i.i.i.i5076 ], [ %inc.i.i.i.i.i.i5084, %.noexc31.i5083 ]
   %conv7.i.i.i.i.i.i5080 = trunc i64 %row.018.i.i.i.i.i.i5079 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4607, ptr nonnull %flatVector.i4608, i32 noundef %conv7.i.i.i.i.i.i5080)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4607, ptr nonnull readonly %flatVector.i4608, i32 noundef %conv7.i.i.i.i.i.i5080)
           to label %.noexc31.i5083 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5081
 
 .noexc31.i5083:                                   ; preds = %for.body.i.i.i.i.i.i5078
@@ -29433,7 +29433,7 @@ while.body.i73.i.i.i.i.i5060:                     ; preds = %if.then19.i.i.i.i.i
   %1797 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i5061, i1 true)
   %cast.i75.i.i.i.i.i5062 = trunc nuw nsw i64 %1797 to i32
   %add.i76.i.i.i.i.i5063 = or disjoint i32 %1760, %cast.i75.i.i.i.i.i5062
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i4607, ptr nonnull %flatVector.i4608, i32 noundef %add.i76.i.i.i.i.i5063)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4607, ptr nonnull readonly %flatVector.i4608, i32 noundef %add.i76.i.i.i.i.i5063)
           to label %.noexc35.i5066 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i5064
 
 .noexc35.i5066:                                   ; preds = %while.body.i73.i.i.i.i.i5060
@@ -29444,7 +29444,7 @@ while.body.i73.i.i.i.i.i5060:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i4999:                               ; preds = %.noexc35.i5066, %.noexc29.i5183, %.noexc28.i5193, %if.then19.i.i.i.i.i5050, %for.end.i.i.i7.i.i5048, %if.then3.i.i.i.i.i5159, %if.else.i.i4997, %if.then.i.i5187
   %1798 = load ptr, ptr %flatVector.i4608, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1798, ptr noundef nonnull align 8 dereferenceable(36) %1709, ptr noundef nonnull align 8 dereferenceable(80) %1711, ptr noundef %1714, ptr noundef nonnull align 8 dereferenceable(88) %1716)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1798, ptr noundef nonnull readonly align 8 dereferenceable(36) %1709, ptr noundef nonnull align 8 dereferenceable(80) %1711, ptr noundef %1714, ptr noundef nonnull align 8 dereferenceable(88) %1716)
           to label %invoke.cont14.invoke.i4686 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4687
 
 lpad1.i4646:                                      ; preds = %invoke.cont.i4644
@@ -30001,7 +30001,7 @@ invoke.cont14.i4685:                              ; preds = %.noexc162.i4829, %.
 
 invoke.cont14.invoke.i4686:                       ; preds = %invoke.cont14.i4685, %invoke.cont8.i4999
   %1868 = phi ptr [ %1867, %invoke.cont14.i4685 ], [ %1798, %invoke.cont8.i4999 ]
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1868, ptr noundef nonnull align 8 dereferenceable(36) %1709, ptr noundef nonnull align 8 dereferenceable(80) %1711, ptr noundef %1714, ptr noundef nonnull align 8 dereferenceable(88) %1716)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1868, ptr noundef nonnull readonly align 8 dereferenceable(36) %1709, ptr noundef nonnull align 8 dereferenceable(80) %1711, ptr noundef %1714, ptr noundef nonnull align 8 dereferenceable(88) %1716)
           to label %if.end.i4691 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4687
 
 if.end.i4691:                                     ; preds = %invoke.cont14.invoke.i4686
@@ -30399,7 +30399,7 @@ if.then.i.i5796:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i5798:                                 ; preds = %if.then.i.i5796, %.noexc32.i5802
   %row.012.i.i5799 = phi i32 [ %inc.i.i5803, %.noexc32.i5802 ], [ %1929, %if.then.i.i5796 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i5245, ptr nonnull %flatVector.i5246, i32 noundef %row.012.i.i5799)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5245, ptr nonnull readonly %flatVector.i5246, i32 noundef %row.012.i.i5799)
           to label %.noexc32.i5802 unwind label %lpad7.loopexit.i5800
 
 .noexc32.i5802:                                   ; preds = %for.body.i.i5798
@@ -30449,7 +30449,7 @@ while.body.i.i.i.i.i.i5786:                       ; preds = %if.then3.i.i.i.i.i5
   %1938 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i5787, i1 true)
   %cast.i.i.i.i.i.i5788 = trunc nuw nsw i64 %1938 to i32
   %add.i26.i.i.i.i.i5789 = or disjoint i32 %1936, %cast.i.i.i.i.i.i5788
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i5245, ptr nonnull %flatVector.i5246, i32 noundef %add.i26.i.i.i.i.i5789)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5245, ptr nonnull readonly %flatVector.i5246, i32 noundef %add.i26.i.i.i.i.i5789)
           to label %.noexc33.i5792 unwind label %lpad7.loopexit.split-lp.loopexit.i5790
 
 .noexc33.i5792:                                   ; preds = %while.body.i.i.i.i.i.i5786
@@ -30487,7 +30487,7 @@ while.body.i42.i.i.i.i.i5605:                     ; preds = %.noexc34.i5611, %wh
   %1940 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i5606, i1 true)
   %cast.i44.i.i.i.i.i5607 = trunc nuw nsw i64 %1940 to i32
   %add.i45.i.i.i.i.i5608 = or disjoint i32 %mul.i41.i.i.i.i.i5604, %cast.i44.i.i.i.i.i5607
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i5245, ptr nonnull %flatVector.i5246, i32 noundef %add.i45.i.i.i.i.i5608)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5245, ptr nonnull readonly %flatVector.i5246, i32 noundef %add.i45.i.i.i.i.i5608)
           to label %.noexc34.i5611 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5609
 
 .noexc34.i5611:                                   ; preds = %while.body.i42.i.i.i.i.i5605
@@ -30540,7 +30540,7 @@ for.body.lr.ph.i.i.i.i.i.i5660:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i5662:                         ; preds = %.noexc35.i5667, %for.body.lr.ph.i.i.i.i.i.i5660
   %row.018.i.i.i.i.i.i5663 = phi i64 [ %conv.i.i.i.i.i.i5661, %for.body.lr.ph.i.i.i.i.i.i5660 ], [ %inc.i.i.i.i.i.i5668, %.noexc35.i5667 ]
   %conv7.i.i.i.i.i.i5664 = trunc i64 %row.018.i.i.i.i.i.i5663 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i5245, ptr nonnull %flatVector.i5246, i32 noundef %conv7.i.i.i.i.i.i5664)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5245, ptr nonnull readonly %flatVector.i5246, i32 noundef %conv7.i.i.i.i.i.i5664)
           to label %.noexc35.i5667 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5665
 
 .noexc35.i5667:                                   ; preds = %for.body.i.i.i.i.i.i5662
@@ -30772,7 +30772,7 @@ while.body.i73.i.i.i.i.i5644:                     ; preds = %if.then19.i.i.i.i.i
   %1983 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i5645, i1 true)
   %cast.i75.i.i.i.i.i5646 = trunc nuw nsw i64 %1983 to i32
   %add.i76.i.i.i.i.i5647 = or disjoint i32 %1936, %cast.i75.i.i.i.i.i5646
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull %decoded.i5245, ptr nonnull %flatVector.i5246, i32 noundef %add.i76.i.i.i.i.i5647)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5245, ptr nonnull readonly %flatVector.i5246, i32 noundef %add.i76.i.i.i.i.i5647)
           to label %.noexc41.i5650 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i5648
 
 .noexc41.i5650:                                   ; preds = %while.body.i73.i.i.i.i.i5644
@@ -30783,12 +30783,12 @@ while.body.i73.i.i.i.i.i5644:                     ; preds = %if.then19.i.i.i.i.i
 
 invoke.cont8.i5582:                               ; preds = %.noexc41.i5650, %.noexc33.i5792, %.noexc32.i5802, %if.then19.i.i.i.i.i5634, %for.end.i.i.i7.i.i5632, %if.then3.i.i.i.i.i5768, %if.else.i.i5580, %if.then.i.i5796
   %1984 = load ptr, ptr %flatVector.i5246, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1984, ptr noundef nonnull align 8 dereferenceable(36) %1885, ptr noundef nonnull align 8 dereferenceable(80) %1887, ptr noundef %1890, ptr noundef nonnull align 8 dereferenceable(88) %1892)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1984, ptr noundef nonnull readonly align 8 dereferenceable(36) %1885, ptr noundef nonnull align 8 dereferenceable(80) %1887, ptr noundef %1890, ptr noundef nonnull align 8 dereferenceable(88) %1892)
           to label %invoke.cont10.invoke.i5326 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i5327
 
 invoke.cont10.invoke.i5326:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %if.then.i111.i5497, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %invoke.cont8.i5582
   %1985 = load ptr, ptr %flatVector.i5246, align 16
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1985, ptr noundef nonnull align 8 dereferenceable(36) %1885, ptr noundef nonnull align 8 dereferenceable(80) %1887, ptr noundef %1890, ptr noundef nonnull align 8 dereferenceable(88) %1892)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1985, ptr noundef nonnull readonly align 8 dereferenceable(36) %1885, ptr noundef nonnull align 8 dereferenceable(80) %1887, ptr noundef %1890, ptr noundef nonnull align 8 dereferenceable(88) %1892)
           to label %if.end.i5331 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i5327
 
 lpad1.i5284:                                      ; preds = %invoke.cont.i5282
@@ -31068,7 +31068,7 @@ if.then3.i.i.i9.i.i5484:                          ; preds = %if.end.i.i.i6.i.i53
 if.then3.i.i.i9.i.invoke.i5408:                   ; preds = %if.then19.i.i.i.i74.i5403, %if.then3.i.i.i9.i.i5484
   %2026 = phi i64 [ %and7.i.i.i.i110.i5496, %if.then3.i.i.i9.i.i5484 ], [ %sub.i35.i.i.i.i.i5407, %if.then19.i.i.i.i74.i5403 ]
   %2027 = ashr i32 %2023, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i5241, i32 noundef %2027, i64 noundef %2026)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i5241, i32 noundef %2027, i64 noundef %2026)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i5327
 
 if.end8.i.i.i.i60.i5375:                          ; preds = %if.end.i.i.i6.i.i5371
@@ -31084,7 +31084,7 @@ if.then10.i.i.i.i62.i5377:                        ; preds = %if.end8.i.i.i.i60.i
   %sub.i28.i.i.i.i.i5383 = sub nsw i32 64, %sub12.i.i.i.i64.i5379
   %sh_prom.i29.i.i.i.i.i5384 = zext nneg i32 %sub.i28.i.i.i.i.i5383 to i64
   %shl.i30.i.i.i.i.i5385 = shl i64 %sub.i.i27.i.i.i.i.i5382, %sh_prom.i29.i.i.i.i.i5384
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i5241, i32 noundef %div11.i.i.i.i63.i5378, i64 noundef %shl.i30.i.i.i.i.i5385)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i5241, i32 noundef %div11.i.i.i.i63.i5378, i64 noundef %shl.i30.i.i.i.i.i5385)
           to label %if.end14.i.i.i.i65.i5386 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i5327
 
 if.end14.i.i.i.i65.i5386:                         ; preds = %if.then10.i.i.i.i62.i5377, %if.end8.i.i.i.i60.i5375
@@ -203071,7 +203071,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

@@ -655,7 +655,7 @@ _ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit40: ; 
   br label %for.inc
 
 if.else84:                                        ; preds = %if.else
-  %call.i = call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef nonnull %retval.0.i.i)
+  %call.i = call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef nonnull readonly %retval.0.i.i)
   %call10.i = call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr nonnull %call36) #22
   br i1 %call10.i, label %do.body91, label %do.body106
 
@@ -1142,7 +1142,7 @@ if.end.i212:                                      ; preds = %do.body10
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit220: ; preds = %if.end.i212, %if.then.i217
   %retval.i203.sroa.0.0 = phi ptr [ %27, %if.then.i217 ], [ %add.ptr.i215, %if.end.i212 ]
-  %call.i = tail call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %23)
+  %call.i = tail call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %23)
   %call10.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i203.sroa.0.0) #22
   br i1 %call10.i, label %lor.lhs.false.i191, label %do.body24
 

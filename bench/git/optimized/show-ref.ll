@@ -489,7 +489,7 @@ land.lhs.true.i7:                                 ; preds = %lor.lhs.false4.i, %
 
 if.then9.i:                                       ; preds = %land.lhs.true.i7
   %17 = load ptr, ptr %refs.addr.011.i, align 8
-  call fastcc void @show_one(ptr noundef nonnull %show_one_opts, ptr noundef %17, ptr noundef nonnull %oid.i)
+  call fastcc void @show_one(ptr noundef nonnull readonly %show_one_opts, ptr noundef %17, ptr noundef nonnull %oid.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %refs.addr.011.i, i64 8
   %.pr.i = load ptr, ptr %incdec.ptr.i, align 8
   %tobool2.not.i = icmp eq ptr %.pr.i, null

@@ -101,13 +101,13 @@ define internal fastcc ptr @gvplugin_package_record(ptr nocapture noundef %0, pt
   br i1 %.not, label %gv_strdup.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #20
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #20
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %gv_strdup.exit
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #21
   %11 = add i64 %10, 1
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.11, i64 noundef %11) #22
   tail call fastcc void @graphviz_exit() #23
@@ -117,13 +117,13 @@ gv_strdup.exit:                                   ; preds = %5, %3
   %13 = phi ptr [ null, %3 ], [ %6, %5 ]
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = tail call noalias ptr @strdup(ptr noundef %2) #20
+  %15 = tail call noalias ptr @strdup(ptr noundef readonly %2) #20
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %gv_strdup.exit10
 
 17:                                               ; preds = %gv_strdup.exit
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #21
   %20 = add i64 %19, 1
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.11, i64 noundef %20) #22
   tail call fastcc void @graphviz_exit() #23
@@ -258,13 +258,13 @@ define void @gvconfig(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr 
   %22 = tail call ptr @gmalloc(i64 noundef 24) #20
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr null, ptr %23, align 8
-  %24 = tail call noalias ptr @strdup(ptr noundef %21) #20
+  %24 = tail call noalias ptr @strdup(ptr noundef readonly %21) #20
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %gvplugin_package_record.exit.i
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #21
+  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #21
   %29 = add i64 %28, 1
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.11, i64 noundef %29) #22
   tail call fastcc void @graphviz_exit() #23
@@ -383,7 +383,7 @@ gvconfig_libdir.exit:                             ; preds = %62, %66, %67
 
 agxblen.exit.i:                                   ; preds = %76
   %78 = zext i8 %.val.i to i64
-  %79 = call noalias ptr @strndup(ptr noundef nonnull %6, i64 noundef %78) #20
+  %79 = call noalias ptr @strndup(ptr noundef nonnull readonly %6, i64 noundef %78) #20
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %agxbdisown.exit
 
@@ -590,7 +590,7 @@ agxbuse.exit.i:                                   ; preds = %143, %agxbclear.exi
   br i1 %154, label %is_plugin.exit67.thread.us.i, label %155
 
 155:                                              ; preds = %.lr.ph79.split.us.i
-  %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %153) #21
+  %156 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %153) #21
   %157 = getelementptr inbounds i8, ptr %153, i64 %156
   %strcmpload.i56.us.i = load i8, ptr %157, align 1
   %.not.i57.us.i = icmp ne i8 %strcmpload.i56.us.i, 0
@@ -626,7 +626,7 @@ agxbuse.exit.i:                                   ; preds = %143, %agxbclear.exi
 is_plugin.exit67.us.i:                            ; preds = %.critedge.i65.us.i
   %170 = getelementptr inbounds i8, ptr %153, i64 %.022.i63.us.i
   %171 = getelementptr inbounds i8, ptr %170, i64 -4
-  %172 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #21
+  %172 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %171, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #21
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %is_plugin.exit67.thread.us.i
 
@@ -655,7 +655,7 @@ is_plugin.exit67.thread.us.i:                     ; preds = %176, %174, %is_plug
   br i1 %185, label %gvconfig_plugin_install_from_library.exit.i43, label %186
 
 186:                                              ; preds = %181
-  %187 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %184) #21
+  %187 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %184) #21
   %188 = getelementptr inbounds i8, ptr %184, i64 %187
   %strcmpload.i.i = load i8, ptr %188, align 1
   %.not.i53.i = icmp ne i8 %strcmpload.i.i, 0
@@ -696,7 +696,7 @@ is_plugin.exit67.thread.us.i:                     ; preds = %176, %174, %is_plug
 is_plugin.exit.i:                                 ; preds = %.critedge.i.i
   %203 = getelementptr inbounds i8, ptr %184, i64 %.022.i.i
   %204 = getelementptr inbounds i8, ptr %203, i64 -4
-  %205 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #21
+  %205 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %204, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #21
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %gvconfig_plugin_install_from_library.exit.i43
 
@@ -762,7 +762,7 @@ gvconfig_plugin_install_from_library.exit.i43:    ; preds = %200, %._crit_edge.i
   br i1 %239, label %is_plugin.exit67.thread.i, label %240
 
 240:                                              ; preds = %.lr.ph79.split.i
-  %241 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %238) #21
+  %241 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %238) #21
   %242 = getelementptr inbounds i8, ptr %238, i64 %241
   %strcmpload.i56.i = load i8, ptr %242, align 1
   %.not.i57.i = icmp ne i8 %strcmpload.i56.i, 0
@@ -803,7 +803,7 @@ gvconfig_plugin_install_from_library.exit.i43:    ; preds = %200, %._crit_edge.i
 is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
   %257 = getelementptr inbounds i8, ptr %238, i64 %.022.i63.i
   %258 = getelementptr inbounds i8, ptr %257, i64 -4
-  %259 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %258, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #21
+  %259 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %258, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #21
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %is_plugin.exit67.thread.i
 

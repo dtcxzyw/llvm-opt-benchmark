@@ -84,7 +84,7 @@ define noundef zeroext i1 @"_ZN80_$LT$base64..display..FormatterSink$u20$as$u20$
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.563ef019a64827af2993a0386c5e69fb.6, i64 noundef 24, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.563ef019a64827af2993a0386c5e69fb.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.563ef019a64827af2993a0386c5e69fb.8) #7, !noalias !6
   unreachable
 

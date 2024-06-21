@@ -13655,7 +13655,7 @@ define noundef zeroext i1 @_ZTv0_n56_N3nix16BinaryCacheStore19isValidPathUncache
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZN3nix16BinaryCacheStore14narInfoFileForB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void @_ZN3nix16BinaryCacheStore14narInfoFileForB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr nonnull align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %1)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -69585,7 +69585,7 @@ define internal void @"_ZNSt17_Function_handlerIFN3nix13ValidPathInfoESt4pairINS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !498)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8), !noalias !501
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !501
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull readonly align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !501
   tail call void @llvm.experimental.noalias.scope.decl(metadata !502)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5), !noalias !501
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6), !noalias !501
@@ -69771,7 +69771,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix13ValidPathI
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16BinaryCacheStore18addToStoreFromDumpERNS1_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS1_23FileSerialisationMethodENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISD_ESaISD_EENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
@@ -71519,7 +71519,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16BinaryCacheStore10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
@@ -71742,7 +71742,7 @@ define internal void @"_ZNSt17_Function_handlerIFN3nix13ValidPathInfoESt4pairINS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8), !noalias !543
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !543
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull readonly align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !543
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5), !noalias !543
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6), !noalias !543
@@ -71924,7 +71924,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix13ValidPathI
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16BinaryCacheStore10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 

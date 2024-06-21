@@ -4526,7 +4526,7 @@ if.then3.i.i.i9.i:                                ; preds = %if.end.i.i.i6.i349
 if.then3.i.i.i9.i.invoke:                         ; preds = %if.then19.i.i.i.i365, %if.then3.i.i.i9.i
   %258 = phi i64 [ %and7.i.i.i.i418, %if.then3.i.i.i9.i ], [ %sub.i35.i.i.i.i, %if.then19.i.i.i.i365 ]
   %259 = ashr i32 %255, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp3.i.i.i, i32 noundef %259, i64 noundef %258)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(48) %agg.tmp3.i.i.i, i32 noundef %259, i64 noundef %258)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiiSP_.exit.i unwind label %lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end8.i.i.i.i353:                               ; preds = %if.end.i.i.i6.i349
@@ -4542,7 +4542,7 @@ if.then10.i.i.i.i355:                             ; preds = %if.end8.i.i.i.i353
   %sub.i28.i.i.i.i = sub nsw i32 64, %sub12.i.i.i.i357
   %sh_prom.i29.i.i.i.i = zext nneg i32 %sub.i28.i.i.i.i to i64
   %shl.i30.i.i.i.i = shl i64 %sub.i.i27.i.i.i.i, %sh_prom.i29.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp3.i.i.i, i32 noundef %div11.i.i.i.i356, i64 noundef %shl.i30.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(48) %agg.tmp3.i.i.i, i32 noundef %div11.i.i.i.i356, i64 noundef %shl.i30.i.i.i.i)
           to label %if.end14.i.i.i.i358 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end14.i.i.i.i358:                              ; preds = %if.then10.i.i.i.i355, %if.end8.i.i.i.i353

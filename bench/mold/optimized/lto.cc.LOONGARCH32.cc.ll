@@ -898,7 +898,7 @@ _ZN4mold3elfL7is_llvmINS0_11LOONGARCH32EEEbRNS0_7ContextIT_EE.exit: ; preds = %i
   %ctx.val = load ptr, ptr %plugin, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 %ctx.val38
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 -11
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.79, i64 11)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.79, i64 11)
   %31 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %31, label %if.end68, label %if.then64
 
@@ -1605,7 +1605,7 @@ lor.rhs.i:                                        ; preds = %land.lhs.true
 _ZN4mold3elfL15supports_v3_apiINS0_11LOONGARCH32EEEbRNS0_7ContextIT_EE.exit: ; preds = %lor.rhs.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 %ctx.val15
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 -11
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.79, i64 11)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.79, i64 11)
   %13 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %13, label %if.end, label %if.then
 

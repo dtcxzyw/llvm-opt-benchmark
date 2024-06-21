@@ -142,8 +142,8 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %57
   br label %mca_topo_base_graph_allocate.exit.thread
 
 65:                                               ; preds = %opal_obj_new.exit.thread42.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr nonnull align 4 %3, i64 %34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr align 4 %4, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr nonnull readonly align 4 %3, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr readonly align 4 %4, i64 %41, i1 false)
   %.pre = load ptr, ptr %9, align 8
   br label %mca_topo_base_graph_allocate.exit
 

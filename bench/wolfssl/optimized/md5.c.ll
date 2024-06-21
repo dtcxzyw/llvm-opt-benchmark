@@ -783,7 +783,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i5
 
 if.end.i5:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %tmpMd5, ptr noundef nonnull align 8 dereferenceable(104) %md5, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %tmpMd5, ptr noundef nonnull readonly align 8 dereferenceable(104) %md5, i64 104, i1 false)
   %buffer.i = getelementptr inbounds i8, ptr %tmpMd5, i64 12
   %0 = load i32, ptr %tmpMd5, align 8
   %cmp2.i = icmp ugt i32 %0, 63

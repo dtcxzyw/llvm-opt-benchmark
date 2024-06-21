@@ -280,7 +280,7 @@ define hidden void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_unnam
 ; Function Attrs: nounwind uwtable
 define hidden ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -291,7 +291,7 @@ define hidden ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture no
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -366,7 +366,7 @@ stbi_load_from_file.exit:                         ; preds = %stbi__start_file.ex
 define hidden ptr @stbi_load_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -577,7 +577,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 define hidden ptr @stbi_load_from_file_16(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -783,7 +783,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %3
 ; Function Attrs: nounwind uwtable
 define hidden ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -794,7 +794,7 @@ define hidden ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapture
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -892,7 +892,7 @@ define hidden ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, ptr 
 define hidden ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -969,7 +969,7 @@ define hidden ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr noc
 define hidden ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -1529,7 +1529,7 @@ stbi__ldr_to_hdr.exit:                            ; preds = %.loopexit.i, %stbi_
 define hidden noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 52
@@ -1582,7 +1582,7 @@ stbi__start_callbacks.exit:                       ; preds = %27, %29
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
-  %7 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -1593,7 +1593,7 @@ define hidden noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr noc
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -1653,7 +1653,7 @@ stbi_loadf_from_file.exit:                        ; preds = %29, %31
 define hidden noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -1710,7 +1710,7 @@ define hidden noundef i32 @stbi_is_hdr_from_memory(ptr nocapture noundef readnon
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %2 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -3276,7 +3276,7 @@ define hidden void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.stbi__context, align 8
-  %6 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
@@ -3288,7 +3288,7 @@ define hidden range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %0, 
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5)
   %9 = tail call i64 @ftell(ptr noundef nonnull %6)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %6, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 52
@@ -3350,7 +3350,7 @@ define hidden range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr nound
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call i64 @ftell(ptr noundef %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 52
@@ -3507,7 +3507,7 @@ stbi__gif_info.exit:                              ; preds = %36, %37
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %2 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
@@ -3531,7 +3531,7 @@ define hidden range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) loca
   %3 = alloca %struct.stbi__context, align 8
   %4 = tail call i64 @ftell(ptr noundef %0)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 52
@@ -3633,7 +3633,7 @@ define hidden range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 nou
 define hidden range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -3736,7 +3736,7 @@ define hidden range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr nocapture n
   %3 = alloca %struct.stbi__png, align 8
   %4 = alloca %struct.stbi__context, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 52
@@ -4824,7 +4824,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef readonly
   %6 = alloca %struct.stbi__write_context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
-  %8 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.3)
+  %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   store ptr @stbi__stdio_write, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
@@ -5288,7 +5288,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_tga(ptr nocapture noundef readonly
   %6 = alloca %struct.stbi__write_context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
-  %8 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.3)
+  %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   store ptr @stbi__stdio_write, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
@@ -5782,7 +5782,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_hdr(ptr nocapture noundef readonly
   %6 = alloca %struct.stbi__write_context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
-  %8 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.3)
+  %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   store ptr @stbi__stdio_write, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
@@ -8180,7 +8180,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_png(ptr nocapture noundef readonly
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.3)
+  %11 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.sink.split, label %12
 
@@ -8842,7 +8842,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_jpg(ptr nocapture noundef readonly
   %7 = alloca %struct.stbi__write_context, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 72, i1 false)
-  %9 = tail call noalias noundef ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.3)
+  %9 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   store ptr @stbi__stdio_write, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
@@ -22539,11 +22539,11 @@ define void @ImageDrawCircle(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %12, i64 1
   %13 = uitofp nneg i32 %10 to float
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %13, i64 0
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
   %14 = sub nsw i32 %2, %.03855
   %15 = sitofp i32 %14 to float
   %.sroa.0.4.vec.insert.i42 = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %15, i64 1
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i42, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i42, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
   %16 = sub nsw i32 %1, %.03855
   %17 = add nsw i32 %.04054, %2
   %18 = shl nsw i32 %.03855, 1
@@ -22553,11 +22553,11 @@ define void @ImageDrawCircle(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %.sroa.0.4.vec.insert.i46 = insertelement <2 x float> %.sroa.0.0.vec.insert.i45, float %20, i64 1
   %21 = sitofp i32 %18 to float
   %.sroa.3.12.vec.insert.i48 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %21, i64 0
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i46, <2 x float> %.sroa.3.12.vec.insert.i48, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i46, <2 x float> %.sroa.3.12.vec.insert.i48, i32 %4)
   %22 = sub nsw i32 %2, %.04054
   %23 = sitofp i32 %22 to float
   %.sroa.0.4.vec.insert.i50 = insertelement <2 x float> %.sroa.0.0.vec.insert.i45, float %23, i64 1
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i50, <2 x float> %.sroa.3.12.vec.insert.i48, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i50, <2 x float> %.sroa.3.12.vec.insert.i48, i32 %4)
   %24 = add nuw nsw i32 %.04054, 1
   %25 = icmp sgt i32 %.056, 0
   br i1 %25, label %26, label %32
@@ -22625,11 +22625,11 @@ define void @ImageDrawCircleV(ptr nocapture noundef readonly %0, <2 x float> %1,
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %13, i64 1
   %14 = uitofp nneg i32 %11 to float
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %14, i64 0
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.3.12.vec.insert.i.i, i32 %3)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.3.12.vec.insert.i.i, i32 %3)
   %15 = sub nsw i32 %6, %.03855.i
   %16 = sitofp i32 %15 to float
   %.sroa.0.4.vec.insert.i42.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %16, i64 1
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i42.i, <2 x float> %.sroa.3.12.vec.insert.i.i, i32 %3)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i42.i, <2 x float> %.sroa.3.12.vec.insert.i.i, i32 %3)
   %17 = sub nsw i32 %5, %.03855.i
   %18 = add nsw i32 %.04054.i, %6
   %19 = shl nsw i32 %.03855.i, 1
@@ -22639,11 +22639,11 @@ define void @ImageDrawCircleV(ptr nocapture noundef readonly %0, <2 x float> %1,
   %.sroa.0.4.vec.insert.i46.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i45.i, float %21, i64 1
   %22 = sitofp i32 %19 to float
   %.sroa.3.12.vec.insert.i48.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %22, i64 0
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i46.i, <2 x float> %.sroa.3.12.vec.insert.i48.i, i32 %3)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i46.i, <2 x float> %.sroa.3.12.vec.insert.i48.i, i32 %3)
   %23 = sub nsw i32 %6, %.04054.i
   %24 = sitofp i32 %23 to float
   %.sroa.0.4.vec.insert.i50.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i45.i, float %24, i64 1
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i50.i, <2 x float> %.sroa.3.12.vec.insert.i48.i, i32 %3)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i50.i, <2 x float> %.sroa.3.12.vec.insert.i48.i, i32 %3)
   %25 = add nuw nsw i32 %.04054.i, 1
   %26 = icmp sgt i32 %.056.i, 0
   %27 = add nsw i32 %.03855.i, -1
@@ -22880,7 +22880,7 @@ define void @ImageDrawRectangleV(ptr nocapture noundef readonly %0, <2 x float> 
   %6 = sitofp <2 x i32> %5 to <2 x float>
   %7 = fptosi <2 x float> %2 to <2 x i32>
   %8 = sitofp <2 x i32> %7 to <2 x float>
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %6, <2 x float> %8, i32 %3)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %6, <2 x float> %8, i32 %3)
   ret void
 }
 
@@ -22900,7 +22900,7 @@ define void @ImageDrawRectangleLines(ptr nocapture noundef readonly %0, <2 x flo
   %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %11, i64 0
   %12 = sitofp i32 %3 to float
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %12, i64 1
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
   %13 = fadd float %.sroa.016.4.vec.extract, %12
   %.sroa.9.12.vec.extract = extractelement <2 x float> %2, i64 1
   %14 = shl nsw i32 %3, 1
@@ -22918,14 +22918,14 @@ define void @ImageDrawRectangleLines(ptr nocapture noundef readonly %0, <2 x flo
   %24 = fptosi <2 x float> %23 to <2 x i32>
   %25 = sitofp <2 x i32> %24 to <2 x float>
   %26 = insertelement <2 x float> %25, float %9, i64 0
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %26, <2 x float> %.sroa.3.12.vec.insert.i40, i32 %4)
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %25, <2 x float> %.sroa.3.12.vec.insert.i40, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %26, <2 x float> %.sroa.3.12.vec.insert.i40, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %25, <2 x float> %.sroa.3.12.vec.insert.i40, i32 %4)
   %27 = fadd float %.sroa.016.4.vec.extract, %.sroa.9.12.vec.extract
   %28 = fsub float %27, %12
   %29 = fptosi float %28 to i32
   %30 = sitofp i32 %29 to float
   %.sroa.0.4.vec.insert.i46 = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %30, i64 1
-  tail call void @ImageDrawRectangleRec(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i46, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
+  tail call void @ImageDrawRectangleRec(ptr noundef readonly %0, <2 x float> %.sroa.0.4.vec.insert.i46, <2 x float> %.sroa.3.12.vec.insert.i, i32 %4)
   ret void
 }
 
@@ -23330,7 +23330,7 @@ define void @ImageDrawText(ptr nocapture noundef readonly %0, ptr noundef %1, i3
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   %20 = load <2 x i32>, ptr %19, align 8
   %21 = sitofp <2 x i32> %20 to <2 x float>
-  call void @ImageDraw(ptr noundef %0, ptr noundef nonnull byval(%struct.Image) align 8 %7, <2 x float> zeroinitializer, <2 x float> %21, <2 x float> %17, <2 x float> %21, i32 -1)
+  call void @ImageDraw(ptr noundef readonly %0, ptr noundef nonnull byval(%struct.Image) align 8 %7, <2 x float> zeroinitializer, <2 x float> %21, <2 x float> %17, <2 x float> %21, i32 -1)
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
   call void @free(ptr noundef %.sroa.0.0.copyload.i) #49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -32585,7 +32585,7 @@ stbiw__write_flush.exit.us.i:                     ; preds = %._crit_edge.us.i, %
   %36 = add nsw i64 %indvars.iv.i, %28
   %37 = mul nsw i64 %36, %24
   %38 = getelementptr inbounds i8, ptr %7, i64 %37
-  call fastcc void @stbiw__write_pixel(ptr noundef %0, i32 noundef %5, i32 noundef %8, i32 noundef %6, ptr noundef %38)
+  call fastcc void @stbiw__write_pixel(ptr noundef %0, i32 noundef %5, i32 noundef %8, i32 noundef %6, ptr noundef readonly %38)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %35

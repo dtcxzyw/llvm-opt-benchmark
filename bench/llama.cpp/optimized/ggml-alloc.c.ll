@@ -1407,7 +1407,7 @@ ggml_gallocr_alloc_graph.exit:                    ; preds = %entry.if.end18_crit
   %7 = load ptr, ptr %hash_values22.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %7, i8 0, i64 %mul21.pre-phi.i, i1 false)
   store ptr %1, ptr %0, align 8
-  tail call fastcc void @ggml_tallocr_alloc_graph_impl(ptr noundef nonnull %0, ptr noundef nonnull %graph)
+  tail call fastcc void @ggml_tallocr_alloc_graph_impl(ptr noundef nonnull %0, ptr noundef nonnull readonly %graph)
   store ptr null, ptr %0, align 8
   %max_size.i.i = getelementptr inbounds i8, ptr %1, i64 4136
   %8 = load i64, ptr %max_size.i.i, align 8

@@ -845,12 +845,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 148:                                              ; preds = %.loopexit.i
   %149 = load ptr, ptr @H5_optarg, align 8
-  %150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(5) @.str.98) #24
+  %150 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %149, ptr noundef nonnull dereferenceable(5) @.str.98) #24
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %set_sort_by.exit.thread.i, label %152
 
 152:                                              ; preds = %148
-  %153 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(15) @.str.99) #24
+  %153 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %149, ptr noundef nonnull dereferenceable(15) @.str.99) #24
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %set_sort_by.exit.thread.i, label %155
 
@@ -867,12 +867,12 @@ set_sort_by.exit.thread.i:                        ; preds = %152, %148
 
 157:                                              ; preds = %.loopexit.i
   %158 = load ptr, ptr @H5_optarg, align 8
-  %159 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(10) @.str.100) #24
+  %159 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %158, ptr noundef nonnull dereferenceable(10) @.str.100) #24
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %set_sort_order.exit.thread.i, label %161
 
 161:                                              ; preds = %157
-  %162 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(11) @.str.101) #24
+  %162 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %158, ptr noundef nonnull dereferenceable(11) @.str.101) #24
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %set_sort_order.exit.thread.i, label %164
 

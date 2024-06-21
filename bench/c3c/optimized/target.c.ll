@@ -735,354 +735,354 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   ]
 
 slice_strcmp.exit.i:                              ; preds = %42
-  %49 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #18
+  %49 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.12, i64 noundef 4) #18
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %select.unfold, label %slice_strcmp.exit171.i
 
 slice_strcmp.exit171.i:                           ; preds = %slice_strcmp.exit.i
-  %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.59, i64 noundef 4) #18
+  %51 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.59, i64 noundef 4) #18
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %select.unfold, label %slice_strcmp.exit174.i
 
 slice_strcmp.exit174.i:                           ; preds = %slice_strcmp.exit171.i
-  %53 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.60, i64 noundef 4) #18
+  %53 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.60, i64 noundef 4) #18
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %select.unfold, label %slice_strcmp.exit177.i
 
 slice_strcmp.exit177.i:                           ; preds = %slice_strcmp.exit174.i
-  %55 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.61, i64 noundef 4) #18
+  %55 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.61, i64 noundef 4) #18
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %select.unfold, label %slice_strcmp.exit180.i
 
 slice_strcmp.exit180.i:                           ; preds = %slice_strcmp.exit177.i
-  %57 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.62, i64 noundef 4) #18
+  %57 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.62, i64 noundef 4) #18
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %select.unfold, label %slice_strcmp.exit183.i
 
 slice_strcmp.exit183.i:                           ; preds = %slice_strcmp.exit180.i
-  %59 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.63, i64 noundef 4) #18
+  %59 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.63, i64 noundef 4) #18
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %select.unfold, label %slice_strcmp.exit133
 
 slice_strcmp.exit133:                             ; preds = %slice_strcmp.exit183.i
-  %61 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.64, i64 noundef 4) #18
+  %61 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.64, i64 noundef 4) #18
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %select.unfold, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit130:                             ; preds = %42
-  %63 = call i32 @strncmp(ptr noundef %47, ptr noundef nonnull @.str.65, i64 noundef %48) #18
+  %63 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.65, i64 noundef %48) #18
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %arch_is_supported.exit.thread, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit127:                             ; preds = %42
-  %65 = call i32 @strncmp(ptr noundef %47, ptr noundef nonnull @.str.3, i64 noundef %48) #18
+  %65 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.3, i64 noundef %48) #18
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %arch_is_supported.exit.thread, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit124:                             ; preds = %42
-  %67 = call i32 @strncmp(ptr noundef %47, ptr noundef nonnull @.str.66, i64 noundef %48) #18
+  %67 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.66, i64 noundef %48) #18
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %select.unfold, label %slice_strcmp.exit
 
 slice_strcmp.exit:                                ; preds = %slice_strcmp.exit124
-  %69 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(11) @.str.67, i64 noundef 10) #18
+  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(11) @.str.67, i64 noundef 10) #18
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %select.unfold, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit.thread:                         ; preds = %slice_strcmp.exit127, %slice_strcmp.exit130, %slice_strcmp.exit133, %42, %slice_strcmp.exit
-  %71 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.68)
+  %71 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.68)
   br i1 %71, label %select.unfold, label %72
 
 72:                                               ; preds = %slice_strcmp.exit.thread
-  %73 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.1)
+  %73 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.1)
   br i1 %73, label %select.unfold, label %74
 
 74:                                               ; preds = %72
-  %75 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.69)
+  %75 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.69)
   br i1 %75, label %select.unfold, label %76
 
 76:                                               ; preds = %74
-  %77 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.2)
+  %77 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.2)
   br i1 %77, label %select.unfold, label %78
 
 78:                                               ; preds = %76
-  %79 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.70)
+  %79 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.70)
   br i1 %79, label %select.unfold, label %80
 
 80:                                               ; preds = %78
-  %81 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.71)
+  %81 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.71)
   br i1 %81, label %select.unfold, label %82
 
 82:                                               ; preds = %80
-  %83 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.72)
+  %83 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.72)
   br i1 %83, label %select.unfold, label %84
 
 84:                                               ; preds = %82
-  %85 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.73)
+  %85 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.73)
   br i1 %85, label %select.unfold, label %86
 
 86:                                               ; preds = %84
-  %87 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.74)
+  %87 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.74)
   br i1 %87, label %select.unfold, label %88
 
 88:                                               ; preds = %86
-  %89 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.75)
+  %89 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.75)
   br i1 %89, label %select.unfold, label %90
 
 90:                                               ; preds = %88
-  %91 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.76)
+  %91 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.76)
   br i1 %91, label %select.unfold, label %92
 
 92:                                               ; preds = %90
-  %93 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.77)
+  %93 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.77)
   br i1 %93, label %select.unfold, label %94
 
 94:                                               ; preds = %92
-  %95 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.78)
+  %95 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.78)
   br i1 %95, label %select.unfold, label %96
 
 96:                                               ; preds = %94
-  %97 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.79)
+  %97 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.79)
   br i1 %97, label %select.unfold, label %98
 
 98:                                               ; preds = %96
-  %99 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.80)
+  %99 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.80)
   br i1 %99, label %select.unfold, label %100
 
 100:                                              ; preds = %98
-  %101 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.81)
+  %101 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.81)
   br i1 %101, label %select.unfold, label %102
 
 102:                                              ; preds = %100
-  %103 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.82)
+  %103 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.82)
   br i1 %103, label %select.unfold, label %104
 
 104:                                              ; preds = %102
-  %105 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.83)
+  %105 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.83)
   br i1 %105, label %select.unfold, label %106
 
 106:                                              ; preds = %104
-  %107 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.84)
+  %107 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.84)
   br i1 %107, label %select.unfold, label %108
 
 108:                                              ; preds = %106
-  %109 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.85)
+  %109 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.85)
   br i1 %109, label %select.unfold, label %110
 
 110:                                              ; preds = %108
-  %111 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.86)
+  %111 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.86)
   br i1 %111, label %select.unfold, label %112
 
 112:                                              ; preds = %110
-  %113 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.87)
+  %113 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.87)
   br i1 %113, label %select.unfold, label %114
 
 114:                                              ; preds = %112
-  %115 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.88)
+  %115 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.88)
   br i1 %115, label %select.unfold, label %116
 
 116:                                              ; preds = %114
-  %117 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.89)
+  %117 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.89)
   br i1 %117, label %select.unfold, label %118
 
 118:                                              ; preds = %116
-  %119 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.90)
+  %119 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.90)
   br i1 %119, label %select.unfold, label %120
 
 120:                                              ; preds = %118
-  %121 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.91)
+  %121 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.91)
   br i1 %121, label %select.unfold, label %122
 
 122:                                              ; preds = %120
-  %123 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.92)
+  %123 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.92)
   br i1 %123, label %select.unfold, label %124
 
 124:                                              ; preds = %122
-  %125 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.93)
+  %125 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.93)
   br i1 %125, label %select.unfold, label %126
 
 126:                                              ; preds = %124
-  %127 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.94)
+  %127 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.94)
   br i1 %127, label %select.unfold, label %128
 
 128:                                              ; preds = %126
-  %129 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.95)
+  %129 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.95)
   br i1 %129, label %select.unfold, label %130
 
 130:                                              ; preds = %128
-  %131 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.96)
+  %131 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.96)
   br i1 %131, label %select.unfold, label %132
 
 132:                                              ; preds = %130
-  %133 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.97)
+  %133 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.97)
   br i1 %133, label %select.unfold, label %134
 
 134:                                              ; preds = %132
-  %135 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.98)
+  %135 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.98)
   br i1 %135, label %select.unfold, label %136
 
 136:                                              ; preds = %134
-  %137 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.6)
+  %137 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.6)
   br i1 %137, label %select.unfold, label %138
 
 138:                                              ; preds = %136
-  %139 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.99)
+  %139 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.99)
   br i1 %139, label %select.unfold, label %140
 
 140:                                              ; preds = %138
-  %141 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.7)
+  %141 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.7)
   br i1 %141, label %select.unfold, label %142
 
 142:                                              ; preds = %140
-  %143 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.100)
+  %143 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.100)
   br i1 %143, label %select.unfold, label %144
 
 144:                                              ; preds = %142
-  %145 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.5)
+  %145 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.5)
   br i1 %145, label %select.unfold, label %146
 
 146:                                              ; preds = %144
-  %147 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.101)
+  %147 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.101)
   br i1 %147, label %select.unfold, label %148
 
 148:                                              ; preds = %146
-  %149 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.102)
+  %149 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.102)
   br i1 %149, label %select.unfold, label %150
 
 150:                                              ; preds = %148
-  %151 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.103)
+  %151 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.103)
   br i1 %151, label %select.unfold, label %152
 
 152:                                              ; preds = %150
-  %153 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.8)
+  %153 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.8)
   br i1 %153, label %select.unfold, label %154
 
 154:                                              ; preds = %152
-  %155 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.9)
+  %155 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.9)
   br i1 %155, label %select.unfold, label %156
 
 156:                                              ; preds = %154
-  %157 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.104)
+  %157 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.104)
   br i1 %157, label %select.unfold, label %158
 
 158:                                              ; preds = %156
-  %159 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.105)
+  %159 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.105)
   br i1 %159, label %select.unfold, label %160
 
 160:                                              ; preds = %158
-  %161 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.106)
+  %161 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.106)
   br i1 %161, label %select.unfold, label %162
 
 162:                                              ; preds = %160
-  %163 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.107)
+  %163 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.107)
   br i1 %163, label %select.unfold, label %164
 
 164:                                              ; preds = %162
-  %165 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.108)
+  %165 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.108)
   br i1 %165, label %select.unfold, label %166
 
 166:                                              ; preds = %164
-  %167 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.109)
+  %167 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.109)
   br i1 %167, label %select.unfold, label %168
 
 168:                                              ; preds = %166
-  %169 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.110)
+  %169 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.110)
   br i1 %169, label %select.unfold, label %170
 
 170:                                              ; preds = %168
-  %171 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.111)
+  %171 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.111)
   br i1 %171, label %select.unfold, label %172
 
 172:                                              ; preds = %170
-  %173 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.10)
+  %173 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.10)
   br i1 %173, label %select.unfold, label %174
 
 174:                                              ; preds = %172
-  %175 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.11)
+  %175 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.11)
   br i1 %175, label %select.unfold, label %176
 
 176:                                              ; preds = %174
-  %177 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.13)
+  %177 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.13)
   br i1 %177, label %arch_is_supported.exit.thread, label %178
 
 178:                                              ; preds = %176
-  %179 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.112)
+  %179 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.112)
   br i1 %179, label %arch_is_supported.exit.thread, label %180
 
 180:                                              ; preds = %178
-  %181 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.113)
+  %181 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.113)
   br i1 %181, label %arch_is_supported.exit.thread, label %182
 
 182:                                              ; preds = %180
-  %183 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.114)
+  %183 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.114)
   br i1 %183, label %select.unfold, label %184
 
 184:                                              ; preds = %182
-  %185 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.115)
+  %185 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.115)
   br i1 %185, label %select.unfold, label %186
 
 186:                                              ; preds = %184
-  %187 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.116)
+  %187 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.116)
   br i1 %187, label %select.unfold, label %188
 
 188:                                              ; preds = %186
-  %189 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.117)
+  %189 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.117)
   br i1 %189, label %select.unfold, label %190
 
 190:                                              ; preds = %188
-  %191 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.118)
+  %191 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.118)
   br i1 %191, label %select.unfold, label %192
 
 192:                                              ; preds = %190
-  %193 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.119)
+  %193 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.119)
   br i1 %193, label %select.unfold, label %194
 
 194:                                              ; preds = %192
-  %195 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.120)
+  %195 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.120)
   br i1 %195, label %select.unfold, label %196
 
 196:                                              ; preds = %194
-  %197 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.121)
+  %197 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.121)
   br i1 %197, label %select.unfold, label %198
 
 198:                                              ; preds = %196
-  %199 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.122)
+  %199 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.122)
   br i1 %199, label %select.unfold, label %200
 
 200:                                              ; preds = %198
-  %201 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.123)
+  %201 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.123)
   br i1 %201, label %select.unfold, label %202
 
 202:                                              ; preds = %200
-  %203 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.124)
+  %203 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.124)
   br i1 %203, label %select.unfold, label %204
 
 204:                                              ; preds = %202
-  %205 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.125)
+  %205 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.125)
   br i1 %205, label %select.unfold, label %206
 
 206:                                              ; preds = %204
-  %207 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.126)
+  %207 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.126)
   br i1 %207, label %select.unfold, label %208
 
 208:                                              ; preds = %206
-  %209 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.127)
+  %209 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.127)
   br i1 %209, label %select.unfold, label %210
 
 210:                                              ; preds = %208
-  %211 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.14)
+  %211 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.14)
   br i1 %211, label %arch_is_supported.exit.thread, label %212
 
 212:                                              ; preds = %210
-  %213 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.15)
+  %213 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.15)
   br i1 %213, label %arch_is_supported.exit.thread, label %214
 
 214:                                              ; preds = %212
-  %215 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.128)
+  %215 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.128)
   br i1 %215, label %select.unfold, label %216
 
 216:                                              ; preds = %214
-  %217 = call fastcc zeroext i1 @slice_strcmp(ptr %47, i64 %48, ptr noundef nonnull @.str.129)
+  %217 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %47, i64 %48, ptr noundef nonnull @.str.129)
   %spec.select = select i1 %217, i32 50, i32 0
   br label %select.unfold
 
@@ -1110,22 +1110,22 @@ select.unfold:                                    ; preds = %216, %slice_strcmp.
   ]
 
 slice_strcmp.exit.i67:                            ; preds = %218
-  %222 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(6) @.str.130, i64 noundef 5) #18
+  %222 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(6) @.str.130, i64 noundef 5) #18
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit33.i:                            ; preds = %218
-  %224 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(3) @.str.131, i64 noundef 2) #18
+  %224 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(3) @.str.131, i64 noundef 2) #18
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit36.i:                            ; preds = %218
-  %226 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(5) @.str.132, i64 noundef 4) #18
+  %226 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(5) @.str.132, i64 noundef 4) #18
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit39.i:                            ; preds = %218
-  %228 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.133, i64 noundef 3) #18
+  %228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.133, i64 noundef 3) #18
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %vendor_from_llvm_string.exit, label %sub_0
 
@@ -1182,48 +1182,48 @@ slice_strcmp.exit45.i.tail:                       ; preds = %sub_0251, %sub_1252
   br i1 %253, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit148
 
 slice_strcmp.exit148:                             ; preds = %slice_strcmp.exit45.i.tail
-  %254 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.136, i64 noundef 3) #18
+  %254 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.136, i64 noundef 3) #18
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit145
 
 slice_strcmp.exit145:                             ; preds = %slice_strcmp.exit148
-  %256 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.137, i64 noundef 3) #18
+  %256 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.137, i64 noundef 3) #18
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit142
 
 slice_strcmp.exit142:                             ; preds = %slice_strcmp.exit145
-  %258 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.138, i64 noundef 3) #18
+  %258 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.138, i64 noundef 3) #18
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136
 
 slice_strcmp.exit139:                             ; preds = %218
-  %260 = call i32 @strncmp(ptr noundef %220, ptr noundef nonnull @.str.139, i64 noundef %221) #18
+  %260 = call i32 @strncmp(ptr noundef readonly %220, ptr noundef nonnull readonly @.str.139, i64 noundef %221) #18
   %261 = icmp eq i32 %260, 0
   br i1 %261, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit136:                             ; preds = %slice_strcmp.exit142
-  %262 = call i32 @strncmp(ptr noundef nonnull %220, ptr noundef nonnull @.str.140, i64 noundef %221) #18
+  %262 = call i32 @strncmp(ptr noundef nonnull readonly %220, ptr noundef nonnull readonly @.str.140, i64 noundef %221) #18
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit136.thread:                      ; preds = %slice_strcmp.exit.i67, %slice_strcmp.exit33.i, %slice_strcmp.exit36.i, %slice_strcmp.exit139, %218, %slice_strcmp.exit136
-  %264 = call fastcc zeroext i1 @slice_strcmp(ptr %220, i64 %221, ptr noundef nonnull @.str.141)
+  %264 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %220, i64 %221, ptr noundef nonnull @.str.141)
   br i1 %264, label %vendor_from_llvm_string.exit, label %265
 
 265:                                              ; preds = %slice_strcmp.exit136.thread
-  %266 = call fastcc zeroext i1 @slice_strcmp(ptr %220, i64 %221, ptr noundef nonnull @.str.142)
+  %266 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %220, i64 %221, ptr noundef nonnull @.str.142)
   br i1 %266, label %vendor_from_llvm_string.exit, label %267
 
 267:                                              ; preds = %265
-  %268 = call fastcc zeroext i1 @slice_strcmp(ptr %220, i64 %221, ptr noundef nonnull @.str.143)
+  %268 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %220, i64 %221, ptr noundef nonnull @.str.143)
   br i1 %268, label %vendor_from_llvm_string.exit, label %269
 
 269:                                              ; preds = %267
-  %270 = call fastcc zeroext i1 @slice_strcmp(ptr %220, i64 %221, ptr noundef nonnull @.str.144)
+  %270 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %220, i64 %221, ptr noundef nonnull @.str.144)
   br i1 %270, label %vendor_from_llvm_string.exit, label %271
 
 271:                                              ; preds = %269
-  %272 = call fastcc zeroext i1 @slice_strcmp(ptr %220, i64 %221, ptr noundef nonnull @.str.145)
+  %272 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %220, i64 %221, ptr noundef nonnull @.str.145)
   %..i65 = select i1 %272, i32 16, i32 0
   br label %vendor_from_llvm_string.exit
 
@@ -1260,160 +1260,160 @@ vendor_from_llvm_string.exit:                     ; preds = %slice_strcmp.exit.i
   ]
 
 slice_strcmp.exit.i69:                            ; preds = %._crit_edge.i
-  %281 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(7) @.str.146, i64 noundef 6) #18
+  %281 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(7) @.str.146, i64 noundef 6) #18
   %282 = icmp eq i32 %281, 0
   br i1 %282, label %os_from_llvm_string.exit, label %slice_strcmp.exit84.i
 
 slice_strcmp.exit81.i:                            ; preds = %._crit_edge.i
-  %283 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(9) @.str.147, i64 noundef 8) #18
+  %283 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(9) @.str.147, i64 noundef 8) #18
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %os_from_llvm_string.exit, label %slice_strcmp.exit163
 
 slice_strcmp.exit84.i:                            ; preds = %slice_strcmp.exit.i69
-  %285 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(7) @.str.148, i64 noundef 6) #18
+  %285 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(7) @.str.148, i64 noundef 6) #18
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %os_from_llvm_string.exit, label %slice_strcmp.exit154
 
 slice_strcmp.exit87.i:                            ; preds = %._crit_edge.i
-  %287 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(10) @.str.149, i64 noundef 9) #18
+  %287 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(10) @.str.149, i64 noundef 9) #18
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit90.i:                            ; preds = %._crit_edge.i
-  %289 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #18
+  %289 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #18
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %os_from_llvm_string.exit, label %slice_strcmp.exit93.i
 
 slice_strcmp.exit93.i:                            ; preds = %slice_strcmp.exit90.i
-  %291 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(8) @.str.151, i64 noundef 7) #18
+  %291 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(8) @.str.151, i64 noundef 7) #18
   %292 = icmp eq i32 %291, 0
   br i1 %292, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit166:                             ; preds = %._crit_edge.i
-  %293 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(4) @.str.152, i64 noundef 3) #18
+  %293 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(4) @.str.152, i64 noundef 3) #18
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %os_from_llvm_string.exit, label %slice_strcmp.exit157
 
 slice_strcmp.exit163:                             ; preds = %slice_strcmp.exit81.i
-  %295 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(9) @.str.153, i64 noundef 8) #18
+  %295 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(9) @.str.153, i64 noundef 8) #18
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit160:                             ; preds = %._crit_edge.i
-  %297 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(6) @.str.154, i64 noundef 5) #18
+  %297 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(6) @.str.154, i64 noundef 5) #18
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit157:                             ; preds = %slice_strcmp.exit166
-  %299 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(4) @.str.155, i64 noundef 3) #18
+  %299 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(4) @.str.155, i64 noundef 3) #18
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit154:                             ; preds = %slice_strcmp.exit84.i
-  %301 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(7) @.str.156, i64 noundef 6) #18
+  %301 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(7) @.str.156, i64 noundef 6) #18
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %os_from_llvm_string.exit, label %slice_strcmp.exit151
 
 slice_strcmp.exit151:                             ; preds = %slice_strcmp.exit154
-  %303 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %274, ptr noundef nonnull dereferenceable(7) @.str.157, i64 noundef 6) #18
+  %303 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %274, ptr noundef nonnull readonly dereferenceable(7) @.str.157, i64 noundef 6) #18
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit151.thread:                      ; preds = %._crit_edge.i, %vendor_from_llvm_string.exit, %slice_strcmp.exit87.i, %slice_strcmp.exit93.i, %slice_strcmp.exit157, %slice_strcmp.exit160, %slice_strcmp.exit163, %slice_strcmp.exit151
   %.sroa.38.0104.i273 = phi i64 [ 6, %slice_strcmp.exit151 ], [ 8, %slice_strcmp.exit163 ], [ 5, %slice_strcmp.exit160 ], [ 3, %slice_strcmp.exit157 ], [ 0, %vendor_from_llvm_string.exit ], [ 9, %slice_strcmp.exit87.i ], [ 7, %slice_strcmp.exit93.i ], [ %.sroa.38.0.i, %._crit_edge.i ]
-  %305 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.158)
+  %305 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.158)
   br i1 %305, label %os_from_llvm_string.exit, label %306
 
 306:                                              ; preds = %slice_strcmp.exit151.thread
-  %307 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.159)
+  %307 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.159)
   br i1 %307, label %os_from_llvm_string.exit, label %308
 
 308:                                              ; preds = %306
-  %309 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.160)
+  %309 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.160)
   br i1 %309, label %os_from_llvm_string.exit, label %310
 
 310:                                              ; preds = %308
-  %311 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.161)
+  %311 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.161)
   br i1 %311, label %os_from_llvm_string.exit, label %312
 
 312:                                              ; preds = %310
-  %313 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.162)
+  %313 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.162)
   br i1 %313, label %os_from_llvm_string.exit, label %314
 
 314:                                              ; preds = %312
-  %315 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.163)
+  %315 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.163)
   br i1 %315, label %os_from_llvm_string.exit, label %316
 
 316:                                              ; preds = %314
-  %317 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.164)
+  %317 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.164)
   br i1 %317, label %os_from_llvm_string.exit, label %318
 
 318:                                              ; preds = %316
-  %319 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.165)
+  %319 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.165)
   br i1 %319, label %os_from_llvm_string.exit, label %320
 
 320:                                              ; preds = %318
-  %321 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.166)
+  %321 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.166)
   br i1 %321, label %os_from_llvm_string.exit, label %322
 
 322:                                              ; preds = %320
-  %323 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.167)
+  %323 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.167)
   br i1 %323, label %os_from_llvm_string.exit, label %324
 
 324:                                              ; preds = %322
-  %325 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.168)
+  %325 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.168)
   br i1 %325, label %os_from_llvm_string.exit, label %326
 
 326:                                              ; preds = %324
-  %327 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.169)
+  %327 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.169)
   br i1 %327, label %os_from_llvm_string.exit, label %328
 
 328:                                              ; preds = %326
-  %329 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.170)
+  %329 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.170)
   br i1 %329, label %os_from_llvm_string.exit, label %330
 
 330:                                              ; preds = %328
-  %331 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.171)
+  %331 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.171)
   br i1 %331, label %os_from_llvm_string.exit, label %332
 
 332:                                              ; preds = %330
-  %333 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.172)
+  %333 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.172)
   br i1 %333, label %os_from_llvm_string.exit, label %334
 
 334:                                              ; preds = %332
-  %335 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.173)
+  %335 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.173)
   br i1 %335, label %os_from_llvm_string.exit, label %336
 
 336:                                              ; preds = %334
-  %337 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.174)
+  %337 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.174)
   br i1 %337, label %os_from_llvm_string.exit, label %338
 
 338:                                              ; preds = %336
-  %339 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.175)
+  %339 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.175)
   br i1 %339, label %os_from_llvm_string.exit, label %340
 
 340:                                              ; preds = %338
-  %341 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.176)
+  %341 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.176)
   br i1 %341, label %os_from_llvm_string.exit, label %342
 
 342:                                              ; preds = %340
-  %343 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.177)
+  %343 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.177)
   br i1 %343, label %os_from_llvm_string.exit, label %344
 
 344:                                              ; preds = %342
-  %345 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.178)
+  %345 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.178)
   br i1 %345, label %os_from_llvm_string.exit, label %346
 
 346:                                              ; preds = %344
-  %347 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.179)
+  %347 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.179)
   br i1 %347, label %os_from_llvm_string.exit, label %348
 
 348:                                              ; preds = %346
-  %349 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.180)
+  %349 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.180)
   br i1 %349, label %os_from_llvm_string.exit, label %350
 
 350:                                              ; preds = %348
-  %351 = call fastcc zeroext i1 @slice_strcmp(ptr %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.181)
+  %351 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %274, i64 %.sroa.38.0104.i273, ptr noundef nonnull @.str.181)
   %..i68 = zext i1 %351 to i32
   br label %os_from_llvm_string.exit
 
@@ -1477,95 +1477,95 @@ slice_strcmp.exit.i75.tail:                       ; preds = %sub_0255, %sub_1256
   br i1 %371, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit51.i:                            ; preds = %._crit_edge.i73
-  %372 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(10) @.str.183, i64 noundef 9) #18
+  %372 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(10) @.str.183, i64 noundef 9) #18
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit57.i
 
 slice_strcmp.exit54.i:                            ; preds = %._crit_edge.i73
-  %374 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(9) @.str.184, i64 noundef 8) #18
+  %374 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(9) @.str.184, i64 noundef 8) #18
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit57.i:                            ; preds = %slice_strcmp.exit51.i
-  %376 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(10) @.str.185, i64 noundef 9) #18
+  %376 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(10) @.str.185, i64 noundef 9) #18
   %377 = icmp eq i32 %376, 0
   br i1 %377, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit60.i:                            ; preds = %._crit_edge.i73
-  %378 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(8) @.str.186, i64 noundef 7) #18
+  %378 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(8) @.str.186, i64 noundef 7) #18
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169
 
 slice_strcmp.exit63.i:                            ; preds = %._crit_edge.i73
-  %380 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #18
+  %380 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(7) @.str.187, i64 noundef 6) #18
   %381 = icmp eq i32 %380, 0
   br i1 %381, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit184
 
 slice_strcmp.exit184:                             ; preds = %slice_strcmp.exit63.i
-  %382 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(7) @.str.188, i64 noundef 6) #18
+  %382 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(7) @.str.188, i64 noundef 6) #18
   %383 = icmp eq i32 %382, 0
   br i1 %383, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit178
 
 slice_strcmp.exit181:                             ; preds = %._crit_edge.i73
-  %384 = call i32 @strncmp(ptr noundef nonnull %352, ptr noundef nonnull @.str.189, i64 noundef %.sroa.23.0.i) #18
+  %384 = call i32 @strncmp(ptr noundef nonnull readonly %352, ptr noundef nonnull readonly @.str.189, i64 noundef %.sroa.23.0.i) #18
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit178:                             ; preds = %slice_strcmp.exit184
-  %386 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(7) @.str.190, i64 noundef 6) #18
+  %386 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(7) @.str.190, i64 noundef 6) #18
   %387 = icmp eq i32 %386, 0
   br i1 %387, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit175:                             ; preds = %._crit_edge.i73
-  %388 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(6) @.str.191, i64 noundef 5) #18
+  %388 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(6) @.str.191, i64 noundef 5) #18
   %389 = icmp eq i32 %388, 0
   br i1 %389, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit172
 
 slice_strcmp.exit172:                             ; preds = %slice_strcmp.exit175
-  %390 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(6) @.str.192, i64 noundef 5) #18
+  %390 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(6) @.str.192, i64 noundef 5) #18
   %391 = icmp eq i32 %390, 0
   br i1 %391, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit169:                             ; preds = %slice_strcmp.exit60.i
-  %392 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(8) @.str.193, i64 noundef 7) #18
+  %392 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(8) @.str.193, i64 noundef 7) #18
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %os_from_llvm_string.exit, %slice_strcmp.exit57.i, %slice_strcmp.exit54.i, %slice_strcmp.exit.i75.tail, %slice_strcmp.exit178, %slice_strcmp.exit181, %slice_strcmp.exit172, %slice_strcmp.exit169
   %.sroa.23.074.i283 = phi i64 [ 5, %slice_strcmp.exit172 ], [ 7, %slice_strcmp.exit169 ], [ 4, %slice_strcmp.exit181 ], [ 6, %slice_strcmp.exit178 ], [ 0, %os_from_llvm_string.exit ], [ 9, %slice_strcmp.exit57.i ], [ 8, %slice_strcmp.exit54.i ], [ 3, %slice_strcmp.exit.i75.tail ], [ %.sroa.23.0.i, %._crit_edge.i73 ]
-  %394 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.194)
+  %394 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.194)
   br i1 %394, label %environment_type_from_llvm_string.exit, label %395
 
 395:                                              ; preds = %slice_strcmp.exit169.thread
-  %396 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.195)
+  %396 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.195)
   br i1 %396, label %environment_type_from_llvm_string.exit, label %397
 
 397:                                              ; preds = %395
-  %398 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.196)
+  %398 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.196)
   br i1 %398, label %environment_type_from_llvm_string.exit, label %399
 
 399:                                              ; preds = %397
-  %400 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.197)
+  %400 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.197)
   br i1 %400, label %environment_type_from_llvm_string.exit, label %401
 
 401:                                              ; preds = %399
-  %402 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.198)
+  %402 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.198)
   br i1 %402, label %environment_type_from_llvm_string.exit, label %403
 
 403:                                              ; preds = %401
-  %404 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.199)
+  %404 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.199)
   br i1 %404, label %environment_type_from_llvm_string.exit, label %405
 
 405:                                              ; preds = %403
-  %406 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.200)
+  %406 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.200)
   br i1 %406, label %environment_type_from_llvm_string.exit, label %407
 
 407:                                              ; preds = %405
-  %408 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.201)
+  %408 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.201)
   br i1 %408, label %environment_type_from_llvm_string.exit, label %409
 
 409:                                              ; preds = %407
-  %410 = call fastcc zeroext i1 @slice_strcmp(ptr %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.202)
+  %410 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %352, i64 %.sroa.23.074.i283, ptr noundef nonnull @.str.202)
   %..i74 = select i1 %410, i32 21, i32 0
   br label %environment_type_from_llvm_string.exit
 

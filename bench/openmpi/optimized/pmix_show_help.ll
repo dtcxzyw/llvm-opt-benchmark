@@ -788,7 +788,7 @@ localgetline.exit.i:                              ; preds = %58, %.lr.ph.i15
 69:                                               ; preds = %66
   store i8 0, ptr %67, align 1
   %70 = getelementptr inbounds i8, ptr %62, i64 1
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %2) #23
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(1) %2) #23
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %.backedge.i
 

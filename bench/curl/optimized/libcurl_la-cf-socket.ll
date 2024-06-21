@@ -1115,7 +1115,7 @@ if.then.i:                                        ; preds = %sw.bb
   %cf.val17.i = load ptr, ptr %conn.i, align 8
   %primary_ip.i.i = getelementptr inbounds i8, ptr %cf.val17.i, i64 256
   %r_ip.i.i = getelementptr inbounds i8, ptr %cf.val.i, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %primary_ip.i.i, ptr noundef nonnull align 8 dereferenceable(46) %r_ip.i.i, i64 46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %primary_ip.i.i, ptr noundef nonnull readonly align 8 dereferenceable(46) %r_ip.i.i, i64 46, i1 false)
   %cf.val18.i = load ptr, ptr %ctx1, align 8
   tail call fastcc void @set_local_ip(ptr %cf.val18.i, ptr noundef %data)
   %8 = load ptr, ptr %conn.i, align 8

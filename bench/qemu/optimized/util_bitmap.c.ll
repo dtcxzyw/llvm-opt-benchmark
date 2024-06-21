@@ -834,7 +834,7 @@ entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
   %mul.i = and i64 %0, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr align 8 %src, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr readonly align 8 %src, i64 %mul.i, i1 false)
   ret void
 }
 
@@ -844,7 +844,7 @@ entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
   %mul.i = and i64 %0, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr align 8 %src, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr readonly align 8 %src, i64 %mul.i, i1 false)
   ret void
 }
 
@@ -870,7 +870,7 @@ if.else.i:                                        ; preds = %if.then
   %sub.i = add i64 %nbits, 63
   %1 = lshr i64 %sub.i, 3
   %mul.i = and i64 %1, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr align 8 %add.ptr, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr readonly align 8 %add.ptr, i64 %mul.i, i1 false)
   br label %if.end27
 
 if.end:                                           ; preds = %entry
@@ -959,7 +959,7 @@ if.else.i:                                        ; preds = %if.then
   %sub.i = add i64 %nbits, 63
   %1 = lshr i64 %sub.i, 3
   %mul.i = and i64 %1, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %src, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr, ptr readonly align 8 %src, i64 %mul.i, i1 false)
   br label %if.end34
 
 if.end:                                           ; preds = %entry

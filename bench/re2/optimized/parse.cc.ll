@@ -4624,7 +4624,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i:     ; preds = %cond.true.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i, label %for.inc.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull dereferenceable(2) %1, i64 2)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull readonly dereferenceable(2) %1, i64 2)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit, label %for.inc.i.i
 
@@ -4832,7 +4832,7 @@ _ZNK4absl7debian211string_viewixEm.exit54:        ; preds = %_ZN4absl7debian211s
   br i1 %cmp.i.i61, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i, label %if.end.i62
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i:  ; preds = %_ZNK4absl7debian211string_viewixEm.exit54
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %name.sroa.0.1, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %name.sroa.0.1, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %if.end58, label %if.end.thread.i
 
@@ -4916,7 +4916,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i:     ; preds = %cond.true.i.i.i
   br i1 %cmp.i.i3.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i, label %for.inc.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %name.sroa.0.1, i64 %name.coerce1.fr.i.i88)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %name.sroa.0.1, i64 %name.coerce1.fr.i.i88)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %if.end58, label %for.inc.i.i
 
@@ -6117,7 +6117,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %cond.true.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, label %for.inc.i.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %28, ptr nonnull %14, i64 %sub.ptr.sub23.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %28, ptr nonnull readonly %14, i64 %sub.ptr.sub23.i)
   %cmp7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %if.end28.i, label %for.inc.i.i.i
 
@@ -6223,7 +6223,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154: ; preds = %cond.true.i.i.i.i1
   br i1 %cmp.i.i.i.i155, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159, label %for.inc.i.i.i156
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154
-  %bcmp.i.i.i.i160 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %36, ptr noundef nonnull dereferenceable(2) %os.sroa.0.0.copyload.i.pre297, i64 2)
+  %bcmp.i.i.i.i160 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %36, ptr noundef nonnull readonly dereferenceable(2) %os.sroa.0.0.copyload.i.pre297, i64 2)
   %cmp7.i.i.i.i161 = icmp eq i32 %bcmp.i.i.i.i160, 0
   br i1 %cmp7.i.i.i.i161, label %if.then100, label %for.inc.i.i.i156
 
@@ -6253,7 +6253,7 @@ if.end103:                                        ; preds = %for.inc.i.i.i156, %
   %os.sroa.0.0.copyload.i = phi ptr [ %os.sroa.0.0.copyload.i.pre, %if.end96.if.end103_crit_edge ], [ %os.sroa.0.0.copyload.i.pre297, %_ZNK4absl7debian211string_viewixEm.exit.i ], [ %os.sroa.0.0.copyload.i.pre297, %if.end.i138 ], [ %os.sroa.0.0.copyload.i.pre297, %for.inc.i.i.i156 ]
   store i32 0, ptr %rr, align 4
   store i32 0, ptr %hi.i, align 4
-  %call.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %rr, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
+  %call.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %rr, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
   br i1 %call.i, label %if.end.i166, label %if.then106
 
 if.end.i166:                                      ; preds = %if.end103
@@ -6277,7 +6277,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i169: ; preds = %_ZNK4absl7d
   store ptr %arrayidx.i.i, ptr %s, align 8
   %sub.i.i170 = add i64 %41, -1
   store i64 %sub.i.i170, ptr %whole_class.sroa.3.0..sroa_idx, align 8
-  %call11.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %hi.i, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
+  %call11.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %hi.i, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
   br i1 %call11.i, label %if.end13.i172, label %if.then106
 
 if.end13.i172:                                    ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i169
@@ -8046,7 +8046,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %cond.true.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, label %for.inc.i.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %100, ptr noundef nonnull dereferenceable(2) %98, i64 2)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %100, ptr noundef nonnull readonly dereferenceable(2) %98, i64 2)
   %cmp7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %if.then373, label %for.inc.i.i.i
 
@@ -8804,7 +8804,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i:       ; preds = %cond.true.i.i
   br i1 %cmp.i.i4, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i, label %for.inc.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i:  ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull %3, ptr nonnull %1, i64 %call.i.i)
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %3, ptr nonnull readonly %1, i64 %call.i.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %invoke.cont4, label %for.inc.i
 

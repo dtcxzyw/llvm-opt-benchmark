@@ -261,7 +261,7 @@ fmgr_isbuiltin.exit.thread:                       ; preds = %4, %17, %fmgr_isbui
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %81 ]
   %82 = getelementptr [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %indvars.iv.i, i32 4
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %83) #15
+  %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %83) #15
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %fmgr_lookupByName.exit, label %81
 
@@ -369,7 +369,7 @@ record_C_func.exit.i:                             ; preds = %139, %121
   store i32 %146, ptr %147, align 4
   %148 = getelementptr inbounds i8, ptr %144, i64 8
   %149 = getelementptr inbounds i8, ptr %38, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %148, ptr noundef nonnull align 4 dereferenceable(6) %149, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %148, ptr noundef nonnull readonly align 4 dereferenceable(6) %149, i64 6, i1 false)
   %150 = getelementptr inbounds i8, ptr %144, i64 16
   store ptr %128, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %144, i64 24
@@ -657,7 +657,7 @@ define dso_local i32 @fmgr_internal_function(ptr nocapture noundef readonly %0) 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %4 ]
   %5 = getelementptr [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %indvars.iv.i, i32 4
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #15
+  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %fmgr_lookupByName.exit, label %4
 

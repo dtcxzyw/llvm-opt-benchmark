@@ -740,7 +740,7 @@ land.lhs.true.us.i.i:                             ; preds = %for.body.us.i.i
   %name.us.i.i = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load ptr, ptr %name.us.i.i, align 8
   %call.i.i.us.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
-  %bcmp.i.i.us.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
+  %bcmp.i.i.us.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
   %cmp.i.i.i.us.i.i = icmp eq i32 %bcmp.i.i.us.i.i, 0
   br i1 %cmp.i.i.i.us.i.i, label %land.lhs.true4.thread.us.i.i, label %lor.rhs.thread.i.us.i.i
 
@@ -749,7 +749,7 @@ lor.rhs.thread.i.us.i.i:                          ; preds = %land.lhs.true.us.i.
   br i1 %cmp.i29.i.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i, label %for.inc.us.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i: ; preds = %lor.rhs.thread.i.us.i.i
-  %bcmp.i6.i.us.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) %9, i64 3)
+  %bcmp.i6.i.us.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull readonly dereferenceable(3) %9, i64 3)
   %cmp.i.i7.i.us.i.i = icmp eq i32 %bcmp.i6.i.us.i.i, 0
   br i1 %cmp.i.i7.i.us.i.i, label %land.lhs.true4.us.i.i, label %for.inc.us.i.i
 
@@ -766,7 +766,7 @@ land.lhs.true4.thread.us.i.i:                     ; preds = %land.lhs.true.us.i.
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i: ; preds = %land.lhs.true4.thread.us.i.i, %land.lhs.true4.us.i.i
   %12 = phi ptr [ %11, %land.lhs.true4.thread.us.i.i ], [ %10, %land.lhs.true4.us.i.i ]
-  %bcmp.i.us.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) %9, i64 3)
+  %bcmp.i.us.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) %9, i64 3)
   %cmp.i.i10.us.i.i = icmp eq i32 %bcmp.i.us.i.i, 0
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
 
@@ -821,14 +821,16 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp.i2.i.i.i, label %land.rhs.i3.i.i.i, label %for.inc.i.i
 
 land.rhs.i3.i.i.i:                                ; preds = %land.lhs.true.i.i
-  %bcmp.i6.i.i.i = call i32 @bcmp(ptr %trial.sroa.2.0.copyload.i, ptr %19, i64 %engine.coerce0.fr.i.i)
+  %bcmp.i6.i.i.i = call i32 @bcmp(ptr readonly %trial.sroa.2.0.copyload.i, ptr readonly %19, i64 %engine.coerce0.fr.i.i)
   %cmp.i.i7.i.i.i = icmp eq i32 %bcmp.i6.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %for.inc.i.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %land.rhs.i3.i.i.i
   %check_engine_available.i.i = getelementptr inbounds i8, ptr %18, i64 232
   %20 = load ptr, ptr %check_engine_available.i.i, align 8
-  %call11.i.i = call noundef zeroext i1 %20(i1 noundef zeroext true)
+  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %trial.sroa.2.0.copyload.i, ptr %19, i64 %engine.coerce0.fr.i.i)
+  %cmp.i.i10.i.i = icmp eq i32 %bcmp.i.i.i, 0
+  %call11.i.i = call noundef zeroext i1 %20(i1 noundef zeroext %cmp.i.i10.i.i)
   br i1 %call11.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i3.i.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i

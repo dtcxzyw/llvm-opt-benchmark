@@ -294,7 +294,7 @@ entry.tail.i:                                     ; preds = %entry
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %entry, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #14
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #14
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.else
 
@@ -352,7 +352,7 @@ if.else.i.i:                                      ; preds = %if.else
   unreachable
 
 trace_event_is_pattern.exit.i:                    ; preds = %if.else
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i, i32 noundef 42) #14
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %cond.i, i32 noundef 42) #14
   %call.i.fr.i = freeze ptr %call.i.i
   %cmp1.i.not.i = icmp eq ptr %call.i.fr.i, null
   %11 = load i64, ptr @nevent_groups, align 8

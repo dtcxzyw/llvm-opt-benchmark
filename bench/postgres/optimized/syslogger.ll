@@ -770,7 +770,7 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
   %200 = and i32 %199, 383
   %201 = xor i32 %200, 383
   %202 = call i32 @umask(i32 noundef %201) #15
-  %203 = call noalias ptr @fopen(ptr noundef %180, ptr noundef nonnull %.str.2.sink.i)
+  %203 = call noalias ptr @fopen(ptr noundef %180, ptr noundef nonnull readonly %.str.2.sink.i)
   %204 = call i32 @umask(i32 noundef %202) #15
   %.not.i95 = icmp eq ptr %203, null
   br i1 %.not.i95, label %205, label %220

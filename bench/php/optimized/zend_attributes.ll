@@ -555,7 +555,7 @@ define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture nounde
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %25, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %30, ptr %1, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %30, ptr readonly %1, i64 %2)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
@@ -680,7 +680,7 @@ define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapt
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %27, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr %1, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr readonly %1, i64 %2)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 

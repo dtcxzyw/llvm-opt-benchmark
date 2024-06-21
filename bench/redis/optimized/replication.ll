@@ -3849,9 +3849,9 @@ if.end20:                                         ; preds = %if.then17
 
 do.end:                                           ; preds = %if.then17, %if.end20
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4152), align 8
-  %call.i = call i32 (ptr, i32, ...) @open64(ptr noundef %7, i32 noundef 2048) #21
+  %call.i = call i32 (ptr, i32, ...) @open64(ptr noundef readonly %7, i32 noundef 2048) #21
   %cmp.i = icmp eq i32 %call.i, -1
-  %call1.i = call i32 @unlink(ptr noundef %7) #21
+  %call1.i = call i32 @unlink(ptr noundef readonly %7) #21
   br i1 %cmp.i, label %if.end24, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
@@ -8152,9 +8152,9 @@ cond.end:                                         ; preds = %entry
 if.then:                                          ; preds = %cond.end
   %call = tail call i32 @close(i32 noundef %4) #21
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4656), align 8
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %5, i32 noundef 2048) #21
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %5, i32 noundef 2048) #21
   %cmp.i = icmp eq i32 %call.i, -1
-  %call1.i = tail call i32 @unlink(ptr noundef %5) #21
+  %call1.i = tail call i32 @unlink(ptr noundef readonly %5) #21
   br i1 %cmp.i, label %bg_unlink.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then

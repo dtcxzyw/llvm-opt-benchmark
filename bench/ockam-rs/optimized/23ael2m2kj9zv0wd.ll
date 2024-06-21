@@ -3679,7 +3679,7 @@ common.ret:                                       ; preds = %242, %30
   %63 = extractvalue { ptr, i64 } %60, 1
   %64 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %64)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %52, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull readonly align 1 %52, i64 %54, i1 false)
   store ptr %62, ptr %9, align 8, !alias.scope !579, !noalias !584
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %63, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !579, !noalias !584
@@ -5910,7 +5910,7 @@ common.ret:                                       ; preds = %710, %430, %402, %2
   %232 = extractvalue { ptr, i64 } %195, 1
   %233 = icmp ne ptr %231, null
   call void @llvm.assume(i1 %233)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %231, ptr nonnull align 1 %193, i64 %194, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %231, ptr nonnull readonly align 1 %193, i64 %194, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6448.sroa.9, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8456, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8456)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.7449, ptr noundef nonnull align 8 dereferenceable(408) %.sroa.6444, i64 408, i1 false), !alias.scope !893
@@ -7284,7 +7284,7 @@ common.ret:                                       ; preds = %710, %430, %402, %2
   %686 = extractvalue { ptr, i64 } %652, 1
   %687 = icmp ne ptr %685, null
   call void @llvm.assume(i1 %687)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %685, ptr nonnull align 1 %650, i64 %651, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %685, ptr nonnull readonly align 1 %650, i64 %651, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6543.sroa.9, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8551, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8551)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.7544, ptr noundef nonnull align 8 dereferenceable(408) %.sroa.6539, i64 408, i1 false), !alias.scope !1085

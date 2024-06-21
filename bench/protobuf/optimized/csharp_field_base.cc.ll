@@ -996,7 +996,7 @@ invoke.cont94:                                    ; preds = %if.then.i.i.i228, %
   %call96 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i227, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #26
   %79 = load ptr, ptr %descriptor_, align 8, !noalias !61
-  invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase9type_nameB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %79)
+  invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase9type_nameB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp97, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %79)
           to label %invoke.cont98 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont98:                                    ; preds = %invoke.cont94
@@ -1130,7 +1130,7 @@ invoke.cont121:                                   ; preds = %if.then.i.i.i284, %
 
 invoke.cont123:                                   ; preds = %invoke.cont121
   %104 = load ptr, ptr %descriptor_, align 8, !noalias !87
-  invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase13default_valueB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp125, ptr nonnull align 8 poison, ptr noundef %104)
+  invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase13default_valueB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp125, ptr nonnull readonly align 8 poison, ptr noundef %104)
           to label %invoke.cont126 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont126:                                   ; preds = %invoke.cont123

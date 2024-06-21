@@ -166,7 +166,7 @@ for.body.i.us:                                    ; preds = %for.inc33.i.us, %fo
   %indvars.iv37.i.us = phi i64 [ 0, %for.body.lr.ph.i.us ], [ %indvars.iv.next38.i.us, %for.inc33.i.us ]
   %arrayidx27.i.us = getelementptr inbounds ptr, ptr %flagNames, i64 %indvars.iv37.i.us
   %12 = load ptr, ptr %arrayidx27.i.us, align 8
-  %call29.i.us = tail call i32 @strncmp(ptr noundef nonnull %buffer.1.us, ptr noundef %12, i64 noundef %conv28.i.us) #6
+  %call29.i.us = tail call i32 @strncmp(ptr noundef nonnull readonly %buffer.1.us, ptr noundef %12, i64 noundef %conv28.i.us) #6
   %cmp30.i.us = icmp eq i32 %call29.i.us, 0
   br i1 %cmp30.i.us, label %return.loopexit.split.loop.exit45.i.us, label %for.inc33.i.us
 

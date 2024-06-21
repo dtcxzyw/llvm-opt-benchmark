@@ -1669,12 +1669,12 @@ parse_queue.exit.i:                               ; preds = %735, %731
   br i1 %.not153.i, label %741, label %753
 
 741:                                              ; preds = %740
-  %742 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %.0.i46, ptr noundef nonnull @.str.142, ptr noundef nonnull %692, ptr noundef nonnull %693, ptr noundef nonnull %694, ptr noundef nonnull %695, ptr noundef nonnull %696, ptr noundef nonnull %697, ptr noundef nonnull %698, ptr noundef nonnull %699) #25
+  %742 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef readonly %.0.i46, ptr noundef nonnull @.str.142, ptr noundef nonnull %692, ptr noundef nonnull %693, ptr noundef nonnull %694, ptr noundef nonnull %695, ptr noundef nonnull %696, ptr noundef nonnull %697, ptr noundef nonnull %698, ptr noundef nonnull %699) #25
   %.not.i168.i = icmp eq i32 %742, 8
   br i1 %.not.i168.i, label %747, label %743
 
 743:                                              ; preds = %741
-  %744 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %.0.i46, ptr noundef nonnull @.str.143, ptr noundef nonnull %697, ptr noundef nonnull %698, ptr noundef nonnull %699) #25
+  %744 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef readonly %.0.i46, ptr noundef nonnull @.str.143, ptr noundef nonnull %697, ptr noundef nonnull %698, ptr noundef nonnull %699) #25
   %.not19.i.i = icmp eq i32 %744, 3
   br i1 %.not19.i.i, label %746, label %745
 
@@ -3695,7 +3695,7 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef %0
   br i1 %.not74, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @get_ip(ptr noundef %0)
+  %27 = tail call ptr @get_ip(ptr noundef readonly %0)
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %get_port.exit, label %28
 
@@ -3712,7 +3712,7 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef %0
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds i8, ptr %33, i64 1
-  %38 = tail call noalias ptr @strdup(ptr noundef nonnull %37) #25
+  %38 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %37) #25
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %36, %28

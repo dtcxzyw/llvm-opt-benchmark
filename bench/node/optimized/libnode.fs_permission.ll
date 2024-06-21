@@ -385,7 +385,7 @@ lor.lhs.false:                                    ; preds = %land.rhs5, %land.lh
 
 lor.rhs:                                          ; preds = %lor.lhs.false
   %granted_in_fs_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(8) %granted_in_fs_, ptr noundef nonnull align 8 dereferenceable(16) %param, i1 noundef zeroext true)
+  %call.i = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull readonly align 8 dereferenceable(8) %granted_in_fs_, ptr noundef nonnull readonly align 8 dereferenceable(16) %param, i1 noundef zeroext true)
   br label %return
 
 sw.bb12:                                          ; preds = %entry
@@ -411,7 +411,7 @@ lor.lhs.false19:                                  ; preds = %land.rhs14, %land.l
 
 lor.rhs22:                                        ; preds = %lor.lhs.false19
   %granted_out_fs_ = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i5 = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(8) %granted_out_fs_, ptr noundef nonnull align 8 dereferenceable(16) %param, i1 noundef zeroext true)
+  %call.i5 = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull readonly align 8 dereferenceable(8) %granted_out_fs_, ptr noundef nonnull readonly align 8 dereferenceable(16) %param, i1 noundef zeroext true)
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb12, %lor.rhs22, %lor.lhs.false19, %land.lhs.true16, %sw.bb3, %lor.rhs, %lor.lhs.false, %land.lhs.true, %sw.bb

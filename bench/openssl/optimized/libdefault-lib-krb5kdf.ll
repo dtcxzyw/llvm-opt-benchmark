@@ -278,7 +278,7 @@ if.end18.i:                                       ; preds = %if.end13.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i48.i
 
 if.then.i.i:                                      ; preds = %if.end18.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %4, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr readonly align 1 %4, i64 %5, i1 false)
   br label %n_fold.exit.i
 
 if.end.i48.i:                                     ; preds = %if.end18.i

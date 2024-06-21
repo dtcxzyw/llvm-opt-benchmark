@@ -1886,9 +1886,9 @@ define internal fastcc ptr @get_dccp_conversation_data(ptr noundef %0, ptr nocap
   store i32 %11, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 56
   %15 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
   %17 = load i32, ptr @proto_dccp, align 4
   tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %7) #10
   br label %18

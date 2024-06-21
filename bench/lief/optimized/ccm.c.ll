@@ -832,7 +832,7 @@ mbedtls_ccm_crypt.exit:                           ; preds = %.lr.ph.i
 define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 3, ptr noundef %2, i64 noundef %3)
+  %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 3, ptr noundef readonly %2, i64 noundef %3)
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %ccm_auth_crypt.exit
 
@@ -842,12 +842,12 @@ define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef 
   br i1 %.not29.i, label %15, label %ccm_auth_crypt.exit
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef %4, i64 noundef %5)
+  %16 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef readonly %4, i64 noundef %5)
   %.not30.i = icmp eq i32 %16, 0
   br i1 %.not30.i, label %17, label %ccm_auth_crypt.exit
 
 17:                                               ; preds = %15
-  %18 = call i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef %6, i64 noundef %1, ptr noundef %7, i64 noundef %1, ptr noundef nonnull %11)
+  %18 = call i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly %6, i64 noundef %1, ptr noundef %7, i64 noundef %1, ptr noundef nonnull %11)
   %.not31.i = icmp eq i32 %18, 0
   br i1 %.not31.i, label %19, label %ccm_auth_crypt.exit
 
@@ -865,7 +865,7 @@ ccm_auth_crypt.exit:                              ; preds = %10, %13, %15, %17, 
 define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 1, ptr noundef %2, i64 noundef %3)
+  %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 1, ptr noundef readonly %2, i64 noundef %3)
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %ccm_auth_crypt.exit
 
@@ -875,12 +875,12 @@ define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, p
   br i1 %.not29.i, label %15, label %ccm_auth_crypt.exit
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef %4, i64 noundef %5)
+  %16 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef readonly %4, i64 noundef %5)
   %.not30.i = icmp eq i32 %16, 0
   br i1 %.not30.i, label %17, label %ccm_auth_crypt.exit
 
 17:                                               ; preds = %15
-  %18 = call i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef %6, i64 noundef %1, ptr noundef %7, i64 noundef %1, ptr noundef nonnull %11)
+  %18 = call i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly %6, i64 noundef %1, ptr noundef %7, i64 noundef %1, ptr noundef nonnull %11)
   %.not31.i = icmp eq i32 %18, 0
   br i1 %.not31.i, label %19, label %ccm_auth_crypt.exit
 
@@ -905,7 +905,7 @@ define internal fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef %1, i64
   %12 = alloca i64, align 8
   %13 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %14 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr noundef %3, i64 noundef %4)
+  %14 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr noundef readonly %3, i64 noundef %4)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %ccm_auth_crypt.exit.thread
 
@@ -915,12 +915,12 @@ define internal fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef %1, i64
   br i1 %.not29.i, label %17, label %ccm_auth_crypt.exit.thread
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef %5, i64 noundef %6)
+  %18 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef readonly %5, i64 noundef %6)
   %.not30.i = icmp eq i32 %18, 0
   br i1 %.not30.i, label %19, label %ccm_auth_crypt.exit.thread
 
 19:                                               ; preds = %17
-  %20 = call i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef %7, i64 noundef %2, ptr noundef %8, i64 noundef %2, ptr noundef nonnull %12)
+  %20 = call i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly %7, i64 noundef %2, ptr noundef %8, i64 noundef %2, ptr noundef nonnull %12)
   %.not31.i = icmp eq i32 %20, 0
   br i1 %.not31.i, label %ccm_auth_crypt.exit, label %ccm_auth_crypt.exit.thread
 
@@ -1043,7 +1043,7 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtl
   %34 = getelementptr inbounds [3 x i64], ptr @tag_len_test_data, i64 0, i64 %.045
   %35 = load i64, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %36 = call i32 @mbedtls_ccm_starts(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @iv_test_data, i64 noundef %30)
+  %36 = call i32 @mbedtls_ccm_starts(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull readonly @iv_test_data, i64 noundef %30)
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %37, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
@@ -1053,12 +1053,12 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtl
   br i1 %.not29.i.i, label %39, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
 39:                                               ; preds = %37
-  %40 = call i32 @mbedtls_ccm_update_ad(ptr noundef nonnull %3, ptr noundef nonnull @ad_test_data, i64 noundef %32)
+  %40 = call i32 @mbedtls_ccm_update_ad(ptr noundef nonnull %3, ptr noundef nonnull readonly @ad_test_data, i64 noundef %32)
   %.not30.i.i = icmp eq i32 %40, 0
   br i1 %.not30.i.i, label %41, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
 41:                                               ; preds = %39
-  %42 = call i32 @mbedtls_ccm_update(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %24, ptr noundef nonnull %5, i64 noundef %24, ptr noundef nonnull %2)
+  %42 = call i32 @mbedtls_ccm_update(ptr noundef nonnull %3, ptr noundef nonnull readonly %4, i64 noundef %24, ptr noundef nonnull %5, i64 noundef %24, ptr noundef nonnull %2)
   %.not31.i.i = icmp eq i32 %42, 0
   br i1 %.not31.i.i, label %mbedtls_ccm_encrypt_and_tag.exit, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
@@ -1088,7 +1088,7 @@ mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %41
 
 48:                                               ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %49 = call fastcc i32 @ccm_auth_decrypt(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %24, ptr noundef nonnull @iv_test_data, i64 noundef %30, ptr noundef nonnull @ad_test_data, i64 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %33, i64 noundef %35)
+  %49 = call fastcc i32 @ccm_auth_decrypt(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %24, ptr noundef nonnull readonly @iv_test_data, i64 noundef %30, ptr noundef nonnull readonly @ad_test_data, i64 noundef %32, ptr noundef nonnull readonly %5, ptr noundef nonnull %4, ptr noundef nonnull readonly %33, i64 noundef %35)
   %.not32 = icmp eq i32 %49, 0
   br i1 %.not32, label %50, label %51
 

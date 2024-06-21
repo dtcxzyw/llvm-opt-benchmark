@@ -6820,7 +6820,7 @@ select.unfold._crit_edge.i.i:                     ; preds = %72, %select.unfold.
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %.044.i.i.lcssa, align 8
   %85 = load ptr, ptr @assoc_hash, align 8
-  %86 = call fastcc i32 @_assoc_hash_index(ptr noundef nonnull %66)
+  %86 = call fastcc i32 @_assoc_hash_index(ptr noundef nonnull readonly %66)
   %.not3145.i.i = icmp eq ptr %85, null
   br i1 %.not3145.i.i, label %select.unfold37._crit_edge.i.i, label %.lr.ph47.preheader.i.i
 
@@ -8358,7 +8358,7 @@ select.unfold._crit_edge.i:                       ; preds = %521, %select.unfold
   %533 = load ptr, ptr %532, align 8
   store ptr %533, ptr %.044.i.lcssa, align 8
   %534 = load ptr, ptr @assoc_hash, align 8
-  %535 = tail call fastcc i32 @_assoc_hash_index(ptr noundef %33)
+  %535 = tail call fastcc i32 @_assoc_hash_index(ptr noundef readonly %33)
   %.not3145.i = icmp eq ptr %534, null
   br i1 %.not3145.i, label %select.unfold37._crit_edge.i, label %.lr.ph47.preheader.i
 
@@ -8673,7 +8673,7 @@ select.unfold._crit_edge.i486:                    ; preds = %635, %select.unfold
   %647 = load ptr, ptr %646, align 8
   store ptr %647, ptr %.044.i482.lcssa, align 8
   %648 = load ptr, ptr @assoc_hash, align 8
-  %649 = tail call fastcc i32 @_assoc_hash_index(ptr noundef nonnull %576)
+  %649 = tail call fastcc i32 @_assoc_hash_index(ptr noundef nonnull readonly %576)
   %.not3145.i488 = icmp eq ptr %648, null
   br i1 %.not3145.i488, label %select.unfold37._crit_edge.i495, label %.lr.ph47.preheader.i489
 
@@ -15114,7 +15114,7 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %.044.i.lcssa, align 8
   %24 = load ptr, ptr @assoc_hash, align 8
-  %25 = tail call fastcc i32 @_assoc_hash_index(ptr noundef %0)
+  %25 = tail call fastcc i32 @_assoc_hash_index(ptr noundef readonly %0)
   %.not3145.i = icmp eq ptr %24, null
   br i1 %.not3145.i, label %select.unfold37._crit_edge.i, label %.lr.ph47.preheader.i
 
@@ -15342,7 +15342,7 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %.044.i.lcssa, align 8
   %30 = load ptr, ptr @assoc_hash, align 8
-  %31 = call fastcc i32 @_assoc_hash_index(ptr noundef %0)
+  %31 = call fastcc i32 @_assoc_hash_index(ptr noundef readonly %0)
   %.not3145.i = icmp eq ptr %30, null
   br i1 %.not3145.i, label %select.unfold37._crit_edge.i, label %.lr.ph47.preheader.i
 

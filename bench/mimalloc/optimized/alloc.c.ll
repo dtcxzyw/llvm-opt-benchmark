@@ -1968,7 +1968,7 @@ if.end27:                                         ; preds = %if.else, %if.then25
 
 if.then36:                                        ; preds = %if.end27
   %cond42 = tail call i64 @llvm.umin.i64(i64 %call, i64 %newsize)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i29, ptr nonnull align 1 %p, i64 %cond42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i29, ptr nonnull readonly align 1 %p, i64 %cond42, i1 false)
   tail call void @mi_free(ptr noundef nonnull %p) #15
   br label %return
 
@@ -2157,7 +2157,7 @@ mi_heap_malloc.exit:                              ; preds = %if.then.i.i.i.i.i, 
 
 if.end4:                                          ; preds = %mi_heap_malloc.exit.thread, %mi_heap_malloc.exit
   %retval.0.i.i.i10 = phi ptr [ %1, %mi_heap_malloc.exit.thread ], [ %retval.0.i.i.i, %mi_heap_malloc.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i10, ptr nonnull align 1 %s, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i10, ptr nonnull readonly align 1 %s, i64 %call, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %retval.0.i.i.i10, i64 %call
   store i8 0, ptr %arrayidx, align 1
   br label %return
@@ -2179,7 +2179,7 @@ entry:
   br i1 %cmp.i, label %mi_heap_strdup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #18
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s) #18
   %add.i = add i64 %call.i, 1
   %cmp.i.i.i.i = icmp ult i64 %add.i, 1025
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2220,7 +2220,7 @@ mi_heap_malloc.exit.i:                            ; preds = %if.else.i.i.i.i, %i
 
 if.end4.i:                                        ; preds = %mi_heap_malloc.exit.i, %mi_heap_malloc.exit.thread.i
   %retval.0.i.i.i10.i = phi ptr [ %3, %mi_heap_malloc.exit.thread.i ], [ %retval.0.i.i.i.i, %mi_heap_malloc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i10.i, ptr nonnull align 1 %s, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i10.i, ptr nonnull readonly align 1 %s, i64 %call.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i10.i, i64 %call.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %mi_heap_strdup.exit
@@ -2283,7 +2283,7 @@ mi_heap_malloc.exit:                              ; preds = %if.then.i.i.i.i.i, 
 
 if.end5:                                          ; preds = %mi_heap_malloc.exit.thread, %mi_heap_malloc.exit
   %retval.0.i.i.i13 = phi ptr [ %1, %mi_heap_malloc.exit.thread ], [ %retval.0.i.i.i, %mi_heap_malloc.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i13, ptr nonnull align 1 %s, i64 %cond, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i13, ptr nonnull readonly align 1 %s, i64 %cond, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %retval.0.i.i.i13, i64 %cond
   store i8 0, ptr %arrayidx, align 1
   br label %return
@@ -2351,7 +2351,7 @@ mi_heap_malloc.exit.i:                            ; preds = %if.else.i.i.i.i, %i
 
 if.end5.i:                                        ; preds = %mi_heap_malloc.exit.i, %mi_heap_malloc.exit.thread.i
   %retval.0.i.i.i13.i = phi ptr [ %3, %mi_heap_malloc.exit.thread.i ], [ %retval.0.i.i.i.i, %mi_heap_malloc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i13.i, ptr nonnull align 1 %s, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i13.i, ptr nonnull readonly align 1 %s, i64 %cond.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i13.i, i64 %cond.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %mi_heap_strndup.exit
@@ -2377,7 +2377,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #18
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call1) #18
   %add.i = add i64 %call.i, 1
   %cmp.i.i.i.i = icmp ult i64 %add.i, 1025
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2418,7 +2418,7 @@ mi_heap_malloc.exit.i:                            ; preds = %if.else.i.i.i.i, %i
 
 if.end4.i:                                        ; preds = %mi_heap_malloc.exit.i, %mi_heap_malloc.exit.thread.i
   %retval.0.i.i.i10.i = phi ptr [ %1, %mi_heap_malloc.exit.thread.i ], [ %retval.0.i.i.i.i, %mi_heap_malloc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i10.i, ptr nonnull align 1 %call1, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i10.i, ptr nonnull readonly align 1 %call1, i64 %call.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i10.i, i64 %call.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %mi_heap_strdup.exit

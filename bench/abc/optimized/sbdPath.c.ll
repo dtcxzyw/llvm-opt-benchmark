@@ -560,7 +560,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   br i1 %103, label %.lr.ph.i, label %.critedge.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %82
-  %104 = call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %74, ptr noundef nonnull %17)
+  %104 = call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %74, ptr noundef nonnull readonly %17)
   %.val25.pre.i = load i32, ptr %11, align 8
   br label %105
 

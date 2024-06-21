@@ -236,11 +236,11 @@ do.end.i:                                         ; preds = %if.end13.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash.i, ptr noundef nonnull dereferenceable(32) %call19.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %hash.i, ptr noundef nonnull readonly dereferenceable(32) %call19.i, i64 32)
   br label %hasheq.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash.i, ptr noundef nonnull dereferenceable(20) %call19.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %hash.i, ptr noundef nonnull readonly dereferenceable(20) %call19.i, i64 20)
   br label %hasheq.exit.i
 
 hasheq.exit.i:                                    ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -271,11 +271,11 @@ if.end28.i:                                       ; preds = %if.then23.i, %hashe
   br i1 %cmp.i.i91.i, label %if.then.i.i97.i, label %if.end.i.i92.i
 
 if.then.i.i97.i:                                  ; preds = %if.end28.i
-  %bcmp3.i.i98.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %add.ptr30.i, ptr noundef nonnull dereferenceable(32) %call19.i, i64 32)
+  %bcmp3.i.i98.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %add.ptr30.i, ptr noundef nonnull readonly dereferenceable(32) %call19.i, i64 32)
   br label %hasheq.exit99.i
 
 if.end.i.i92.i:                                   ; preds = %if.end28.i
-  %bcmp.i.i93.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %add.ptr30.i, ptr noundef nonnull dereferenceable(20) %call19.i, i64 20)
+  %bcmp.i.i93.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %add.ptr30.i, ptr noundef nonnull readonly dereferenceable(20) %call19.i, i64 20)
   br label %hasheq.exit99.i
 
 hasheq.exit99.i:                                  ; preds = %if.end.i.i92.i, %if.then.i.i97.i

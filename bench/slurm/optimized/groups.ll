@@ -479,7 +479,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %193
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr align 1 %186, i64 %198, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr readonly align 1 %186, i64 %198, i1 false)
   br label %204
 
 204:                                              ; preds = %203, %193

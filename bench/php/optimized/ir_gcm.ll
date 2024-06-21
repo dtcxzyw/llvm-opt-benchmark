@@ -552,7 +552,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %278
-  tail call fastcc void @ir_gcm_schedule_late(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %274)
+  tail call fastcc void @ir_gcm_schedule_late(ptr noundef readonly %0, ptr noundef nonnull %4, i32 noundef %274)
   %281 = load i32, ptr %276, align 4
   br label %282
 

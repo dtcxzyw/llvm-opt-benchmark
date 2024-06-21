@@ -402,7 +402,7 @@ if.then13.i:                                      ; preds = %if.else.i
 
 land.rhs.i.i:                                     ; preds = %if.then13.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext14.i
-  %bcmp.i = tail call i32 @bcmp(ptr %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
 

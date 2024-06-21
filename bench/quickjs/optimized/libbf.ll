@@ -4182,7 +4182,7 @@ bf_normalize_and_round.exit:                      ; preds = %205, %184, %._crit_
   br label %bf_free.exit.i
 
 bf_free.exit.i:                                   ; preds = %212, %209
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.384, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.384, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_move.exit
 
 bf_move.exit:                                     ; preds = %bf_free.exit.i, %bf_normalize_and_round.exit, %bf_set_nan.exit, %bf_set_nan.exit100, %bf_set_inf.exit, %bf_set_zero.exit
@@ -4659,7 +4659,7 @@ bf_set_nan.exit.i.i:                              ; preds = %174, %bf_resize.exi
   store i64 -9223372036854775808, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %198, i8 0, i64 16, i1 false)
-  %199 = call fastcc i32 @__bf_div(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %..i23.i, i32 noundef 1) #17
+  %199 = call fastcc i32 @__bf_div(ptr noundef nonnull %10, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %12, i64 noundef %..i23.i, i32 noundef 1) #17
   %200 = getelementptr inbounds i8, ptr %0, i64 32
   %201 = load ptr, ptr %200, align 8
   %.not.i.i.i.i.i = icmp eq ptr %201, null
@@ -4674,11 +4674,11 @@ bf_set_nan.exit.i.i:                              ; preds = %174, %bf_resize.exi
   br label %bf_free.exit.i.i.i.i
 
 bf_free.exit.i.i.i.i:                             ; preds = %202, %194
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %10, i64 40, i1 false)
   br label %bf_div.exit.i
 
 206:                                              ; preds = %.loopexit.i
-  %207 = call fastcc i32 @__bf_div(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %..i23.i, i32 noundef 1) #17
+  %207 = call fastcc i32 @__bf_div(ptr noundef %0, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %12, i64 noundef %..i23.i, i32 noundef 1) #17
   br label %bf_div.exit.i
 
 bf_div.exit.i:                                    ; preds = %206, %bf_free.exit.i.i.i.i
@@ -4722,7 +4722,7 @@ bf_rint.exit.i:                                   ; preds = %211, %bf_div.exit.i
   br label %bf_free.exit.i.i.i32.i
 
 bf_free.exit.i.i.i32.i:                           ; preds = %223, %220
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 8 dereferenceable(40) %9, i64 40, i1 false)
   br label %bf_sub.exit.i
 
 bf_sub.exit.i:                                    ; preds = %bf_free.exit.i.i.i32.i, %bf_rint.exit.i
@@ -4878,7 +4878,7 @@ get_bit.exit:                                     ; preds = %260
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %286, %283
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %bf_sub.exit
 
 bf_sub.exit:                                      ; preds = %275, %bf_free.exit.i.i.i
@@ -5063,7 +5063,7 @@ bf_set_si.exit:                                   ; preds = %25, %bf_set_ui.exit
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %47, %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_add.exit
 
 51:                                               ; preds = %bf_set_si.exit
@@ -5132,7 +5132,7 @@ define dso_local i32 @bf_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %19, %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_op2.exit
 
 23:                                               ; preds = %5
@@ -5913,7 +5913,7 @@ bf_rint.exit:                                     ; preds = %76, %85
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %101, %99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %89, %bf_free.exit.i.i.i
@@ -6364,7 +6364,7 @@ define dso_local i32 @bf_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %19, %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_op2.exit
 
 23:                                               ; preds = %5
@@ -6410,7 +6410,7 @@ define dso_local i32 @bf_div(ptr noundef %0, ptr noundef readonly %1, ptr nounde
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %17, %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_op2.exit
 
 21:                                               ; preds = %5
@@ -8323,7 +8323,7 @@ bf_round.exit:                                    ; preds = %bf_set.exit91, %75
   store i64 -9223372036854775808, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
-  %120 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %9, i64 noundef %112, i32 noundef 0) #17
+  %120 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, i64 noundef %112, i32 noundef 0) #17
   %121 = getelementptr inbounds i8, ptr %0, i64 32
   %122 = load ptr, ptr %121, align 8
   %.not.i.i.i.i = icmp eq ptr %122, null
@@ -8338,11 +8338,11 @@ bf_round.exit:                                    ; preds = %bf_set.exit91, %75
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %123, %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %bf_div.exit
 
 127:                                              ; preds = %110
-  %128 = call fastcc i32 @__bf_div(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i64 noundef %112, i32 noundef 0) #17
+  %128 = call fastcc i32 @__bf_div(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, i64 noundef %112, i32 noundef 0) #17
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i, %127
@@ -8375,7 +8375,7 @@ bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i,
   store i32 0, ptr %93, align 8
   store i64 -9223372036854775808, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
-  %141 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %135, i32 noundef 2016) #17
+  %141 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef readonly %1, ptr noundef nonnull readonly %9, i64 noundef %135, i32 noundef 2016) #17
   %142 = load ptr, ptr %96, align 8
   %.not.i.i.i.i97 = icmp eq ptr %142, null
   br i1 %.not.i.i.i.i97, label %bf_free.exit.i.i.i100, label %143
@@ -8389,11 +8389,11 @@ bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i,
   br label %bf_free.exit.i.i.i100
 
 bf_free.exit.i.i.i100:                            ; preds = %143, %139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   br label %bf_div.exit101
 
 147:                                              ; preds = %138
-  %148 = call fastcc i32 @__bf_div(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %135, i32 noundef 2016) #17
+  %148 = call fastcc i32 @__bf_div(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %9, i64 noundef %135, i32 noundef 2016) #17
   br label %bf_div.exit101
 
 bf_div.exit101:                                   ; preds = %bf_free.exit.i.i.i100, %147
@@ -11237,7 +11237,7 @@ define internal void @bf_const_log2_internal(ptr noundef %0, i64 noundef %1) #2 
   store i64 -9223372036854775808, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %20 = call fastcc i32 @__bf_div(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %1, i32 noundef 0) #17
+  %20 = call fastcc i32 @__bf_div(ptr noundef nonnull %3, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %5, i64 noundef %1, i32 noundef 0) #17
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
@@ -11252,7 +11252,7 @@ define internal void @bf_const_log2_internal(ptr noundef %0, i64 noundef %1) #2 
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %2, %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %27 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %27, null
@@ -11584,7 +11584,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
   br i1 %.not.i.i.i.i.i, label %bf_add.exit.thread3.i, label %bf_add.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %119
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %125
 
@@ -11595,7 +11595,7 @@ bf_add.exit.i:                                    ; preds = %119
   %.val3.i.i.i.i.i = load ptr, ptr %123, align 8
   %124 = call ptr %.val3.i.i.i.i.i(ptr noundef %.val.i.i.i.i.i, ptr noundef nonnull %121, i64 noundef 0) #17
   %.pre.pre.i = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i56 = icmp eq ptr %.pre.pre.i, null
   br i1 %.not.i.i56, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
@@ -12242,7 +12242,7 @@ define internal noundef i32 @bf_exp_internal(ptr noundef %0, ptr noundef %1, i64
   store i64 -9223372036854775808, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  %27 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef 64, i32 noundef 2) #17
+  %27 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, i64 noundef 64, i32 noundef 2) #17
   %28 = getelementptr inbounds i8, ptr %8, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i = icmp eq ptr %29, null
@@ -12257,7 +12257,7 @@ define internal noundef i32 @bf_exp_internal(ptr noundef %0, ptr noundef %1, i64
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %20, %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %34 = load i64, ptr %12, align 8
   %35 = icmp sgt i64 %34, 9223372036854775805
@@ -12344,7 +12344,7 @@ bf_get_int64.exit:                                ; preds = %56, %17, %46, %42, 
   br label %bf_sub.exit
 
 bf_sub.exit:                                      ; preds = %bf_get_int64.exit, %79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %83 = load i64, ptr %13, align 8
   %84 = icmp eq i64 %83, 0
@@ -12499,7 +12499,7 @@ bf_set_ui.exit77:                                 ; preds = %128, %bf_set_nan.ex
   store i32 0, ptr %116, align 8
   store i64 -9223372036854775808, ptr %117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
-  %140 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %spec.select, i32 noundef 0) #17
+  %140 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, i64 noundef %spec.select, i32 noundef 0) #17
   %141 = load ptr, ptr %115, align 8
   %.not.i.i.i.i78 = icmp eq ptr %141, null
   br i1 %.not.i.i.i.i78, label %bf_div.exit81, label %142
@@ -12513,7 +12513,7 @@ bf_set_ui.exit77:                                 ; preds = %128, %bf_set_nan.ex
   br label %bf_div.exit81
 
 bf_div.exit81:                                    ; preds = %bf_set_ui.exit77, %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %146 = call i32 @bf_mul(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef %spec.select, i32 noundef 0)
   %147 = call i32 @bf_add_si(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef 1, i64 noundef %spec.select, i32 noundef 0)
@@ -13058,7 +13058,7 @@ bf_delete.exit:                                   ; preds = %.thread, %79
   store i32 0, ptr %99, align 8
   store i64 -9223372036854775808, ptr %100, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  %108 = call fastcc i32 @__bf_div(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %90, i32 noundef 0) #17
+  %108 = call fastcc i32 @__bf_div(ptr noundef nonnull %9, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, i64 noundef %90, i32 noundef 0) #17
   %109 = load ptr, ptr %102, align 8
   %.not.i.i.i.i117 = icmp eq ptr %109, null
   br i1 %.not.i.i.i.i117, label %bf_div.exit, label %110
@@ -13072,7 +13072,7 @@ bf_delete.exit:                                   ; preds = %.thread, %79
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %103, %110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %9, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %114 = add nuw nsw i64 %.0101221, 1
   %exitcond.not = icmp eq i64 %114, %83
@@ -13103,7 +13103,7 @@ bf_div.exit:                                      ; preds = %103, %110
   store i64 -9223372036854775808, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
-  %126 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %90, i32 noundef 0) #17
+  %126 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %13, i64 noundef %90, i32 noundef 0) #17
   %127 = getelementptr inbounds i8, ptr %13, i64 32
   %128 = load ptr, ptr %127, align 8
   %.not.i.i.i.i120 = icmp eq ptr %128, null
@@ -13118,7 +13118,7 @@ bf_div.exit:                                      ; preds = %103, %110
   br label %bf_div.exit123
 
 bf_div.exit123:                                   ; preds = %._crit_edge, %129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %133 = call i32 @bf_mul(ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %13, i64 noundef %90, i32 noundef 0)
   %134 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13276,7 +13276,7 @@ bf_set_ui.exit160:                                ; preds = %182, %bf_set_nan.ex
   store i32 0, ptr %147, align 8
   store i64 -9223372036854775808, ptr %148, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
-  %194 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %90, i32 noundef 0) #17
+  %194 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %12, i64 noundef %90, i32 noundef 0) #17
   %195 = load ptr, ptr %145, align 8
   %.not.i.i.i.i163 = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i163, label %bf_div.exit166, label %196
@@ -13290,7 +13290,7 @@ bf_set_ui.exit160:                                ; preds = %182, %bf_set_nan.ex
   br label %bf_div.exit166
 
 bf_div.exit166:                                   ; preds = %bf_set_ui.exit160, %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %200 = load ptr, ptr %0, align 8
@@ -13315,7 +13315,7 @@ bf_div.exit166:                                   ; preds = %bf_set_ui.exit160, 
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %204, %202
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %bf_div.exit166, %bf_free.exit.i.i.i
@@ -13446,7 +13446,7 @@ bf_mul_2exp.exit:                                 ; preds = %bf_delete.exit191, 
   br label %bf_free.exit.i.i.i198
 
 bf_free.exit.i.i.i198:                            ; preds = %260, %257
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %bf_add.exit199
 
 bf_add.exit199:                                   ; preds = %bf_mul_2exp.exit, %bf_free.exit.i.i.i198
@@ -14306,7 +14306,7 @@ bf_get_exp_min.exit276:                           ; preds = %343, %331, %339
 347:                                              ; preds = %bf_get_exp_min.exit276
   %348 = add i64 %332, -1
   %349 = call i32 @bf_mul_si(ptr noundef nonnull %6, ptr noundef %.0148, i64 noundef %348, i64 noundef 64, i32 noundef 1)
-  %350 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef 0)
+  %350 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef nonnull readonly %6, i32 noundef 0)
   %351 = call i32 @bf_set_ui(ptr noundef nonnull %0, i64 noundef 1)
   %352 = load i64, ptr %10, align 8
   %353 = call i32 @bf_mul_2exp(ptr noundef nonnull %0, i64 noundef %352, i64 noundef %3, i32 noundef %.1150)
@@ -14317,7 +14317,7 @@ bf_get_exp_min.exit276:                           ; preds = %343, %331, %339
   br i1 %355, label %356, label %371
 
 356:                                              ; preds = %354
-  %357 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %11, ptr noundef %.0148, i32 noundef 0)
+  %357 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %11, ptr noundef readonly %.0148, i32 noundef 0)
   %358 = load i64, ptr %11, align 8
   %359 = icmp sgt i64 %358, 2305843009213693951
   br i1 %359, label %360, label %369
@@ -14363,7 +14363,7 @@ bf_delete.exit281:                                ; preds = %360, %362, %365
 378:                                              ; preds = %374
   %379 = add i64 %345, -1
   %380 = call i32 @bf_mul_si(ptr noundef nonnull %0, ptr noundef %.0148, i64 noundef %379, i64 noundef 64, i32 noundef 1)
-  %381 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef %0, i32 noundef 0)
+  %381 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef readonly %0, i32 noundef 0)
   %382 = load i64, ptr %10, align 8
   %383 = icmp ugt i64 %382, %3
   br i1 %383, label %400, label %384
@@ -14864,7 +14864,7 @@ bf_set_ui.exit:                                   ; preds = %59, %bf_set_nan.exi
   store i64 -9223372036854775808, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  %65 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %0, i64 noundef %48, i32 noundef 2016) #17
+  %65 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %0, i64 noundef %48, i32 noundef 2016) #17
   %66 = getelementptr inbounds i8, ptr %0, i64 32
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i.i = icmp eq ptr %67, null
@@ -14879,7 +14879,7 @@ bf_set_ui.exit:                                   ; preds = %59, %bf_set_nan.exi
   br label %72
 
 72:                                               ; preds = %68, %bf_set_ui.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %73 = or i32 %65, %49
   %.not6.i = icmp eq ptr %57, null
@@ -15499,7 +15499,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
   br i1 %.not.i.i.i.i.i, label %bf_add.exit.thread3.i, label %bf_add.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %102
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %108
 
@@ -15510,7 +15510,7 @@ bf_add.exit.i:                                    ; preds = %102
   %.val3.i.i.i.i.i = load ptr, ptr %106, align 8
   %107 = call ptr %.val3.i.i.i.i.i(ptr noundef %.val.i.i.i.i.i, ptr noundef nonnull %104, i64 noundef 0) #17
   %.pre.pre.i = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i40 = icmp eq ptr %.pre.pre.i, null
   br i1 %.not.i.i40, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
@@ -15889,7 +15889,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
   br i1 %.not.i.i.i.i.i, label %bf_add.exit.thread3.i, label %bf_add.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %117
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %123
 
@@ -15900,7 +15900,7 @@ bf_add.exit.i:                                    ; preds = %117
   %.val3.i.i.i.i.i = load ptr, ptr %121, align 8
   %122 = call ptr %.val3.i.i.i.i.i(ptr noundef %.val.i.i.i.i.i, ptr noundef nonnull %119, i64 noundef 0) #17
   %.pre.pre.i = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i40 = icmp eq ptr %.pre.pre.i, null
   br i1 %.not.i.i40, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
@@ -16278,7 +16278,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
   br i1 %.not.i.i.i.i.i, label %bf_add.exit.thread3.i, label %bf_add.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %122
 
@@ -16289,7 +16289,7 @@ bf_add.exit.i:                                    ; preds = %116
   %.val3.i.i.i.i.i = load ptr, ptr %120, align 8
   %121 = call ptr %.val3.i.i.i.i.i(ptr noundef %.val.i.i.i.i.i, ptr noundef nonnull %118, i64 noundef 0) #17
   %.pre.pre.i = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i40 = icmp eq ptr %.pre.pre.i, null
   br i1 %.not.i.i40, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
@@ -16347,7 +16347,7 @@ define internal noundef i32 @bf_tan_internal(ptr noundef %0, ptr noundef %1, i64
   store i64 -9223372036854775808, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %8, i32 noundef 6) #17
+  %16 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %6, i64 noundef %8, i32 noundef 6) #17
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i.i = icmp eq ptr %18, null
@@ -16362,7 +16362,7 @@ define internal noundef i32 @bf_tan_internal(ptr noundef %0, ptr noundef %1, i64
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %4, %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %23 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %23, null
@@ -16719,7 +16719,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
   br i1 %.not.i.i.i.i.i, label %bf_add.exit.thread3.i, label %bf_add.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %171
 
@@ -16730,7 +16730,7 @@ bf_add.exit.i:                                    ; preds = %165
   %.val3.i.i.i.i.i = load ptr, ptr %169, align 8
   %170 = call ptr %.val3.i.i.i.i.i(ptr noundef %.val.i.i.i.i.i, ptr noundef nonnull %167, i64 noundef 0) #17
   %.pre.pre.i = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i68 = icmp eq ptr %.pre.pre.i, null
   br i1 %.not.i.i68, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
@@ -16832,7 +16832,7 @@ bf_set_ui.exit:                                   ; preds = %36, %bf_set_nan.exi
   store i64 -9223372036854775808, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %42 = call fastcc i32 @__bf_div(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %25, i32 noundef 0) #17
+  %42 = call fastcc i32 @__bf_div(ptr noundef nonnull %9, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %1, i64 noundef %25, i32 noundef 0) #17
   %43 = getelementptr inbounds i8, ptr %10, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i.i = icmp eq ptr %44, null
@@ -16847,7 +16847,7 @@ bf_set_ui.exit:                                   ; preds = %36, %bf_set_nan.exi
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_set_ui.exit, %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %9, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %bf_set.exit
 
@@ -16957,7 +16957,7 @@ bf_set.exit:                                      ; preds = %._crit_edge.i105, %
   store i32 0, ptr %85, align 8
   store i64 -9223372036854775808, ptr %86, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
-  %95 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef %25, i32 noundef 0) #17
+  %95 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %12, i64 noundef %25, i32 noundef 0) #17
   %96 = load ptr, ptr %88, align 8
   %.not.i.i.i.i109 = icmp eq ptr %96, null
   br i1 %.not.i.i.i.i109, label %bf_div.exit112, label %97
@@ -16971,7 +16971,7 @@ bf_set.exit:                                      ; preds = %._crit_edge.i105, %
   br label %bf_div.exit112
 
 bf_div.exit112:                                   ; preds = %89, %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %101 = add nuw nsw i64 %.0170, 1
   %exitcond.not = icmp eq i64 %101, %18
@@ -17134,7 +17134,7 @@ bf_set_ui.exit136:                                ; preds = %151, %bf_set_nan.ex
   store i32 0, ptr %116, align 8
   store i64 -9223372036854775808, ptr %117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
-  %163 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %25, i32 noundef 0) #17
+  %163 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %12, i64 noundef %25, i32 noundef 0) #17
   %164 = load ptr, ptr %114, align 8
   %.not.i.i.i.i138 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i138, label %bf_div.exit141, label %165
@@ -17148,7 +17148,7 @@ bf_set_ui.exit136:                                ; preds = %151, %bf_set_nan.ex
   br label %bf_div.exit141
 
 bf_div.exit141:                                   ; preds = %bf_set_ui.exit136, %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %169 = load i32, ptr %103, align 8
   %170 = xor i32 %169, 1
@@ -17176,7 +17176,7 @@ bf_div.exit141:                                   ; preds = %bf_set_ui.exit136, 
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %175, %173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %bf_div.exit141, %bf_free.exit.i.i.i
@@ -17332,7 +17332,7 @@ bf_mul_2exp.exit158:                              ; preds = %231, %228, %224
   br label %bf_free.exit.i.i.i163
 
 bf_free.exit.i.i.i163:                            ; preds = %245, %242
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %bf_add.exit164
 
 bf_add.exit164:                                   ; preds = %bf_mul_2exp.exit158, %bf_free.exit.i.i.i163
@@ -17480,7 +17480,7 @@ bf_set_zero.exit:                                 ; preds = %44
   store i64 -9223372036854775808, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  %57 = call fastcc i32 @__bf_div(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %30, i32 noundef 6) #17
+  %57 = call fastcc i32 @__bf_div(ptr noundef nonnull %6, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %3, i64 noundef %30, i32 noundef 6) #17
   %58 = getelementptr inbounds i8, ptr %7, i64 32
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i = icmp eq ptr %59, null
@@ -17495,11 +17495,11 @@ bf_set_zero.exit:                                 ; preds = %44
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %60, %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_div.exit
 
 64:                                               ; preds = %.thread
-  %65 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %30, i32 noundef 6) #17
+  %65 = call fastcc i32 @__bf_div(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %3, i64 noundef %30, i32 noundef 6) #17
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i, %64
@@ -17548,7 +17548,7 @@ bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i,
   br label %bf_free.exit.i.i.i47
 
 bf_free.exit.i.i.i47:                             ; preds = %85, %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %70, %bf_free.exit.i.i.i47
@@ -17936,7 +17936,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
   br i1 %.not.i.i.i.i.i, label %bf_add.exit.thread3.i, label %bf_add.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %161
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %167
 
@@ -17947,7 +17947,7 @@ bf_add.exit.i:                                    ; preds = %161
   %.val3.i.i.i.i.i = load ptr, ptr %165, align 8
   %166 = call ptr %.val3.i.i.i.i.i(ptr noundef %.val.i.i.i.i.i, ptr noundef nonnull %163, i64 noundef 0) #17
   %.pre.pre.i = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i65 = icmp eq ptr %.pre.pre.i, null
   br i1 %.not.i.i65, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
@@ -18021,7 +18021,7 @@ define internal noundef i32 @bf_asin_internal(ptr noundef %0, ptr noundef %1, i6
   store i64 -9223372036854775808, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %0, i64 noundef %9, i32 noundef 0) #17
+  %28 = call fastcc i32 @__bf_div(ptr noundef nonnull %5, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0, i64 noundef %9, i32 noundef 0) #17
   %29 = getelementptr inbounds i8, ptr %6, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i = icmp eq ptr %30, null
@@ -18036,11 +18036,11 @@ define internal noundef i32 @bf_asin_internal(ptr noundef %0, ptr noundef %1, i6
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %31, %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %bf_div.exit
 
 35:                                               ; preds = %4
-  %36 = call fastcc i32 @__bf_div(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %0, i64 noundef %9, i32 noundef 0) #17
+  %36 = call fastcc i32 @__bf_div(ptr noundef nonnull %6, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0, i64 noundef %9, i32 noundef 0) #17
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i, %35
@@ -20634,7 +20634,7 @@ define dso_local i32 @bfdec_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %19, %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_op2.exit
 
 23:                                               ; preds = %5
@@ -20684,7 +20684,7 @@ define dso_local i32 @bfdec_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %19, %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_op2.exit
 
 23:                                               ; preds = %5
@@ -20950,7 +20950,7 @@ bfdec_set_nan.exit82:                             ; preds = %bfdec_resize.exit, 
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %105, %102
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.054, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.054, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bfdec_move.exit
 
 bfdec_move.exit:                                  ; preds = %bf_free.exit.i.i, %99, %bfdec_set_nan.exit, %bfdec_set_nan.exit72, %bfdec_set_inf.exit, %bfdec_set_zero.exit
@@ -21066,7 +21066,7 @@ bfdec_set_si.exit:                                ; preds = %13, %16
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %30, %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bfdec_add.exit
 
 34:                                               ; preds = %bfdec_set_si.exit
@@ -21133,7 +21133,7 @@ define dso_local i32 @bfdec_div(ptr noundef %0, ptr noundef readonly %1, ptr nou
   br label %bf_free.exit.i.i
 
 bf_free.exit.i.i:                                 ; preds = %19, %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %bf_op2.exit
 
 23:                                               ; preds = %5
@@ -22004,7 +22004,7 @@ bf_set_nan.exit.i.i.i:                            ; preds = %185, %bf_resize.exi
   store i64 -9223372036854775808, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, i8 0, i64 16, i1 false)
-  %207 = call fastcc i32 @__bfdec_div(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 0, i32 noundef 17) #17
+  %207 = call fastcc i32 @__bfdec_div(ptr noundef nonnull %9, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, i64 noundef 0, i32 noundef 17) #17
   %208 = icmp eq ptr %9, %0
   br i1 %208, label %bfdec_div.exit.i, label %209
 
@@ -22023,11 +22023,11 @@ bf_set_nan.exit.i.i.i:                            ; preds = %185, %bf_resize.exi
   br label %bf_free.exit.i.i.i.i
 
 bf_free.exit.i.i.i.i:                             ; preds = %212, %209
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %9, i64 40, i1 false)
   br label %bfdec_div.exit.i
 
 216:                                              ; preds = %.loopexit.i
-  %217 = call fastcc i32 @__bfdec_div(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 0, i32 noundef 17) #17
+  %217 = call fastcc i32 @__bfdec_div(ptr noundef %0, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, i64 noundef 0, i32 noundef 17) #17
   br label %bfdec_div.exit.i
 
 bfdec_div.exit.i:                                 ; preds = %216, %bf_free.exit.i.i.i.i, %203
@@ -22061,7 +22061,7 @@ bfdec_div.exit.i:                                 ; preds = %216, %bf_free.exit.
   br label %bf_free.exit.i.i.i27.i
 
 bf_free.exit.i.i.i27.i:                           ; preds = %228, %225
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %bfdec_sub.exit.i
 
 bfdec_sub.exit.i:                                 ; preds = %bf_free.exit.i.i.i27.i, %bfdec_div.exit.i
@@ -24610,7 +24610,7 @@ bf_set_nan.exit.i:                                ; preds = %43, %bf_resize.exit
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %85, %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %75, %bf_free.exit.i.i.i
@@ -25284,7 +25284,7 @@ bf_mul_log2_radix.exit83:                         ; preds = %127, %130
   store i32 0, ptr %101, align 8
   store i64 -9223372036854775808, ptr %102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  %151 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %0, i64 noundef %145, i32 noundef 2016) #17
+  %151 = call fastcc i32 @__bf_div(ptr noundef nonnull %8, ptr noundef readonly %2, ptr noundef nonnull readonly %0, i64 noundef %145, i32 noundef 2016) #17
   %152 = load ptr, ptr %104, align 8
   %.not.i.i.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i.i.i, label %bf_div.exit, label %153
@@ -25298,7 +25298,7 @@ bf_mul_log2_radix.exit83:                         ; preds = %127, %130
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %149, %153
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %157
 
@@ -25794,7 +25794,7 @@ bf_set_ui.exit:                                   ; preds = %144, %bf_set_nan.ex
   store i64 -9223372036854775808, ptr %155, align 8
   %156 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
-  %157 = call fastcc i32 @__bf_div(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %132, i64 noundef %150, i32 noundef 0) #17
+  %157 = call fastcc i32 @__bf_div(ptr noundef nonnull %12, ptr noundef nonnull readonly %14, ptr noundef readonly %132, i64 noundef %150, i32 noundef 0) #17
   %158 = getelementptr inbounds i8, ptr %135, i64 32
   %159 = load ptr, ptr %158, align 8
   %.not.i.i.i.i = icmp eq ptr %159, null
@@ -25809,11 +25809,11 @@ bf_set_ui.exit:                                   ; preds = %144, %bf_set_nan.ex
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %160, %152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr noundef nonnull readonly align 8 dereferenceable(40) %12, i64 40, i1 false)
   br label %bf_div.exit
 
 164:                                              ; preds = %bf_set_ui.exit
-  %165 = call fastcc i32 @__bf_div(ptr noundef %135, ptr noundef nonnull %14, ptr noundef %132, i64 noundef %150, i32 noundef 0) #17
+  %165 = call fastcc i32 @__bf_div(ptr noundef %135, ptr noundef nonnull readonly %14, ptr noundef readonly %132, i64 noundef %150, i32 noundef 0) #17
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i, %164
@@ -25865,7 +25865,7 @@ bf_rint.exit:                                     ; preds = %167, %173
   br label %bf_sub.exit
 
 bf_sub.exit:                                      ; preds = %bf_rint.exit, %185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull readonly align 8 dereferenceable(40) %11, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %189 = or i32 %177, %182
   %190 = and i32 %189, 32
@@ -25917,7 +25917,7 @@ bf_sub.exit:                                      ; preds = %bf_rint.exit, %185
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %204, %208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull readonly align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %.not90 = icmp eq i32 %206, 0
   br i1 %.not90, label %212, label %.loopexit141
@@ -26009,7 +26009,7 @@ get_limbz.exit30.i:                               ; preds = %238, %get_limbz.exi
   br label %bf_sub.exit121
 
 bf_sub.exit121:                                   ; preds = %.loopexit, %247
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull readonly align 8 dereferenceable(40) %9, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %.not89 = icmp eq i32 %245, 0
   br i1 %.not89, label %251, label %.loopexit141
@@ -26436,7 +26436,7 @@ bf_set_nan.exit.i88:                              ; preds = %101, %bf_resize.exi
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %144, %141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %120, %bf_free.exit.i.i.i
@@ -26593,7 +26593,7 @@ bf_mul_ui.exit:                                   ; preds = %.thread13.i, %27
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %bf_mul_ui.exit, %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %42 = load ptr, ptr %0, align 8
@@ -26604,7 +26604,7 @@ bf_add.exit:                                      ; preds = %bf_mul_ui.exit, %38
   store i64 -9223372036854775808, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  %46 = call fastcc i32 @__bf_div(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %12, i32 noundef 6) #17
+  %46 = call fastcc i32 @__bf_div(ptr noundef nonnull %4, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, i64 noundef %12, i32 noundef 6) #17
   %47 = getelementptr inbounds i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i17 = icmp eq ptr %48, null
@@ -26619,7 +26619,7 @@ bf_add.exit:                                      ; preds = %bf_mul_ui.exit, %38
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_add.exit, %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   store i32 0, ptr %13, align 8
   %53 = load i64, ptr %15, align 8
@@ -26915,7 +26915,7 @@ bf_set_ui.exit92:                                 ; preds = %68, %bf_set_nan.exi
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %bf_set_ui.exit92, %77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull readonly align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %81 = call i32 @bf_mul(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %11, i64 noundef 4611686018427387903, i32 noundef 0)
   %82 = trunc i64 %4 to i32
@@ -27151,7 +27151,7 @@ bf_set_ui.exit116:                                ; preds = %157, %162
   br label %bf_free.exit.i.i.i
 
 bf_free.exit.i.i.i:                               ; preds = %178, %175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %bf_add.exit120
 
 bf_add.exit120:                                   ; preds = %bf_set_ui.exit116, %bf_free.exit.i.i.i
@@ -27222,7 +27222,7 @@ bf_delete.exit125:                                ; preds = %bf_add.exit120, %18
   br label %bf_free.exit.i.i.i134
 
 bf_free.exit.i.i.i134:                            ; preds = %207, %204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   br label %bf_add.exit135
 
 bf_add.exit135:                                   ; preds = %.critedge, %bf_free.exit.i.i.i134
@@ -27595,7 +27595,7 @@ bf_set_ui.exit132:                                ; preds = %127, %bf_set_nan.ex
   store i32 0, ptr %113, align 8
   store i64 -9223372036854775808, ptr %114, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
-  %140 = call fastcc i32 @__bf_div(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %28, i32 noundef 0) #17
+  %140 = call fastcc i32 @__bf_div(ptr noundef nonnull %6, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, i64 noundef %28, i32 noundef 0) #17
   %141 = load ptr, ptr %112, align 8
   %.not.i.i.i.i = icmp eq ptr %141, null
   br i1 %.not.i.i.i.i, label %bf_div.exit, label %142
@@ -27609,7 +27609,7 @@ bf_set_ui.exit132:                                ; preds = %127, %bf_set_nan.ex
   br label %bf_div.exit
 
 bf_div.exit:                                      ; preds = %bf_set_ui.exit132, %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %146 = call i32 @bf_mul(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef %28, i32 noundef 0)
   %147 = load i32, ptr %18, align 8
@@ -27688,7 +27688,7 @@ bf_mul_2exp.exit135:                              ; preds = %165, %169
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %bf_mul_2exp.exit135, %176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %180 = load i64, ptr %20, align 8
   %181 = icmp eq i64 %180, 0
@@ -27914,7 +27914,7 @@ bf_mul_2exp.exit:                                 ; preds = %bf_set.exit, %39
   br label %bf_add.exit
 
 bf_add.exit:                                      ; preds = %bf_mul_2exp.exit, %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %54 = load i32, ptr %7, align 8
   %55 = xor i32 %54, 1

@@ -568,7 +568,7 @@ sw.bb37:                                          ; preds = %if.then36
 
 if.then39:                                        ; preds = %sw.bb37
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i306, align 8, !noalias !29
-  invoke void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %_M_impl.i.i.i.i.i.i309, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev21CameraLin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %_M_impl.i.i.i.i.i.i309, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !29
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i.i.i.i.i.i581, %lpad.i.i.i.i.i.i.i.i.i540, %lpad.i.i.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
@@ -616,7 +616,7 @@ sw.bb43:                                          ; preds = %if.then36
 
 if.then45:                                        ; preds = %sw.bb43
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i382, align 8, !noalias !35
-  invoke void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl.i.i.i.i.i.i385, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev21CameraLog2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl.i.i.i.i.i.i385, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !35
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %if.then45
@@ -671,7 +671,7 @@ if.then53:                                        ; preds = %sw.bb51
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i, i8 0, i64 72, i1 false), !noalias !41
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !41
-  invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Lin2LogRendererSSEEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !41
 
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %if.then53
@@ -693,7 +693,7 @@ if.else55:                                        ; preds = %sw.bb51
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i, i8 0, i64 72, i1 false), !noalias !44
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i461, align 8, !noalias !44
-  invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15Lin2LogRendererEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !44
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %if.else55
@@ -725,7 +725,7 @@ if.then59:                                        ; preds = %sw.bb57
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i538, align 8, !noalias !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i539, i8 0, i64 72, i1 false), !noalias !47
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !47
-  invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Log2LinRendererSSEEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i.i540, !noalias !47
 
 lpad.i.i.i.i.i.i.i.i.i540:                        ; preds = %if.then59
@@ -747,7 +747,7 @@ if.else61:                                        ; preds = %sw.bb57
   store float 2.000000e+00, ptr %m_base.i.i.i.i.i.i.i.i.i.i538, align 8, !noalias !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i.i.i.i.i.i.i.i.i539, i8 0, i64 72, i1 false), !noalias !50
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i537, align 8, !noalias !50
-  invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15Log2LinRendererEED2Ev.exit unwind label %lpad.i.i.i.i.i.i.i.i581, !noalias !50
 
 lpad.i.i.i.i.i.i.i.i581:                          ; preds = %if.else61
@@ -1473,7 +1473,7 @@ entry:
   %m_paramsR.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Log2LinRendererE, i64 16), ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZN19OpenColorIO_v2_4dev15Log2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -1807,7 +1807,7 @@ entry:
   %m_paramsR.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15Lin2LogRendererE, i64 16), ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %_ZN19OpenColorIO_v2_4dev15Lin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -2014,7 +2014,7 @@ entry:
   %m_paramsR.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLog2LinRendererE, i64 16), ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2433,7 +2433,7 @@ entry:
   %m_paramsR.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLin2LogRendererE, i64 16), ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

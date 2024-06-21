@@ -59,7 +59,7 @@ define i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 18:                                               ; preds = %16
   %19 = sext i32 %4 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %3, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr readonly align 1 %3, i64 %19, i1 false)
   br label %fdt_setprop_inplace_namelen_partial.exit
 
 fdt_setprop_inplace_namelen_partial.exit:         ; preds = %11, %16, %18

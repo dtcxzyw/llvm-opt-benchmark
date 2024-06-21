@@ -1587,7 +1587,7 @@ default.unreachable:                              ; preds = %48, %1
   %38 = phi ptr [ %17, %.split2.i.i.i.i.i ], [ %.pre42.i, %.noexc2.i ]
   %39 = phi i64 [ 0, %.split2.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i17.i.i.i, %.noexc2.i ]
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @anon.31ea63a5c4740ef46f42555c294aa5d7.1, i64 5, i1 false), !noalias !416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.31ea63a5c4740ef46f42555c294aa5d7.1, i64 5, i1 false), !noalias !416
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17hbeb09912db6b8b0aE.exit.i.i.i"
 
 .split.i.i.i.i.i:                                 ; preds = %32
@@ -1723,7 +1723,7 @@ default.unreachable:                              ; preds = %48, %1
   %97 = phi i64 [ 0, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.exit.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i.i.i.i.i.i, %.noexc4.i ]
   %98 = getelementptr inbounds i8, ptr %8, i64 %.2.i.i.i.i.i.i.i
   %99 = getelementptr inbounds i8, ptr %96, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull align 1 %98, i64 %93, i1 false), !noalias !464
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull readonly align 1 %98, i64 %93, i1 false), !noalias !464
   %100 = load i64, ptr %19, align 8, !alias.scope !452, !noalias !459, !noundef !5
   %101 = add i64 %100, %93
   store i64 %101, ptr %19, align 8, !alias.scope !452, !noalias !459
@@ -1837,7 +1837,7 @@ default.unreachable:                              ; preds = %48, %1
   %152 = phi i64 [ 0, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.exit.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i.i7.i.i.i.i, %.noexc5.i ]
   %153 = getelementptr inbounds i8, ptr %7, i64 %.3.i.i.i.i.i.i.i
   %154 = getelementptr inbounds i8, ptr %151, i64 %152
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %154, ptr nonnull align 1 %153, i64 %148, i1 false), !noalias !464
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %154, ptr nonnull readonly align 1 %153, i64 %148, i1 false), !noalias !464
   %155 = load i64, ptr %19, align 8, !alias.scope !469, !noalias !476, !noundef !5
   %156 = add i64 %155, %148
   store i64 %156, ptr %19, align 8, !alias.scope !469, !noalias !476
@@ -1874,7 +1874,7 @@ _ZN10serde_json3ser9Formatter9write_f6417hefb3f403ece3ddccE.exit.i.i.i.i.i: ; pr
   %167 = phi i64 [ %162, %.noexc6.i ], [ %.pre.i.i.i.i.i.i14.i.i.i.i, %.noexc7.i ]
   %168 = load ptr, ptr %18, align 8, !alias.scope !481, !noalias !488, !nonnull !5, !noundef !5
   %169 = getelementptr inbounds i8, ptr %168, i64 %167
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %169, ptr nonnull align 1 %6, i64 %161, i1 false), !noalias !496
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %169, ptr nonnull readonly align 1 %6, i64 %161, i1 false), !noalias !496
   %170 = load i64, ptr %19, align 8, !alias.scope !481, !noalias !488, !noundef !5
   %171 = add i64 %170, %161
   store i64 %171, ptr %19, align 8, !alias.scope !481, !noalias !488
@@ -2143,7 +2143,7 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i22.i.i.i: ; preds = %"_ZN
   %274 = phi i64 [ %268, %.lr.ph.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i24.i.i.i, %.noexc18.i ]
   %275 = load ptr, ptr %260, align 8, !alias.scope !659, !noalias !650, !nonnull !5, !noundef !5
   %276 = getelementptr inbounds i8, ptr %275, i64 %274
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %276, ptr nonnull align 1 %265, i64 %267, i1 false), !noalias !660
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %276, ptr nonnull readonly align 1 %265, i64 %267, i1 false), !noalias !660
   %277 = load i64, ptr %254, align 8, !alias.scope !659, !noalias !650, !noundef !5
   %278 = add i64 %277, %267
   store i64 %278, ptr %254, align 8, !alias.scope !659, !noalias !650

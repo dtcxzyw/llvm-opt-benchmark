@@ -246,7 +246,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %anon.7cc94b6a8a8630fa5c936b91540d183d.3..sroa.0.0.i.i = select i1 %trunc.i.i, ptr @anon.7cc94b6a8a8630fa5c936b91540d183d.3, ptr %22
   %24 = getelementptr i8, ptr %anon.7cc94b6a8a8630fa5c936b91540d183d.3..sroa.0.0.i.i, i64 %..sroa.6.0.i.i
   %25 = getelementptr i8, ptr %24, i64 -3
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @anon.7cc94b6a8a8630fa5c936b91540d183d.13, ptr noundef nonnull dereferenceable(3) %25, i64 3), !alias.scope !23
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @anon.7cc94b6a8a8630fa5c936b91540d183d.13, ptr noundef nonnull readonly dereferenceable(3) %25, i64 3), !alias.scope !23
   %26 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %26, label %39, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h738fe8cc4f8d87acE.exit.thread"
 
@@ -429,7 +429,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %anon.7cc94b6a8a8630fa5c936b91540d183d.3..sroa.0.0.i.i = select i1 %trunc.i.i, ptr @anon.7cc94b6a8a8630fa5c936b91540d183d.3, ptr %26
   %28 = getelementptr i8, ptr %anon.7cc94b6a8a8630fa5c936b91540d183d.3..sroa.0.0.i.i, i64 %..sroa.6.0.i.i
   %29 = getelementptr i8, ptr %28, i64 -3
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @anon.7cc94b6a8a8630fa5c936b91540d183d.13, ptr noundef nonnull dereferenceable(3) %29, i64 3), !alias.scope !54
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @anon.7cc94b6a8a8630fa5c936b91540d183d.13, ptr noundef nonnull readonly dereferenceable(3) %29, i64 3), !alias.scope !54
   %30 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %30, label %41, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h738fe8cc4f8d87acE.exit.thread"
 
@@ -806,7 +806,7 @@ define hidden noundef zeroext i1 @"_ZN9sourcegen12CommentBlock7extract28_$u7b$$u
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %24, ptr nonnull %26, i64 %22), !alias.scope !116
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %24, ptr nonnull readonly %26, i64 %22), !alias.scope !116
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %27 = icmp eq i32 %bcmp.i.i.fr.i, 0
   %28 = getelementptr inbounds i8, ptr %26, i64 %22

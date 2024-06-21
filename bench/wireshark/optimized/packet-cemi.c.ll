@@ -3361,7 +3361,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 
 127:                                              ; preds = %.lr.ph215.i
   %128 = getelementptr inbounds i8, ptr %.091214.i, i64 10
-  %129 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %128, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %129 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %128, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not142.i = icmp eq ptr %129, null
   br i1 %.not142.i, label %137, label %130
 
@@ -3399,7 +3399,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 
 141:                                              ; preds = %.lr.ph230.i
   %142 = getelementptr inbounds i8, ptr %.090229.i, i64 10
-  %143 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %142, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %143 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %142, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not139.i = icmp eq ptr %143, null
   br i1 %.not139.i, label %151, label %144
 
@@ -3444,7 +3444,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 
 155:                                              ; preds = %.lr.ph245.i
   %156 = getelementptr inbounds i8, ptr %.089244.i, i64 10
-  %157 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %156, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %157 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %156, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not146.i = icmp eq ptr %157, null
   br i1 %.not146.i, label %165, label %158
 
@@ -3493,7 +3493,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 .lr.ph256.i:                                      ; preds = %.loopexit183.i, %169
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %169 ], [ 0, %.loopexit183.i ]
   %173 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv.i
-  %174 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef %173, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %174 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef %173, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not148.i = icmp eq ptr %174, null
   br i1 %.not148.i, label %169, label %.thread161.i
 

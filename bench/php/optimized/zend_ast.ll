@@ -1883,7 +1883,7 @@ define noundef ptr @zend_ast_list_add(ptr noundef %0, ptr noundef %1) local_unna
 
 zend_ast_realloc.exit:                            ; preds = %24, %26
   %.0.i.i = phi ptr [ %16, %24 ], [ %31, %26 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %11, i1 false)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %36
@@ -4665,7 +4665,7 @@ define i32 @zend_ast_evaluate(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %.not.i, label %.thread.i, label %7
 
 .thread.i:                                        ; preds = %3
-  %6 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
+  %6 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
   br label %zend_ast_evaluate_ex.exit
 
 7:                                                ; preds = %3
@@ -4682,7 +4682,7 @@ define i32 @zend_ast_evaluate(ptr noundef %0, ptr nocapture noundef readonly %1,
   %.0.i = load i32, ptr %15, align 4
   %16 = zext i32 %.0.i to i64
   store i64 %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
-  %17 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
+  %17 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
   store ptr %8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
   store i64 %9, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   br label %zend_ast_evaluate_ex.exit

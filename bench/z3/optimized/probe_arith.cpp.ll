@@ -4168,7 +4168,7 @@ sw.bb39.i.i:                                      ; preds = %if.end29.i.i
   br i1 %cmp42.i.i, label %if.then43.i.i, label %if.else.i.i
 
 if.then43.i.i:                                    ; preds = %sw.bb39.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3app(ptr noundef nonnull align 8 dereferenceable(26) %proc, ptr noundef nonnull %40)
+  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3app(ptr noundef nonnull readonly align 8 dereferenceable(26) %proc, ptr noundef nonnull %40)
           to label %if.then43.while.cond14.backedge_crit_edge.i.i unwind label %lpad.loopexit.i.i
 
 if.then43.while.cond14.backedge_crit_edge.i.i:    ; preds = %if.then43.i.i
@@ -4247,7 +4247,7 @@ while.end.loopexit.i.i:                           ; preds = %while.cond14.backed
 while.end.i.i:                                    ; preds = %sw.bb11.i.i, %while.end.loopexit.i.i
   %dec.i163.pre-phi.i.i = phi i32 [ %.pre314.i.i, %while.end.loopexit.i.i ], [ %sub.i.i.i10, %sw.bb11.i.i ]
   store i32 %dec.i163.pre-phi.i.i, ptr %m_pos.i.i25.i.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3app(ptr noundef nonnull align 8 dereferenceable(26) %proc, ptr noundef %33)
+  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3app(ptr noundef nonnull readonly align 8 dereferenceable(26) %proc, ptr noundef %33)
           to label %sw.epilog85.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 sw.bb54.i.i:                                      ; preds = %start.i.i
@@ -5299,7 +5299,7 @@ sw.bb39.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i
   br i1 %cmp42.i.i.i.i, label %if.then43.i.i.i.i, label %if.else.i.i.i.i
 
 if.then43.i.i.i.i:                                ; preds = %sw.bb39.i.i.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3app(ptr noundef nonnull align 8 dereferenceable(42) %p.i, ptr noundef nonnull %41)
+  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3app(ptr noundef nonnull readonly align 8 dereferenceable(42) %p.i, ptr noundef nonnull %41)
           to label %if.then43.while.cond14.backedge_crit_edge.i.i.i.i unwind label %lpad.loopexit.i.i.i.i
 
 if.then43.while.cond14.backedge_crit_edge.i.i.i.i: ; preds = %if.then43.i.i.i.i
@@ -5378,7 +5378,7 @@ while.end.loopexit.i.i.i.i:                       ; preds = %while.cond14.backed
 while.end.i.i.i.i:                                ; preds = %sw.bb11.i.i.i.i, %while.end.loopexit.i.i.i.i
   %dec.i163.pre-phi.i.i.i.i = phi i32 [ %.pre314.i.i.i.i, %while.end.loopexit.i.i.i.i ], [ %sub.i.i.i10.i.i, %sw.bb11.i.i.i.i ]
   store i32 %dec.i163.pre-phi.i.i.i.i, ptr %m_pos.i.i25.i.i.i.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3app(ptr noundef nonnull align 8 dereferenceable(42) %p.i, ptr noundef %34)
+  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3app(ptr noundef nonnull readonly align 8 dereferenceable(42) %p.i, ptr noundef %34)
           to label %sw.epilog85.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i
 
 sw.bb54.i.i.i.i:                                  ; preds = %start.i.i.i.i

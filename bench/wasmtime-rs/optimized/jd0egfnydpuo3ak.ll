@@ -6532,7 +6532,7 @@ define hidden void @"_ZN83_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %4, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %4, i64 %9, i1 false)
   %14 = getelementptr inbounds i8, ptr %12, i64 %9
   store ptr %12, ptr %0, align 8, !alias.scope !2063, !noalias !2066
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7348,7 +7348,7 @@ define void @_ZN11wasi_common6random13Deterministic3new17hf233128210047556E(ptr 
   %16 = extractvalue { i64, ptr } %9, 1
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i, i1 false)
   %18 = getelementptr inbounds i8, ptr %16, i64 %.sroa.5.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !2238
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -7394,7 +7394,7 @@ define noundef i32 @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ran
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %13, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %13, i64 %18, i1 false)
   %23 = getelementptr inbounds i8, ptr %21, i64 %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2269
   store ptr %6, ptr %5, align 8, !noalias !2269
@@ -7456,7 +7456,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %42 = extractvalue { i64, ptr } %40, 1
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %34, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %34, i64 %39, i1 false)
   %44 = getelementptr inbounds i8, ptr %42, i64 %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2296
   store ptr %6, ptr %4, align 8, !noalias !2296
@@ -7506,7 +7506,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %63 = extractvalue { i64, ptr } %61, 1
   %64 = icmp ne ptr %63, null
   call void @llvm.assume(i1 %64)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %55, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %55, i64 %60, i1 false)
   %65 = getelementptr inbounds i8, ptr %63, i64 %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !2323
   store ptr %6, ptr %3, align 8, !noalias !2323
@@ -7556,7 +7556,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %84 = extractvalue { i64, ptr } %82, 1
   %85 = icmp ne ptr %84, null
   call void @llvm.assume(i1 %85)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull align 1 %76, i64 %81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull readonly align 1 %76, i64 %81, i1 false)
   %86 = getelementptr inbounds i8, ptr %84, i64 %81
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !2350
   store ptr %6, ptr %2, align 8, !noalias !2350
@@ -7653,7 +7653,7 @@ define void @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core.
   %24 = extractvalue { i64, ptr } %22, 1
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %17, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %17, i64 %21, i1 false)
   %26 = getelementptr inbounds i8, ptr %24, i64 %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2380
   store ptr %7, ptr %4, align 8, !noalias !2380
@@ -7734,7 +7734,7 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ra
   %24 = extractvalue { i64, ptr } %22, 1
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %17, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %17, i64 %21, i1 false)
   %26 = getelementptr inbounds i8, ptr %24, i64 %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2415
   store ptr %7, ptr %4, align 8, !noalias !2415

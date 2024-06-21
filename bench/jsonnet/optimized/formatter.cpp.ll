@@ -1313,7 +1313,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7jsonnet8internal23remove_initial_newlinesEPNS0_3ASTE(ptr noundef %0) local_unnamed_addr #4 {
-  %2 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %0)
+  %2 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %0)
   %.not7.i.i = icmp eq ptr %2, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
@@ -1351,7 +1351,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %.lr.ph.i.i, %1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE(ptr noundef readonly %0) unnamed_addr #5 {
-  %2 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %0)
+  %2 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %0)
   %.not7.i = icmp eq ptr %2, null
   br i1 %.not7.i, label %_ZN7jsonnet8internalL19left_recursive_deepEPNS0_3ASTE.exit, label %.lr.ph.i
 
@@ -1470,7 +1470,7 @@ define void @_ZN7jsonnet8internal11jsonnet_fmtB5cxx11EPNS0_3ASTERSt6vectorINS0_1
 
 36:                                               ; preds = %._crit_edge, %4
   %37 = phi ptr [ %.pre, %._crit_edge ], [ %1, %4 ]
-  %38 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %37)
+  %38 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %37)
   %.not7.i.i.i = icmp eq ptr %38, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i.i
 
@@ -2001,7 +2001,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11SortImports4fileERPNS0_3ASTE(ptr
   br i1 %22, label %_ZN7jsonnet8internal11SortImports15goodLocalOrNullEPNS0_3ASTE.exit.thread, label %13
 
 _ZN7jsonnet8internal11SortImports15goodLocalOrNullEPNS0_3ASTE.exit.thread11: ; preds = %13, %8
-  %23 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %7)
+  %23 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull readonly %7)
   %.not7.i.i = icmp eq ptr %23, null
   br i1 %.not7.i.i, label %.loopexit, label %.lr.ph.i.i7
 
@@ -2295,7 +2295,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser7unparseEPKNS0_3ASTEb(ptr
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
-  %17 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %1)
+  %17 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %1)
   %.not477 = icmp eq ptr %17, null
   %18 = getelementptr inbounds i8, ptr %1, i64 80
   %19 = load ptr, ptr %0, align 8
@@ -2531,7 +2531,7 @@ _ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE.exit: ; preds = %.n
 tailrecurse.backedge:                             ; preds = %244, %124, %212, %256, %269, %275, %287, %293, %299
   %.tr436.be.in = phi ptr [ %127, %124 ], [ %217, %212 ], [ %253, %256 ], [ %272, %269 ], [ %284, %275 ], [ %290, %287 ], [ %296, %293 ], [ %302, %299 ], [ %255, %244 ]
   %.tr436.be = load ptr, ptr %.tr436.be.in, align 8
-  %128 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %.tr436.be)
+  %128 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %.tr436.be)
   %.not = icmp eq ptr %128, null
   %129 = getelementptr inbounds i8, ptr %.tr436.be, i64 80
   %130 = load ptr, ptr %0, align 8
@@ -5285,7 +5285,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal11SortImports14toplevelImpo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %1, i64 152
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %15)
+  %16 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %15)
   %.not7.i.i = icmp eq ptr %16, null
   br i1 %.not7.i.i, label %.loopexit133, label %.lr.ph.i.i
 
@@ -5426,7 +5426,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds = %_ZS
   br i1 %68, label %.loopexit131, label %59
 
 _ZN7jsonnet8internal11SortImports15goodLocalOrNullEPNS0_3ASTE.exit.thread22.i: ; preds = %59, %54
-  %69 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %53)
+  %69 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull readonly %53)
   %.not7.i.i.i = icmp eq ptr %69, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i15.i
 
@@ -5578,7 +5578,7 @@ _ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.ex
   br label %159
 
 _ZN7jsonnet8internal11SortImports15goodLocalOrNullEPNS0_3ASTE.exit.thread: ; preds = %.lr.ph.i.i38, %101, %85, %88
-  %127 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %86)
+  %127 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %86)
   %.not7.i.i42 = icmp eq ptr %127, null
   br i1 %.not7.i.i42, label %.loopexit, label %.lr.ph.i.i43
 
@@ -15301,7 +15301,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines5visitEPNS0_6ParensE(
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %6)
+  %7 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %6)
   %.not7.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not7.i.i.i.i, label %_ZN7jsonnet8internal11FixNewlines6expandEPNS0_6ParensE.exit.i, label %.lr.ph.i.i.i.i
 
@@ -15350,33 +15350,33 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines19shoul
   br i1 %.not6.i, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %11)
+  %13 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull readonly %11)
   %.not7.i.i.i = icmp eq ptr %13, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %12, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i.i = phi ptr [ %24, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %13, %12 ]
-  %14 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %14 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i9 = icmp eq ptr %14, null
   br i1 %.not.i9, label %15, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %16 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %17, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %18 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %18, null
   br i1 %.not23.i, label %19, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %20 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %20, null
   br i1 %.not24.i, label %21, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %22 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %22, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -15487,33 +15487,33 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines13expandBetweenERSt6v
   br i1 %.not6.i, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %11)
+  %13 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull readonly %11)
   %.not7.i.i.i = icmp eq ptr %13, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %12, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i.i = phi ptr [ %24, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %13, %12 ]
-  %14 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %14 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i5 = icmp eq ptr %14, null
   br i1 %.not.i5, label %15, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %16 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %17, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %18 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %18, null
   br i1 %.not23.i, label %19, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %20 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %20, null
   br i1 %.not24.i, label %21, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %22 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %22, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -15570,7 +15570,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines22shoul
   br i1 %.not6.i, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %13)
+  %15 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull readonly %13)
   %.not7.i.i.i = icmp eq ptr %15, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i.i
 
@@ -15722,7 +15722,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines16expandNearParensERS
   br i1 %.not6.i, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %13)
+  %15 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull readonly %13)
   %.not7.i.i.i = icmp eq ptr %15, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i.i
 
@@ -15772,33 +15772,33 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
 .lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
   %.sroa.019.027 = phi ptr [ %43, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.019.027, align 8
-  %8 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %7)
+  %8 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %7)
   %.not7.i.i = icmp eq ptr %8, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i = phi ptr [ %19, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %8, %.lr.ph ]
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i18 = icmp eq ptr %9, null
   br i1 %.not.i18, label %10, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %11, null
   br i1 %.not22.i, label %12, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %13, null
   br i1 %.not23.i, label %14, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %15, null
   br i1 %.not24.i, label %16, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %17 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %17, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -15938,33 +15938,33 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines6expandEPNS0_5ArrayE(
 .lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit
   %.sroa.05.011 = phi ptr [ %21, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.011, align 8
-  %8 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %7)
+  %8 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %7)
   %.not7.i.i = icmp eq ptr %8, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i = phi ptr [ %19, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %8, %.lr.ph ]
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %11, null
   br i1 %.not22.i, label %12, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %13, null
   br i1 %.not23.i, label %14, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %15, null
   br i1 %.not24.i, label %16, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %17 = tail call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %17, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -15997,7 +15997,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines20simpleExpandingVisi
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %6)
+  %7 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %6)
   %.not7.i.i.i = icmp eq ptr %7, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i, label %.lr.ph.i.i.i
 
@@ -16040,7 +16040,7 @@ _ZN7jsonnet8internal11FixNewlines6expandEPNS0_18ArrayComprehensionE.exit: ; pred
 define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shouldExpandEPNS0_18ArrayComprehensionE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %4)
+  %5 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %4)
   %.not7.i.i = icmp eq ptr %5, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
@@ -16650,7 +16650,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
 define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shouldExpandEPNS0_6ParensE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %4)
+  %5 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %4)
   %.not7.i.i = icmp eq ptr %5, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
@@ -17346,7 +17346,7 @@ define linkonce_odr void @_ZN7jsonnet8internal9FixParens5visitEPNS0_6ParensE(ptr
   %9 = getelementptr inbounds i8, ptr %7, i64 128
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %10)
+  %11 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %10)
   %.not7.i.i = icmp eq ptr %11, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
@@ -20139,7 +20139,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %75, i64 128
   %78 = load ptr, ptr %77, align 8
-  %79 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %78)
+  %79 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %78)
   %.not7.i.i = icmp eq ptr %79, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
@@ -20287,7 +20287,7 @@ _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.
 135:                                              ; preds = %132
   %136 = getelementptr inbounds i8, ptr %129, i64 56
   %137 = load ptr, ptr %136, align 8
-  %138 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %137)
+  %138 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %137)
   %.not7.i.i.i = icmp eq ptr %138, null
   br i1 %.not7.i.i.i, label %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1144, label %.lr.ph.i.i.i
 
@@ -20329,33 +20329,33 @@ _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit:
 146:                                              ; preds = %143
   %147 = getelementptr inbounds i8, ptr %.sroa.0985.01092, i64 56
   %148 = load ptr, ptr %147, align 8
-  %149 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %148)
+  %149 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %148)
   %.not7.i.i.i492 = icmp eq ptr %149, null
   br i1 %.not7.i.i.i492, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i496, label %.lr.ph.i.i.i493
 
 .lr.ph.i.i.i493:                                  ; preds = %146, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i.i494 = phi ptr [ %160, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %149, %146 ]
-  %150 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %150 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i959 = icmp eq ptr %150, null
   br i1 %.not.i959, label %151, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 151:                                              ; preds = %.lr.ph.i.i.i493
-  %152 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %152 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %152, null
   br i1 %.not22.i, label %153, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 153:                                              ; preds = %151
-  %154 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %154 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %154, null
   br i1 %.not23.i, label %155, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 155:                                              ; preds = %153
-  %156 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %156 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %156, null
   br i1 %.not24.i, label %157, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 157:                                              ; preds = %155
-  %158 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %158 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %158, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i496, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -20880,7 +20880,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 350:                                              ; preds = %348
   %351 = getelementptr inbounds i8, ptr %349, i64 128
   %352 = load ptr, ptr %351, align 8
-  %353 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %352)
+  %353 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %352)
   %.not7.i.i583 = icmp eq ptr %353, null
   br i1 %.not7.i.i583, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit588, label %.lr.ph.i.i584
 
@@ -20952,7 +20952,7 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
 
 383:                                              ; preds = %375
   %384 = load ptr, ptr %382, align 8
-  %385 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %384)
+  %385 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %384)
   %.not7.i.i599 = icmp eq ptr %385, null
   br i1 %.not7.i.i599, label %.thread1150, label %.lr.ph.i.i600
 
@@ -21008,7 +21008,7 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
 
 409:                                              ; preds = %.lr.ph1106
   %410 = load ptr, ptr %.sroa.0977.01102, align 8
-  %411 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %410)
+  %411 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %410)
   %.not7.i.i605 = icmp eq ptr %411, null
   br i1 %.not7.i.i605, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit610, label %.lr.ph.i.i606
 
@@ -21368,7 +21368,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   store i32 %548, ptr %546, align 4
   %549 = getelementptr inbounds i8, ptr %544, i64 128
   %550 = load ptr, ptr %549, align 8
-  %551 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %550)
+  %551 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %550)
   %.not7.i.i696 = icmp eq ptr %551, null
   br i1 %.not7.i.i696, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit701, label %.lr.ph.i.i697
 
@@ -24022,33 +24022,33 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   store i32 %115, ptr %10, align 4
   %116 = getelementptr inbounds i8, ptr %.sroa.088.099, i64 88
   %117 = load ptr, ptr %116, align 8
-  %118 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %117)
+  %118 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %117)
   %.not7.i.i = icmp eq ptr %118, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit65, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i = phi ptr [ %129, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %118, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit65 ]
-  %119 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %119 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i = icmp eq ptr %119, null
   br i1 %.not.i, label %120, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 120:                                              ; preds = %.lr.ph.i.i
-  %121 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %121 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %121, null
   br i1 %.not22.i, label %122, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 122:                                              ; preds = %120
-  %123 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %123 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %123, null
   br i1 %.not23.i, label %124, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 124:                                              ; preds = %122
-  %125 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %125 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %125, null
   br i1 %.not24.i, label %126, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 126:                                              ; preds = %124
-  %127 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %127 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %127, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -24100,33 +24100,33 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   store i32 %146, ptr %10, align 4
   %147 = getelementptr inbounds i8, ptr %.sroa.088.099, i64 88
   %148 = load ptr, ptr %147, align 8
-  %149 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %148)
+  %149 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %148)
   %.not7.i.i66 = icmp eq ptr %149, null
   br i1 %.not7.i.i66, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit71, label %.lr.ph.i.i67
 
 .lr.ph.i.i67:                                     ; preds = %144, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87
   %.08.i.i68 = phi ptr [ %160, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87 ], [ %149, %144 ]
-  %150 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %150 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i79 = icmp eq ptr %150, null
   br i1 %.not.i79, label %151, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87
 
 151:                                              ; preds = %.lr.ph.i.i67
-  %152 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %152 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i83 = icmp eq ptr %152, null
   br i1 %.not22.i83, label %153, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87
 
 153:                                              ; preds = %151
-  %154 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %154 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i84 = icmp eq ptr %154, null
   br i1 %.not23.i84, label %155, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87
 
 155:                                              ; preds = %153
-  %156 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %156 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i85 = icmp eq ptr %156, null
   br i1 %.not24.i85, label %157, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87
 
 157:                                              ; preds = %155
-  %158 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %158 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i68, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i86 = icmp eq ptr %158, null
   br i1 %.not25.i86, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit71, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit87
 
@@ -25572,33 +25572,33 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   store i32 %136, ptr %13, align 4
   %137 = getelementptr inbounds i8, ptr %.sroa.0328.0342, i64 248
   %138 = load ptr, ptr %137, align 8
-  %139 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %138)
+  %139 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %138)
   %.not7.i.i = icmp eq ptr %139, null
   br i1 %.not7.i.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit114, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i = phi ptr [ %150, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %139, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit114 ]
-  %140 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %140 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i = icmp eq ptr %140, null
   br i1 %.not.i, label %141, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 141:                                              ; preds = %.lr.ph.i.i
-  %142 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %142 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i = icmp eq ptr %142, null
   br i1 %.not22.i, label %143, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 143:                                              ; preds = %141
-  %144 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %144 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i = icmp eq ptr %144, null
   br i1 %.not23.i, label %145, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 145:                                              ; preds = %143
-  %146 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %146 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i = icmp eq ptr %146, null
   br i1 %.not24.i, label %147, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 147:                                              ; preds = %145
-  %148 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %148 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i = icmp eq ptr %148, null
   br i1 %.not25.i, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
@@ -26067,33 +26067,33 @@ switch.lookup:                                    ; preds = %315
 322:                                              ; preds = %315, %switch.lookup
   %323 = getelementptr inbounds i8, ptr %.sroa.0328.0342, i64 248
   %324 = load ptr, ptr %323, align 8
-  %325 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %324)
+  %325 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %324)
   %.not7.i.i212 = icmp eq ptr %325, null
   br i1 %.not7.i.i212, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit217, label %.lr.ph.i.i213
 
 .lr.ph.i.i213:                                    ; preds = %322, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318
   %.08.i.i214 = phi ptr [ %336, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318 ], [ %325, %322 ]
-  %326 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %326 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i310 = icmp eq ptr %326, null
   br i1 %.not.i310, label %327, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318
 
 327:                                              ; preds = %.lr.ph.i.i213
-  %328 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %328 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i314 = icmp eq ptr %328, null
   br i1 %.not22.i314, label %329, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318
 
 329:                                              ; preds = %327
-  %330 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %330 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i315 = icmp eq ptr %330, null
   br i1 %.not23.i315, label %331, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318
 
 331:                                              ; preds = %329
-  %332 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %332 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i316 = icmp eq ptr %332, null
   br i1 %.not24.i316, label %333, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318
 
 333:                                              ; preds = %331
-  %334 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %334 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i214, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i317 = icmp eq ptr %334, null
   br i1 %.not25.i317, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit217, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit318
 
@@ -26244,33 +26244,33 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   store i32 %386, ptr %13, align 4
   %387 = getelementptr inbounds i8, ptr %.sroa.0328.0342, i64 248
   %388 = load ptr, ptr %387, align 8
-  %389 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %388)
+  %389 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %388)
   %.not7.i.i249 = icmp eq ptr %389, null
   br i1 %.not7.i.i249, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit254, label %.lr.ph.i.i250
 
 .lr.ph.i.i250:                                    ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit248, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327
   %.08.i.i251 = phi ptr [ %400, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327 ], [ %389, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit248 ]
-  %390 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
+  %390 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
   %.not.i319 = icmp eq ptr %390, null
   br i1 %.not.i319, label %391, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327
 
 391:                                              ; preds = %.lr.ph.i.i250
-  %392 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
+  %392 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
   %.not22.i323 = icmp eq ptr %392, null
   br i1 %.not22.i323, label %393, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327
 
 393:                                              ; preds = %391
-  %394 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
+  %394 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
   %.not23.i324 = icmp eq ptr %394, null
   br i1 %.not23.i324, label %395, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327
 
 395:                                              ; preds = %393
-  %396 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
+  %396 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
   %.not24.i325 = icmp eq ptr %396, null
   br i1 %.not24.i325, label %397, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327
 
 397:                                              ; preds = %395
-  %398 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
+  %398 = call ptr @__dynamic_cast(ptr nonnull readonly %.08.i.i251, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not25.i326 = icmp eq ptr %398, null
   br i1 %.not25.i326, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit254, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit327
 

@@ -155,7 +155,7 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp13.not.i.i, label %if.end22.i.i, label %do.end16.i.i
 
 do.end16.i.i:                                     ; preds = %if.end.i.i
-  %call18.i.i = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %edata.06.i, i64 noundef %sub7.i.i, i64 noundef %sub11.i.i)
+  %call18.i.i = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.06.i, i64 noundef %sub7.i.i, i64 noundef %sub11.i.i)
   %cmp19.i.i = icmp eq ptr %call18.i.i, null
   br i1 %cmp19.i.i, label %if.then12.i, label %if.end22.i.i
 
@@ -166,7 +166,7 @@ if.end22.i.i:                                     ; preds = %do.end16.i.i, %if.e
   br i1 %cmp23.not.i.i, label %if.then.i35, label %do.end26.i.i
 
 do.end26.i.i:                                     ; preds = %if.end22.i.i
-  %call27.i.i = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef %size, i64 noundef %sub12.i.i)
+  %call27.i.i = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef %size, i64 noundef %sub12.i.i)
   %cmp28.i.i = icmp eq ptr %call27.i.i, null
   br i1 %cmp28.i.i, label %do.end7.i, label %if.then.i35
 
@@ -241,7 +241,7 @@ if.then.i.i39:                                    ; preds = %if.then12.i
   %and.i.i.i.i = and i64 %24, -4096
   %25 = inttoptr i64 %and.i.i.i.i to ptr
   %and.i6.i.i.i = and i64 %edata.val17.i.i, -4096
-  %call3.i.i.i = tail call fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %25, i64 noundef %and.i6.i.i.i, i64 noundef 0, i64 noundef %and.i.i31.i)
+  %call3.i.i.i = tail call fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef %25, i64 noundef %and.i6.i.i.i, i64 noundef 0, i64 noundef %and.i.i31.i)
   br i1 %call3.i.i.i, label %if.then3.i.i, label %extents_abandon_vm.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i39
@@ -251,7 +251,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i39
   %26 = ptrtoint ptr %edata.val18.i.i to i64
   %and.i.i21.i.i = and i64 %26, -4096
   %27 = inttoptr i64 %and.i.i21.i.i to ptr
-  %call3.i23.i.i = tail call fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %27, i64 noundef %and.i20.i.i, i64 noundef 0, i64 noundef %and.i20.i.i)
+  %call3.i23.i.i = tail call fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef %27, i64 noundef %and.i20.i.i, i64 noundef 0, i64 noundef %and.i20.i.i)
   br label %extents_abandon_vm.exit.i
 
 extents_abandon_vm.exit.i:                        ; preds = %if.then3.i.i, %if.then.i.i39, %if.then12.i
@@ -307,7 +307,7 @@ if.then.i46:                                      ; preds = %land.lhs.true.i
   %34 = getelementptr i8, ptr %edata.addr.0.i, i64 16
   %edata.val12.i = load i64, ptr %34, align 8
   %and.i.i47 = and i64 %edata.val12.i, -4096
-  %call7.i = tail call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef 0, i64 noundef %and.i.i47)
+  %call7.i = tail call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.addr.0.i, i64 noundef 0, i64 noundef %and.i.i47)
   %zero.not.i = xor i1 %zero, true
   %brmerge.i = or i1 %call7.i, %zero.not.i
   br i1 %brmerge.i, label %extent_commit_zero.exit, label %land.lhs.true11.i
@@ -546,7 +546,7 @@ if.end.i.i.i:                                     ; preds = %if.end24.i.i
   br i1 %cmp13.not.i.i.i, label %if.end22.i.i.i, label %do.end16.i.i.i
 
 do.end16.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call18.i.i.i = call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %call5.i.i, i64 noundef %sub7.i.i.i, i64 noundef %sub11.i.i.i)
+  %call18.i.i.i = call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %call5.i.i, i64 noundef %sub7.i.i.i, i64 noundef %sub11.i.i.i)
   %cmp19.i.i.i = icmp eq ptr %call18.i.i.i, null
   br i1 %cmp19.i.i.i, label %if.then41.i.i, label %if.end22.i.i.i
 
@@ -557,7 +557,7 @@ if.end22.i.i.i:                                   ; preds = %do.end16.i.i.i, %if
   br i1 %cmp23.not.i.i.i, label %if.then27.i.i, label %do.end26.i.i.i
 
 do.end26.i.i.i:                                   ; preds = %if.end22.i.i.i
-  %call27.i.i.i = call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %edata.0.i.i, i64 noundef %size, i64 noundef %sub12.i.i.i)
+  %call27.i.i.i = call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %edata.0.i.i, i64 noundef %size, i64 noundef %sub12.i.i.i)
   %cmp28.i.i.i = icmp eq ptr %call27.i.i.i, null
   br i1 %cmp28.i.i.i, label %do.end.i.i, label %if.then27.i.i
 
@@ -839,7 +839,7 @@ if.end:                                           ; preds = %malloc_mutex_lock.e
   br i1 %tobool, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call.i = tail call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata, ptr noundef null)
+  %call.i = tail call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata, ptr noundef null)
   br label %label_skip_coalesce
 
 if.else:                                          ; preds = %if.end
@@ -850,7 +850,7 @@ if.else:                                          ; preds = %if.end
 
 do.body7:                                         ; preds = %if.else, %do.body7
   %edata.addr.0 = phi ptr [ %call.i30, %do.body7 ], [ %edata, %if.else ]
-  %call.i30 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %edata.addr.0, ptr noundef nonnull %coalesced)
+  %call.i30 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata.addr.0, ptr noundef nonnull %coalesced)
   %6 = load i8, ptr %coalesced, align 1
   %tobool11 = trunc i8 %6 to i1
   br i1 %tobool11, label %do.body7, label %do.end12, !llvm.loop !7
@@ -994,7 +994,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %coalesced.i)
   %5 = load ptr, ptr %emap.i, align 8
   tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %5, ptr noundef nonnull %edata.0, i32 noundef 0) #9
-  %call.i.i23 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata.0, ptr noundef nonnull %coalesced.i)
+  %call.i.i23 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata.0, ptr noundef nonnull %coalesced.i)
   %6 = load ptr, ptr %emap.i, align 8
   %7 = load i32, ptr %state.i, align 8
   tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %6, ptr noundef %call.i.i23, i32 noundef %7) #9
@@ -1848,7 +1848,7 @@ entry:
   %and.i.i = and i64 %2, -4096
   %3 = inttoptr i64 %and.i.i to ptr
   %and.i6.i = and i64 %edata.val1, -4096
-  %call3.i = tail call fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %3, i64 noundef %and.i6.i, i64 noundef %offset, i64 noundef %length)
+  %call3.i = tail call fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef %3, i64 noundef %and.i6.i, i64 noundef %offset, i64 noundef %length)
   ret i1 %call3.i
 }
 
@@ -1863,7 +1863,7 @@ entry:
   %and.i.i = and i64 %2, -4096
   %3 = inttoptr i64 %and.i.i to ptr
   %and.i6.i = and i64 %edata.val1, -4096
-  %call3.i = tail call fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %3, i64 noundef %and.i6.i, i64 noundef %offset, i64 noundef %length)
+  %call3.i = tail call fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef %3, i64 noundef %and.i6.i, i64 noundef %offset, i64 noundef %length)
   ret i1 %call3.i
 }
 
@@ -2298,7 +2298,7 @@ if.then:                                          ; preds = %entry
   %and.i.i = and i64 %5, -4096
   %6 = inttoptr i64 %and.i.i to ptr
   %and.i6.i = and i64 %edata.val17, -4096
-  %call3.i = tail call fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %6, i64 noundef %and.i6.i, i64 noundef 0, i64 noundef %and.i)
+  %call3.i = tail call fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef %6, i64 noundef %and.i6.i, i64 noundef 0, i64 noundef %and.i)
   br i1 %call3.i, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.then
@@ -2308,7 +2308,7 @@ if.then3:                                         ; preds = %if.then
   %7 = ptrtoint ptr %edata.val18 to i64
   %and.i.i21 = and i64 %7, -4096
   %8 = inttoptr i64 %and.i.i21 to ptr
-  %call3.i23 = tail call fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %8, i64 noundef %and.i20, i64 noundef 0, i64 noundef %and.i20)
+  %call3.i23 = tail call fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef readonly %ehooks, ptr noundef %8, i64 noundef %and.i20, i64 noundef 0, i64 noundef %and.i20)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then3, %entry
@@ -2340,7 +2340,7 @@ do.body1:                                         ; preds = %do.body1.outer, %ex
 
 if.then:                                          ; preds = %do.body1
   tail call void @eset_remove(ptr noundef nonnull %eset.i, ptr noundef nonnull %call) #9
-  %call.i = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef %edata.addr.0.ph, ptr noundef nonnull %call)
+  %call.i = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef %edata.addr.0.ph, ptr noundef nonnull %call)
   br i1 %call.i, label %extent_coalesce.exit.thread, label %if.then3
 
 extent_coalesce.exit.thread:                      ; preds = %if.then
@@ -2370,7 +2370,7 @@ if.end6:                                          ; preds = %extent_coalesce.exi
 
 if.then11:                                        ; preds = %if.end6
   tail call void @eset_remove(ptr noundef nonnull %eset.i, ptr noundef nonnull %call9) #9
-  %call.i26 = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %call9, ptr noundef %edata.addr.0.ph)
+  %call.i26 = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef nonnull readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %call9, ptr noundef %edata.addr.0.ph)
   br i1 %call.i26, label %extent_coalesce.exit34.thread, label %if.then13
 
 extent_coalesce.exit34.thread:                    ; preds = %if.then11

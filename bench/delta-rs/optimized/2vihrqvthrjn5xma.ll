@@ -1215,7 +1215,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
 193:                                              ; preds = %.lr.ph.i.i
   %194 = getelementptr inbounds i8, ptr %190, i64 -96
   %195 = load ptr, ptr %194, align 8, !alias.scope !177, !noalias !178, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val8.i, ptr nonnull %195, i64 %.val9.i), !alias.scope !184, !noalias !188
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val8.i, ptr nonnull readonly %195, i64 %.val9.i), !alias.scope !184, !noalias !188
   %196 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %196, label %240, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
 
@@ -1703,7 +1703,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
 193:                                              ; preds = %.lr.ph.i.i
   %194 = getelementptr inbounds i8, ptr %190, i64 -96
   %195 = load ptr, ptr %194, align 8, !alias.scope !298, !noalias !299, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val8.i, ptr nonnull %195, i64 %.val9.i), !alias.scope !305, !noalias !309
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val8.i, ptr nonnull readonly %195, i64 %.val9.i), !alias.scope !305, !noalias !309
   %196 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %196, label %240, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
 

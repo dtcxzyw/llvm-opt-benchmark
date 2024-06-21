@@ -333,7 +333,7 @@ if.end:                                           ; preds = %entry
   %2 = load i8, ptr %1, align 8
   %tobool.i = trunc i8 %2 to i1
   %grey.i = getelementptr inbounds i8, ptr %1, i64 24
-  invoke fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(24) %mask, i1 noundef zeroext %tobool.i, ptr noundef nonnull %lit, ptr noundef nonnull %lit_offset.i, ptr noundef nonnull align 8 dereferenceable(292) %grey.i)
+  invoke fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(24) %mask, i1 noundef zeroext %tobool.i, ptr noundef nonnull %lit, ptr noundef nonnull %lit_offset.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %grey.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end
@@ -1016,7 +1016,7 @@ _ZN3ue217RoseInVertexPropsD2Ev.exit186.i:         ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool45.not.i, label %if.else.i, label %do.end49.i
 
 do.end49.i:                                       ; preds = %_ZN3ue217RoseInVertexPropsD2Ev.exit186.i
-  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp50.i, i1 noundef zeroext true, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(24) %mask)
+  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp50.i, i1 noundef zeroext true, i32 noundef %71, ptr noundef nonnull readonly align 8 dereferenceable(24) %mask)
           to label %invoke.cont51.i unwind label %lpad27.i
 
 invoke.cont51.i:                                  ; preds = %do.end49.i
@@ -1765,7 +1765,7 @@ ehcleanup128.i:                                   ; preds = %if.then.i.i.i388.i,
   br label %ehcleanup217.i
 
 if.end129.i:                                      ; preds = %_ZN3ue211ue2_literalD2Ev.exit.i, %land.lhs.true.i8, %if.then.i
-  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp130.i, i1 noundef zeroext %anchored, i32 noundef %conv9.i, ptr noundef nonnull align 8 dereferenceable(24) %mask)
+  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp130.i, i1 noundef zeroext %anchored, i32 noundef %conv9.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %mask)
           to label %invoke.cont132.i unwind label %lpad.i
 
 invoke.cont132.i:                                 ; preds = %if.end129.i
@@ -3589,7 +3589,7 @@ lor.rhs:                                          ; preds = %invoke.cont80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp12.i)
   %accept.i = getelementptr inbounds i8, ptr %30, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %accept.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %accept.i, i64 16, i1 false)
   invoke void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %curr.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i)
           to label %.noexc101 unwind label %lpad79
 

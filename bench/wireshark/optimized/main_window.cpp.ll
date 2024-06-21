@@ -782,7 +782,7 @@ define noundef zeroext i1 @_ZN10MainWindow14addPacketMenusEP5QMenuP10_GPtrArray(
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %3
-  tail call void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr nonnull align 8 poison), !noalias !9
+  tail call void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr nonnull readnone align 8 poison), !noalias !9
   tail call void @funnel_statistics_load_packet_menus(), !noalias !9
   br label %15
 

@@ -2893,7 +2893,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
 
 590:                                              ; preds = %584
   %.val392.i.i = load ptr, ptr %12, align 8, !alias.scope !454, !noalias !455, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %585, ptr nonnull align 1 %.val392.i.i, i64 %.val401.i.i, i1 false), !alias.scope !461, !noalias !465
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %585, ptr nonnull readonly align 1 %.val392.i.i, i64 %.val401.i.i, i1 false), !alias.scope !461, !noalias !465
   %591 = load ptr, ptr %12, align 8, !alias.scope !454, !noalias !455, !nonnull !4, !align !5, !noundef !4
   %592 = load i64, ptr %571, align 8, !alias.scope !454, !noalias !455, !noundef !4
   store ptr %585, ptr %12, align 8, !alias.scope !454, !noalias !455
@@ -2961,7 +2961,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
 
 611:                                              ; preds = %605
   %612 = shl i64 %.val485.i.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %606, ptr nonnull align 4 %.val484.i.i, i64 %612, i1 false), !alias.scope !475, !noalias !479
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %606, ptr nonnull readonly align 4 %.val484.i.i, i64 %612, i1 false), !alias.scope !475, !noalias !479
   %613 = load ptr, ptr %595, align 8, !alias.scope !454, !noalias !455, !nonnull !4, !align !474, !noundef !4
   %614 = load i64, ptr %596, align 8, !alias.scope !454, !noalias !455, !noundef !4
   store ptr %606, ptr %595, align 8, !alias.scope !454, !noalias !455
@@ -3260,7 +3260,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i165.i: ; pred
 .noexc383.i.i:                                    ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %177), !noalias !580
   call void @llvm.experimental.noalias.scope.decl(metadata !585)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %177, ptr noundef nonnull align 8 dereferenceable(1024) %178, i64 1024, i1 false), !alias.scope !588, !noalias !360
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %177, ptr noundef nonnull readonly align 8 dereferenceable(1024) %178, i64 1024, i1 false), !alias.scope !588, !noalias !360
   store i64 %699, ptr %548, align 8, !alias.scope !590, !noalias !591
   store float 0x47EFFE0460000000, ptr %549, align 8, !alias.scope !590, !noalias !591
   %712 = getelementptr inbounds i8, ptr %710, i64 1024
@@ -3363,7 +3363,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   %748 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %.sroa.0636.3.lcssa.i.i, i64 0, i64 %746
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %176), !noalias !601
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %176, ptr noundef nonnull align 8 dereferenceable(1024) %178, i64 1024, i1 false), !alias.scope !609, !noalias !360
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %176, ptr noundef nonnull readonly align 8 dereferenceable(1024) %178, i64 1024, i1 false), !alias.scope !609, !noalias !360
   store i64 %699, ptr %550, align 8, !alias.scope !611, !noalias !612
   store float 0x47EFFE0460000000, ptr %551, align 8, !alias.scope !611, !noalias !612
   %749 = getelementptr inbounds i8, ptr %748, i64 1024
@@ -3536,7 +3536,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   %806 = load i64, ptr %805, align 8, !alias.scope !646, !noalias !649, !noundef !4
   %807 = getelementptr inbounds i8, ptr %804, i64 1032
   %808 = load float, ptr %807, align 8, !alias.scope !646, !noalias !649, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %803, ptr noundef nonnull align 8 dereferenceable(1024) %804, i64 1024, i1 false), !alias.scope !652, !noalias !653
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %803, ptr noundef nonnull readonly align 8 dereferenceable(1024) %804, i64 1024, i1 false), !alias.scope !652, !noalias !653
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %803, i64 1024
   store i64 %806, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !654, !noalias !655
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %803, i64 1032
@@ -3606,7 +3606,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 
 828:                                              ; preds = %823
   %829 = shl i64 %.02221334.i.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %819, ptr nonnull align 4 %.sroa.0648.21328.i.i, i64 %829, i1 false), !alias.scope !663, !noalias !667
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %819, ptr nonnull readonly align 4 %.sroa.0648.21328.i.i, i64 %829, i1 false), !alias.scope !663, !noalias !667
   %830 = icmp eq i64 %.sroa.12.21327.i.i, 0
   br i1 %830, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h36581598870c7262E.exit606.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i605.i.i"
 
@@ -4388,7 +4388,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i"
   %1140 = getelementptr inbounds float, ptr %1052, i64 %1062
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %149, ptr noundef nonnull align 4 dereferenceable(32) %1140, i64 32, i1 false), !alias.scope !805, !noalias !809
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %149, ptr noundef nonnull readonly align 4 dereferenceable(32) %1140, i64 32, i1 false), !alias.scope !805, !noalias !809
   br label %1143
 
 1141:                                             ; preds = %1154
@@ -4768,7 +4768,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17hbe728a8dff5aeaa1E.exit.i:
   unreachable
 
 1268:                                             ; preds = %.noexc43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1263, ptr nonnull align 1 %.val99.i, i64 %.val100.i, i1 false), !alias.scope !895, !noalias !899
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1263, ptr nonnull readonly align 1 %.val99.i, i64 %.val100.i, i1 false), !alias.scope !895, !noalias !899
   %1269 = load ptr, ptr %12, align 8, !alias.scope !220, !noalias !222, !nonnull !4, !align !5, !noundef !4
   %1270 = load i64, ptr %227, align 8, !alias.scope !220, !noalias !222, !noundef !4
   store ptr %1263, ptr %12, align 8, !alias.scope !220, !noalias !222
@@ -4828,7 +4828,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17hbe728a8dff5aeaa1E.exit.i:
 
 1287:                                             ; preds = %.noexc45
   %1288 = shl i64 %.val124.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1282, ptr nonnull align 4 %.val123.i, i64 %1288, i1 false), !alias.scope !908, !noalias !912
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1282, ptr nonnull readonly align 4 %.val123.i, i64 %1288, i1 false), !alias.scope !908, !noalias !912
   %1289 = load ptr, ptr %1249, align 8, !alias.scope !220, !noalias !222, !nonnull !4, !align !474, !noundef !4
   %1290 = load i64, ptr %1250, align 8, !alias.scope !220, !noalias !222, !noundef !4
   store ptr %1282, ptr %1249, align 8, !alias.scope !220, !noalias !222
@@ -6098,7 +6098,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
 
 1704:                                             ; preds = %1698
   %.val392.i.i367 = load ptr, ptr %13, align 8, !alias.scope !1181, !noalias !1182, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1699, ptr nonnull align 1 %.val392.i.i367, i64 %.val401.i.i340, i1 false), !alias.scope !1188, !noalias !1192
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1699, ptr nonnull readonly align 1 %.val392.i.i367, i64 %.val401.i.i340, i1 false), !alias.scope !1188, !noalias !1192
   %1705 = load ptr, ptr %13, align 8, !alias.scope !1181, !noalias !1182, !nonnull !4, !align !5, !noundef !4
   %1706 = load i64, ptr %1685, align 8, !alias.scope !1181, !noalias !1182, !noundef !4
   store ptr %1699, ptr %13, align 8, !alias.scope !1181, !noalias !1182
@@ -6166,7 +6166,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
 
 1725:                                             ; preds = %1719
   %1726 = shl i64 %.val467.i.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1720, ptr nonnull align 4 %.val466.i.i, i64 %1726, i1 false), !alias.scope !1201, !noalias !1205
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1720, ptr nonnull readonly align 4 %.val466.i.i, i64 %1726, i1 false), !alias.scope !1201, !noalias !1205
   %1727 = load ptr, ptr %1709, align 8, !alias.scope !1181, !noalias !1182, !nonnull !4, !align !474, !noundef !4
   %1728 = load i64, ptr %1710, align 8, !alias.scope !1181, !noalias !1182, !noundef !4
   store ptr %1720, ptr %1709, align 8, !alias.scope !1181, !noalias !1182
@@ -6472,7 +6472,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i167.i: ; pred
   call void @llvm.lifetime.start.p0(i64 2832, ptr nonnull %117), !noalias !1307
   call void @llvm.experimental.noalias.scope.decl(metadata !1312)
   %1829 = load float, ptr %1661, align 8, !noalias !1087, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %117, ptr noundef nonnull align 8 dereferenceable(2816) %118, i64 2816, i1 false), !alias.scope !1315, !noalias !1087
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %117, ptr noundef nonnull readonly align 8 dereferenceable(2816) %118, i64 2816, i1 false), !alias.scope !1315, !noalias !1087
   store i64 %1816, ptr %1662, align 8, !alias.scope !1317, !noalias !1318
   store float %1829, ptr %1663, align 8, !alias.scope !1317, !noalias !1318
   %1830 = getelementptr inbounds i8, ptr %1827, i64 2816
@@ -6575,7 +6575,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   %1866 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %.sroa.0639.3.lcssa.i.i, i64 0, i64 %1864
   call void @llvm.lifetime.start.p0(i64 2832, ptr nonnull %116), !noalias !1328
   call void @llvm.experimental.noalias.scope.decl(metadata !1333)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %116, ptr noundef nonnull align 8 dereferenceable(2816) %118, i64 2816, i1 false), !alias.scope !1336, !noalias !1087
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %116, ptr noundef nonnull readonly align 8 dereferenceable(2816) %118, i64 2816, i1 false), !alias.scope !1336, !noalias !1087
   store i64 %1816, ptr %1664, align 8, !alias.scope !1338, !noalias !1339
   store float %1829, ptr %1665, align 8, !alias.scope !1338, !noalias !1339
   %1867 = getelementptr inbounds i8, ptr %1866, i64 2816
@@ -6748,7 +6748,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   %1924 = load i64, ptr %1923, align 8, !alias.scope !1373, !noalias !1376, !noundef !4
   %1925 = getelementptr inbounds i8, ptr %1922, i64 2824
   %1926 = load float, ptr %1925, align 8, !alias.scope !1373, !noalias !1376, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %1921, ptr noundef nonnull align 8 dereferenceable(2816) %1922, i64 2816, i1 false), !alias.scope !1379, !noalias !1380
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %1921, ptr noundef nonnull readonly align 8 dereferenceable(2816) %1922, i64 2816, i1 false), !alias.scope !1379, !noalias !1380
   %.sroa.4.0..sroa_idx.i.i.i.i383 = getelementptr inbounds i8, ptr %1921, i64 2816
   store i64 %1924, ptr %.sroa.4.0..sroa_idx.i.i.i.i383, align 8, !alias.scope !1381, !noalias !1382
   %.sroa.5.0..sroa_idx.i.i.i.i384 = getelementptr inbounds i8, ptr %1921, i64 2824
@@ -6818,7 +6818,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 
 1946:                                             ; preds = %1941
   %1947 = shl i64 %.02221366.i.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1937, ptr nonnull align 4 %.sroa.0651.21360.i.i, i64 %1947, i1 false), !alias.scope !1390, !noalias !1394
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1937, ptr nonnull readonly align 4 %.sroa.0651.21360.i.i, i64 %1947, i1 false), !alias.scope !1390, !noalias !1394
   %1948 = icmp eq i64 %.sroa.12.21359.i.i, 0
   br i1 %1948, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h36581598870c7262E.exit607.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i606.i.i"
 
@@ -7605,7 +7605,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i162": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i160"
   %2260 = getelementptr inbounds float, ptr %2172, i64 %2182
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %89, ptr noundef nonnull align 4 dereferenceable(32) %2260, i64 32, i1 false), !alias.scope !1534, !noalias !1538
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %89, ptr noundef nonnull readonly align 4 dereferenceable(32) %2260, i64 32, i1 false), !alias.scope !1534, !noalias !1538
   br label %2263
 
 2261:                                             ; preds = %2274
@@ -7993,7 +7993,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h257838a35b134f87E.exit.i:
   unreachable
 
 2390:                                             ; preds = %.noexc424
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2385, ptr nonnull align 1 %.val99.i410, i64 %.val100.i411, i1 false), !alias.scope !1623, !noalias !1627
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2385, ptr nonnull readonly align 1 %.val99.i410, i64 %.val100.i411, i1 false), !alias.scope !1623, !noalias !1627
   %2391 = load ptr, ptr %13, align 8, !alias.scope !945, !noalias !947, !nonnull !4, !align !5, !noundef !4
   %2392 = load i64, ptr %1334, align 8, !alias.scope !945, !noalias !947, !noundef !4
   store ptr %2385, ptr %13, align 8, !alias.scope !945, !noalias !947
@@ -8053,7 +8053,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h257838a35b134f87E.exit.i:
 
 2409:                                             ; preds = %.noexc426
   %2410 = shl i64 %.val116.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2404, ptr nonnull align 4 %.val115.i, i64 %2410, i1 false), !alias.scope !1636, !noalias !1640
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2404, ptr nonnull readonly align 4 %.val115.i, i64 %2410, i1 false), !alias.scope !1636, !noalias !1640
   %2411 = load ptr, ptr %2371, align 8, !alias.scope !945, !noalias !947, !nonnull !4, !align !474, !noundef !4
   %2412 = load i64, ptr %2372, align 8, !alias.scope !945, !noalias !947, !noundef !4
   store ptr %2404, ptr %2371, align 8, !alias.scope !945, !noalias !947
@@ -9329,7 +9329,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
 
 2827:                                             ; preds = %2821
   %.val392.i.i969 = load ptr, ptr %14, align 8, !alias.scope !1909, !noalias !1910, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2822, ptr nonnull align 1 %.val392.i.i969, i64 %.val401.i.i921, i1 false), !alias.scope !1916, !noalias !1920
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2822, ptr nonnull readonly align 1 %.val392.i.i969, i64 %.val401.i.i921, i1 false), !alias.scope !1916, !noalias !1920
   %2828 = load ptr, ptr %14, align 8, !alias.scope !1909, !noalias !1910, !nonnull !4, !align !5, !noundef !4
   %2829 = load i64, ptr %2808, align 8, !alias.scope !1909, !noalias !1910, !noundef !4
   store ptr %2822, ptr %14, align 8, !alias.scope !1909, !noalias !1910
@@ -9397,7 +9397,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
 
 2848:                                             ; preds = %2842
   %2849 = shl i64 %.val467.i.i923, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2843, ptr nonnull align 4 %.val466.i.i922, i64 %2849, i1 false), !alias.scope !1929, !noalias !1933
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2843, ptr nonnull readonly align 4 %.val466.i.i922, i64 %2849, i1 false), !alias.scope !1929, !noalias !1933
   %2850 = load ptr, ptr %2832, align 8, !alias.scope !1909, !noalias !1910, !nonnull !4, !align !474, !noundef !4
   %2851 = load i64, ptr %2833, align 8, !alias.scope !1909, !noalias !1910, !noundef !4
   store ptr %2843, ptr %2832, align 8, !alias.scope !1909, !noalias !1910
@@ -9703,7 +9703,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i167.i: ; pred
   call void @llvm.lifetime.start.p0(i64 2192, ptr nonnull %57), !noalias !2035
   call void @llvm.experimental.noalias.scope.decl(metadata !2040)
   %2952 = load float, ptr %2783, align 8, !noalias !1815, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %57, ptr noundef nonnull align 8 dereferenceable(2176) %58, i64 2176, i1 false), !alias.scope !2043, !noalias !1815
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %57, ptr noundef nonnull readonly align 8 dereferenceable(2176) %58, i64 2176, i1 false), !alias.scope !2043, !noalias !1815
   store i64 %2939, ptr %2785, align 8, !alias.scope !2045, !noalias !2046
   store float %2952, ptr %2786, align 8, !alias.scope !2045, !noalias !2046
   %2953 = getelementptr inbounds i8, ptr %2950, i64 2176
@@ -9806,7 +9806,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   %2989 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %.sroa.0639.3.lcssa.i.i822, i64 0, i64 %2987
   call void @llvm.lifetime.start.p0(i64 2192, ptr nonnull %56), !noalias !2056
   call void @llvm.experimental.noalias.scope.decl(metadata !2061)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %56, ptr noundef nonnull align 8 dereferenceable(2176) %58, i64 2176, i1 false), !alias.scope !2064, !noalias !1815
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %56, ptr noundef nonnull readonly align 8 dereferenceable(2176) %58, i64 2176, i1 false), !alias.scope !2064, !noalias !1815
   store i64 %2939, ptr %2787, align 8, !alias.scope !2066, !noalias !2067
   store float %2952, ptr %2788, align 8, !alias.scope !2066, !noalias !2067
   %2990 = getelementptr inbounds i8, ptr %2989, i64 2176
@@ -9979,7 +9979,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   %3047 = load i64, ptr %3046, align 8, !alias.scope !2101, !noalias !2104, !noundef !4
   %3048 = getelementptr inbounds i8, ptr %3045, i64 2184
   %3049 = load float, ptr %3048, align 8, !alias.scope !2101, !noalias !2104, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %3044, ptr noundef nonnull align 8 dereferenceable(2176) %3045, i64 2176, i1 false), !alias.scope !2107, !noalias !2108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %3044, ptr noundef nonnull readonly align 8 dereferenceable(2176) %3045, i64 2176, i1 false), !alias.scope !2107, !noalias !2108
   %.sroa.4.0..sroa_idx.i.i.i.i999 = getelementptr inbounds i8, ptr %3044, i64 2176
   store i64 %3047, ptr %.sroa.4.0..sroa_idx.i.i.i.i999, align 8, !alias.scope !2109, !noalias !2110
   %.sroa.5.0..sroa_idx.i.i.i.i1000 = getelementptr inbounds i8, ptr %3044, i64 2184
@@ -10049,7 +10049,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 
 3069:                                             ; preds = %3064
   %3070 = shl i64 %.02221366.i.i760, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3060, ptr nonnull align 4 %.sroa.0651.21360.i.i766, i64 %3070, i1 false), !alias.scope !2118, !noalias !2122
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3060, ptr nonnull readonly align 4 %.sroa.0651.21360.i.i766, i64 %3070, i1 false), !alias.scope !2118, !noalias !2122
   %3071 = icmp eq i64 %.sroa.12.21359.i.i767, 0
   br i1 %3071, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h36581598870c7262E.exit607.i.i798", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i606.i.i991"
 
@@ -10836,7 +10836,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i575": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i573"
   %3383 = getelementptr inbounds float, ptr %3295, i64 %3305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %29, ptr noundef nonnull align 4 dereferenceable(32) %3383, i64 32, i1 false), !alias.scope !2262, !noalias !2266
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %29, ptr noundef nonnull readonly align 4 dereferenceable(32) %3383, i64 32, i1 false), !alias.scope !2262, !noalias !2266
   br label %3386
 
 3384:                                             ; preds = %3397
@@ -11224,7 +11224,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h2b0dcbc429c35f4bE.exit.i:
   unreachable
 
 3513:                                             ; preds = %.noexc1071
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3508, ptr nonnull align 1 %.val99.i1045, i64 %.val100.i1046, i1 false), !alias.scope !2351, !noalias !2355
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3508, ptr nonnull readonly align 1 %.val99.i1045, i64 %.val100.i1046, i1 false), !alias.scope !2351, !noalias !2355
   %3514 = load ptr, ptr %14, align 8, !alias.scope !1673, !noalias !1675, !nonnull !4, !align !5, !noundef !4
   %3515 = load i64, ptr %2457, align 8, !alias.scope !1673, !noalias !1675, !noundef !4
   store ptr %3508, ptr %14, align 8, !alias.scope !1673, !noalias !1675
@@ -11284,7 +11284,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h2b0dcbc429c35f4bE.exit.i:
 
 3532:                                             ; preds = %.noexc1073
   %3533 = shl i64 %.val116.i1049, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3527, ptr nonnull align 4 %.val115.i1048, i64 %3533, i1 false), !alias.scope !2364, !noalias !2368
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3527, ptr nonnull readonly align 4 %.val115.i1048, i64 %3533, i1 false), !alias.scope !2364, !noalias !2368
   %3534 = load ptr, ptr %3494, align 8, !alias.scope !1673, !noalias !1675, !nonnull !4, !align !474, !noundef !4
   %3535 = load i64, ptr %3495, align 8, !alias.scope !1673, !noalias !1675, !noundef !4
   store ptr %3527, ptr %3494, align 8, !alias.scope !1673, !noalias !1675
@@ -11780,7 +11780,7 @@ define hidden noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h6
   %26 = phi ptr [ %16, %19 ], [ %.pre, %24 ]
   %27 = phi i64 [ %21, %19 ], [ %.pre.i.i, %24 ]
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %20, i64 %15, i1 false), !noalias !2431
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %20, i64 %15, i1 false), !noalias !2431
   %29 = load i64, ptr %9, align 8, !alias.scope !2422, !noalias !2427, !noundef !4
   %30 = load i64, ptr %8, align 8, !alias.scope !2422, !noalias !2427, !noundef !4
   %31 = sub i64 %29, %30
@@ -11868,7 +11868,7 @@ define hidden noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h9
   %27 = phi i64 [ %22, %20 ], [ %.pre.i.i.i, %25 ]
   %28 = load ptr, ptr %8, align 8, !alias.scope !2438, !noalias !2445, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %21, i64 %16, i1 false), !noalias !2451
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %21, i64 %16, i1 false), !noalias !2451
   %30 = load i64, ptr %10, align 8, !alias.scope !2438, !noalias !2445, !noundef !4
   %31 = load i64, ptr %9, align 8, !alias.scope !2438, !noalias !2445, !noundef !4
   %32 = sub i64 %30, %31
@@ -11957,7 +11957,7 @@ define internal fastcc noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$
   %26 = phi ptr [ %16, %19 ], [ %.pre, %24 ]
   %27 = phi i64 [ %21, %19 ], [ %.pre.i.i, %24 ]
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %20, i64 %15, i1 false), !noalias !2468
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %20, i64 %15, i1 false), !noalias !2468
   %29 = load i64, ptr %9, align 8, !alias.scope !2459, !noalias !2464, !noundef !4
   %30 = load i64, ptr %8, align 8, !alias.scope !2459, !noalias !2464, !noundef !4
   %31 = sub i64 %29, %30
@@ -12272,7 +12272,7 @@ define noundef zeroext i1 @"_ZN59_$LT$actix_http..date..Date$u20$as$u20$core..fm
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit": ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %1, i64 %2, i1 false), !alias.scope !2505, !noalias !2509
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !2505, !noalias !2509
   %13 = load i64, ptr %0, align 8, !noundef !4
   %14 = add i64 %13, %2
   store i64 %14, ptr %0, align 8

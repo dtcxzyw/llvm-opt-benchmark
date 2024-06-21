@@ -486,7 +486,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end2.i:                                        ; preds = %if.end.i
   store i8 1, ptr %0, align 1
-  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull %fmt, ptr noundef nonnull %args) #18
+  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef nonnull %args) #18
   store i8 1, ptr %0, align 1
   %2 = load atomic i64, ptr @mi_out_arg acquire, align 8
   %3 = inttoptr i64 %2 to ptr
@@ -765,7 +765,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end2.i:                                        ; preds = %if.end.i
   store i8 1, ptr %0, align 1
-  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull %fmt, ptr noundef nonnull %args) #18
+  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef nonnull %args) #18
   store i8 0, ptr %0, align 1
   %cmp.i.i = icmp eq ptr %out, null
   %2 = load ptr, ptr @stdout, align 8
@@ -856,7 +856,7 @@ if.end.i:                                         ; preds = %if.then
 
 if.end2.i:                                        ; preds = %if.end.i
   store i8 1, ptr %2, align 1
-  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull %fmt, ptr noundef %args) #18
+  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef %args) #18
   store i8 1, ptr %2, align 1
   %4 = load atomic i64, ptr @mi_out_arg acquire, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -885,7 +885,7 @@ if.end.i11:                                       ; preds = %if.else
 
 if.end2.i13:                                      ; preds = %if.end.i11
   store i8 1, ptr %7, align 1
-  %call3.i14 = call i32 @vsnprintf(ptr noundef nonnull %buf.i9, i64 noundef 511, ptr noundef nonnull %fmt, ptr noundef %args) #18
+  %call3.i14 = call i32 @vsnprintf(ptr noundef nonnull %buf.i9, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef %args) #18
   store i8 1, ptr %7, align 1
   %9 = load atomic i64, ptr @mi_out_arg acquire, align 8
   %10 = inttoptr i64 %9 to ptr
@@ -1265,7 +1265,7 @@ if.end10.i:                                       ; preds = %if.end6.i
   %sub13.i = sub nuw nsw i64 32767, %3
   %spec.select.i = select i1 %cmp11.i, i64 %sub13.i, i64 %len.0.i.i
   %arrayidx.i = getelementptr inbounds [32769 x i8], ptr @out_buf, i64 0, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr nonnull align 1 %msg, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr nonnull readonly align 1 %msg, i64 %spec.select.i, i1 false)
   br label %mi_out_buf.exit
 
 mi_out_buf.exit:                                  ; preds = %entry, %if.end.i, %_mi_strlen.exit.i, %if.end6.i, %if.end10.i
@@ -1306,7 +1306,7 @@ if.end10:                                         ; preds = %if.end6
   %sub13 = sub nuw nsw i64 32767, %2
   %spec.select = select i1 %cmp11, i64 %sub13, i64 %len.0.i
   %arrayidx = getelementptr inbounds [32769 x i8], ptr @out_buf, i64 0, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr nonnull align 1 %msg, i64 %spec.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr nonnull readonly align 1 %msg, i64 %spec.select, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end6, %_mi_strlen.exit, %if.end, %entry, %if.end10

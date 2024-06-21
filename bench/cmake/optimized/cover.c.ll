@@ -2360,7 +2360,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %95 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %.sroa.5.0, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %73, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i64 %.sroa.544.0, ptr %78, align 8
   br label %COVER_best_finish.exit
 

@@ -7523,7 +7523,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   br label %113
 
 113:                                              ; preds = %108, %107, %104, %86
-  %114 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %76, i32 noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef 1)
+  %114 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %76, i32 noundef %81, ptr noundef nonnull readonly %4, ptr noundef nonnull %10, i32 noundef 1)
   %115 = icmp eq ptr %95, null
   %116 = load ptr, ptr %62, align 8
   %117 = icmp ne ptr %116, null
@@ -7809,8 +7809,8 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %164
   br label %283
 
 283:                                              ; preds = %274, %273, %270, %268, %252
-  %284 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %.1.i, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 0)
-  %285 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %284, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 1)
+  %284 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %.1.i, ptr noundef nonnull readonly %4, ptr noundef nonnull %8, i32 noundef 0)
+  %285 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %284, ptr noundef nonnull readonly %4, ptr noundef nonnull %8, i32 noundef 1)
   %286 = icmp eq ptr %261, null
   br i1 %286, label %287, label %322
 
@@ -8072,13 +8072,13 @@ switch.lookup:                                    ; preds = %408
   br i1 %419, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !10
 
 420:                                              ; preds = %399
-  %421 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.059.i, ptr noundef nonnull %367, ptr noundef nonnull %4, i32 noundef 0)
+  %421 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.059.i, ptr noundef nonnull readonly %367, ptr noundef nonnull readonly %4, i32 noundef 0)
   %422 = add i32 %421, %.059.i
   br label %dissect_v9_v10_pdu.exit.i
 
 dissect_v9_v10_pdu.exit.i:                        ; preds = %416, %420, %399, %397, %391
   %.0.i.i = phi i32 [ %422, %420 ], [ %.059.i, %397 ], [ %.059.i, %391 ], [ %.059.i, %399 ], [ %.1.i.i.i, %416 ]
-  %423 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.0.i.i, ptr noundef nonnull %367, ptr noundef nonnull %4, i32 noundef 1)
+  %423 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.0.i.i, ptr noundef nonnull readonly %367, ptr noundef nonnull readonly %4, i32 noundef 1)
   %424 = load i32, ptr %5, align 4
   %425 = add i32 %424, 1
   store i32 %425, ptr %5, align 4

@@ -522,7 +522,7 @@ if.end23.i.i:                                     ; preds = %for.body.i26.i
   %arrayZ24.i.i = getelementptr inbounds i8, ptr %__begin0.033.i.i, i64 8
   %28 = load ptr, ptr %arrayZ24.i.i, align 8
   %conv25.i.i = zext i32 %25 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i.i, ptr align 1 %28, i64 %conv25.i.i, i1 false), !alias.scope !5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i.i, ptr readonly align 1 %28, i64 %conv25.i.i, i1 false), !alias.scope !5
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %ret.034.i.i, i64 %conv25.i.i
   br label %for.inc.i.i
 
@@ -853,7 +853,7 @@ if.end23.i:                                       ; preds = %for.body.i
   %arrayZ24.i = getelementptr inbounds i8, ptr %__begin0.033.i, i64 8
   %75 = load ptr, ptr %arrayZ24.i, align 8
   %conv25.i = zext i32 %72 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr align 1 %75, i64 %conv25.i, i1 false), !alias.scope !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr readonly align 1 %75, i64 %conv25.i, i1 false), !alias.scope !11
   %add.ptr.i = getelementptr inbounds i8, ptr %ret.034.i, i64 %conv25.i
   br label %for.inc.i
 
@@ -1889,7 +1889,7 @@ if.end23.i519:                                    ; preds = %for.body.i508
   %arrayZ24.i520 = getelementptr inbounds i8, ptr %__begin0.033.i510, i64 8
   %231 = load ptr, ptr %arrayZ24.i520, align 8
   %conv25.i521 = zext i32 %228 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i509, ptr align 1 %231, i64 %conv25.i521, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i509, ptr readonly align 1 %231, i64 %conv25.i521, i1 false), !alias.scope !18
   %add.ptr.i522 = getelementptr inbounds i8, ptr %ret.034.i509, i64 %conv25.i521
   br label %for.inc.i515
 
@@ -3581,7 +3581,7 @@ if.then22.i:                                      ; preds = %for.body.i
 if.end23.i:                                       ; preds = %for.body.i
   %19 = load ptr, ptr %__begin0.033.i, align 8
   %conv25.i = zext i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr align 1 %19, i64 %conv25.i, i1 false), !alias.scope !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr readonly align 1 %19, i64 %conv25.i, i1 false), !alias.scope !38
   %add.ptr.i = getelementptr inbounds i8, ptr %ret.034.i, i64 %conv25.i
   br label %for.inc.i
 
@@ -23255,7 +23255,7 @@ if.end.i.i:                                       ; preds = %_ZNK3CFF12subr_rema
   %35 = load i32, ptr %length3.i, align 4
   %idx.ext.i45 = zext i32 %35 to i64
   %add.ptr.i46 = getelementptr inbounds i8, ptr %34, i64 %idx.ext.i45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i46, ptr align 1 %32, i64 %conv.i, i1 false), !alias.scope !160
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i46, ptr readonly align 1 %32, i64 %conv.i, i1 false), !alias.scope !160
   br label %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit
 
 _ZN3CFF13str_encoder_t8copy_strEPKhj.exit:        ; preds = %_ZNK3CFF12subr_remap_t10biased_numEj.exit, %if.end.i.i
@@ -23338,7 +23338,7 @@ if.end.i.i86:                                     ; preds = %_ZNK3CFF12subr_rema
   %52 = load i32, ptr %length3.i89, align 4
   %idx.ext.i90 = zext i32 %52 to i64
   %add.ptr.i91 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i90
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i91, ptr align 1 %49, i64 %conv.i87, i1 false), !alias.scope !164
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i91, ptr readonly align 1 %49, i64 %conv.i87, i1 false), !alias.scope !164
   br label %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94
 
 _ZN3CFF13str_encoder_t8copy_strEPKhj.exit94:      ; preds = %_ZNK3CFF12subr_remap_t10biased_numEj.exit84, %if.end.i.i86
@@ -23361,7 +23361,7 @@ if.end.i.i96:                                     ; preds = %sw.default
   %57 = load i32, ptr %length3.i99, align 4
   %idx.ext.i100 = zext i32 %57 to i64
   %add.ptr.i101 = getelementptr inbounds i8, ptr %56, i64 %idx.ext.i100
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i101, ptr align 1 %55, i64 %conv.i97, i1 false), !alias.scope !168
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i101, ptr readonly align 1 %55, i64 %conv.i97, i1 false), !alias.scope !168
   %.pre = load ptr, ptr %encoder, align 8
   br label %for.inc59.sink.split
 
@@ -25702,7 +25702,7 @@ if.end:                                           ; preds = %_ZN22hb_serialize_c
   br i1 %tobool.not.i6, label %return, label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %obj, i64 %retval.0.i1320, i1 false), !alias.scope !182
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %obj, i64 %retval.0.i1320, i1 false), !alias.scope !182
   br label %return
 
 return:                                           ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE8get_sizeEv.exit.thread, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE8get_sizeEv.exit, %if.then3.i, %if.end.i7, %if.end, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8CFFIndexIN2OT7IntTypeItLj2EEEEEEEPT_mb.exit

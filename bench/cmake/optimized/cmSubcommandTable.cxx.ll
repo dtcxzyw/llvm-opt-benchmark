@@ -118,7 +118,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKS_INSt7__cxx
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %30
   %32 = getelementptr i8, ptr %.sroa.08.0.i.i.i.i.i, i64 -16
   %.val4.i.i.i.i.i.i = load ptr, ptr %32, align 8
-  %33 = tail call i32 @memcmp(ptr noundef %.sroa.3.0.copyload.i.i.i.i.i, ptr noundef %.val4.i.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #18
+  %33 = tail call i32 @memcmp(ptr noundef readonly %.sroa.3.0.copyload.i.i.i.i.i, ptr noundef readonly %.val4.i.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #18
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclIS4_ISt17basic_string_viewIcSB_ESL_ENS_17__normal_iteratorIPST_S7_IST_SaIST_EEEEEEbRT_T0_.exit.i.i.i.i.i"
 
@@ -194,7 +194,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt1
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElEvRT_T0_.exit.i.i
   %19 = getelementptr i8, ptr %17, i64 8
   %.val2.i.i.i = load ptr, ptr %19, align 8
-  %20 = tail call i32 @memcmp(ptr noundef %.val2.i.i.i, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %20 = tail call i32 @memcmp(ptr noundef readonly %.val2.i.i.i, ptr noundef readonly %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmSubcommandTableclESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPKSt4pairIS6_PFbSF_SH_EES7_ISP_SaISP_EEEEKS6_EEbT_RT0_.exit.i.i"
 
@@ -373,7 +373,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %34
   %40 = getelementptr i8, ptr %37, i64 8
   %.val3.i.i.i = load ptr, ptr %40, align 8
   %.val1.i.i.i = load ptr, ptr %17, align 8
-  %41 = tail call i32 @memcmp(ptr noundef %.val1.i.i.i, ptr noundef %.val3.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %41 = tail call i32 @memcmp(ptr noundef readonly %.val1.i.i.i, ptr noundef readonly %.val3.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit.i.i"
 
@@ -400,7 +400,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i29.i.i: ; preds = %45
   %.val3.i30.i.i = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %37, i64 8
   %.val1.i31.i.i = load ptr, ptr %48, align 8
-  %49 = tail call i32 @memcmp(ptr noundef %.val1.i31.i.i, ptr noundef %.val3.i30.i.i, i64 noundef %.sroa.speculated.i.i.i.i28.i.i) #18
+  %49 = tail call i32 @memcmp(ptr noundef readonly %.val1.i31.i.i, ptr noundef readonly %.val3.i30.i.i, i64 noundef %.sroa.speculated.i.i.i.i28.i.i) #18
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i33.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit37.i.i"
 
@@ -433,7 +433,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i41.i.i: ; preds = %54
   %56 = getelementptr i8, ptr %storemerge24, i64 -16
   %.val3.i42.i.i = load ptr, ptr %56, align 8
   %.val1.i43.i.i = load ptr, ptr %17, align 8
-  %57 = tail call i32 @memcmp(ptr noundef %.val1.i43.i.i, ptr noundef %.val3.i42.i.i, i64 noundef %.sroa.speculated.i.i.i.i40.i.i) #18
+  %57 = tail call i32 @memcmp(ptr noundef readonly %.val1.i43.i.i, ptr noundef readonly %.val3.i42.i.i, i64 noundef %.sroa.speculated.i.i.i.i40.i.i) #18
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit49.i.i"
 
@@ -474,7 +474,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i53.i.i: ; preds = %63
   %65 = getelementptr i8, ptr %storemerge24, i64 -16
   %.val3.i54.i.i = load ptr, ptr %65, align 8
   %.val1.i55.i.i = load ptr, ptr %17, align 8
-  %66 = tail call i32 @memcmp(ptr noundef %.val1.i55.i.i, ptr noundef %.val3.i54.i.i, i64 noundef %.sroa.speculated.i.i.i.i52.i.i) #18
+  %66 = tail call i32 @memcmp(ptr noundef readonly %.val1.i55.i.i, ptr noundef readonly %.val3.i54.i.i, i64 noundef %.sroa.speculated.i.i.i.i52.i.i) #18
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i57.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit61.i.i"
 
@@ -508,7 +508,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i65.i.i: ; preds = %71
   %.val3.i66.i.i = load ptr, ptr %73, align 8
   %74 = getelementptr i8, ptr %37, i64 8
   %.val1.i67.i.i = load ptr, ptr %74, align 8
-  %75 = tail call i32 @memcmp(ptr noundef %.val1.i67.i.i, ptr noundef %.val3.i66.i.i, i64 noundef %.sroa.speculated.i.i.i.i64.i.i) #18
+  %75 = tail call i32 @memcmp(ptr noundef readonly %.val1.i67.i.i, ptr noundef readonly %.val3.i66.i.i, i64 noundef %.sroa.speculated.i.i.i.i64.i.i) #18
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i69.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit73.i.i"
 
@@ -568,7 +568,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i16.i: ; preds = %85
   %.val3.i.i17.i = load ptr, ptr %18, align 8
   %87 = getelementptr i8, ptr %.sroa.022.1.i.i, i64 8
   %.val1.i.i18.i = load ptr, ptr %87, align 8
-  %88 = tail call i32 @memcmp(ptr noundef %.val1.i.i18.i, ptr noundef %.val3.i.i17.i, i64 noundef %.sroa.speculated.i.i.i.i.i15.i) #18
+  %88 = tail call i32 @memcmp(ptr noundef readonly %.val1.i.i18.i, ptr noundef readonly %.val3.i.i17.i, i64 noundef %.sroa.speculated.i.i.i.i.i15.i) #18
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit.i19.i"
 
@@ -597,7 +597,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i: ; preds = %.preheader.
   %94 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %.val3.i12.i.i = load ptr, ptr %94, align 8
   %.val1.i13.i.i = load ptr, ptr %18, align 8
-  %95 = tail call i32 @memcmp(ptr noundef %.val1.i13.i.i, ptr noundef %.val3.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i10.i.i) #18
+  %95 = tail call i32 @memcmp(ptr noundef readonly %.val1.i13.i.i, ptr noundef readonly %.val3.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i10.i.i) #18
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i15.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit19.i.i"
 
@@ -663,7 +663,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
   %.val3.i = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %10, i64 8
   %.val1.i = load ptr, ptr %15, align 8
-  %16 = tail call i32 @memcmp(ptr noundef %.val1.i, ptr noundef %.val3.i, i64 noundef %.sroa.speculated.i.i.i.i) #18
+  %16 = tail call i32 @memcmp(ptr noundef readonly %.val1.i, ptr noundef readonly %.val3.i, i64 noundef %.sroa.speculated.i.i.i.i) #18
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit"
 
@@ -735,7 +735,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph.i
   %44 = getelementptr i8, ptr %42, i64 8
   %.val2.i.i = load ptr, ptr %44, align 8
-  %45 = tail call i32 @memcmp(ptr noundef %.val2.i.i, ptr noundef %.sroa.2.0.copyload, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
+  %45 = tail call i32 @memcmp(ptr noundef readonly %.val2.i.i, ptr noundef readonly %.sroa.2.0.copyload, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESU_EEbT_RT0_.exit.i"
 
@@ -805,7 +805,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %7
   %.val3.i = load ptr, ptr %4, align 8
   %9 = getelementptr i8, ptr %.pn19, i64 32
   %.val1.i = load ptr, ptr %9, align 8
-  %10 = tail call i32 @memcmp(ptr noundef %.val1.i, ptr noundef %.val3.i, i64 noundef %.sroa.speculated.i.i.i.i) #18
+  %10 = tail call i32 @memcmp(ptr noundef readonly %.val1.i, ptr noundef readonly %.val3.i, i64 noundef %.sroa.speculated.i.i.i.i) #18
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit"
 
@@ -873,7 +873,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_vie
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %28
   %30 = getelementptr i8, ptr %.sroa.08.0.i, i64 -16
   %.val4.i.i = load ptr, ptr %30, align 8
-  %31 = tail call i32 @memcmp(ptr noundef %.sroa.3.0.copyload.i, ptr noundef %.val4.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
+  %31 = tail call i32 @memcmp(ptr noundef readonly %.sroa.3.0.copyload.i, ptr noundef readonly %.val4.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclIS4_ISt17basic_string_viewIcSB_ESL_ENS_17__normal_iteratorIPST_S7_IST_SaIST_EEEEEEbRT_T0_.exit.i"
 

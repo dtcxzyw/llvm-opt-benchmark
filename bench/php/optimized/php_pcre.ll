@@ -7690,7 +7690,7 @@ free_subpats_table.exit:                          ; preds = %44, %31
   %106 = call ptr @_zend_new_array(i32 noundef %105) #23
   store ptr %106, ptr %11, align 8
   store i32 775, ptr %70, align 8
-  call fastcc void @populate_subpat_array(ptr noundef nonnull %11, ptr noundef %2, ptr noundef nonnull %51, ptr noundef %.0501, i32 noundef %14, i32 noundef %.3505, ptr noundef %103, i64 noundef %8)
+  call fastcc void @populate_subpat_array(ptr noundef nonnull %11, ptr noundef readonly %2, ptr noundef nonnull readonly %51, ptr noundef %.0501, i32 noundef %14, i32 noundef %.3505, ptr noundef %103, i64 noundef %8)
   store ptr %10, ptr %71, align 8
   store i32 1, ptr %72, align 8
   store ptr %11, ptr %73, align 8
@@ -7739,7 +7739,7 @@ free_subpats_table.exit:                          ; preds = %44, %31
   %128 = getelementptr inbounds i8, ptr %125, i64 16
   store i64 %122, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %125, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %129, ptr align 1 %120, i64 %122, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %129, ptr readonly align 1 %120, i64 %122, i1 false)
   %130 = getelementptr inbounds [1 x i8], ptr %129, i64 0, i64 %122
   store i8 0, ptr %130, align 1
   br label %preg_do_repl_func.exit

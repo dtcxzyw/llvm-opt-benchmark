@@ -2077,7 +2077,7 @@ define internal noundef i32 @dissect_drda_pkgnamcsn(ptr noundef %0, ptr noundef 
   %6 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %5) #6
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %6, i32 noundef 8) #6
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %6, i32 noundef 0, i32 noundef %7) #6
-  %9 = tail call i32 @dissect_drda_pkgnam(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr poison)
+  %9 = tail call i32 @dissect_drda_pkgnam(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr readnone poison)
   %10 = load i32, ptr @hf_drda_pkgcnstkn, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %6, i32 noundef %9, i32 noundef 8, i32 noundef 2) #6
   %12 = add i32 %9, 8
@@ -3108,7 +3108,7 @@ dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup
   %262 = add i32 %261, %257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   %263 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %262) #6
-  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef nonnull %3)
+  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef nonnull readonly %3)
   %265 = add i32 %264, %262
   %266 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %265) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
@@ -3453,7 +3453,7 @@ dissect_drda_sqldoptgrp.exit.i:                   ; preds = %415, %409, %dissect
 
 475:                                              ; preds = %418
   %476 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %472) #6
-  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef nonnull %3)
+  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef nonnull readonly %3)
   %478 = add i32 %477, %472
   br label %dissect_drda_sqldagrp.exit
 

@@ -3609,8 +3609,8 @@ do.end:                                           ; preds = %land.lhs.true
   br i1 %tobool6, label %land.lhs.true7, label %land.lhs.true13
 
 land.lhs.true7:                                   ; preds = %do.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  %call1.i = tail call i32 @strncmp(ptr noundef %data, ptr noundef nonnull %1, i64 noundef %call.i) #18
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #18
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %data, ptr noundef nonnull readonly %1, i64 noundef %call.i) #18
   %tobool.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i.not, label %if.end18, label %for.inc
 
@@ -3691,7 +3691,7 @@ if.end16.i:                                       ; preds = %sw.bb.i
   ]
 
 if.then5.i.i:                                     ; preds = %if.end16.i
-  %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
+  %strlen.i.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %10)
   %strchr.i.i = getelementptr inbounds i8, ptr %10, i64 %strlen.i.i
   br label %cmd_next_param.exit.i
 
@@ -3710,7 +3710,7 @@ if.else12.i.i:                                    ; preds = %land.lhs.true.i.i, 
 
 if.end14.i.i:                                     ; preds = %if.else12.i.i, %if.end16.i
   %delimiters.0.i.i = phi ptr [ %curr_delimiters.i.i, %if.else12.i.i ], [ @cmd_next_param.all_delimiters, %if.end16.i ]
-  %call15.i.i = call i64 @strcspn(ptr noundef %10, ptr noundef nonnull %delimiters.0.i.i) #18
+  %call15.i.i = call i64 @strcspn(ptr noundef readonly %10, ptr noundef nonnull %delimiters.0.i.i) #18
   %add.ptr16.i.i = getelementptr i8, ptr %10, i64 %call15.i.i
   %13 = load i8, ptr %add.ptr16.i.i, align 1
   %tobool17.not.i.i = icmp ne i8 %13, 0
@@ -3742,7 +3742,7 @@ if.end24.i:                                       ; preds = %sw.bb20.i
   ]
 
 if.then5.i30.i:                                   ; preds = %if.end24.i
-  %strlen.i31.i = call i64 @strlen(ptr nonnull dereferenceable(1) %14)
+  %strlen.i31.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %14)
   %strchr.i32.i = getelementptr inbounds i8, ptr %14, i64 %strlen.i31.i
   br label %cmd_next_param.exit33.i
 
@@ -3761,7 +3761,7 @@ if.else12.i22.i:                                  ; preds = %land.lhs.true.i17.i
 
 if.end14.i23.i:                                   ; preds = %if.else12.i22.i, %if.end24.i
   %delimiters.0.i24.i = phi ptr [ %curr_delimiters.i16.i, %if.else12.i22.i ], [ @cmd_next_param.all_delimiters, %if.end24.i ]
-  %call15.i25.i = call i64 @strcspn(ptr noundef %14, ptr noundef nonnull %delimiters.0.i24.i) #18
+  %call15.i25.i = call i64 @strcspn(ptr noundef readonly %14, ptr noundef nonnull %delimiters.0.i24.i) #18
   %add.ptr16.i26.i = getelementptr i8, ptr %14, i64 %call15.i25.i
   %17 = load i8, ptr %add.ptr16.i26.i, align 1
   %tobool17.not.i27.i = icmp ne i8 %17, 0
@@ -3787,7 +3787,7 @@ sw.bb28.i:                                        ; preds = %while.body.i
   ]
 
 if.then5.i48.i:                                   ; preds = %sw.bb28.i
-  %strlen.i49.i = call i64 @strlen(ptr nonnull dereferenceable(1) %8)
+  %strlen.i49.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %8)
   %strchr.i50.i = getelementptr inbounds i8, ptr %8, i64 %strlen.i49.i
   br label %cmd_next_param.exit51.i
 
@@ -3806,7 +3806,7 @@ if.else12.i40.i:                                  ; preds = %land.lhs.true.i35.i
 
 if.end14.i41.i:                                   ; preds = %if.else12.i40.i, %sw.bb28.i
   %delimiters.0.i42.i = phi ptr [ %curr_delimiters.i34.i, %if.else12.i40.i ], [ @cmd_next_param.all_delimiters, %sw.bb28.i ]
-  %call15.i43.i = call i64 @strcspn(ptr noundef nonnull %8, ptr noundef nonnull %delimiters.0.i42.i) #18
+  %call15.i43.i = call i64 @strcspn(ptr noundef nonnull readonly %8, ptr noundef nonnull %delimiters.0.i42.i) #18
   %add.ptr16.i44.i = getelementptr i8, ptr %8, i64 %call15.i43.i
   %19 = load i8, ptr %add.ptr16.i44.i, align 1
   %tobool17.not.i45.i = icmp ne i8 %19, 0
@@ -3832,7 +3832,7 @@ sw.bb32.i:                                        ; preds = %while.body.i
   ]
 
 if.then5.i66.i:                                   ; preds = %sw.bb32.i
-  %strlen.i67.i = call i64 @strlen(ptr nonnull dereferenceable(1) %8)
+  %strlen.i67.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %8)
   %strchr.i68.i = getelementptr inbounds i8, ptr %8, i64 %strlen.i67.i
   br label %cmd_next_param.exit69.i
 
@@ -3851,7 +3851,7 @@ if.else12.i58.i:                                  ; preds = %land.lhs.true.i53.i
 
 if.end14.i59.i:                                   ; preds = %if.else12.i58.i, %sw.bb32.i
   %delimiters.0.i60.i = phi ptr [ %curr_delimiters.i52.i, %if.else12.i58.i ], [ @cmd_next_param.all_delimiters, %sw.bb32.i ]
-  %call15.i61.i = call i64 @strcspn(ptr noundef nonnull %8, ptr noundef nonnull %delimiters.0.i60.i) #18
+  %call15.i61.i = call i64 @strcspn(ptr noundef nonnull readonly %8, ptr noundef nonnull %delimiters.0.i60.i) #18
   %add.ptr16.i62.i = getelementptr i8, ptr %8, i64 %call15.i61.i
   %21 = load i8, ptr %add.ptr16.i62.i, align 1
   %tobool17.not.i63.i = icmp ne i8 %21, 0
@@ -3934,7 +3934,7 @@ read_thread_id.exit.i:                            ; preds = %if.end20.i.i, %if.e
   ]
 
 if.then5.i86.i:                                   ; preds = %read_thread_id.exit.i
-  %strlen.i87.i = call i64 @strlen(ptr nonnull dereferenceable(1) %28)
+  %strlen.i87.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %28)
   %strchr.i88.i = getelementptr inbounds i8, ptr %28, i64 %strlen.i87.i
   br label %cmd_next_param.exit89.i
 
@@ -3953,7 +3953,7 @@ if.else12.i78.i:                                  ; preds = %land.lhs.true.i73.i
 
 if.end14.i79.i:                                   ; preds = %if.else12.i78.i, %read_thread_id.exit.i
   %delimiters.0.i80.i = phi ptr [ %curr_delimiters.i72.i, %if.else12.i78.i ], [ @cmd_next_param.all_delimiters, %read_thread_id.exit.i ]
-  %call15.i81.i = call i64 @strcspn(ptr noundef %28, ptr noundef nonnull %delimiters.0.i80.i) #18
+  %call15.i81.i = call i64 @strcspn(ptr noundef readonly %28, ptr noundef nonnull %delimiters.0.i80.i) #18
   %add.ptr16.i82.i = getelementptr i8, ptr %28, i64 %call15.i81.i
   %31 = load i8, ptr %add.ptr16.i82.i, align 1
   %tobool17.not.i83.i = icmp ne i8 %31, 0
@@ -3978,7 +3978,7 @@ sw.bb41.i:                                        ; preds = %while.body.i
   ]
 
 if.then5.i104.i:                                  ; preds = %sw.bb41.i
-  %strlen.i105.i = call i64 @strlen(ptr nonnull dereferenceable(1) %8)
+  %strlen.i105.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %8)
   %strchr.i106.i = getelementptr inbounds i8, ptr %8, i64 %strlen.i105.i
   br label %cmd_next_param.exit107.i
 
@@ -3992,7 +3992,7 @@ if.else12.i96.i:                                  ; preds = %sw.bb41.i
 
 if.end14.i97.i:                                   ; preds = %if.else12.i96.i, %sw.bb41.i
   %delimiters.0.i98.i = phi ptr [ %curr_delimiters.i90.i, %if.else12.i96.i ], [ @cmd_next_param.all_delimiters, %sw.bb41.i ]
-  %call15.i99.i = call i64 @strcspn(ptr noundef nonnull %8, ptr noundef nonnull %delimiters.0.i98.i) #18
+  %call15.i99.i = call i64 @strcspn(ptr noundef nonnull readonly %8, ptr noundef nonnull %delimiters.0.i98.i) #18
   %add.ptr16.i100.i = getelementptr i8, ptr %8, i64 %call15.i99.i
   %32 = load i8, ptr %add.ptr16.i100.i, align 1
   %tobool17.not.i101.i = icmp ne i8 %32, 0

@@ -121,7 +121,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %r.06.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.04.i, %entry ]
   %name1.i = getelementptr inbounds i8, ptr %r.06.i, i64 3152
   %0 = load ptr, ptr %name1.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #12
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
@@ -174,7 +174,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %r.06.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.04.i, %entry ]
   %name1.i = getelementptr inbounds i8, ptr %r.06.i, i64 3152
   %0 = load ptr, ptr %name1.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #12
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
@@ -1015,7 +1015,7 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %.pre, %if.then ], [ %call1, %entry ]
   %2 = phi ptr [ %call5, %if.then ], [ %0, %entry ]
   %call.i81 = tail call ptr @world_name(ptr noundef %1) #13
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %call.i81) #12
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %call.i81) #12
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %rocker_world_type_by_name.exit, label %rocker_world_type_by_name.exit.thread
 
@@ -1089,7 +1089,7 @@ for.body.i:                                       ; preds = %if.end24, %for.inc.
   %r.06.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.04.i, %if.end24 ]
   %name1.i = getelementptr inbounds i8, ptr %r.06.i, i64 3152
   %10 = load ptr, ptr %name1.i, align 16
-  %call.i83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %9) #12
+  %call.i83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %9) #12
   %cmp.i = icmp eq i32 %call.i83, 0
   br i1 %cmp.i, label %if.then28, label %for.inc.i
 

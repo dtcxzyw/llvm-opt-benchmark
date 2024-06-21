@@ -1182,7 +1182,7 @@ define range(i32 -1, 2) i32 @cl_validate_certificate_chain(ptr nocapture noundef
   br i1 %.not82, label %29, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
+  %12 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.4)
   %.not16.i = icmp eq ptr %12, null
   br i1 %.not16.i, label %22, label %13
 

@@ -197,10 +197,10 @@ define noundef ptr @Extra_UtilTildeExpand(ptr noundef readonly %0) local_unnamed
   br i1 %2, label %Extra_UtilStrsav.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #17
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #16
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %Extra_UtilStrsav.exit
 
 Extra_UtilStrsav.exit:                            ; preds = %1, %3
@@ -258,10 +258,10 @@ define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1
 
 8:                                                ; preds = %7, %5
   %.029 = phi ptr [ @.str.6, %7 ], [ %1, %5 ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #14
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.029) #14
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #17
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %.029) #16
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %.029) #16
   %13 = icmp eq ptr %0, null
   %14 = getelementptr inbounds i8, ptr %2, i64 1
   br label %15
@@ -298,10 +298,10 @@ sub_1:                                            ; preds = %sub_0
   br i1 %13, label %Extra_UtilTildeExpand.exit.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
   %29 = add i64 %28, 1
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #17
-  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %0) #16
+  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %Extra_UtilStrsav.exit
 
 32:                                               ; preds = %.tail
@@ -319,10 +319,10 @@ Extra_UtilStrsav.exit:                            ; preds = %27, %32
   br i1 %39, label %Extra_UtilTildeExpand.exit.thread, label %40
 
 40:                                               ; preds = %Extra_UtilStrsav.exit
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #14
+  %41 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #14
   %42 = add i64 %41, 1
   %43 = tail call noalias ptr @malloc(i64 noundef %42) #17
-  %44 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %.0) #16
+  %44 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull readonly dereferenceable(1) %.0) #16
   tail call void @free(ptr noundef nonnull %.0) #16
   br label %Extra_UtilTildeExpand.exit.thread
 
@@ -340,7 +340,7 @@ sub_1.i:                                          ; preds = %Extra_UtilTildeExpa
 
 .tail.i:                                          ; preds = %sub_1.i, %Extra_UtilTildeExpand.exit.thread
   %spec.store.select.i = phi ptr [ %2, %Extra_UtilTildeExpand.exit.thread ], [ %48, %sub_1.i ]
-  %49 = tail call noalias ptr @fopen(ptr noundef %.0.i.i45, ptr noundef %spec.store.select.i)
+  %49 = tail call noalias ptr @fopen(ptr noundef readonly %.0.i.i45, ptr noundef %spec.store.select.i)
   %.not47 = icmp eq ptr %49, null
   br i1 %.not47, label %52, label %50
 

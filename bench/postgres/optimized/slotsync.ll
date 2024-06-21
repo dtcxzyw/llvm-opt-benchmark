@@ -1487,7 +1487,7 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.thread80.i
-  %296 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull %240, i32 noundef %243)
+  %296 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull readonly %240, i32 noundef %243)
   br label %382
 
 297:                                              ; preds = %.thread80.i
@@ -1517,7 +1517,7 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   unreachable
 
 317:                                              ; preds = %297
-  %318 = call fastcc zeroext i1 @update_local_synced_slot(ptr noundef nonnull %240, i32 noundef %243)
+  %318 = call fastcc zeroext i1 @update_local_synced_slot(ptr noundef nonnull readonly %240, i32 noundef %243)
   br i1 %318, label %319, label %382
 
 319:                                              ; preds = %317
@@ -1641,7 +1641,7 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %364
   %379 = load ptr, ptr @MainLWLockArray, align 8
   %380 = getelementptr i8, ptr %379, i64 512
   call void @LWLockRelease(ptr noundef %380) #15
-  %381 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull %240, i32 noundef %243)
+  %381 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull readonly %240, i32 noundef %243)
   br label %382
 
 382:                                              ; preds = %376, %319, %317, %295

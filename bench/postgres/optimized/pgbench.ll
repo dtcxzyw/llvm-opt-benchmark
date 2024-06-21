@@ -1665,7 +1665,7 @@ parseVariable.exit.i.i:                           ; preds = %349, %parseVariable
   %364 = call ptr @pg_malloc(i64 noundef %354) #25
   %365 = add i32 %.019.i.i.i, -1
   %366 = sext i32 %365 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %364, ptr nonnull align 1 %352, i64 %366, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %364, ptr nonnull readonly align 1 %352, i64 %366, i1 false)
   %367 = getelementptr i8, ptr %364, i64 %366
   store i8 0, ptr %367, align 1
   %368 = load i32, ptr %338, align 8
@@ -1674,7 +1674,7 @@ parseVariable.exit.i.i:                           ; preds = %349, %parseVariable
 
 370:                                              ; preds = %363
   %371 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.201, i32 noundef %368) #25
-  %372 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #27
+  %372 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #27
   %373 = trunc i64 %372 to i32
   %374 = icmp slt i32 %.019.i.i.i, %373
   br i1 %374, label %375, label %._crit_edge.i.i
@@ -1714,7 +1714,7 @@ parseVariable.exit.i.i:                           ; preds = %349, %parseVariable
   br label %replaceVariable.exit.i.i
 
 replaceVariable.exit.i.i:                         ; preds = %386, %385
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i22.i.i, ptr nonnull align 1 %12, i64 %.pre29.i.pre-phi.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i22.i.i, ptr nonnull readonly align 1 %12, i64 %.pre29.i.pre-phi.i.i, i1 false)
   %391 = getelementptr i8, ptr %.0.i22.i.i, i64 %.pre29.i.pre-phi.i.i
   %392 = load i32, ptr %338, align 8
   %393 = sext i32 %392 to i64
@@ -2164,7 +2164,7 @@ putVariableValue.exit.thread:                     ; preds = %577
   call void @free(ptr noundef %580) #25
   store ptr null, ptr %579, align 8
   %581 = getelementptr inbounds i8, ptr %578, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %581, ptr noundef nonnull align 8 dereferenceable(16) %574, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %581, ptr noundef nonnull readonly align 8 dereferenceable(16) %574, i64 16, i1 false)
   br label %590
 
 putVariableValue.exit:                            ; preds = %577
@@ -5174,7 +5174,7 @@ parseVariable.exit.i.i.i:                         ; preds = %407, %parseVariable
   %420 = call ptr @pg_malloc(i64 noundef %410) #25
   %421 = add i32 %.019.i.i.i.i, -1
   %422 = sext i32 %421 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %420, ptr nonnull align 1 %405, i64 %422, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %420, ptr nonnull readonly align 1 %405, i64 %422, i1 false)
   %423 = getelementptr i8, ptr %420, i64 %422
   store i8 0, ptr %423, align 1
   %424 = call fastcc ptr @getVariable(ptr noundef nonnull %222, ptr noundef nonnull %420)
@@ -5189,7 +5189,7 @@ parseVariable.exit.i.i.i:                         ; preds = %407, %parseVariable
   br i1 %.not.i.i.i, label %assignVariables.exit.i.i, label %403, !llvm.loop !46
 
 427:                                              ; preds = %419
-  %428 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %424) #27
+  %428 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %424) #27
   %429 = trunc i64 %428 to i32
   %430 = icmp slt i32 %.019.i.i.i.i, %429
   br i1 %430, label %431, label %._crit_edge.i.i.i
@@ -5229,7 +5229,7 @@ parseVariable.exit.i.i.i:                         ; preds = %407, %parseVariable
   br label %replaceVariable.exit.i.i.i
 
 replaceVariable.exit.i.i.i:                       ; preds = %442, %441
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i15.i.i.i, ptr nonnull align 1 %424, i64 %.pre29.i.pre-phi.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i15.i.i.i, ptr nonnull readonly align 1 %424, i64 %.pre29.i.pre-phi.i.i.i, i1 false)
   %447 = getelementptr i8, ptr %.0.i15.i.i.i, i64 %.pre29.i.pre-phi.i.i.i
   %448 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %447, i32 noundef 58) #27
   %.not29.i.i.i = icmp eq ptr %448, null
@@ -5594,7 +5594,7 @@ putVariableValue.exit.thread.i.i:                 ; preds = %627
   call void @free(ptr noundef %632) #25
   store ptr null, ptr %631, align 8
   %633 = getelementptr inbounds i8, ptr %630, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %633, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %633, ptr noundef nonnull readonly align 8 dereferenceable(16) %12, i64 16, i1 false)
   br label %835
 
 putVariableValue.exit.i.i:                        ; preds = %627
@@ -6317,12 +6317,12 @@ putVariable.exit.i.i:                             ; preds = %946
   br i1 %.not.i94.i.i, label %getSQLErrorStatus.exit.i.i, label %982
 
 982:                                              ; preds = %980
-  %983 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %981, ptr noundef nonnull dereferenceable(6) @.str.435) #27
+  %983 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %981, ptr noundef nonnull dereferenceable(6) @.str.435) #27
   %984 = icmp eq i32 %983, 0
   br i1 %984, label %988, label %985
 
 985:                                              ; preds = %982
-  %986 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %981, ptr noundef nonnull dereferenceable(6) @.str.436) #27
+  %986 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %981, ptr noundef nonnull dereferenceable(6) @.str.436) #27
   %987 = icmp eq i32 %986, 0
   br i1 %987, label %988, label %getSQLErrorStatus.exit.i.i
 

@@ -804,7 +804,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 _ZN23grpc_server_credentials27set_auth_metadata_processorERK28grpc_auth_metadata_processor.exit: ; preds = %if.end.i, %land.lhs.true.i.i, %if.then.i.i
   %processor_.i = getelementptr inbounds i8, ptr %creds, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i, ptr noundef nonnull align 8 dereferenceable(24) %processor, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %processor, i64 24, i1 false)
   ret void
 }
 

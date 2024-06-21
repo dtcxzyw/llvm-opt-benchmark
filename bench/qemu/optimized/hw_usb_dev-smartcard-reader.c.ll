@@ -1352,7 +1352,7 @@ if.end.i.i:                                       ; preds = %sw.bb96.i
   store i8 %20, ptr %bProtocolNum5.i.i, align 2
   %abProtocolDataStructure.i.i = getelementptr inbounds i8, ptr %call.i, i64 74991
   %abProtocolDataStructure6.i.i = getelementptr inbounds i8, ptr %call.i, i64 9178
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i.i, ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure6.i.i, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %abProtocolDataStructure6.i.i, i64 7, i1 false)
   br label %ccid_set_parameters.exit.i
 
 ccid_set_parameters.exit.i:                       ; preds = %if.end.i.i, %if.then.i.i

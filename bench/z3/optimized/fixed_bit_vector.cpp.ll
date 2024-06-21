@@ -278,7 +278,7 @@ if.end.i:                                         ; preds = %entry
 _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %if.then.i, %if.end.i
   %conv.i2 = phi i64 [ 0, %if.then.i ], [ %1, %if.end.i ]
   %retval.0.i = phi ptr [ %m_0.i, %if.then.i ], [ %call.i, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.0.i, ptr nonnull align 4 %bv, i64 %conv.i2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.0.i, ptr nonnull readonly align 4 %bv, i64 %conv.i2, i1 false)
   ret ptr %retval.0.i
 }
 

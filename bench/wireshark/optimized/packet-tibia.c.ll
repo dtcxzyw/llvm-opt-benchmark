@@ -2197,7 +2197,7 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   %362 = load i32, ptr @hf_tibia_worldlist_entry_preview, align 4
   %363 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %362, i32 noundef 1, i32 noundef 0) #13
   call void @ptvcursor_pop_subtree(ptr noundef %287) #13
-  call fastcc void @register_gameserv_addr(ptr noundef %.0.i, i32 noundef %353, i16 noundef zeroext %359)
+  call fastcc void @register_gameserv_addr(ptr noundef readonly %.0.i, i32 noundef %353, i16 noundef zeroext %359)
   %.not117.i.i = icmp eq i8 %352, 0
   br i1 %.not117.i.i, label %364, label %328, !llvm.loop !12
 
@@ -2271,7 +2271,7 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   %410 = load i32, ptr @hf_tibia_charlist_entry_port, align 4
   %411 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %410, i32 noundef 2, i32 noundef 0) #13
   call void @ptvcursor_pop_subtree(ptr noundef %287) #13
-  call fastcc void @register_gameserv_addr(ptr noundef nonnull %.0.i, i32 noundef %405, i16 noundef zeroext %409)
+  call fastcc void @register_gameserv_addr(ptr noundef nonnull readonly %.0.i, i32 noundef %405, i16 noundef zeroext %409)
   %.not115.i.i = icmp eq i8 %393, 0
   br i1 %.not115.i.i, label %412, label %392, !llvm.loop !14
 

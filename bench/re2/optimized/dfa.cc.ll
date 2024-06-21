@@ -2608,7 +2608,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 if.else8.i:                                       ; preds = %for.body.i
   %23 = load i32, ptr %flag_.i, align 4
   %and.i = and i32 %23, 255
-  tail call void @_ZN3re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %10, i32 noundef %14, i32 noundef %and.i)
+  tail call void @_ZN3re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef nonnull readonly align 8 dereferenceable(184) %this, ptr noundef nonnull %10, i32 noundef %14, i32 noundef %and.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else8.i, %if.end.i.i.i.i, %if.end.i.i, %if.then.i59
@@ -2681,7 +2681,7 @@ for.body.i64:                                     ; preds = %for.body.i64, %for.
   %38 = load i32, ptr %n_.i10.i, align 8
   %cmp.i.not.i = icmp sgt i32 %38, %37
   %..i = select i1 %cmp.i.not.i, i32 %37, i32 -1
-  tail call void @_ZN3re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %.pre75, i32 noundef %..i, i32 noundef %beforeflag.2)
+  tail call void @_ZN3re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef nonnull readonly align 8 dereferenceable(184) %this, ptr noundef nonnull %.pre75, i32 noundef %..i, i32 noundef %beforeflag.2)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.014.i, i64 4
   %39 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %40 = load i32, ptr %.pre, align 8

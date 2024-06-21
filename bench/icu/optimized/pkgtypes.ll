@@ -750,7 +750,7 @@ convertToNativePathSeparators.exit:               ; preds = %while.body.i, %if.e
 for.body.i:                                       ; preds = %convertToNativePathSeparators.exit, %for.inc.i
   %l.addr.04.i = phi ptr [ %2, %for.inc.i ], [ %l, %convertToNativePathSeparators.exit ]
   %1 = load ptr, ptr %l.addr.04.i, align 8
-  %call.i14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %aBuf) #11
+  %call.i14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %aBuf) #11
   %tobool2.not.i = icmp eq i32 %call.i14, 0
   br i1 %tobool2.not.i, label %return, label %for.inc.i
 

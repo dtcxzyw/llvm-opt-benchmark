@@ -517,7 +517,7 @@ if.end.i:                                         ; preds = %entry
 if.then14.i:                                      ; preds = %if.end.i
   %arrayidx16.i = getelementptr inbounds i8, ptr %data.i, i64 3
   %conv17.i = zext i32 %protocolLen to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx16.i, ptr align 1 %protocol, i64 %conv17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx16.i, ptr readonly align 1 %protocol, i64 %conv17.i, i1 false)
   %add18.i = add i32 %protocolLen, 3
   br label %if.end19.i
 
@@ -530,7 +530,7 @@ if.then22.i:                                      ; preds = %if.end19.i
   %idxprom23.i = zext i32 %idx.0.i to i64
   %arrayidx24.i = getelementptr inbounds [111 x i8], ptr %data.i, i64 0, i64 %idxprom23.i
   %conv25.i = zext i32 %labelLen to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx24.i, ptr align 1 %label, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx24.i, ptr readonly align 1 %label, i64 %conv25.i, i1 false)
   %add26.i = add i32 %idx.0.i, %labelLen
   br label %if.end27.i
 
@@ -548,7 +548,7 @@ if.then34.i:                                      ; preds = %if.end27.i
   %idxprom35.i = zext i32 %inc29.i to i64
   %arrayidx36.i = getelementptr inbounds [111 x i8], ptr %data.i, i64 0, i64 %idxprom35.i
   %conv37.i = zext i32 %infoLen to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx36.i, ptr align 1 %info, i64 %conv37.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx36.i, ptr readonly align 1 %info, i64 %conv37.i, i1 false)
   %add38.i = add i32 %inc29.i, %infoLen
   br label %if.end39.i
 

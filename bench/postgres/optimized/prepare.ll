@@ -30,13 +30,13 @@ define noundef zeroext i1 @ecpg_register_prepared_stmt(ptr nocapture noundef rea
 
 .lr.ph.i.preheader:                               ; preds = %1
   %8 = load ptr, ptr %.01118.i, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %6) #10
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %6) #10
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %ecpg_find_prepared_statement.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %11 = load ptr, ptr %.011.i, align 8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %6) #10
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %6) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %ecpg_find_prepared_statement.exit, label %.lr.ph, !llvm.loop !4
 
@@ -240,13 +240,13 @@ define noundef zeroext i1 @ECPGprepare(i32 noundef %0, ptr noundef %1, i1 zeroex
 
 .lr.ph.i.preheader:                               ; preds = %8
   %10 = load ptr, ptr %.01118.i, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %3) #10
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %3) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %ecpg_find_prepared_statement.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %13 = load ptr, ptr %.011.i, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %3) #10
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %3) #10
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %ecpg_find_prepared_statement.exit, label %.lr.ph, !llvm.loop !4
 
@@ -495,13 +495,13 @@ define noundef zeroext i1 @ECPGdeallocate(i32 noundef %0, i32 noundef %1, ptr no
 
 .lr.ph.i.preheader:                               ; preds = %7
   %9 = load ptr, ptr %.01118.i, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %3) #10
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %3) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %ecpg_find_prepared_statement.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %12 = load ptr, ptr %.011.i, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %3) #10
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %3) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %ecpg_find_prepared_statement.exit, label %.lr.ph, !llvm.loop !4
 
@@ -581,7 +581,7 @@ define ptr @ecpg_prepared(ptr nocapture noundef readonly %0, ptr nocapture nound
 .lr.ph.i:                                         ; preds = %2, %7
   %.01121.i = phi ptr [ %.011.i, %7 ], [ %.01118.i, %2 ]
   %4 = load ptr, ptr %.01121.i, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #10
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %ecpg_find_prepared_statement.exit, label %7
 
@@ -614,7 +614,7 @@ define ptr @ECPGprepared_statement(ptr noundef %0, ptr nocapture noundef readonl
 .lr.ph.i.i:                                       ; preds = %3, %9
   %.01121.i.i = phi ptr [ %.011.i.i, %9 ], [ %.01118.i.i, %3 ]
   %6 = load ptr, ptr %.01121.i.i, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #10
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %ecpg_find_prepared_statement.exit.i, label %9
 
@@ -644,7 +644,7 @@ define noundef zeroext i1 @ecpg_auto_prepare(i32 noundef %0, ptr noundef %1, i32
   br i1 %8, label %SearchStmtCache.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #10
   %11 = trunc i64 %10 to i32
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph.preheader.i.i, label %HashStmt.exit.i.preheader
@@ -694,7 +694,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
 30:                                               ; preds = %HashStmt.exit.i
   %31 = getelementptr inbounds i8, ptr %27, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %32) #10
+  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %32) #10
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35
 
@@ -724,7 +724,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
 .lr.ph.i:                                         ; preds = %39, %49
   %.01121.i = phi ptr [ %.011.i, %49 ], [ %.01118.i, %39 ]
   %46 = load ptr, ptr %.01121.i, align 8
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %43) #10
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %43) #10
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %ecpg_find_prepared_statement.exit, label %49
 
@@ -766,7 +766,7 @@ SearchStmtCache.exit.thread:                      ; preds = %35, %37, %5
 
 63:                                               ; preds = %60, %57
   %64 = phi ptr [ %61, %60 ], [ %58, %57 ]
-  %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
+  %65 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #10
   %66 = trunc i64 %65 to i32
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph.preheader.i.i38, label %HashStmt.exit.i33
@@ -854,13 +854,13 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
 
 .lr.ph.i.preheader.i.i:                           ; preds = %103
   %108 = load ptr, ptr %.01118.i.i.i, align 8
-  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %101) #10
+  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull readonly dereferenceable(1) %101) #10
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %ecpg_find_prepared_statement.exit.i.i, label %.lr.ph.i34.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i34.i
   %111 = load ptr, ptr %.011.i.i.i, align 8
-  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %101) #10
+  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(1) %101) #10
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %ecpg_find_prepared_statement.exit.i.i, label %.lr.ph.i34.i, !llvm.loop !4
 
@@ -909,7 +909,7 @@ AddStmtToCache.exit:                              ; preds = %.thread.i37, %ecpg_
   %125 = getelementptr inbounds i8, ptr %121, i64 48
   store i64 0, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %121, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %126, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %126, ptr noundef nonnull readonly align 16 dereferenceable(32) %6, i64 32, i1 false)
   %127 = icmp slt i32 %98, 0
   br i1 %127, label %AddStmtToCache.exit.thread, label %128
 

@@ -22249,7 +22249,7 @@ _ZN8facebook5velox4exec16exprSetListenersEv.exit: ; preds = %entry, %init.check.
   br i1 %cmp.i.i.i.i, label %invoke.cont2.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc
-  invoke void @_ZNK8facebook5velox4exec7ExprSet5statsB5cxx11Ev(ptr nonnull sret(%"class.std::unordered_map") align 8 %exprStats.i.i, ptr noundef nonnull align 8 dereferenceable(200) %this)
+  invoke void @_ZNK8facebook5velox4exec7ExprSet5statsB5cxx11Ev(ptr nonnull sret(%"class.std::unordered_map") align 8 %exprStats.i.i, ptr noundef nonnull readonly align 8 dereferenceable(200) %this)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
@@ -37207,7 +37207,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.cond.i.i
   %row.020.i.i = phi i32 [ %inc.i.i, %for.cond.i.i ], [ %16, %if.then.i.i ]
-  %call2.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull %argumentErrors, i32 noundef %row.020.i.i)
+  %call2.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %row.020.i.i)
   br i1 %call2.i.i, label %for.cond.i.i, label %if.end
 
 if.end4.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -37253,7 +37253,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %25 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %23, %cast.i.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull %argumentErrors, i32 noundef %add.i26.i.i.i.i.i)
+  %call.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i26.i.i.i.i.i)
   br i1 %call.i.i.i.i.i.i, label %if.end7.i.i.i.i.i.i, label %if.end
 
 if.end7.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
@@ -37291,7 +37291,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %if.end7.i51.i.i.i.i
   %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %27 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  %call.i49.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull %argumentErrors, i32 noundef %add.i45.i.i.i.i.i)
+  %call.i49.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i45.i.i.i.i.i)
   br i1 %call.i49.i.i.i.i.i, label %if.end7.i51.i.i.i.i.i, label %if.end
 
 if.end7.i51.i.i.i.i.i:                            ; preds = %while.body.i42.i.i.i.i.i
@@ -37324,7 +37324,7 @@ while.body.i63.i.i.i.i.i:                         ; preds = %if.end7.i72.i.i.i.i
   %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i64.i.i.i.i.i, i1 true)
   %cast.i65.i.i.i.i.i = trunc nuw nsw i64 %29 to i32
   %add.i66.i.i.i.i.i = or disjoint i32 %mul.i62.i.i.i.i.i, %cast.i65.i.i.i.i.i
-  %call.i70.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull %argumentErrors, i32 noundef %add.i66.i.i.i.i.i)
+  %call.i70.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i66.i.i.i.i.i)
   br i1 %call.i70.i.i.i.i.i, label %if.end7.i72.i.i.i.i.i, label %if.end
 
 if.end7.i72.i.i.i.i.i:                            ; preds = %while.body.i63.i.i.i.i.i
@@ -37360,7 +37360,7 @@ while.body.i87.i.i.i.i.i:                         ; preds = %if.then26.i.i.i10.i
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i88.i.i.i.i.i, i1 true)
   %cast.i89.i.i.i.i.i = trunc nuw nsw i64 %31 to i32
   %add.i90.i.i.i.i.i = or disjoint i32 %23, %cast.i89.i.i.i.i.i
-  %call.i94.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull %argumentErrors, i32 noundef %add.i90.i.i.i.i.i)
+  %call.i94.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i90.i.i.i.i.i)
   br i1 %call.i94.i.i.i.i.i, label %if.end7.i96.i.i.i.i.i, label %if.end
 
 if.end7.i96.i.i.i.i.i:                            ; preds = %while.body.i87.i.i.i.i.i
@@ -41257,7 +41257,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

@@ -413,7 +413,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -432,7 +432,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !10
 
@@ -582,7 +582,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -602,7 +602,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !10
 
@@ -785,7 +785,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
   %273 = load ptr, ptr %186, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val15 = load i32, ptr %274, align 4
@@ -1303,7 +1303,7 @@ Vec_IntUniqueHashKey.exit.i.i:                    ; preds = %23
   %49 = shl nsw i32 %48, 1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %50
-  %bcmp.i59.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %22, ptr noundef nonnull dereferenceable(8) %51, i64 8)
+  %bcmp.i59.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %22, ptr noundef nonnull readonly dereferenceable(8) %51, i64 8)
   %.not14.i60.i.i = icmp eq i32 %bcmp.i59.i.i, 0
   br i1 %.not14.i60.i.i, label %Vec_IntUniqueLookup.exit.i.i, label %.lr.ph.i.i
 
@@ -1311,7 +1311,7 @@ Vec_IntUniqueHashKey.exit.i.i:                    ; preds = %23
   %52 = shl nsw i32 %58, 1
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %53
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %22, ptr noundef nonnull dereferenceable(8) %54, i64 8)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %22, ptr noundef nonnull readonly dereferenceable(8) %54, i64 8)
   %.not14.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not14.i.i.i, label %Vec_IntUniqueLookup.exit.i.i, label %.lr.ph.i.i, !llvm.loop !21
 
@@ -6161,7 +6161,7 @@ Abc_TtMinBase.exit.i.us.us.us:                    ; preds = %Abc_TtMinBase.exit.
   %893 = load <2 x i64>, ptr %225, align 16
   %894 = xor <2 x i64> %893, <i64 -1, i64 -1>
   store <2 x i64> %894, ptr %224, align 16
-  %895 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull %14, ptr noundef nonnull %14, i32 noundef %890, ptr noundef nonnull %10)
+  %895 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %14, i32 noundef %890, ptr noundef nonnull %10)
   %896 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull %11, ptr noundef nonnull %11, i32 noundef %890, ptr noundef nonnull %10)
   %897 = add nsw i32 %896, %895
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -8396,7 +8396,7 @@ Abc_TtMinBase.exit.i298.us:                       ; preds = %Abc_TtMinBase.exit.
   %1978 = load <2 x i64>, ptr %1403, align 16
   %1979 = xor <2 x i64> %1978, <i64 -1, i64 -1>
   store <2 x i64> %1979, ptr %1402, align 16
-  %1980 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull %7, ptr noundef nonnull %7, i32 noundef %1975, ptr noundef nonnull %3)
+  %1980 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %7, i32 noundef %1975, ptr noundef nonnull %3)
   %1981 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull %4, ptr noundef nonnull %4, i32 noundef %1975, ptr noundef nonnull %3)
   %1982 = add nsw i32 %1981, %1980
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -10950,10 +10950,10 @@ define ptr @Mf_ManDeriveMappingCoarse(ptr nocapture noundef readonly %0) local_u
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #29
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #29
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #27
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #27
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %7
@@ -10965,10 +10965,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %7
   br i1 %.not.i116, label %Abc_UtilStrsav.exit117, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #29
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #29
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #27
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #27
   br label %Abc_UtilStrsav.exit117
 
 Abc_UtilStrsav.exit117:                           ; preds = %Abc_UtilStrsav.exit, %15
@@ -12098,10 +12098,10 @@ Vec_IntStart.exit188:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not.i189, label %Abc_UtilStrsav.exit, label %63
 
 63:                                               ; preds = %Vec_IntStart.exit188
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #29
+  %64 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #29
   %65 = add i64 %64, 1
   %66 = tail call noalias ptr @malloc(i64 noundef %65) #25
-  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %62) #27
+  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %62) #27
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStart.exit188, %63
@@ -12114,10 +12114,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStart.exit18
   br i1 %.not.i190, label %Abc_UtilStrsav.exit191, label %72
 
 72:                                               ; preds = %Abc_UtilStrsav.exit
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #29
+  %73 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #29
   %74 = add i64 %73, 1
   %75 = tail call noalias ptr @malloc(i64 noundef %74) #25
-  %76 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(1) %71) #27
+  %76 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull readonly dereferenceable(1) %71) #27
   br label %Abc_UtilStrsav.exit191
 
 Abc_UtilStrsav.exit191:                           ; preds = %Abc_UtilStrsav.exit, %72
@@ -14900,13 +14900,13 @@ define noundef i32 @Mf_ManPrintMfccStats(ptr nocapture noundef readonly %0, i32 
   br i1 %.not.i, label %27, label %24
 
 24:                                               ; preds = %2
-  %25 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %23)
-  %26 = tail call i32 @Mf_CutRef_rec(ptr noundef nonnull %0, ptr noundef nonnull %23)
+  %25 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %23)
+  %26 = tail call i32 @Mf_CutRef_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %23)
   br label %Mf_CutAreaMffc.exit
 
 27:                                               ; preds = %2
-  %28 = tail call i32 @Mf_CutRef_rec(ptr noundef nonnull %0, ptr noundef nonnull %23)
-  %29 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %23)
+  %28 = tail call i32 @Mf_CutRef_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %23)
+  %29 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %23)
   br label %Mf_CutAreaMffc.exit
 
 Mf_CutAreaMffc.exit:                              ; preds = %24, %27
@@ -15367,7 +15367,7 @@ define void @Mf_ManComputeMapping(ptr nocapture noundef %0) local_unnamed_addr #
 
 45:                                               ; preds = %.lr.ph.i
   store i32 0, ptr %12, align 4
-  %46 = tail call i32 @Mf_CutRef2_rec(ptr noundef nonnull %0, ptr noundef nonnull %.041102.i, ptr noundef nonnull %11, i32 noundef 8)
+  %46 = tail call i32 @Mf_CutRef2_rec(ptr noundef nonnull %0, ptr noundef nonnull readonly %.041102.i, ptr noundef nonnull %11, i32 noundef 8)
   %.val13.i.i = load i32, ptr %12, align 4
   %47 = icmp sgt i32 %.val13.i.i, 0
   br i1 %47, label %.lr.ph.i.i, label %Mf_CutAreaDerefed2.exit.i

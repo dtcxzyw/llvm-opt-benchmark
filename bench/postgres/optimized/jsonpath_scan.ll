@@ -382,7 +382,7 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %101 = sext i32 %99 to i64
   %102 = getelementptr i8, ptr %100, i64 %101
   %103 = sext i32 %88 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr align 1 %87, i64 %103, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr readonly align 1 %87, i64 %103, i1 false)
   %104 = add i32 %99, %88
   store i32 %104, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
@@ -1032,7 +1032,7 @@ addstring.exit173:                                ; preds = %.resizeString.exit_
   %393 = sext i32 %391 to i64
   %394 = getelementptr i8, ptr %392, i64 %393
   %395 = sext i32 %380 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %394, ptr align 1 %379, i64 %395, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %394, ptr readonly align 1 %379, i64 %395, i1 false)
   %396 = add i32 %391, %380
   store i32 %396, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %addchar.exit165.backedge
@@ -1071,7 +1071,7 @@ addstring.exit173:                                ; preds = %.resizeString.exit_
   %411 = tail call ptr @palloc(i64 noundef %410) #15
   store ptr %411, ptr @scanstring, align 8
   %412 = sext i32 %408 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %411, ptr align 1 %406, i64 %412, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %411, ptr readonly align 1 %406, i64 %412, i1 false)
   store i32 %408, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %413 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i175 = icmp slt i32 %407, %413
@@ -1134,7 +1134,7 @@ addchar.exit182:                                  ; preds = %404, %416
   %435 = tail call ptr @palloc(i64 noundef %434) #15
   store ptr %435, ptr @scanstring, align 8
   %436 = sext i32 %431 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %435, ptr align 1 %430, i64 %436, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %435, ptr readonly align 1 %430, i64 %436, i1 false)
   store i32 %431, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %437 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i186 = icmp slt i32 %432, %437
@@ -1173,7 +1173,7 @@ addchar.exit193:                                  ; preds = %429, %440
   %451 = tail call ptr @palloc(i64 noundef %450) #15
   store ptr %451, ptr @scanstring, align 8
   %452 = sext i32 %447 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr align 1 %446, i64 %452, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr readonly align 1 %446, i64 %452, i1 false)
   store i32 %447, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %453 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i195 = icmp slt i32 %448, %453
@@ -1212,7 +1212,7 @@ addchar.exit202:                                  ; preds = %445, %456
   %467 = tail call ptr @palloc(i64 noundef %466) #15
   store ptr %467, ptr @scanstring, align 8
   %468 = sext i32 %463 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %467, ptr align 1 %462, i64 %468, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %467, ptr readonly align 1 %462, i64 %468, i1 false)
   store i32 %463, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %469 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i204 = icmp slt i32 %464, %469
@@ -1251,7 +1251,7 @@ addchar.exit211:                                  ; preds = %461, %472
   %483 = tail call ptr @palloc(i64 noundef %482) #15
   store ptr %483, ptr @scanstring, align 8
   %484 = sext i32 %479 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %483, ptr align 1 %478, i64 %484, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %483, ptr readonly align 1 %478, i64 %484, i1 false)
   store i32 %479, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %485 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i213 = icmp slt i32 %480, %485
@@ -1290,7 +1290,7 @@ addchar.exit220:                                  ; preds = %477, %488
   %499 = tail call ptr @palloc(i64 noundef %498) #15
   store ptr %499, ptr @scanstring, align 8
   %500 = sext i32 %495 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %499, ptr align 1 %494, i64 %500, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %499, ptr readonly align 1 %494, i64 %500, i1 false)
   store i32 %495, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %501 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i222 = icmp slt i32 %496, %501
@@ -1329,7 +1329,7 @@ addchar.exit229:                                  ; preds = %493, %504
   %515 = tail call ptr @palloc(i64 noundef %514) #15
   store ptr %515, ptr @scanstring, align 8
   %516 = sext i32 %511 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %515, ptr align 1 %510, i64 %516, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %515, ptr readonly align 1 %510, i64 %516, i1 false)
   store i32 %511, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   %517 = load i32, ptr getelementptr inbounds (i8, ptr @scanstring, i64 12), align 4
   %.not.i.i231 = icmp slt i32 %512, %517
@@ -1411,7 +1411,7 @@ addchar.exit238:                                  ; preds = %509, %520
   %541 = tail call ptr @palloc(i64 noundef %540) #15
   store ptr %541, ptr @scanstring, align 8
   %542 = sext i32 %537 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %541, ptr align 1 %536, i64 %542, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %541, ptr readonly align 1 %536, i64 %542, i1 false)
   store i32 %537, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   store i32 5, ptr @yy_start, align 4
   br label %addchar.exit165.backedge
@@ -3296,7 +3296,7 @@ define dso_local ptr @parsejsonpath(ptr nocapture noundef readonly %0, i32 nound
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #17
   %8 = trunc i64 %7 to i32
   br label %9
 
@@ -3315,7 +3315,7 @@ define dso_local ptr @parsejsonpath(ptr nocapture noundef readonly %0, i32 nound
   %12 = tail call ptr @palloc(i64 noundef %11) #15
   store ptr %12, ptr @scanbuf, align 8
   %13 = sext i32 %.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %0, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr readonly align 1 %0, i64 %13, i1 false)
   %14 = add i32 %.0.i, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -3585,7 +3585,7 @@ addstring.exit:                                   ; preds = %.resizeString.exit_
   %39 = getelementptr i8, ptr %37, i64 %38
   %sext = shl i64 %24, 32
   %40 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull align 16 %3, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull readonly align 16 %3, i64 %40, i1 false)
   %41 = add i32 %36, %25
   store i32 %41, ptr getelementptr inbounds (i8, ptr @scanstring, i64 8), align 8
   br label %42

@@ -242,7 +242,7 @@ if.then65:                                        ; preds = %if.end61
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end61, %if.then65
-  %bcmp.i = call i32 @bcmp(ptr nonnull %call1, ptr nonnull %md, i64 %.pre82)
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %call1, ptr nonnull readonly %md, i64 %.pre82)
   %cmp.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.not, label %prov_crngt_compare_previous.exit.thread, label %if.end78
 

@@ -314,7 +314,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr i8, ptr %.0.i.i, i64 %42
   %44 = getelementptr %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %44, ptr noundef nonnull align 2 dereferenceable(6) %43, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %44, ptr noundef nonnull readonly align 2 dereferenceable(6) %43, i64 6, i1 false)
   %45 = trunc i32 %35 to i16
   %46 = getelementptr %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv, i32 1
   store i16 %45, ptr %46, align 2

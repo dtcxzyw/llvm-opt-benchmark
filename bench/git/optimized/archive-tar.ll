@@ -145,7 +145,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = load ptr, ptr %4, align 8
-  %call.i = call i32 @strncmp(ptr noundef %5, ptr noundef nonnull %0, i64 noundef %1) #11
+  %call.i = call i32 @strncmp(ptr noundef %5, ptr noundef nonnull readonly %0, i64 noundef %1) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -705,7 +705,7 @@ if.then66:                                        ; preds = %if.end64
   store i8 120, ptr %typeflag.i, align 1
   %call.i44 = call ptr @oid_to_hex(ptr noundef %oid) #10
   %call2.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %header.i, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %call.i44) #10
-  call fastcc void @prepare_header(ptr noundef %args, ptr noundef nonnull %header.i, i32 noundef 33206, i64 noundef %8)
+  call fastcc void @prepare_header(ptr noundef readonly %args, ptr noundef nonnull %header.i, i32 noundef 33206, i64 noundef %8)
   %10 = load i64, ptr @offset, align 8
   %tobool.not.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i, label %if.then9.i.i.i, label %if.then.i.i.i

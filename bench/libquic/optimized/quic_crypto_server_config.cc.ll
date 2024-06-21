@@ -6883,7 +6883,7 @@ for.cond.i:                                       ; preds = %call9.i.noexc
 for.body.i:                                       ; preds = %if.then35, %for.cond.i
   %__begin1.sroa.0.014.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i ], [ %spec.select.i.i.i, %if.then35 ]
   %16 = load ptr, ptr %__begin1.sroa.0.014.i, align 8
-  %call9.i65 = invoke noundef i32 @_ZNK3net22QuicCryptoServerConfig32ValidateSingleSourceAddressTokenERKNS_18SourceAddressTokenERKNS_9IPAddressENS_12QuicWallTimeE(ptr noundef nonnull align 8 dereferenceable(405) %this, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(24) %info4, i64 %agg.tmp37.sroa.0.0.copyload)
+  %call9.i65 = invoke noundef i32 @_ZNK3net22QuicCryptoServerConfig32ValidateSingleSourceAddressTokenERKNS_18SourceAddressTokenERKNS_9IPAddressENS_12QuicWallTimeE(ptr noundef nonnull readonly align 8 dereferenceable(405) %this, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(24) %info4, i64 %agg.tmp37.sroa.0.0.copyload)
           to label %call9.i.noexc unwind label %lpad.loopexit
 
 call9.i.noexc:                                    ; preds = %for.body.i

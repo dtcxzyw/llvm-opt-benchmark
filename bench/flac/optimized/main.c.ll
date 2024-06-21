@@ -813,7 +813,7 @@ while.body20.i:                                   ; preds = %while.cond17.prehea
   %idxprom21.i = sext i32 %7 to i64
   %arrayidx22.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom21.i
   %8 = load ptr, ptr %arrayidx22.i, align 8
-  %call.i.i = call noalias ptr @strdup(ptr noundef %8) #21
+  %call.i.i = call noalias ptr @strdup(ptr noundef readonly %8) #21
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %local_strdup.exit.i
 

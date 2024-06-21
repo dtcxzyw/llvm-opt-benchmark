@@ -1744,12 +1744,12 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end14, !llvm.loop !7
 
 if.then3:                                         ; preds = %do.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(5) @.str.87) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(5) @.str.87) #20
   %tobool.not.i15 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i15, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then3
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(16) @.str.88) #20
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(16) @.str.88) #20
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else5.i
 
@@ -1760,7 +1760,7 @@ if.then3.i:                                       ; preds = %if.else.i
   br label %return
 
 if.else5.i:                                       ; preds = %if.else.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.89) #20
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.89) #20
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.then8.i, label %if.else14.i
 
@@ -1775,7 +1775,7 @@ if.end.i:                                         ; preds = %if.then8.i
   br label %return
 
 if.else14.i:                                      ; preds = %if.else5.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.90) #20
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.90) #20
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %if.then17.i, label %sw.epilog
 
@@ -1790,12 +1790,12 @@ handle_extension_v0.exit:                         ; preds = %if.then8.i
   br label %return
 
 sw.epilog:                                        ; preds = %if.else14.i
-  %call.i16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.91) #20
+  %call.i16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.91) #20
   %tobool.not.i17 = icmp eq i32 %call.i16, 0
   br i1 %tobool.not.i17, label %sw.bb9, label %if.else.i18
 
 if.else.i18:                                      ; preds = %sw.epilog
-  %call1.i19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.92) #20
+  %call1.i19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.92) #20
   %tobool2.not.i20 = icmp eq i32 %call1.i19, 0
   br i1 %tobool2.not.i20, label %if.then3.i26, label %if.else14.i21
 
@@ -1832,7 +1832,7 @@ if.end13.i:                                       ; preds = %if.end.i27
   br label %sw.bb9
 
 if.else14.i21:                                    ; preds = %if.else.i18
-  %call15.i22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(11) @.str.94) #20
+  %call15.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(11) @.str.94) #20
   %tobool16.not.i23 = icmp eq i32 %call15.i22, 0
   br i1 %tobool16.not.i23, label %if.then17.i25, label %sw.bb11
 
@@ -2458,7 +2458,7 @@ land.lhs.true.i:                                  ; preds = %if.then62
   br i1 %tobool2.not.i, label %land.lhs.true5.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull %gitfile.0)
+  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull readonly %gitfile.0)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %ensure_valid_ownership.exit, label %land.lhs.true5.i
 
@@ -4595,7 +4595,7 @@ entry.tail.i.i:                                   ; preds = %if.end41.i
   br i1 %64, label %land.lhs.true.i28.i, label %do.body.i.i.i.preheader
 
 land.lhs.true.i28.i:                              ; preds = %entry.tail.i.i
-  %call1.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(6) @.str.150) #20
+  %call1.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(6) @.str.150) #20
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end46.i, label %do.body.i.i.i.preheader
 

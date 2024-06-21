@@ -182,7 +182,7 @@ define range(i32 0, 5) i32 @Psr_ManReadSignalList(ptr noundef %0, ptr nocapture 
 
 ._crit_edge:                                      ; preds = %73, %4
   %9 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) @.str, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, ptr noundef nonnull readonly align 1 dereferenceable(32) @.str, i64 32, i1 false)
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph, %73
@@ -328,7 +328,7 @@ Vec_IntPush.exit23:                               ; preds = %.Vec_IntGrow.exit10
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %72, ptr noundef nonnull align 1 dereferenceable(29) @.str.1, i64 29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %72, ptr noundef nonnull readonly align 1 dereferenceable(29) @.str.1, i64 29, i1 false)
   br label %.loopexit
 
 73:                                               ; preds = %70
@@ -435,8 +435,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %21
 
 .loopexit174:                                     ; preds = %Psr_ManUtilSkipComments.exit.i, %.preheader.i, %1
   %26 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %26, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull align 1 dereferenceable(16) @.str.13, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %26, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.13, i64 16, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 .loopexit171thread-pre-split:                     ; preds = %16, %11, %23, %15
@@ -466,7 +466,7 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %21
 
 32:                                               ; preds = %._crit_edge.i
   %33 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %33, ptr noundef nonnull align 1 dereferenceable(22) @.str.24, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %33, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.24, i64 22, i1 false)
   br label %Psr_ManReadConstant.exit.thread
 
 34:                                               ; preds = %._crit_edge.i
@@ -602,7 +602,7 @@ Psr_CharIsDigitB.exit.thread.i:                   ; preds = %37
 
 94:                                               ; preds = %34
   %95 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %95, ptr noundef nonnull align 1 dereferenceable(31) @.str.25, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %95, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.25, i64 31, i1 false)
   br label %Psr_ManReadConstant.exit.thread
 
 Psr_ManReadConstant.exit.loopexit:                ; preds = %37
@@ -619,7 +619,7 @@ Psr_ManReadConstant.exit:                         ; preds = %89, %66, %Psr_ManRe
 
 Psr_ManReadConstant.exit.thread:                  ; preds = %32, %94, %Psr_ManReadConstant.exit
   %101 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %101, ptr noundef nonnull align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %101, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 102:                                              ; preds = %Psr_ManReadConstant.exit
@@ -711,8 +711,8 @@ Psr_ManUtilSkipComments.exit.i66:                 ; preds = %.lr.ph38.i.i68, %12
 
 .loopexit166:                                     ; preds = %Psr_ManUtilSkipComments.exit.i66, %.preheader.i56, %102
   %125 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %125, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %125, ptr noundef nonnull align 1 dereferenceable(17) @.str.15, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %125, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %125, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.15, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 .loopexit163:                                     ; preds = %108, %110, %115, %.preheader.i56, %122, %114
@@ -734,7 +734,7 @@ Psr_ManUtilSkipComments.exit.i66:                 ; preds = %.lr.ph38.i.i68, %12
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %133, ptr noundef nonnull align 1 dereferenceable(35) @.str.16, i64 35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %133, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.16, i64 35, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 134:                                              ; preds = %129
@@ -779,7 +779,7 @@ Psr_ManReadConcat.exit:                           ; preds = %138
 
 151:                                              ; preds = %Psr_ManReadConcat.exit.thread, %Psr_ManReadConcat.exit
   %152 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %152, ptr noundef nonnull align 1 dereferenceable(17) @.str.17, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %152, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.17, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 153:                                              ; preds = %Psr_ManReadConcat.exit.thread143, %Psr_ManReadConcat.exit
@@ -872,8 +872,8 @@ Psr_ManUtilSkipComments.exit.i93:                 ; preds = %.lr.ph38.i.i95, %17
 
 .loopexit159:                                     ; preds = %Psr_ManUtilSkipComments.exit.i93, %.preheader.i83, %153
   %176 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %176, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %176, ptr noundef nonnull align 1 dereferenceable(17) @.str.18, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %176, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %176, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.18, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 177:                                              ; preds = %128
@@ -926,7 +926,7 @@ Psr_ManReadName.exit:                             ; preds = %179, %.preheader.i1
 
 Psr_ManReadName.exit.thread:                      ; preds = %.thread, %Psr_ManReadName.exit
   %196 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %196, ptr noundef nonnull align 1 dereferenceable(17) @.str.19, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %196, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.19, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 197:                                              ; preds = %Psr_ManReadName.exit
@@ -1018,8 +1018,8 @@ Psr_ManUtilSkipComments.exit.i123:                ; preds = %.lr.ph38.i.i125, %2
 
 .loopexit154:                                     ; preds = %Psr_ManUtilSkipComments.exit.i123, %.preheader.i113, %197
   %220 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %220, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %220, ptr noundef nonnull align 1 dereferenceable(17) @.str.20, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %220, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %220, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.20, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 .loopexitthread-pre-split:                        ; preds = %210, %205, %217, %209
@@ -1039,7 +1039,7 @@ Psr_ManUtilSkipComments.exit.i123:                ; preds = %.lr.ph38.i.i125, %2
 
 224:                                              ; preds = %221
   %225 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %225, ptr noundef nonnull align 1 dereferenceable(17) @.str.21, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %225, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.21, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 226:                                              ; preds = %221
@@ -1049,7 +1049,7 @@ Psr_ManUtilSkipComments.exit.i123:                ; preds = %.lr.ph38.i.i125, %2
 
 228:                                              ; preds = %226
   %229 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %229, ptr noundef nonnull align 1 dereferenceable(17) @.str.22, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %229, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.22, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
 230:                                              ; preds = %226
@@ -1253,7 +1253,7 @@ define ptr @Psr_ManReadVerilog(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca [3 x ptr], align 16
   %4 = alloca [4 x ptr], align 16
   %5 = alloca [4 x ptr], align 16
-  %6 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
+  %6 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.34)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %Psr_ManAlloc.exit.thread, label %8
 
@@ -1341,7 +1341,7 @@ Psr_NtkAddVerilogDirectives.exit:                 ; preds = %35
 
 ._crit_edge.i:                                    ; preds = %Psr_ManReadModule.exit.i, %Psr_NtkAddVerilogDirectives.exit
   %56 = getelementptr inbounds i8, ptr %24, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %56, ptr noundef nonnull align 1 dereferenceable(39) @.str.48, i64 39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %56, ptr noundef nonnull readonly align 1 dereferenceable(39) @.str.48, i64 39, i1 false)
   br label %Psr_ManReadDesign.exit
 
 57:                                               ; preds = %Psr_ManReadModule.exit.i, %.lr.ph.i
@@ -1490,7 +1490,7 @@ Psr_ManReadName.exit.i.i:                         ; preds = %.preheader.i83.i.i,
   br i1 %.not69.i.i, label %99, label %Psr_ManReadName.exit.thread.i.i
 
 Psr_ManReadName.exit.thread.i.i:                  ; preds = %Psr_ManReadName.exit.i.i, %.loopexit167.thread.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %47, ptr noundef nonnull align 1 dereferenceable(30) @.str.49, i64 30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %47, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.49, i64 30, i1 false)
   br label %Psr_ManReadDesign.exit
 
 99:                                               ; preds = %Psr_ManReadName.exit.i.i
@@ -1581,7 +1581,7 @@ Psr_ManUtilSkipComments.exit.i99.i.i:             ; preds = %.lr.ph38.i.i101.i.i
   br i1 %121, label %.preheader.i89.i.i.backedge, label %Psr_ManUtilSkipSpaces.exit107.i.i
 
 Psr_ManUtilSkipSpaces.exit107.i.i:                ; preds = %99, %Psr_ManUtilSkipComments.exit.i99.i.i, %.preheader.i89.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadDesign.exit
 
 .loopexit161thread-pre-split.i.i:                 ; preds = %112, %107, %119, %111
@@ -1643,7 +1643,7 @@ Psr_ManReadName.exit125.i.i:                      ; preds = %.preheader.i112.i.i
   br i1 %141, label %Psr_ManReadName.exit125.thread.i.i, label %142
 
 Psr_ManReadName.exit125.thread.i.i:               ; preds = %Psr_ManReadName.exit125.i.i, %.loopexit161.thread.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %47, ptr noundef nonnull align 1 dereferenceable(25) @.str.50, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %47, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.50, i64 25, i1 false)
   br label %Psr_ManReadDesign.exit
 
 142:                                              ; preds = %Psr_ManReadName.exit125.i.i
@@ -1655,7 +1655,7 @@ Psr_ManReadName.exit125.thread.i.i:               ; preds = %Psr_ManReadName.exi
   %indvars.iv.i.i = phi i64 [ 0, %142 ], [ %indvars.iv.next.i.i, %149 ]
   %146 = phi ptr [ @.str.54, %142 ], [ %151, %149 ]
   %147 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #21
-  %148 = tail call i32 @strncmp(ptr noundef %144, ptr noundef nonnull %146, i64 noundef %147) #21
+  %148 = tail call i32 @strncmp(ptr noundef readonly %144, ptr noundef nonnull %146, i64 noundef %147) #21
   %.not8.i.i = icmp eq i32 %148, 0
   br i1 %.not8.i.i, label %Psr_ManIsKnownModule.exit.i, label %149
 
@@ -1677,7 +1677,7 @@ Psr_ManIsKnownModule.exit.i:                      ; preds = %145
   br i1 %155, label %Psr_ManUtilSkipUntilWord.exit.i.i, label %156
 
 Psr_ManUtilSkipUntilWord.exit.i.i:                ; preds = %152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
   br label %Psr_ManReadDesign.exit
 
 156:                                              ; preds = %152
@@ -1914,7 +1914,7 @@ Psr_ManUtilSkipComments.exit.i.i:                 ; preds = %.lr.ph38.i.i.i, %24
   br i1 %246, label %.preheader.i13.i.backedge, label %Psr_ManUtilSkipSpaces.exit.i
 
 Psr_ManUtilSkipSpaces.exit.i:                     ; preds = %Psr_ManInitializeNtk.exit.i, %Psr_ManUtilSkipComments.exit.i.i, %.preheader.i13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadDesign.exit
 
 .loopexitthread-pre-split.i:                      ; preds = %237, %232, %244, %236
@@ -1929,7 +1929,7 @@ Psr_ManUtilSkipSpaces.exit.i:                     ; preds = %Psr_ManInitializeNt
   br i1 %.not158.i.i, label %248, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i, %230
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %47, ptr noundef nonnull align 1 dereferenceable(45) @.str.52, i64 45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %47, ptr noundef nonnull readonly align 1 dereferenceable(45) @.str.52, i64 45, i1 false)
   br label %Psr_ManReadDesign.exit
 
 248:                                              ; preds = %.loopexit.i
@@ -2035,8 +2035,8 @@ Psr_ManUtilSkipComments.exit.i.i302:              ; preds = %.lr.ph38.i.i.i304, 
   br i1 %277, label %.preheader.i.i260.backedge, label %.loopexit198.i
 
 .loopexit198.i:                                   ; preds = %248, %Psr_ManUtilSkipComments.exit.i.i302, %.preheader.i.i260
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.106, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.106, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 Psr_ManUtilSkipSpaces.exit.i263.backedge:         ; preds = %.preheader.i143.i, %484, %486, %491, %498, %490
@@ -2101,7 +2101,7 @@ Psr_ManReadName.exit.i274:                        ; preds = %.preheader.i56.i, %
   br i1 %297, label %Psr_ManReadName.exit.thread.i291, label %298
 
 Psr_ManReadName.exit.thread.i291:                 ; preds = %Psr_ManReadName.exit.i274, %283
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.107, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.107, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 298:                                              ; preds = %Psr_ManReadName.exit.i274
@@ -2192,8 +2192,8 @@ Psr_ManUtilSkipComments.exit.i72.i:               ; preds = %.lr.ph38.i.i74.i, %
   br i1 %320, label %.preheader.i62.i.backedge, label %.loopexit183.i275
 
 .loopexit183.i275:                                ; preds = %298, %Psr_ManUtilSkipComments.exit.i72.i, %.preheader.i62.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.108, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.108, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 .loopexit180.i276:                                ; preds = %311, %306, %304, %.preheader.i62.i, %318, %310
@@ -2212,7 +2212,7 @@ Psr_ManUtilSkipComments.exit.i72.i:               ; preds = %.lr.ph38.i.i74.i, %
   br i1 %324, label %325, label %326
 
 325:                                              ; preds = %322
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.109, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.109, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 326:                                              ; preds = %322
@@ -2303,8 +2303,8 @@ Psr_ManUtilSkipComments.exit.i96.i:               ; preds = %.lr.ph38.i.i98.i, %
   br i1 %348, label %.preheader.i86.i.backedge, label %.loopexit179.i289
 
 .loopexit179.i289:                                ; preds = %326, %Psr_ManUtilSkipComments.exit.i96.i, %.preheader.i86.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.110, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.110, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i: ; preds = %339, %334, %346, %338
@@ -2369,7 +2369,7 @@ Psr_ManReadName.exit123.i:                        ; preds = %.preheader.i110.i, 
   br i1 %368, label %Psr_ManReadName.exit123.thread.i, label %369
 
 Psr_ManReadName.exit123.thread.i:                 ; preds = %Psr_ManReadName.exit123.i, %Psr_ManUtilSkipSpaces.exit104.thread.thread.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.111, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.111, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 369:                                              ; preds = %Psr_ManReadName.exit123.i, %.loopexit180.i276
@@ -2599,7 +2599,7 @@ Vec_IntPush.exit138.i:                            ; preds = %468, %Vec_IntGrow.e
   ]
 
 476:                                              ; preds = %475
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull align 1 dereferenceable(33) @.str.112, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.112, i64 33, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 477:                                              ; preds = %475
@@ -2691,8 +2691,8 @@ Psr_ManUtilSkipComments.exit.i153.i:              ; preds = %.lr.ph38.i.i155.i, 
   br i1 %500, label %.preheader.i143.i.backedge, label %.loopexit.i280
 
 .loopexit.i280:                                   ; preds = %477, %Psr_ManUtilSkipComments.exit.i153.i, %.preheader.i143.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.113, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.113, i64 17, i1 false)
   br label %Psr_ManReadArguments.exit.thread
 
 Psr_ManReadArguments.exit.thread:                 ; preds = %.loopexit198.i, %Psr_ManReadName.exit.thread.i291, %.loopexit183.i275, %325, %.loopexit179.i289, %Psr_ManReadName.exit123.thread.i, %.loopexit.i280, %476
@@ -2791,7 +2791,7 @@ Psr_ManUtilSkipComments.exit.i251:                ; preds = %.lr.ph38.i.i253, %5
   br i1 %524, label %.preheader.i241.backedge, label %Psr_ManUtilSkipSpaces.exit259.thread
 
 Psr_ManUtilSkipSpaces.exit259.thread:             ; preds = %501, %Psr_ManUtilSkipComments.exit.i251, %.preheader.i241
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadDesign.exit
 
 Psr_ManUtilSkipSpaces.exit259thread-pre-split:    ; preds = %515, %510, %522, %514
@@ -2895,7 +2895,7 @@ Psr_ManUtilSkipComments.exit.i229:                ; preds = %.lr.ph38.i.i231, %5
   br i1 %547, label %.preheader.i219.backedge, label %Psr_ManUtilSkipSpaces.exit237
 
 Psr_ManUtilSkipSpaces.exit237:                    ; preds = %.lr.ph, %Psr_ManUtilSkipComments.exit.i229, %.preheader.i219
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadDesign.exit
 
 .loopexitthread-pre-split:                        ; preds = %538, %533, %545, %537
@@ -3065,8 +3065,8 @@ Psr_ManUtilSkipComments.exit.i.i200:              ; preds = %.lr.ph38.i.i.i202, 
   br i1 %600, label %.preheader.i.i133.backedge, label %.loopexit75.i
 
 .loopexit75.i:                                    ; preds = %573, %Psr_ManUtilSkipComments.exit.i.i200, %.preheader.i.i133
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.114, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.114, i64 17, i1 false)
   br label %Psr_ManUtilSkipUntil.exit.thread332
 
 .loopexitthread-pre-split.i136:                   ; preds = %591, %586, %598, %590
@@ -3090,7 +3090,7 @@ Psr_ManUtilSkipComments.exit.i.i200:              ; preds = %.lr.ph38.i.i.i202, 
   br label %.loopexit.thread.i143
 
 603:                                              ; preds = %601
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.115, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.115, i64 17, i1 false)
   br label %Psr_ManUtilSkipUntil.exit.thread332
 
 .loopexit.thread.i143:                            ; preds = %584, %._crit_edge.i192, %.loopexit.i139
@@ -3151,7 +3151,7 @@ Psr_ManReadName.exit.i.i158:                      ; preds = %.preheader.i.i.i151
   br i1 %623, label %Psr_ManReadName.exit.thread.i.i189, label %624
 
 Psr_ManReadName.exit.thread.i.i189:               ; preds = %Psr_ManReadName.exit.i.i158, %609
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %47, ptr noundef nonnull align 1 dereferenceable(30) @.str.117, i64 30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %47, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.117, i64 30, i1 false)
   br label %708
 
 624:                                              ; preds = %Psr_ManReadName.exit.i.i158
@@ -3242,7 +3242,7 @@ Psr_ManUtilSkipComments.exit.i.i.i181:            ; preds = %.lr.ph38.i.i.i.i183
   br i1 %646, label %.preheader.i22.i.i.backedge, label %.loopexit59.i.i
 
 .loopexit59.i.i:                                  ; preds = %624, %Psr_ManUtilSkipComments.exit.i.i.i181, %.preheader.i22.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %708
 
 .loopexit56.i.i:                                  ; preds = %637, %632, %630, %.preheader.i22.i.i, %644, %636
@@ -3337,7 +3337,7 @@ Psr_ManReadNameList.exit.preheader.i:             ; preds = %Vec_IntPush.exit.i.
   br label %709
 
 683:                                              ; preds = %Vec_IntPush.exit.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %47, ptr noundef nonnull align 1 dereferenceable(29) @.str.1, i64 29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %47, ptr noundef nonnull readonly align 1 dereferenceable(29) @.str.1, i64 29, i1 false)
   br label %708
 
 684:                                              ; preds = %Vec_IntPush.exit.i.i
@@ -3429,11 +3429,11 @@ Psr_ManUtilSkipComments.exit.i38.i.i:             ; preds = %.lr.ph38.i.i40.i.i,
   br i1 %707, label %.preheader.i28.i.i.backedge, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %684, %Psr_ManUtilSkipComments.exit.i38.i.i, %.preheader.i28.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %708
 
 708:                                              ; preds = %.loopexit.i.i, %683, %.loopexit59.i.i, %Psr_ManReadName.exit.thread.i.i189
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.116, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.116, i64 17, i1 false)
   br label %Psr_ManUtilSkipUntil.exit.thread332
 
 709:                                              ; preds = %Psr_ManReadNameList.exit.i, %.lr.ph.i164
@@ -3781,7 +3781,7 @@ Psr_ManUtilSkipName.exit.i:                       ; preds = %835
   br i1 %841, label %842, label %843
 
 842:                                              ; preds = %839
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %47, ptr noundef nonnull align 1 dereferenceable(40) @.str.120, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %47, ptr noundef nonnull readonly align 1 dereferenceable(40) @.str.120, i64 40, i1 false)
   br label %1260
 
 843:                                              ; preds = %839
@@ -3791,7 +3791,7 @@ Psr_ManUtilSkipName.exit.i:                       ; preds = %835
   br i1 %.not.i84, label %845, label %844
 
 844:                                              ; preds = %843
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %47, ptr noundef nonnull align 1 dereferenceable(35) @.str.121, i64 35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %47, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.121, i64 35, i1 false)
   br label %1260
 
 845:                                              ; preds = %843
@@ -3883,8 +3883,8 @@ Psr_ManUtilSkipComments.exit.i.i104:              ; preds = %.lr.ph38.i.i.i106, 
   br i1 %868, label %.preheader.i.i85.backedge, label %.loopexit183.i
 
 .loopexit183.i:                                   ; preds = %845, %Psr_ManUtilSkipComments.exit.i.i104, %.preheader.i.i85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.122, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.122, i64 17, i1 false)
   br label %1260
 
 .loopexit180thread-pre-split.i:                   ; preds = %859, %854, %866, %858
@@ -3911,7 +3911,7 @@ Psr_ManUtilSkipComments.exit.i.i104:              ; preds = %.lr.ph38.i.i.i106, 
   br i1 %874, label %875, label %876
 
 875:                                              ; preds = %.loopexit180.thread.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %47, ptr noundef nonnull align 1 dereferenceable(54) @.str.123, i64 54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %47, ptr noundef nonnull readonly align 1 dereferenceable(54) @.str.123, i64 54, i1 false)
   br label %1260
 
 876:                                              ; preds = %.loopexit180.thread.i
@@ -4158,7 +4158,7 @@ Vec_IntPush.exit134.i:                            ; preds = %969, %Vec_IntGrow.e
   ]
 
 980:                                              ; preds = %979
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %47, ptr noundef nonnull align 1 dereferenceable(47) @.str.124, i64 47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %47, ptr noundef nonnull readonly align 1 dereferenceable(47) @.str.124, i64 47, i1 false)
   br label %1260
 
 .fold.split.i:                                    ; preds = %979
@@ -4260,8 +4260,8 @@ Psr_ManUtilSkipComments.exit.i149.i:              ; preds = %.lr.ph38.i.i151.i, 
   br i1 %1007, label %.preheader.i139.i.backedge, label %.loopexit177.i
 
 .loopexit177.i:                                   ; preds = %981, %Psr_ManUtilSkipComments.exit.i149.i, %.preheader.i139.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.125, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.125, i64 17, i1 false)
   br label %1260
 
 .loopexitthread-pre-split.i90:                    ; preds = %998, %993, %1005, %997
@@ -4287,7 +4287,7 @@ Psr_ManUtilSkipComments.exit.i149.i:              ; preds = %.lr.ph38.i.i151.i, 
   br i1 %1013, label %1014, label %1015
 
 1014:                                             ; preds = %.loopexit.thread.i92
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %47, ptr noundef nonnull align 1 dereferenceable(55) @.str.126, i64 55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %47, ptr noundef nonnull readonly align 1 dereferenceable(55) @.str.126, i64 55, i1 false)
   br label %1260
 
 1015:                                             ; preds = %.loopexit.thread.i92
@@ -4302,7 +4302,7 @@ Psr_ManUtilSkipComments.exit.i149.i:              ; preds = %.lr.ph38.i.i151.i, 
   br i1 %.not172.i, label %1018, label %1017
 
 1017:                                             ; preds = %1016
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %47, ptr noundef nonnull align 1 dereferenceable(38) @.str.127, i64 38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %47, ptr noundef nonnull readonly align 1 dereferenceable(38) @.str.127, i64 38, i1 false)
   br label %1260
 
 1018:                                             ; preds = %1016
@@ -4313,7 +4313,7 @@ Psr_ManUtilSkipComments.exit.i149.i:              ; preds = %.lr.ph38.i.i151.i, 
   br i1 %1021, label %1022, label %1023
 
 1022:                                             ; preds = %1018
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %47, ptr noundef nonnull align 1 dereferenceable(54) @.str.128, i64 54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %47, ptr noundef nonnull readonly align 1 dereferenceable(54) @.str.128, i64 54, i1 false)
   br label %1260
 
 1023:                                             ; preds = %1018
@@ -4325,7 +4325,7 @@ Psr_ManUtilSkipComments.exit.i149.i:              ; preds = %.lr.ph38.i.i151.i, 
   br i1 %.not173.i, label %1033, label %1024
 
 1024:                                             ; preds = %1023
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %47, ptr noundef nonnull align 1 dereferenceable(55) @.str.129, i64 55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %47, ptr noundef nonnull readonly align 1 dereferenceable(55) @.str.129, i64 55, i1 false)
   br label %1260
 
 1025:                                             ; preds = %1015
@@ -4457,8 +4457,8 @@ Psr_ManUtilSkipComments.exit.i.i76:               ; preds = %.lr.ph38.i.i.i78, %
   br i1 %1056, label %.preheader.i.i23.backedge, label %.loopexit182.i
 
 .loopexit182.i:                                   ; preds = %.thread322, %Psr_ManUtilSkipComments.exit.i.i76, %.preheader.i.i23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.130, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.130, i64 17, i1 false)
   br label %1260
 
 .loopexit179thread-pre-split.i:                   ; preds = %1047, %1042, %1054, %1046
@@ -4607,8 +4607,8 @@ Psr_ManUtilSkipComments.exit.i59.i:               ; preds = %.lr.ph38.i.i61.i, %
   br i1 %1098, label %.preheader.i49.i.backedge, label %.loopexit175.i
 
 .loopexit175.i:                                   ; preds = %1076, %Psr_ManUtilSkipComments.exit.i59.i, %.preheader.i49.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.131, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.131, i64 17, i1 false)
   br label %1260
 
 Psr_ManReadName.exit.threadthread-pre-split.i:    ; preds = %1089, %1084, %1096, %1088, %Psr_ManReadName.exit.i, %.loopexit179.thread.i
@@ -4625,7 +4625,7 @@ Psr_ManReadName.exit.thread.i:                    ; preds = %.preheader.i49.i, %
   br i1 %.not.i28, label %1099, label %Psr_ManReadName.exit.thread.thread.i
 
 Psr_ManReadName.exit.thread.thread.i:             ; preds = %Psr_ManReadName.exit.thread.i, %1082
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %47, ptr noundef nonnull align 1 dereferenceable(39) @.str.132, i64 39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %47, ptr noundef nonnull readonly align 1 dereferenceable(39) @.str.132, i64 39, i1 false)
   br label %1260
 
 1099:                                             ; preds = %Psr_ManReadName.exit.thread.i
@@ -4717,8 +4717,8 @@ Psr_ManUtilSkipComments.exit.i83.i:               ; preds = %.lr.ph38.i.i85.i, %
   br i1 %1122, label %.preheader.i73.i.backedge, label %.loopexit170.i
 
 .loopexit170.i:                                   ; preds = %1099, %Psr_ManUtilSkipComments.exit.i83.i, %.preheader.i73.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.133, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.133, i64 17, i1 false)
   br label %1260
 
 .loopexit167thread-pre-split.i:                   ; preds = %1113, %1108, %1120, %1112
@@ -4792,7 +4792,7 @@ Psr_ManReadName.exit.i.i47:                       ; preds = %.preheader.i.i.i40,
   br i1 %1143, label %Psr_ManReadName.exit.thread.i.i65, label %1144
 
 Psr_ManReadName.exit.thread.i.i65:                ; preds = %Psr_ManReadName.exit.i.i47, %1129
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %47, ptr noundef nonnull align 1 dereferenceable(41) @.str.138, i64 41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %47, ptr noundef nonnull readonly align 1 dereferenceable(41) @.str.138, i64 41, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 1144:                                             ; preds = %Psr_ManReadName.exit.i.i47
@@ -4802,7 +4802,7 @@ Psr_ManReadName.exit.thread.i.i65:                ; preds = %Psr_ManReadName.exi
   br i1 %.not101.i.i, label %1146, label %1145
 
 1145:                                             ; preds = %1144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull align 1 dereferenceable(33) @.str.139, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.139, i64 33, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 1146:                                             ; preds = %1144
@@ -4894,7 +4894,7 @@ Psr_ManUtilSkipComments.exit.i.i.i57:             ; preds = %.lr.ph38.i.i.i.i59,
   br i1 %1169, label %.preheader.i43.i.i.backedge, label %.loopexit114.i.i
 
 .loopexit114.i.i:                                 ; preds = %1146, %Psr_ManUtilSkipComments.exit.i.i.i57, %.preheader.i43.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 .loopexit111.i.i:                                 ; preds = %1160, %1155, %1153, %.preheader.i43.i.i, %1167, %1159
@@ -4903,7 +4903,7 @@ Psr_ManUtilSkipComments.exit.i.i.i57:             ; preds = %.lr.ph38.i.i.i.i59,
   br i1 %1171, label %1172, label %1173
 
 1172:                                             ; preds = %.loopexit111.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %47, ptr noundef nonnull align 1 dereferenceable(41) @.str.141, i64 41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %47, ptr noundef nonnull readonly align 1 dereferenceable(41) @.str.141, i64 41, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 1173:                                             ; preds = %.loopexit111.i.i
@@ -4913,7 +4913,7 @@ Psr_ManUtilSkipComments.exit.i.i.i57:             ; preds = %.lr.ph38.i.i.i.i59,
   br i1 %.not102.i.i, label %1175, label %1174
 
 1174:                                             ; preds = %1173
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull align 1 dereferenceable(33) @.str.142, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.142, i64 33, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 1175:                                             ; preds = %1173
@@ -5007,7 +5007,7 @@ Psr_ManUtilSkipComments.exit.i60.i.i:             ; preds = %.lr.ph38.i.i62.i.i,
   br i1 %1198, label %.preheader.i50.i.i.backedge, label %.loopexit110.i.i
 
 .loopexit110.i.i:                                 ; preds = %1175, %Psr_ManUtilSkipComments.exit.i60.i.i, %.preheader.i50.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 .loopexit107thread-pre-split.i.i:                 ; preds = %1189, %1184, %1196, %1188
@@ -5024,7 +5024,7 @@ Psr_ManUtilSkipComments.exit.i60.i.i:             ; preds = %.lr.ph38.i.i62.i.i,
   ]
 
 .loopexit107.thread.i.i:                          ; preds = %.loopexit107.i.i, %1182
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull align 1 dereferenceable(33) @.str.112, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.112, i64 33, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 1199:                                             ; preds = %.loopexit107.i.i
@@ -5126,7 +5126,7 @@ Psr_ManUtilSkipSpaces.exit92.i.i:                 ; preds = %.preheader.i74.i.i,
   br i1 %.not.i96.i, label %.lr.ph.i.i36, label %Psr_ManReadSignalList2.exit.thread138.i, !llvm.loop !22
 
 .loopexit.i95.i:                                  ; preds = %1199, %Psr_ManUtilSkipComments.exit.i84.i.i, %.preheader.i74.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadSignalList2.exit.thread.i
 
 .loopexit167.thread.i:                            ; preds = %1106, %.loopexit167.i
@@ -5137,7 +5137,7 @@ Psr_ManUtilSkipSpaces.exit92.i.i:                 ; preds = %.preheader.i74.i.i,
 1224:                                             ; preds = %1227, %.loopexit167.thread.i
   %indvars.iv.i.i29 = phi i64 [ 0, %.loopexit167.thread.i ], [ %indvars.iv.next.i.i30, %1227 ]
   %1225 = phi ptr [ @.str.145, %.loopexit167.thread.i ], [ %1229, %1227 ]
-  %1226 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1223, ptr noundef nonnull dereferenceable(1) %1225) #21
+  %1226 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1223, ptr noundef nonnull dereferenceable(1) %1225) #21
   %.not7.i.i = icmp eq i32 %1226, 0
   br i1 %.not7.i.i, label %Psr_ManIsVerilogModule.exit.i, label %1227
 
@@ -5161,11 +5161,11 @@ Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i: ;
   br label %Psr_ManReadSignalList2.exit.thread138.i
 
 Psr_ManIsVerilogModule.exit.thread.i:             ; preds = %1227
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %47, ptr noundef nonnull align 1 dereferenceable(29) @.str.134, i64 29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %47, ptr noundef nonnull readonly align 1 dereferenceable(29) @.str.134, i64 29, i1 false)
   br label %1260
 
 Psr_ManReadSignalList2.exit.thread.i:             ; preds = %Psr_ManIsVerilogModule.exit.i, %.loopexit.i95.i, %.loopexit107.thread.i.i, %.loopexit110.i.i, %1174, %1172, %.loopexit114.i.i, %1145, %Psr_ManReadName.exit.thread.i.i65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.135, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.135, i64 17, i1 false)
   br label %1260
 
 Psr_ManReadSignalList2.exit.thread138.i:          ; preds = %Psr_ManUtilSkipSpaces.exit92.i.i, %.loopexit107.i.i, %1205, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i, %1123
@@ -5259,8 +5259,8 @@ Psr_ManUtilSkipComments.exit.i114.i:              ; preds = %.lr.ph38.i.i116.i, 
   br i1 %1257, label %.preheader.i104.i.backedge, label %.loopexit148.i
 
 .loopexit148.i:                                   ; preds = %Psr_ManReadSignalList2.exit.thread138.i, %Psr_ManUtilSkipComments.exit.i114.i, %.preheader.i104.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull align 1 dereferenceable(17) @.str.136, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %47, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.136, i64 17, i1 false)
   br label %1260
 
 .loopexitthread-pre-split.i33:                    ; preds = %1248, %1243, %1255, %1247
@@ -5274,7 +5274,7 @@ Psr_ManUtilSkipComments.exit.i114.i:              ; preds = %.lr.ph38.i.i116.i, 
   br i1 %.not145.i, label %1258, label %.loopexit.thread.i35
 
 .loopexit.thread.i35:                             ; preds = %.loopexit.i34, %1241
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %47, ptr noundef nonnull align 1 dereferenceable(37) @.str.137, i64 37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %47, ptr noundef nonnull readonly align 1 dereferenceable(37) @.str.137, i64 37, i1 false)
   br label %1260
 
 1258:                                             ; preds = %.loopexit.i34
@@ -5289,7 +5289,7 @@ Psr_ManUtilSkipComments.exit.i114.i:              ; preds = %.lr.ph38.i.i116.i, 
   br i1 %1263, label %Psr_ManUtilSkipUntilWord.exit131.i.i, label %1264
 
 Psr_ManUtilSkipUntilWord.exit131.i.i:             ; preds = %1260
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %47, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
   br label %Psr_ManReadDesign.exit
 
 1264:                                             ; preds = %1260
@@ -5497,7 +5497,7 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %1321
   br i1 %1325, label %.preheader.i.backedge, label %Psr_ManUtilSkipSpaces.exit.thread
 
 Psr_ManUtilSkipSpaces.exit.thread:                ; preds = %.thread.i.i, %Psr_ManUtilSkipComments.exit.i, %.preheader.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManReadDesign.exit
 
 Psr_ManUtilSkipSpaces.exitthread-pre-split:       ; preds = %1316, %1311, %1323, %1315
@@ -5512,7 +5512,7 @@ Psr_ManUtilSkipSpaces.exit:                       ; preds = %.preheader.i, %Psr_
   br i1 %.not159.i.i, label %.lr.ph, label %Psr_ManUtilSkipSpaces.exit259._crit_edge, !llvm.loop !24
 
 Psr_ManUtilSkipSpaces.exit259._crit_edge:         ; preds = %Psr_ManUtilSkipSpaces.exit259, %508, %Psr_ManUtilSkipSpaces.exit, %1309
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %47, ptr noundef nonnull align 1 dereferenceable(42) @.str.53, i64 42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %47, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.53, i64 42, i1 false)
   br label %Psr_ManReadDesign.exit
 
 Psr_ManReadModule.exit.i:                         ; preds = %Vec_IntErase.exit143.i.i, %568, %Vec_IntPush.exit.i
@@ -5521,7 +5521,7 @@ Psr_ManReadModule.exit.i:                         ; preds = %Vec_IntErase.exit14
   br i1 %.not.i.i, label %57, label %._crit_edge.i
 
 .loopexit26.i:                                    ; preds = %57, %Psr_ManUtilSkipComments.exit.i.i.i, %.preheader.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %47, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   store i8 0, ptr %47, align 4
   br label %Psr_ManReadDesign.exit
 
@@ -6219,7 +6219,7 @@ Psr_ManUtilSkipComments.exit:                     ; preds = %.lr.ph38.i, %21
 
 Psr_ManUtilSkipComments.exit.thread.sink.split:   ; preds = %Psr_ManUtilSkipComments.exit, %.preheader, %1
   %26 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %26, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %26, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
   br label %Psr_ManUtilSkipComments.exit.thread
 
 Psr_ManUtilSkipComments.exit.thread:              ; preds = %16, %11, %9, %.preheader, %23, %15, %Psr_ManUtilSkipComments.exit.thread.sink.split
@@ -6360,8 +6360,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %41
 
 .loopexit153:                                     ; preds = %Psr_ManUtilSkipComments.exit.i, %.preheader.i, %Vec_StrPush.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %46, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) @.str.27, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %46, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.27, i64 16, i1 false)
   br label %266
 
 .loopexit150:                                     ; preds = %29, %31, %36, %.preheader.i, %43, %35
@@ -6377,7 +6377,7 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %41
 
 49:                                               ; preds = %.loopexit150
   %50 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %50, ptr noundef nonnull align 1 dereferenceable(42) @.str.28, i64 42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %50, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.28, i64 42, i1 false)
   br label %266
 
 51:                                               ; preds = %.lr.ph, %Vec_StrPush.exit53
@@ -6540,8 +6540,8 @@ Psr_ManUtilSkipComments.exit.i67:                 ; preds = %.lr.ph38.i.i69, %99
 
 .loopexit146:                                     ; preds = %Psr_ManUtilSkipComments.exit.i67, %.preheader.i57, %._crit_edge
   %104 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %104, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %104, ptr noundef nonnull align 1 dereferenceable(16) @.str.29, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %104, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %104, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.29, i64 16, i1 false)
   br label %266
 
 .loopexit143thread-pre-split:                     ; preds = %94, %89, %101, %93
@@ -6711,8 +6711,8 @@ Psr_ManUtilSkipComments.exit.i97:                 ; preds = %.lr.ph38.i.i99, %15
 
 .loopexit140:                                     ; preds = %Psr_ManUtilSkipComments.exit.i97, %.preheader.i87, %Vec_StrPush.exit83
   %159 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %159, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %159, ptr noundef nonnull align 1 dereferenceable(16) @.str.30, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %159, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.23, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %159, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.30, i64 16, i1 false)
   br label %266
 
 .loopexit:                                        ; preds = %142, %144, %149, %.preheader.i87, %156, %148
@@ -6728,7 +6728,7 @@ Psr_ManUtilSkipComments.exit.i97:                 ; preds = %.lr.ph38.i.i99, %15
 
 162:                                              ; preds = %.loopexit
   %163 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %163, ptr noundef nonnull align 1 dereferenceable(42) @.str.28, i64 42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %163, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.28, i64 42, i1 false)
   br label %266
 
 164:                                              ; preds = %.lr.ph174, %Vec_StrPush.exit114
@@ -6815,7 +6815,7 @@ Vec_StrPush.exit114:                              ; preds = %.Vec_StrGrow.exit10
 
 197:                                              ; preds = %._crit_edge175
   %198 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %198, ptr noundef nonnull align 1 dereferenceable(16) @.str.31, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %198, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.31, i64 16, i1 false)
   br label %266
 
 199:                                              ; preds = %._crit_edge175._crit_edge, %.loopexit143
@@ -6826,7 +6826,7 @@ Vec_StrPush.exit114:                              ; preds = %.Vec_StrGrow.exit10
 
 .thread:                                          ; preds = %87, %199
   %200 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %200, ptr noundef nonnull align 1 dereferenceable(50) @.str.32, i64 50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %200, ptr noundef nonnull readonly align 1 dereferenceable(50) @.str.32, i64 50, i1 false)
   br label %266
 
 201:                                              ; preds = %199

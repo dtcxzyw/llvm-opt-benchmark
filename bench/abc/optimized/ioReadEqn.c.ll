@@ -391,7 +391,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %38 = getelementptr inbounds ptr, ptr %.val9.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %.012) #11
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %.012) #11
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %Io_ReadEqnStrFind.exit, label %42
 

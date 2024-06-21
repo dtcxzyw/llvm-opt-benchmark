@@ -2482,7 +2482,7 @@ while.body.i:                                     ; preds = %if.else24.i, %while
   %idxprom5.i = zext nneg i32 %div18.i to i64
   %arrayidx6.i = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
   %2 = load ptr, ptr %arrayidx6.i, align 8
-  %call8.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #23
+  %call8.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #23
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %if.else, label %if.else24.i
 
@@ -3145,7 +3145,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %idxprom.i = zext nneg i32 %call3 to i64
   %arrayidx.i = getelementptr inbounds %"struct.icu_75::Item", ptr %0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @_ZN6icu_757Package11extractItemEPKcS2_ic(ptr noundef nonnull align 8 dereferenceable(201237) %this, ptr noundef %filesPath, ptr noundef %1, i32 noundef %call3, i8 noundef signext %outType)
+  tail call void @_ZN6icu_757Package11extractItemEPKcS2_ic(ptr noundef nonnull readonly align 8 dereferenceable(201237) %this, ptr noundef %filesPath, ptr noundef %1, i32 noundef %call3, i8 noundef signext %outType)
   %call = tail call noundef i32 @_ZN6icu_757Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %this)
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !19
@@ -3183,7 +3183,7 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %idxprom.i.i = zext nneg i32 %call3.i to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.icu_75::Item", ptr %3, i64 %idxprom.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8
-  tail call void @_ZN6icu_757Package11extractItemEPKcS2_ic(ptr noundef nonnull align 8 dereferenceable(201237) %this, ptr noundef %filesPath, ptr noundef %4, i32 noundef %call3.i, i8 noundef signext %outType)
+  tail call void @_ZN6icu_757Package11extractItemEPKcS2_ic(ptr noundef nonnull readonly align 8 dereferenceable(201237) %this, ptr noundef %filesPath, ptr noundef %4, i32 noundef %call3.i, i8 noundef signext %outType)
   %call.i = tail call noundef i32 @_ZN6icu_757Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %this)
   %cmp.i = icmp sgt i32 %call.i, -1
   br i1 %cmp.i, label %while.body.i, label %_ZN6icu_757Package12extractItemsEPKcS2_c.exit, !llvm.loop !19
@@ -3244,7 +3244,7 @@ while.body.i:                                     ; preds = %if.else24.i, %while
   %idxprom5.i = zext nneg i32 %div18.i to i64
   %arrayidx6.i = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
   %2 = load ptr, ptr %arrayidx6.i, align 8
-  %call8.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %targetName, ptr noundef nonnull dereferenceable(1) %2) #23
+  %call8.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %targetName, ptr noundef nonnull dereferenceable(1) %2) #23
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %if.end, label %if.else24.i
 

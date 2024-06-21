@@ -11496,7 +11496,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10sha
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %.val9.i.i = load i64, ptr %24, align 8
   %25 = urem i64 %20, %.val9.i.i
-  %26 = tail call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %20)
+  %26 = tail call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %20)
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE4findERSH_.exit.thread24, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE4findERSH_.exit.thread
 
@@ -21073,7 +21073,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr nonnull %25, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26)
-  %91 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  %91 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit.i.i.i.i.i" unwind label %92
 
 92:                                               ; preds = %87
@@ -21110,7 +21110,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr nonnull %22, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23)
-  %99 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %99 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit35.i.i.i.i.i" unwind label %100
 
 100:                                              ; preds = %94
@@ -21147,7 +21147,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr nonnull %19, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
-  %107 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  %107 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit42.i.i.i.i.i" unwind label %108
 
 108:                                              ; preds = %102
@@ -21184,7 +21184,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr nonnull %16, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17)
-  %115 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %115 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit49.i.i.i.i.i" unwind label %116
 
 116:                                              ; preds = %110
@@ -21252,7 +21252,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr nonnull %13, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  %135 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %135 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit56.i.i.i.i.i" unwind label %136
 
 136:                                              ; preds = %123
@@ -21304,7 +21304,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr nonnull %10, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
-  %152 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %152 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit63.i.i.i.i.i" unwind label %153
 
 153:                                              ; preds = %140
@@ -21356,7 +21356,7 @@ common.resume:                                    ; preds = %92, %100, %108, %11
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull %7, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  %169 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %169 = invoke fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS0_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEES9_ENK3$_1clERKNSt7__cxx1112basic_stringIcS8_SaIcEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_.exit70.i.i.i.i.i" unwind label %170
 
 170:                                              ; preds = %157
@@ -23816,7 +23816,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
 .lr.ph.i.i.i.i:                                   ; preds = %13, %33
   %.036.i.i.i.i = phi i64 [ %35, %33 ], [ %21, %13 ]
   %.sroa.027.035.i.i.i.i = phi ptr [ %34, %33 ], [ %.val15, %13 ]
-  %23 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %.sroa.027.035.i.i.i.i)
+  %23 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr %.sroa.027.035.i.i.i.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i
@@ -23824,7 +23824,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
 
 24:                                               ; preds = %.noexc
   %25 = getelementptr inbounds i8, ptr %.sroa.027.035.i.i.i.i, i64 96
-  %26 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %25)
+  %26 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr nonnull %25)
           to label %.noexc19 unwind label %.loopexit
 
 .noexc19:                                         ; preds = %24
@@ -23832,7 +23832,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
 
 27:                                               ; preds = %.noexc19
   %28 = getelementptr inbounds i8, ptr %.sroa.027.035.i.i.i.i, i64 192
-  %29 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %28)
+  %29 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr nonnull %28)
           to label %.noexc20 unwind label %.loopexit
 
 .noexc20:                                         ; preds = %27
@@ -23840,7 +23840,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
 
 30:                                               ; preds = %.noexc20
   %31 = getelementptr inbounds i8, ptr %.sroa.027.035.i.i.i.i, i64 288
-  %32 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %31)
+  %32 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr nonnull %31)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %30
@@ -23868,7 +23868,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
   ]
 
 38:                                               ; preds = %._crit_edge.i.i.i.i
-  %39 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %.sroa.027.0.lcssa.i.i.i.i)
+  %39 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr %.sroa.027.0.lcssa.i.i.i.i)
           to label %.noexc22 unwind label %.loopexit.split-lp
 
 .noexc22:                                         ; preds = %38
@@ -23880,7 +23880,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
   %.sroa.027.1.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
-  %43 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %.sroa.027.1.i.i.i.i)
+  %43 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr %.sroa.027.1.i.i.i.i)
           to label %.noexc23 unwind label %.loopexit.split-lp
 
 .noexc23:                                         ; preds = %42
@@ -23892,7 +23892,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
   %.sroa.027.2.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
-  %47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %.sroa.027.2.i.i.i.i)
+  %47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr %.sroa.027.2.i.i.i.i)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
 .noexc24:                                         ; preds = %46
@@ -30541,7 +30541,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %44 = getelementptr inbounds i8, ptr %.val41.val, i64 2112
   %.val9.i.i = load i64, ptr %44, align 8
   %45 = urem i64 %39, %.val9.i.i
-  %46 = call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsT6UiFileEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %45, ptr noundef nonnull align 8 dereferenceable(32) %.val39, i64 noundef %39)
+  %46 = call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsT6UiFileEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull readonly align 8 dereferenceable(56) %22, i64 noundef %45, ptr noundef nonnull align 8 dereferenceable(32) %.val39, i64 noundef %39)
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %.thread95, label %.thread
 
@@ -32575,7 +32575,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 .lr.ph.i.i.i.i:                                   ; preds = %97, %115
   %.043.i.i.i.i = phi i64 [ %117, %115 ], [ %103, %97 ]
   %.sroa.032.042.i.i.i.i = phi ptr [ %116, %115 ], [ %98, %97 ]
-  %105 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.042.i.i.i.i)
+  %105 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.042.i.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i
@@ -32583,7 +32583,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 
 106:                                              ; preds = %.noexc
   %107 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i, i64 32
-  %108 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %107)
+  %108 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %107)
           to label %.noexc81 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit
 
 .noexc81:                                         ; preds = %106
@@ -32591,7 +32591,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 
 109:                                              ; preds = %.noexc81
   %110 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i, i64 64
-  %111 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %110)
+  %111 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %110)
           to label %.noexc82 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit
 
 .noexc82:                                         ; preds = %109
@@ -32599,7 +32599,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 
 112:                                              ; preds = %.noexc82
   %113 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i, i64 96
-  %114 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %113)
+  %114 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %113)
           to label %.noexc83 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit
 
 .noexc83:                                         ; preds = %112
@@ -32627,7 +32627,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
   ]
 
 120:                                              ; preds = %._crit_edge.i.i.i.i
-  %121 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.0.lcssa.i.i.i.i)
+  %121 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.0.lcssa.i.i.i.i)
           to label %.noexc84 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit.split-lp
 
 .noexc84:                                         ; preds = %120
@@ -32639,7 +32639,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 
 124:                                              ; preds = %122, %._crit_edge.i.i.i.i
   %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %123, %122 ]
-  %125 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.1.i.i.i.i)
+  %125 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i)
           to label %.noexc85 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit.split-lp
 
 .noexc85:                                         ; preds = %124
@@ -32651,7 +32651,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 
 128:                                              ; preds = %126, %._crit_edge.i.i.i.i
   %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %127, %126 ]
-  %129 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.2.i.i.i.i)
+  %129 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i)
           to label %.noexc86 unwind label %.loopexit.split-lp155.loopexit.split-lp.loopexit.split-lp
 
 .noexc86:                                         ; preds = %128
@@ -32669,7 +32669,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 .lr.ph.i.i79:                                     ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EEET_SK_SK_T0_.exit.i.i", %135
   %.sroa.07.021.i.i = phi ptr [ %.sroa.07.0.i.i, %135 ], [ %.sroa.07.018.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EEET_SK_SK_T0_.exit.i.i" ]
   %.sroa.013.020.i.i = phi ptr [ %.sroa.013.1.i.i, %135 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EEET_SK_SK_T0_.exit.i.i" ]
-  %131 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %.sroa.07.021.i.i)
+  %131 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %.sroa.07.021.i.i)
           to label %.noexc87 unwind label %.loopexit.split-lp155.loopexit
 
 .noexc87:                                         ; preds = %.lr.ph.i.i79

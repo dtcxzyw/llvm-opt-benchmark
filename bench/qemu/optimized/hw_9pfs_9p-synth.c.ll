@@ -709,7 +709,7 @@ rcu_read_unlock.exit.i:                           ; preds = %while.end21.i.i, %w
 
 if.end5.i:                                        ; preds = %rcu_read_unlock.exit.i
   %name.i.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 24
-  %call.i11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i.i) #17
+  %call.i11.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.i.i) #17
   %add2.i.i = add i64 %call.i11.i, 20
   %cmp.i.i = icmp ult i64 %add2.i.i, 536
   br i1 %cmp.i.i, label %if.then, label %if.else.i12.i
@@ -721,7 +721,7 @@ if.else.i12.i:                                    ; preds = %if.end5.i
 if.then:                                          ; preds = %if.end5.i
   %add.i.i = add nsw i64 %call.i11.i, 1
   %d_name.i.i = getelementptr inbounds i8, ptr %0, i64 35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %d_name.i.i, ptr nonnull align 8 %name.i.i, i64 %add.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %d_name.i.i, ptr nonnull readonly align 8 %name.i.i, i64 %add.i.i, i1 false)
   %attr.i.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 280
   %7 = load ptr, ptr %attr.i.i, align 8
   %inode.i.i = getelementptr inbounds i8, ptr %7, i64 4

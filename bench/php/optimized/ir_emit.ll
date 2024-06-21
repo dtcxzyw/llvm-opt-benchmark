@@ -4556,7 +4556,7 @@ ir_emit_mov.exit.i.i:                             ; preds = %switch.lookup, %618
   %624 = zext nneg i8 %610 to i32
   %625 = sext i8 %.258.i to i32
   %626 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %626, i32 noundef %.sink.i.i.i, i32 noundef %625, i32 noundef %624)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %626, i32 noundef %.sink.i.i.i, i32 noundef %625, i32 noundef %624)
   br label %ir_emit_param_move.exit.thread66.i
 
 627:                                              ; preds = %617
@@ -4640,7 +4640,7 @@ ir_ref_spill_slot.exit.i.i.i:                     ; preds = %652, %637
   %..i.i.i = select i1 %668, i32 2209, i32 2219
   %.1.i.i.i = select i1 %668, i32 2229, i32 2230
   %.sink.i50.i.i = select i1 %.not.i.i.i, i32 %.1.i.i.i, i32 %..i.i.i
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %666, i32 noundef %.sink.i50.i.i, i32 noundef %670, i32 noundef %672)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %666, i32 noundef %.sink.i50.i.i, i32 noundef %670, i32 noundef %672)
   br label %ir_emit_param_move.exit.thread66.i
 
 673:                                              ; preds = %664
@@ -4690,7 +4690,7 @@ ir_ref_spill_slot.exit.i.i.i:                     ; preds = %652, %637
 ir_ref_spill_slot.exit.i52.i.i:                   ; preds = %698, %683
   %.0.in.i.i.i53.i.i = phi i64 [ %689, %683 ], [ %702, %698 ]
   %.0.i.i.i54.i.i = or disjoint i64 %.0.in.i.i.i53.i.i, 561850441793536
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %615, i64 noundef %.0.i.i.i54.i.i, i8 noundef signext %.258.i)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %615, i64 noundef %.0.i.i.i54.i.i, i8 noundef signext %.258.i)
   br label %ir_emit_store.exit.i
 
 703:                                              ; preds = %663
@@ -4778,7 +4778,7 @@ ir_ref_spill_slot.exit.i.i:                       ; preds = %744, %727
   br label %ir_emit_store.exit.i
 
 751:                                              ; preds = %ir_ref_spill_slot.exit.i.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %714, i64 noundef %.0.i.i.i.i, i8 noundef signext %610)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %714, i64 noundef %.0.i.i.i.i, i8 noundef signext %610)
   br label %ir_emit_store.exit.i
 
 ir_emit_store.exit.i:                             ; preds = %751, %750, %ir_emit_param_move.exit.thread66.i, %ir_emit_param_move.exit.i, %ir_ref_spill_slot.exit.i52.i.i, %ir_ref_spill_slot.exit.i.i.i, %601
@@ -5348,7 +5348,7 @@ ir_ref_spill_slot.exit.i.i586:                    ; preds = %965, %948
   br label %ir_emit_lea.exit
 
 972:                                              ; preds = %ir_ref_spill_slot.exit.i.i586
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %855, i64 noundef %.0.i.i.i.i588, i8 noundef signext %spec.select.i583)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %855, i64 noundef %.0.i.i.i.i588, i8 noundef signext %spec.select.i583)
   br label %ir_emit_lea.exit
 
 973:                                              ; preds = %851, %851, %851
@@ -5406,7 +5406,7 @@ ir_emit_mov.exit.i:                               ; preds = %switch.lookup2004, 
   %.sink.i.i = phi i32 [ 2123, %995 ], [ %switch.load2007, %switch.lookup2004 ]
   %1001 = zext nneg i8 %.0.i596 to i32
   %1002 = getelementptr inbounds i8, ptr %.val.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1002, i32 noundef %.sink.i.i, i32 noundef %1001, i32 noundef %993)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1002, i32 noundef %.sink.i.i, i32 noundef %1001, i32 noundef %993)
   br label %1004
 
 1003:                                             ; preds = %994
@@ -5621,7 +5621,7 @@ ir_ref_spill_slot.exit.i.i598:                    ; preds = %1089, %1072
   br label %ir_emit_lea.exit
 
 1096:                                             ; preds = %ir_ref_spill_slot.exit.i.i598
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %978, i64 noundef %.0.i.i.i.i600, i8 noundef signext %spec.select.i594)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %978, i64 noundef %.0.i.i.i.i600, i8 noundef signext %spec.select.i594)
   br label %ir_emit_lea.exit
 
 1097:                                             ; preds = %851
@@ -5845,7 +5845,7 @@ ir_ref_spill_slot.exit.i.i611:                    ; preds = %1200, %1183
   br label %ir_emit_lea.exit
 
 1207:                                             ; preds = %ir_ref_spill_slot.exit.i.i611
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1102, i64 noundef %.0.i.i.i.i613, i8 noundef signext %spec.select.i606)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1102, i64 noundef %.0.i.i.i.i613, i8 noundef signext %spec.select.i606)
   br label %ir_emit_lea.exit
 
 1208:                                             ; preds = %851
@@ -5914,7 +5914,7 @@ ir_emit_mov.exit.i624:                            ; preds = %switch.lookup2008, 
   %.sink.i.i625 = phi i32 [ 2123, %1241 ], [ %switch.load2011, %switch.lookup2008 ]
   %1247 = zext nneg i8 %.0.i622 to i32
   %1248 = getelementptr inbounds i8, ptr %.val.i623, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1248, i32 noundef %.sink.i.i625, i32 noundef %1247, i32 noundef %1239)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1248, i32 noundef %.sink.i.i625, i32 noundef %1247, i32 noundef %1239)
   br label %1250
 
 1249:                                             ; preds = %1240
@@ -5950,7 +5950,7 @@ switch.lookup2012:                                ; preds = %1252
 ir_emit_mov.exit173.i:                            ; preds = %switch.lookup2012, %1252
   %.sink.i172.i = phi i32 [ 2123, %1252 ], [ %switch.load2015, %switch.lookup2012 ]
   %1258 = getelementptr inbounds i8, ptr %.val170.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1258, i32 noundef %.sink.i172.i, i32 noundef %1239, i32 noundef %1251)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1258, i32 noundef %.sink.i172.i, i32 noundef %1239, i32 noundef %1251)
   br label %1259
 
 1259:                                             ; preds = %._crit_edge1980, %ir_emit_mov.exit173.i
@@ -6131,7 +6131,7 @@ ir_ref_spill_slot.exit.i.i627:                    ; preds = %1320, %1303
   br label %ir_emit_lea.exit
 
 1327:                                             ; preds = %ir_ref_spill_slot.exit.i.i627
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1213, i64 noundef %.0.i.i.i.i629, i8 noundef signext %spec.select.i620)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1213, i64 noundef %.0.i.i.i.i629, i8 noundef signext %spec.select.i620)
   br label %ir_emit_lea.exit
 
 1328:                                             ; preds = %851
@@ -6203,7 +6203,7 @@ ir_emit_mov.exit.i650:                            ; preds = %switch.lookup2016, 
   %.sink.i.i651 = phi i32 [ 2123, %1358 ], [ %switch.load2019, %switch.lookup2016 ]
   %1364 = sext i8 %spec.select.i636 to i32
   %1365 = getelementptr inbounds i8, ptr %.val.i649, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1365, i32 noundef %.sink.i.i651, i32 noundef 1, i32 noundef %1364)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1365, i32 noundef %.sink.i.i651, i32 noundef 1, i32 noundef %1364)
   br label %1366
 
 1366:                                             ; preds = %ir_emit_mov.exit.i650, %1356
@@ -6230,7 +6230,7 @@ ir_emit_mov.exit121.i:                            ; preds = %switch.lookup2020, 
   %.sink.i120.i = phi i32 [ 2123, %1367 ], [ %switch.load2023, %switch.lookup2020 ]
   %1373 = zext nneg i8 %.0.i638 to i32
   %1374 = getelementptr inbounds i8, ptr %.val118.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1374, i32 noundef %.sink.i120.i, i32 noundef %1373, i32 noundef 1)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1374, i32 noundef %.sink.i120.i, i32 noundef %1373, i32 noundef 1)
   br label %1378
 
 1375:                                             ; preds = %1366
@@ -6268,7 +6268,7 @@ ir_emit_mov.exit123.i:                            ; preds = %switch.lookup2024, 
   %.sink.i122.i = phi i32 [ 2123, %1381 ], [ %switch.load2027, %switch.lookup2024 ]
   %1387 = zext nneg i8 %.2.i639 to i32
   %1388 = getelementptr inbounds i8, ptr %.val119.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1388, i32 noundef %.sink.i122.i, i32 noundef %1387, i32 noundef %1379)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1388, i32 noundef %.sink.i122.i, i32 noundef %1387, i32 noundef %1379)
   br label %1392
 
 1389:                                             ; preds = %1380
@@ -6385,7 +6385,7 @@ ir_ref_spill_slot.exit.i.i642:                    ; preds = %1439, %1422
   br label %ir_emit_lea.exit
 
 1446:                                             ; preds = %ir_ref_spill_slot.exit.i.i642
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1333, i64 noundef %.0.i.i.i.i644, i8 noundef signext %spec.select.i636)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1333, i64 noundef %.0.i.i.i.i644, i8 noundef signext %spec.select.i636)
   br label %ir_emit_lea.exit
 
 1447:                                             ; preds = %851
@@ -6449,7 +6449,7 @@ ir_emit_mov.exit.i656:                            ; preds = %switch.lookup2048, 
   %.sink.i.i657 = phi i32 [ 2123, %1475 ], [ %switch.load2051, %switch.lookup2048 ]
   %1481 = zext nneg i8 %.0.i654 to i32
   %1482 = getelementptr inbounds i8, ptr %.val.i655, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %1482, i32 noundef %.sink.i.i657, i32 noundef %1481, i32 noundef %1473)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %1482, i32 noundef %.sink.i.i657, i32 noundef %1481, i32 noundef %1473)
   br label %1484
 
 1483:                                             ; preds = %1474
@@ -6663,7 +6663,7 @@ ir_ref_spill_slot.exit.i.i659:                    ; preds = %1559, %1542
   br label %ir_emit_lea.exit
 
 1566:                                             ; preds = %ir_ref_spill_slot.exit.i.i659
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1452, i64 noundef %.0.i.i.i.i661, i8 noundef signext %spec.select.i652)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1452, i64 noundef %.0.i.i.i.i661, i8 noundef signext %spec.select.i652)
   br label %ir_emit_lea.exit
 
 1567:                                             ; preds = %851
@@ -8274,7 +8274,7 @@ ir_ref_spill_slot.exit.i.i672:                    ; preds = %2166, %2149
   br label %ir_emit_lea.exit
 
 2173:                                             ; preds = %ir_ref_spill_slot.exit.i.i672
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1572, i64 noundef %.0.i.i.i.i674, i8 noundef signext %spec.select.i666)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1572, i64 noundef %.0.i.i.i.i674, i8 noundef signext %spec.select.i666)
   br label %ir_emit_lea.exit
 
 2174:                                             ; preds = %851
@@ -8471,7 +8471,7 @@ ir_ref_spill_slot.exit.i.i691:                    ; preds = %2267, %2250
   br label %ir_emit_lea.exit
 
 2274:                                             ; preds = %ir_ref_spill_slot.exit.i.i691
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %2179, i64 noundef %.0.i.i.i.i693, i8 noundef signext %spec.select.i685)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2179, i64 noundef %.0.i.i.i.i693, i8 noundef signext %spec.select.i685)
   br label %ir_emit_lea.exit
 
 2275:                                             ; preds = %851, %851, %851
@@ -8529,7 +8529,7 @@ ir_emit_mov.exit.i702:                            ; preds = %switch.lookup2052, 
   %.sink.i.i703 = phi i32 [ 2123, %2297 ], [ %switch.load2055, %switch.lookup2052 ]
   %2303 = zext nneg i8 %.0.i700 to i32
   %2304 = getelementptr inbounds i8, ptr %.val.i701, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %2304, i32 noundef %.sink.i.i703, i32 noundef %2303, i32 noundef %2295)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %2304, i32 noundef %.sink.i.i703, i32 noundef %2303, i32 noundef %2295)
   br label %2306
 
 2305:                                             ; preds = %2296
@@ -8681,7 +8681,7 @@ ir_ref_spill_slot.exit.i.i706:                    ; preds = %2368, %2351
   br label %ir_emit_lea.exit
 
 2375:                                             ; preds = %ir_ref_spill_slot.exit.i.i706
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %2280, i64 noundef %.0.i.i.i.i708, i8 noundef signext %spec.select.i698)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2280, i64 noundef %.0.i.i.i.i708, i8 noundef signext %spec.select.i698)
   br label %ir_emit_lea.exit
 
 2376:                                             ; preds = %851
@@ -8734,7 +8734,7 @@ ir_emit_mov.exit.i719:                            ; preds = %switch.lookup2072, 
   %2402 = sext i8 %spec.select.i714 to i32
   %2403 = sext i8 %.0.i718 to i32
   %2404 = getelementptr inbounds i8, ptr %.val.i717, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %2404, i32 noundef %.sink.i.i720, i32 noundef %2403, i32 noundef %2402)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %2404, i32 noundef %.sink.i.i720, i32 noundef %2403, i32 noundef %2402)
   %2405 = load i8, ptr %2379, align 1
   %2406 = zext i8 %2405 to i64
   %2407 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %2406
@@ -8828,7 +8828,7 @@ ir_ref_spill_slot.exit.i.i725:                    ; preds = %2448, %2431
   br label %ir_emit_lea.exit
 
 2455:                                             ; preds = %ir_ref_spill_slot.exit.i.i725
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %2381, i64 noundef %.0.i.i.i.i727, i8 noundef signext %spec.select.i714)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2381, i64 noundef %.0.i.i.i.i727, i8 noundef signext %spec.select.i714)
   br label %ir_emit_lea.exit
 
 2456:                                             ; preds = %851
@@ -9071,7 +9071,7 @@ ir_ref_spill_slot.exit.i.i736:                    ; preds = %2572, %2555
   br label %ir_emit_lea.exit
 
 2579:                                             ; preds = %ir_ref_spill_slot.exit.i.i736
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %2465, i64 noundef %.0.i.i.i.i738, i8 noundef signext %spec.select.i732)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2465, i64 noundef %.0.i.i.i.i738, i8 noundef signext %spec.select.i732)
   br label %ir_emit_lea.exit
 
 2580:                                             ; preds = %851
@@ -9123,7 +9123,7 @@ ir_ref_spill_slot.exit.i.i736:                    ; preds = %2572, %2555
   %..i.i = select i1 %2605, i32 2209, i32 2219
   %.1.i.i = select i1 %2605, i32 2229, i32 2230
   %.sink.i.i755 = select i1 %.not.i.i754, i32 %.1.i.i, i32 %..i.i
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %2603, i32 noundef %.sink.i.i755, i32 noundef %2606, i32 noundef %2608)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %2603, i32 noundef %.sink.i.i755, i32 noundef %2606, i32 noundef %2608)
   br label %2610
 
 2609:                                             ; preds = %2601
@@ -9390,7 +9390,7 @@ ir_ref_spill_slot.exit.i.i758:                    ; preds = %2733, %2716
   br label %ir_emit_lea.exit
 
 2740:                                             ; preds = %ir_ref_spill_slot.exit.i.i758
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %2703, i64 noundef %.0.i.i.i.i760, i8 noundef signext %spec.select.i750)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2703, i64 noundef %.0.i.i.i.i760, i8 noundef signext %spec.select.i750)
   br label %ir_emit_lea.exit
 
 2741:                                             ; preds = %851
@@ -9895,7 +9895,7 @@ ir_ref_spill_slot.exit.i.i772:                    ; preds = %2951, %2934
   br label %ir_emit_lea.exit
 
 2958:                                             ; preds = %ir_ref_spill_slot.exit.i.i772
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %2746, i64 noundef %.0.i.i.i.i774, i8 noundef signext %spec.select.i767)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2746, i64 noundef %.0.i.i.i.i774, i8 noundef signext %spec.select.i767)
   br label %ir_emit_lea.exit
 
 2959:                                             ; preds = %851
@@ -9955,7 +9955,7 @@ ir_ref_spill_slot.exit.i.i772:                    ; preds = %2951, %2934
   %..i.i795 = select i1 %2989, i32 2209, i32 2219
   %.1.i.i796 = select i1 %2989, i32 2229, i32 2230
   %.sink.i.i797 = select i1 %.not.i.i794, i32 %.1.i.i796, i32 %..i.i795
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %2987, i32 noundef %.sink.i.i797, i32 noundef %2990, i32 noundef %2992)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %2987, i32 noundef %.sink.i.i797, i32 noundef %2990, i32 noundef %2992)
   br label %2994
 
 2993:                                             ; preds = %2985
@@ -11225,7 +11225,7 @@ ir_ref_spill_slot.exit.i.i801:                    ; preds = %3436, %3419
   br label %ir_emit_lea.exit
 
 3443:                                             ; preds = %ir_ref_spill_slot.exit.i.i801
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %3406, i64 noundef %.0.i.i.i.i803, i8 noundef signext %spec.select.i791)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %3406, i64 noundef %.0.i.i.i.i803, i8 noundef signext %spec.select.i791)
   br label %ir_emit_lea.exit
 
 3444:                                             ; preds = %851
@@ -12561,7 +12561,7 @@ ir_ref_spill_slot.exit.i.i824:                    ; preds = %3938, %3921
   br label %ir_emit_lea.exit
 
 3945:                                             ; preds = %ir_ref_spill_slot.exit.i.i824
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %3908, i64 noundef %.0.i.i.i.i826, i8 noundef signext %spec.select.i818)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %3908, i64 noundef %.0.i.i.i.i826, i8 noundef signext %spec.select.i818)
   br label %ir_emit_lea.exit
 
 3946:                                             ; preds = %851, %851, %851
@@ -12656,7 +12656,7 @@ ir_ref_spill_slot.exit.i.i824:                    ; preds = %3938, %3921
   ]
 
 .thread106.i:                                     ; preds = %3992
-  call fastcc void @ir_emit_cmp_int_common(ptr noundef nonnull %0, i32 noundef %3957, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %.088.i, i8 noundef signext %.0.i848, i32 noundef %3960)
+  call fastcc void @ir_emit_cmp_int_common(ptr noundef nonnull %0, i32 noundef %3957, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %.088.i, i8 noundef signext %.0.i848, i32 noundef %3960)
   %.val109.i = load ptr, ptr %36, align 8
   br label %_ir_emit_setcc_int.exit.i
 
@@ -12719,13 +12719,13 @@ ir_ref_spill_slot.exit.i.i824:                    ; preds = %3938, %3921
   br label %ir_emit_lea.exit
 
 .thread111.i:                                     ; preds = %3992
-  call fastcc void @ir_emit_cmp_int_common(ptr noundef nonnull %0, i32 noundef %3957, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %.088.i, i8 noundef signext %.0.i848, i32 noundef %3960)
+  call fastcc void @ir_emit_cmp_int_common(ptr noundef nonnull %0, i32 noundef %3957, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %.088.i, i8 noundef signext %.0.i848, i32 noundef %3960)
   %.val114.i = load ptr, ptr %36, align 8
   br label %_ir_emit_setcc_int.exit.i
 
 .thread.i849:                                     ; preds = %3992, %3988, %3983, %3981, %3976
   %.0105.i = phi i8 [ %.0.i848, %3988 ], [ %.0.i848, %3981 ], [ %.0.i848, %3983 ], [ %3970, %3976 ], [ %.0.i848, %3992 ]
-  call fastcc void @ir_emit_cmp_int_common(ptr noundef nonnull %0, i32 noundef %3957, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %.088.i, i8 noundef signext %.0105.i, i32 noundef %3960)
+  call fastcc void @ir_emit_cmp_int_common(ptr noundef nonnull %0, i32 noundef %3957, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %.088.i, i8 noundef signext %.0105.i, i32 noundef %3960)
   %.val.i850 = load ptr, ptr %36, align 8
   switch i8 %3958, label %_ir_emit_setcc_int.exit.i [
     i8 23, label %4028
@@ -12771,7 +12771,7 @@ _ir_emit_setcc_int.exit.i:                        ; preds = %4028, %4027, %4026,
   %.sink.i.i851 = phi i32 [ 20560, %4028 ], [ 20553, %4027 ], [ 20546, %4026 ], [ 4845, %4025 ], [ 20539, %4024 ], [ 20532, %4023 ], [ 20525, %4022 ], [ 20518, %4021 ], [ 14545, %.thread.i849 ], [ 14545, %.thread106.i ], [ 20511, %.thread111.i ], [ 20511, %4020 ]
   %4029 = sext i8 %spec.select.i845 to i32
   %4030 = getelementptr inbounds i8, ptr %.val110.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %4030, i32 noundef %.sink.i.i851, i32 noundef %4029)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %4030, i32 noundef %.sink.i.i851, i32 noundef %4029)
   %4031 = load ptr, ptr %762, align 8
   %4032 = getelementptr inbounds [4 x i8], ptr %4031, i64 %3962
   %4033 = load i8, ptr %4032, align 1
@@ -12843,7 +12843,7 @@ ir_ref_spill_slot.exit.i.i853:                    ; preds = %4067, %4050
   br label %ir_emit_lea.exit
 
 4074:                                             ; preds = %ir_ref_spill_slot.exit.i.i853
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4037, i64 noundef %.0.i.i.i.i855, i8 noundef signext %spec.select.i845)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4037, i64 noundef %.0.i.i.i.i855, i8 noundef signext %spec.select.i845)
   br label %ir_emit_lea.exit
 
 4075:                                             ; preds = %851
@@ -12875,7 +12875,7 @@ _ir_emit_setcc_int.exit.i862:                     ; preds = %switch.lookup2080, 
   %.sink.i.i863 = phi i32 [ 14545, %4075 ], [ %switch.load2083, %switch.lookup2080 ]
   %4089 = sext i8 %spec.select.i860 to i32
   %4090 = getelementptr inbounds i8, ptr %.val.i861, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %4090, i32 noundef %.sink.i.i863, i32 noundef %4089)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %4090, i32 noundef %.sink.i.i863, i32 noundef %4089)
   %4091 = load ptr, ptr %762, align 8
   %4092 = getelementptr inbounds [4 x i8], ptr %4091, i64 %4077
   %4093 = load i8, ptr %4092, align 1
@@ -12947,7 +12947,7 @@ ir_ref_spill_slot.exit.i.i866:                    ; preds = %4127, %4110
   br label %ir_emit_lea.exit
 
 4134:                                             ; preds = %ir_ref_spill_slot.exit.i.i866
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4097, i64 noundef %.0.i.i.i.i868, i8 noundef signext %spec.select.i860)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4097, i64 noundef %.0.i.i.i.i868, i8 noundef signext %spec.select.i860)
   br label %ir_emit_lea.exit
 
 4135:                                             ; preds = %851
@@ -12974,7 +12974,7 @@ _ir_emit_setcc_int.exit.i875:                     ; preds = %switch.lookup2084, 
   %.sink.i.i876 = phi i32 [ 14545, %4135 ], [ %switch.load2087, %switch.lookup2084 ]
   %4145 = sext i8 %spec.select.i873 to i32
   %4146 = getelementptr inbounds i8, ptr %.val.i874, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %4146, i32 noundef %.sink.i.i876, i32 noundef %4145)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %4146, i32 noundef %.sink.i.i876, i32 noundef %4145)
   %4147 = load ptr, ptr %762, align 8
   %4148 = getelementptr inbounds [4 x i8], ptr %4147, i64 %4137
   %4149 = load i8, ptr %4148, align 1
@@ -13046,13 +13046,13 @@ ir_ref_spill_slot.exit.i.i879:                    ; preds = %4183, %4166
   br label %ir_emit_lea.exit
 
 4190:                                             ; preds = %ir_ref_spill_slot.exit.i.i879
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4153, i64 noundef %.0.i.i.i.i881, i8 noundef signext %spec.select.i873)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4153, i64 noundef %.0.i.i.i.i881, i8 noundef signext %spec.select.i873)
   br label %ir_emit_lea.exit
 
 4191:                                             ; preds = %851
   %4192 = load ptr, ptr %36, align 8
   %4193 = getelementptr inbounds i8, ptr %4192, i64 32
-  %4194 = call fastcc i32 @ir_emit_cmp_fp_common(ptr noundef %0, i32 noundef %.04841917, i32 noundef %.04841917, ptr noundef nonnull %.04851911)
+  %4194 = call fastcc i32 @ir_emit_cmp_fp_common(ptr noundef %0, i32 noundef %.04841917, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911)
   %4195 = load ptr, ptr %762, align 8
   %4196 = sext i32 %.04841917 to i64
   %4197 = getelementptr inbounds [4 x i8], ptr %4195, i64 %4196
@@ -13194,7 +13194,7 @@ ir_ref_spill_slot.exit.i.i890:                    ; preds = %4257, %4240
   br label %ir_emit_lea.exit
 
 4264:                                             ; preds = %ir_ref_spill_slot.exit.i.i890
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4227, i64 noundef %.0.i.i.i.i892, i8 noundef signext %spec.select.i886)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4227, i64 noundef %.0.i.i.i.i892, i8 noundef signext %spec.select.i886)
   br label %ir_emit_lea.exit
 
 4265:                                             ; preds = %851
@@ -13950,7 +13950,7 @@ ir_ref_spill_slot.exit.i.i901:                    ; preds = %4571, %4554
   br label %ir_emit_lea.exit
 
 4578:                                             ; preds = %ir_ref_spill_slot.exit.i.i901
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4268, i64 noundef %.0.i.i.i.i903, i8 noundef signext %spec.select.i897)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4268, i64 noundef %.0.i.i.i.i903, i8 noundef signext %spec.select.i897)
   br label %ir_emit_lea.exit
 
 4579:                                             ; preds = %851
@@ -14710,7 +14710,7 @@ ir_ref_spill_slot.exit.i.i927:                    ; preds = %4886, %4869
   br label %ir_emit_lea.exit
 
 4893:                                             ; preds = %ir_ref_spill_slot.exit.i.i927
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4582, i64 noundef %.0.i.i.i.i929, i8 noundef signext %spec.select.i923)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4582, i64 noundef %.0.i.i.i.i929, i8 noundef signext %spec.select.i923)
   br label %ir_emit_lea.exit
 
 4894:                                             ; preds = %851
@@ -14772,7 +14772,7 @@ ir_emit_mov.exit.i957:                            ; preds = %switch.lookup2088, 
   %4924 = sext i8 %spec.select.i953 to i32
   %4925 = zext nneg i8 %.04761.i to i32
   %4926 = getelementptr inbounds i8, ptr %.val.i956, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %4926, i32 noundef %.sink.i.i958, i32 noundef %4925, i32 noundef %4924)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %4926, i32 noundef %.sink.i.i958, i32 noundef %4925, i32 noundef %4924)
   br label %ir_emit_load_mem.exit.i
 
 4927:                                             ; preds = %4916
@@ -14984,7 +14984,7 @@ ir_ref_spill_slot.exit.i.i960:                    ; preds = %5029, %5012
   br label %ir_emit_lea.exit
 
 5036:                                             ; preds = %ir_ref_spill_slot.exit.i.i960
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %4897, i64 noundef %.0.i.i.i.i962, i8 noundef signext %spec.select.i953)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4897, i64 noundef %.0.i.i.i.i962, i8 noundef signext %spec.select.i953)
   br label %ir_emit_lea.exit
 
 5037:                                             ; preds = %851, %851
@@ -15117,7 +15117,7 @@ ir_emit_mov.exit.i1014:                           ; preds = %switch.lookup2092, 
   %5096 = sext i8 %spec.select.i982 to i32
   %5097 = zext nneg i8 %.0.i1012 to i32
   %5098 = getelementptr inbounds i8, ptr %.val.i1013, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %5098, i32 noundef %.sink.i.i1015, i32 noundef %5097, i32 noundef %5096)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %5098, i32 noundef %.sink.i.i1015, i32 noundef %5097, i32 noundef %5096)
   br label %5464
 
 5099:                                             ; preds = %5085
@@ -15227,7 +15227,7 @@ ir_fuse_load.exit650.i:                           ; preds = %5125, %ir_get_fused
   %..i.i1003 = select i1 %5137, i32 2209, i32 2219
   %.1.i.i1004 = select i1 %5137, i32 2229, i32 2230
   %.sink.i652.i = select i1 %.not.i651.i, i32 %.1.i.i1004, i32 %..i.i1003
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %5135, i32 noundef %.sink.i652.i, i32 noundef %5138, i32 noundef %5140)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %5135, i32 noundef %.sink.i652.i, i32 noundef %5138, i32 noundef %5140)
   br label %5464
 
 5141:                                             ; preds = %5129
@@ -16112,7 +16112,7 @@ ir_ref_spill_slot.exit.i.i986:                    ; preds = %5498, %5481
   br label %ir_emit_lea.exit
 
 5504:                                             ; preds = %ir_ref_spill_slot.exit.i.i986
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %5040, i64 noundef %.0.i.i.i.i988, i8 noundef signext %spec.select.i982)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %5040, i64 noundef %.0.i.i.i.i988, i8 noundef signext %spec.select.i982)
   br label %ir_emit_lea.exit
 
 5505:                                             ; preds = %851
@@ -17047,7 +17047,7 @@ ir_ref_spill_slot.exit.i.i1021:                   ; preds = %5851, %5834
   br label %ir_emit_lea.exit
 
 5858:                                             ; preds = %ir_ref_spill_slot.exit.i.i1021
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %5508, i64 noundef %.0.i.i.i.i1023, i8 noundef signext %spec.select.i1016)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %5508, i64 noundef %.0.i.i.i.i1023, i8 noundef signext %spec.select.i1016)
   br label %ir_emit_lea.exit
 
 5859:                                             ; preds = %851
@@ -18026,7 +18026,7 @@ ir_ref_spill_slot.exit.i.i1046:                   ; preds = %6236, %6219
   br label %ir_emit_lea.exit
 
 6243:                                             ; preds = %ir_ref_spill_slot.exit.i.i1046
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %5862, i64 noundef %.0.i.i.i.i1048, i8 noundef signext %spec.select.i1041)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %5862, i64 noundef %.0.i.i.i.i1048, i8 noundef signext %spec.select.i1041)
   br label %ir_emit_lea.exit
 
 6244:                                             ; preds = %851
@@ -18087,7 +18087,7 @@ ir_ref_spill_slot.exit.i.i1046:                   ; preds = %6236, %6219
   %..i.i1081 = select i1 %6273, i32 2209, i32 2219
   %.1.i.i1082 = select i1 %6273, i32 2229, i32 2230
   %.sink.i.i1083 = select i1 %.not.i.i1079, i32 %.1.i.i1082, i32 %..i.i1081
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %6271, i32 noundef %.sink.i.i1083, i32 noundef %6274, i32 noundef %6276)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %6271, i32 noundef %.sink.i.i1083, i32 noundef %6274, i32 noundef %6276)
   br label %6475
 
 6277:                                             ; preds = %6267
@@ -18668,7 +18668,7 @@ ir_ref_spill_slot.exit.i.i1071:                   ; preds = %6509, %6492
   br label %ir_emit_lea.exit
 
 6516:                                             ; preds = %ir_ref_spill_slot.exit.i.i1071
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %6247, i64 noundef %.0.i.i.i.i1073, i8 noundef signext %spec.select.i1067)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6247, i64 noundef %.0.i.i.i.i1073, i8 noundef signext %spec.select.i1067)
   br label %ir_emit_lea.exit
 
 6517:                                             ; preds = %851
@@ -18725,7 +18725,7 @@ ir_emit_mov.exit.i1107:                           ; preds = %switch.lookup2096, 
   %6544 = zext nneg i8 %6526 to i32
   %6545 = zext nneg i8 %.0.i1097 to i32
   %6546 = getelementptr inbounds i8, ptr %.val.i1106, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %6546, i32 noundef %.sink.i.i1108, i32 noundef %6545, i32 noundef %6544)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %6546, i32 noundef %.sink.i.i1108, i32 noundef %6545, i32 noundef %6544)
   br label %ir_emit_store.exit.thread59.i
 
 6547:                                             ; preds = %6536
@@ -18802,7 +18802,7 @@ ir_ref_spill_slot.exit.i.i1100:                   ; preds = %6582, %6565
   br label %ir_emit_lea.exit
 
 6589:                                             ; preds = %ir_ref_spill_slot.exit.i.i1100
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %6520, i64 noundef %.0.i.i.i.i1102, i8 noundef signext %.0.i1097)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6520, i64 noundef %.0.i.i.i.i1102, i8 noundef signext %.0.i1097)
   br label %ir_emit_lea.exit
 
 ir_emit_store.exit.i1109:                         ; preds = %6534
@@ -18877,7 +18877,7 @@ ir_ref_spill_slot.exit.i50.i:                     ; preds = %6623, %6606
   br label %ir_emit_lea.exit
 
 6630:                                             ; preds = %ir_ref_spill_slot.exit.i50.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %6520, i64 noundef %.0.i.i.i52.i, i8 noundef signext %6526)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6520, i64 noundef %.0.i.i.i52.i, i8 noundef signext %6526)
   br label %ir_emit_lea.exit
 
 6631:                                             ; preds = %851
@@ -18928,7 +18928,7 @@ ir_ref_spill_slot.exit.i50.i:                     ; preds = %6623, %6606
   %..i.i1124 = select i1 %6655, i32 2209, i32 2219
   %.1.i.i1125 = select i1 %6655, i32 2229, i32 2230
   %.sink.i.i1126 = select i1 %.not.i.i1123, i32 %.1.i.i1125, i32 %..i.i1124
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %6653, i32 noundef %.sink.i.i1126, i32 noundef %6657, i32 noundef %6659)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %6653, i32 noundef %.sink.i.i1126, i32 noundef %6657, i32 noundef %6659)
   br label %ir_emit_store.exit.thread60.i
 
 6660:                                             ; preds = %6650
@@ -19005,7 +19005,7 @@ ir_ref_spill_slot.exit.i.i1115:                   ; preds = %6695, %6678
   br label %ir_emit_lea.exit
 
 6702:                                             ; preds = %ir_ref_spill_slot.exit.i.i1115
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %6634, i64 noundef %.0.i.i.i.i1117, i8 noundef signext %.0.i1112)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6634, i64 noundef %.0.i.i.i.i1117, i8 noundef signext %.0.i1112)
   br label %ir_emit_lea.exit
 
 ir_emit_store.exit.i1127:                         ; preds = %6648
@@ -19080,7 +19080,7 @@ ir_ref_spill_slot.exit.i51.i:                     ; preds = %6736, %6719
   br label %ir_emit_lea.exit
 
 6743:                                             ; preds = %ir_ref_spill_slot.exit.i51.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %6634, i64 noundef %.0.i.i.i53.i, i8 noundef signext %6640)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6634, i64 noundef %.0.i.i.i53.i, i8 noundef signext %6640)
   br label %ir_emit_lea.exit
 
 6744:                                             ; preds = %851
@@ -20530,7 +20530,7 @@ ir_emit_mov.exit.i1217:                           ; preds = %switch.lookup2100, 
   %7426 = sext i8 %spec.select.i1192 to i32
   %7427 = zext nneg i8 %.0315.i to i32
   %7428 = getelementptr inbounds i8, ptr %.val.i1216, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %7428, i32 noundef %.sink.i.i1218, i32 noundef %7427, i32 noundef %7426)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %7428, i32 noundef %.sink.i.i1218, i32 noundef %7427, i32 noundef %7426)
   br label %ir_emit_load_mem.exit.i1206
 
 7429:                                             ; preds = %7418
@@ -20547,7 +20547,7 @@ ir_emit_mov.exit.i1217:                           ; preds = %switch.lookup2100, 
   %..i.i1204 = select i1 %7432, i32 2209, i32 2219
   %.1.i.i1205 = select i1 %7432, i32 2229, i32 2230
   %.sink.i368.i = select i1 %.not.i367.i, i32 %.1.i.i1205, i32 %..i.i1204
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %7430, i32 noundef %.sink.i368.i, i32 noundef %7433, i32 noundef %7435)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %7430, i32 noundef %.sink.i368.i, i32 noundef %7433, i32 noundef %7435)
   br label %ir_emit_load_mem.exit.i1206
 
 7436:                                             ; preds = %7416
@@ -20660,7 +20660,7 @@ ir_emit_mov.exit373.i:                            ; preds = %switch.lookup2104, 
   %7478 = sext i8 %spec.select.i1192 to i32
   %7479 = sext i8 %.1317.i to i32
   %7480 = getelementptr inbounds i8, ptr %.val362.i, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %7480, i32 noundef %.sink.i372.i, i32 noundef %7479, i32 noundef %7478)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %7480, i32 noundef %.sink.i372.i, i32 noundef %7479, i32 noundef %7478)
   br label %ir_emit_load_mem.exit388.i
 
 7481:                                             ; preds = %7470
@@ -20677,7 +20677,7 @@ ir_emit_mov.exit373.i:                            ; preds = %switch.lookup2104, 
   %..i375.i = select i1 %7484, i32 2209, i32 2219
   %.1.i376.i = select i1 %7484, i32 2229, i32 2230
   %.sink.i377.i = select i1 %.not.i374.i, i32 %.1.i376.i, i32 %..i375.i
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %7482, i32 noundef %.sink.i377.i, i32 noundef %7485, i32 noundef %7487)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %7482, i32 noundef %.sink.i377.i, i32 noundef %7485, i32 noundef %7487)
   br label %ir_emit_load_mem.exit388.i
 
 7488:                                             ; preds = %ir_emit_load_mem.exit.i1206
@@ -20827,7 +20827,7 @@ ir_ref_spill_slot.exit.i.i1209:                   ; preds = %7554, %7537
   br label %ir_emit_lea.exit
 
 7561:                                             ; preds = %ir_ref_spill_slot.exit.i.i1209
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %7288, i64 noundef %.0.i.i.i.i1211, i8 noundef signext %spec.select.i1192)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %7288, i64 noundef %.0.i.i.i.i1211, i8 noundef signext %spec.select.i1192)
   br label %ir_emit_lea.exit
 
 7562:                                             ; preds = %851
@@ -21654,7 +21654,7 @@ ir_emit_mov.exit.i1254:                           ; preds = %switch.lookup2108, 
   %.sink.i.i1255 = phi i32 [ 2123, %7918 ], [ %switch.load2111, %switch.lookup2108 ]
   %7924 = zext nneg i8 %.0112.i to i32
   %7925 = getelementptr inbounds i8, ptr %.val.i1253, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %7925, i32 noundef %.sink.i.i1255, i32 noundef %7924, i32 noundef %7916)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %7925, i32 noundef %.sink.i.i1255, i32 noundef %7924, i32 noundef %7916)
   br label %7927
 
 7926:                                             ; preds = %7917
@@ -21806,7 +21806,7 @@ ir_ref_spill_slot.exit.i.i1262:                   ; preds = %7988, %7971
   br label %ir_emit_lea.exit
 
 7995:                                             ; preds = %ir_ref_spill_slot.exit.i.i1262
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %7897, i64 noundef %.0.i.i.i.i1264, i8 noundef signext %spec.select.i1252)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %7897, i64 noundef %.0.i.i.i.i1264, i8 noundef signext %spec.select.i1252)
   br label %ir_emit_lea.exit
 
 7996:                                             ; preds = %851
@@ -21902,7 +21902,7 @@ ir_ref_spill_slot.exit.i.i1275:                   ; preds = %8050, %8033
   br label %ir_emit_lea.exit
 
 8057:                                             ; preds = %ir_ref_spill_slot.exit.i.i1275
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %8020, i64 noundef %.0.i.i.i.i1277, i8 noundef signext %spec.select.i1270)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %8020, i64 noundef %.0.i.i.i.i1277, i8 noundef signext %spec.select.i1270)
   br label %ir_emit_lea.exit
 
 8058:                                             ; preds = %851
@@ -22141,7 +22141,7 @@ ir_emit_osr_entry_loads.exit:                     ; preds = %ir_emit_osr_entry_l
 8178:                                             ; preds = %851
   %8179 = load ptr, ptr %36, align 8
   %8180 = getelementptr inbounds i8, ptr %8179, i64 32
-  call fastcc void @ir_emit_epilogue(ptr noundef %0)
+  call fastcc void @ir_emit_epilogue(ptr noundef readonly %0)
   call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %8180, i32 noundef 22075)
   br label %ir_emit_lea.exit
 
@@ -22183,7 +22183,7 @@ ir_emit_mov.exit.i1297:                           ; preds = %switch.lookup2116, 
   %.sink.i.i1298 = phi i32 [ 2123, %8194 ], [ %switch.load2119, %switch.lookup2116 ]
   %8200 = zext nneg i8 %8185 to i32
   %8201 = getelementptr inbounds i8, ptr %.val.i1296, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %8201, i32 noundef %.sink.i.i1298, i32 noundef %8200, i32 noundef 0)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %8201, i32 noundef %.sink.i.i1298, i32 noundef %8200, i32 noundef 0)
   br label %ir_emit_return_int.exit
 
 8202:                                             ; preds = %8186
@@ -22194,7 +22194,7 @@ ir_emit_mov.exit.i1297:                           ; preds = %switch.lookup2116, 
 ir_emit_return_int.exit:                          ; preds = %8181, %ir_emit_mov.exit.i1297, %8202
   %8204 = load ptr, ptr %36, align 8
   %8205 = getelementptr inbounds i8, ptr %8204, i64 32
-  call fastcc void @ir_emit_epilogue(ptr noundef nonnull %0)
+  call fastcc void @ir_emit_epilogue(ptr noundef nonnull readonly %0)
   call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %8205, i32 noundef 22075)
   br label %ir_emit_lea.exit
 
@@ -22232,7 +22232,7 @@ ir_emit_return_int.exit:                          ; preds = %8181, %ir_emit_mov.
   %..i.i1302 = select i1 %8222, i32 2209, i32 2219
   %.1.i.i1303 = select i1 %8222, i32 2229, i32 2230
   %.sink.i.i1304 = select i1 %.not.i.i1301, i32 %.1.i.i1303, i32 %..i.i1302
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %8220, i32 noundef %.sink.i.i1304, i32 noundef 0, i32 noundef %8224)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %8220, i32 noundef %.sink.i.i1304, i32 noundef 0, i32 noundef %8224)
   br label %ir_emit_return_fp.exit
 
 8225:                                             ; preds = %8218, %8206
@@ -22242,7 +22242,7 @@ ir_emit_return_int.exit:                          ; preds = %8181, %ir_emit_mov.
 ir_emit_return_fp.exit:                           ; preds = %8206, %8219, %8225
   %8226 = load ptr, ptr %36, align 8
   %8227 = getelementptr inbounds i8, ptr %8226, i64 32
-  call fastcc void @ir_emit_epilogue(ptr noundef nonnull %0)
+  call fastcc void @ir_emit_epilogue(ptr noundef nonnull readonly %0)
   call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %8227, i32 noundef 22075)
   br label %ir_emit_lea.exit
 
@@ -22251,8 +22251,8 @@ ir_emit_return_fp.exit:                           ; preds = %8206, %8219, %8225
   %8230 = sext i32 %.04841917 to i64
   %8231 = getelementptr inbounds [4 x i8], ptr %8229, i64 %8230, i64 1
   %8232 = load i8, ptr %8231, align 1
-  %8233 = call fastcc i32 @ir_emit_arguments(ptr noundef %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %8232)
-  call fastcc void @ir_emit_call_ex(ptr noundef %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i32 noundef %8233)
+  %8233 = call fastcc i32 @ir_emit_arguments(ptr noundef %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %8232)
+  call fastcc void @ir_emit_call_ex(ptr noundef %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i32 noundef %8233)
   br label %ir_emit_lea.exit
 
 8234:                                             ; preds = %851
@@ -22262,15 +22262,15 @@ ir_emit_return_fp.exit:                           ; preds = %8206, %8219, %8225
   %8238 = sext i32 %.04841917 to i64
   %8239 = getelementptr inbounds [4 x i8], ptr %8237, i64 %8238, i64 1
   %8240 = load i8, ptr %8239, align 1
-  %8241 = call fastcc i32 @ir_emit_arguments(ptr noundef %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %8240)
+  %8241 = call fastcc i32 @ir_emit_arguments(ptr noundef %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %8240)
   %.not.i1305 = icmp eq i32 %8241, 0
   br i1 %.not.i1305, label %8245, label %8242
 
 8242:                                             ; preds = %8234
-  call fastcc void @ir_emit_call_ex(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i32 noundef %8241)
+  call fastcc void @ir_emit_call_ex(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i32 noundef %8241)
   %8243 = load ptr, ptr %36, align 8
   %8244 = getelementptr inbounds i8, ptr %8243, i64 32
-  call fastcc void @ir_emit_epilogue(ptr noundef nonnull %0)
+  call fastcc void @ir_emit_epilogue(ptr noundef nonnull readonly %0)
   call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %8244, i32 noundef 22075)
   br label %ir_emit_lea.exit
 
@@ -22989,7 +22989,7 @@ ir_ref_spill_slot.exit.i1338:                     ; preds = %8563, %8546
   %8587 = sext i32 %.04841917 to i64
   %8588 = getelementptr inbounds [4 x i8], ptr %8586, i64 %8587, i64 2
   %8589 = load i8, ptr %8588, align 1
-  %8590 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %8589)
+  %8590 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %8589)
   br label %8611
 
 8591:                                             ; preds = %8573
@@ -24142,7 +24142,7 @@ ir_var_spill_slot.exit.i:                         ; preds = %8604, %8600
   %8910 = sext i32 %.04841917 to i64
   %8911 = getelementptr inbounds [4 x i8], ptr %8909, i64 %8910, i64 2
   %8912 = load i8, ptr %8911, align 1
-  %8913 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %8912)
+  %8913 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %8912)
   %.pre1976 = load ptr, ptr %0, align 8
   br label %8934
 
@@ -25059,7 +25059,7 @@ ir_var_spill_slot.exit.i1355:                     ; preds = %8927, %8923
   %9199 = sext i32 %.04841917 to i64
   %9200 = getelementptr inbounds [4 x i8], ptr %9193, i64 %9199, i64 2
   %9201 = load i8, ptr %9200, align 1
-  %9202 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %9201)
+  %9202 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %9201)
   br label %9223
 
 9203:                                             ; preds = %9180
@@ -25130,7 +25130,7 @@ ir_emit_mov.exit.i1365:                           ; preds = %switch.lookup2120, 
   %.sink.i.i1366 = phi i32 [ 2123, %9228 ], [ %switch.load2123, %switch.lookup2120 ]
   %9234 = zext nneg i8 %.0.i1363 to i32
   %9235 = getelementptr inbounds i8, ptr %.val.i1364, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %9235, i32 noundef %.sink.i.i1366, i32 noundef %9234, i32 noundef 1)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %9235, i32 noundef %.sink.i.i1366, i32 noundef %9234, i32 noundef 1)
   br label %9237
 
 9236:                                             ; preds = %9227
@@ -26503,7 +26503,7 @@ ir_emit_mov.exit.i1365:                           ; preds = %switch.lookup2120, 
   %9597 = sext i32 %.04841917 to i64
   %9598 = getelementptr inbounds [4 x i8], ptr %9596, i64 %9597, i64 2
   %9599 = load i8, ptr %9598, align 1
-  %9600 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull %.04851911, i8 noundef signext %9599)
+  %9600 = call fastcc i64 @ir_fuse_mem(ptr noundef nonnull %0, i32 noundef %.04841917, ptr noundef nonnull readonly %.04851911, i8 noundef signext %9599)
   br label %9621
 
 9601:                                             ; preds = %9578
@@ -28431,7 +28431,7 @@ ir_ref_spill_slot.exit.i.i1386:                   ; preds = %10239, %10222
   br label %ir_emit_lea.exit
 
 10246:                                            ; preds = %ir_ref_spill_slot.exit.i.i1386
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10182, i64 noundef %.0.i.i.i.i1388, i8 noundef signext %spec.select.i1380)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10182, i64 noundef %.0.i.i.i.i1388, i8 noundef signext %spec.select.i1380)
   br label %ir_emit_lea.exit
 
 10247:                                            ; preds = %851
@@ -28575,7 +28575,7 @@ ir_ref_spill_slot.exit.i.i1401:                   ; preds = %10324, %10307
   br label %ir_emit_lea.exit
 
 10330:                                            ; preds = %ir_ref_spill_slot.exit.i.i1401
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10253, i64 noundef %.0.i.i.i.i1403, i8 noundef signext %spec.select.i1393)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10253, i64 noundef %.0.i.i.i.i1403, i8 noundef signext %spec.select.i1393)
   br label %ir_emit_lea.exit
 
 10331:                                            ; preds = %851
@@ -28860,7 +28860,7 @@ ir_ref_spill_slot.exit.i.i1425:                   ; preds = %10488, %10471
   br label %ir_emit_lea.exit
 
 10495:                                            ; preds = %ir_ref_spill_slot.exit.i.i1425
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10442, i64 noundef %.0.i.i.i.i1427, i8 noundef signext %10439)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10442, i64 noundef %.0.i.i.i.i1427, i8 noundef signext %10439)
   br label %ir_emit_lea.exit
 
 10496:                                            ; preds = %10436
@@ -28992,7 +28992,7 @@ ir_ref_spill_slot.exit.i83.i:                     ; preds = %10558, %10541
   br label %ir_emit_lea.exit
 
 10565:                                            ; preds = %ir_ref_spill_slot.exit.i83.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10442, i64 noundef %.0.i.i.i85.i, i8 noundef signext %10439)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10442, i64 noundef %.0.i.i.i85.i, i8 noundef signext %10439)
   br label %ir_emit_lea.exit
 
 10566:                                            ; preds = %10496
@@ -29022,7 +29022,7 @@ switch.lookup2124:                                ; preds = %10570
 ir_emit_mov.exit.i1439:                           ; preds = %switch.lookup2124, %10570
   %.sink.i.i1440 = phi i32 [ 2123, %10570 ], [ %switch.load2127, %switch.lookup2124 ]
   %10576 = getelementptr inbounds i8, ptr %.val.i1438, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10576, i32 noundef %.sink.i.i1440, i32 noundef %10446, i32 noundef %10567)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %10576, i32 noundef %.sink.i.i1440, i32 noundef %10446, i32 noundef %10567)
   br label %10583
 
 10577:                                            ; preds = %10568
@@ -29037,7 +29037,7 @@ ir_emit_mov.exit.i1439:                           ; preds = %switch.lookup2124, 
   %..i.i1433 = select i1 %10580, i32 2209, i32 2219
   %.1.i.i1434 = select i1 %10580, i32 2229, i32 2230
   %.sink.i90.i = select i1 %.not.i.i1432, i32 %.1.i.i1434, i32 %..i.i1433
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10578, i32 noundef %.sink.i90.i, i32 noundef %10581, i32 noundef %10582)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %10578, i32 noundef %.sink.i90.i, i32 noundef %10581, i32 noundef %10582)
   br label %10583
 
 10583:                                            ; preds = %10577, %ir_emit_mov.exit.i1439, %10566
@@ -29168,7 +29168,7 @@ ir_ref_spill_slot.exit.i99.i:                     ; preds = %10643, %10626
   br label %ir_emit_lea.exit
 
 10650:                                            ; preds = %ir_ref_spill_slot.exit.i99.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10442, i64 noundef %.0.i.i.i101.i, i8 noundef signext %10501)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10442, i64 noundef %.0.i.i.i101.i, i8 noundef signext %10501)
   br label %ir_emit_lea.exit
 
 10651:                                            ; preds = %851
@@ -29302,7 +29302,7 @@ switch.lookup2128:                                ; preds = %10701
 ir_emit_mov.exit.i1461:                           ; preds = %switch.lookup2128, %10701
   %.sink.i.i1462 = phi i32 [ 2123, %10701 ], [ %switch.load2131, %switch.lookup2128 ]
   %10707 = getelementptr inbounds i8, ptr %.val.i1460, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10707, i32 noundef %.sink.i.i1462, i32 noundef %10697, i32 noundef %10698)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %10707, i32 noundef %.sink.i.i1462, i32 noundef %10697, i32 noundef %10698)
   br label %ir_emit_lea.exit
 
 10708:                                            ; preds = %10699
@@ -29317,7 +29317,7 @@ ir_emit_mov.exit.i1461:                           ; preds = %switch.lookup2128, 
   %..i.i1458 = select i1 %10711, i32 2209, i32 2219
   %.1.i.i1459 = select i1 %10711, i32 2229, i32 2230
   %.sink.i47.i = select i1 %.not.i46.i, i32 %.1.i.i1459, i32 %..i.i1458
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10709, i32 noundef %.sink.i47.i, i32 noundef %10712, i32 noundef %10713)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %10709, i32 noundef %.sink.i47.i, i32 noundef %10712, i32 noundef %10713)
   br label %ir_emit_lea.exit
 
 10714:                                            ; preds = %10692
@@ -29604,7 +29604,7 @@ ir_ref_spill_slot.exit.i.i1469:                   ; preds = %10859, %10842
   br label %ir_emit_lea.exit
 
 10866:                                            ; preds = %ir_ref_spill_slot.exit.i.i1469
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10718, i64 noundef %.0.i.i.i63.i, i8 noundef signext %spec.select.i1463)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10718, i64 noundef %.0.i.i.i63.i, i8 noundef signext %spec.select.i1463)
   br label %ir_emit_lea.exit
 
 10867:                                            ; preds = %851
@@ -29889,7 +29889,7 @@ ir_ref_spill_slot.exit.i.i1495:                   ; preds = %11011, %10994
   br label %ir_emit_lea.exit
 
 11018:                                            ; preds = %ir_ref_spill_slot.exit.i.i1495
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10870, i64 noundef %.0.i.i.i65.i, i8 noundef signext %spec.select.i1488)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10870, i64 noundef %.0.i.i.i65.i, i8 noundef signext %spec.select.i1488)
   br label %ir_emit_lea.exit
 
 11019:                                            ; preds = %851
@@ -30514,7 +30514,7 @@ ir_emit_mov.exit.i1617:                           ; preds = %switch.lookup2132, 
   %.sink.i.i1618 = phi i32 [ 2123, %11328 ], [ %switch.load2135, %switch.lookup2132 ]
   %11334 = zext nneg i8 %.092.i to i32
   %11335 = getelementptr inbounds i8, ptr %.val.i1616, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %11335, i32 noundef %.sink.i.i1618, i32 noundef %11334, i32 noundef %11326)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %11335, i32 noundef %.sink.i.i1618, i32 noundef %11334, i32 noundef %11326)
   br label %11338
 
 11336:                                            ; preds = %11327
@@ -30636,7 +30636,7 @@ ir_ref_spill_slot.exit.i.i1621:                   ; preds = %11385, %11368
   br label %ir_emit_lea.exit
 
 11392:                                            ; preds = %ir_ref_spill_slot.exit.i.i1621
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %11355, i64 noundef %.0.i.i.i.i1623, i8 noundef signext %11278)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %11355, i64 noundef %.0.i.i.i.i1623, i8 noundef signext %11278)
   br label %ir_emit_lea.exit
 
 11393:                                            ; preds = %11346
@@ -30953,7 +30953,7 @@ ir_ref_spill_slot.exit.i.i1650:                   ; preds = %11565, %11548
   br label %ir_emit_lea.exit
 
 11571:                                            ; preds = %ir_ref_spill_slot.exit.i.i1650
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %11505, i64 noundef %.0.i.i.i.i1652, i8 noundef signext %11509)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %11505, i64 noundef %.0.i.i.i.i1652, i8 noundef signext %11509)
   br label %ir_emit_lea.exit
 
 11572:                                            ; preds = %851
@@ -31282,7 +31282,7 @@ ir_emit_mov.exit.i1673:                           ; preds = %switch.lookup2136, 
   %.sink.i.i1674 = phi i32 [ 2123, %11734 ], [ %switch.load2139, %switch.lookup2136 ]
   %11742 = sext i8 %spec.select.i1670 to i32
   %11743 = getelementptr inbounds i8, ptr %.val.i1672, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %11743, i32 noundef %.sink.i.i1674, i32 noundef 0, i32 noundef %11742)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %11743, i32 noundef %.sink.i.i1674, i32 noundef 0, i32 noundef %11742)
   br label %11744
 
 11744:                                            ; preds = %ir_emit_mov.exit.i1673, %11733
@@ -31357,7 +31357,7 @@ ir_ref_spill_slot.exit.i.i1676:                   ; preds = %11781, %11764
   br label %ir_emit_lea.exit
 
 11788:                                            ; preds = %ir_ref_spill_slot.exit.i.i1676
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %11751, i64 noundef %.0.i.i.i.i1678, i8 noundef signext %spec.select.i1670)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %11751, i64 noundef %.0.i.i.i.i1678, i8 noundef signext %spec.select.i1670)
   br label %ir_emit_lea.exit
 
 11789:                                            ; preds = %851, %851
@@ -33277,7 +33277,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %32
   %.sink.i = phi i32 [ 2123, %32 ], [ %switch.load, %switch.lookup ]
   %38 = zext nneg i8 %.0 to i32
   %39 = getelementptr inbounds i8, ptr %.val, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %39, i32 noundef %.sink.i, i32 noundef %38, i32 noundef %30)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %39, i32 noundef %.sink.i, i32 noundef %38, i32 noundef %30)
   br label %41
 
 40:                                               ; preds = %31
@@ -35496,7 +35496,7 @@ ir_ref_spill_slot.exit.i:                         ; preds = %719, %697
   br label %ir_emit_store.exit
 
 726:                                              ; preds = %ir_ref_spill_slot.exit.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %10, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 ir_emit_store.exit:                               ; preds = %726, %725, %678
@@ -35566,7 +35566,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %33
   %.sink.i = phi i32 [ 2123, %33 ], [ %switch.load, %switch.lookup ]
   %39 = zext nneg i8 %.0 to i32
   %40 = getelementptr inbounds i8, ptr %.val, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %40, i32 noundef %.sink.i, i32 noundef %39, i32 noundef 0)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %40, i32 noundef %.sink.i, i32 noundef %39, i32 noundef 0)
   br label %42
 
 41:                                               ; preds = %32
@@ -37426,7 +37426,7 @@ ir_emit_mov.exit966:                              ; preds = %switch.lookup1017, 
   %.sink.i965 = phi i32 [ 2123, %681 ], [ %switch.load1020, %switch.lookup1017 ]
   %687 = sext i8 %spec.select to i32
   %688 = getelementptr inbounds i8, ptr %.val922, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %688, i32 noundef %.sink.i965, i32 noundef 0, i32 noundef %687)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %688, i32 noundef %.sink.i965, i32 noundef 0, i32 noundef %687)
   br label %689
 
 689:                                              ; preds = %680, %ir_emit_mov.exit966
@@ -37505,7 +37505,7 @@ ir_ref_spill_slot.exit.i:                         ; preds = %730, %708
   br label %ir_emit_store.exit
 
 737:                                              ; preds = %ir_ref_spill_slot.exit.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %13, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 738:                                              ; preds = %680
@@ -37577,7 +37577,7 @@ ir_ref_spill_slot.exit.i968:                      ; preds = %775, %753
   br label %ir_emit_store.exit
 
 782:                                              ; preds = %ir_ref_spill_slot.exit.i968
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %13, i64 noundef %.0.i.i.i970, i8 noundef signext 0)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i970, i8 noundef signext 0)
   br label %ir_emit_store.exit
 
 783:                                              ; preds = %678
@@ -37676,7 +37676,7 @@ ir_ref_spill_slot.exit.i976:                      ; preds = %833, %811
   br label %ir_emit_store.exit
 
 840:                                              ; preds = %ir_ref_spill_slot.exit.i976
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %13, i64 noundef %.0.i.i.i978, i8 noundef signext %24)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i978, i8 noundef signext %24)
   br label %ir_emit_store.exit
 
 841:                                              ; preds = %788
@@ -37754,7 +37754,7 @@ ir_emit_mov.exit986:                              ; preds = %switch.lookup1021, 
   %.sink.i985 = phi i32 [ 2123, %875 ], [ %switch.load1024, %switch.lookup1021 ]
   %878 = sext i8 %spec.select to i32
   %879 = getelementptr inbounds i8, ptr %.val923, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %879, i32 noundef %.sink.i985, i32 noundef 2, i32 noundef %878)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %879, i32 noundef %.sink.i985, i32 noundef 2, i32 noundef %878)
   br label %880
 
 880:                                              ; preds = %874, %ir_emit_mov.exit986
@@ -37833,7 +37833,7 @@ ir_ref_spill_slot.exit.i988:                      ; preds = %921, %899
   br label %ir_emit_store.exit
 
 928:                                              ; preds = %ir_ref_spill_slot.exit.i988
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %13, i64 noundef %.0.i.i.i990, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i990, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 929:                                              ; preds = %874
@@ -37905,7 +37905,7 @@ ir_ref_spill_slot.exit.i996:                      ; preds = %966, %944
   br label %ir_emit_store.exit
 
 973:                                              ; preds = %ir_ref_spill_slot.exit.i996
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %13, i64 noundef %.0.i.i.i998, i8 noundef signext 2)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i998, i8 noundef signext 2)
   br label %ir_emit_store.exit
 
 ir_emit_store.exit:                               ; preds = %973, %972, %928, %927, %840, %839, %782, %781, %737, %736, %792, %ir_ref_spill_slot_offset.exit, %880, %689
@@ -38751,7 +38751,7 @@ ir_emit_swap.exit.i:                              ; preds = %switch.lookup, %380
   %sext.i = shl i32 %371, 24
   %386 = ashr exact i32 %sext.i, 24
   %387 = getelementptr inbounds i8, ptr %.val567.i, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %387, i32 noundef %.sink.i.i, i32 noundef %350, i32 noundef %386)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %387, i32 noundef %.sink.i.i, i32 noundef %350, i32 noundef %386)
   %388 = and i32 %371, 63
   %389 = zext nneg i32 %388 to i64
   %390 = shl nuw i64 1, %389
@@ -38796,7 +38796,7 @@ switch.lookup114:                                 ; preds = %405
 ir_emit_mov.exit.i:                               ; preds = %switch.lookup114, %405
   %.sink.i568.i = phi i32 [ 2123, %405 ], [ %switch.load117, %switch.lookup114 ]
   %411 = getelementptr inbounds i8, ptr %.val.i, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %411, i32 noundef %.sink.i568.i, i32 noundef %350, i32 noundef %235)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %411, i32 noundef %.sink.i568.i, i32 noundef %350, i32 noundef %235)
   br label %484
 
 412:                                              ; preds = %403
@@ -38870,7 +38870,7 @@ ir_vreg_spill_slot.exit.i:                        ; preds = %439, %422
   %..i.i = select i1 %450, i32 2209, i32 2219
   %.1.i.i = select i1 %450, i32 2229, i32 2230
   %.sink.i570.i = select i1 %.not.i569.i, i32 %.1.i.i, i32 %..i.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %448, i32 noundef %.sink.i570.i, i32 noundef %314, i32 noundef %451)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %448, i32 noundef %.sink.i570.i, i32 noundef %314, i32 noundef %451)
   br label %484
 
 452:                                              ; preds = %444
@@ -38985,19 +38985,19 @@ ir_vreg_spill_slot.exit576.i:                     ; preds = %479, %462
   ]
 
 515:                                              ; preds = %513
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %512, i32 noundef 970, i32 noundef %492, i32 noundef 4, i32 noundef -16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %512, i32 noundef 970, i32 noundef %492, i32 noundef 4, i32 noundef -16)
   br label %ir_emit_store_mem.exit.i
 
 516:                                              ; preds = %513
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %512, i32 noundef 980, i32 noundef %492, i32 noundef 4, i32 noundef -16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %512, i32 noundef 980, i32 noundef %492, i32 noundef 4, i32 noundef -16)
   br label %ir_emit_store_mem.exit.i
 
 517:                                              ; preds = %513
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %512, i32 noundef 981, i32 noundef %492, i32 noundef 4, i32 noundef -16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %512, i32 noundef 981, i32 noundef %492, i32 noundef 4, i32 noundef -16)
   br label %ir_emit_store_mem.exit.i
 
 518:                                              ; preds = %513
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %512, i32 noundef 991, i32 noundef %492, i32 noundef 4, i32 noundef -16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %512, i32 noundef 991, i32 noundef %492, i32 noundef 4, i32 noundef -16)
   br label %ir_emit_store_mem.exit.i
 
 519:                                              ; preds = %511
@@ -46445,7 +46445,7 @@ ir_ref_spill_slot.exit:                           ; preds = %20, %42
   br label %ir_emit_store_mem.exit
 
 50:                                               ; preds = %ir_ref_spill_slot.exit
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %.0.i.i, i8 noundef signext %3)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i.i, i8 noundef signext %3)
   br label %ir_emit_store_mem.exit
 
 ir_emit_store_mem.exit:                           ; preds = %48, %50
@@ -52663,7 +52663,7 @@ ir_call_used_stack.exit:                          ; preds = %46
   br label %ir_emit_store_mem.exit
 
 113:                                              ; preds = %109
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %75, i64 noundef %111, i8 noundef signext %69)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %75, i64 noundef %111, i8 noundef signext %69)
   br label %ir_emit_store_mem.exit
 
 ir_emit_store_mem.exit:                           ; preds = %113, %112, %107
@@ -53493,7 +53493,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %210
   %.sink.i = phi i32 [ 2123, %210 ], [ %switch.load, %switch.lookup ]
   %216 = zext nneg i8 %spec.select187 to i32
   %217 = getelementptr inbounds i8, ptr %.val, i64 32
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %217, i32 noundef %.sink.i, i32 noundef 0, i32 noundef %216)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %217, i32 noundef %.sink.i, i32 noundef 0, i32 noundef %216)
   %.pre236 = load ptr, ptr %202, align 8
   %.phi.trans.insert237 = getelementptr inbounds [4 x i8], ptr %.pre236, i64 %204
   %.pre238 = load i8, ptr %.phi.trans.insert237, align 1
@@ -53575,7 +53575,7 @@ ir_ref_spill_slot.exit.i:                         ; preds = %259, %237
   br label %ir_emit_store.exit
 
 266:                                              ; preds = %ir_ref_spill_slot.exit.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %222, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select187)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %222, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select187)
   br label %ir_emit_store.exit
 
 267:                                              ; preds = %209
@@ -53670,7 +53670,7 @@ ir_emit_store.exit205:                            ; preds = %311, %289
   %..i = select i1 %321, i32 2209, i32 2219
   %.1.i = select i1 %321, i32 2229, i32 2230
   %.sink.i207 = select i1 %.not.i206, i32 %.1.i, i32 %..i
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %319, i32 noundef %.sink.i207, i32 noundef %323, i32 noundef 0)
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %319, i32 noundef %.sink.i207, i32 noundef %323, i32 noundef 0)
   %.pre234 = load ptr, ptr %202, align 8
   %.phi.trans.insert = getelementptr inbounds [4 x i8], ptr %.pre234, i64 %204
   %.pre235 = load i8, ptr %.phi.trans.insert, align 1
@@ -53752,7 +53752,7 @@ ir_ref_spill_slot.exit.i209:                      ; preds = %365, %343
   br label %ir_emit_store.exit
 
 372:                                              ; preds = %ir_ref_spill_slot.exit.i209
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %328, i64 noundef %.0.i.i.i211, i8 noundef signext %spec.select187)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %328, i64 noundef %.0.i.i.i211, i8 noundef signext %spec.select187)
   br label %ir_emit_store.exit
 
 373:                                              ; preds = %316
@@ -53824,7 +53824,7 @@ ir_ref_spill_slot.exit.i209:                      ; preds = %365, %343
 ir_emit_store.exit223:                            ; preds = %417, %395
   %.0.in.i.i.i218 = phi i64 [ %402, %395 ], [ %421, %417 ]
   %.0.i.i.i219 = or disjoint i64 %.0.in.i.i.i218, 561850441793536
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %380, i64 noundef %.0.i.i.i219, i8 noundef signext 16)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %380, i64 noundef %.0.i.i.i219, i8 noundef signext 16)
   br label %ir_emit_store.exit
 
 ir_emit_store.exit:                               ; preds = %372, %371, %266, %265, %267, %ir_emit_store.exit205, %218, %373, %ir_emit_store.exit223, %324, %197
@@ -53866,7 +53866,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %13
   %20 = sext i8 %8 to i32
   %21 = sext i8 %10 to i32
   %22 = getelementptr inbounds i8, ptr %.val187, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %22, i32 noundef %.sink.i, i32 noundef %21, i32 noundef %20)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %22, i32 noundef %.sink.i, i32 noundef %21, i32 noundef %20)
   br label %.loopexit
 
 23:                                               ; preds = %6
@@ -53885,7 +53885,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %13
   %..i = select i1 %28, i32 2209, i32 2219
   %.1.i = select i1 %28, i32 2229, i32 2230
   %.sink.i201 = select i1 %.not.i, i32 %.1.i, i32 %..i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %26, i32 noundef %.sink.i201, i32 noundef %30, i32 noundef %32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %26, i32 noundef %.sink.i201, i32 noundef %30, i32 noundef %32)
   br label %.loopexit
 
 33:                                               ; preds = %4
@@ -53983,7 +53983,7 @@ ir_emit_mov.exit203:                              ; preds = %switch.lookup5, %71
   %77 = sext i8 %68 to i32
   %78 = sext i8 %66 to i32
   %79 = getelementptr inbounds i8, ptr %.val186, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %79, i32 noundef %.sink.i202, i32 noundef %78, i32 noundef %77)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %79, i32 noundef %.sink.i202, i32 noundef %78, i32 noundef %77)
   br label %88
 
 80:                                               ; preds = %63
@@ -54000,7 +54000,7 @@ ir_emit_mov.exit203:                              ; preds = %switch.lookup5, %71
   %..i205 = select i1 %83, i32 2209, i32 2219
   %.1.i206 = select i1 %83, i32 2229, i32 2230
   %.sink.i207 = select i1 %.not.i204, i32 %.1.i206, i32 %..i205
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %81, i32 noundef %.sink.i207, i32 noundef %85, i32 noundef %87)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %81, i32 noundef %.sink.i207, i32 noundef %85, i32 noundef %87)
   br label %88
 
 88:                                               ; preds = %ir_emit_mov.exit203, %80
@@ -54044,7 +54044,7 @@ ir_emit_mov.exit203:                              ; preds = %switch.lookup5, %71
   %..i209 = select i1 %108, i32 2209, i32 2219
   %.1.i210 = select i1 %108, i32 2229, i32 2230
   %.sink.i211 = select i1 %.not.i208, i32 %.1.i210, i32 %..i209
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %106, i32 noundef %.sink.i211, i32 noundef %109, i32 noundef %111)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %106, i32 noundef %.sink.i211, i32 noundef %109, i32 noundef %111)
   br label %112
 
 112:                                              ; preds = %105, %103
@@ -54121,7 +54121,7 @@ ir_emit_swap.exit:                                ; preds = %switch.lookup9, %14
   %.sink.i212 = phi i32 [ 2148, %148 ], [ %switch.load12, %switch.lookup9 ]
   %150 = sext i8 %134 to i32
   %151 = getelementptr inbounds i8, ptr %.val198, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %151, i32 noundef %.sink.i212, i32 noundef %128, i32 noundef %150)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %151, i32 noundef %.sink.i212, i32 noundef %128, i32 noundef %150)
   %152 = zext nneg i8 %134 to i32
   %153 = shl nuw i32 1, %152
   %154 = xor i32 %153, -1
@@ -54149,7 +54149,7 @@ switch.lookup13:                                  ; preds = %158
 ir_emit_mov.exit214:                              ; preds = %switch.lookup13, %158
   %.sink.i213 = phi i32 [ 2123, %158 ], [ %switch.load16, %switch.lookup13 ]
   %160 = getelementptr inbounds i8, ptr %.val198, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %160, i32 noundef %.sink.i213, i32 noundef %128, i32 noundef %126)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %160, i32 noundef %.sink.i213, i32 noundef %128, i32 noundef %126)
   br label %166
 
 161:                                              ; preds = %127
@@ -54163,7 +54163,7 @@ ir_emit_mov.exit214:                              ; preds = %switch.lookup13, %1
   %..i216 = select i1 %164, i32 2209, i32 2219
   %.1.i217 = select i1 %164, i32 2229, i32 2230
   %.sink.i218 = select i1 %.not.i215, i32 %.1.i217, i32 %..i216
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %162, i32 noundef %.sink.i218, i32 noundef 15, i32 noundef %165)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %162, i32 noundef %.sink.i218, i32 noundef 15, i32 noundef %165)
   br label %166
 
 166:                                              ; preds = %161, %ir_emit_mov.exit214
@@ -54205,7 +54205,7 @@ ir_emit_mov.exit214:                              ; preds = %switch.lookup13, %1
   %..i220 = select i1 %183, i32 2209, i32 2219
   %.1.i221 = select i1 %183, i32 2229, i32 2230
   %.sink.i222 = select i1 %.not.i219, i32 %.1.i221, i32 %..i220
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %181, i32 noundef %.sink.i222, i32 noundef %185, i32 noundef %187)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %181, i32 noundef %.sink.i222, i32 noundef %185, i32 noundef %187)
   br label %188
 
 188:                                              ; preds = %180, %178
@@ -54798,7 +54798,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %16
   %sext105 = shl i32 %2, 24
   %23 = ashr exact i32 %sext105, 24
   %24 = getelementptr inbounds i8, ptr %.val, i64 32
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %24, i32 noundef %.sink.i, i32 noundef %3, i32 noundef %23)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %24, i32 noundef %.sink.i, i32 noundef %3, i32 noundef %23)
   br label %ir_emit_load_mem.exit
 
 25:                                               ; preds = %14
@@ -54817,7 +54817,7 @@ ir_emit_mov.exit:                                 ; preds = %switch.lookup, %16
   %..i = select i1 %30, i32 2209, i32 2219
   %.1.i = select i1 %30, i32 2229, i32 2230
   %.sink.i80 = select i1 %.not.i, i32 %.1.i, i32 %..i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %28, i32 noundef %.sink.i80, i32 noundef %32, i32 noundef %33)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %28, i32 noundef %.sink.i80, i32 noundef %32, i32 noundef %33)
   br label %ir_emit_load_mem.exit
 
 34:                                               ; preds = %12
@@ -55004,7 +55004,7 @@ ir_vreg_spill_slot.exit87:                        ; preds = %92, %114
 
 141:                                              ; preds = %120
   tail call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %5, i32 noundef %3)
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %5)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %5)
   br label %ir_emit_load_mem.exit
 
 142:                                              ; preds = %ir_vreg_spill_slot.exit87
@@ -55023,7 +55023,7 @@ ir_vreg_spill_slot.exit87:                        ; preds = %92, %114
   br label %ir_emit_load_mem.exit
 
 149:                                              ; preds = %144
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %145)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %145)
   br label %ir_emit_load_mem.exit
 
 150:                                              ; preds = %142
@@ -55098,7 +55098,7 @@ ir_vreg_spill_slot.exit96:                        ; preds = %160, %182
   %192 = getelementptr i8, ptr %0, i64 248
   %.val9.i98 = load ptr, ptr %192, align 8
   tail call fastcc void @ir_emit_load_mem_fp(i32 %.val8.i97, ptr %.val9.i98, i32 noundef %1, i8 noundef signext %5, i64 noundef %.0.i93)
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %5)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %5)
   br label %ir_emit_load_mem.exit
 
 ir_emit_load_mem.exit:                            ; preds = %190, %188, %149, %147, %141, %139, %77, %75, %10, %ir_emit_mov.exit, %25, %136

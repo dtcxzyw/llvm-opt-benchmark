@@ -627,7 +627,7 @@ define internal fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..Command
 
 24:                                               ; preds = %11
   %25 = mul i64 %5, 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %.val, i64 %25, i1 false), !alias.scope !70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull readonly align 8 %.val, i64 %25, i1 false), !alias.scope !70
   %26 = load ptr, ptr %6, align 8, !nonnull !62, !align !64, !noundef !62
   %27 = load i64, ptr %7, align 8, !noundef !62
   store ptr %16, ptr %6, align 8
@@ -1479,7 +1479,7 @@ define hidden void @"_ZN66_$LT$flate2..crc..CrcWriter$LT$W$GT$$u20$as$u20$std..i
   %13 = phi i64 [ %7, %4 ], [ %.pre.i.i, %11 ]
   %14 = load ptr, ptr %5, align 8, !alias.scope !214, !noalias !219, !nonnull !62, !noundef !62
   %15 = getelementptr inbounds i8, ptr %14, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %2, i64 %3, i1 false), !noalias !223
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !noalias !223
   %16 = load i64, ptr %8, align 8, !alias.scope !214, !noalias !219, !noundef !62
   %17 = load i64, ptr %6, align 8, !alias.scope !214, !noalias !219, !noundef !62
   %18 = sub i64 %16, %17
@@ -3156,7 +3156,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   %613 = getelementptr inbounds i8, ptr %44, i64 296
   store i64 %608, ptr %613, align 8, !alias.scope !410, !noalias !434
   %614 = getelementptr inbounds i8, ptr %44, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %614, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false), !alias.scope !436, !noalias !437
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %614, ptr noundef nonnull readonly align 8 dereferenceable(48) %45, i64 48, i1 false), !alias.scope !436, !noalias !437
   %615 = getelementptr inbounds i8, ptr %44, i64 328
   store i64 0, ptr %615, align 8, !alias.scope !410, !noalias !434
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %44, ptr noundef nonnull align 8 dereferenceable(192) %42, i64 192, i1 false), !alias.scope !438, !noalias !439
@@ -5003,7 +5003,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   %613 = getelementptr inbounds i8, ptr %44, i64 296
   store i64 %608, ptr %613, align 8, !alias.scope !696, !noalias !720
   %614 = getelementptr inbounds i8, ptr %44, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %614, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false), !alias.scope !722, !noalias !723
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %614, ptr noundef nonnull readonly align 8 dereferenceable(48) %45, i64 48, i1 false), !alias.scope !722, !noalias !723
   %615 = getelementptr inbounds i8, ptr %44, i64 328
   store i64 0, ptr %615, align 8, !alias.scope !696, !noalias !720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %44, ptr noundef nonnull align 8 dereferenceable(192) %42, i64 192, i1 false), !alias.scope !724, !noalias !725
@@ -8543,7 +8543,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1420, !noalias !1424
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1420, !noalias !1424
   %47 = getelementptr inbounds i8, ptr %6, i64 32
   %48 = load i32, ptr %47, align 8, !noundef !62
   %49 = icmp eq i32 %48, 1
@@ -8990,7 +8990,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 236:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25), !noalias !1444
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1448
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1448
   store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1444
   store i8 2, ptr %25, align 8, !noalias !1444
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %25), !noalias !1449
@@ -9003,7 +9003,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 239:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24), !noalias !1444
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1448
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1448
   store i8 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1444
   store i8 2, ptr %24, align 8, !noalias !1444
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %24), !noalias !1449
@@ -9028,7 +9028,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 248:                                              ; preds = %247
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23), !noalias !1450
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1454
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1454
   store i8 0, ptr %.sroa.4.0..sroa_idx.i164, align 8, !noalias !1450
   store i8 2, ptr %23, align 8, !noalias !1450
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %23), !noalias !1455
@@ -9041,7 +9041,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 251:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22), !noalias !1450
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1454
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1454
   store i8 0, ptr %.sroa.42.0..sroa_idx.i165, align 8, !noalias !1450
   store i8 2, ptr %22, align 8, !noalias !1450
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %22), !noalias !1455
@@ -9053,7 +9053,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 253:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21), !noalias !1456
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1460
   store i8 1, ptr %.sroa.4.0..sroa_idx.i167, align 8, !noalias !1456
   store i8 2, ptr %21, align 8, !noalias !1456
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %21), !noalias !1461
@@ -9066,7 +9066,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 256:                                              ; preds = %254
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20), !noalias !1456
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1460
   store i8 1, ptr %.sroa.42.0..sroa_idx.i168, align 8, !noalias !1456
   store i8 2, ptr %20, align 8, !noalias !1456
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %20), !noalias !1461
@@ -9224,7 +9224,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 318:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !1476
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1474
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1474
   store i8 0, ptr %.sroa.4.0..sroa_idx.i170, align 8, !noalias !1476
   store i8 2, ptr %18, align 8, !noalias !1476
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %18), !noalias !1471
@@ -9238,7 +9238,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 322:                                              ; preds = %319
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17), !noalias !1476
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !1474
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull readonly align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !1474
   store i8 0, ptr %.sroa.42.0..sroa_idx.i171, align 8, !noalias !1476
   store i8 2, ptr %17, align 8, !noalias !1476
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %17), !noalias !1471
@@ -9479,7 +9479,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1483, !noalias !1487
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1483, !noalias !1487
   %47 = getelementptr inbounds i8, ptr %6, i64 32
   %48 = load i32, ptr %47, align 8, !noundef !62
   %49 = icmp eq i32 %48, 1
@@ -9926,7 +9926,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 236:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25), !noalias !1507
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1511
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1511
   store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1507
   store i8 2, ptr %25, align 8, !noalias !1507
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %25), !noalias !1512
@@ -9939,7 +9939,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 239:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24), !noalias !1507
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1511
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1511
   store i8 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1507
   store i8 2, ptr %24, align 8, !noalias !1507
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %24), !noalias !1512
@@ -9964,7 +9964,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 248:                                              ; preds = %247
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23), !noalias !1513
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1517
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1517
   store i8 0, ptr %.sroa.4.0..sroa_idx.i164, align 8, !noalias !1513
   store i8 2, ptr %23, align 8, !noalias !1513
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %23), !noalias !1518
@@ -9977,7 +9977,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 251:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22), !noalias !1513
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1517
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1517
   store i8 0, ptr %.sroa.42.0..sroa_idx.i165, align 8, !noalias !1513
   store i8 2, ptr %22, align 8, !noalias !1513
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %22), !noalias !1518
@@ -9989,7 +9989,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 253:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21), !noalias !1519
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1523
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1523
   store i8 1, ptr %.sroa.4.0..sroa_idx.i167, align 8, !noalias !1519
   store i8 2, ptr %21, align 8, !noalias !1519
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %21), !noalias !1524
@@ -10002,7 +10002,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 256:                                              ; preds = %254
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20), !noalias !1519
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1523
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1523
   store i8 1, ptr %.sroa.42.0..sroa_idx.i168, align 8, !noalias !1519
   store i8 2, ptr %20, align 8, !noalias !1519
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %20), !noalias !1524
@@ -10160,7 +10160,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 318:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !1539
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1537
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1537
   store i8 0, ptr %.sroa.4.0..sroa_idx.i170, align 8, !noalias !1539
   store i8 2, ptr %18, align 8, !noalias !1539
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %18), !noalias !1534
@@ -10174,7 +10174,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 322:                                              ; preds = %319
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17), !noalias !1539
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !1537
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull readonly align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !1537
   store i8 0, ptr %.sroa.42.0..sroa_idx.i171, align 8, !noalias !1539
   store i8 2, ptr %17, align 8, !noalias !1539
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %17), !noalias !1534
@@ -10419,7 +10419,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1546, !noalias !1550
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1546, !noalias !1550
   %51 = getelementptr inbounds i8, ptr %6, i64 32
   %52 = load i32, ptr %51, align 8, !noundef !62
   %53 = icmp eq i32 %52, 1
@@ -10750,7 +10750,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
 
 210:                                              ; preds = %209
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %29), !noalias !1555
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !1559
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull readonly align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !1559
   store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1555
   store i8 2, ptr %29, align 8, !noalias !1555
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %29), !noalias !1560
@@ -10763,7 +10763,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
 
 213:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28), !noalias !1555
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false), !noalias !1559
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, i64 24, i1 false), !noalias !1559
   store i8 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1555
   store i8 2, ptr %28, align 8, !noalias !1555
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %28), !noalias !1560
@@ -10788,7 +10788,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 222:                                              ; preds = %221
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %27), !noalias !1561
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !1565
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull readonly align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !1565
   store i8 0, ptr %.sroa.4.0..sroa_idx.i164, align 8, !noalias !1561
   store i8 2, ptr %27, align 8, !noalias !1561
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %27), !noalias !1566
@@ -10801,7 +10801,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 225:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26), !noalias !1561
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false), !noalias !1565
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, i64 24, i1 false), !noalias !1565
   store i8 0, ptr %.sroa.42.0..sroa_idx.i165, align 8, !noalias !1561
   store i8 2, ptr %26, align 8, !noalias !1561
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %26), !noalias !1566
@@ -10813,7 +10813,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 227:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25), !noalias !1567
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !1571
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull readonly align 8 dereferenceable(24) %46, i64 24, i1 false), !noalias !1571
   store i8 1, ptr %.sroa.4.0..sroa_idx.i167, align 8, !noalias !1567
   store i8 2, ptr %25, align 8, !noalias !1567
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %25), !noalias !1572
@@ -10826,7 +10826,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 230:                                              ; preds = %228
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24), !noalias !1567
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false), !noalias !1571
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, i64 24, i1 false), !noalias !1571
   store i8 1, ptr %.sroa.42.0..sroa_idx.i168, align 8, !noalias !1567
   store i8 2, ptr %24, align 8, !noalias !1567
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %24), !noalias !1572
@@ -10984,7 +10984,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 292:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22), !noalias !1587
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false), !noalias !1585
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull readonly align 8 dereferenceable(24) %38, i64 24, i1 false), !noalias !1585
   store i8 0, ptr %.sroa.4.0..sroa_idx.i170, align 8, !noalias !1587
   store i8 2, ptr %22, align 8, !noalias !1587
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %22), !noalias !1582
@@ -10998,7 +10998,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 296:                                              ; preds = %293
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21), !noalias !1587
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %140, i64 24, i1 false), !noalias !1585
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull readonly align 8 dereferenceable(24) %140, i64 24, i1 false), !noalias !1585
   store i8 0, ptr %.sroa.42.0..sroa_idx.i171, align 8, !noalias !1587
   store i8 2, ptr %21, align 8, !noalias !1587
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %21), !noalias !1582
@@ -11187,7 +11187,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 363:                                              ; preds = %351
   %364 = mul i64 %347, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %355, ptr nonnull align 8 %.val.i217, i64 %364, i1 false), !alias.scope !1602, !noalias !1596
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %355, ptr nonnull readonly align 8 %.val.i217, i64 %364, i1 false), !alias.scope !1602, !noalias !1596
   %365 = load ptr, ptr %103, align 8, !alias.scope !1588, !noalias !1591, !nonnull !62, !align !64, !noundef !62
   %366 = load i64, ptr %104, align 8, !alias.scope !1588, !noalias !1591, !noundef !62
   store ptr %355, ptr %103, align 8, !alias.scope !1588, !noalias !1591
@@ -11293,7 +11293,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 398:                                              ; preds = %386
   %399 = mul i64 %382, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %390, ptr nonnull align 8 %.val.i, i64 %399, i1 false), !alias.scope !1627, !noalias !1596
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %390, ptr nonnull readonly align 8 %.val.i, i64 %399, i1 false), !alias.scope !1627, !noalias !1596
   %400 = load ptr, ptr %103, align 8, !alias.scope !1616, !noalias !1619, !nonnull !62, !align !64, !noundef !62
   %401 = load i64, ptr %104, align 8, !alias.scope !1616, !noalias !1619, !noundef !62
   store ptr %390, ptr %103, align 8, !alias.scope !1616, !noalias !1619
@@ -11499,7 +11499,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 459:                                              ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h462c95a4a464c3f1E.exit"
   %460 = mul i64 %437, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %451, ptr nonnull align 8 %.val.i255, i64 %460, i1 false), !alias.scope !1672
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %451, ptr nonnull readonly align 8 %.val.i255, i64 %460, i1 false), !alias.scope !1672
   %461 = load ptr, ptr %103, align 8, !alias.scope !1653, !noalias !1656, !nonnull !62, !align !64, !noundef !62
   %462 = load i64, ptr %104, align 8, !alias.scope !1653, !noalias !1656, !noundef !62
   store ptr %451, ptr %103, align 8, !alias.scope !1653, !noalias !1656
@@ -11588,7 +11588,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1686, !noalias !1690
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !1686, !noalias !1690
   %47 = getelementptr inbounds i8, ptr %6, i64 32
   %48 = load i32, ptr %47, align 8, !noundef !62
   %49 = icmp eq i32 %48, 1
@@ -12035,7 +12035,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 236:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25), !noalias !1710
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1714
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1714
   store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1710
   store i8 2, ptr %25, align 8, !noalias !1710
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %25), !noalias !1715
@@ -12048,7 +12048,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 239:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24), !noalias !1710
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1714
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1714
   store i8 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1710
   store i8 2, ptr %24, align 8, !noalias !1710
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %24), !noalias !1715
@@ -12073,7 +12073,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 248:                                              ; preds = %247
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23), !noalias !1716
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1720
   store i8 0, ptr %.sroa.4.0..sroa_idx.i164, align 8, !noalias !1716
   store i8 2, ptr %23, align 8, !noalias !1716
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %23), !noalias !1721
@@ -12086,7 +12086,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 251:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22), !noalias !1716
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1720
   store i8 0, ptr %.sroa.42.0..sroa_idx.i165, align 8, !noalias !1716
   store i8 2, ptr %22, align 8, !noalias !1716
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %22), !noalias !1721
@@ -12098,7 +12098,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 253:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21), !noalias !1722
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1726
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull readonly align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !1726
   store i8 1, ptr %.sroa.4.0..sroa_idx.i167, align 8, !noalias !1722
   store i8 2, ptr %21, align 8, !noalias !1722
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %21), !noalias !1727
@@ -12111,7 +12111,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 256:                                              ; preds = %254
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20), !noalias !1722
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1726
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull readonly align 8 dereferenceable(24) %117, i64 24, i1 false), !noalias !1726
   store i8 1, ptr %.sroa.42.0..sroa_idx.i168, align 8, !noalias !1722
   store i8 2, ptr %20, align 8, !noalias !1722
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %20), !noalias !1727
@@ -12269,7 +12269,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 318:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !1742
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1740
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !1740
   store i8 0, ptr %.sroa.4.0..sroa_idx.i170, align 8, !noalias !1742
   store i8 2, ptr %18, align 8, !noalias !1742
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %18), !noalias !1737
@@ -12283,7 +12283,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 322:                                              ; preds = %319
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17), !noalias !1742
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !1740
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull readonly align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !1740
   store i8 0, ptr %.sroa.42.0..sroa_idx.i171, align 8, !noalias !1742
   store i8 2, ptr %17, align 8, !noalias !1742
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %17), !noalias !1737
@@ -14229,7 +14229,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit": ; preds = %29
   %33 = getelementptr inbounds i8, ptr %10, i64 %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %18, i64 %20, i1 false), !alias.scope !1927, !noalias !1931
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %18, i64 %20, i1 false), !alias.scope !1927, !noalias !1931
   %34 = shl i64 %20, 3
   %35 = add i64 %25, %34
   store i64 %35, ptr %9, align 8
@@ -14252,7 +14252,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32": ; preds = %39
   %43 = getelementptr inbounds i8, ptr %10, i64 %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %22, i64 %24, i1 false), !alias.scope !1936, !noalias !1940
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %22, i64 %24, i1 false), !alias.scope !1936, !noalias !1940
   %44 = shl i64 %24, 3
   %45 = add i64 %35, %44
   store i64 %45, ptr %9, align 8
@@ -14364,7 +14364,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit": ; preds = %29
   %33 = getelementptr inbounds i8, ptr %10, i64 %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %18, i64 %20, i1 false), !alias.scope !1945, !noalias !1949
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %18, i64 %20, i1 false), !alias.scope !1945, !noalias !1949
   %34 = shl i64 %20, 3
   %35 = add i64 %25, %34
   store i64 %35, ptr %9, align 8
@@ -14387,7 +14387,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32": ; preds = %39
   %43 = getelementptr inbounds i8, ptr %10, i64 %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %22, i64 %24, i1 false), !alias.scope !1954, !noalias !1958
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %22, i64 %24, i1 false), !alias.scope !1954, !noalias !1958
   %44 = shl i64 %24, 3
   %45 = add i64 %35, %44
   store i64 %45, ptr %9, align 8

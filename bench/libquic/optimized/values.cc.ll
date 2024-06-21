@@ -953,7 +953,7 @@ entry:
   %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %size_, align 8
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #25, !noalias !17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %0, i64 %1, i1 false), !noalias !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %0, i64 %1, i1 false), !noalias !17
   %call.i1.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
           to label %_ZNSt10unique_ptrIN4base11BinaryValueESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit4.i, !noalias !17
 

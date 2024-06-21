@@ -888,7 +888,7 @@ _ZN7QStringD2Ev.exit128:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %3, label %294, label %_ZN14DecodeAsDialog24on_newToolButton_clickedEv.exit
 
 294:                                              ; preds = %293
-  invoke void @_ZN14DecodeAsDialog9addRecordEb(ptr noundef nonnull align 8 dereferenceable(88) %0, i1 noundef zeroext false)
+  invoke void @_ZN14DecodeAsDialog9addRecordEb(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i1 noundef zeroext false)
           to label %_ZN14DecodeAsDialog24on_newToolButton_clickedEv.exit unwind label %222
 
 295:                                              ; preds = %252

@@ -2307,10 +2307,10 @@ Vec_VecSizeSize.exit:                             ; preds = %9, %2
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %19
 
 19:                                               ; preds = %Vec_VecSizeSize.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #15
   %21 = add i64 %20, 1
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #13
-  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %18) #14
+  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %18) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_VecSizeSize.exit, %19

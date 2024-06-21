@@ -3631,7 +3631,7 @@ entry:
   %0 = load ptr, ptr %type.i, align 8
   %call2.i = tail call noundef i64 @_ZNK5arrow8DataType4HashEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   store i64 %call2.i, ptr %ref.tmp, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114ScalarHashImpl18AccumulateHashFromERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(41) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114ScalarHashImpl18AccumulateHashFromERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(41) %this)
   %1 = load i64, ptr %ref.tmp, align 8
   ret i64 %1
 }
@@ -3773,27 +3773,27 @@ sw.bb25.i:                                        ; preds = %if.end
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb27.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateStringScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(80) %scalar)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateStringScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(1) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %scalar)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb29.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateStringScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(80) %scalar)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateStringScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(1) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %scalar)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb31.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateBinaryScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %scalar)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateBinaryScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %scalar)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb33.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateBinaryScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %scalar)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateBinaryScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %scalar)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb35.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateStringScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(80) %scalar)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateStringScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(1) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %scalar)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb37.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateBinaryScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %scalar)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_118ScalarValidateImpl20ValidateBinaryScalarERKNS_16BaseBinaryScalarE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %scalar)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_118ScalarValidateImplEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb39.i:                                        ; preds = %if.end
@@ -16004,7 +16004,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %mul.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %mul.i.i.i.i.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !482
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !482
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 1), i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
@@ -16088,7 +16088,7 @@ for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %mul.i39.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 6
   %add.ptr.i40.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i.i, i64 %mul.i39.i.i.i.i
   %add.ptr1.i41.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i40.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !516
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !516
   %mul2.i42.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 3
   %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 1), i64 %mul2.i42.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
@@ -150663,7 +150663,7 @@ sw.bb52.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15436)
   %value.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %value3.i.i = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, i64 16, i1 false), !noalias !15439
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value3.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %value.i.i, i64 16, i1 false), !noalias !15439
   store ptr null, ptr %agg.result, align 8, !alias.scope !15440
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_24MonthDayNanoIntervalTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
@@ -156338,27 +156338,27 @@ _ZN5arrow12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEE5VisitINS_14Decimal256Typ
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb62.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb64.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb66.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb68.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb70.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb72.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_10ListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_8ListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb74.i:                                        ; preds = %entry
@@ -162864,27 +162864,27 @@ _ZN5arrow12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEE5VisitINS_14Dec
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb62.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb64.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb66.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb68.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb70.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb72.i:                                        ; preds = %entry
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %2)
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_18CastImplINS_19FixedSizeListScalarEEENSt9enable_ifIXsr12is_list_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKNS_14BaseListScalarEPS4_(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %2)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_115FromTypeVisitorINS_17FixedSizeListTypeEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb74.i:                                        ; preds = %entry

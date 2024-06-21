@@ -694,7 +694,7 @@ _ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit: ; p
   %add.ptr9.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i, i64 %idx.ext8.i
   %arrayidx11.i = getelementptr inbounds [34 x i16], ptr %lengths.i, i64 0, i64 %conv4
   %20 = load i16, ptr %arrayidx11.i, align 2
-  %call12.i = tail call fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr noundef %names, ptr noundef nonnull %add.ptr9.i, i16 noundef zeroext %20, i32 noundef %nameChoice, ptr noundef %buffer, i16 noundef zeroext %bufferLength)
+  %call12.i = tail call fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr noundef readonly %names, ptr noundef nonnull %add.ptr9.i, i16 noundef zeroext %20, i32 noundef %nameChoice, ptr noundef %buffer, i16 noundef zeroext %bufferLength)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %offsets.i)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %lengths.i)
   br label %return

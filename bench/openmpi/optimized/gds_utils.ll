@@ -393,7 +393,7 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr nocapture noundef readon
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %15) #14
+  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %15) #14
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
@@ -415,7 +415,7 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr nocapture noundef readon
 25:                                               ; preds = %.lr.ph59, %.loopexit50
   %indvars.iv72 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next73, %.loopexit50 ]
   %26 = phi ptr [ %23, %.lr.ph59 ], [ %42, %.loopexit50 ]
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %15) #14
+  %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %15) #14
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.loopexit, label %29
 
@@ -439,12 +439,12 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %.preheader49, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader49 ]
   %35 = phi ptr [ %34, %32 ], [ %31, %.preheader49 ]
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %35) #14
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %35) #14
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %35) #14
+  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %35) #14
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit, label %32
 
@@ -476,7 +476,7 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr nocapture noundef readon
 .lr.ph64:                                         ; preds = %.preheader, %47
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %47 ], [ 0, %.preheader ]
   %50 = phi ptr [ %49, %47 ], [ %46, %.preheader ]
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %50) #14
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %50) #14
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %.loopexit, label %47
 
@@ -1218,7 +1218,7 @@ pmix_obj_run_destructors.exit636:                 ; preds = %.lr.ph.i633, %95
   %.042.i = phi i1 [ %spec.select.i, %124 ], [ false, %117 ]
   %120 = getelementptr inbounds i8, ptr %.02243.i, i64 152
   %121 = load ptr, ptr %120, align 8
-  %122 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(1) %118) #14
+  %122 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(1) %118) #14
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %pmix_gds_hash_check_nodename.exit.thread837, label %124
 
@@ -1257,7 +1257,7 @@ pmix_obj_run_destructors.exit636:                 ; preds = %.lr.ph.i633, %95
 .lr.ph46.i:                                       ; preds = %.preheader.i, %131
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 0, %.preheader.i ]
   %134 = phi ptr [ %133, %131 ], [ %130, %.preheader.i ]
-  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull dereferenceable(1) %118) #14
+  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull readonly dereferenceable(1) %118) #14
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %pmix_gds_hash_check_nodename.exit, label %131
 

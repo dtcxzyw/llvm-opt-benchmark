@@ -409,7 +409,7 @@ if.then.i.i:                                      ; preds = %if.then163.thread, 
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #9
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %41) #9
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2.i.i, %if.then.i.i
@@ -420,7 +420,7 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   br i1 %cmp4.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i, ptr nonnull align 1 %41, i64 %srclen.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i, ptr nonnull readonly align 1 %41, i64 %srclen.addr.0.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 %srclen.addr.0.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %if.end169
@@ -563,7 +563,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %email) #9
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %email) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
@@ -574,7 +574,7 @@ if.end.i:                                         ; preds = %if.then2.i, %if.the
   br i1 %cmp4.i, label %int_x509_param_set1.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr nonnull align 1 %email, i64 %srclen.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr nonnull readonly align 1 %email, i64 %srclen.addr.0.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call3.i, i64 %srclen.addr.0.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %if.end7.i
@@ -619,7 +619,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ip) #9
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %ip) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
@@ -630,7 +630,7 @@ if.end.i:                                         ; preds = %if.then2.i, %if.the
   br i1 %cmp4.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr nonnull align 1 %ip, i64 %srclen.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr nonnull readonly align 1 %ip, i64 %srclen.addr.0.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call3.i, i64 %srclen.addr.0.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %if.end7.i
@@ -1256,7 +1256,7 @@ define internal i32 @table_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_
 entry:
   %a_.val = load ptr, ptr %a_, align 8
   %b_.val = load ptr, ptr %b_, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a_.val, ptr noundef nonnull dereferenceable(1) %b_.val) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %a_.val, ptr noundef nonnull readonly dereferenceable(1) %b_.val) #9
   ret i32 %call.i
 }
 

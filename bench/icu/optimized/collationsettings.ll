@@ -197,15 +197,15 @@ do.body.i:                                        ; preds = %if.end13.i, %if.the
   %ownedCodes.0.i = phi ptr [ %16, %if.then2.i ], [ %call5.i, %if.end13.i ]
   %idx.ext.i = sext i32 %19 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %ownedCodes.0.i, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(256) %13, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(256) %13, i64 256, i1 false)
   %mul19.i = shl nsw i32 %10, 2
   %conv20.i = sext i32 %mul19.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ownedCodes.0.i, ptr align 4 %9, i64 %conv20.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ownedCodes.0.i, ptr readonly align 4 %9, i64 %conv20.i, i1 false)
   %idx.ext23.i = sext i32 %10 to i64
   %add.ptr24.i = getelementptr inbounds i32, ptr %ownedCodes.0.i, i64 %idx.ext23.i
   %mul25.i = shl nsw i32 %12, 2
   %conv26.i = sext i32 %mul25.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24.i, ptr align 4 %11, i64 %conv26.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24.i, ptr readonly align 4 %11, i64 %conv26.i, i1 false)
   %reorderCodes28.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load ptr, ptr %reorderCodes28.i, align 8
   %21 = load i32, ptr %reorderCodesCapacity.i, align 4
@@ -770,15 +770,15 @@ do.body.i:                                        ; preds = %if.end13.i, %if.the
   %ownedCodes.0.i = phi ptr [ %17, %if.then2.i ], [ %call5.i44, %if.end13.i ]
   %idx.ext.i = sext i32 %20 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %ownedCodes.0.i, i64 %idx.ext.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(256) %table, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %add.ptr.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %table, i64 256, i1 false)
   %mul19.i = shl nsw i32 %codesLength, 2
   %conv20.i = sext i32 %mul19.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ownedCodes.0.i, ptr align 4 %codes, i64 %conv20.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ownedCodes.0.i, ptr readonly align 4 %codes, i64 %conv20.i, i1 false)
   %idx.ext23.i = sext i32 %codesLength to i64
   %add.ptr24.i = getelementptr inbounds i32, ptr %ownedCodes.0.i, i64 %idx.ext23.i
   %mul25.i = shl nsw i32 %rangesLength.0, 2
   %conv26.i = sext i32 %mul25.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24.i, ptr align 4 %ranges.0, i64 %conv26.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24.i, ptr readonly align 4 %ranges.0, i64 %conv26.i, i1 false)
   %reorderCodes28.i = getelementptr inbounds i8, ptr %this, i64 64
   %21 = load ptr, ptr %reorderCodes28.i, align 8
   %22 = load i32, ptr %reorderCodesCapacity.i, align 4

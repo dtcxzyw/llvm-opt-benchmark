@@ -20143,7 +20143,7 @@ define void @_ZNK7mitsuba6Bitmap11write_asyncERKNS_10filesystem4pathENS0_10FileF
   %34 = and i8 %33, 1
   store i8 %34, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %22, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull readonly align 8 dereferenceable(16) %19, i64 16, i1 false)
   %36 = invoke noundef ptr @task_submit_dep(ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @"_ZZN5drjit8do_asyncIRZNK7mitsuba6Bitmap11write_asyncERKNS1_10filesystem4pathENS2_10FileFormatEiE3$_0EEP4TaskOT_PKPKSA_mP4PoolENUljPvE_8__invokeEjSK_", ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull @"_ZZN5drjit8do_asyncIRZNK7mitsuba6Bitmap11write_asyncERKNS1_10filesystem4pathENS2_10FileFormatEiE3$_0EEP4TaskOT_PKPKSA_mP4PoolENUlPvE_8__invokeESK_", i32 noundef 1)
           to label %"_ZN5drjit8do_asyncIZNK7mitsuba6Bitmap11write_asyncERKNS1_10filesystem4pathENS2_10FileFormatEiE3$_0EEP4TaskOT_St16initializer_listIPKS9_EP4Pool.exit" unwind label %42
 

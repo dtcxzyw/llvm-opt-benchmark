@@ -20449,7 +20449,7 @@ _ZNK2qe12guarded_defs4sizeEv.exit.i:              ; preds = %if.end.i.i.i.i, %fo
 for.body.i154:                                    ; preds = %_ZNK2qe12guarded_defs4sizeEv.exit.i
   %112 = load ptr, ptr %m_defs.i, align 8
   %arrayidx.i.i155 = getelementptr inbounds %"class.qe::def_vector", ptr %112, i64 %indvars.iv.i151
-  invoke void @_ZN2qe10def_vector7projectEjPKP3app(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i155, i32 noundef %num_vars, ptr noundef %vars)
+  invoke void @_ZN2qe10def_vector7projectEjPKP3app(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i155, i32 noundef %num_vars, ptr noundef readonly %vars)
           to label %.noexc157 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc157:                                        ; preds = %for.body.i154

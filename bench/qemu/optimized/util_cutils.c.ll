@@ -1937,7 +1937,7 @@ if.then3:                                         ; preds = %if.end
   br label %out
 
 if.end5:                                          ; preds = %if.end
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %dir, ptr noundef nonnull dereferenceable(10) @.str.35, i64 10)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %dir, ptr noundef nonnull dereferenceable(10) @.str.35, i64 10)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %starts_with_prefix.exit, label %if.end38
 

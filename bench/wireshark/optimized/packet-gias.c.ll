@@ -1277,7 +1277,7 @@ define internal noundef i32 @dissect_gias(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %decode_user_exception.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(34) @.str.800) #5
+  %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(34) @.str.800) #5
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %45
 
@@ -1326,7 +1326,7 @@ start_dissecting.exit.i:                          ; preds = %23, %21
   br i1 %exitcond.not.i.i, label %decode_user_exception.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 45:                                               ; preds = %18
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(28) @.str.801) #5
+  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(28) @.str.801) #5
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %50
 
@@ -1338,7 +1338,7 @@ start_dissecting.exit.i:                          ; preds = %23, %21
   br i1 %.not.i41.i, label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.i, label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.sink.split.i
 
 50:                                               ; preds = %45
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(24) @.str.802) #5
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(24) @.str.802) #5
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %decode_user_exception.exit
 
@@ -5564,7 +5564,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %41, %.lr.ph.i ], [ 0, %.lr.ph ]
-  tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %41 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %41, %36
   br i1 %exitcond.not.i, label %decode_GIAS_Association_st.exit, label %.lr.ph.i, !llvm.loop !41

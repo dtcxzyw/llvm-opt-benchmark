@@ -1390,7 +1390,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 if.then.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp7.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.sroa.0.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i), !noalias !120
   invoke void @_ZN3ue211flat_detail9flat_baseISt4pairIhhESt4lessIS3_ESaIS3_EEC2ERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %da, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i)
@@ -1432,7 +1432,7 @@ while.end.i:                                      ; preds = %for.end.i, %invoke.
 
 if.then9.i:                                       ; preds = %while.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1012.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1012.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1012.sroa.0.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i13.i), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i14.i), !noalias !120
   invoke void @_ZN3ue211flat_detail9flat_baseISt4pairIhhESt4lessIS3_ESaIS3_EEC2ERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %da, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i13.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i14.i)
@@ -1450,7 +1450,7 @@ if.then9.i:                                       ; preds = %while.end.i
 
 invoke.cont.i12:                                  ; preds = %while.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1217.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1217.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1217.sroa.0.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i18.i), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i19.i), !noalias !120
   invoke void @_ZN3ue211flat_detail9flat_baseISt4pairIhhESt4lessIS3_ESaIS3_EEC2ERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %curr.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i18.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i19.i)
@@ -1793,7 +1793,7 @@ if.end17:                                         ; preds = %do.end
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %curr.i43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num_calls.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %curr.i43, ptr noundef nonnull align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %curr.i43, ptr noundef nonnull readonly align 8 dereferenceable(32) %terminating, i64 32, i1 false), !noalias !128
   %offset.i.i = getelementptr inbounds i8, ptr %curr.i43, i64 32
   store i32 0, ptr %offset.i.i, align 8, !noalias !128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %best, i8 -1, i64 32, i1 false), !alias.scope !131
@@ -5171,7 +5171,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then5
 _ZN3ue212_GLOBAL__N_112DAccelSchemeaSERKS1_.exit: ; preds = %if.then5, %if.then.i.i.i.i.i.i.i.i
   %double_cr.i = getelementptr inbounds i8, ptr %best, i64 32
   %double_cr3.i = getelementptr inbounds i8, ptr %curr, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i, ptr noundef nonnull align 8 dereferenceable(36) %double_cr3.i, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %double_cr3.i, i64 36, i1 false)
   br label %return
 
 do.end11:                                         ; preds = %entry
@@ -5375,7 +5375,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
 invoke.cont39:                                    ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i27, ptr noundef nonnull align 8 dereferenceable(36) %double_cr3.i28, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i27, ptr noundef nonnull readonly align 8 dereferenceable(36) %double_cr3.i28, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3333)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3333, ptr noundef nonnull align 8 dereferenceable(32) %p.sroa.0.0185, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !312)
@@ -5423,7 +5423,7 @@ for.body.i.i.i13.i:                               ; preds = %for.body.i.i.i13.i,
 
 _ZNK3ue29CharReachcoEv.exit19.i:                  ; preds = %for.body.i.i.i13.i
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr_2.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i22, i64 32, i1 false), !noalias !312
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr_2.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %incdec.ptr.i.i.i.i22, i64 32, i1 false), !noalias !312
   %26 = load i64, ptr %ref.tmp1.i, align 8, !noalias !324
   %27 = load i64, ptr %cr_2.i, align 8, !alias.scope !321, !noalias !312
   %and.i.i20.i = and i64 %27, %26
@@ -5496,7 +5496,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   br label %lpad38.body
 
 if.end.i:                                         ; preds = %_ZNK3ue29CharReach4noneEv.exit.i
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %incdec.ptr.i.i.i.i22, ptr noundef nonnull dereferenceable(32) %cr_2.i, i64 32), !noalias !312
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %incdec.ptr.i.i.i.i22, ptr noundef nonnull dereferenceable(32) %cr_2.i, i64 32), !noalias !312
   %tobool1.not.i.i.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i, label %for.body.i.i30.i, label %if.then7.i
 
@@ -10776,7 +10776,7 @@ if.end32:                                         ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i, ptr noundef nonnull align 16 dereferenceable(40) %as, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(40) %as, i64 40, i1 false)
   %32 = load i64, ptr %m_size.i.i.i.i, align 8
   %inc.i.i = add i64 %32, 1
   store i64 %inc.i.i, ptr %m_size.i.i.i.i, align 8
@@ -10823,7 +10823,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZN5boost9container
   br i1 %tobool.not.i.i.i.i72, label %invoke.cont13.thread.i.i.i.i, label %invoke.cont8.i.i.i.i
 
 invoke.cont13.thread.i.i.i.i:                     ; preds = %call.i.i.i.i.i.i.i.i.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i.i.i.i81, ptr noundef nonnull align 16 dereferenceable(40) %as, i64 40, i1 false), !noalias !500
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i.i.i.i81, ptr noundef nonnull readonly align 16 dereferenceable(40) %as, i64 40, i1 false), !noalias !500
   %add.ptr40.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i81, i64 40
   br label %_ZN5boost9container6vectorIN3ue212_GLOBAL__N_112SAccelSchemeENS0_22small_vector_allocatorIS4_NS0_13new_allocatorIvEEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS8_PS4_EEEENS0_12vec_iteratorISD_Lb0EEERKSD_mT_NS_11move_detail17integral_constantIjLj1EEE.exit.i.i
 
@@ -10840,7 +10840,7 @@ if.then.i.i.i.i.i.i73:                            ; preds = %invoke.cont8.i.i.i.
 
 if.then19.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i73, %invoke.cont8.i.i.i.i
   %r.addr.0.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i73 ], [ %call.i.i.i.i.i.i.i.i.i81, %invoke.cont8.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r.addr.0.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(40) %as, i64 40, i1 false), !noalias !500
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r.addr.0.i.i.i.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(40) %as, i64 40, i1 false), !noalias !500
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %r.addr.0.i.i.i.i.i.i, i64 40
   %35 = load i64, ptr %m_size.i.i.i.i, align 8, !noalias !500
   %add.ptr23.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::SAccelScheme", ptr %this.val14.i.i.i.i, i64 %35

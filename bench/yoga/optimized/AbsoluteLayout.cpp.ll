@@ -979,11 +979,11 @@ switch.lookup37:                                  ; preds = %sw.bb.i.i
   br label %cond.end
 
 sw.bb2.i103.i:                                    ; preds = %cond.true42.i
-  tail call fastcc void @_ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
+  tail call fastcc void @_ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
   br label %cond.end
 
 sw.bb3.i101.i:                                    ; preds = %cond.true42.i, %cond.true42.i, %cond.true42.i
-  tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
+  tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
   br label %cond.end
 
 cond.false43.i:                                   ; preds = %if.else40.i
@@ -1080,11 +1080,11 @@ switch.lookup42:                                  ; preds = %sw.bb.i107.i
   br label %cond.end
 
 sw.bb9.i.i:                                       ; preds = %if.end8.i.i, %if.then.i.i, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i.i
-  tail call fastcc void @_ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
+  tail call fastcc void @_ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
   br label %cond.end
 
 sw.bb10.i.i:                                      ; preds = %if.end8.i.i, %if.then.i.i
-  tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
+  tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
   br label %cond.end
 
 cond.end:                                         ; preds = %sw.bb10.i.i, %sw.bb9.i.i, %switch.lookup42, %if.end8.i.i, %sw.bb3.i101.i, %sw.bb2.i103.i, %switch.lookup37, %cond.true42.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i, %switch.lookup29, %land.lhs.true77.i, %if.else74.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i, %switch.lookup

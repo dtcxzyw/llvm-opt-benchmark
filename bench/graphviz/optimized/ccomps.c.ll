@@ -270,7 +270,7 @@ define internal fastcc void @setPrefix(ptr nocapture noundef %0, ptr noundef rea
 
 isLegal.exit:                                     ; preds = %5, %.preheader, %2
   %.0 = phi ptr [ @.str.9, %2 ], [ @.str.9, %5 ], [ %1, %.preheader ]
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #20
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #20
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %agxbput.exit, label %15
 
@@ -341,7 +341,7 @@ gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
 
 39:                                               ; preds = %agxblen.exit.thread.i.i
   %40 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 %.0, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull readonly align 1 %.0, i64 %13, i1 false)
   %41 = trunc i64 %13 to i8
   %42 = load i8, ptr %16, align 1
   %43 = add i8 %42, %41
@@ -353,7 +353,7 @@ gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
   %46 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %.0.i25.i.i, %.thread35.i.i ]
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = getelementptr inbounds i8, ptr %46, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %.0, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull readonly align 1 %.0, i64 %13, i1 false)
   %49 = load i64, ptr %47, align 8
   %50 = add i64 %49, %13
   store i64 %50, ptr %47, align 8
@@ -1387,7 +1387,7 @@ define internal fastcc void @deriveClusters(ptr noundef %0, ptr noundef %1) unna
 .lr.ph29:                                         ; preds = %2, %.loopexit
   %.02127 = phi ptr [ %32, %.loopexit ], [ %3, %2 ]
   %4 = tail call ptr @agnameof(ptr noundef nonnull %.02127) #16
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %31
 
@@ -1530,7 +1530,7 @@ define internal fastcc void @subgInduce(ptr noundef %0, ptr noundef %1, i32 noun
   %29 = tail call i64 @graphviz_node_induce(ptr noundef nonnull %.3.i, ptr noundef nonnull %.016) #16
   %30 = tail call i32 @agcopyattr(ptr noundef nonnull %.016, ptr noundef nonnull %.3.i) #16
   %31 = tail call ptr @agnameof(ptr noundef nonnull %.3.i) #16
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -1545,7 +1545,7 @@ define internal fastcc void @subgInduce(ptr noundef %0, ptr noundef %1, i32 noun
 
 38:                                               ; preds = %37
   %39 = tail call ptr @agnameof(ptr noundef nonnull %.016) #16
-  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
+  %40 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %39, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %41 = icmp eq i32 %40, 0
   br label %42
 

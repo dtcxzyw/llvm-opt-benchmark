@@ -1187,12 +1187,12 @@ define hidden i32 @mbedtls_gcm_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr 
   %11 = alloca i64, align 8
   %12 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %13 = tail call i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef 0, ptr noundef %2, i64 noundef %3)
+  %13 = tail call i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef 0, ptr noundef readonly %2, i64 noundef %3)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr noundef %4, i64 noundef %5)
+  %15 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr noundef readonly %4, i64 noundef %5)
   %.not23.i = icmp eq i32 %15, 0
   br i1 %.not23.i, label %16, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
@@ -1328,12 +1328,12 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds [6 x [64 x i8]], ptr @pt_test_data, i64 0, i64 %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %46 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %33, i64 noundef %35)
+  %46 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull readonly %33, i64 noundef %35)
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %47, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
 47:                                               ; preds = %27
-  %48 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41)
+  %48 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull readonly %39, i64 noundef %41)
   %.not23.i = icmp eq i32 %48, 0
   br i1 %.not23.i, label %49, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
@@ -1389,12 +1389,12 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %49
 
 63:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %64 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %33, i64 noundef %35)
+  %64 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull readonly %33, i64 noundef %35)
   %.not.i194 = icmp eq i32 %64, 0
   br i1 %.not.i194, label %65, label %mbedtls_gcm_crypt_and_tag.exit198.thread
 
 65:                                               ; preds = %63
-  %66 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %39, i64 noundef %41)
+  %66 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull readonly %39, i64 noundef %41)
   %.not23.i196 = icmp eq i32 %66, 0
   br i1 %.not23.i196, label %67, label %mbedtls_gcm_crypt_and_tag.exit198.thread
 

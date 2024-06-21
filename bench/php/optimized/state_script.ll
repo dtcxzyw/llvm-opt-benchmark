@@ -365,7 +365,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %169
 
 182:                                              ; preds = %164, %lxb_html_tokenizer_temp_realloc.exit.thread.i96
   %183 = phi ptr [ %179, %lxb_html_tokenizer_temp_realloc.exit.thread.i96 ], [ %125, %164 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %183, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %183, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %184 = getelementptr inbounds i8, ptr %183, i64 3
   store ptr %184, ptr %5, align 8
   %185 = load ptr, ptr %9, align 8
@@ -1162,7 +1162,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %13
 
 27:                                               ; preds = %10, %lxb_html_tokenizer_temp_realloc.exit.thread.i
   %28 = phi ptr [ %24, %lxb_html_tokenizer_temp_realloc.exit.thread.i ], [ %7, %10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %28, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %28, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %29 = getelementptr inbounds i8, ptr %28, i64 3
   store ptr %29, ptr %6, align 8
   store ptr @lxb_html_tokenizer_state_script_data_escaped_dash_dash, ptr %0, align 8
@@ -1730,7 +1730,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %197
 
 210:                                              ; preds = %192, %lxb_html_tokenizer_temp_realloc.exit.thread.i106
   %211 = phi ptr [ %207, %lxb_html_tokenizer_temp_realloc.exit.thread.i106 ], [ %153, %192 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %211, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %211, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %212 = getelementptr inbounds i8, ptr %211, i64 3
   store ptr %212, ptr %5, align 8
   %213 = load ptr, ptr %9, align 8
@@ -3013,7 +3013,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %194
 
 207:                                              ; preds = %189, %lxb_html_tokenizer_temp_realloc.exit.thread.i104
   %208 = phi ptr [ %204, %lxb_html_tokenizer_temp_realloc.exit.thread.i104 ], [ %150, %189 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %208, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %208, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %209 = getelementptr inbounds i8, ptr %208, i64 3
   store ptr %209, ptr %5, align 8
   %210 = load ptr, ptr %9, align 8
@@ -3286,7 +3286,7 @@ lxb_html_tokenizer_temp_append.exit53:            ; preds = %107
 
 121:                                              ; preds = %100, %lxb_html_tokenizer_temp_realloc.exit.thread.i52
   %122 = phi ptr [ %118, %lxb_html_tokenizer_temp_realloc.exit.thread.i52 ], [ %102, %100 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %122, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %122, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %123 = getelementptr inbounds i8, ptr %122, i64 3
   store ptr %123, ptr %101, align 8
   %124 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3563,7 +3563,7 @@ lxb_html_tokenizer_temp_append.exit61:            ; preds = %133
 
 147:                                              ; preds = %126, %lxb_html_tokenizer_temp_realloc.exit.thread.i60
   %148 = phi ptr [ %144, %lxb_html_tokenizer_temp_realloc.exit.thread.i60 ], [ %128, %126 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %148, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %148, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %149 = getelementptr inbounds i8, ptr %148, i64 3
   store ptr %149, ptr %127, align 8
   %150 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4068,7 +4068,7 @@ lxb_html_tokenizer_temp_append.exit55:            ; preds = %110
 
 124:                                              ; preds = %103, %lxb_html_tokenizer_temp_realloc.exit.thread.i54
   %125 = phi ptr [ %121, %lxb_html_tokenizer_temp_realloc.exit.thread.i54 ], [ %105, %103 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %125, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %125, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %126 = getelementptr inbounds i8, ptr %125, i64 3
   store ptr %126, ptr %104, align 8
   %127 = getelementptr inbounds i8, ptr %0, i64 88

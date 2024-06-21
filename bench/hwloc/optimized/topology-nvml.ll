@@ -243,7 +243,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   br label %.thread
 
 123:                                              ; preds = %89, %93
-  %124 = call ptr @hwloc_get_obj_by_depth(ptr noundef %17, i32 noundef 0, i32 noundef 0) #14
+  %124 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %17, i32 noundef 0, i32 noundef 0) #14
   br label %.thread
 
 .thread:                                          ; preds = %99, %102, %118, %123

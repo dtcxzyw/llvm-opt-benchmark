@@ -108,7 +108,7 @@ define noundef zeroext i1 @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..F
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call { i64, ptr } %8(i8 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6), !noalias !6
+  %9 = tail call { i64, ptr } %8(i8 noundef %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %6), !noalias !6
   %10 = extractvalue { i64, ptr } %9, 0
   %switch8.i.not = icmp ne i64 %10, 0
   br i1 %switch8.i.not, label %11, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit
@@ -134,7 +134,7 @@ define noundef zeroext i1 @"_ZN60_$LT$$RF$str$u20$as$u20$nom..traits..FindToken$
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !9
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call { i64, ptr } %8(i8 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6), !noalias !9
+  %9 = tail call { i64, ptr } %8(i8 noundef %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %6), !noalias !9
   %10 = extractvalue { i64, ptr } %9, 0
   %switch8.i.not.i = icmp ne i64 %10, 0
   br i1 %switch8.i.not.i, label %11, label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit"
@@ -162,7 +162,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..F
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !17
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call { i64, ptr } %9(i8 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7), !noalias !17
+  %10 = tail call { i64, ptr } %9(i8 noundef %3, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %7), !noalias !17
   %11 = extractvalue { i64, ptr } %10, 0
   %switch8.i.not.i = icmp ne i64 %11, 0
   br i1 %switch8.i.not.i, label %12, label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit"
@@ -190,7 +190,7 @@ define noundef zeroext i1 @"_ZN64_$LT$$RF$str$u20$as$u20$nom..traits..FindToken$
   %7 = getelementptr inbounds i8, ptr %3, i64 %5
   %8 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !25
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call { i64, ptr } %9(i8 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %7), !noalias !25
+  %10 = tail call { i64, ptr } %9(i8 noundef %6, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %7), !noalias !25
   %11 = extractvalue { i64, ptr } %10, 0
   %switch8.i.not.i.i = icmp ne i64 %11, 0
   br i1 %switch8.i.not.i.i, label %12, label %"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h289e5e6120b3d234E.exit"
@@ -388,7 +388,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44
   %17 = getelementptr inbounds i8, ptr %4, i64 %6
   %18 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !55
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call { i64, ptr } %19(i8 noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %17), !noalias !55
+  %20 = tail call { i64, ptr } %19(i8 noundef %12, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %17), !noalias !55
   %21 = extractvalue { i64, ptr } %20, 0
   %switch8.i40.not = icmp eq i64 %21, 0
   br i1 %switch8.i40.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44, label %22
@@ -416,7 +416,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44
   %32 = getelementptr inbounds i8, ptr %4, i64 %.0
   %33 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !58
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call { i64, ptr } %34(i8 noundef %12, ptr noundef nonnull %32, ptr noundef nonnull %29), !noalias !58
+  %35 = tail call { i64, ptr } %34(i8 noundef %12, ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %29), !noalias !58
   %36 = extractvalue { i64, ptr } %35, 0
   %switch8.i.not = icmp eq i64 %36, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44, label %38
@@ -448,7 +448,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35ca0be7ef7ea03fE.exit": ; preds = %47
   %51 = getelementptr inbounds i8, ptr %4, i64 %45
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %51, ptr nonnull %.sroa.7.0, i64 %10), !alias.scope !64
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %51, ptr nonnull readonly %.sroa.7.0, i64 %10), !alias.scope !64
   %52 = icmp eq i32 %bcmp.i, 0
   br i1 %52, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h14dea6bb22bff060E.exit"
 
@@ -1059,7 +1059,7 @@ define void @"_ZN56_$LT$$u5b$u8$u5d$$u20$as$u20$nom..traits..HexDisplay$GT$11to_
   %51 = extractvalue { i64, ptr } %49, 1
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %46, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %46, i64 %48, i1 false)
   store i64 %50, ptr %0, align 8, !alias.scope !141, !noalias !144
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %51, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !141, !noalias !144

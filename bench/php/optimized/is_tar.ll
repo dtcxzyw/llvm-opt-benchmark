@@ -30,7 +30,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr nocapture no
   br i1 %12, label %is_tar.exit.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 0, i64 noundef 100) #5
+  %14 = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %11, i32 noundef 0, i64 noundef 100) #5
   %.not.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds i8, ptr %11, i64 8
   %.not28.i = icmp ult ptr %14, %15
@@ -135,12 +135,12 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %11, i64 257
-  %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 8) #5
+  %59 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 8) #5
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %is_tar.exit, label %61
 
 61:                                               ; preds = %57
-  %62 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 8) #5
+  %62 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 8) #5
   %63 = icmp eq i32 %62, 0
   %64 = zext i1 %63 to i64
   br label %is_tar.exit

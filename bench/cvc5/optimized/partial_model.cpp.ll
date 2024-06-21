@@ -532,7 +532,7 @@ while.body.i:                                     ; preds = %.noexc, %while.body
   %3 = load ptr, ptr %d_list.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %3, i64 %dec.i
   %4 = load ptr, ptr %d_cleanUp.i, align 8
-  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popUpperBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull %add.ptr.i.i)
+  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popUpperBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull readonly %add.ptr.i.i)
           to label %.noexc unwind label %terminate.lpad.loopexit
 
 .noexc:                                           ; preds = %while.body.i
@@ -617,7 +617,7 @@ while.body.i:                                     ; preds = %.noexc, %while.body
   %3 = load ptr, ptr %d_list.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %3, i64 %dec.i
   %4 = load ptr, ptr %d_cleanUp.i, align 8
-  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popLowerBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull %add.ptr.i.i)
+  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popLowerBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull readonly %add.ptr.i.i)
           to label %.noexc unwind label %terminate.lpad.loopexit
 
 .noexc:                                           ; preds = %while.body.i
@@ -8864,7 +8864,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %4 = load ptr, ptr %d_list.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %4, i64 %dec.i
   %5 = load ptr, ptr %d_cleanUp.i, align 8
-  tail call void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popLowerBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %5, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popLowerBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %5, ptr noundef nonnull readonly %add.ptr.i.i)
   %6 = load i64, ptr %d_size.i, align 8
   %cmp.not.i = icmp eq i64 %6, %0
   br i1 %cmp.not.i, label %if.end.i, label %while.body.i, !llvm.loop !6
@@ -8926,7 +8926,7 @@ while.body.i.i:                                   ; preds = %.noexc.i, %while.bo
   %3 = load ptr, ptr %d_list.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %3, i64 %dec.i.i
   %4 = load ptr, ptr %d_cleanUp.i.i, align 8
-  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popLowerBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull %add.ptr.i.i.i)
+  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popLowerBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull readonly %add.ptr.i.i.i)
           to label %.noexc.i unwind label %terminate.lpad.loopexit.i
 
 .noexc.i:                                         ; preds = %while.body.i.i
@@ -9089,7 +9089,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %4 = load ptr, ptr %d_list.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %4, i64 %dec.i
   %5 = load ptr, ptr %d_cleanUp.i, align 8
-  tail call void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popUpperBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %5, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popUpperBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %5, ptr noundef nonnull readonly %add.ptr.i.i)
   %6 = load i64, ptr %d_size.i, align 8
   %cmp.not.i = icmp eq i64 %6, %0
   br i1 %cmp.not.i, label %if.end.i, label %while.body.i, !llvm.loop !4
@@ -9151,7 +9151,7 @@ while.body.i.i:                                   ; preds = %.noexc.i, %while.bo
   %3 = load ptr, ptr %d_list.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %3, i64 %dec.i.i
   %4 = load ptr, ptr %d_cleanUp.i.i, align 8
-  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popUpperBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull %add.ptr.i.i.i)
+  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13popUpperBoundEPSt4pairIjPNS3_10ConstraintEE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull readonly %add.ptr.i.i.i)
           to label %.noexc.i unwind label %terminate.lpad.loopexit.i
 
 .noexc.i:                                         ; preds = %while.body.i.i

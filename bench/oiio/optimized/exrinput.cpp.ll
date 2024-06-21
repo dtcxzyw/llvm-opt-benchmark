@@ -7205,7 +7205,7 @@ for.body:                                         ; preds = %invoke.cont8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr noundef %cnh.sroa.24.0, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull align 4 dereferenceable(13) %second.i)
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr noundef %cnh.sroa.24.0, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull readonly align 4 dereferenceable(13) %second.i)
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
@@ -7241,7 +7241,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN18Op
 _ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i21.i.i = phi ptr [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i68, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %cond.i21.i.i, i64 %sub.ptr.div.i.i.i.i
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr noundef %add.ptr.i.i, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull align 4 dereferenceable(13) %second.i)
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr noundef %add.ptr.i.i, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull readonly align 4 dereferenceable(13) %second.i)
   br i1 %cmp.i.i.i.i, label %invoke.cont18.i.i, label %for.inc.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i, %for.inc.i.i.i.i.i.i.i
@@ -7271,7 +7271,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   store i64 %6, ptr %m_len.i8.i.i.i.i.i.i.i.i.i, align 8
   %exr_channel_number.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 48
   %exr_channel_number5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %exr_channel_number.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %exr_channel_number5.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %exr_channel_number.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %exr_channel_number5.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
   %datatype.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 60
   %datatype6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i, i64 60
   %7 = load i8, ptr %datatype6.i.i.i.i.i.i.i.i.i, align 4
@@ -7343,7 +7343,7 @@ if.then.i.i:                                      ; preds = %if.end
   %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %12, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_(ptr %cnh.sroa.0.0, ptr %cnh.sroa.24.0, i64 noundef %mul.i.i, ptr nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolder13compare_layerERKS1_S3_)
+  invoke fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_(ptr %cnh.sroa.0.0, ptr %cnh.sroa.24.0, i64 noundef %mul.i.i, ptr nonnull readonly @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolder13compare_layerERKS1_S3_)
           to label %.noexc70 unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc70:                                         ; preds = %if.then.i.i
@@ -8177,7 +8177,7 @@ if.then.i.i165:                                   ; preds = %for.inc76, %for.inc
   %115 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i82, i1 true)
   %sub.i.i.i170 = shl nuw nsw i64 %115, 1
   %mul.i.i171 = xor i64 %sub.i.i.i170, 126
-  invoke fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_(ptr %96, ptr nonnull %layerend.sroa.0.0.ptr.lcssa, i64 noundef %mul.i.i171, ptr nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolder11compare_cnhERKS1_S3_)
+  invoke fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_(ptr %96, ptr nonnull %layerend.sroa.0.0.ptr.lcssa, i64 noundef %mul.i.i171, ptr nonnull readonly @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolder11compare_cnhERKS1_S3_)
           to label %.noexc214 unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc214:                                        ; preds = %if.then.i.i165

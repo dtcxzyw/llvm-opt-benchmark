@@ -1590,7 +1590,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   br i1 %513, label %.preheader.i202, label %._crit_edge.i208, !llvm.loop !26
 
 ._crit_edge.i208:                                 ; preds = %.loopexit.i206, %487
-  call fastcc void @_pick_shared_gres(ptr noundef nonnull %25, ptr noundef %490, ptr noundef %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_pick_shared_gres(ptr noundef nonnull %25, ptr noundef %490, ptr noundef readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext true, i1 noundef zeroext false)
   %514 = load i64, ptr %25, align 8
   %.not49.i = icmp eq i64 %514, 0
   %515 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
@@ -1599,7 +1599,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   br i1 %or.cond.i, label %517, label %516
 
 516:                                              ; preds = %._crit_edge.i208
-  call fastcc void @_pick_shared_gres(ptr noundef nonnull %25, ptr noundef %490, ptr noundef %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_pick_shared_gres(ptr noundef nonnull %25, ptr noundef %490, ptr noundef readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext false, i1 noundef zeroext false)
   %.pr.i = load i64, ptr %25, align 8
   br label %517
 
@@ -1695,7 +1695,7 @@ _get_task_cnt_node.exit.i:                        ; preds = %_get_task_cnt_node.
   br label %553
 
 553:                                              ; preds = %551, %_get_task_cnt_node.exit.i
-  call fastcc void @_pick_shared_gres(ptr noundef nonnull %19, ptr noundef nonnull %531, ptr noundef %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_pick_shared_gres(ptr noundef nonnull %19, ptr noundef nonnull readonly %531, ptr noundef readonly %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext false)
   %554 = load i64, ptr %19, align 8
   %.not34.i = icmp eq i64 %554, 0
   br i1 %.not34.i, label %_set_shared_task_bits.exit, label %555
@@ -1738,7 +1738,7 @@ _get_task_cnt_node.exit.i:                        ; preds = %_get_task_cnt_node.
   %.036.i = phi i32 [ %570, %569 ], [ 0, %565 ]
   %573 = load i64, ptr %564, align 8
   store i64 %573, ptr %21, align 8
-  call fastcc void @_pick_shared_gres(ptr noundef nonnull %21, ptr noundef %561, ptr noundef %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext %528)
+  call fastcc void @_pick_shared_gres(ptr noundef nonnull %21, ptr noundef %561, ptr noundef readonly %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext %528)
   %574 = load i64, ptr %21, align 8
   %.not35.i = icmp eq i64 %574, 0
   br i1 %.not35.i, label %569, label %575

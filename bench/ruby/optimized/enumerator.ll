@@ -6404,7 +6404,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %23
 rbimpl_size_mul_or_raise.exit:                    ; preds = %28
   %31 = getelementptr i8, ptr %29, i64 8
   %32 = shl nuw nsw i64 %13, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %3, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %3, i64 %32, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %28

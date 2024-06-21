@@ -105,7 +105,7 @@ if.then.i:                                        ; preds = %land.rhs
   br label %name_matches.exit
 
 if.end.i:                                         ; preds = %land.rhs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br label %name_matches.exit
 
@@ -146,7 +146,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %or.cond.i, label %if.end.i5, label %name_matches.exit
 
 if.end.i5:                                        ; preds = %if.end
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull readonly dereferenceable(1) %2) #8
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %return, label %return.sink.split
 
@@ -573,7 +573,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true1.i
   br i1 %or.cond.i.i, label %if.end.i.i, label %PyCapsule_IsValid.exit
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then.i, label %if.then.i.sink.split
 

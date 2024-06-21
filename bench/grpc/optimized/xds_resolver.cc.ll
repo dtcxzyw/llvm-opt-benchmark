@@ -1262,7 +1262,7 @@ do.end:                                           ; preds = %entry
 invoke.cont.thread.i:                             ; preds = %do.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilterE, i64 16), ptr %2, align 8, !alias.scope !10
   %filter_args_.i.i.i.i1.i = getelementptr inbounds i8, ptr %status, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i.i.i.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %filter_args_.i.i, i64 16, i1 false)
   store i64 0, ptr %status, align 8, !alias.scope !10
   br label %invoke.cont.thread
 
@@ -1286,7 +1286,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   %.pr.i = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilterE, i64 16), ptr %2, align 8, !alias.scope !10
   %filter_args_.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %filter_args_.i.i, i64 16, i1 false)
   store i64 0, ptr %status, align 8, !alias.scope !10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp.i, align 8, !noalias !10
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %.pr.i, null
@@ -1454,7 +1454,7 @@ cleanup.thread30:                                 ; preds = %invoke.cont11, %if.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilterE, i64 16), ptr %27, align 8
   %filter_args_.i32 = getelementptr inbounds i8, ptr %27, i64 24
   %filter_args_2.i33 = getelementptr inbounds i8, ptr %status, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i32, ptr noundef nonnull align 8 dereferenceable(16) %filter_args_2.i33, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i32, ptr noundef nonnull readonly align 8 dereferenceable(16) %filter_args_2.i33, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   br label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
 
@@ -1464,7 +1464,7 @@ cleanup:                                          ; preds = %if.then.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilterE, i64 16), ptr %27, align 8
   %filter_args_.i = getelementptr inbounds i8, ptr %27, i64 24
   %filter_args_2.i = getelementptr inbounds i8, ptr %status, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i, ptr noundef nonnull align 8 dereferenceable(16) %filter_args_2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter_args_.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %filter_args_2.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   %cmp.i.i.i.i14 = icmp eq i64 %this.val.i.i13.pre.pre, 0
   br i1 %cmp.i.i.i.i14, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -2648,7 +2648,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i, %_ZNKSt4l
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !27
-  %call.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i, ptr noundef %retval.sroa.2.0.copyload.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #28, !noalias !27
+  %call.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i, ptr noundef readonly %retval.sroa.2.0.copyload.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #28, !noalias !27
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i.i.i
 
@@ -2683,7 +2683,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %_ZNKSt8_Rb_treeISt1
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !noalias !27
-  %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %retval.sroa.2.0.copyload.i, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28, !noalias !27
+  %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %retval.sroa.2.0.copyload.i, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28, !noalias !27
   %cmp.i.i.i5.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i5.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNKSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrINS4_12_GLOBAL__N_111XdsResolver10ClusterRefEEESt4lessIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit.i.i
 
@@ -17747,7 +17747,7 @@ while.body.i.i.i:                                 ; preds = %entry, %_ZNKSt4less
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.body.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i, ptr noundef %cluster_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i, ptr noundef readonly %cluster_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i
 
@@ -17782,7 +17782,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeISt17
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %lor.lhs.false.i.i
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %cluster_name.coerce1, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %cluster_name.coerce1, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
   %cmp.i.i.i5.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i5.i.i, label %if.then.i.i.i.i.i, label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrINS4_12_GLOBAL__N_111XdsResolver10ClusterRefEEESt4lessIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit
 
@@ -17818,7 +17818,7 @@ while.body.i.i.i.i:                               ; preds = %if.end, %_ZNKSt4les
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !noalias !259
-  %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, ptr noundef %cluster_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28, !noalias !259
+  %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, ptr noundef readonly %cluster_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28, !noalias !259
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i.i
 
@@ -17853,7 +17853,7 @@ lor.lhs.false.i.i.i:                              ; preds = %_ZNSt8_Rb_treeISt17
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i8: ; preds = %lor.lhs.false.i.i.i
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i, align 8, !noalias !259
-  %call.i.i.i.i.i.i.i9 = tail call i32 @memcmp(ptr noundef %cluster_name.coerce1, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i6) #28, !noalias !259
+  %call.i.i.i.i.i.i.i9 = tail call i32 @memcmp(ptr noundef readonly %cluster_name.coerce1, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i6) #28, !noalias !259
   %cmp.i.i.i5.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i9, 0
   br i1 %cmp.i.i.i5.i.i.i, label %if.then.i.i.i.i.i.i13, label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS4_12_GLOBAL__N_111XdsResolver10ClusterRefEEESt4lessIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit.i
 
@@ -17953,7 +17953,7 @@ while.body.i.i.i14.i:                             ; preds = %call5.i.i.i.i.i.i.i
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i18.i: ; preds = %while.body.i.i.i14.i
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.011.i.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !noalias !259
-  %call.i.i.i.i.i.i.i19.i = call i32 @memcmp(ptr noundef %15, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i16.i) #28
+  %call.i.i.i.i.i.i.i19.i = call i32 @memcmp(ptr noundef readonly %15, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i16.i) #28
   %cmp.i.i.i.i.i.i20.i = icmp eq i32 %call.i.i.i.i.i.i.i19.i, 0
   br i1 %cmp.i.i.i.i.i.i20.i, label %if.then.i.i.i.i.i.i28.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i21.i
 
@@ -18001,7 +18001,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i.i: ; preds = %if.end12.i.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i14.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i.i, align 8, !noalias !259
-  %call.i.i.i.i15.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i14.i.i.i.i, ptr noundef %15, i64 noundef %.sroa.speculated.i.i.i8.i.pre-phi.i.i.i) #28
+  %call.i.i.i.i15.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i14.i.i.i.i, ptr noundef readonly %15, i64 noundef %.sroa.speculated.i.i.i8.i.pre-phi.i.i.i) #28
   %cmp.i.i.i16.i.i.i.i = icmp eq i32 %call.i.i.i.i15.i.i.i.i, 0
   br i1 %cmp.i.i.i16.i.i.i.i, label %if.then.i.i.i19.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i
 
@@ -18138,7 +18138,7 @@ while.body.i.i.i.i21:                             ; preds = %_ZN9grpc_core12_GLO
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i28: ; preds = %while.body.i.i.i.i21
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i22, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i30 = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i29, align 8
-  %call.i.i.i.i.i.i.i.i31 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i30, ptr noundef %29, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i26) #28
+  %call.i.i.i.i.i.i.i.i31 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i30, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i26) #28
   %cmp.i.i.i.i.i.i.i32 = icmp eq i32 %call.i.i.i.i.i.i.i.i31, 0
   br i1 %cmp.i.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i.i89, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i.i33
 
@@ -18222,7 +18222,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i13.i
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i17.i: ; preds = %land.lhs.true.i.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds i8, ptr %31, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i19.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i18.i, align 8
-  %call.i.i.i.i.i.i.i20.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i19.i, ptr noundef %29, i64 noundef %.sroa.speculated.i.i.i.i.i.i15.i) #28
+  %call.i.i.i.i.i.i.i20.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i19.i, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i.i.i.i15.i) #28
   %cmp.i.i.i.i.i.i21.i = icmp eq i32 %call.i.i.i.i.i.i.i20.i, 0
   br i1 %cmp.i.i.i.i.i.i21.i, label %if.then.i.i.i.i.i.i25.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i
 
@@ -18248,7 +18248,7 @@ if.else12.i.i.i.i:                                ; preds = %call5.i.i.i.i.i.i.i
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i21.i.i.i.i: ; preds = %if.else12.i.i.i.i
   %agg.tmp2.sroa.2.0..sroa_idx.i22.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i36.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i23.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i22.i.i.i.i, align 8
-  %call.i.i.i.i26.i.i.i.i = call i32 @memcmp(ptr noundef %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i23.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i) #28
+  %call.i.i.i.i26.i.i.i.i = call i32 @memcmp(ptr noundef readonly %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i23.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i) #28
   %cmp.i.i.i27.i.i.i.i = icmp eq i32 %call.i.i.i.i26.i.i.i.i, 0
   br i1 %cmp.i.i.i27.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit35.thread16.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit35.thread.i.i.i.i
 
@@ -18283,7 +18283,7 @@ if.else25.i.i.i.i:                                ; preds = %if.then18.i.i.i.i
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i44.i.i.i.i: ; preds = %if.else25.i.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i47.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i12.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i48.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i47.i.i.i.i, align 8
-  %call.i.i.i.i49.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i48.i.i.i.i, ptr noundef %29, i64 noundef %.sroa.speculated.i.i.i42.i.i.i.i) #28
+  %call.i.i.i.i49.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i48.i.i.i.i, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i42.i.i.i.i) #28
   %cmp.i.i.i50.i.i.i.i = icmp eq i32 %call.i.i.i.i49.i.i.i.i, 0
   br i1 %cmp.i.i.i50.i.i.i.i, label %if.then.i.i.i53.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit58.i.i.i.i
 
@@ -18308,7 +18308,7 @@ if.then32.i.i.i.i:                                ; preds = %_ZNKSt4lessISt17bas
   br label %if.then.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66.i.i.i.i: ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit35.thread.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit35.thread16.i.i.i.i
-  %call.i.i.i.i71.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp2.sroa.2.0.copyload.i23.i.i.i.i, ptr noundef %29, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i) #28
+  %call.i.i.i.i71.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp2.sroa.2.0.copyload.i23.i.i.i.i, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i) #28
   %cmp.i.i.i72.i.i.i.i = icmp eq i32 %call.i.i.i.i71.i.i.i.i, 0
   br i1 %cmp.i.i.i72.i.i.i.i, label %if.then.i.i.i75.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit80.i.i.i.i
 
@@ -18341,7 +18341,7 @@ if.else57.i.i.i.i:                                ; preds = %if.then50.i.i.i.i
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i90.i.i.i.i: ; preds = %if.else57.i.i.i.i
   %agg.tmp2.sroa.2.0..sroa_idx.i91.i.i.i.i = getelementptr inbounds i8, ptr %call.i84.i.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i92.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i91.i.i.i.i, align 8
-  %call.i.i.i.i95.i.i.i.i = call i32 @memcmp(ptr noundef %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i92.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i88.i.i.i.i) #28
+  %call.i.i.i.i95.i.i.i.i = call i32 @memcmp(ptr noundef readonly %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i92.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i88.i.i.i.i) #28
   %cmp.i.i.i96.i.i.i.i = icmp eq i32 %call.i.i.i.i95.i.i.i.i, 0
   br i1 %cmp.i.i.i96.i.i.i.i, label %if.then.i.i.i99.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit104.i.i.i.i
 
@@ -18379,7 +18379,7 @@ while.body.i.i.i49:                               ; preds = %invoke.cont5.sink.s
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i54: ; preds = %while.body.i.i.i49
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i55 = getelementptr inbounds i8, ptr %__x.011.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i56 = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i55, align 8
-  %call.i.i.i.i.i.i.i57 = call i32 @memcmp(ptr noundef %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i56, i64 noundef %.sroa.speculated.i.i.i.i.i.i52) #28
+  %call.i.i.i.i.i.i.i57 = call i32 @memcmp(ptr noundef readonly %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i56, i64 noundef %.sroa.speculated.i.i.i.i.i.i52) #28
   %cmp.i.i.i.i1.i.i = icmp eq i32 %call.i.i.i.i.i.i.i57, 0
   br i1 %cmp.i.i.i.i1.i.i, label %if.then.i.i.i.i.i.i83, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i58
 
@@ -18427,7 +18427,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i: ; preds = %if.end12.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i14.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i, align 8
-  %call.i.i.i.i15.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i14.i.i.i, ptr noundef %29, i64 noundef %.sroa.speculated.i.i.i8.i.pre-phi.i.i) #28
+  %call.i.i.i.i15.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i14.i.i.i, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i8.i.pre-phi.i.i) #28
   %cmp.i.i.i16.i.i.i = icmp eq i32 %call.i.i.i.i15.i.i.i, 0
   br i1 %cmp.i.i.i16.i.i.i, label %if.then.i.i.i19.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i
 
@@ -19770,7 +19770,7 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont22, %_ZN
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !noalias !290
-  %call.i.i.i.i.i.i.i.i24 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, ptr noundef %35, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28, !noalias !290
+  %call.i.i.i.i.i.i.i.i24 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, ptr noundef readonly %35, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28, !noalias !290
   %cmp.i.i.i.i.i.i.i25 = icmp eq i32 %call.i.i.i.i.i.i.i.i24, 0
   br i1 %cmp.i.i.i.i.i.i.i25, label %if.then.i.i.i.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i.i
 
@@ -19805,7 +19805,7 @@ lor.lhs.false.i.i.i:                              ; preds = %_ZNKSt8_Rb_treeISt1
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i, align 8, !noalias !290
-  %call.i.i.i.i.i.i.i26 = call i32 @memcmp(ptr noundef %35, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28, !noalias !290
+  %call.i.i.i.i.i.i.i26 = call i32 @memcmp(ptr noundef readonly %35, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28, !noalias !290
   %cmp.i.i.i5.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i26, 0
   br i1 %cmp.i.i.i5.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrINS4_12_GLOBAL__N_111XdsResolver10ClusterRefEEESt4lessIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit.i
 

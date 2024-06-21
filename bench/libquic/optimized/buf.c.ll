@@ -210,7 +210,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %return
 
 if.end7.i:                                        ; preds = %if.end3.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i, ptr nonnull align 1 %buf, i64 %i.0.lcssa.i13.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i, ptr nonnull readonly align 1 %buf, i64 %i.0.lcssa.i13.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call4.i, i64 %i.0.lcssa.i13.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %return

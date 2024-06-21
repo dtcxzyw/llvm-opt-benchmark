@@ -970,7 +970,7 @@ define void @php_json_parser_init(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull readonly align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
   ret void
 }
 

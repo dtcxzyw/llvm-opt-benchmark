@@ -19899,7 +19899,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   %1 = load ptr, ptr %plain_.i.i, align 8, !noalias !257
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i8 0, i64 16, i1 false), !noalias !260
-  invoke void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
+  invoke void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
@@ -20434,7 +20434,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 invoke.cont9.i.i:                                 ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %8 = extractvalue { ptr, i64 } %call10.i.i, 0
   %9 = extractvalue { ptr, i64 } %call10.i.i, 1
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull align 8 poison, ptr %8, i64 %9)
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readonly align 8 poison, ptr %8, i64 %9)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont9.i.i, %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
@@ -20672,7 +20672,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 call6.i.i.noexc:                                  ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %5 = extractvalue { ptr, i64 } %call6.i.i2, 0
   %6 = extractvalue { ptr, i64 } %call6.i.i2, 1
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull align 8 poison, ptr %5, i64 %6)
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readonly align 8 poison, ptr %5, i64 %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call6.i.i.noexc
@@ -22973,7 +22973,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i, !noalias !388
 
 invoke.cont.i:                                    ; preds = %entry
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl30prepareJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::shared_ptr.296") align 8 %agg.result, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %agg.tmp.i)
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl30prepareJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::shared_ptr.296") align 8 %agg.result, ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad.i:                                           ; preds = %entry

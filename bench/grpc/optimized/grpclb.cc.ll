@@ -11320,7 +11320,7 @@ if.end15.sink.split.i:                            ; preds = %if.then7.i, %if.end
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %10 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull readonly align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i, ptr %sin6_port.i, align 2
   br label %_ZN9grpc_core12_GLOBAL__N_111ParseServerERKNS_12GrpcLbServerEP21grpc_resolved_address.exit
 
@@ -19985,7 +19985,7 @@ if.end15.sink.split.i:                            ; preds = %if.then7.i, %call.i
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %9 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull readonly align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i5, ptr %sin6_port.i, align 2
   br label %invoke.cont5
 

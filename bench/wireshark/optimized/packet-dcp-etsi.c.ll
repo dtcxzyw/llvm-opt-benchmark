@@ -764,12 +764,12 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
   %162 = getelementptr i8, ptr %145, i64 %161
   %163 = zext i32 %.02124.i.i.i to i64
   %164 = getelementptr i8, ptr %142, i64 %163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr align 1 %164, i64 %159, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr readonly align 1 %164, i64 %159, i1 false)
   %165 = add i32 %.02124.i.i.i, %83
   %166 = getelementptr i8, ptr %162, i64 207
   %167 = zext i32 %165 to i64
   %168 = getelementptr i8, ptr %142, i64 %167
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %166, ptr noundef nonnull align 1 dereferenceable(48) %168, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %166, ptr noundef nonnull readonly align 1 dereferenceable(48) %168, i64 48, i1 false)
   %169 = tail call i32 @eras_dec_rs(ptr noundef %162, ptr noundef null, i32 noundef 0) #3
   %170 = icmp slt i32 %169, 0
   br i1 %170, label %rs_correct_data.exit.i.i, label %171

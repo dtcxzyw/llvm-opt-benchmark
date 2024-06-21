@@ -993,7 +993,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !140, !noalias !145, !nonnull !9, !noundef !9
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !140, !noalias !145, !noundef !9
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !140, !noalias !145
@@ -1050,7 +1050,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !153, !noalias !158, !nonnull !9, !noundef !9
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !153, !noalias !158, !noundef !9
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !153, !noalias !158
@@ -1605,7 +1605,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   br i1 %42, label %.thread739, label %43
 
 43:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd70bf697fcc29649E.exit"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %41, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !231, !noalias !235
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %41, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !231, !noalias !235
   %44 = sub i64 %40, %.0.sroa.speculated.i.i.i
   %45 = getelementptr inbounds i8, ptr %41, i64 %.0.sroa.speculated.i.i.i
   store ptr %45, ptr %25, align 8, !alias.scope !227, !noalias !228
@@ -1640,7 +1640,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   br i1 %56, label %57, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i11.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i11.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i.i"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %45, i64 %49, i1 false), !alias.scope !245, !noalias !249
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %45, i64 %49, i1 false), !alias.scope !245, !noalias !249
   br label %59
 
 57:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i.i"
@@ -1783,7 +1783,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   br i1 %111, label %112, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull align 1 %108, i64 %88, i1 false), !alias.scope !263, !noalias !267
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull readonly align 1 %108, i64 %88, i1 false), !alias.scope !263, !noalias !267
   br label %"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17hb007ce819496219bE.exit.thread"
 
 112:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i"
@@ -1821,7 +1821,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   %123 = load ptr, ptr %25, align 8, !alias.scope !270, !noalias !273, !nonnull !9, !align !133, !noundef !9
   %124 = getelementptr inbounds i8, ptr %123, i64 6
   %125 = add i64 %115, -6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %114, ptr noundef nonnull align 1 dereferenceable(6) %123, i64 6, i1 false), !alias.scope !275, !noalias !279
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %114, ptr noundef nonnull readonly align 1 dereferenceable(6) %123, i64 6, i1 false), !alias.scope !275, !noalias !279
   store ptr %124, ptr %25, align 8, !alias.scope !270, !noalias !273
   store i64 %125, ptr %28, align 8, !alias.scope !270, !noalias !273
   %126 = load i64, ptr %27, align 8, !noundef !9
@@ -1834,7 +1834,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit": ; preds = %122
   %129 = load ptr, ptr %26, align 8, !nonnull !9, !noundef !9
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %129, ptr noundef nonnull dereferenceable(6) @anon.59a0b0f4270fcbe4599202082a83263a.55, i64 6), !alias.scope !284
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %129, ptr noundef nonnull readonly dereferenceable(6) @anon.59a0b0f4270fcbe4599202082a83263a.55, i64 6), !alias.scope !284
   %130 = icmp eq i32 %bcmp.i, 0
   br i1 %130, label %139, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd928ce9a09ad4852E.exit252"
 
@@ -1924,7 +1924,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   br i1 %164, label %165, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i255"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i255": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i254"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %160, ptr nonnull align 1 %153, i64 %156, i1 false), !alias.scope !311, !noalias !315
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %160, ptr nonnull readonly align 1 %153, i64 %156, i1 false), !alias.scope !311, !noalias !315
   br label %172
 
 165:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i254"
@@ -2131,7 +2131,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   br i1 %235, label %236, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i266"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i266": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i265"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %231, ptr nonnull align 1 %223, i64 %226, i1 false), !alias.scope !348, !noalias !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %231, ptr nonnull readonly align 1 %223, i64 %226, i1 false), !alias.scope !348, !noalias !352
   br label %243
 
 236:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i265"
@@ -2229,7 +2229,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   br i1 %267, label %268, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i272"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i272": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i271"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %261, ptr nonnull align 1 %264, i64 %88, i1 false), !alias.scope !363, !noalias !367
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %261, ptr nonnull readonly align 1 %264, i64 %88, i1 false), !alias.scope !363, !noalias !367
   br label %"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17hb007ce819496219bE.exit274.thread"
 
 268:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i271"
@@ -2277,7 +2277,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd928ce9a09ad4852E.exit275"
   %281 = getelementptr inbounds i8, ptr %274, i64 %.lcssa409
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %281, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !378, !noalias !379
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %281, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !378, !noalias !379
   store i64 %62, ptr %20, align 8
   %282 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.0.sroa.speculated.i, ptr %282, align 8
@@ -2510,7 +2510,7 @@ default.unreachable:                              ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !402
   %90 = extractvalue { ptr, i64 } %89, 0
   %91 = getelementptr inbounds i8, ptr %90, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %79, i64 %81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull readonly align 1 %79, i64 %81, i1 false)
   %92 = icmp ne ptr %90, null
   call void @llvm.assume(i1 %92)
   %93 = extractvalue { ptr, i64 } %89, 1
@@ -2681,7 +2681,7 @@ _ZN8smol_str4Repr3new17h6388da2e8565ddbeE.exit.i.i.i: ; preds = %97, %.noexc26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !424
   %164 = extractvalue { ptr, i64 } %163, 0
   %165 = getelementptr inbounds i8, ptr %164, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull align 1 %153, i64 %155, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %153, i64 %155, i1 false)
   %166 = icmp ne ptr %164, null
   call void @llvm.assume(i1 %166)
   %167 = extractvalue { ptr, i64 } %163, 1
@@ -2981,7 +2981,7 @@ default.unreachable:                              ; preds = %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !464
   %84 = extractvalue { ptr, i64 } %83, 0
   %85 = getelementptr inbounds i8, ptr %84, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %73, i64 %75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull readonly align 1 %73, i64 %75, i1 false)
   %86 = icmp ne ptr %84, null
   call void @llvm.assume(i1 %86)
   %87 = extractvalue { ptr, i64 } %83, 1
@@ -3087,7 +3087,7 @@ default.unreachable:                              ; preds = %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !475
   %130 = extractvalue { ptr, i64 } %129, 0
   %131 = getelementptr inbounds i8, ptr %130, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %131, ptr nonnull align 1 %119, i64 %121, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %131, ptr nonnull readonly align 1 %119, i64 %121, i1 false)
   %132 = icmp ne ptr %130, null
   call void @llvm.assume(i1 %132)
   %133 = extractvalue { ptr, i64 } %129, 1

@@ -451,7 +451,7 @@ entry:
   call void @llvm.va_copy.p0(ptr nonnull %params_copy, ptr %params)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #16
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef %fmt, ptr noundef %params)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef %params)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
   %.b = load i1, ptr @BUG_vfl.in_bug, align 4
   br i1 %.b, label %if.then, label %if.end
@@ -486,7 +486,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #16
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef %fmt, ptr noundef nonnull %ap)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @llvm.va_start.p0(ptr nonnull %ap)

@@ -1191,7 +1191,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 215:                                              ; preds = %212
   %216 = add i64 %.0246297, 49
-  %bcmp.i = call i32 @bcmp(ptr %138, ptr nonnull %0, i64 %.0246297)
+  %bcmp.i = call i32 @bcmp(ptr readonly %138, ptr nonnull readonly %0, i64 %.0246297)
   %.not44.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not44.i, label %220, label %217
 
@@ -1235,7 +1235,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %235 = getelementptr inbounds i8, ptr %224, i64 48
   %236 = getelementptr inbounds i8, ptr %224, i64 8
   store ptr %235, ptr %236, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr align 1 %138, i64 %131, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr readonly align 1 %138, i64 %131, i1 false)
   %237 = trunc i64 %.0246297 to i16
   %238 = getelementptr inbounds i8, ptr %224, i64 40
   store i16 %237, ptr %238, align 8
@@ -1251,7 +1251,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %243 = getelementptr inbounds i8, ptr %224, i64 16
   store ptr %242, ptr %243, align 8
   %244 = add i64 %.4, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr align 1 %0, i64 %244, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr readonly align 1 %0, i64 %244, i1 false)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %224, i64 44
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   %.pre47.i = load i64, ptr %224, align 8
@@ -1494,7 +1494,7 @@ virtual_filepath_ex.exit:
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
   %9 = add i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
-  %10 = call range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1)
+  %10 = call range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef readonly %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1)
   %11 = load ptr, ptr %2, align 8
   store ptr %11, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)

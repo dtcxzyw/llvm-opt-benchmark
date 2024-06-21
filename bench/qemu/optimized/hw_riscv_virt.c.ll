@@ -1732,7 +1732,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.th
   br i1 %cmp28.i.i, label %if.then30.i.i, label %if.end31.i.i
 
 if.then30.i.i:                                    ; preds = %for.end.i.i
-  call fastcc void @create_fdt_one_imsic(ptr noundef nonnull %add.ptr, i64 noundef 603979776, ptr noundef %call11.i.i, i32 noundef %phandle.3.i, i1 noundef zeroext true, i32 noundef 0)
+  call fastcc void @create_fdt_one_imsic(ptr noundef nonnull %add.ptr, i64 noundef 603979776, ptr noundef readonly %call11.i.i, i32 noundef %phandle.3.i, i1 noundef zeroext true, i32 noundef 0)
   %aia_guests.i.i.i = getelementptr i8, ptr %notifier, i64 3492
   %91 = load i32, ptr %aia_guests.i.i.i, align 4
   %add.i119.i.i = add i32 %91, 1
@@ -1750,7 +1750,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
 create_fdt_imsic.exit.i.i:                        ; preds = %while.cond.i.i.i.i
   %inc1.i.i.i = add i32 %phandle.3.i, 2
   %inc.i118.i.i = add i32 %phandle.3.i, 1
-  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef %call11.i.i, i32 noundef %inc.i118.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
+  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef readonly %call11.i.i, i32 noundef %inc.i118.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %create_fdt_imsic.exit.i.i, %for.end.i.i
@@ -1891,9 +1891,9 @@ if.else50.i.i:                                    ; preds = %for.body38.i.i
   %mul.i163.i.i = shl nuw nsw i64 %indvars.iv14.i.i, 15
   %add.i164.i.i = add nuw nsw i64 %mul.i163.i.i, 201326592
   %114 = trunc nuw nsw i64 %indvars.iv14.i.i to i32
-  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %phandle.5.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %94)
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %phandle.5.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %94)
   %add12.i.i.i = add nuw nsw i64 %mul.i163.i.i, 218103808
-  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
   %call16.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.138, i64 noundef %add12.i.i.i) #13
   %tobool.not.i165.i.i = icmp eq i64 %indvars.iv14.i.i, 0
   br i1 %tobool.not.i165.i.i, label %if.then.i167.i.i, label %create_fdt_socket_aplic.exit.i.i

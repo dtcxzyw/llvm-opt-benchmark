@@ -4988,7 +4988,7 @@ if.end122:                                        ; preds = %if.then119, %if.the
   %mutex_work_queue124 = getelementptr inbounds i8, ptr %54, i64 2864
   %call125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue124) #24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %crc.i)
-  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull %encoder, ptr noundef %48)
+  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull readonly %encoder, ptr noundef %48)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %process_frame_thread_inner_.exit, label %land.lhs.true3.i
 
@@ -7745,7 +7745,7 @@ if.end175:                                        ; preds = %if.then172, %if.the
   %mutex_work_queue177 = getelementptr inbounds i8, ptr %66, i64 2864
   %call178 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue177) #24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %crc.i)
-  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull %args, ptr noundef %60)
+  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull readonly %args, ptr noundef %60)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %process_frame_thread_inner_.exit, label %land.lhs.true3.i
 
@@ -9580,7 +9580,7 @@ if.end8.i:                                        ; preds = %if.else5.i, %if.the
   %residual14.i = getelementptr inbounds i8, ptr %50, i64 72
   store ptr %44, ptr %residual14.i, align 8
   %52 = load ptr, ptr %private_, align 8
-  %call.i = call fastcc i32 @find_best_partition_order_(ptr noundef %52, ptr noundef nonnull %threadtask, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %sub.i, i32 noundef %fixed_order.0234, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %49, ptr noundef nonnull %data.i162)
+  %call.i = call fastcc i32 @find_best_partition_order_(ptr noundef %52, ptr noundef nonnull readonly %threadtask, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %sub.i, i32 noundef %fixed_order.0234, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %49, ptr noundef nonnull %data.i162)
   %order18.i = getelementptr inbounds i8, ptr %50, i64 32
   store i32 %fixed_order.0234, ptr %order18.i, align 8
   %cmp2149.not.i = icmp eq i32 %fixed_order.0234, 0
@@ -10139,7 +10139,7 @@ if.end52.i:                                       ; preds = %if.end52.i.sink.spl
   %residual58.i = getelementptr inbounds i8, ptr %131, i64 432
   store ptr %125, ptr %residual58.i, align 8
   %139 = load ptr, ptr %private_, align 8
-  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0253, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
+  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0253, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
   %order64.i = getelementptr inbounds i8, ptr %131, i64 32
   store i32 %lpc_order.0253, ptr %order64.i, align 8
   %qlp_coeff_precision66.i = getelementptr inbounds i8, ptr %131, i64 36

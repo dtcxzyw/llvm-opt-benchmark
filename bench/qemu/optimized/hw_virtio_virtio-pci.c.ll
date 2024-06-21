@@ -1531,7 +1531,7 @@ if.end58:                                         ; preds = %virtio_pci_modern_i
   %idx.ext.i = sext i32 %call.i174 to i64
   %add.ptr.i = getelementptr i8, ptr %50, i64 %idx.ext.i
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr3.i, ptr noundef nonnull align 2 dereferenceable(18) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cfg, i64 2), i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr3.i, ptr noundef nonnull readonly align 2 dereferenceable(18) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cfg, i64 2), i64 18, i1 false)
   %config_cap = getelementptr inbounds i8, ptr %call.i, i64 4880
   store i32 %call.i174, ptr %config_cap, align 16
   %wmask = getelementptr inbounds i8, ptr %call.i, i64 184

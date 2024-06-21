@@ -1784,13 +1784,13 @@ entry:
 if.then:                                          ; preds = %entry
   %fFields = getelementptr inbounds i8, ptr %right, i64 12
   %fFields2 = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fFields2, ptr noundef nonnull align 4 dereferenceable(96) %fFields, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fFields2, ptr noundef nonnull readonly align 4 dereferenceable(96) %fFields, i64 96, i1 false)
   %fIsSet = getelementptr inbounds i8, ptr %right, i64 108
   %fIsSet5 = getelementptr inbounds i8, ptr %this, i64 108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %fIsSet5, ptr noundef nonnull align 4 dereferenceable(24) %fIsSet, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %fIsSet5, ptr noundef nonnull readonly align 4 dereferenceable(24) %fIsSet, i64 24, i1 false)
   %fStamp = getelementptr inbounds i8, ptr %right, i64 132
   %fStamp8 = getelementptr inbounds i8, ptr %this, i64 132
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fStamp8, ptr noundef nonnull align 4 dereferenceable(96) %fStamp, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fStamp8, ptr noundef nonnull readonly align 4 dereferenceable(96) %fStamp, i64 96, i1 false)
   %fTime = getelementptr inbounds i8, ptr %right, i64 232
   %0 = load double, ptr %fTime, align 8
   %fTime10 = getelementptr inbounds i8, ptr %this, i64 232
@@ -10232,7 +10232,7 @@ if.end48:                                         ; preds = %if.end27
   %cmp53 = icmp slt i32 %sub, 0
   %add55 = add nsw i32 %sub, 7
   %spec.select63 = select i1 %cmp53, i32 %add55, i32 %sub
-  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
+  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull readonly align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
   switch i32 %call.i, label %_ZN6icu_758Calendar11getLocalDOWEv.exit [
     i32 7, label %sw.bb.i
     i32 18, label %sw.bb3.i
@@ -10477,7 +10477,7 @@ entry:
 define noundef i32 @_ZN6icu_758Calendar35handleGetExtendedYearFromWeekFieldsEii(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %yearWoy, i32 noundef %woy) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kDatePrecedenceE)
-  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
+  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull readonly align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
   switch i32 %call.i, label %_ZN6icu_758Calendar11getLocalDOWEv.exit [
     i32 7, label %sw.bb.i
     i32 18, label %sw.bb3.i

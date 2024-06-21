@@ -1321,7 +1321,7 @@ for.body86.i:                                     ; preds = %for.end76.i, %for.b
 
 for.end99.i:                                      ; preds = %for.body86.i, %for.end76.i
   %call.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok145.0.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok145.0.i, i64 128, i1 false)
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %next.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tok145.0.i, ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, i64 128, i1 false)
@@ -1421,7 +1421,7 @@ for.body.i298:                                    ; preds = %for.inc.i302, %for.
   br i1 %cmp.i301, label %land.lhs.true.i303, label %for.inc.i302
 
 land.lhs.true.i303:                               ; preds = %for.body.i298
-  %call4.i = call i32 @strncmp(ptr noundef %6, ptr noundef %4, i64 noundef %conv.i297) #17
+  %call4.i = call i32 @strncmp(ptr noundef %6, ptr noundef readonly %4, i64 noundef %conv.i297) #17
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end, label %for.inc.i302
 
@@ -1500,7 +1500,7 @@ for.body.i250:                                    ; preds = %hideset_union.exit2
   %tok.addr.07.i251 = phi ptr [ %19, %hideset_union.exit.i264 ], [ %15, %hideset_union.exit287 ]
   %cur.06.i252 = phi ptr [ %call.i.i253, %hideset_union.exit.i264 ], [ %head.i248, %hideset_union.exit287 ]
   %call.i.i253 = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i253, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.07.i251, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i253, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.07.i251, i64 128, i1 false)
   %next.i.i254 = getelementptr inbounds i8, ptr %call.i.i253, i64 8
   store ptr null, ptr %next.i.i254, align 8
   %hideset.i255 = getelementptr inbounds i8, ptr %call.i.i253, i64 112
@@ -1579,7 +1579,7 @@ for.body.i233:                                    ; preds = %for.body.i233, %if.
   %cur.07.i234 = phi ptr [ %head.i230, %if.end.i232 ], [ %call.i.i236, %for.body.i233 ]
   %tok1.addr.06.i235 = phi ptr [ %20, %if.end.i232 ], [ %26, %for.body.i233 ]
   %call.i.i236 = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i236, ptr noundef nonnull align 16 dereferenceable(128) %tok1.addr.06.i235, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i236, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok1.addr.06.i235, i64 128, i1 false)
   %next.i.i237 = getelementptr inbounds i8, ptr %call.i.i236, i64 8
   store ptr null, ptr %next.i.i237, align 8
   %next.i238 = getelementptr inbounds i8, ptr %cur.07.i234, i64 8
@@ -1674,7 +1674,7 @@ if.then7.i:                                       ; preds = %for.end.i220
 if.then9.i:                                       ; preds = %if.then7.i
   %call10.i226 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #15
   %call.i.i.i227 = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i227, ptr noundef nonnull align 16 dereferenceable(128) %.pre17.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i227, ptr noundef nonnull readonly align 16 dereferenceable(128) %.pre17.i, i64 128, i1 false)
   %next.i.i.i228 = getelementptr inbounds i8, ptr %call.i.i.i227, i64 8
   store ptr null, ptr %next.i.i.i228, align 8
   store i32 6, ptr %call.i.i.i227, align 16
@@ -1743,7 +1743,7 @@ for.body.i.i194:                                  ; preds = %for.inc.i.i198, %fo
   br i1 %cmp.i.i197, label %land.lhs.true.i.i204, label %for.inc.i.i198
 
 land.lhs.true.i.i204:                             ; preds = %for.body.i.i194
-  %call4.i.i205 = call i32 @strncmp(ptr noundef %44, ptr noundef %43, i64 noundef %conv.i.i193) #17
+  %call4.i.i205 = call i32 @strncmp(ptr noundef %44, ptr noundef readonly %43, i64 noundef %conv.i.i193) #17
   %tobool5.not.i.i = icmp eq i32 %call4.i.i205, 0
   br i1 %tobool5.not.i.i, label %if.then.i206, label %for.inc.i.i198
 
@@ -1997,7 +1997,7 @@ if.then21.i:                                      ; preds = %land.lhs.true19.i
 
 if.else.i166:                                     ; preds = %if.then21.i
   %call.i68.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i68.i, ptr noundef nonnull align 16 dereferenceable(128) %52, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i68.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %52, i64 128, i1 false)
   %next.i.i167 = getelementptr inbounds i8, ptr %call.i68.i, i64 8
   store ptr null, ptr %next.i.i167, align 8
   %next30.i = getelementptr inbounds i8, ptr %cur.0.i447, i64 8
@@ -2118,7 +2118,7 @@ for.body.i164:                                    ; preds = %paste.exit.i, %for.
   %t.0.i163444 = phi ptr [ %t.0.i163, %for.body.i164 ], [ %t.0.i163441, %paste.exit.i ]
   %cur.2.i443 = phi ptr [ %call.i91.i, %for.body.i164 ], [ %cur.0.i447, %paste.exit.i ]
   %call.i91.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i91.i, ptr noundef nonnull align 16 dereferenceable(128) %t.0.i163444, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i91.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %t.0.i163444, i64 128, i1 false)
   %next.i92.i = getelementptr inbounds i8, ptr %call.i91.i, i64 8
   store ptr null, ptr %next.i92.i, align 8
   %next62.i = getelementptr inbounds i8, ptr %cur.2.i443, i64 8
@@ -2251,7 +2251,7 @@ for.body94.i:                                     ; preds = %if.then88.i, %for.b
   %t89.0.i430 = phi ptr [ %t89.0.i, %for.body94.i ], [ %t89.0.i427, %if.then88.i ]
   %cur.4.i429 = phi ptr [ %call.i138.i, %for.body94.i ], [ %cur.0.i447, %if.then88.i ]
   %call.i138.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i138.i, ptr noundef nonnull align 16 dereferenceable(128) %t89.0.i430, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i138.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %t89.0.i430, i64 128, i1 false)
   %next.i139.i = getelementptr inbounds i8, ptr %call.i138.i, i64 8
   store ptr null, ptr %next.i139.i, align 8
   %next96.i = getelementptr inbounds i8, ptr %cur.4.i429, i64 8
@@ -2264,7 +2264,7 @@ for.body94.i:                                     ; preds = %if.then88.i, %for.b
 
 if.else100.i:                                     ; preds = %for.inc.i131.i
   %call.i140.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i140.i, ptr noundef nonnull align 16 dereferenceable(128) %116, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i140.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %116, i64 128, i1 false)
   %next.i141.i = getelementptr inbounds i8, ptr %call.i140.i, i64 8
   store ptr null, ptr %next.i141.i, align 8
   %next102.i = getelementptr inbounds i8, ptr %cur.0.i447, i64 8
@@ -2282,7 +2282,7 @@ for.body111.i:                                    ; preds = %if.then79.i, %for.b
   %cur.6.i426 = phi ptr [ %call.i142.i, %for.body111.i ], [ %cur.0.i447, %if.then79.i ]
   %t106.0.i425 = phi ptr [ %126, %for.body111.i ], [ %117, %if.then79.i ]
   %call.i142.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i142.i, ptr noundef nonnull align 16 dereferenceable(128) %t106.0.i425, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i142.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %t106.0.i425, i64 128, i1 false)
   %next.i143.i = getelementptr inbounds i8, ptr %call.i142.i, i64 8
   store ptr null, ptr %next.i143.i, align 8
   %next113.i = getelementptr inbounds i8, ptr %cur.6.i426, i64 8
@@ -2388,7 +2388,7 @@ for.body156.i:                                    ; preds = %if.then144.i, %for.
   %t145.0.i433 = phi ptr [ %142, %for.body156.i ], [ %call147.i, %if.then144.i ]
   %cur.9.i432 = phi ptr [ %call.i151.i, %for.body156.i ], [ %cur.0.i447, %if.then144.i ]
   %call.i151.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i151.i, ptr noundef nonnull align 16 dereferenceable(128) %t145.0.i433, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i151.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %t145.0.i433, i64 128, i1 false)
   %next.i152.i = getelementptr inbounds i8, ptr %call.i151.i, i64 8
   store ptr null, ptr %next.i152.i, align 8
   %next158.i = getelementptr inbounds i8, ptr %cur.9.i432, i64 8
@@ -2408,7 +2408,7 @@ for.end161.i:                                     ; preds = %for.body156.i, %if.
 
 if.end163.i:                                      ; preds = %if.end142.i
   %call.i153.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i153.i, ptr noundef nonnull align 16 dereferenceable(128) %52, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i153.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %52, i64 128, i1 false)
   %next.i154.i = getelementptr inbounds i8, ptr %call.i153.i, i64 8
   store ptr null, ptr %next.i154.i, align 8
   %next165.i = getelementptr inbounds i8, ptr %cur.0.i447, i64 8
@@ -2435,7 +2435,7 @@ for.body.i136:                                    ; preds = %subst.exit, %hidese
   %tok.addr.07.i = phi ptr [ %150, %hideset_union.exit.i ], [ %146, %subst.exit ]
   %cur.06.i = phi ptr [ %call.i.i137, %hideset_union.exit.i ], [ %head.i135, %subst.exit ]
   %call.i.i137 = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i137, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.07.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i137, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.07.i, i64 128, i1 false)
   %next.i.i138 = getelementptr inbounds i8, ptr %call.i.i137, i64 8
   store ptr null, ptr %next.i.i138, align 8
   %hideset.i139 = getelementptr inbounds i8, ptr %call.i.i137, i64 112
@@ -2514,7 +2514,7 @@ for.body.i129:                                    ; preds = %for.body.i129, %if.
   %cur.07.i = phi ptr [ %head.i, %if.end.i128 ], [ %call.i.i130, %for.body.i129 ]
   %tok1.addr.06.i = phi ptr [ %151, %if.end.i128 ], [ %157, %for.body.i129 ]
   %call.i.i130 = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i130, ptr noundef nonnull align 16 dereferenceable(128) %tok1.addr.06.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i130, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok1.addr.06.i, i64 128, i1 false)
   %next.i.i131 = getelementptr inbounds i8, ptr %call.i.i130, i64 8
   store ptr null, ptr %next.i.i131, align 8
   %next.i132 = getelementptr inbounds i8, ptr %cur.07.i, i64 8
@@ -2841,7 +2841,7 @@ for.body.i.i:                                     ; preds = %read_macro_params.e
   %cur.09.i.i = phi ptr [ %call.i.i.i, %for.body.i.i ], [ %head.i4.i, %read_macro_params.exit.i ]
   %tok.addr.08.i.i = phi ptr [ %216, %for.body.i.i ], [ %.sink.i.i, %read_macro_params.exit.i ]
   %call.i.i.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.08.i.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.08.i.i, i64 128, i1 false)
   %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i, align 8
   %next.i5.i = getelementptr inbounds i8, ptr %cur.09.i.i, i64 8
@@ -2857,7 +2857,7 @@ copy_line.exit.i:                                 ; preds = %for.body.i.i, %read
   %tok.addr.0.lcssa.i6.i = phi ptr [ %.sink.i.i, %read_macro_params.exit.i ], [ %216, %for.body.i.i ]
   %cur.0.lcssa.i.i = phi ptr [ %head.i4.i, %read_macro_params.exit.i ], [ %call.i.i.i, %for.body.i.i ]
   %call.i.i.i.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0.lcssa.i6.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0.lcssa.i6.i, i64 128, i1 false)
   %next.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i, align 8
   store i32 6, ptr %call.i.i.i.i, align 16
@@ -2893,7 +2893,7 @@ for.body.i11.i:                                   ; preds = %if.else.i, %for.bod
   %cur.09.i12.i = phi ptr [ %call.i.i14.i, %for.body.i11.i ], [ %head.i8.i, %if.else.i ]
   %tok.addr.08.i13.i = phi ptr [ %220, %for.body.i11.i ], [ %201, %if.else.i ]
   %call.i.i14.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i14.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.08.i13.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i14.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.08.i13.i, i64 128, i1 false)
   %next.i.i15.i = getelementptr inbounds i8, ptr %call.i.i14.i, i64 8
   store ptr null, ptr %next.i.i15.i, align 8
   %next.i16.i = getelementptr inbounds i8, ptr %cur.09.i12.i, i64 8
@@ -2909,7 +2909,7 @@ copy_line.exit27.i:                               ; preds = %for.body.i11.i, %if
   %tok.addr.0.lcssa.i20.i = phi ptr [ %201, %if.else.i ], [ %220, %for.body.i11.i ]
   %cur.0.lcssa.i21.i = phi ptr [ %head.i8.i, %if.else.i ], [ %call.i.i14.i, %for.body.i11.i ]
   %call.i.i.i22.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i22.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0.lcssa.i20.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i22.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0.lcssa.i20.i, i64 128, i1 false)
   %next.i.i.i23.i = getelementptr inbounds i8, ptr %call.i.i.i22.i, i64 8
   store ptr null, ptr %next.i.i.i23.i, align 8
   store i32 6, ptr %call.i.i.i22.i, align 16
@@ -3530,7 +3530,7 @@ for.body.i:                                       ; preds = %if.then20, %for.bod
   %cur.09.i = phi ptr [ %call.i.i, %for.body.i ], [ %head.i, %if.then20 ]
   %tok.addr.08.i31 = phi ptr [ %19, %for.body.i ], [ %tok, %if.then20 ]
   %call.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.08.i31, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.08.i31, i64 128, i1 false)
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %next.i.i, align 8
   %next.i32 = getelementptr inbounds i8, ptr %cur.09.i, i64 8
@@ -3546,7 +3546,7 @@ copy_line.exit:                                   ; preds = %for.body.i, %if.the
   %tok.addr.0.lcssa.i = phi ptr [ %tok, %if.then20 ], [ %19, %for.body.i ]
   %cur.0.lcssa.i = phi ptr [ %head.i, %if.then20 ], [ %call.i.i, %for.body.i ]
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0.lcssa.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0.lcssa.i, i64 128, i1 false)
   %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i, align 8
   store i32 6, ptr %call.i.i.i, align 16
@@ -3746,7 +3746,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %cur.07.i = phi ptr [ %head.i, %if.end.i12 ], [ %call.i.i13, %for.body.i ]
   %tok1.addr.06.i = phi ptr [ %call7, %if.end.i12 ], [ %24, %for.body.i ]
   %call.i.i13 = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i13, ptr noundef nonnull align 16 dereferenceable(128) %tok1.addr.06.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i13, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok1.addr.06.i, i64 128, i1 false)
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i13, i64 8
   store ptr null, ptr %next.i.i, align 8
   %next.i14 = getelementptr inbounds i8, ptr %cur.07.i, i64 8
@@ -3799,7 +3799,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   %cur.09.i.i = phi ptr [ %call.i.i.i, %for.body.i.i ], [ %head.i.i, %entry ]
   %tok.addr.08.i.i = phi ptr [ %2, %for.body.i.i ], [ %0, %entry ]
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.08.i.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.08.i.i, i64 128, i1 false)
   %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i, align 8
   %next.i.i = getelementptr inbounds i8, ptr %cur.09.i.i, i64 8
@@ -3815,7 +3815,7 @@ copy_line.exit.i:                                 ; preds = %for.body.i.i, %entr
   %tok.addr.0.lcssa.i.i = phi ptr [ %0, %entry ], [ %2, %for.body.i.i ]
   %cur.0.lcssa.i.i = phi ptr [ %head.i.i, %entry ], [ %call.i.i.i, %for.body.i.i ]
   %call.i.i.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0.lcssa.i.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0.lcssa.i.i, i64 128, i1 false)
   %next.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i, align 8
   store i32 6, ptr %call.i.i.i.i, align 16
@@ -4065,7 +4065,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %cur.09.i = phi ptr [ %call.i.i, %for.body.i ], [ %head.i, %entry ]
   %tok.addr.08.i = phi ptr [ %1, %for.body.i ], [ %tok, %entry ]
   %call.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.08.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.08.i, i64 128, i1 false)
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %next.i.i, align 8
   %next.i = getelementptr inbounds i8, ptr %cur.09.i, i64 8
@@ -4081,7 +4081,7 @@ copy_line.exit:                                   ; preds = %for.body.i, %entry
   %tok.addr.0.lcssa.i = phi ptr [ %tok, %entry ], [ %1, %for.body.i ]
   %cur.0.lcssa.i = phi ptr [ %head.i, %entry ], [ %call.i.i, %for.body.i ]
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0.lcssa.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0.lcssa.i, i64 128, i1 false)
   %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i, align 8
   store i32 6, ptr %call.i.i.i, align 16
@@ -4191,7 +4191,7 @@ if.end15.us:                                      ; preds = %if.end9.us, %if.els
   %.sink = phi i32 [ %dec.us, %if.else.us ], [ 1, %if.end9.us ]
   %inc.us = add nsw i32 %level.0.us, %.sink
   %call.i.us = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.us, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0.us, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.us, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0.us, i64 128, i1 false)
   %next.i.us = getelementptr inbounds i8, ptr %call.i.us, i64 8
   store ptr null, ptr %next.i.us, align 8
   %next.us = getelementptr inbounds i8, ptr %cur.0.us, i64 8
@@ -4238,7 +4238,7 @@ if.end15:                                         ; preds = %if.end9, %if.else
   %dec.sink = phi i32 [ %dec, %if.else ], [ 1, %if.end9 ]
   %spec.select = add nsw i32 %level.0, %dec.sink
   %call.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i, ptr noundef nonnull align 16 dereferenceable(128) %tok.addr.0, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %tok.addr.0, i64 128, i1 false)
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
   %next = getelementptr inbounds i8, ptr %cur.0, i64 8
@@ -4251,7 +4251,7 @@ for.end:                                          ; preds = %land.lhs.true, %if.
   %.us-phi = phi ptr [ %cur.0.us, %land.lhs.true.us ], [ %cur.0, %if.end ], [ %cur.0, %land.lhs.true ]
   %.us-phi17 = phi ptr [ %tok.addr.0.us, %land.lhs.true.us ], [ %tok.addr.0, %if.end ], [ %tok.addr.0, %land.lhs.true ]
   %call.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %.us-phi17, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %.us-phi17, i64 128, i1 false)
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %next.i.i, align 8
   store i32 6, ptr %call.i.i, align 16

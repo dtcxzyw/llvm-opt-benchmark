@@ -2796,7 +2796,7 @@ define i32 @cli_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %6)
-  %37 = tail call i32 @cli_initroots(ptr noundef %1, i32 poison)
+  %37 = tail call i32 @cli_initroots(ptr noundef readonly %1, i32 poison)
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %38, label %cli_loaddb.exit
 

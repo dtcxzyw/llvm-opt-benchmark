@@ -368,7 +368,7 @@ if.then34:                                        ; preds = %if.else28
   br label %return
 
 if.end:                                           ; preds = %if.else28
-  %call.i = call i64 @strspn(ptr noundef nonnull %incdec.ptr9, ptr noundef nonnull @.str.42) #14
+  %call.i = call i64 @strspn(ptr noundef nonnull readonly %incdec.ptr9, ptr noundef nonnull @.str.42) #14
   %inc.i = add i64 %call.i, 1
   %cmp.i = icmp ugt i64 %inc.i, 21
   br i1 %cmp.i, label %if.then.i, label %getformat.exit
@@ -379,7 +379,7 @@ if.then.i:                                        ; preds = %if.end
 
 getformat.exit:                                   ; preds = %if.end, %if.then.i
   store i8 37, ptr %form, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i, ptr nonnull align 1 %incdec.ptr9, i64 %inc.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i, ptr nonnull readonly align 1 %incdec.ptr9, i64 %inc.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %inc.i
   store i8 0, ptr %add.ptr.i, align 1
   %add.ptr2.i = getelementptr inbounds i8, ptr %incdec.ptr9, i64 %inc.i
@@ -406,7 +406,7 @@ getformat.exit:                                   ; preds = %if.end, %if.then.i
   ]
 
 sw.bb:                                            ; preds = %getformat.exit
-  %call.i54 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31) #14
+  %call.i54 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.31) #14
   %add.ptr1.i = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i54
   %14 = load i8, ptr %add.ptr1.i, align 1
   %cmp.not.i = icmp eq i8 %14, 48
@@ -463,7 +463,7 @@ sw.bb47:                                          ; preds = %getformat.exit, %ge
 intcase:                                          ; preds = %getformat.exit, %getformat.exit, %sw.bb47, %sw.bb46
   %flags.0 = phi ptr [ @.str.34, %sw.bb47 ], [ @.str.33, %sw.bb46 ], [ @.str.32, %getformat.exit ], [ @.str.32, %getformat.exit ]
   %call49 = call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %inc31) #13
-  %call.i58 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull %flags.0) #14
+  %call.i58 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly %flags.0) #14
   %add.ptr1.i59 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i58
   %23 = load i8, ptr %add.ptr1.i59, align 1
   %cmp.not.i60 = icmp eq i8 %23, 48
@@ -548,7 +548,7 @@ checkformat.exit84:                               ; preds = %if.end9.i77, %if.th
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %getformat.exit, %getformat.exit
-  %call.i89 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.36) #14
+  %call.i89 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.36) #14
   %add.ptr1.i90 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i89
   %42 = load i8, ptr %add.ptr1.i90, align 1
   %cmp.not.i91 = icmp eq i8 %42, 48
@@ -635,7 +635,7 @@ sw.bb65:                                          ; preds = %sw.bb62, %getformat
   %maxitem.0 = phi i64 [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 418, %sw.bb62 ]
   %buff.0 = phi ptr [ %call30, %getformat.exit ], [ %call30, %getformat.exit ], [ %call30, %getformat.exit ], [ %call30, %getformat.exit ], [ %call64, %sw.bb62 ]
   %call67 = call double @luaL_checknumber(ptr noundef %L, i32 noundef %inc31) #13
-  %call.i134 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.36) #14
+  %call.i134 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.36) #14
   %add.ptr1.i135 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i134
   %59 = load i8, ptr %add.ptr1.i135, align 1
   %cmp.not.i136 = icmp eq i8 %59, 48
@@ -715,7 +715,7 @@ checkformat.exit172:                              ; preds = %if.end9.i153, %if.t
 
 sw.bb73:                                          ; preds = %getformat.exit
   %call74 = call ptr @lua_topointer(ptr noundef %L, i32 noundef %inc31) #13
-  %call.i179 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31) #14
+  %call.i179 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.31) #14
   %add.ptr1.i180 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i179
   %76 = load i8, ptr %add.ptr1.i180, align 1
   %cmp.not.i181 = icmp eq i8 %76, 48
@@ -1030,7 +1030,7 @@ lor.rhs109:                                       ; preds = %if.else101
   br label %lor.end112
 
 lor.end112:                                       ; preds = %lor.rhs109, %if.else101
-  %call.i229 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31) #14
+  %call.i229 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.31) #14
   %add.ptr1.i230 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i229
   %121 = load i8, ptr %add.ptr1.i230, align 1
   %cmp.not.i231 = icmp eq i8 %121, 48
@@ -1284,7 +1284,7 @@ if.then30:                                        ; preds = %while.body
 
 sw.bb.i:                                          ; preds = %if.then30
   call void @lua_pushvalue(ptr noundef %4, i32 noundef 3) #13
-  %call.i = call fastcc i32 @push_captures(ptr noundef nonnull %ms, ptr noundef %src.0, ptr noundef nonnull %call25)
+  %call.i = call fastcc i32 @push_captures(ptr noundef nonnull readonly %ms, ptr noundef %src.0, ptr noundef nonnull %call25)
   call void @lua_callk(ptr noundef %4, i32 noundef %call.i, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   br label %sw.epilog.i
 
@@ -2893,12 +2893,12 @@ land.lhs.true:                                    ; preds = %if.end
 do.body.i:                                        ; preds = %land.lhs.true, %if.end.i
   %upto.0.i = phi i64 [ %add3.i, %if.end.i ], [ 0, %land.lhs.true ]
   %add.ptr.i = getelementptr inbounds i8, ptr %call1, i64 %upto.0.i
-  %call.i = call ptr @strpbrk(ptr noundef %add.ptr.i, ptr noundef nonnull @.str.20) #14
+  %call.i = call ptr @strpbrk(ptr noundef readonly %add.ptr.i, ptr noundef nonnull @.str.20) #14
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %do.body.i
-  %call2.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #14
+  %call2.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i) #14
   %add.i34 = add i64 %upto.0.i, 1
   %add3.i = add i64 %add.i34, %call2.i
   %cmp.not.i = icmp ugt i64 %add3.i, %.pre
@@ -2936,7 +2936,7 @@ land.rhs.i:                                       ; preds = %if.else12.i, %land.
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i40, i64 1
-  %bcmp.i = call i32 @bcmp(ptr nonnull %incdec.ptr.i, ptr nonnull %add.ptr.i39, i64 %dec.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %incdec.ptr.i, ptr nonnull readonly %add.ptr.i39, i64 %dec.i)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %if.then12, label %if.else12.i
 

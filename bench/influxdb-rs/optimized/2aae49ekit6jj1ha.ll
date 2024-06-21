@@ -52,7 +52,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17habb321eadec270c3E.exit.i.i"
 
 .body.i.i:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i.i.i.i", %8
-  tail call fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h440b75bba5ddddbaE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.val) #6
+  tail call fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h440b75bba5ddddbaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val) #6
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 112, i64 noundef 8) #5
   resume { ptr, i32 } %9
 

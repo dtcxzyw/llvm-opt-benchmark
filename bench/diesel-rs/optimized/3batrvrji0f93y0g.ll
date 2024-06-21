@@ -1446,7 +1446,7 @@ define void @_ZN21diesel_demo_step_3_pg20establish_connection17hfe12618b4ab4045b
 33:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h979ca00abcfe6f21E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !284
   %34 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !278
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !278
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.a2b109e7e372c9e59e4e08e6cee9bf90.49, i64 noundef 24, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b109e7e372c9e59e4e08e6cee9bf90.15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b109e7e372c9e59e4e08e6cee9bf90.51) #21
           to label %37 unwind label %35, !noalias !284
 
@@ -1471,7 +1471,7 @@ common.resume:                                    ; preds = %.body, %35
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcd5472dfc3c2dfd3E.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h979ca00abcfe6f21E.exit"
   %40 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !284
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !284
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14)
   %41 = getelementptr inbounds i8, ptr %16, i64 8
@@ -1754,7 +1754,7 @@ define void @_ZN21diesel_demo_step_3_pg11create_post17h620f1f3de1df7932E(ptr noa
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !387
   %21 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !382
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !382
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.a2b109e7e372c9e59e4e08e6cee9bf90.55, i64 noundef 21, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b109e7e372c9e59e4e08e6cee9bf90.14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b109e7e372c9e59e4e08e6cee9bf90.56) #21
           to label %24 unwind label %22, !noalias !387
 
@@ -1777,7 +1777,7 @@ define void @_ZN21diesel_demo_step_3_pg11create_post17h620f1f3de1df7932E(ptr noa
   resume { ptr, i32 } %23
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc5a35d6b28dfbba6E.exit": ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !alias.scope !387
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %8, i64 56, i1 false), !alias.scope !387
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   ret void

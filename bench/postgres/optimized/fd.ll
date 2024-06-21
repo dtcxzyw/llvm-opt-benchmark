@@ -1578,7 +1578,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 ; Function Attrs: nounwind uwtable
 define dso_local void @PathNameCreateTemporaryDir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pg_dir_create_mode, align 4
-  %4 = tail call noundef i32 @mkdir(ptr noundef %1, i32 noundef %3) #25
+  %4 = tail call noundef i32 @mkdir(ptr noundef readonly %1, i32 noundef %3) #25
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %30
 
@@ -1590,7 +1590,7 @@ define dso_local void @PathNameCreateTemporaryDir(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @pg_dir_create_mode, align 4
-  %12 = tail call noundef i32 @mkdir(ptr noundef %0, i32 noundef %11) #25
+  %12 = tail call noundef i32 @mkdir(ptr noundef readonly %0, i32 noundef %11) #25
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %20
 
@@ -1609,7 +1609,7 @@ define dso_local void @PathNameCreateTemporaryDir(ptr noundef %0, ptr noundef %1
 
 20:                                               ; preds = %14, %10
   %21 = load i32, ptr @pg_dir_create_mode, align 4
-  %22 = tail call noundef i32 @mkdir(ptr noundef %1, i32 noundef %21) #25
+  %22 = tail call noundef i32 @mkdir(ptr noundef readonly %1, i32 noundef %21) #25
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %30
 
@@ -1943,15 +1943,15 @@ TempTablespacePath.exit:                          ; preds = %5, %7
   store i64 %11, ptr @tempFileCounter, align 8
   %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.55, ptr noundef nonnull %3, ptr noundef nonnull @.str.16, i32 noundef %9, i64 noundef %10) #25
   %13 = load i32, ptr @pg_file_create_mode, align 4
-  %14 = call i32 @PathNameOpenFilePerm(ptr noundef nonnull %4, i32 noundef 578, i32 noundef %13)
+  %14 = call i32 @PathNameOpenFilePerm(ptr noundef nonnull readonly %4, i32 noundef 578, i32 noundef %13)
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %16, label %25
 
 16:                                               ; preds = %TempTablespacePath.exit
   %17 = load i32, ptr @pg_dir_create_mode, align 4
-  %18 = call noundef i32 @mkdir(ptr noundef nonnull %3, i32 noundef %17) #25
+  %18 = call noundef i32 @mkdir(ptr noundef nonnull readonly %3, i32 noundef %17) #25
   %19 = load i32, ptr @pg_file_create_mode, align 4
-  %20 = call i32 @PathNameOpenFilePerm(ptr noundef nonnull %4, i32 noundef 578, i32 noundef %19)
+  %20 = call i32 @PathNameOpenFilePerm(ptr noundef nonnull readonly %4, i32 noundef 578, i32 noundef %19)
   %21 = icmp slt i32 %20, 1
   %brmerge.not = and i1 %21, %1
   br i1 %brmerge.not, label %22, label %25
@@ -1995,7 +1995,7 @@ define dso_local i32 @PathNameCreateTemporaryFile(ptr noundef %0, i1 noundef zer
   %3 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %3) #25
   %4 = load i32, ptr @pg_file_create_mode, align 4
-  %5 = tail call i32 @PathNameOpenFilePerm(ptr noundef %0, i32 noundef 578, i32 noundef %4)
+  %5 = tail call i32 @PathNameOpenFilePerm(ptr noundef readonly %0, i32 noundef 578, i32 noundef %4)
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %12
 
@@ -2039,7 +2039,7 @@ define dso_local i32 @PathNameOpenTemporaryFile(ptr noundef %0, i32 noundef %1) 
   %3 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %3) #25
   %4 = load i32, ptr @pg_file_create_mode, align 4
-  %5 = tail call i32 @PathNameOpenFilePerm(ptr noundef %0, i32 noundef %1, i32 noundef %4)
+  %5 = tail call i32 @PathNameOpenFilePerm(ptr noundef readonly %0, i32 noundef %1, i32 noundef %4)
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %14
 

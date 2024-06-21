@@ -523,10 +523,10 @@ define noalias noundef ptr @Abc_NodeGetFaninNames(ptr nocapture noundef readonly
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %23
 
 23:                                               ; preds = %9
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #16
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #16
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #15
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %22) #14
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %22) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %9, %23

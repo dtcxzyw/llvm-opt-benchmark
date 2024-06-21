@@ -3395,7 +3395,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h8ac1bf43201fd68bE.exit: ; pre
   %33 = extractvalue { ptr, i64 } %28, 0
   %34 = extractvalue { ptr, i64 } %26, 0
   %35 = shl i64 %29, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr align 2 %34, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr readonly align 2 %34, i64 %35, i1 false)
   %36 = load i64, ptr %7, align 8, !noundef !3
   %37 = add i64 %36, 1
   %38 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
@@ -3484,7 +3484,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %40 = extractvalue { ptr, i64 } %34, 0
   %41 = extractvalue { ptr, i64 } %30, 0
   %42 = mul i64 %36, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %41, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr readonly align 8 %41, i64 %42, i1 false)
   %43 = load i64, ptr %9, align 8, !noundef !3
   %44 = add i64 %43, 1
   %45 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -3592,7 +3592,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %38 = extractvalue { ptr, i64 } %32, 0
   %39 = extractvalue { ptr, i64 } %29, 0
   %40 = mul i64 %34, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %39, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr readonly align 8 %39, i64 %40, i1 false)
   %41 = load i64, ptr %10, align 8, !noundef !3
   %42 = add i64 %41, 1
   %43 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -3622,7 +3622,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %53 = extractvalue { ptr, i64 } %47, 0
   %54 = extractvalue { ptr, i64 } %45, 0
   %55 = mul i64 %49, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %54, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr readonly align 8 %54, i64 %55, i1 false)
   %56 = load i64, ptr %10, align 8, !noundef !3
   %57 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %58 = getelementptr inbounds i8, ptr %57, i64 802
@@ -3686,7 +3686,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17he00bacccfdd83b80E.exit: ; pre
   %34 = extractvalue { ptr, i64 } %29, 0
   %35 = extractvalue { ptr, i64 } %27, 0
   %36 = shl i64 %30, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr readonly align 8 %35, i64 %36, i1 false)
   %37 = load i64, ptr %7, align 8, !noundef !3
   %38 = add i64 %37, 1
   %39 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
@@ -3707,7 +3707,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h800fa6f746e8eeaaE.exit: ; pre
   %48 = extractvalue { ptr, i64 } %43, 0
   %49 = extractvalue { ptr, i64 } %41, 0
   %50 = shl i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %49, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr readonly align 8 %49, i64 %50, i1 false)
   %51 = load i64, ptr %7, align 8, !noundef !3
   %52 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %53 = getelementptr inbounds i8, ptr %52, i64 186
@@ -3761,7 +3761,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17he00bacccfdd83b80E.exit: ; pre
   %34 = extractvalue { ptr, i64 } %29, 0
   %35 = extractvalue { ptr, i64 } %27, 0
   %36 = shl i64 %30, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr readonly align 8 %35, i64 %36, i1 false)
   %37 = load i64, ptr %7, align 8, !noundef !3
   %38 = add i64 %37, 1
   %39 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
@@ -3782,7 +3782,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h800fa6f746e8eeaaE.exit: ; pre
   %48 = extractvalue { ptr, i64 } %43, 0
   %49 = extractvalue { ptr, i64 } %41, 0
   %50 = shl i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %49, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr readonly align 8 %49, i64 %50, i1 false)
   %51 = load i64, ptr %7, align 8, !noundef !3
   %52 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %53 = getelementptr inbounds i8, ptr %52, i64 186
@@ -3856,7 +3856,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %38 = extractvalue { ptr, i64 } %32, 0
   %39 = extractvalue { ptr, i64 } %29, 0
   %40 = mul i64 %34, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %39, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr readonly align 8 %39, i64 %40, i1 false)
   %41 = load i64, ptr %10, align 8, !noundef !3
   %42 = add i64 %41, 1
   %43 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -3886,7 +3886,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %53 = extractvalue { ptr, i64 } %47, 0
   %54 = extractvalue { ptr, i64 } %45, 0
   %55 = mul i64 %49, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %54, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr readonly align 8 %54, i64 %55, i1 false)
   %56 = load i64, ptr %10, align 8, !noundef !3
   %57 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %58 = getelementptr inbounds i8, ptr %57, i64 802
@@ -3970,7 +3970,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
   %40 = extractvalue { ptr, i64 } %34, 0
   %41 = extractvalue { ptr, i64 } %30, 0
   %42 = mul i64 %36, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %41, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr readonly align 8 %41, i64 %42, i1 false)
   %43 = load i64, ptr %9, align 8, !noundef !3
   %44 = add i64 %43, 1
   %45 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -4057,7 +4057,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h8ac1bf43201fd68bE.exit: ; pre
   %33 = extractvalue { ptr, i64 } %28, 0
   %34 = extractvalue { ptr, i64 } %26, 0
   %35 = shl i64 %29, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr align 2 %34, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr readonly align 2 %34, i64 %35, i1 false)
   %36 = load i64, ptr %7, align 8, !noundef !3
   %37 = add i64 %36, 1
   %38 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
@@ -4556,7 +4556,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 24:                                               ; preds = %18, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hed145260687aec40E.exit"
   %25 = getelementptr inbounds { [6 x i64] }, ptr %12, i64 %15
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false)
   %26 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %27 = getelementptr inbounds i8, ptr %26, i64 536
   %28 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h8492e52c9c12e6efE"(i64 %10, ptr nonnull %27, i64 11)
@@ -5337,7 +5337,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %43 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %43)
   store ptr %39, ptr %6, align 8
-  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17hc8285f715475844cE"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %5, ptr nonnull align 8 %12, ptr nonnull align 8 %39)
+  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17hc8285f715475844cE"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %5, ptr nonnull readonly align 8 %12, ptr nonnull align 8 %39)
           to label %48 unwind label %44
 
 44:                                               ; preds = %.noexc
@@ -5526,7 +5526,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %51 = getelementptr inbounds i8, ptr %49, i64 274
   store i16 0, ptr %51, align 2
   store ptr %49, ptr %5, align 8
-  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17he4791e41ea4f4151E"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, {} }) align 8 %4, ptr nonnull align 8 %8, ptr nonnull align 8 %49)
+  invoke void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17he4791e41ea4f4151E"(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, {} }) align 8 %4, ptr nonnull readonly align 8 %8, ptr nonnull align 8 %49)
           to label %56 unwind label %52
 
 52:                                               ; preds = %.noexc
@@ -5743,7 +5743,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hd22d87c333bd937eE.exit.i: ; pr
   %55 = getelementptr inbounds i8, ptr %54, i64 186
   store i16 0, ptr %55, align 2
   store ptr %54, ptr %5, align 8
-  %56 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h73c9e1d6cd463ad8E"(ptr nonnull align 8 %6, ptr nonnull align 8 %54)
+  %56 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h73c9e1d6cd463ad8E"(ptr nonnull readonly align 8 %6, ptr nonnull align 8 %54)
           to label %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8ed9346d9d1dc330E.exit" unwind label %57
 
 57:                                               ; preds = %48
@@ -5921,7 +5921,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %42 = getelementptr inbounds i8, ptr %41, i64 10
   store i16 0, ptr %42, align 2
   store ptr %41, ptr %4, align 8
-  %43 = invoke i16 @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h13460cbf691ec296E"(ptr nonnull align 8 %5, ptr nonnull align 8 %41)
+  %43 = invoke i16 @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h13460cbf691ec296E"(ptr nonnull readonly align 8 %5, ptr nonnull align 8 %41)
           to label %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h6333c2b8addd5a77E.exit" unwind label %44
 
 44:                                               ; preds = %35
@@ -6137,7 +6137,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %31 = extractvalue { ptr, i64 } %25, 0
   %32 = extractvalue { ptr, i64 } %21, 0
   %33 = shl i64 %27, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %32, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr readonly align 8 %32, i64 %33, i1 false)
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8, !noundef !3
   %36 = load i16, ptr %9, align 2, !noundef !3
@@ -6276,7 +6276,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %34 = extractvalue { ptr, i64 } %27, 0
   %35 = extractvalue { ptr, i64 } %22, 0
   %36 = shl i64 %29, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr readonly align 8 %35, i64 %36, i1 false)
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = load i64, ptr %37, align 8, !noundef !3
   %39 = load i16, ptr %10, align 2, !noundef !3
@@ -6425,7 +6425,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %36 = extractvalue { ptr, i64 } %29, 0
   %37 = extractvalue { ptr, i64 } %24, 0
   %38 = shl i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr readonly align 8 %37, i64 %38, i1 false)
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8, !noundef !3
   %41 = load i16, ptr %11, align 2, !noundef !3
@@ -6556,7 +6556,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %31 = extractvalue { ptr, i64 } %25, 0
   %32 = extractvalue { ptr, i64 } %21, 0
   %33 = shl i64 %27, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %32, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr readonly align 8 %32, i64 %33, i1 false)
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8, !noundef !3
   %36 = load i16, ptr %9, align 2, !noundef !3
@@ -6870,7 +6870,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 
 26:                                               ; preds = %20, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hefc788ba368d13b1E.exit"
   %27 = getelementptr inbounds { [6 x i64] }, ptr %14, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false)
   %28 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %29 = getelementptr inbounds i8, ptr %28, i64 536
   %30 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h8492e52c9c12e6efE"(i64 %12, ptr nonnull %29, i64 11)
@@ -7791,7 +7791,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hce52ce0f63337854E.exit: ; pre
   %50 = extractvalue { ptr, i64 } %46, 0
   %51 = extractvalue { ptr, i64 } %41, 0
   %52 = shl i64 %42, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %51, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr readonly align 8 %51, i64 %52, i1 false)
   %53 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds i8, ptr %53, i64 100
   %55 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h26b3410fcf2608adE"(i64 %38, i64 %10, ptr nonnull %54, i64 11)
@@ -7879,7 +7879,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h7160614b01f51a05E.exit: ; pre
   %110 = extractvalue { ptr, i64 } %106, 0
   %111 = extractvalue { ptr, i64 } %104, 0
   %112 = shl i64 %105, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr align 8 %111, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr readonly align 8 %111, i64 %112, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %113 = getelementptr inbounds i8, ptr %3, i64 8
@@ -7988,7 +7988,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h8ac1bf43201fd68bE.exit: ; pre
   %50 = extractvalue { ptr, i64 } %46, 0
   %51 = extractvalue { ptr, i64 } %41, 0
   %52 = shl i64 %42, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %50, ptr align 2 %51, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %50, ptr readonly align 2 %51, i64 %52, i1 false)
   %53 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds i8, ptr %53, i64 34
   %55 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h26b3410fcf2608adE"(i64 %38, i64 %10, ptr nonnull %54, i64 11)
@@ -8076,7 +8076,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hf09867801f7e24afE.exit: ; pre
   %110 = extractvalue { ptr, i64 } %106, 0
   %111 = extractvalue { ptr, i64 } %104, 0
   %112 = shl i64 %105, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr align 8 %111, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr readonly align 8 %111, i64 %112, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %113 = getelementptr inbounds i8, ptr %3, i64 8
@@ -8191,7 +8191,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h5e44b4c6abeec8e8E.exit: ; pre
   %54 = extractvalue { ptr, i64 } %50, 0
   %55 = extractvalue { ptr, i64 } %46, 0
   %56 = shl i64 %47, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %55, i64 %56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr readonly align 8 %55, i64 %56, i1 false)
   %57 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %58 = getelementptr inbounds i8, ptr %57, i64 184
   %59 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h59616db366061b06E"(i64 %44, i64 %12, ptr nonnull %58, i64 11)
@@ -8211,7 +8211,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17he276f451ae42c770E.exit: ; pre
   %67 = extractvalue { ptr, i64 } %63, 0
   %68 = extractvalue { ptr, i64 } %59, 0
   %69 = mul i64 %60, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %68, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr readonly align 8 %68, i64 %69, i1 false)
   %70 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %71 = tail call align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h16fbcb9b976b6cb1E"(i64 %24, ptr nonnull %70, i64 11)
   %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !4, !noundef !3
@@ -8233,7 +8233,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17he276f451ae42c770E.exit: ; pre
   store ptr %72, ptr %81, align 8
   store i64 %74, ptr %85, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(56) %83, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull readonly align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4, i64 56, i1 false)
   %87 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %88 = invoke align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h16fbcb9b976b6cb1E"(i64 %48, ptr nonnull %87, i64 11)
@@ -8306,7 +8306,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h85c80ecee35051efE.exit: ; pre
   %123 = extractvalue { ptr, i64 } %119, 0
   %124 = extractvalue { ptr, i64 } %117, 0
   %125 = shl i64 %118, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %123, ptr align 8 %124, i64 %125, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %123, ptr readonly align 8 %124, i64 %125, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %126 = getelementptr inbounds i8, ptr %3, i64 8

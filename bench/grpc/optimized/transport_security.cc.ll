@@ -826,7 +826,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store ptr %call4.i.i, ptr %value.i.i, align 8
   %length.i.i = getelementptr inbounds i8, ptr %property, i64 16
   store i64 %call, ptr %length.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i.i, ptr align 1 %value, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i.i, ptr readonly align 1 %value, i64 %call, i1 false)
   br label %_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit
 
 _Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit: ; preds = %if.end.i.i, %if.then2.i

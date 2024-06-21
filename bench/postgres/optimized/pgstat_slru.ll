@@ -35,7 +35,7 @@ define dso_local void @pgstat_reset_slru(ptr nocapture noundef readonly %0) loca
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
   %4 = getelementptr [8 x ptr], ptr @slru_names, i64 0, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #9
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #9
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.split.loop.exit9.i, label %8
 

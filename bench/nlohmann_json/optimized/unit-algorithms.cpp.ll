@@ -10339,7 +10339,7 @@ call.i5.i.i.i.noexc:                              ; preds = %.noexc2417
   %876 = load ptr, ptr %agg.tmp3.i.i.i, align 8
   store ptr %876, ptr %__i.i.i.i.i, align 8
   %m_it.i.i8.i.i.i = getelementptr inbounds i8, ptr %__i.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i8.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i3.i.i.i, i64 24, i1 false)
   %call.i4.i.i.i.i2419 = invoke noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISG_TnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISJ_NS2_IKSF_EEEE5valueEDnE4typeELDn0EEEbRKSJ_(ptr noundef nonnull align 8 dereferenceable(32) %__i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4.i.i.i)
           to label %call.i4.i.i.i.i.noexc unwind label %lpad2793.loopexit.split-lp
 
@@ -30604,10 +30604,10 @@ entry:
   %4 = load ptr, ptr %agg.tmp1, align 8
   store ptr %4, ptr %agg.tmp.i, align 8
   %m_it.i.i9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i9, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i9, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp1.i, align 8
   %m_it.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
   %call.i.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i)
   %call2.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i)
   %call.val.i.i = load i8, ptr %call.i.i11, align 8
@@ -30680,11 +30680,11 @@ sw.default.i12.i.i.i:                             ; preds = %_ZNK8nlohmann16json
 if.then.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit.i"
   store ptr %2, ptr %agg.tmp2.i, align 8
   %m_it.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i3.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i3.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
   %13 = load ptr, ptr %agg.tmp3, align 8
   store ptr %13, ptr %agg.tmp3.i, align 8
   %m_it.i5.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i7.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i)
   %call2.i8.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i)
   %call.val.i9.i = load i8, ptr %call.i7.i, align 8
@@ -30759,11 +30759,11 @@ if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__op
   %22 = load ptr, ptr %agg.tmp1, align 8
   store ptr %22, ptr %agg.tmp8.i, align 8
   %m_it.i41.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i41.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i41.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
   %23 = load ptr, ptr %agg.tmp3, align 8
   store ptr %23, ptr %agg.tmp9.i, align 8
   %m_it.i43.i = getelementptr inbounds i8, ptr %agg.tmp9.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i43.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i43.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i45.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8.i)
   %call2.i46.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9.i)
   %call.val.i47.i = load i8, ptr %call.i45.i, align 8
@@ -30847,11 +30847,11 @@ if.else18.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %34 = load ptr, ptr %agg.tmp1, align 8
   store ptr %34, ptr %agg.tmp19.i, align 8
   %m_it.i92.i = getelementptr inbounds i8, ptr %agg.tmp19.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i92.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i92.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
   %35 = load ptr, ptr %agg.tmp3, align 8
   store ptr %35, ptr %agg.tmp20.i, align 8
   %m_it.i94.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i94.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i94.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i96.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19.i)
   %call2.i97.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20.i)
   %call.val.i98.i = load i8, ptr %call.i96.i, align 8
@@ -30926,11 +30926,11 @@ if.then22.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
 if.else25.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i"
   store ptr %2, ptr %agg.tmp26.i, align 8
   %m_it.i134.i = getelementptr inbounds i8, ptr %agg.tmp26.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i134.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i134.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
   %45 = load ptr, ptr %agg.tmp3, align 8
   store ptr %45, ptr %agg.tmp27.i, align 8
   %m_it.i136.i = getelementptr inbounds i8, ptr %agg.tmp27.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i136.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i136.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i138.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i)
   %call2.i139.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp27.i)
   %call.val.i140.i = load i8, ptr %call.i138.i, align 8

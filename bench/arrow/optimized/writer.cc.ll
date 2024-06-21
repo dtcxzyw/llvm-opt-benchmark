@@ -38152,7 +38152,7 @@ _ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i: ; preds = %if.else.i
   %__args3.val.i.i.i.i = load i32, ptr %_M_bound_args.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %conv.i.i.i.i.i = sext i32 %__args3.val.i.i.i.i to i64
-  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias nonnull align 8 %agg.tmp.i.i.i.i.i, ptr %__args1.val.i.i.i.i, i64 noundef %conv.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias nonnull align 8 %agg.tmp.i.i.i.i.i, ptr readonly %__args1.val.i.i.i.i, i64 noundef %conv.i.i.i.i.i)
           to label %.noexc.i.i.i.i unwind label %lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i
@@ -42527,7 +42527,7 @@ lpad67:                                           ; preds = %invoke.cont65
   br label %ehcleanup
 
 do.body80:                                        ; preds = %if.end57.thread, %if.end57
-  invoke void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp82, i64 noundef %12, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(60) %options_66, ptr noundef nonnull %payload)
+  invoke void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp82, i64 noundef %12, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(60) %options_66, ptr noundef nonnull %payload)
           to label %_ZN5arrow6StatusD2Ev.exit128 unwind label %lpad64
 
 _ZN5arrow6StatusD2Ev.exit128:                     ; preds = %do.body80

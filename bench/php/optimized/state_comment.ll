@@ -667,7 +667,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %201
 
 214:                                              ; preds = %196, %lxb_html_tokenizer_temp_realloc.exit.thread.i108
   %215 = phi ptr [ %211, %lxb_html_tokenizer_temp_realloc.exit.thread.i108 ], [ %154, %196 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %215, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %215, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %216 = getelementptr inbounds i8, ptr %215, i64 3
   store ptr %216, ptr %5, align 8
   %217 = load ptr, ptr %9, align 8

@@ -97,7 +97,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @gpr_malloc(i64 noundef %received_bytes_size)
   %unused_bytes.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call3.i, ptr %unused_bytes.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr align 1 %received_bytes, i64 %received_bytes_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr readonly align 1 %received_bytes, i64 %received_bytes_size, i1 false)
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i

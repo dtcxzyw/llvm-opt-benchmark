@@ -3572,7 +3572,7 @@ dissect_smb2_FSCTL_SRV_COPYCHUNK.exit:            ; preds = %.lr.ph.i112, %182, 
   br i1 %.not.i116, label %204, label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 204:                                              ; preds = %203
-  %205 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0)
+  %205 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %2, i32 noundef 0)
   br label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 206:                                              ; preds = %7
@@ -3594,7 +3594,7 @@ dissect_smb2_FSCTL_SRV_COPYCHUNK.exit:            ; preds = %.lr.ph.i112, %182, 
   br i1 %.not.i119, label %dissect_smb2_FSCTL_OFFLOAD_READ.exit, label %214
 
 214:                                              ; preds = %213
-  %215 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0)
+  %215 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %2, i32 noundef 0)
   br label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 216:                                              ; preds = %7
@@ -11607,7 +11607,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
   %.06.i = phi i64 [ 0, %48 ], [ %50, %49 ]
   %52 = getelementptr [17 x %struct.create_context_data_tag_dissectors], ptr @create_context_dissectors_array, i64 0, i64 %.06.i
   %53 = load ptr, ptr %52, align 16
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %53) #15
+  %54 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %53) #15
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %get_create_context_data_tag_dissectors.exit, label %49
 
@@ -14400,7 +14400,7 @@ dissect_smb2_fs_info_07.exit:                     ; preds = %112, %113
 
 dissect_smb2_FS_OBJECTID_INFO.exit:               ; preds = %121, %122
   %.0.i218 = phi ptr [ %126, %122 ], [ null, %121 ]
-  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %.0.i218, i32 noundef %3)
+  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %.0.i218, i32 noundef %3)
   br label %190
 
 128:                                              ; preds = %66

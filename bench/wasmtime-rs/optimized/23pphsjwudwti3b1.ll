@@ -2449,7 +2449,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !198, !noalias !201, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i64, [2 x i64] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !198, !noalias !201, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !198, !noalias !201
@@ -2846,7 +2846,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !242, !noalias !245, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !242, !noalias !245, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !242, !noalias !245
@@ -2969,7 +2969,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !257, !noalias !260, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !257, !noalias !260, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !257, !noalias !260
@@ -2995,7 +2995,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !262, !noalias !265, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !262, !noalias !265, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !262, !noalias !265
@@ -3261,7 +3261,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !292, !noalias !295, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !292, !noalias !295, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !292, !noalias !295
@@ -3437,7 +3437,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !313, !noalias !316, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !313, !noalias !316, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !313, !noalias !316
@@ -3511,7 +3511,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !323, !noalias !326, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, [3 x i32] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !323, !noalias !326, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !323, !noalias !326
@@ -3537,7 +3537,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !328, !noalias !331, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !328, !noalias !331, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !328, !noalias !331
@@ -3563,7 +3563,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !333, !noalias !336, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !333, !noalias !336, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !333, !noalias !336
@@ -3663,7 +3663,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !346, !noalias !349, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { i32, [9 x i32] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %12, ptr noundef nonnull align 4 dereferenceable(44) %1, i64 44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %12, ptr noundef nonnull readonly align 4 dereferenceable(44) %1, i64 44, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !346, !noalias !349, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !346, !noalias !349
@@ -3833,7 +3833,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !366, !noalias !369, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull readonly align 8 dereferenceable(64) %1, i64 64, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !366, !noalias !369, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !366, !noalias !369
@@ -3955,7 +3955,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !381, !noalias !384, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %12, ptr noundef nonnull readonly align 4 dereferenceable(48) %1, i64 48, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !381, !noalias !384, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !381, !noalias !384
@@ -4029,7 +4029,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !391, !noalias !394, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { i32, [1 x i32] } }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, i64 12, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !391, !noalias !394, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !391, !noalias !394
@@ -4199,7 +4199,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !411, !noalias !414, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !411, !noalias !414, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !411, !noalias !414
@@ -4623,7 +4623,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !460, !noalias !463, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, { [16 x i8], [16 x i8], i8 }, i8, [2 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull align 4 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, ptr noundef nonnull readonly align 4 dereferenceable(40) %1, i64 40, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !460, !noalias !463, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !460, !noalias !463
@@ -4793,7 +4793,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !480, !noalias !483, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { i32, [7 x i32] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull readonly align 16 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !480, !noalias !483, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !480, !noalias !483
@@ -4847,7 +4847,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !488, !noalias !491, !nonnull !9, !noundef !9
   %12 = getelementptr inbounds { { i32, [2 x i32] }, i8, [3 x i8] }, ptr %11, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %13 = load i64, ptr %3, align 8, !alias.scope !488, !noalias !491, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8, !alias.scope !488, !noalias !491
@@ -10131,7 +10131,7 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg11instantiate17h887f60d67558ea3
   %.sroa.02.0.i.i = phi i64 [ %.sroa.02.0.copyload.i.i, %.noexc135 ], [ -9223372036854775805, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb3c9069ab96290a8E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10), !noalias !1105
   %189 = getelementptr inbounds i8, ptr %184, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %189, i64 12, i1 false), !noalias !1099
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %189, i64 12, i1 false), !noalias !1099
   %190 = getelementptr inbounds i8, ptr %184, i64 44
   %191 = load i32, ptr %190, align 4, !alias.scope !1102, !noalias !1099, !noundef !9
   store i64 %.sroa.02.0.i.i, ptr %119, align 8, !noalias !1105
@@ -11239,7 +11239,7 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   call void @llvm.experimental.noalias.scope.decl(metadata !1316)
   call void @llvm.experimental.noalias.scope.decl(metadata !1319)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1322
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false), !noalias !1296
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull readonly align 16 dereferenceable(32) %5, i64 32, i1 false), !noalias !1296
   %21 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i, align 16, !alias.scope !1323, !noalias !1296, !noundef !9
   %22 = shl i64 %21, 56
   %23 = getelementptr inbounds i8, ptr %5, i64 56

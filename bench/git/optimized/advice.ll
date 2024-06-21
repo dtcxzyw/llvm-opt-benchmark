@@ -263,12 +263,12 @@ do.body.i14.preheader:                            ; preds = %do.cond.i
   br label %do.body.i14
 
 if.then3:                                         ; preds = %do.body.i
-  %call.i = tail call i32 @strcasecmp(ptr noundef %scevgep, ptr noundef nonnull @.str.71) #12
+  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %scevgep, ptr noundef nonnull @.str.71) #12
   %tobool.not.i13 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i13, label %if.end6, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
-  %call1.i = tail call i32 @strcasecmp(ptr noundef %scevgep, ptr noundef nonnull @.str.72) #12
+  %call1.i = tail call i32 @strcasecmp(ptr noundef readonly %scevgep, ptr noundef nonnull @.str.72) #12
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end6, label %return
 

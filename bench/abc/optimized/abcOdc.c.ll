@@ -2617,7 +2617,7 @@ Abc_Clock.exit:                                   ; preds = %4, %22
 Abc_Clock.exit83:                                 ; preds = %Abc_Clock.exit, %33
   %.0.i82.neg = phi i64 [ %.neg120, %33 ], [ 1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef nonnull %0)
+  call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef nonnull readonly %0)
   %37 = load ptr, ptr %30, align 8
   %.val.i.i = load ptr, ptr %37, align 8
   %38 = getelementptr i8, ptr %37, i64 16
@@ -2654,7 +2654,7 @@ Abc_Clock.exit83:                                 ; preds = %Abc_Clock.exit, %33
   br i1 %58, label %Abc_NtkDontCareWindow.exit, label %59
 
 59:                                               ; preds = %54, %Abc_Clock.exit83
-  %60 = call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull %0)
+  %60 = call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull readonly %0)
   br label %Abc_NtkDontCareWindow.exit
 
 Abc_NtkDontCareWindow.exit:                       ; preds = %54, %59

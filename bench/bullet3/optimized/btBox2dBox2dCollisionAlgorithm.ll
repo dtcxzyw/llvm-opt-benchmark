@@ -572,7 +572,7 @@ if.end80:                                         ; preds = %_ZL17ClipSegmentToL
   br i1 %cmp.i143, label %if.end.i145, label %if.then.i144
 
 if.then.i144:                                     ; preds = %if.end80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %clipPoints2, ptr noundef nonnull align 16 dereferenceable(20) %clipPoints1, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %clipPoints2, ptr noundef nonnull readonly align 16 dereferenceable(20) %clipPoints1, i64 20, i1 false)
   br label %if.end.i145
 
 if.end.i145:                                      ; preds = %if.then.i144, %if.end80
@@ -584,7 +584,7 @@ if.then8.i148:                                    ; preds = %if.end.i145
   %inc10.i149 = add nuw nsw i32 %numOut.0.i146, 1
   %idxprom11.i150 = zext nneg i32 %numOut.0.i146 to i64
   %arrayidx12.i151 = getelementptr inbounds %struct.ClipVertex, ptr %clipPoints2, i64 %idxprom11.i150
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx12.i151, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx50, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx12.i151, ptr noundef nonnull readonly align 4 dereferenceable(20) %arrayidx50, i64 20, i1 false)
   br label %if.end13.i152
 
 if.end13.i152:                                    ; preds = %if.then8.i148, %if.end.i145

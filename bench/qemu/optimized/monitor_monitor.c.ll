@@ -415,7 +415,7 @@ if.end2:                                          ; preds = %if.end
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef %call3)
+  %call3.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef readonly %call3)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   tail call void @g_free(ptr noundef %call3) #13
   br label %return
@@ -449,7 +449,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   call void %2(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i.i = call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef %call3.i)
+  %call3.i.i = call i32 @monitor_puts_locked(ptr noundef nonnull %mon, ptr noundef readonly %call3.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   call void @g_free(ptr noundef %call3.i) #13
   br label %monitor_vprintf.exit
@@ -547,7 +547,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef %call3.i)
+  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef readonly %call3.i)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   tail call void @g_free(ptr noundef %call3.i) #13
   br label %return
@@ -612,7 +612,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
   tail call void %10(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef %call3.i)
+  %call3.i.i = tail call i32 @monitor_puts_locked(ptr noundef nonnull %call1.i, ptr noundef readonly %call3.i)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   tail call void @g_free(ptr noundef %call3.i) #13
   br label %return

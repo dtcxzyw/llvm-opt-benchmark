@@ -8522,7 +8522,7 @@ define void @add_property_long_ex(ptr nocapture noundef readonly %0, ptr nocaptu
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
@@ -8615,7 +8615,7 @@ define void @add_property_bool_ex(ptr nocapture noundef readonly %0, ptr nocaptu
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %2, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr readonly align 1 %1, i64 %2, i1 false)
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %2
   store i8 0, ptr %15, align 1
   %16 = load ptr, ptr %0, align 8
@@ -8662,7 +8662,7 @@ define void @add_property_null_ex(ptr nocapture noundef readonly %0, ptr nocaptu
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds [1 x i8], ptr %12, i64 0, i64 %2
   store i8 0, ptr %13, align 1
   %14 = load ptr, ptr %0, align 8
@@ -8710,7 +8710,7 @@ define void @add_property_resource_ex(ptr nocapture noundef readonly %0, ptr noc
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
@@ -8759,7 +8759,7 @@ define void @add_property_double_ex(ptr nocapture noundef readonly %0, ptr nocap
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
@@ -8812,7 +8812,7 @@ define void @add_property_str_ex(ptr nocapture noundef readonly %0, ptr nocaptur
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 %2, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr readonly align 1 %1, i64 %2, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %2
   store i8 0, ptr %18, align 1
   %19 = load ptr, ptr %0, align 8
@@ -8876,7 +8876,7 @@ define void @add_property_string_ex(ptr nocapture noundef readonly %0, ptr nocap
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %2, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr readonly align 1 %1, i64 %2, i1 false)
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %2
   store i8 0, ptr %23, align 1
   %24 = load ptr, ptr %0, align 8
@@ -8939,7 +8939,7 @@ define void @add_property_stringl_ex(ptr nocapture noundef readonly %0, ptr noca
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %2, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr readonly align 1 %1, i64 %2, i1 false)
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %2
   store i8 0, ptr %23, align 1
   %24 = load ptr, ptr %0, align 8
@@ -8988,7 +8988,7 @@ define void @add_property_array_ex(ptr nocapture noundef readonly %0, ptr nocapt
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
@@ -9037,7 +9037,7 @@ define void @add_property_object_ex(ptr nocapture noundef readonly %0, ptr nocap
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
@@ -9086,7 +9086,7 @@ define void @add_property_reference_ex(ptr nocapture noundef readonly %0, ptr no
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
@@ -12754,7 +12754,7 @@ module_registry_unload.exit:                      ; preds = %39, %37, %34
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @zend_register_internal_class_ex(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call fastcc noundef ptr @do_register_internal_class(ptr noundef %0, i32 noundef 0)
+  %3 = tail call fastcc noundef ptr @do_register_internal_class(ptr noundef readonly %0, i32 noundef 0)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -18600,7 +18600,7 @@ zend_declare_class_constant_stringl.exit:         ; preds = %11, %13
   %21 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 %6, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %3, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr readonly align 1 %3, i64 %6, i1 false)
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %6
   store i8 0, ptr %23, align 1
   store ptr %15, ptr %5, align 8
@@ -18688,7 +18688,7 @@ define void @zend_update_property_null(ptr noundef %0, ptr noundef %1, ptr nocap
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr readonly align 1 %2, i64 %3, i1 false)
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %3
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 24
@@ -18785,7 +18785,7 @@ define void @zend_update_property_bool(ptr noundef %0, ptr noundef %1, ptr nocap
   %15 = getelementptr inbounds i8, ptr %12, i64 16
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr readonly align 1 %2, i64 %3, i1 false)
   %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %3
   store i8 0, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %1, i64 24
@@ -18835,7 +18835,7 @@ define void @zend_update_property_long(ptr noundef %0, ptr noundef %1, ptr nocap
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %3, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr readonly align 1 %2, i64 %3, i1 false)
   %16 = getelementptr inbounds [1 x i8], ptr %15, i64 0, i64 %3
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %1, i64 24
@@ -18885,7 +18885,7 @@ define void @zend_update_property_double(ptr noundef %0, ptr noundef %1, ptr noc
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %3, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr readonly align 1 %2, i64 %3, i1 false)
   %16 = getelementptr inbounds [1 x i8], ptr %15, i64 0, i64 %3
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %1, i64 24
@@ -18940,7 +18940,7 @@ define void @zend_update_property_str(ptr noundef %0, ptr noundef %1, ptr nocapt
   %18 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 %3, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr readonly align 1 %2, i64 %3, i1 false)
   %20 = getelementptr inbounds [1 x i8], ptr %19, i64 0, i64 %3
   store i8 0, ptr %20, align 1
   %21 = getelementptr inbounds i8, ptr %1, i64 24
@@ -19005,7 +19005,7 @@ define void @zend_update_property_string(ptr noundef %0, ptr noundef %1, ptr noc
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   store i64 %3, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr readonly align 1 %2, i64 %3, i1 false)
   %25 = getelementptr inbounds [1 x i8], ptr %24, i64 0, i64 %3
   store i8 0, ptr %25, align 1
   %26 = getelementptr inbounds i8, ptr %1, i64 24
@@ -19069,7 +19069,7 @@ define void @zend_update_property_stringl(ptr noundef %0, ptr noundef %1, ptr no
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   store i64 %3, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr readonly align 1 %2, i64 %3, i1 false)
   %25 = getelementptr inbounds [1 x i8], ptr %24, i64 0, i64 %3
   store i8 0, ptr %25, align 1
   %26 = getelementptr inbounds i8, ptr %1, i64 24
@@ -19287,7 +19287,7 @@ zend_update_static_property.exit:
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr readonly align 1 %1, i64 %2, i1 false)
   %12 = getelementptr inbounds [1 x i8], ptr %11, i64 0, i64 %2
   store i8 0, ptr %12, align 1
   %13 = call i32 @zend_update_static_property_ex(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3)
@@ -19314,7 +19314,7 @@ zend_update_static_property.exit:
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %2
   store i8 0, ptr %14, align 1
   %15 = call i32 @zend_update_static_property_ex(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %4)
@@ -19340,7 +19340,7 @@ zend_update_static_property.exit:
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds [1 x i8], ptr %12, i64 0, i64 %2
   store i8 0, ptr %13, align 1
   %14 = call i32 @zend_update_static_property_ex(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4)
@@ -19366,7 +19366,7 @@ zend_update_static_property.exit:
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds [1 x i8], ptr %12, i64 0, i64 %2
   store i8 0, ptr %13, align 1
   %14 = call i32 @zend_update_static_property_ex(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4)
@@ -19407,7 +19407,7 @@ zend_update_static_property.exit:
   %20 = getelementptr inbounds i8, ptr %17, i64 16
   store i64 %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr readonly align 1 %1, i64 %2, i1 false)
   %22 = getelementptr inbounds [1 x i8], ptr %21, i64 0, i64 %2
   store i8 0, ptr %22, align 1
   %23 = call i32 @zend_update_static_property_ex(ptr noundef %0, ptr noundef nonnull %17, ptr noundef nonnull %4)
@@ -19447,7 +19447,7 @@ zend_update_static_property.exit:
   %20 = getelementptr inbounds i8, ptr %17, i64 16
   store i64 %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr readonly align 1 %1, i64 %2, i1 false)
   %22 = getelementptr inbounds [1 x i8], ptr %21, i64 0, i64 %2
   store i8 0, ptr %22, align 1
   %23 = call i32 @zend_update_static_property_ex(ptr noundef %0, ptr noundef nonnull %17, ptr noundef nonnull %5)
@@ -19794,7 +19794,7 @@ try_parse_string.exit.thread73:                   ; preds = %31
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %29, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %39, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 1 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 1 %28, i64 %29, i1 false)
   %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %29
   store i8 0, ptr %44, align 1
   br label %46

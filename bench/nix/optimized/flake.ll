@@ -48560,7 +48560,7 @@ _ZN3nix3refINS_5flake4NodeEEC2ERKS3_.exit.i.i:    ; preds = %19, %16, %8
   store ptr null, ptr %4, align 8
   %25 = load i8, ptr %7, align 1
   %26 = trunc i8 %25 to i1
-  invoke fastcc void @"_ZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_b"(ptr noundef nonnull align 8 dereferenceable(88) %.val, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %26)
+  invoke fastcc void @"_ZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_b"(ptr noundef nonnull readonly align 8 dereferenceable(88) %.val, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %26)
           to label %27 unwind label %97
 
 27:                                               ; preds = %_ZN3nix3refINS_5flake4NodeEEC2ERKS3_.exit.i.i
@@ -48742,7 +48742,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt3mapINSt7__c
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %.val6, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %7, ptr noundef nonnull readonly align 8 dereferenceable(88) %.val6, i64 88, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake9lockFlakeERNS1_9EvalStateERKNS1_8FlakeRefERKNS2_9LockFlagsEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 

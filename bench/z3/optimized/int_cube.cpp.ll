@@ -92,7 +92,7 @@ _ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit.i:  ; preds = %if.end.i.i, %for.co
   br i1 %cmp.not.i.not, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit.i
-  %call3.i = tail call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %i.0.i)
+  %call3.i = tail call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %i.0.i)
   %inc.i = add nuw i32 %i.0.i, 1
   br i1 %call3.i, label %for.cond.i, label %if.then, !llvm.loop !4
 

@@ -2196,7 +2196,7 @@ default.unreachable120:                           ; preds = %1139, %1128, %1112,
   %154 = extractvalue { ptr, i64 } %149, 1
   %155 = icmp ne ptr %153, null
   call void @llvm.assume(i1 %155)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %147, i64 %148, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull readonly align 1 %147, i64 %148, i1 false)
   store ptr %153, ptr %105, align 8, !alias.scope !353, !noalias !358
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %105, i64 8
   store i64 %154, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !353, !noalias !358
@@ -2656,7 +2656,7 @@ default.unreachable120:                           ; preds = %1139, %1128, %1112,
   br label %305
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb30d039be46d2df7E.exit": ; preds = %292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %293, ptr noundef nonnull align 8 dereferenceable(168) %94, i64 168, i1 false), !alias.scope !453
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %293, ptr noundef nonnull readonly align 8 dereferenceable(168) %94, i64 168, i1 false), !alias.scope !453
   %.pr = load ptr, ptr %293, align 8
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %94)
   %299 = icmp eq ptr %.pr, null
@@ -3019,7 +3019,7 @@ common.ret:                                       ; preds = %1367, %321
   %418 = extractvalue { ptr, i64 } %416, 1
   %419 = icmp ne ptr %417, null
   call void @llvm.assume(i1 %419)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %417, ptr nonnull align 1 %414, i64 %415, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %417, ptr nonnull readonly align 1 %414, i64 %415, i1 false)
   %420 = getelementptr inbounds i8, ptr %73, i64 24
   store i8 %412, ptr %420, align 8, !alias.scope !480, !noalias !490
   store ptr %417, ptr %73, align 8, !alias.scope !480, !noalias !490

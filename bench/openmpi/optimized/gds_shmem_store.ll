@@ -3942,7 +3942,7 @@ pmix_tma_malloc.exit.i.i:                         ; preds = %244, %241
 
 246:                                              ; preds = %pmix_tma_malloc.exit.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %240, i64 16, i1 false)
   store ptr %.0.i.i.i, ptr %238, align 8
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
@@ -8121,7 +8121,7 @@ pmix_tma_malloc.exit1026:                         ; preds = %415, %418
   br label %pmix_obj_construct_tma.exit
 
 436:                                              ; preds = %430
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %434, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %434, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, i64 64, i1 false)
   br label %pmix_obj_construct_tma.exit
 
 pmix_obj_construct_tma.exit:                      ; preds = %435, %436
@@ -9770,7 +9770,7 @@ pmix_tma_strdup.exit.i:                           ; preds = %1193, %1190
 1195:                                             ; preds = %pmix_tma_strdup.exit.i, %1185
   %1196 = getelementptr inbounds i8, ptr %1186, i64 8
   %1197 = getelementptr inbounds i8, ptr %1187, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %1196, ptr noundef nonnull align 8 dereferenceable(260) %1197, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %1196, ptr noundef nonnull readonly align 8 dereferenceable(260) %1197, i64 260, i1 false)
   %1198 = getelementptr inbounds i8, ptr %1187, i64 268
   %1199 = load i32, ptr %1198, align 4
   %1200 = getelementptr inbounds i8, ptr %1186, i64 268
@@ -9805,7 +9805,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %1195, %pmix_tma_str
   store i8 %1211, ptr %1212, align 8
   %1213 = getelementptr inbounds i8, ptr %1186, i64 288
   %1214 = getelementptr inbounds i8, ptr %1187, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1213, ptr noundef nonnull align 8 dereferenceable(16) %1214, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1213, ptr noundef nonnull readonly align 8 dereferenceable(16) %1214, i64 16, i1 false)
   %1215 = getelementptr inbounds i8, ptr %1187, i64 308
   %1216 = load i32, ptr %1215, align 4
   %1217 = getelementptr inbounds i8, ptr %1186, i64 308
@@ -10888,7 +10888,7 @@ pmix_tma_strdup.exit.i:                           ; preds = %16, %12
 18:                                               ; preds = %pmix_tma_strdup.exit.i, %9
   %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %20 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %19, ptr noundef nonnull align 8 dereferenceable(260) %20, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %19, ptr noundef nonnull readonly align 8 dereferenceable(260) %20, i64 260, i1 false)
   %21 = getelementptr inbounds i8, ptr %1, i64 268
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 268
@@ -10924,7 +10924,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %18, %pmix_tma_strdu
   store i8 %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 288
   %38 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 8 dereferenceable(16) %38, i64 16, i1 false)
   %39 = getelementptr inbounds i8, ptr %1, i64 308
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 308

@@ -1792,7 +1792,7 @@ Bmc_MnaCollect.exit:                              ; preds = %.lr.ph.i193, %.lr.p
   %175 = and i64 %174, 536870911
   %176 = sub nsw i64 0, %175
   %177 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %173, i64 %176
-  tail call void @Bmc_MnaSelect_rec(ptr noundef nonnull %0, ptr noundef nonnull %177, ptr noundef nonnull %11)
+  tail call void @Bmc_MnaSelect_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %177, ptr noundef nonnull %11)
   %indvars.iv.next.i201 = add nuw nsw i64 %indvars.iv.i199, 1
   %.val22.i = load i32, ptr %51, align 4
   %178 = sext i32 %.val22.i to i64
@@ -1895,10 +1895,10 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not.i206, label %Abc_UtilStrsav.exit, label %210
 
 210:                                              ; preds = %Vec_IntStartFull.exit
-  %211 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #21
+  %211 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %209) #21
   %212 = add i64 %211, 1
   %213 = tail call noalias ptr @malloc(i64 noundef %212) #19
-  %214 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) %209) #18
+  %214 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull readonly dereferenceable(1) %209) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStartFull.exit, %210

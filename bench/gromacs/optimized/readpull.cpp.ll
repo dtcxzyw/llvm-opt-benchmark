@@ -1618,7 +1618,7 @@ _ZN12t_pull_groupD2Ev.exit:                       ; preds = %_ZNSt6vectorIfSaIfE
   store i32 %219, ptr %165, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
-  %221 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %58, ptr noundef nonnull @.str.56, ptr noundef nonnull %50, ptr noundef nonnull %51) #22, !noalias !7
+  %221 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %58, ptr noundef nonnull @.str.56, ptr noundef nonnull %50, ptr noundef nonnull %51) #22, !noalias !7
   %222 = icmp eq i32 %221, 1
   br i1 %222, label %.lr.ph.i, label %.loopexit229
 

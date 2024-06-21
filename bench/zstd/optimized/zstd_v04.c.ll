@@ -293,7 +293,7 @@ if.end.i68.i:                                     ; preds = %sw.bb41.i
   br i1 %cmp1.not.i69.i, label %while.end.i, label %if.end53.thread.i
 
 if.end53.thread.i:                                ; preds = %if.end.i68.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.071.i, ptr nonnull align 1 %add.ptr32.i, i64 %retval.0.i64.ph.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.071.i, ptr nonnull readonly align 1 %add.ptr32.i, i64 %retval.0.i64.ph.i, i1 false)
   br label %if.end57.i
 
 sw.epilog.i:                                      ; preds = %if.end36.i
@@ -535,7 +535,7 @@ if.end.i52:                                       ; preds = %sw.bb43
   br i1 %cmp1.not.i53, label %sw.epilog.thread, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %sw.epilog
 
 sw.epilog.thread:                                 ; preds = %sw.bb39, %if.end.i52
@@ -753,7 +753,7 @@ sw.bb15.i:                                        ; preds = %while.body.i
 
 if.then.i.i:                                      ; preds = %sw.bb15.i
   %add.ptr20.i = getelementptr inbounds i8, ptr %headerBuffer17.i, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr20.i, ptr align 1 %src, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr20.i, ptr readonly align 1 %src, i64 %cond.i.i, i1 false)
   %.pre.i = load i64, ptr %hPos19.i, align 8
   br label %ZBUFF_limitCopy.exit.i
 
@@ -934,7 +934,7 @@ if.end122.i:                                      ; preds = %sw.bb111.i
 if.then.i163.i:                                   ; preds = %if.end122.i
   %40 = load ptr, ptr %inBuff.i, align 8
   %add.ptr125.i = getelementptr inbounds i8, ptr %40, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr125.i, ptr align 1 %ip.3.i, i64 %cond.i161.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr125.i, ptr readonly align 1 %ip.3.i, i64 %cond.i161.i, i1 false)
   %.pre234.i = load i64, ptr %inPos.i, align 8
   br label %ZBUFF_limitCopy.exit165.i
 
@@ -992,7 +992,7 @@ sw.bb159.i:                                       ; preds = %if.end154.i, %while
 if.then.i170.i:                                   ; preds = %sw.bb159.i
   %50 = load ptr, ptr %outBuff.i, align 8
   %add.ptr168.i = getelementptr inbounds i8, ptr %50, i64 %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0229.i.ph.ph, ptr align 1 %add.ptr168.i, i64 %cond.i168.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0229.i.ph.ph, ptr readonly align 1 %add.ptr168.i, i64 %cond.i168.i, i1 false)
   %.pre237.i = load i64, ptr %outStart.i, align 8
   br label %ZBUFF_limitCopy.exit172.i
 
@@ -2149,12 +2149,12 @@ if.end39.i209.i:                                  ; preds = %if.then32.i.i
   br i1 %cmp47.not.i.i, label %if.end50.i.i, label %if.then48.i.i
 
 if.then48.i.i:                                    ; preds = %if.end39.i209.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i191.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr44.i210.i, i64 %add99.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i191.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr44.i210.i, i64 %add99.i.i, i1 false)
   br label %if.end31.i
 
 if.end50.i.i:                                     ; preds = %if.end39.i209.i
   %diff.neg.i.i = sub i64 0, %sub.ptr.sub42.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i191.i, ptr align 1 %add.ptr44.i210.i, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i191.i, ptr readonly align 1 %add.ptr44.i210.i, i64 %diff.neg.i.i, i1 false)
   %add.ptr54.i.i = getelementptr inbounds i8, ptr %add.ptr.i191.i, i64 %diff.neg.i.i
   %sub.i211.i = add i64 %add99.i.i, %sub.ptr.sub42.neg.i.i
   %cmp56.i.i = icmp ugt ptr %add.ptr54.i.i, %add.ptr3.i193.i
@@ -3321,10 +3321,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond99.i, label %HUF_decompress4X2_usingDTable.exit, label %if.end153.i
 
 if.end153.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op1.0.lcssa.i, ptr noundef nonnull %bitD1.i, ptr noundef %add.ptr13.i, ptr noundef nonnull %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op2.0.lcssa.i, ptr noundef nonnull %bitD2.i, ptr noundef %add.ptr14.i, ptr noundef nonnull %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op3.0.lcssa.i, ptr noundef nonnull %bitD3.i, ptr noundef %add.ptr15.i, ptr noundef nonnull %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op4.0.lcssa.i, ptr noundef nonnull %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef nonnull %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op1.0.lcssa.i, ptr noundef nonnull %bitD1.i, ptr noundef %add.ptr13.i, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op2.0.lcssa.i, ptr noundef nonnull %bitD2.i, ptr noundef %add.ptr14.i, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op3.0.lcssa.i, ptr noundef nonnull %bitD3.i, ptr noundef %add.ptr15.i, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2(ptr noundef %op4.0.lcssa.i, ptr noundef nonnull %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %0)
   %ptr.i545.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %107 = load ptr, ptr %ptr.i545.i, align 8
   %108 = load ptr, ptr %start.i.i, align 8
@@ -3548,7 +3548,7 @@ for.cond72.for.inc83_crit_edge.i:                 ; preds = %for.body75.i
 for.end85.i:                                      ; preds = %for.cond72.for.inc83_crit_edge.i, %for.cond64.preheader.i, %for.end42.i
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i)
   %sub.i.i = add nsw i32 %0, -11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull readonly align 16 dereferenceable(68) %rankVal.i, i64 68, i1 false)
   %cmp34.not.i.i = icmp eq i32 %nextRankStart.0.lcssa.i, 0
   br i1 %cmp34.not.i.i, label %HUF_readDTableX4.exit, label %for.body.preheader.i.i
 
@@ -3587,7 +3587,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %add.ptr24.i.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol.i, i64 %idx.ext23.i.i
   %sub25.i.i = sub i32 %nextRankStart.0.lcssa.i, %17
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i.i, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx21.i.i, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(68) %arrayidx21.i.i, i64 68, i1 false)
   %cmp.i.i44.i = icmp sgt i32 %add.i.i, 1
   br i1 %cmp.i.i44.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -4643,10 +4643,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond115.i, label %HUF_decompress4X4_usingDTable.exit, label %if.end168.i
 
 if.end168.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op1.0.lcssa.i, ptr noundef nonnull %bitD1.i, ptr noundef %add.ptr12.i, ptr noundef nonnull %add.ptr1.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op2.0.lcssa.i, ptr noundef nonnull %bitD2.i, ptr noundef %add.ptr13.i, ptr noundef nonnull %add.ptr1.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op3.0.lcssa.i, ptr noundef nonnull %bitD3.i, ptr noundef %add.ptr14.i, ptr noundef nonnull %add.ptr1.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op4.0.lcssa.i, ptr noundef nonnull %bitD4.i, ptr noundef %add.ptr.i13, ptr noundef nonnull %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op1.0.lcssa.i, ptr noundef nonnull %bitD1.i, ptr noundef %add.ptr12.i, ptr noundef nonnull readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op2.0.lcssa.i, ptr noundef nonnull %bitD2.i, ptr noundef %add.ptr13.i, ptr noundef nonnull readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op3.0.lcssa.i, ptr noundef nonnull %bitD3.i, ptr noundef %add.ptr14.i, ptr noundef nonnull readonly %add.ptr1.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4(ptr noundef %op4.0.lcssa.i, ptr noundef nonnull %bitD4.i, ptr noundef %add.ptr.i13, ptr noundef nonnull readonly %add.ptr1.i, i32 noundef 12)
   %ptr.i591.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %136 = load ptr, ptr %ptr.i591.i, align 8
   %137 = load ptr, ptr %start.i.i, align 8

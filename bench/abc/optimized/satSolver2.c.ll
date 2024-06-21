@@ -1230,7 +1230,7 @@ define internal fastcc i32 @proof_chain_stop(ptr nocapture noundef %0) unnamed_a
   %78 = getelementptr inbounds i64, ptr %76, i64 %77
   %79 = sext i32 %.val21 to i64
   %80 = shl nsw i64 %79, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull align 4 %.val, i64 %80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull readonly align 4 %.val, i64 %80, i1 false)
   %.pre47.i = load ptr, ptr %26, align 8
   %.pre49.i = load i32, ptr %28, align 4
   br label %Vec_SetAppend.exit
@@ -1387,7 +1387,7 @@ define internal fastcc i32 @clause2_create_new(ptr nocapture noundef %0, ptr nou
   %sext46 = shl i64 %8, 30
   %74 = ashr exact i64 %sext46, 30
   %75 = and i64 %74, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %73, ptr nonnull align 4 %1, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %73, ptr nonnull readonly align 4 %1, i64 %75, i1 false)
   br label %Sat_MemAppend.exit
 
 Sat_MemAppend.exit:                               ; preds = %61, %72

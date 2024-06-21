@@ -1118,7 +1118,7 @@ common.ret:                                       ; preds = %171, %47
   %164 = extractvalue { i64, ptr } %162, 1
   %165 = icmp ne ptr %164, null
   tail call void @llvm.assume(i1 %165)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %164, ptr nonnull align 1 %158, i64 %159, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %164, ptr nonnull readonly align 1 %158, i64 %159, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit": ; preds = %.noexc31, %157

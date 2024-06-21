@@ -445,9 +445,9 @@ entry:
   %m_callback.i = getelementptr inbounds i8, ptr %filterCallback, i64 8
   store ptr %callback, ptr %m_callback.i, align 8
   %m_aabbMin.i = getelementptr inbounds i8, ptr %filterCallback, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_aabbMin.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_aabbMin.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
   %m_aabbMax.i = getelementptr inbounds i8, ptr %filterCallback, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_aabbMax.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_aabbMax.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
   %m_meshInterface = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_meshInterface, align 8
   %vtable = load ptr, ptr %0, align 8

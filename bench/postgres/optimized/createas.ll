@@ -230,7 +230,7 @@ list_head.exit.i:                                 ; preds = %48, %43
   unreachable
 
 create_ctas_nodata.exit:                          ; preds = %._crit_edge.i
-  %114 = call fastcc { i64, i32 } @create_ctas_internal(ptr noundef %.0.lcssa.i, ptr noundef %11)
+  %114 = call fastcc { i64, i32 } @create_ctas_internal(ptr noundef %.0.lcssa.i, ptr noundef readonly %11)
   %.fca.0.extract = extractvalue { i64, i32 } %114, 0
   %.fca.1.extract = extractvalue { i64, i32 } %114, 1
   br label %142

@@ -474,7 +474,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %cmp.i202.i, label %if.then.i213.i, label %for.body.i.i.i
 
 if.then.i213.i:                                   ; preds = %if.end8.i
-  %call.i.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef %data, i64 noundef %n)
+  %call.i.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef readonly %data, i64 noundef %n)
   br label %_ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i
 
 for.body.i.i.i:                                   ; preds = %if.end8.i, %for.body.i.i.i
@@ -516,7 +516,7 @@ for.body.i30.i.i:                                 ; preds = %_ZL20XXPH3_accumula
   %mul.i31.i.i = shl nuw nsw i64 %n.i26.0109.i.i, 6
   %add.ptr.i32.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i, i64 %mul.i31.i.i
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i32.i.i, i64 384
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i33.i.i = shl nuw nsw i64 %n.i26.0109.i.i, 3
   %add.ptr3.i34.i.i = getelementptr inbounds i8, ptr %secret.i.i, i64 %mul2.i33.i.i
   br label %if.else.i118.i.i
@@ -585,7 +585,7 @@ for.body.i46.i.i:                                 ; preds = %for.end.i.i.i, %_ZL
   %mul.i47.i209.i = shl nuw i64 %n.i41.0115.i.i, 6
   %add.ptr.i48.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 %mul.i47.i209.i
   %add.ptr1.i49.i.i = getelementptr inbounds i8, ptr %add.ptr.i48.i.i, i64 384
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i49.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i49.i.i, i32 0, i32 3, i32 1)
   %mul2.i50.i.i = shl nuw nsw i64 %n.i41.0115.i.i, 3
   %add.ptr3.i51.i.i = getelementptr inbounds i8, ptr %secret.i.i, i64 %mul2.i50.i.i
   br label %if.else.i.i.i
@@ -1050,7 +1050,7 @@ _ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i:      ; preds = %for.body8.i.i, %for
   br label %_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %call9.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef %data, i64 noundef %n)
+  %call9.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef readonly %data, i64 noundef %n)
   br label %_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit
 
 _ZL20ROCKSDB_XXPH3_64bitsPKvm.exit:               ; preds = %if.then.i.i, %if.then2.i.i, %if.end4.i.i, %if.then5.i.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, %if.end8.i

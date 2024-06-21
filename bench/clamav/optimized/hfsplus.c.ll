@@ -1045,7 +1045,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
 
 225:                                              ; preds = %.preheader.split.preheader.i, %.loopexit.i
   %226 = phi i32 [ 1, %.preheader.split.preheader.i ], [ %300, %.loopexit.i ]
-  %227 = call fastcc i32 @hfsplus_fetch_node(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %47, i32 noundef %216, ptr noundef nonnull %219, i64 noundef %218)
+  %227 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %47, i32 noundef %216, ptr noundef nonnull %219, i64 noundef %218)
   %.not134.i = icmp eq i32 %227, 0
   br i1 %.not134.i, label %229, label %228
 
@@ -1177,7 +1177,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
 
 288:                                              ; preds = %285
   %289 = getelementptr inbounds i8, ptr %272, i64 14
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %289, ptr noundef nonnull dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %289, ptr noundef nonnull readonly dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
   %290 = icmp eq i32 %bcmp.i, 0
   br i1 %290, label %291, label %299
 

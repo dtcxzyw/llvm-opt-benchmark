@@ -822,7 +822,7 @@ invoke.cont162:                                   ; preds = %do.end158
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %ref.tmp19.i.i), !noalias !36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %next_gen.i.i), !noalias !36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp51.i.i), !noalias !36
-  invoke fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias nonnull align 8 %rev_map.i.i, ptr noundef nonnull align 8 dereferenceable(560) %call)
+  invoke fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias nonnull align 8 %rev_map.i.i, ptr noundef nonnull readonly align 8 dereferenceable(560) %call)
           to label %.noexc175 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
 
 .noexc175:                                        ; preds = %invoke.cont162
@@ -1010,7 +1010,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %switch.i.i.i.i, label %if.then8.i.invoke.i.i, label %if.else.i.i.i
 
 if.then8.i.invoke.i.i:                            ; preds = %if.then6.i.i.i, %_ZNK3ue29CharReach4noneEv.exit.i.i.i
-  invoke fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_14pathESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %next_gen.i.i, ptr noundef nonnull align 8 dereferenceable(186) %__begin2.sroa.0.0528.i.i)
+  invoke fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_14pathESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %next_gen.i.i, ptr noundef nonnull readonly align 8 dereferenceable(186) %__begin2.sroa.0.0528.i.i)
           to label %for.inc.i.i172 unwind label %lpad32.i.i, !noalias !36
 
 if.else.i.i.i:                                    ; preds = %if.then6.i.i.i
@@ -3958,7 +3958,7 @@ do.end6.i:                                        ; preds = %.noexc
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nonexit_symbols.i, i64 16
   store i64 4, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !172, !noalias !169
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !172, !noalias !169
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %nonexit.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cr.i, i64 32, i1 false), !noalias !175
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %nonexit.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %cr.i, i64 32, i1 false), !noalias !175
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %do.end6.i

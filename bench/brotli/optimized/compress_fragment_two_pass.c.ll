@@ -854,7 +854,7 @@ if.else.i.i:                                      ; preds = %CreateCommands.exit
   store i64 %and.i465.i, ptr %storage_ix, align 8
   %shr.i466.i = lshr exact i64 %and.i465.i, 3
   %arrayidx.i467.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i, ptr align 1 %input.addr.i.0596.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i, ptr readonly align 1 %input.addr.i.0596.i, i64 %cond.i.i, i1 false)
   %shl.i.i = shl nuw nsw i64 %cond.i.i, 3
   %56 = load i64, ptr %storage_ix, align 8
   %add1.i468.i = add i64 %56, %shl.i.i
@@ -1696,7 +1696,7 @@ if.else.i.i168:                                   ; preds = %CreateCommands.exit
   store i64 %and.i465.i199, ptr %storage_ix, align 8
   %shr.i466.i200 = lshr exact i64 %and.i465.i199, 3
   %arrayidx.i467.i201 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i201, ptr align 1 %input.addr.i.0596.i114, i64 %cond.i.i115, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i201, ptr readonly align 1 %input.addr.i.0596.i114, i64 %cond.i.i115, i1 false)
   %shl.i.i202 = shl nuw nsw i64 %cond.i.i115, 3
   %111 = load i64, ptr %storage_ix, align 8
   %add1.i468.i203 = add i64 %111, %shl.i.i202
@@ -2538,7 +2538,7 @@ if.else.i.i750:                                   ; preds = %CreateCommands.exit
   store i64 %and.i465.i781, ptr %storage_ix, align 8
   %shr.i466.i782 = lshr exact i64 %and.i465.i781, 3
   %arrayidx.i467.i783 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i782
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i783, ptr align 1 %input.addr.i.0596.i696, i64 %cond.i.i697, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i783, ptr readonly align 1 %input.addr.i.0596.i696, i64 %cond.i.i697, i1 false)
   %shl.i.i784 = shl nuw nsw i64 %cond.i.i697, 3
   %166 = load i64, ptr %storage_ix, align 8
   %add1.i468.i785 = add i64 %166, %shl.i.i784
@@ -3380,7 +3380,7 @@ if.else.i.i1332:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i1363, ptr %storage_ix, align 8
   %shr.i466.i1364 = lshr exact i64 %and.i465.i1363, 3
   %arrayidx.i467.i1365 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i1364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i1365, ptr align 1 %input.addr.i.0596.i1278, i64 %cond.i.i1279, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i1365, ptr readonly align 1 %input.addr.i.0596.i1278, i64 %cond.i.i1279, i1 false)
   %shl.i.i1366 = shl nuw nsw i64 %cond.i.i1279, 3
   %221 = load i64, ptr %storage_ix, align 8
   %add1.i468.i1367 = add i64 %221, %shl.i.i1366
@@ -4222,7 +4222,7 @@ if.else.i.i1914:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i1945, ptr %storage_ix, align 8
   %shr.i466.i1946 = lshr exact i64 %and.i465.i1945, 3
   %arrayidx.i467.i1947 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i1946
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i1947, ptr align 1 %input.addr.i.0596.i1860, i64 %cond.i.i1861, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i1947, ptr readonly align 1 %input.addr.i.0596.i1860, i64 %cond.i.i1861, i1 false)
   %shl.i.i1948 = shl nuw nsw i64 %cond.i.i1861, 3
   %276 = load i64, ptr %storage_ix, align 8
   %add1.i468.i1949 = add i64 %276, %shl.i.i1948
@@ -5064,7 +5064,7 @@ if.else.i.i2496:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i2527, ptr %storage_ix, align 8
   %shr.i466.i2528 = lshr exact i64 %and.i465.i2527, 3
   %arrayidx.i467.i2529 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i2528
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i2529, ptr align 1 %input.addr.i.0596.i2442, i64 %cond.i.i2443, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i2529, ptr readonly align 1 %input.addr.i.0596.i2442, i64 %cond.i.i2443, i1 false)
   %shl.i.i2530 = shl nuw nsw i64 %cond.i.i2443, 3
   %331 = load i64, ptr %storage_ix, align 8
   %add1.i468.i2531 = add i64 %331, %shl.i.i2530
@@ -5906,7 +5906,7 @@ if.else.i.i3078:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i3109, ptr %storage_ix, align 8
   %shr.i466.i3110 = lshr exact i64 %and.i465.i3109, 3
   %arrayidx.i467.i3111 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i3110
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i3111, ptr align 1 %input.addr.i.0596.i3024, i64 %cond.i.i3025, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i3111, ptr readonly align 1 %input.addr.i.0596.i3024, i64 %cond.i.i3025, i1 false)
   %shl.i.i3112 = shl nuw nsw i64 %cond.i.i3025, 3
   %386 = load i64, ptr %storage_ix, align 8
   %add1.i468.i3113 = add i64 %386, %shl.i.i3112
@@ -6748,7 +6748,7 @@ if.else.i.i3660:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i3691, ptr %storage_ix, align 8
   %shr.i466.i3692 = lshr exact i64 %and.i465.i3691, 3
   %arrayidx.i467.i3693 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i3692
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i3693, ptr align 1 %input.addr.i.0596.i3606, i64 %cond.i.i3607, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i3693, ptr readonly align 1 %input.addr.i.0596.i3606, i64 %cond.i.i3607, i1 false)
   %shl.i.i3694 = shl nuw nsw i64 %cond.i.i3607, 3
   %441 = load i64, ptr %storage_ix, align 8
   %add1.i468.i3695 = add i64 %441, %shl.i.i3694
@@ -7706,7 +7706,7 @@ if.else.i.i4239:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i4270, ptr %storage_ix, align 8
   %shr.i466.i4271 = lshr exact i64 %and.i465.i4270, 3
   %arrayidx.i467.i4272 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i4271
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i4272, ptr align 1 %input.addr.i.0639.i, i64 %cond.i.i4186, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i4272, ptr readonly align 1 %input.addr.i.0639.i, i64 %cond.i.i4186, i1 false)
   %shl.i.i4273 = shl nuw nsw i64 %cond.i.i4186, 3
   %514 = load i64, ptr %storage_ix, align 8
   %add1.i468.i4274 = add i64 %514, %shl.i.i4273
@@ -8664,7 +8664,7 @@ if.else.i.i4711:                                  ; preds = %CreateCommands.exit
   store i64 %and.i465.i4742, ptr %storage_ix, align 8
   %shr.i466.i4743 = lshr exact i64 %and.i465.i4742, 3
   %arrayidx.i467.i4744 = getelementptr inbounds i8, ptr %storage, i64 %shr.i466.i4743
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i4744, ptr align 1 %input.addr.i.0639.i4657, i64 %cond.i.i4658, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i467.i4744, ptr readonly align 1 %input.addr.i.0639.i4657, i64 %cond.i.i4658, i1 false)
   %shl.i.i4745 = shl nuw nsw i64 %cond.i.i4658, 3
   %587 = load i64, ptr %storage_ix, align 8
   %add1.i468.i4746 = add i64 %587, %shl.i.i4745
@@ -8747,7 +8747,7 @@ if.then:                                          ; preds = %sw.epilog
   store i64 %and.i5325, ptr %storage_ix, align 8
   %shr.i5326 = lshr exact i64 %and.i5325, 3
   %arrayidx.i5327 = getelementptr inbounds i8, ptr %storage, i64 %shr.i5326
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i5327, ptr align 1 %input, i64 %input_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i5327, ptr readonly align 1 %input, i64 %input_size, i1 false)
   %599 = load i64, ptr %storage_ix, align 8
   %add1.i = add i64 %599, %shl
   store i64 %add1.i, ptr %storage_ix, align 8

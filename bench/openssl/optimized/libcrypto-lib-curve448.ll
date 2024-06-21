@@ -873,7 +873,7 @@ entry:
   %t = alloca [1 x %struct.gf_s], align 16
   %q = alloca [1 x %struct.curve448_point_s], align 16
   %u = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   call void @ossl_gf_sqr(ptr noundef nonnull %x, ptr noundef nonnull %q) #7
   %y7 = getelementptr inbounds i8, ptr %q, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %t, ptr noundef nonnull %y7) #7
@@ -1534,7 +1534,7 @@ entry:
   %t1.i = alloca [1 x %struct.gf_s], align 16
   %t2.i = alloca [1 x %struct.gf_s], align 16
   %q = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   %t = getelementptr inbounds i8, ptr %q, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i)
@@ -1576,7 +1576,7 @@ entry:
   %4 = load ptr, ptr @ossl_curve448_precomputed_base, align 8
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %p, ptr noundef %4, ptr noundef nonnull %the_scalar)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %q.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q.i, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   %t.i = getelementptr inbounds i8, ptr %q.i, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i.i)
@@ -1883,7 +1883,7 @@ prepare_wnaf_table.exit:                          ; preds = %for.body.i114
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %prepare_wnaf_table.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %combo, ptr noundef nonnull align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %combo, ptr noundef nonnull readonly align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false)
   br label %return
 
 if.end:                                           ; preds = %prepare_wnaf_table.exit

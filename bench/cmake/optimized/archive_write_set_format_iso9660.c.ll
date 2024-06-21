@@ -1987,7 +1987,7 @@ zisofs_rewind_boot_file.exit.thread243:           ; preds = %54
   br label %wb_write_padding_to_temp.exit.thread.i
 
 148:                                              ; preds = %145
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %87, ptr noundef nonnull dereferenceable(8) @zisofs_magic, i64 8)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %87, ptr noundef nonnull dereferenceable(8) @zisofs_magic, i64 8)
   %.not59.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not59.i.i.i, label %149, label %.critedge.i.i.i
 
@@ -7246,9 +7246,9 @@ define internal fastcc void @isoent_setup_directory_location(ptr nocapture nound
   %.031 = phi i32 [ 0, %3 ], [ %.2, %.loopexit ]
   %.0 = phi i32 [ %1, %3 ], [ %65, %.loopexit ]
   %10 = load i32, ptr %6, align 8
-  %11 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %.032, ptr noundef %0, i32 noundef 1, i32 noundef %10)
+  %11 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %.032, ptr noundef readonly %0, i32 noundef 1, i32 noundef %10)
   %12 = load i32, ptr %6, align 8
-  %13 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %.032, ptr noundef %0, i32 noundef 2, i32 noundef %12)
+  %13 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %.032, ptr noundef readonly %0, i32 noundef 2, i32 noundef %12)
   %14 = add nsw i32 %13, %11
   %15 = getelementptr inbounds i8, ptr %.032, i64 56
   %16 = load i32, ptr %15, align 8
@@ -7298,7 +7298,7 @@ define internal fastcc void @isoent_setup_directory_location(ptr nocapture nound
   %.141.i = phi i32 [ %.04049.i, %.lr.ph.i ], [ %.242.i, %36 ]
   %.1.i = phi i32 [ %.03851.i, %.lr.ph.i ], [ %.2.i, %36 ]
   %37 = load i32, ptr %6, align 8
-  %38 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %29, ptr noundef %0, i32 noundef 3, i32 noundef %37)
+  %38 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %29, ptr noundef readonly %0, i32 noundef 3, i32 noundef %37)
   %39 = add nsw i32 %38, %.1.i
   %40 = icmp sgt i32 %39, 2048
   %41 = zext i1 %40 to i32

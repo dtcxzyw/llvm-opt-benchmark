@@ -172,7 +172,7 @@ define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1)
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %.08.i to i64
   %44 = getelementptr inbounds i16, ptr %42, i64 %43
-  tail call void @dump_operation(ptr noundef nonnull %1, ptr noundef %44)
+  tail call void @dump_operation(ptr noundef nonnull readonly %1, ptr noundef %44)
   %putchar.i = tail call i32 @putchar(i32 10)
   %45 = load ptr, ptr %1, align 8
   %46 = getelementptr inbounds i16, ptr %45, i64 %43

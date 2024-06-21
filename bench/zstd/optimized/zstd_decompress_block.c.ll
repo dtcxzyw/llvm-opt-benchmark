@@ -1268,7 +1268,7 @@ do.body66.i:                                      ; preds = %sw.bb51.i
 
 do.end79.i:                                       ; preds = %do.body66.i
   %11 = load i32, ptr %max.addr.i, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %entropy, ptr noundef nonnull %norm.i, i32 noundef %11, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %10, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %entropy, ptr noundef nonnull %norm.i, i32 noundef %11, ptr noundef nonnull readonly @LL_base, ptr noundef nonnull readonly @LL_bits, i32 noundef %10, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val)
   %.pre.pre = load i32, ptr %fseEntropy, align 4
   %.pre167.pre = load i32, ptr %ddictIsCold, align 4
   %dctx.val60.pre.pre = load i32, ptr %5, align 4
@@ -1380,7 +1380,7 @@ do.body66.i71:                                    ; preds = %sw.bb51.i67
 
 do.end79.i73:                                     ; preds = %do.body66.i71
   %19 = load i32, ptr %max.addr.i64, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %OFTable, ptr noundef nonnull %norm.i66, i32 noundef %19, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %18, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val60)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %OFTable, ptr noundef nonnull %norm.i66, i32 noundef %19, ptr noundef nonnull readonly @OF_base, ptr noundef nonnull readonly @OF_bits, i32 noundef %18, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val60)
   %.pre169.pre = load i32, ptr %fseEntropy, align 4
   %.pre170.pre = load i32, ptr %ddictIsCold, align 4
   %dctx.val61.pre.pre = load i32, ptr %5, align 4
@@ -1487,7 +1487,7 @@ do.body66.i114:                                   ; preds = %sw.bb51.i110
 
 do.end79.i116:                                    ; preds = %do.body66.i114
   %27 = load i32, ptr %max.addr.i107, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %MLTable, ptr noundef nonnull %norm.i109, i32 noundef %27, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %26, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val61)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %MLTable, ptr noundef nonnull %norm.i109, i32 noundef %27, ptr noundef nonnull readonly @ML_base, ptr noundef nonnull readonly @ML_bits, i32 noundef %26, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val61)
   br label %sw.epilog.sink.split.i117
 
 sw.epilog.sink.split.i117:                        ; preds = %do.end79.i116, %do.end21.i137, %do.end137
@@ -3212,12 +3212,12 @@ do.end69.i.i:                                     ; preds = %do.body53.i.i
   br i1 %cmp77.not.i.i, label %if.end80.i.i, label %if.then78.i.i
 
 if.then78.i.i:                                    ; preds = %do.end69.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610.i, ptr align 1 %add.ptr74.i.i, i64 %arrayidx126.i595.sroa.4.0.copyload.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610.i, ptr readonly align 1 %add.ptr74.i.i, i64 %arrayidx126.i595.sroa.4.0.copyload.i, i1 false)
   br label %cond.end134.i.i
 
 if.end80.i.i:                                     ; preds = %do.end69.i.i
   %diff.neg.i.i = sub i64 0, %sub.ptr.sub72.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610.i, ptr align 1 %add.ptr74.i.i, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610.i, ptr readonly align 1 %add.ptr74.i.i, i64 %diff.neg.i.i, i1 false)
   %add.ptr84.i.i = getelementptr inbounds i8, ptr %add.ptr.i610.i, i64 %diff.neg.i.i
   %sub.i1760.i = add i64 %sub.ptr.sub72.neg.i.i, %arrayidx126.i595.sroa.4.0.copyload.i
   br label %if.end86.i.i
@@ -4151,12 +4151,12 @@ do.end69.i1873.i:                                 ; preds = %do.body53.i1869.i
   br i1 %cmp77.not.i1878.i, label %if.end80.i1880.i, label %if.then78.i1879.i
 
 if.then78.i1879.i:                                ; preds = %do.end69.i1873.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656.i, ptr align 1 %add.ptr74.i1876.i, i64 %.sroa.4.0.copyload.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656.i, ptr readonly align 1 %add.ptr74.i1876.i, i64 %.sroa.4.0.copyload.i, i1 false)
   br label %cond.end236.i.i
 
 if.end80.i1880.i:                                 ; preds = %do.end69.i1873.i
   %diff.neg.i1881.i = sub i64 0, %sub.ptr.sub72.neg.i1875.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656.i, ptr align 1 %add.ptr74.i1876.i, i64 %diff.neg.i1881.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656.i, ptr readonly align 1 %add.ptr74.i1876.i, i64 %diff.neg.i1881.i, i1 false)
   %add.ptr84.i1882.i = getelementptr inbounds i8, ptr %add.ptr.i656.i, i64 %diff.neg.i1881.i
   %sub.i1883.i = add i64 %sub.ptr.sub72.neg.i1875.i, %.sroa.4.0.copyload.i
   br label %if.end86.i1865.i
@@ -5522,12 +5522,12 @@ do.end69.i.i:                                     ; preds = %do.body53.i.i
   br i1 %cmp77.not.i.i, label %if.end80.i.i, label %if.then78.i.i
 
 if.then78.i.i:                                    ; preds = %do.end69.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i.i, ptr align 1 %add.ptr74.i.i, i64 %tmp.i.sroa.4.0.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i.i, ptr readonly align 1 %add.ptr74.i.i, i64 %tmp.i.sroa.4.0.i, i1 false)
   br label %ZSTD_execSequenceSplitLitBuffer.exit.i.i
 
 if.end80.i.i:                                     ; preds = %do.end69.i.i
   %diff.neg.i.i = sub i64 0, %sub.ptr.sub72.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i.i, ptr align 1 %add.ptr74.i.i, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i.i, ptr readonly align 1 %add.ptr74.i.i, i64 %diff.neg.i.i, i1 false)
   %add.ptr84.i1156.i = getelementptr inbounds i8, ptr %add.ptr.i563.i.i, i64 %diff.neg.i.i
   %sub.i1157.i = add i64 %sub.ptr.sub72.neg.i.i, %tmp.i.sroa.4.0.i
   br label %if.end86.i.i
@@ -9413,12 +9413,12 @@ do.end69.i:                                       ; preds = %do.body53.i
   br i1 %cmp77.not.i, label %if.end80.i, label %if.then78.i
 
 if.then78.i:                                      ; preds = %do.end69.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610, ptr align 1 %add.ptr74.i, i64 %arrayidx126.i595.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610, ptr readonly align 1 %add.ptr74.i, i64 %arrayidx126.i595.sroa.4.0.copyload, i1 false)
   br label %cond.end134.i
 
 if.end80.i:                                       ; preds = %do.end69.i
   %diff.neg.i = sub i64 0, %sub.ptr.sub72.neg.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610, ptr align 1 %add.ptr74.i, i64 %diff.neg.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610, ptr readonly align 1 %add.ptr74.i, i64 %diff.neg.i, i1 false)
   %add.ptr84.i = getelementptr inbounds i8, ptr %add.ptr.i610, i64 %diff.neg.i
   %sub.i1760 = add i64 %sub.ptr.sub72.neg.i, %arrayidx126.i595.sroa.4.0.copyload
   br label %if.end86.i
@@ -10355,12 +10355,12 @@ do.end69.i1873:                                   ; preds = %do.body53.i1869
   br i1 %cmp77.not.i1878, label %if.end80.i1880, label %if.then78.i1879
 
 if.then78.i1879:                                  ; preds = %do.end69.i1873
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656, ptr align 1 %add.ptr74.i1876, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656, ptr readonly align 1 %add.ptr74.i1876, i64 %.sroa.4.0.copyload, i1 false)
   br label %cond.end236.i
 
 if.end80.i1880:                                   ; preds = %do.end69.i1873
   %diff.neg.i1881 = sub i64 0, %sub.ptr.sub72.neg.i1875
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656, ptr align 1 %add.ptr74.i1876, i64 %diff.neg.i1881, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656, ptr readonly align 1 %add.ptr74.i1876, i64 %diff.neg.i1881, i1 false)
   %add.ptr84.i1882 = getelementptr inbounds i8, ptr %add.ptr.i656, i64 %diff.neg.i1881
   %sub.i1883 = add i64 %sub.ptr.sub72.neg.i1875, %.sroa.4.0.copyload
   br label %if.end86.i1865
@@ -12072,12 +12072,12 @@ do.end69.i:                                       ; preds = %do.body53.i
   br i1 %cmp77.not.i, label %if.end80.i, label %if.then78.i
 
 if.then78.i:                                      ; preds = %do.end69.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i, ptr align 1 %add.ptr74.i, i64 %tmp.i.sroa.4.0, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i, ptr readonly align 1 %add.ptr74.i, i64 %tmp.i.sroa.4.0, i1 false)
   br label %ZSTD_execSequenceSplitLitBuffer.exit.i
 
 if.end80.i:                                       ; preds = %do.end69.i
   %diff.neg.i = sub i64 0, %sub.ptr.sub72.neg.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i, ptr align 1 %add.ptr74.i, i64 %diff.neg.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i, ptr readonly align 1 %add.ptr74.i, i64 %diff.neg.i, i1 false)
   %add.ptr84.i1156 = getelementptr inbounds i8, ptr %add.ptr.i563.i, i64 %diff.neg.i
   %sub.i1157 = add i64 %sub.ptr.sub72.neg.i, %tmp.i.sroa.4.0
   br label %if.end86.i

@@ -187,7 +187,7 @@ if.end20:                                         ; preds = %lor.lhs.false
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i24
 
 if.then.i24:                                      ; preds = %if.end20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4104) %roots_filenames.sroa.9.0.ph, ptr noundef nonnull align 8 dereferenceable(4104) %file_data, i64 4104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4104) %roots_filenames.sroa.9.0.ph, ptr noundef nonnull readonly align 8 dereferenceable(4104) %file_data, i64 4104, i1 false)
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit
 
 if.else.i:                                        ; preds = %if.end20
@@ -223,7 +223,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN9gr
 _ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
   %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i ], [ %call5.i.i.i.i.i28, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.FileData, ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4104) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(4104) %file_data, i64 4104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4104) %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(4104) %file_data, i64 4104, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
 

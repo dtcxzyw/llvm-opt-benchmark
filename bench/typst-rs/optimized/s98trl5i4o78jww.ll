@@ -91,7 +91,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hc3ef7541a3e6296e
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hc988fb703286e816E.exit.i.i": ; preds = %8, %3
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %3 ], [ %10, %8 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !5
   store i64 %2, ptr %4, align 8, !noalias !5
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -794,7 +794,7 @@ _ZN4core3ops8function6FnOnce9call_once17h26e1c3bd8f867179E.exit: ; preds = %"_ZN
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbb9d24b798bcb90dE.llvm.1834434321281747785"(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = tail call noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h8965ad30b34d00efE.llvm.1834434321281747785"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %2 = tail call noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h8965ad30b34d00efE.llvm.1834434321281747785"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret i1 true
 }
 
@@ -867,7 +867,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7f3b9159fabd71fbE.exit: ; preds = %"_ZN
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcf95f083274e0817E.llvm.1834434321281747785"(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = tail call noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hbdfc3a0686d405d6E.llvm.1834434321281747785"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %2 = tail call noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hbdfc3a0686d405d6E.llvm.1834434321281747785"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret i1 true
 }
 

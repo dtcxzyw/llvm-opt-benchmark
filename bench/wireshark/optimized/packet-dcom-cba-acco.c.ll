@@ -991,7 +991,7 @@ define internal range(i32 0, 2) i32 @dissect_CBA_Connection_Data_heur(ptr nounde
 
 28:                                               ; preds = %.lr.ph.i
   %29 = getelementptr inbounds i8, ptr %24, i64 46
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %29, ptr noundef nonnull dereferenceable(6) %19, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %29, ptr noundef nonnull readonly dereferenceable(6) %19, i64 6)
   %30 = icmp eq i32 %bcmp.i, 0
   br i1 %30, label %31, label %cba_packet_in_range.exit.thread.i
 
@@ -5699,7 +5699,7 @@ cba_ldev_link_acco.exit:                          ; preds = %74, %70, %66
 
 140:                                              ; preds = %.lr.ph.i
   %141 = getelementptr inbounds i8, ptr %136, i64 46
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %141, ptr noundef nonnull dereferenceable(6) %10, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %141, ptr noundef nonnull readonly dereferenceable(6) %10, i64 6)
   %142 = icmp eq i32 %bcmp.i, 0
   br i1 %142, label %143, label %cba_packet_in_range.exit.thread.i
 
@@ -5754,7 +5754,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %164, i8 0, i64 16, i1 false)
   store i16 %135, ptr %165, align 4
   %166 = getelementptr inbounds i8, ptr %160, i64 46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %166, ptr noundef nonnull align 1 dereferenceable(6) %10, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %166, ptr noundef nonnull readonly align 1 dereferenceable(6) %10, i64 6, i1 false)
   %167 = getelementptr inbounds i8, ptr %160, i64 52
   store i16 %134, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %160, i64 64

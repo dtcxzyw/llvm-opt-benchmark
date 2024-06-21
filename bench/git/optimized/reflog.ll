@@ -1071,7 +1071,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end2
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %ent.020.i = phi ptr [ %ent.0.i, %for.inc.i ], [ %ent.018.i, %if.end.i ]
   %pattern2.i = getelementptr inbounds i8, ptr %ent.020.i, i64 24
-  %call.i = call i32 @strncmp(ptr noundef nonnull %pattern2.i, ptr noundef nonnull %5, i64 noundef %6) #11
+  %call.i = call i32 @strncmp(ptr noundef nonnull %pattern2.i, ptr noundef nonnull readonly %5, i64 noundef %6) #11
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -1106,7 +1106,7 @@ find_cfg_ent.exit:                                ; preds = %st_add.exit.i
   %add.i14.i = add nuw i64 %6, 25
   %call10.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i14.i) #10
   %pattern11.i = getelementptr inbounds i8, ptr %call10.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pattern11.i, ptr nonnull align 1 %5, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pattern11.i, ptr nonnull readonly align 1 %5, i64 %6, i1 false)
   %9 = load ptr, ptr @reflog_expire_cfg_tail, align 8
   store ptr %call10.i, ptr %9, align 8
   store ptr %call10.i, ptr @reflog_expire_cfg_tail, align 8

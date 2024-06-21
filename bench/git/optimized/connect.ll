@@ -431,13 +431,13 @@ land.lhs.true:                                    ; preds = %do.body.i
 if.end.i.i:                                       ; preds = %land.lhs.true
   %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %.pr = load i8, ptr %incdec.ptr, align 1
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %tobool4.not33.i.i = icmp eq i8 %.pr, 0
   br i1 %tobool4.not33.i.i, label %for.end, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end47.i.i
   %feature_list.addr.134.i.i = phi ptr [ %add.ptr48.i.i, %if.end47.i.i ], [ %incdec.ptr, %if.end.i.i ]
-  %call5.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i, ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call5.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i, ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %for.end, label %if.end8.i.i
 
@@ -503,14 +503,14 @@ entry:
   br i1 %tobool.not.i, label %parse_feature_value.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %0 = load i8, ptr %feature_list, align 1
   %tobool4.not33.i = icmp eq i8 %0, 0
   br i1 %tobool4.not33.i, label %parse_feature_value.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %if.end47.i
   %feature_list.addr.134.i = phi ptr [ %add.ptr48.i, %if.end47.i ], [ %feature_list, %if.end.i ]
-  %call5.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i, ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call5.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i, ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %parse_feature_value.exit, label %if.end8.i
 
@@ -731,7 +731,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %if.end47.i.i.i
   %feature_list.addr.134.i.i.i = phi ptr [ %add.ptr48.i.i.i, %if.end47.i.i.i ], [ %call4.i, %if.end.i.i.i ]
-  %call5.i.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i.i, ptr noundef nonnull dereferenceable(1) @.str.26) #25
+  %call5.i.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.26) #25
   %tobool6.not.i.i.i = icmp eq ptr %call5.i.i.i, null
   br i1 %tobool6.not.i.i.i, label %if.else.i, label %if.end8.i.i.i
 
@@ -850,11 +850,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i12, label %if.then.i.i.i, label %if.end.i.i.i13
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %15, ptr noundef nonnull dereferenceable(32) %oid.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %15, ptr noundef nonnull readonly dereferenceable(32) %oid.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i13:                                   ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %15, ptr noundef nonnull dereferenceable(20) %oid.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %15, ptr noundef nonnull readonly dereferenceable(20) %oid.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i13, %if.then.i.i.i
@@ -967,7 +967,7 @@ if.then16.i:                                      ; preds = %check_ref.exit.i, %
   %24 = load ptr, ptr %name.i15, align 8
   %call17.i = call ptr @alloc_ref(ptr noundef %24) #23
   %old_oid18.i = getelementptr inbounds i8, ptr %call17.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid18.i, ptr noundef nonnull align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid18.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
   %25 = load i32, ptr %algo.i.i29, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call17.i, i64 40
   store i32 %25, ptr %algo3.i.i, align 4
@@ -1110,7 +1110,7 @@ if.end.i8.i:                                      ; preds = %while.end, %parse_o
 
 while.body.i.i:                                   ; preds = %if.end.i8.i, %if.end47.i.i
   %feature_list.addr.134.i.i = phi ptr [ %add.ptr48.i.i, %if.end47.i.i ], [ %add.ptr.i.i49, %if.end.i8.i ]
-  %call5.i10.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i, ptr noundef nonnull dereferenceable(1) @.str.58) #25
+  %call5.i10.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.58) #25
   %tobool6.not.i11.i = icmp eq ptr %call5.i10.i, null
   br i1 %tobool6.not.i11.i, label %while.end.i, label %if.end8.i.i
 
@@ -2072,7 +2072,7 @@ if.end.i:                                         ; preds = %entry
 
 while.body.i:                                     ; preds = %if.end.i, %if.end47.i
   %feature_list.addr.134.i = phi ptr [ %add.ptr48.i, %if.end47.i ], [ %0, %if.end.i ]
-  %call5.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i, ptr noundef nonnull dereferenceable(1) @.str.26) #25
+  %call5.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i, ptr noundef nonnull readonly dereferenceable(1) @.str.26) #25
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %parse_feature_value.exit, label %if.end8.i
 
@@ -2177,7 +2177,7 @@ if.end.i9:                                        ; preds = %if.end11
 
 while.body.i12:                                   ; preds = %if.end.i9, %if.end47.i41
   %feature_list.addr.134.i13 = phi ptr [ %add.ptr48.i42, %if.end47.i41 ], [ %add.ptr.i10, %if.end.i9 ]
-  %call5.i14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i13, ptr noundef nonnull dereferenceable(1) @.str.26) #25
+  %call5.i14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i13, ptr noundef nonnull readonly dereferenceable(1) @.str.26) #25
   %tobool6.not.i15 = icmp eq ptr %call5.i14, null
   br i1 %tobool6.not.i15, label %return, label %if.end8.i16
 
@@ -2255,14 +2255,14 @@ entry:
   br i1 %tobool.not.i, label %parse_feature_value.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %1 = load i8, ptr %0, align 1
   %tobool4.not33.i = icmp eq i8 %1, 0
   br i1 %tobool4.not33.i, label %parse_feature_value.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %if.end47.i
   %feature_list.addr.134.i = phi ptr [ %add.ptr48.i, %if.end47.i ], [ %0, %if.end.i ]
-  %call5.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i, ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call5.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i, ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %parse_feature_value.exit, label %if.end8.i
 
@@ -2338,14 +2338,14 @@ entry:
   br i1 %tobool.not.i.i, label %server_feature_value.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %1 = load i8, ptr %0, align 1
   %tobool4.not33.i.i = icmp eq i8 %1, 0
   br i1 %tobool4.not33.i.i, label %server_feature_value.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end47.i.i
   %feature_list.addr.134.i.i = phi ptr [ %add.ptr48.i.i, %if.end47.i.i ], [ %0, %if.end.i.i ]
-  %call5.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i, ptr noundef nonnull dereferenceable(1) %feature) #25
+  %call5.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %feature_list.addr.134.i.i, ptr noundef nonnull readonly dereferenceable(1) %feature) #25
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %server_feature_value.exit, label %if.end8.i.i
 
@@ -2498,8 +2498,8 @@ get_protocol.exit.i:                              ; preds = %if.end12.i.i, %if.e
   br label %if.end12.i
 
 if.else7.i:                                       ; preds = %if.end.i
-  %call.i25.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %url.0.i, i32 noundef 58) #25
-  %call1.i26.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %url.0.i, i32 noundef 47) #25
+  %call.i25.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %url.0.i, i32 noundef 58) #25
+  %call1.i26.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %url.0.i, i32 noundef 47) #25
   %tobool.not.i27.i = icmp ne ptr %call.i25.i, null
   %tobool2.not.i28.i = icmp eq ptr %call1.i26.i, null
   %cmp.i.i = icmp uge ptr %call1.i26.i, %call.i25.i

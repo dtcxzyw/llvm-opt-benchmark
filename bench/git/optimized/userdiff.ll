@@ -173,7 +173,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %struct.userdiff_driver, ptr %2, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %call.i3.i = call i32 @strncmp(ptr noundef %4, ptr noundef nonnull %0, i64 noundef %1) #9
+  %call.i3.i = call i32 @strncmp(ptr noundef %4, ptr noundef nonnull readonly %0, i64 noundef %1) #9
   %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
   br i1 %tobool.not.i4.i, label %land.lhs.true.i6.i, label %for.cond.i.i.i
 
@@ -187,7 +187,7 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i.pre
   %indvars.iv.i8.i.i = phi i64 [ %indvars.iv.next.i14.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %for.body.i7.i.i.preheader ]
   %add.ptr.i9.i.i = getelementptr inbounds %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
   %6 = load ptr, ptr %add.ptr.i9.i.i, align 8
-  %call.i.i = call i32 @strncmp(ptr noundef %6, ptr noundef nonnull %0, i64 noundef %1) #9
+  %call.i.i = call i32 @strncmp(ptr noundef %6, ptr noundef nonnull readonly %0, i64 noundef %1) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %userdiff_find_by_namelen_cb.exit.i
 
@@ -405,7 +405,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %struct.userdiff_driver, ptr %0, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %call.i3.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef %name, i64 noundef %conv1) #9
+  %call.i3.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef readonly %name, i64 noundef %conv1) #9
   %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
   br i1 %tobool.not.i4.i, label %land.lhs.true.i6.i, label %for.cond.i.i.i
 
@@ -419,7 +419,7 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i.pre
   %indvars.iv.i8.i.i = phi i64 [ %indvars.iv.next.i14.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %for.body.i7.i.i.preheader ]
   %add.ptr.i9.i.i = getelementptr inbounds %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
   %4 = load ptr, ptr %add.ptr.i9.i.i, align 8
-  %call.i.i = tail call i32 @strncmp(ptr noundef %4, ptr noundef %name, i64 noundef %conv1) #9
+  %call.i.i = tail call i32 @strncmp(ptr noundef %4, ptr noundef readonly %name, i64 noundef %conv1) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %userdiff_find_by_namelen_cb.exit.i
 

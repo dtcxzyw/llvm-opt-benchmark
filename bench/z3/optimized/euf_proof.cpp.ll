@@ -4637,7 +4637,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 _ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
   %5 = phi ptr [ %.pre.i, %if.then.i.i.i ], [ null, %if.end.i.i ]
-  %call12.i.i = call noundef ptr @_ZN3euf6solver11mk_smt_hintERK6symboljPKN3sat7literalEjPKSt4pairIP4exprSA_EjSD_(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, i32 noundef 2, ptr noundef nonnull %lits, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null), !noalias !33
+  %call12.i.i = call noundef ptr @_ZN3euf6solver11mk_smt_hintERK6symboljPKN3sat7literalEjPKSt4pairIP4exprSA_EjSD_(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i, i32 noundef 2, ptr noundef nonnull readonly %lits, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null), !noalias !33
   br label %_ZN3euf6solver17mk_tseitin_statusEjPKN3sat7literalE.exit
 
 _ZN3euf6solver17mk_tseitin_statusEjPKN3sat7literalE.exit: ; preds = %entry, %land.lhs.true.i.i, %cond.true.i, %land.lhs.true.i.i.i, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit.i.i
@@ -4694,7 +4694,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 _ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit.i: ; preds = %if.then.i.i, %if.end.i
   %5 = phi ptr [ %.pre, %if.then.i.i ], [ null, %if.end.i ]
-  %call12.i = call noundef ptr @_ZN3euf6solver11mk_smt_hintERK6symboljPKN3sat7literalEjPKSt4pairIP4exprSA_EjSD_(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %n, ptr noundef %lits, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null)
+  %call12.i = call noundef ptr @_ZN3euf6solver11mk_smt_hintERK6symboljPKN3sat7literalEjPKSt4pairIP4exprSA_EjSD_(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp, i32 noundef %n, ptr noundef readonly %lits, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %land.lhs.true.i, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit.i, %land.lhs.true.i.i, %cond.true
@@ -4750,7 +4750,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 _ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit.i: ; preds = %if.then.i.i, %if.end.i
   %5 = phi ptr [ %.pre, %if.then.i.i ], [ null, %if.end.i ]
-  %call12.i = call noundef ptr @_ZN3euf6solver11mk_smt_hintERK6symboljPKN3sat7literalEjPKSt4pairIP4exprSA_EjSD_(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %n, ptr noundef %lits, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null)
+  %call12.i = call noundef ptr @_ZN3euf6solver11mk_smt_hintERK6symboljPKN3sat7literalEjPKSt4pairIP4exprSA_EjSD_(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp, i32 noundef %n, ptr noundef readonly %lits, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %land.lhs.true.i, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit.i, %land.lhs.true.i.i, %cond.true
@@ -6034,7 +6034,7 @@ if.end19:                                         ; preds = %invoke.cont15, %if.
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end19
-  %call2.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6solver16display_literalsERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %call.i6, i32 noundef %n, ptr noundef %lits)
+  %call2.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6solver16display_literalsERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %call.i6, i32 noundef %n, ptr noundef readonly %lits)
           to label %call2.i.noexc unwind label %lpad
 
 call2.i.noexc:                                    ; preds = %call.i.noexc
@@ -6217,7 +6217,7 @@ if.then20:                                        ; preds = %if.end7
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then20
-  %call2.i22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6solver16display_literalsERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %call.i21, i32 noundef %n, ptr noundef %lits)
+  %call2.i22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6solver16display_literalsERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %call.i21, i32 noundef %n, ptr noundef readonly %lits)
           to label %call2.i.noexc76.invoke unwind label %lpad
 
 if.then25:                                        ; preds = %if.end7
@@ -6342,7 +6342,7 @@ if.then37:                                        ; preds = %if.end7
           to label %call.i.noexc74 unwind label %lpad
 
 call.i.noexc74:                                   ; preds = %if.then37
-  %call2.i77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6solver16display_literalsERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %call.i75, i32 noundef %n, ptr noundef %lits)
+  %call2.i77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6solver16display_literalsERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %call.i75, i32 noundef %n, ptr noundef readonly %lits)
           to label %call2.i.noexc76.invoke unwind label %lpad
 
 call2.i.noexc76.invoke:                           ; preds = %call.i.noexc74, %call.i.noexc
@@ -7041,25 +7041,25 @@ entry:
   %m_hint4.i.i = getelementptr inbounds i8, ptr %st, i64 8
   %2 = load ptr, ptr %m_hint4.i.i, align 8
   store ptr %2, ptr %m_hint.i.i, align 8
-  call void @_ZN3euf6solver8on_lemmaEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef %lits, ptr noundef nonnull %agg.tmp.i)
+  call void @_ZN3euf6solver8on_lemmaEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef readonly %lits, ptr noundef nonnull %agg.tmp.i)
   %3 = load <2 x i32>, ptr %st, align 8
   store <2 x i32> %3, ptr %agg.tmp2.i, align 8
   %m_hint.i9.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
   %4 = load ptr, ptr %m_hint4.i.i, align 8
   store ptr %4, ptr %m_hint.i9.i, align 8
-  call void @_ZN3euf6solver8on_proofEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef %lits, ptr noundef nonnull %agg.tmp2.i)
+  call void @_ZN3euf6solver8on_proofEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef readonly %lits, ptr noundef nonnull %agg.tmp2.i)
   %5 = load <2 x i32>, ptr %st, align 8
   store <2 x i32> %5, ptr %agg.tmp3.i, align 8
   %m_hint.i13.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   %6 = load ptr, ptr %m_hint4.i.i, align 8
   store ptr %6, ptr %m_hint.i13.i, align 8
-  call void @_ZN3euf6solver8on_checkEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef %lits, ptr noundef nonnull %agg.tmp3.i)
+  call void @_ZN3euf6solver8on_checkEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef readonly %lits, ptr noundef nonnull %agg.tmp3.i)
   %7 = load <2 x i32>, ptr %st, align 8
   store <2 x i32> %7, ptr %agg.tmp4.i, align 8
   %m_hint.i17.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 8
   %8 = load ptr, ptr %m_hint4.i.i, align 8
   store ptr %8, ptr %m_hint.i17.i, align 8
-  call void @_ZN3euf6solver12on_clause_ehEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef %lits, ptr noundef nonnull %agg.tmp4.i)
+  call void @_ZN3euf6solver12on_clause_ehEjPKN3sat7literalENS1_6statusE(ptr noundef nonnull align 8 dereferenceable(9136) %0, i32 noundef %n, ptr noundef readonly %lits, ptr noundef nonnull %agg.tmp4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)

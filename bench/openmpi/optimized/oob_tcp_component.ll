@@ -1536,7 +1536,7 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
   br label %._crit_edge160
 
 213:                                              ; preds = %pmix_obj_new_tma.exit137
-  %214 = tail call i32 @atoi(ptr nocapture noundef nonnull %69) #23
+  %214 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %69) #23
   %215 = trunc i32 %214 to i16
   %216 = tail call zeroext i16 @htons(i16 noundef zeroext %215) #19
   %217 = getelementptr inbounds i8, ptr %134, i64 146

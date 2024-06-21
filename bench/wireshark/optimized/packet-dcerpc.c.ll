@@ -4980,7 +4980,7 @@ define internal void @dcerpcstat_init(ptr noundef %0, ptr noundef %1) #0 {
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   %10 = load i16, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %10, ptr %11, align 4
   %12 = load ptr, ptr @dcerpc_uuids, align 8
@@ -4998,7 +4998,7 @@ dcerpc_get_proto_hf_opnum.exit:                   ; preds = %7, %14
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   %17 = load i16, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   store i16 %17, ptr %18, align 4
   %19 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5163,7 +5163,7 @@ define internal i32 @dcerpcstat_param(ptr noundef %0, ptr nocapture noundef read
   %64 = getelementptr i8, ptr %32, i64 23
   store i8 %63, ptr %64, align 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %34, i64 16, i1 false)
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   store i16 %31, ptr %65, align 4
   %66 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5180,7 +5180,7 @@ dcerpc_get_proto_sub_dissector.exit:              ; preds = %30, %68
   %.0.i = phi ptr [ %70, %68 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %34, i64 16, i1 false)
   %71 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %31, ptr %71, align 4
   %72 = load ptr, ptr @uuid_dissector_table, align 8

@@ -225,10 +225,10 @@ define ptr @Gia_ManFalseRebuild(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #18
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #19
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #17
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %4, %10
@@ -240,10 +240,10 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %10
   br i1 %.not.i57, label %Abc_UtilStrsav.exit58, label %18
 
 18:                                               ; preds = %Abc_UtilStrsav.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #18
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #19
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #17
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #17
   br label %Abc_UtilStrsav.exit58
 
 Abc_UtilStrsav.exit58:                            ; preds = %Abc_UtilStrsav.exit, %18
@@ -872,7 +872,7 @@ Gia_ManCollectPath.exit:                          ; preds = %Vec_IntAlloc.exit, 
   %49 = sub nsw i64 0, %47
   %.idx.i = select i1 %narrow.i.not.i, i64 0, i64 %49
   %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %.idx.i
-  tail call void @Gia_ManCollectPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %38)
+  tail call void @Gia_ManCollectPath_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %50, ptr noundef nonnull %38)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #17
   %52 = icmp slt i32 %51, 0
@@ -2333,10 +2333,10 @@ define ptr @Gia_ManFalseRebuildPath(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #18
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #18
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #19
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #17
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %15) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %4, %16
@@ -2348,10 +2348,10 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %16
   br i1 %.not.i50, label %Abc_UtilStrsav.exit51, label %24
 
 24:                                               ; preds = %Abc_UtilStrsav.exit
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #18
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #18
   %26 = add i64 %25, 1
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #19
-  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %23) #17
+  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %23) #17
   br label %Abc_UtilStrsav.exit51
 
 Abc_UtilStrsav.exit51:                            ; preds = %Abc_UtilStrsav.exit, %24
@@ -2527,7 +2527,7 @@ Gia_ManCollectPath.exit:                          ; preds = %Vec_IntAlloc.exit, 
   %43 = sub nsw i64 0, %41
   %.idx.i = select i1 %narrow.i.not.i, i64 0, i64 %43
   %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %31, i64 %.idx.i
-  tail call void @Gia_ManCollectPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %32)
+  tail call void @Gia_ManCollectPath_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %44, ptr noundef nonnull %32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #17
   %46 = icmp slt i32 %45, 0

@@ -1364,7 +1364,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %8, ptr %6, align 8, !noalias !234
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %9, ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !234
@@ -1388,7 +1388,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
   %18 = extractvalue { i64, ptr } %13, 1
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.exit"
 
 20:                                               ; preds = %14
@@ -2610,7 +2610,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb22e1f88f7d13cb0E
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %17 = icmp eq i64 %14, -9223372036854775808
   br i1 %17, label %19, label %18
 
@@ -2693,7 +2693,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbdf01ba11c63ef58E
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %17 = icmp eq i64 %14, -9223372036854775808
   br i1 %17, label %19, label %18
 
@@ -3210,7 +3210,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hea9fbfbb43b2a5c2E
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %17 = icmp eq i64 %14, -9223372036854775808
   br i1 %17, label %19, label %18
 
@@ -3808,7 +3808,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6
   %41 = getelementptr inbounds i8, ptr %1, i64 %.0
   %42 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !728, !noalias !733, !nonnull !18, !noundef !18
   %43 = getelementptr inbounds i8, ptr %42, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %41, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %41, i64 %17, i1 false)
   %44 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !728, !noalias !733, !noundef !18
   %45 = add i64 %44, %17
   store i64 %45, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !728, !noalias !733
@@ -3820,7 +3820,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6
   %47 = phi i64 [ %31, %26 ], [ %.pre.i.i16, %.noexc18 ]
   %48 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !738, !noalias !743, !nonnull !18, !noundef !18
   %49 = getelementptr inbounds i8, ptr %48, i64 %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %29, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull readonly align 1 %29, i64 %30, i1 false)
   %50 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !738, !noalias !743, !noundef !18
   %51 = add i64 %50, %30
   store i64 %51, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !738, !noalias !743
@@ -5013,7 +5013,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h26f92279bcca44abE.exit": ; preds = %57
   %65 = sub i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %66, ptr nonnull %13, i64 %15), !alias.scope !897
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !897
   %67 = icmp eq i32 %bcmp.i, 0
   br i1 %67, label %.split77.us, label %61
 
@@ -5213,7 +5213,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ]
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %96
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %77, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !908
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %77, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !908
   %97 = icmp eq i32 %bcmp.i.i, 0
   br i1 %97, label %.preheader, label %.lr.ph102
 
@@ -5229,7 +5229,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %391
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228": ; preds = %96
-  %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %77, ptr noundef nonnull dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !912
+  %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %77, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !912
   %106 = icmp eq i32 %bcmp.i.i227, 0
   br i1 %106, label %319, label %.lr.ph102
 
@@ -5596,7 +5596,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i": ; preds = %201
   %203 = load ptr, ptr %32, align 8, !noalias !969, !nonnull !18, !align !19, !noundef !18
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %197, ptr nonnull %203, i64 %199), !alias.scope !971, !noalias !969
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %197, ptr nonnull readonly %203, i64 %199), !alias.scope !971, !noalias !969
   %bcmp.i.i.fr.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %204 = icmp ne i32 %bcmp.i.i.fr.i.i.i.i, 0
   %205 = getelementptr inbounds i8, ptr %203, i64 %199
@@ -5607,7 +5607,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc267
   %.val25.i.i.i = load ptr, ptr %32, align 8, !noalias !969, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i266 = load ptr, ptr %118, align 8, !noalias !970, !nonnull !18, !noundef !18
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val.i.i.i266, ptr nonnull %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !981, !noalias !969
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i266, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !981, !noalias !969
   %206 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %206, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
 
@@ -6514,7 +6514,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303": ; preds = %465
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
-  %bcmp.i.i302 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1150
+  %bcmp.i.i302 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1150
   %466 = icmp eq i32 %bcmp.i.i302, 0
   br i1 %466, label %487, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303.thread"
 
@@ -6881,7 +6881,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ]
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %76, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1178
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1178
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph102
 
@@ -6897,7 +6897,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %376
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228": ; preds = %95
-  %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %76, ptr noundef nonnull dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1182
+  %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1182
   %105 = icmp eq i32 %bcmp.i.i227, 0
   br i1 %105, label %304, label %.lr.ph102
 
@@ -7264,7 +7264,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i": ; preds = %200
   %202 = load ptr, ptr %31, align 8, !noalias !1239, !nonnull !18, !align !19, !noundef !18
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %196, ptr nonnull %202, i64 %198), !alias.scope !1241, !noalias !1239
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %196, ptr nonnull readonly %202, i64 %198), !alias.scope !1241, !noalias !1239
   %bcmp.i.i.fr.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %203 = icmp ne i32 %bcmp.i.i.fr.i.i.i.i, 0
   %204 = getelementptr inbounds i8, ptr %202, i64 %198
@@ -7275,7 +7275,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc267
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !1239, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i266 = load ptr, ptr %117, align 8, !noalias !1240, !nonnull !18, !noundef !18
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val.i.i.i266, ptr nonnull %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1251, !noalias !1239
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i266, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1251, !noalias !1239
   %205 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
 
@@ -8144,7 +8144,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299": ; preds = %450
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
-  %bcmp.i.i298 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1409
+  %bcmp.i.i298 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1409
   %451 = icmp eq i32 %bcmp.i.i298, 0
   br i1 %451, label %472, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299.thread"
 
@@ -8511,7 +8511,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ]
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %76, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1437
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1437
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph100
 
@@ -8527,7 +8527,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %384
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229": ; preds = %95
-  %bcmp.i.i228 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %76, ptr noundef nonnull dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1441
+  %bcmp.i.i228 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1441
   %105 = icmp eq i32 %bcmp.i.i228, 0
   br i1 %105, label %312, label %.lr.ph100
 
@@ -8892,7 +8892,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i": ; preds = %201
   %203 = load ptr, ptr %31, align 8, !noalias !1498, !nonnull !18, !align !19, !noundef !18
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %197, ptr nonnull %203, i64 %199), !alias.scope !1500, !noalias !1498
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %197, ptr nonnull readonly %203, i64 %199), !alias.scope !1500, !noalias !1498
   %bcmp.i.i.fr.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %204 = icmp ne i32 %bcmp.i.i.fr.i.i.i.i, 0
   %205 = getelementptr inbounds i8, ptr %203, i64 %199
@@ -8903,7 +8903,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc268
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !1498, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i267 = load ptr, ptr %117, align 8, !noalias !1499, !nonnull !18, !noundef !18
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val.i.i.i267, ptr nonnull %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1510, !noalias !1498
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i267, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1510, !noalias !1498
   %206 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %206, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
 
@@ -9784,7 +9784,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301": ; preds = %458
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
-  %bcmp.i.i300 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1676
+  %bcmp.i.i300 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1676
   %459 = icmp eq i32 %bcmp.i.i300, 0
   br i1 %459, label %480, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301.thread"
 
@@ -10151,7 +10151,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ]
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %76, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1704
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1704
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph99
 
@@ -10167,7 +10167,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %377
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229": ; preds = %95
-  %bcmp.i.i228 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %76, ptr noundef nonnull dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1708
+  %bcmp.i.i228 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1708
   %105 = icmp eq i32 %bcmp.i.i228, 0
   br i1 %105, label %305, label %.lr.ph99
 
@@ -10534,7 +10534,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i": ; preds = %200
   %202 = load ptr, ptr %31, align 8, !noalias !1765, !nonnull !18, !align !19, !noundef !18
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %196, ptr nonnull %202, i64 %198), !alias.scope !1767, !noalias !1765
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %196, ptr nonnull readonly %202, i64 %198), !alias.scope !1767, !noalias !1765
   %bcmp.i.i.fr.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %203 = icmp ne i32 %bcmp.i.i.fr.i.i.i.i, 0
   %204 = getelementptr inbounds i8, ptr %202, i64 %198
@@ -10545,7 +10545,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc268
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !1765, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i267 = load ptr, ptr %117, align 8, !noalias !1766, !nonnull !18, !noundef !18
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val.i.i.i267, ptr nonnull %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1777, !noalias !1765
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i267, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1777, !noalias !1765
   %205 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
 
@@ -11416,7 +11416,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300": ; preds = %451
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
-  %bcmp.i.i299 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1936
+  %bcmp.i.i299 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1936
   %452 = icmp eq i32 %bcmp.i.i299, 0
   br i1 %452, label %473, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
 
@@ -11784,7 +11784,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ]
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %76, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1964
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1964
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph103
 
@@ -11800,7 +11800,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %383
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228": ; preds = %95
-  %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %76, ptr noundef nonnull dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1968
+  %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1968
   %105 = icmp eq i32 %bcmp.i.i227, 0
   br i1 %105, label %311, label %.lr.ph103
 
@@ -12165,7 +12165,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i": ; preds = %200
   %202 = load ptr, ptr %31, align 8, !noalias !2025, !nonnull !18, !align !19, !noundef !18
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %196, ptr nonnull %202, i64 %198), !alias.scope !2027, !noalias !2025
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %196, ptr nonnull readonly %202, i64 %198), !alias.scope !2027, !noalias !2025
   %bcmp.i.i.fr.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %203 = icmp ne i32 %bcmp.i.i.fr.i.i.i.i, 0
   %204 = getelementptr inbounds i8, ptr %202, i64 %198
@@ -12176,7 +12176,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc267
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !2025, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i266 = load ptr, ptr %117, align 8, !noalias !2026, !nonnull !18, !noundef !18
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val.i.i.i266, ptr nonnull %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !2037, !noalias !2025
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i266, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !2037, !noalias !2025
   %205 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
 
@@ -13058,7 +13058,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300": ; preds = %457
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
-  %bcmp.i.i299 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val, ptr noundef nonnull dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !2204
+  %bcmp.i.i299 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !2204
   %458 = icmp eq i32 %bcmp.i.i299, 0
   br i1 %458, label %479, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
 

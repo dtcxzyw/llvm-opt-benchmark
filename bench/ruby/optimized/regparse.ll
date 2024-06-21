@@ -5735,7 +5735,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr nocapture
   br i1 %.not.i.i, label %UNKNOWN_ESC_WARN.exit.i, label %184
 
 184:                                              ; preds = %180
-  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i32 noundef %24)
+  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.5, i32 noundef %24)
   br label %UNKNOWN_ESC_WARN.exit.i
 
 UNKNOWN_ESC_WARN.exit.i:                          ; preds = %184, %180, %175, %171, %._crit_edge101
@@ -8681,7 +8681,7 @@ node_new_anychar.exit352.thread:                  ; preds = %1261
 
 .lr.ph58.preheader.i:                             ; preds = %1323
   store ptr %1325, ptr %1295, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1325, ptr nonnull align 4 %1283, i64 %1324, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1325, ptr nonnull readonly align 4 %1283, i64 %1324, i1 false)
   br label %node_new_backref.exit.thread421
 
 node_new_backref.exit.thread:                     ; preds = %1327, %1282
@@ -8695,7 +8695,7 @@ node_new_backref.exit.thread421:                  ; preds = %.lr.ph58.preheader.
 node_new_backref.exit:                            ; preds = %.loopexit55.i
   %1328 = getelementptr inbounds i8, ptr %1290, i64 12
   %1329 = shl nuw nsw i64 %wide.trip.count.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1328, ptr nonnull align 4 %1283, i64 %1329, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1328, ptr nonnull readonly align 4 %1283, i64 %1329, i1 false)
   store ptr %1290, ptr %0, align 8
   br label %parse_char_property.exit.thread410
 
@@ -9103,7 +9103,7 @@ popular_quantifier_num.exit70.i:                  ; preds = %popular_quantifier_
 1504:                                             ; preds = %1502
   %1505 = getelementptr [6 x ptr], ptr @PopularQStr, i64 0, i64 %1498
   %1506 = load ptr, ptr %1505, align 8
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.23, ptr noundef %1506)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.23, ptr noundef %1506)
   br label %.thread86.i
 
 1507:                                             ; preds = %1497
@@ -9119,7 +9119,7 @@ popular_quantifier_num.exit70.i:                  ; preds = %popular_quantifier_
   %1514 = zext i32 %1501 to i64
   %1515 = getelementptr [7 x ptr], ptr @ReduceQStr, i64 0, i64 %1514
   %1516 = load ptr, ptr %1515, align 8
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.24, ptr noundef %1511, ptr noundef %1513, ptr noundef %1516)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.24, ptr noundef %1511, ptr noundef %1513, ptr noundef %1516)
   br label %.thread86.i
 
 1517:                                             ; preds = %popular_quantifier_num.exit70.i
@@ -9997,7 +9997,7 @@ code_exist_check.exit:                            ; preds = %66
   br i1 %or.cond.not.i, label %84, label %CC_ESC_WARN.exit
 
 84:                                               ; preds = %79
-  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3)
   br label %CC_ESC_WARN.exit
 
 CC_ESC_WARN.exit:                                 ; preds = %code_exist_check.exit, %79, %84
@@ -10503,7 +10503,7 @@ parse_posix_bracket.exit.thread421.thread:        ; preds = %267, %265, %276, %2
   br i1 %or.cond.not.i392, label %319, label %CC_ESC_WARN.exit393
 
 319:                                              ; preds = %314
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19)
   br label %CC_ESC_WARN.exit393
 
 CC_ESC_WARN.exit393:                              ; preds = %parse_posix_bracket.exit.thread421.thread, %314, %319
@@ -10790,7 +10790,7 @@ fetch_char_property_to_ctype.exit.thread:         ; preds = %388, %415, %394, %4
   br i1 %or.cond.not.i400, label %454, label %CC_ESC_WARN.exit401
 
 454:                                              ; preds = %449
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20)
   br label %CC_ESC_WARN.exit401
 
 455:                                              ; preds = %429

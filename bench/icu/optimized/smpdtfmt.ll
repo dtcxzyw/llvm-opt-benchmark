@@ -9579,7 +9579,7 @@ if.end136:                                        ; preds = %invoke.cont131
 if.end142:                                        ; preds = %if.then127, %if.end136
   %src.0 = phi ptr [ %temp, %if.end136 ], [ %text, %if.then127 ]
   %34 = load ptr, ptr %currentNumberFormat, align 8
-  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %34)
+  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %34)
           to label %if.end144 unwind label %lpad15.loopexit.split-lp
 
 if.end144:                                        ; preds = %if.end142, %arraydestroy.done120
@@ -11538,7 +11538,7 @@ if.end1309:                                       ; preds = %invoke.cont1304
 if.end1315:                                       ; preds = %sw.epilog1296, %if.end1309
   %src1300.0 = phi ptr [ %temp, %if.end1309 ], [ %text, %sw.epilog1296 ]
   %297 = load ptr, ptr %currentNumberFormat, align 8
-  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src1300.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %297)
+  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src1300.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %297)
           to label %invoke.cont1316 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont1316:                                  ; preds = %if.end1315

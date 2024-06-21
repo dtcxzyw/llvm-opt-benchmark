@@ -2473,7 +2473,7 @@ define i32 @prte_rmaps_base_get_ncpus(ptr nocapture noundef readonly %0, ptr nou
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit
 
 38:                                               ; preds = %30
-  %39 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %34, i32 noundef %36, i32 noundef 0) #15
+  %39 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %34, i32 noundef %36, i32 noundef 0) #15
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit, label %.preheader.i.i
 
@@ -2487,7 +2487,7 @@ define i32 @prte_rmaps_base_get_ncpus(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not14.i.i, label %43, label %46
 
 43:                                               ; preds = %.preheader.i.i
-  %44 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %41, ptr noundef %35) #15
+  %44 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %41, ptr noundef readonly %35) #15
   %.not15.i.i = icmp ne i32 %44, 0
   %45 = zext i1 %.not15.i.i to i32
   %spec.select.i.i = add i32 %.017.i.i, %45

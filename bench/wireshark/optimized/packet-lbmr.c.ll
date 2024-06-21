@@ -1853,7 +1853,7 @@ define internal i32 @dissect_lbmr(ptr noundef %0, ptr noundef %1, ptr noundef %2
 30:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %31 = getelementptr %struct.lbmr_tag_entry_t, ptr %28, i64 %indvars.iv.i
-  %32 = tail call fastcc i32 @lbmr_match_packet(ptr noundef %1, ptr noundef %31)
+  %32 = tail call fastcc i32 @lbmr_match_packet(ptr noundef readonly %1, ptr noundef %31)
   %.not7.i = icmp eq i32 %32, 0
   br i1 %.not7.i, label %29, label %lbmr_tag_find.exit
 
@@ -4350,7 +4350,7 @@ define internal range(i32 0, 2) i32 @test_lbmr_packet(ptr noundef %0, ptr nounde
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %20 = getelementptr %struct.lbmr_tag_entry_t, ptr %17, i64 %indvars.iv.i
-  %21 = tail call fastcc i32 @lbmr_match_packet(ptr noundef %1, ptr noundef %20)
+  %21 = tail call fastcc i32 @lbmr_match_packet(ptr noundef readonly %1, ptr noundef %20)
   %.not7.i = icmp eq i32 %21, 0
   br i1 %.not7.i, label %18, label %44
 

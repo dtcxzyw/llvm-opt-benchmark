@@ -392,11 +392,11 @@ if.end:                                           ; preds = %if.then21, %if.then
 if.then25:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lnormal.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp.i, ptr noundef nonnull align 4 dereferenceable(16) %sphereCenter, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, i64 16, i1 false)
   store <2 x float> %normal.sroa.0.0, ptr %lnormal.i, align 8
   %normal.sroa.17.0.lnormal.i.sroa_idx = getelementptr inbounds i8, ptr %lnormal.i, i64 8
   store <2 x float> %normal.sroa.17.0, ptr %normal.sroa.17.0.lnormal.i.sroa_idx, align 8
-  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef nonnull %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
+  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lnormal.i)
   br i1 %call.i61, label %if.end47.thread152, label %if.else

@@ -2453,7 +2453,7 @@ _ZN6vectorIbLb0EjE5resetEv.exit:                  ; preds = %_ZN15ref_vector_cor
   tail call void @_ZN7datalog12rule_manager25hoist_compound_predicatesEjR7obj_refI3app11ast_managerER10ref_vectorIS2_S3_E(ptr noundef nonnull align 8 dereferenceable(1368) %this, i32 noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %m_head, ptr noundef nonnull align 8 dereferenceable(16) %m_body)
   tail call void @_ZN7datalog12rule_manager12mk_negationsER10ref_vectorI3app11ast_managerER7svectorIbjE(ptr noundef nonnull align 8 dereferenceable(1368) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_body, ptr noundef nonnull align 8 dereferenceable(8) %m_neg)
   %8 = load ptr, ptr %m_head, align 8
-  tail call void @_ZNK7datalog12rule_manager16check_valid_headEP4expr(ptr noundef nonnull align 8 dereferenceable(1368) %this, ptr noundef %8)
+  tail call void @_ZNK7datalog12rule_manager16check_valid_headEP4expr(ptr noundef nonnull readonly align 8 dereferenceable(1368) %this, ptr noundef %8)
   store ptr null, ptr %r, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %r, i64 8
   store ptr %this, ptr %m_manager.i, align 8

@@ -8387,7 +8387,7 @@ if.else.i:                                        ; preds = %invoke.cont45.i
   br i1 %cmp.i238.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp82.i, ptr noundef nonnull align 8 dereferenceable(48) %emit_segment.i, i64 noundef 0, i64 noundef %39)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp82.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %emit_segment.i, i64 noundef 0, i64 noundef %39)
           to label %_ZN5arrow6StatusD2Ev.exit280.i unwind label %lpad5.loopexit.split-lp.i, !noalias !58
 
 if.end.i.i:                                       ; preds = %if.else.i
@@ -8449,7 +8449,7 @@ call.i.noexc.i:                                   ; preds = %while.body.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %call.i.noexc.i
   %41 = extractvalue { i64, i64 } %call.i242.i, 0
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %emit_segment.i, i64 noundef %41, i64 noundef %40)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %emit_segment.i, i64 noundef %41, i64 noundef %40)
           to label %.noexc243.i unwind label %lpad5.loopexit.i, !noalias !58
 
 .noexc243.i:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
@@ -8933,7 +8933,7 @@ if.else.i162:                                     ; preds = %invoke.cont45.i161
   br i1 %cmp.i238.i166, label %if.then.i.i286, label %if.end.i.i167
 
 if.then.i.i286:                                   ; preds = %if.else.i162
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp82.i136, ptr noundef nonnull align 8 dereferenceable(48) %emit_segment.i133, i64 noundef 0, i64 noundef %101)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp82.i136, ptr noundef nonnull readonly align 8 dereferenceable(48) %emit_segment.i133, i64 noundef 0, i64 noundef %101)
           to label %_ZN5arrow6StatusD2Ev.exit280.i287 unwind label %lpad5.loopexit.split-lp.i262, !noalias !107
 
 if.end.i.i167:                                    ; preds = %if.else.i162
@@ -8995,7 +8995,7 @@ call.i.noexc.i185:                                ; preds = %while.body.i.i179
 
 _ZN5arrow6StatusD2Ev.exit.i.i187:                 ; preds = %call.i.noexc.i185
   %103 = extractvalue { i64, i64 } %call.i242.i180, 0
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i124, ptr noundef nonnull align 8 dereferenceable(48) %emit_segment.i133, i64 noundef %103, i64 noundef %102)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i124, ptr noundef nonnull readonly align 8 dereferenceable(48) %emit_segment.i133, i64 noundef %103, i64 noundef %102)
           to label %.noexc243.i188 unwind label %lpad5.loopexit.i181, !noalias !107
 
 .noexc243.i188:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i187
@@ -17433,7 +17433,7 @@ entry:
   %__args1.val = load i64, ptr %__args1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 8
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %__args.val, i64 noundef %__args1.val)
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %__args.val, i64 noundef %__args1.val)
   %1 = load ptr, ptr %__functor.val, align 8
   %2 = load ptr, ptr %1, align 8
   %isnull.i.i.i.i.i = icmp eq ptr %2, null
@@ -17551,7 +17551,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -18605,7 +18605,7 @@ entry:
   %__args1.val = load i64, ptr %__args1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 8
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %__args.val, i64 noundef %__args1.val)
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllE_clEll(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %__args.val, i64 noundef %__args1.val)
   %1 = load ptr, ptr %__functor.val, align 8
   %2 = load ptr, ptr %1, align 8
   %isnull.i.i.i.i.i = icmp eq ptr %2, null
@@ -18723,7 +18723,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -19202,7 +19202,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %__source.val5, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(104) %__source.val5, i64 104, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -19552,7 +19552,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %__source.val5, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(104) %__source.val5, i64 104, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

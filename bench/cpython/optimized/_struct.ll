@@ -565,7 +565,7 @@ if.then.i.i:                                      ; preds = %if.end10
 
 if.end.i.i:                                       ; preds = %if.end10
   %8 = load ptr, ptr %buffer, align 8
-  %call5.i.i = call fastcc ptr @s_unpack_internal(ptr noundef nonnull %.pre6, ptr noundef %8, ptr noundef %call1.val.i.i)
+  %call5.i.i = call fastcc ptr @s_unpack_internal(ptr noundef nonnull readonly %.pre6, ptr noundef %8, ptr noundef %call1.val.i.i)
   br label %if.then.i
 
 exit:                                             ; preds = %if.end.exit_crit_edge, %if.end5
@@ -693,7 +693,7 @@ land.lhs.true31:                                  ; preds = %if.end23, %if.end29
 skip_optional_pos:                                ; preds = %if.end29, %land.lhs.true31, %if.end20
   %offset.0 = phi i64 [ 0, %if.end20 ], [ -1, %land.lhs.true31 ], [ %call28, %if.end29 ]
   %10 = load ptr, ptr %s_object, align 8
-  %call.i = call fastcc ptr @Struct_unpack_from_impl(ptr noundef %10, ptr noundef nonnull %buffer, i64 noundef %offset.0)
+  %call.i = call fastcc ptr @Struct_unpack_from_impl(ptr noundef readonly %10, ptr noundef nonnull readonly %buffer, i64 noundef %offset.0)
   br label %exit
 
 exitthread-pre-split:                             ; preds = %cond.end9, %if.end, %if.end15, %land.lhs.true31
@@ -2402,7 +2402,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %5 = load ptr, ptr %buffer, align 8
-  %call5.i = call fastcc ptr @s_unpack_internal(ptr noundef nonnull %self, ptr noundef %5, ptr noundef %call1.val.i)
+  %call5.i = call fastcc ptr @s_unpack_internal(ptr noundef nonnull readonly %self, ptr noundef %5, ptr noundef %call1.val.i)
   br label %exit
 
 exit:                                             ; preds = %if.end.i, %if.then.i, %entry

@@ -3842,7 +3842,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.c
   %add.i = add nuw nsw i64 %c.051.i, %mul10.i
   %arrayidx11.i = getelementptr inbounds float, ptr %in, i64 %add.i
   %8 = load float, ptr %arrayidx11.i, align 4
-  %call.i = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef nonnull %arrayidx9.i, float noundef %8)
+  %call.i = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef nonnull readonly %arrayidx9.i, float noundef %8)
   %arrayidx14.i = getelementptr inbounds float, ptr %out, i64 %add.i
   store float %call.i, ptr %arrayidx14.i, align 4
   %inc16.i = add nuw nsw i64 %c.051.i, 1
@@ -6428,7 +6428,7 @@ for.cond36.preheader.i:                           ; preds = %if.then.i
 
 if.then22.i:                                      ; preds = %if.then.i
   %chad.i = getelementptr inbounds i8, ptr %icc, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, ptr noundef nonnull align 4 dereferenceable(36) %chad.i, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %chad.i, i64 36, i1 false)
   %call.i = call fastcc noundef i32 @_ZN7lodepngL9invMatrixEPf(ptr noundef nonnull %a.i)
   %white27.i = getelementptr inbounds i8, ptr %icc, i64 72
   %23 = load float, ptr %white27.i, align 8

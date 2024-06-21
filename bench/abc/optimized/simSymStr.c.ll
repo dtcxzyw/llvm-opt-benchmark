@@ -347,8 +347,8 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
   %152 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
   %153 = getelementptr inbounds i8, ptr %150, i64 8
   store ptr %152, ptr %153, align 8
-  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef %20)
-  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef %20)
+  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef readonly %20)
+  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %150, ptr noundef readonly %20)
   %154 = load i32, ptr %59, align 4
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %.lr.ph.i, label %._crit_edge.i

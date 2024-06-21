@@ -7357,7 +7357,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
   %190 = phi i64 [ %.pre30.i74, %186 ], [ %106, %174 ]
   %191 = phi ptr [ %185, %186 ], [ %175, %174 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 %190
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %192, ptr noundef nonnull align 1 dereferenceable(16) @.str.11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %192, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.11, i64 16, i1 false)
   store i64 %176, ptr %11, align 8
   %193 = load ptr, ptr %25, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 37
@@ -9519,7 +9519,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
+  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %38 = trunc i64 %37 to i32
   br i1 %.not, label %40, label %39
 
@@ -11147,7 +11147,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %10
   store i64 %47, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %47, ptr %48, align 8
-  %49 = call i32 @utime(ptr noundef %2, ptr noundef nonnull %5) #31
+  %49 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %mz_zip_reader_file_stat.exit.thread
 
@@ -16137,7 +16137,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %
   %7 = alloca %struct.stat, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
-  %9 = call i32 @stat(ptr noundef %2, ptr noundef nonnull %7) #31
+  %9 = call i32 @stat(ptr noundef readonly %2, ptr noundef nonnull %7) #31
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %13, label %10
 
@@ -18164,7 +18164,7 @@ mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
   store i32 1, ptr %81, align 8
   store i32 2, ptr %44, align 4
   %82 = select i1 %.not.i, ptr @.str.17, ptr @.str.16
-  %83 = call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull %82)
+  %83 = call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull %82)
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %mz_zip_writer_init_file_v2.exit
 

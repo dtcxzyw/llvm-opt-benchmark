@@ -1256,7 +1256,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   store i32 %208, ptr %.12..12..12..12..12..sroa_idx, align 4
   %209 = getelementptr inbounds i8, ptr %196, i64 4
   %210 = add nuw nsw i64 %202, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.16..16..16..16..16..sroa_idx, ptr noundef nonnull align 2 dereferenceable(1) %209, i64 %210, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.16..16..16..16..16..sroa_idx, ptr noundef nonnull readonly align 2 dereferenceable(1) %209, i64 %210, i1 false)
   %211 = add i32 %205, %.sroa.9.0..sroa.9.0..sroa.9.8.38.i38
   %212 = icmp slt i32 %211, 8193
   br i1 %212, label %213, label %223
@@ -1448,7 +1448,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next.i.i, %33 ]
   %35 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %26) #18
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %26) #18
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %Exec_ListenCommit.exit, label %33
 
@@ -2601,7 +2601,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next.i.i, %78 ]
   %80 = getelementptr %union.ListCell, ptr %77, i64 %indvars.iv.i.i
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %71) #18
+  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull readonly dereferenceable(1) %71) #18
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %IsListeningOn.exit.i, label %78
 

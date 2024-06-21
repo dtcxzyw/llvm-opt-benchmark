@@ -323,7 +323,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %.not.i, label %37, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %1, i64 %.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %1, i64 %.0.copyload, i1 false)
   br label %37
 
 37:                                               ; preds = %36, %33
@@ -457,7 +457,7 @@ define hidden ptr @lexbor_mraw_dup_noi(ptr nocapture noundef %0, ptr nocapture n
   br i1 %.not.i, label %lexbor_mraw_dup.exit, label %5
 
 5:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %lexbor_mraw_dup.exit
 
 lexbor_mraw_dup.exit:                             ; preds = %3, %5

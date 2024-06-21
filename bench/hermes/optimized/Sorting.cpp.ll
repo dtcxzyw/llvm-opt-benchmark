@@ -185,7 +185,7 @@ if.end.i:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end.i
   %start.0.i = phi i32 [ %add.i, %if.end.i ], [ %dec.i, %do.cond.i ]
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %start.0.i, i32 noundef %add)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef %sm, ptr noundef nonnull readonly align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %start.0.i, i32 noundef %add)
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %return, label %do.cond.i
 
@@ -221,7 +221,7 @@ if.end13.i:                                       ; preds = %while.body.i
   %3 = load i32, ptr %add.ptr.i4.i.i, align 4
   store i32 %3, ptr %add.ptr.i.i.i, align 4
   store i32 %2, ptr %add.ptr.i4.i.i, align 4
-  %call14.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i)
+  %call14.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef nonnull %sm, ptr noundef nonnull readonly align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i)
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !9
 

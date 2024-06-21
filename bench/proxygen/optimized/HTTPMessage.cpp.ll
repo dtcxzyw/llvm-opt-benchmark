@@ -901,7 +901,7 @@ if.end:                                           ; preds = %_ZSt11make_uniqueIN
 
 if.then6:                                         ; preds = %if.end
   %headers_.i = getelementptr inbounds i8, ptr %this, i64 480
-  %call.i1 = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 60, ptr noundef nonnull @.str.4, i1 noundef zeroext false)
+  %call.i1 = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull readonly align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 60, ptr noundef nonnull readonly @.str.4, i1 noundef zeroext false)
   %bf.load9 = load i8, ptr %trailersAllowed_, align 2
   %bf.shl = select i1 %call.i1, i8 32, i8 0
   %bf.clear10 = and i8 %bf.load9, -33
@@ -6890,7 +6890,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %headers_.i = getelementptr inbounds i8, ptr %this, i64 480
-  %call.i = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef nonnull @.str.36, i1 noundef zeroext false)
+  %call.i = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull readonly align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef nonnull readonly @.str.36, i1 noundef zeroext false)
   br i1 %call.i, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -6924,7 +6924,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 if.then8:                                         ; preds = %invoke.cont
   %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %kKeepAliveConnToken) #22
-  %call.i56 = invoke noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef %call9, i1 noundef zeroext false)
+  %call.i56 = invoke noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull readonly align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef readonly %call9, i1 noundef zeroext false)
           to label %invoke.cont10 unwind label %lpad5
 
 invoke.cont10:                                    ; preds = %if.then8

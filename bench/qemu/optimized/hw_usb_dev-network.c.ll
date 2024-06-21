@@ -443,12 +443,12 @@ sw.bb26.i.i.i:                                    ; preds = %if.end.i.i
 
 sw.bb27.i.i.i:                                    ; preds = %if.end.i.i
   %conf.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10040
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull align 8 dereferenceable(6) %conf.i.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull readonly align 8 dereferenceable(6) %conf.i.i.i, i64 6, i1 false)
   br label %ndis_query.exit.i.i
 
 sw.bb28.i.i.i:                                    ; preds = %if.end.i.i
   %conf29.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10040
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull align 8 dereferenceable(6) %conf29.i.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull readonly align 8 dereferenceable(6) %conf29.i.i.i, i64 6, i1 false)
   br label %ndis_query.exit.i.i
 
 sw.bb33.i.i.i:                                    ; preds = %if.end.i.i

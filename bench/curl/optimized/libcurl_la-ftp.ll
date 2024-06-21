@@ -3594,7 +3594,7 @@ sw.bb:                                            ; preds = %entry
   %buffer = getelementptr inbounds i8, ptr %data, i64 3224
   %2 = load ptr, ptr %buffer, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 4
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx) #11
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx) #11
   %cmp.i = icmp ult i64 %call.i, 14
   br i1 %cmp.i, label %if.end, label %if.end.i
 

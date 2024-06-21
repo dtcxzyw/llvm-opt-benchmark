@@ -671,15 +671,15 @@ entry:
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
-  tail call void @_ZN4pbrt7RGBFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(168) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
+  tail call void @_ZN4pbrt7RGBFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(168) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
-  tail call void @_ZN4pbrt11GBufferFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(872) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
+  tail call void @_ZN4pbrt11GBufferFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(872) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN4pbrt12SpectralFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(180) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
+  tail call void @_ZN4pbrt12SpectralFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(180) %0, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   br label %"_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 "_ZN4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNS_4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsEE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.default.i.i
@@ -22612,7 +22612,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -23711,7 +23711,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %__source.val5, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(104) %__source.val5, i64 104, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -24615,7 +24615,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

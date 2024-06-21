@@ -4071,7 +4071,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
 9:                                                ; preds = %2
   store i32 %1, ptr %4, align 4
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 136
@@ -4087,7 +4087,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
   %19 = getelementptr inbounds i8, ptr %3, i64 200
   %20 = getelementptr inbounds i8, ptr %3, i64 208
   %21 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %21, i64 64, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 272
@@ -4108,7 +4108,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %3, i64 280
   %36 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull align 8 dereferenceable(128) %36, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull readonly align 8 dereferenceable(128) %36, i64 128, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -4170,7 +4170,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %11, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 136
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 136
@@ -4186,7 +4186,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   %21 = getelementptr inbounds i8, ptr %4, i64 200
   %22 = getelementptr inbounds i8, ptr %4, i64 208
   %23 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull readonly align 8 dereferenceable(64) %23, i64 64, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 272
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 272
@@ -4207,7 +4207,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 280
   %38 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef nonnull align 8 dereferenceable(128) %38, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef nonnull readonly align 8 dereferenceable(128) %38, i64 128, i1 false)
   %39 = getelementptr inbounds i8, ptr %0, i64 148
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
@@ -4267,7 +4267,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
 9:                                                ; preds = %2
   store ptr %1, ptr %4, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 136
@@ -4283,7 +4283,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
   %19 = getelementptr inbounds i8, ptr %3, i64 200
   %20 = getelementptr inbounds i8, ptr %3, i64 208
   %21 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %21, i64 64, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 272
@@ -4304,7 +4304,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %3, i64 280
   %36 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull align 8 dereferenceable(128) %36, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull readonly align 8 dereferenceable(128) %36, i64 128, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1

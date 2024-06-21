@@ -7655,7 +7655,7 @@ for.body.i632:                                    ; preds = %for.body.i632, %if.
   %conv3.i.i649 = sext i32 %add2.i.i to i64
   %mul.i.i650 = mul nsw i64 %conv.i.i647, %conv3.i.i649
   %add.ptr.i25.i = getelementptr inbounds i8, ptr %cond.i.i.i.i646, i64 %mul.i.i650
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i25.i, ptr align 8 %add.ptr14.i638, i64 %conv.i.i647, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i25.i, ptr readonly align 8 %add.ptr14.i638, i64 %conv.i.i647, i1 false)
   %indvars.iv.next.i651 = add nuw nsw i64 %indvars.iv.i633, 1
   %exitcond.not.i652 = icmp eq i64 %indvars.iv.next.i651, %wide.trip.count.i631
   br i1 %exitcond.not.i652, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_5EEvS7_iSB_T_.exit", label %for.body.i632, !llvm.loop !130
@@ -7702,7 +7702,7 @@ for.body26.i655:                                  ; preds = %for.body26.i655, %f
   %conv3.i41.i = sext i32 %add2.i40.i to i64
   %mul.i42.i = mul nsw i64 %metadata.sroa.211.0.extract.shift50.i, %conv3.i41.i
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %cond.i.i.i37.i, i64 %mul.i42.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i43.i, ptr align 8 %add.ptr42.i662, i64 %metadata.sroa.211.0.extract.shift50.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i43.i, ptr readonly align 8 %add.ptr42.i662, i64 %metadata.sroa.211.0.extract.shift50.i, i1 false)
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
   br i1 %exitcond63.not.i, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_5EEvS7_iSB_T_.exit", label %for.body26.i655, !llvm.loop !131
@@ -8413,7 +8413,7 @@ for.body.i996:                                    ; preds = %for.body.i996, %for
   %idx.ext.i.i1016 = zext i32 %428 to i64
   %add.ptr.i25.i1017 = getelementptr inbounds i8, ptr %cond.i.i.i.i1011, i64 %idx.ext.i.i1016
   %conv.i.i1018 = zext i32 %sub.i1004 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i25.i1017, ptr align 8 %add.ptr14.i1002, i64 %conv.i.i1018, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i25.i1017, ptr readonly align 8 %add.ptr14.i1002, i64 %conv.i.i1018, i1 false)
   %indvars.iv.next.i1019 = add nuw nsw i64 %indvars.iv.i997, 1
   %exitcond.not.i1020 = icmp eq i64 %indvars.iv.next.i1019, %wide.trip.count.i995
   br i1 %exitcond.not.i1020, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_8EEvS7_iSB_T_.exit", label %for.body.i996, !llvm.loop !141
@@ -8462,7 +8462,7 @@ for.body26.i1023:                                 ; preds = %for.body26.i1023, %
   %443 = load i32, ptr %arrayidx.i41.i1045, align 4
   %idx.ext.i42.i = zext i32 %443 to i64
   %add.ptr.i43.i1046 = getelementptr inbounds i8, ptr %cond.i.i.i37.i1042, i64 %idx.ext.i42.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i43.i1046, ptr align 8 %add.ptr42.i1035, i64 %metadata.sroa.211.0.extract.shift51.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i43.i1046, ptr readonly align 8 %add.ptr42.i1035, i64 %metadata.sroa.211.0.extract.shift51.i, i1 false)
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count63.i
   br i1 %exitcond64.not.i, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_8EEvS7_iSB_T_.exit", label %for.body26.i1023, !llvm.loop !142

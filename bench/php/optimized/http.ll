@@ -454,7 +454,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %202 = phi ptr [ %.pre.i, %199 ], [ %192, %193 ]
   %203 = getelementptr inbounds i8, ptr %202, i64 24
   %204 = getelementptr inbounds i8, ptr %203, i64 %201
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr nonnull align 1 %37, i64 %194, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr nonnull readonly align 1 %37, i64 %194, i1 false)
   %205 = load ptr, ptr %1, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 16
   store i64 %197, ptr %206, align 8
@@ -491,7 +491,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1429.i = phi i64 [ %.0428.i, %216 ], [ %214, %211 ]
   %220 = getelementptr inbounds i8, ptr %219, i64 24
   %221 = getelementptr inbounds i8, ptr %220, i64 %218
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull align 1 %33, i64 %209, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull readonly align 1 %33, i64 %209, i1 false)
   %222 = load ptr, ptr %1, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 16
   store i64 %.1429.i, ptr %223, align 8
@@ -596,7 +596,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1433.i = phi i64 [ %.0432.i, %263 ], [ %261, %258 ]
   %267 = getelementptr inbounds i8, ptr %266, i64 24
   %268 = getelementptr inbounds i8, ptr %267, i64 %265
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %268, ptr nonnull align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %268, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %269 = load ptr, ptr %1, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 16
   store i64 %.1433.i, ptr %270, align 8

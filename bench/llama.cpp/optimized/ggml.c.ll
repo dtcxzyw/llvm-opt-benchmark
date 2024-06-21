@@ -2451,7 +2451,7 @@ define noundef ptr @ggml_new_tensor_1d(ptr nocapture noundef %ctx, i32 noundef %
 entry:
   %ne0.addr = alloca i64, align 8
   store i64 %ne0, ptr %ne0.addr, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 1, ptr noundef nonnull %ne0.addr, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr, ptr noundef null, i64 noundef 0)
   ret ptr %call.i
 }
 
@@ -2462,7 +2462,7 @@ entry:
   store i64 %ne0, ptr %ne, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %ne, i64 8
   store i64 %ne1, ptr %arrayinit.element, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 2, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 2, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   ret ptr %call.i
 }
 
@@ -2475,7 +2475,7 @@ entry:
   store i64 %ne1, ptr %arrayinit.element, align 8
   %arrayinit.element1 = getelementptr inbounds i8, ptr %ne, i64 16
   store i64 %ne2, ptr %arrayinit.element1, align 16
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 3, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 3, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   ret ptr %call.i
 }
 
@@ -2490,7 +2490,7 @@ entry:
   store i64 %ne2, ptr %arrayinit.element1, align 16
   %arrayinit.element2 = getelementptr inbounds i8, ptr %ne, i64 24
   store i64 %ne3, ptr %arrayinit.element2, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   ret ptr %call.i
 }
 
@@ -2511,7 +2511,7 @@ entry:
   store ptr null, ptr %data.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 1, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %1 = load i8, ptr %no_alloc_save.i, align 2
   %frombool.i6 = and i8 %1, 1
@@ -2736,7 +2736,7 @@ entry:
   store ptr null, ptr %data.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 1, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %1 = load i8, ptr %no_alloc_save.i, align 2
   %frombool.i6 = and i8 %1, 1
@@ -2948,7 +2948,7 @@ define noundef ptr @ggml_dup_tensor(ptr nocapture noundef %ctx, ptr nocapture no
 entry:
   %0 = load i32, ptr %src, align 8
   %ne = getelementptr inbounds i8, ptr %src, i64 16
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %0, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %0, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   ret ptr %call.i
 }
 
@@ -4384,7 +4384,7 @@ entry:
   %tobool1.not.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i11.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i11.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i11.i, ptr noundef null, i64 noundef 0)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i32 1, ptr %op.i, align 8
   br i1 %tobool1.not.not.i, label %ggml_dup_impl.exit, label %cond.true5.i
@@ -4392,7 +4392,7 @@ entry:
 cond.true5.i:                                     ; preds = %entry
   %2 = load i32, ptr %call.i.i.i, align 8
   %ne.i12.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i12.i, ptr noundef null, i64 noundef 0)
+  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i, ptr noundef null, i64 noundef 0)
   br label %ggml_dup_impl.exit
 
 ggml_dup_impl.exit:                               ; preds = %entry, %cond.true5.i
@@ -4517,12 +4517,12 @@ do.body7:                                         ; preds = %land.lhs.true, %lor
 
 cond.false.thread:                                ; preds = %do.body7
   %12 = load i32, ptr %a, align 8
-  %call.i.i36 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i36 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op3237 = getelementptr inbounds i8, ptr %call.i.i36, i64 80
   store i32 2, ptr %op3237, align 8
   %13 = load i32, ptr %call.i.i36, align 8
   %ne.i27 = getelementptr inbounds i8, ptr %call.i.i36, i64 16
-  %call.i.i28 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i27, ptr noundef null, i64 noundef 0)
+  %call.i.i28 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i27, ptr noundef null, i64 noundef 0)
   br label %cond.end22
 
 if.then9:                                         ; preds = %do.body7
@@ -4555,7 +4555,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
 
 cond.false:                                       ; preds = %lor.lhs.false
   %18 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %18, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %18, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op32 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 2, ptr %op32, align 8
   br label %cond.end22
@@ -4679,16 +4679,16 @@ if.then18.i:                                      ; preds = %land.lhs.true.i.i
   unreachable
 
 if.end23.i:                                       ; preds = %lor.lhs.false12.i
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 4, ptr noundef nonnull %ne1.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 4, ptr noundef nonnull readonly %ne1.i.i, ptr noundef null, i64 noundef 0)
   %op.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 2, ptr %op.i, align 8
   br label %ggml_add_cast_impl.exit
 
 cond.true.i:                                      ; preds = %land.lhs.true.i.i
-  %call.i21.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 4, ptr noundef nonnull %ne1.i.i, ptr noundef null, i64 noundef 0)
+  %call.i21.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %type, i32 noundef 4, ptr noundef nonnull readonly %ne1.i.i, ptr noundef null, i64 noundef 0)
   %op22.i = getelementptr inbounds i8, ptr %call.i21.i, i64 80
   store i32 2, ptr %op22.i, align 8
-  %call.i19.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i.i, ptr noundef null, i64 noundef 0)
+  %call.i19.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne1.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_add_cast_impl.exit
 
 ggml_add_cast_impl.exit:                          ; preds = %if.end23.i, %cond.true.i
@@ -4822,7 +4822,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !41
 
 cond.false:                                       ; preds = %if.end13
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body.i, %cond.false
@@ -4834,7 +4834,7 @@ cond.end:                                         ; preds = %for.body.i, %cond.f
 cond.true18:                                      ; preds = %cond.end
   %19 = load i32, ptr %cond, align 8
   %ne.i22 = getelementptr inbounds i8, ptr %cond, i64 16
-  %call.i.i23 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %19, i32 noundef 4, ptr noundef nonnull %ne.i22, ptr noundef null, i64 noundef 0)
+  %call.i.i23 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %19, i32 noundef 4, ptr noundef nonnull readonly %ne.i22, ptr noundef null, i64 noundef 0)
   br label %cond.end21
 
 cond.end21:                                       ; preds = %cond.end, %cond.true18
@@ -5026,7 +5026,7 @@ cond.end.thread:                                  ; preds = %for.body.i
 
 cond.end:                                         ; preds = %lor.lhs.false, %if.then29
   %is_node.0.ph = phi i1 [ false, %lor.lhs.false ], [ true, %if.then29 ]
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne.i20, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne.i20, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -5061,7 +5061,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true45:                                      ; preds = %ggml_set_op_params.exit
   %29 = load i32, ptr %call.i.i, align 8
   %ne.i34 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i35 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %29, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef null, i64 noundef 0)
+  %call.i.i35 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %29, i32 noundef 4, ptr noundef nonnull readonly %ne.i34, ptr noundef null, i64 noundef 0)
   br label %cond.end48
 
 cond.end48:                                       ; preds = %cond.end.thread, %ggml_set_op_params.exit, %cond.true45
@@ -5150,12 +5150,12 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 
 cond.false.thread:                                ; preds = %land.lhs.true, %lor.lhs.false
   %12 = load i32, ptr %a, align 8
-  %call.i.i26 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i26 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op2227 = getelementptr inbounds i8, ptr %call.i.i26, i64 80
   store i32 5, ptr %op2227, align 8
   %13 = load i32, ptr %call.i.i26, align 8
   %ne.i17 = getelementptr inbounds i8, ptr %call.i.i26, i64 16
-  %call.i.i18 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i17, ptr noundef null, i64 noundef 0)
+  %call.i.i18 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i17, ptr noundef null, i64 noundef 0)
   br label %cond.end15
 
 cond.true:                                        ; preds = %do.end
@@ -5179,7 +5179,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
 
 cond.false:                                       ; preds = %lor.lhs.false
   %16 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op22 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 5, ptr %op22, align 8
   br label %cond.end15
@@ -5289,12 +5289,12 @@ do.body7:                                         ; preds = %land.lhs.true, %lor
 
 cond.false.thread:                                ; preds = %do.body7
   %12 = load i32, ptr %a, align 8
-  %call.i.i40 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i40 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op3641 = getelementptr inbounds i8, ptr %call.i.i40, i64 80
   store i32 6, ptr %op3641, align 8
   %13 = load i32, ptr %call.i.i40, align 8
   %ne.i29 = getelementptr inbounds i8, ptr %call.i.i40, i64 16
-  %call.i.i30 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i29, ptr noundef null, i64 noundef 0)
+  %call.i.i30 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i29, ptr noundef null, i64 noundef 0)
   br label %cond.end32
 
 if.then9:                                         ; preds = %do.body7
@@ -5327,7 +5327,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
 
 cond.false:                                       ; preds = %lor.lhs.false
   %18 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %18, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %18, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op36 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 6, ptr %op36, align 8
   br label %cond.end32
@@ -5427,12 +5427,12 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 
 cond.false.thread:                                ; preds = %land.lhs.true, %lor.lhs.false
   %12 = load i32, ptr %a, align 8
-  %call.i.i30 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i30 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op2631 = getelementptr inbounds i8, ptr %call.i.i30, i64 80
   store i32 7, ptr %op2631, align 8
   %13 = load i32, ptr %call.i.i30, align 8
   %ne.i19 = getelementptr inbounds i8, ptr %call.i.i30, i64 16
-  %call.i.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i19, ptr noundef null, i64 noundef 0)
+  %call.i.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i19, ptr noundef null, i64 noundef 0)
   br label %cond.end25
 
 cond.true:                                        ; preds = %do.end
@@ -5456,7 +5456,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
 
 cond.false:                                       ; preds = %lor.lhs.false
   %16 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op26 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 7, ptr %op26, align 8
   br label %cond.end25
@@ -5493,7 +5493,7 @@ entry:
   %tobool1.not.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i11.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i11.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i11.i, ptr noundef null, i64 noundef 0)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i32 8, ptr %op.i, align 8
   br i1 %tobool1.not.not.i, label %ggml_sqr_impl.exit, label %cond.true5.i
@@ -5501,7 +5501,7 @@ entry:
 cond.true5.i:                                     ; preds = %entry
   %2 = load i32, ptr %call.i.i.i, align 8
   %ne.i12.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i12.i, ptr noundef null, i64 noundef 0)
+  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i, ptr noundef null, i64 noundef 0)
   br label %ggml_sqr_impl.exit
 
 ggml_sqr_impl.exit:                               ; preds = %entry, %cond.true5.i
@@ -5553,7 +5553,7 @@ entry:
   %tobool1.not.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i11.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i11.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i11.i, ptr noundef null, i64 noundef 0)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i32 9, ptr %op.i, align 8
   br i1 %tobool1.not.not.i, label %ggml_sqrt_impl.exit, label %cond.true5.i
@@ -5561,7 +5561,7 @@ entry:
 cond.true5.i:                                     ; preds = %entry
   %2 = load i32, ptr %call.i.i.i, align 8
   %ne.i12.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i12.i, ptr noundef null, i64 noundef 0)
+  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i, ptr noundef null, i64 noundef 0)
   br label %ggml_sqrt_impl.exit
 
 ggml_sqrt_impl.exit:                              ; preds = %entry, %cond.true5.i
@@ -5613,7 +5613,7 @@ entry:
   %tobool1.not.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i11.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i11.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i11.i, ptr noundef null, i64 noundef 0)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i32 10, ptr %op.i, align 8
   br i1 %tobool1.not.not.i, label %ggml_log_impl.exit, label %cond.true5.i
@@ -5621,7 +5621,7 @@ entry:
 cond.true5.i:                                     ; preds = %entry
   %2 = load i32, ptr %call.i.i.i, align 8
   %ne.i12.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i12.i, ptr noundef null, i64 noundef 0)
+  %call.i.i13.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i, ptr noundef null, i64 noundef 0)
   br label %ggml_log_impl.exit
 
 ggml_log_impl.exit:                               ; preds = %entry, %cond.true5.i
@@ -5675,7 +5675,7 @@ entry:
   %1 = load i32, ptr %a, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 1, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 11, ptr %op, align 8
@@ -5684,7 +5684,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %2 = load i32, ptr %call.i.i, align 8
   %ne.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i8 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i8 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -5708,7 +5708,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep13, i64 24, i1 false)
   %tobool.not.not = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 12, ptr %op, align 8
   br i1 %tobool.not.not, label %cond.end, label %cond.true
@@ -5716,7 +5716,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %2 = load i32, ptr %call.i, align 8
   %ne.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -5756,7 +5756,7 @@ if.end:                                           ; preds = %entry
   %arrayidx8 = getelementptr inbounds i8, ptr %a, i64 40
   %4 = load i64, ptr %arrayidx8, align 8
   store i64 %4, ptr %arrayinit.element6, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 13, ptr %op, align 8
   %grad12 = getelementptr inbounds i8, ptr %call.i, i64 152
@@ -5810,7 +5810,7 @@ if.end8:                                          ; preds = %do.end
   %7 = load i64, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 %7, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 14, ptr %op, align 8
@@ -5873,7 +5873,7 @@ do.end:                                           ; preds = %ggml_can_repeat.exi
   %10 = load ptr, ptr %grad, align 8
   %tobool.not.not = icmp eq ptr %10, null
   %11 = load i32, ptr %a, align 8
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 15, ptr %op, align 8
   br i1 %tobool.not.not, label %cond.end, label %cond.true
@@ -5881,7 +5881,7 @@ do.end:                                           ; preds = %ggml_can_repeat.exi
 cond.true:                                        ; preds = %do.end
   %12 = load i32, ptr %call.i, align 8
   %ne.i10 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i10, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne.i10, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end, %cond.true
@@ -5956,7 +5956,7 @@ do.end:                                           ; preds = %ggml_can_repeat.exi
 
 if.end8:                                          ; preds = %do.end
   %12 = load i32, ptr %a, align 8
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne1.i, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 16, ptr %op, align 8
   br i1 %tobool.not.not, label %cond.true, label %cond.end
@@ -5964,7 +5964,7 @@ if.end8:                                          ; preds = %do.end
 cond.true:                                        ; preds = %if.end8
   %13 = load i32, ptr %call.i, align 8
   %ne.i22 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i22, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i22, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end8, %cond.true
@@ -6047,7 +6047,7 @@ if.end18:                                         ; preds = %if.then17, %lor.lhs
   store i64 %add, ptr %arrayinit.element1.i, align 16
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %ne.i, i64 24
   store i64 %4, ptr %arrayinit.element2.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %10, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %10, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 17, ptr %op, align 8
@@ -6056,7 +6056,7 @@ if.end18:                                         ; preds = %if.then17, %lor.lhs
 cond.true:                                        ; preds = %if.end18
   %13 = load i32, ptr %call.i.i, align 8
   %ne.i21 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i22 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i21, ptr noundef null, i64 noundef 0)
+  %call.i.i22 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i21, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end18, %cond.true
@@ -6078,7 +6078,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 0, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6088,7 +6088,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6108,7 +6108,7 @@ entry:
   %tobool1.not.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 84
   store i32 %op, ptr %op_params.i.i, align 4
   %op4.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
@@ -6118,7 +6118,7 @@ entry:
 cond.true6.i:                                     ; preds = %entry
   %2 = load i32, ptr %call.i.i.i, align 8
   %ne.i14.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %call.i.i15.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary_impl.exit
 
 ggml_unary_impl.exit:                             ; preds = %entry, %cond.true6.i
@@ -6206,7 +6206,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 1, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6216,7 +6216,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6270,7 +6270,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 2, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6280,7 +6280,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6334,7 +6334,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 3, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6344,7 +6344,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6398,7 +6398,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 4, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6408,7 +6408,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6462,7 +6462,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 5, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6472,7 +6472,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6526,7 +6526,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 6, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6536,7 +6536,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6619,7 +6619,7 @@ cond.end:                                         ; preds = %entry
   %2 = load ptr, ptr %grad, align 8
   %3 = load i32, ptr %a, align 8
   %ne.i12 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i12, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i12, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -6643,7 +6643,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true5:                                       ; preds = %ggml_set_op_params.exit
   %6 = load i32, ptr %call.i.i, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   br label %cond.end8
 
 cond.end8:                                        ; preds = %ggml_set_op_params.exit.thread, %ggml_set_op_params.exit, %cond.true5
@@ -6664,7 +6664,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 7, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6674,7 +6674,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6728,7 +6728,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 8, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6738,7 +6738,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6792,7 +6792,7 @@ entry:
   %tobool1.not.not.i.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i12.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 84
   store i32 9, ptr %op_params.i.i.i, align 4
   %op4.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
@@ -6802,7 +6802,7 @@ entry:
 cond.true6.i.i:                                   ; preds = %entry
   %2 = load i32, ptr %call.i.i.i.i, align 8
   %ne.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_unary.exit
 
 ggml_unary.exit:                                  ; preds = %entry, %cond.true6.i.i
@@ -6865,7 +6865,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load i32, ptr %a, align 8
   %ne.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 18, ptr %op, align 8
   br label %cond.end
@@ -6873,12 +6873,12 @@ if.end:                                           ; preds = %lor.lhs.false
 cond.true:                                        ; preds = %entry, %lor.lhs.false
   %3 = load i32, ptr %a, align 8
   %ne.i13 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i13, ptr noundef null, i64 noundef 0)
+  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i13, ptr noundef null, i64 noundef 0)
   %op15 = getelementptr inbounds i8, ptr %call.i.i14, i64 80
   store i32 18, ptr %op15, align 8
   %4 = load i32, ptr %call.i.i14, align 8
   %ne.i10 = getelementptr inbounds i8, ptr %call.i.i14, i64 16
-  %call.i.i11 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i10, ptr noundef null, i64 noundef 0)
+  %call.i.i11 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i10, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
@@ -6943,7 +6943,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
 cond.end:                                         ; preds = %land.lhs.true
   %5 = load i32, ptr %a, align 8
   %ne.i12 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i12, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %ne.i12, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -7047,7 +7047,7 @@ cond.end:                                         ; preds = %entry
   %2 = load ptr, ptr %grad, align 8
   %3 = load i32, ptr %a, align 8
   %ne.i12 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i12, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i12, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -7071,7 +7071,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true5:                                       ; preds = %ggml_set_op_params.exit
   %6 = load i32, ptr %call.i.i, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   br label %cond.end8
 
 cond.end8:                                        ; preds = %ggml_set_op_params.exit.thread, %ggml_set_op_params.exit, %cond.true5
@@ -7125,7 +7125,7 @@ entry:
   %0 = load ptr, ptr %grad, align 8
   %1 = load i32, ptr %a, align 8
   %ne.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -7149,7 +7149,7 @@ ggml_set_op_params.exit:                          ; preds = %entry
 cond.true:                                        ; preds = %ggml_set_op_params.exit
   %4 = load i32, ptr %call.i.i, align 8
   %ne.i10 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i11 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i10, ptr noundef null, i64 noundef 0)
+  %call.i.i11 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i10, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %ggml_set_op_params.exit, %cond.true
@@ -7183,7 +7183,7 @@ do.body.i:                                        ; preds = %entry
 ggml_group_norm_impl.exit:                        ; preds = %entry
   %3 = load i32, ptr %a, align 8
   %ne.i13.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i13.i, ptr noundef null, i64 noundef 0)
   %op_params.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 84
   store i32 %n_groups, ptr %op_params.i, align 4
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
@@ -7316,7 +7316,7 @@ if.end13:                                         ; preds = %if.then12, %lor.lhs
   store i64 %2, ptr %arrayinit.element17, align 16
   %arrayinit.element20 = getelementptr inbounds i8, ptr %ne, i64 24
   store i64 %4, ptr %arrayinit.element20, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 23, ptr %op, align 8
   br i1 %is_node.0, label %cond.true, label %cond.end
@@ -7324,7 +7324,7 @@ if.end13:                                         ; preds = %if.then12, %lor.lhs
 cond.true:                                        ; preds = %if.end13
   %16 = load i32, ptr %call.i, align 8
   %ne.i17 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i17, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i17, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end13, %cond.true
@@ -7475,7 +7475,7 @@ if.end65:                                         ; preds = %if.then64, %lor.lhs
   store i64 1, ptr %arrayinit.element72, align 16
   %arrayinit.element75 = getelementptr inbounds i8, ptr %ne66, i64 24
   store i64 1, ptr %arrayinit.element75, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne66, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne66, ptr noundef null, i64 noundef 0)
   %op_params.i = getelementptr inbounds i8, ptr %call.i, i64 84
   store i32 %id, ptr %op_params.i, align 4
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 88
@@ -7487,7 +7487,7 @@ if.end65:                                         ; preds = %if.then64, %lor.lhs
 cond.true:                                        ; preds = %if.end65
   %25 = load i32, ptr %call.i, align 8
   %ne.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %25, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %25, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.true, %if.end65
@@ -7685,7 +7685,7 @@ if.end13:                                         ; preds = %if.then12, %lor.lhs
   store i64 %2, ptr %arrayinit.element17, align 16
   %arrayinit.element20 = getelementptr inbounds i8, ptr %ne, i64 24
   store i64 %4, ptr %arrayinit.element20, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 25, ptr %op, align 8
   br i1 %is_node.0, label %cond.true, label %cond.end
@@ -7693,7 +7693,7 @@ if.end13:                                         ; preds = %if.then12, %lor.lhs
 cond.true:                                        ; preds = %if.end13
   %16 = load i32, ptr %call.i, align 8
   %ne.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end13, %cond.true
@@ -7826,7 +7826,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !41
 
 cond.false:                                       ; preds = %if.end13
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body.i, %cond.false
@@ -7838,7 +7838,7 @@ cond.end:                                         ; preds = %for.body.i, %cond.f
 cond.true18:                                      ; preds = %cond.end
   %19 = load i32, ptr %cond, align 8
   %ne.i22 = getelementptr inbounds i8, ptr %cond, i64 16
-  %call.i.i23 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %19, i32 noundef 4, ptr noundef nonnull %ne.i22, ptr noundef null, i64 noundef 0)
+  %call.i.i23 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %19, i32 noundef 4, ptr noundef nonnull readonly %ne.i22, ptr noundef null, i64 noundef 0)
   br label %cond.end21
 
 cond.end21:                                       ; preds = %cond.end, %cond.true18
@@ -7942,7 +7942,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %ggml_set_op_params.exit, label %for.body.i, !llvm.loop !41
 
 cond.end:                                         ; preds = %if.end7
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -7979,7 +7979,7 @@ ggml_set_op_params.exit:                          ; preds = %for.body.i, %cond.e
 cond.true22:                                      ; preds = %ggml_set_op_params.exit
   %16 = load i32, ptr %cond35, align 8
   %ne.i26 = getelementptr inbounds i8, ptr %cond35, i64 16
-  %call.i.i27 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i26, ptr noundef null, i64 noundef 0)
+  %call.i.i27 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i26, ptr noundef null, i64 noundef 0)
   br label %cond.end25
 
 cond.end25:                                       ; preds = %ggml_set_op_params.exit, %cond.true22
@@ -8152,7 +8152,7 @@ if.end21:                                         ; preds = %if.else, %if.then12
 cond.true:                                        ; preds = %if.end21
   %14 = load i32, ptr %call.i, align 8
   %ne.i26 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull %ne.i26, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull readonly %ne.i26, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end21, %cond.true
@@ -8181,7 +8181,7 @@ entry:
   %tobool1.not.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8
   %ne.i13.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i13.i, ptr noundef null, i64 noundef 0)
   %name.i = getelementptr inbounds i8, ptr %a, i64 288
   %call4.i = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull %name.i)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
@@ -8191,7 +8191,7 @@ entry:
 cond.true6.i:                                     ; preds = %entry
   %2 = load i32, ptr %call.i.i.i, align 8
   %ne.i14.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %call.i.i15.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i14.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i, ptr noundef null, i64 noundef 0)
   br label %ggml_cont_impl.exit
 
 ggml_cont_impl.exit:                              ; preds = %entry, %cond.true6.i
@@ -8283,7 +8283,7 @@ do.end:                                           ; preds = %entry
   store i64 %ne2, ptr %arrayinit.element1.i, align 16
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %ne.i14, i64 24
   store i64 %ne3, ptr %arrayinit.element2.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i14)
   %name = getelementptr inbounds i8, ptr %a, i64 288
   %call6 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull %name)
@@ -8405,7 +8405,7 @@ do.end10:                                         ; preds = %do.body3
 cond.true:                                        ; preds = %do.end10
   %20 = load i32, ptr %call17, align 8
   %ne.i25 = getelementptr inbounds i8, ptr %call17, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %20, i32 noundef 4, ptr noundef nonnull %ne.i25, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %20, i32 noundef 4, ptr noundef nonnull readonly %ne.i25, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end10, %cond.true
@@ -8503,7 +8503,7 @@ do.end9:                                          ; preds = %do.body3
 cond.true:                                        ; preds = %do.end9
   %16 = load i32, ptr %call12, align 8
   %ne.i17 = getelementptr inbounds i8, ptr %call12, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i17, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i17, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end9, %cond.true
@@ -8604,7 +8604,7 @@ do.end9:                                          ; preds = %do.body3
 cond.true:                                        ; preds = %do.end9
   %16 = load i32, ptr %call12, align 8
   %ne.i18 = getelementptr inbounds i8, ptr %call12, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end9, %cond.true
@@ -8708,7 +8708,7 @@ do.end10:                                         ; preds = %do.body3
 cond.true:                                        ; preds = %do.end10
   %16 = load i32, ptr %call14, align 8
   %ne.i19 = getelementptr inbounds i8, ptr %call14, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i19, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i19, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end10, %cond.true
@@ -8815,7 +8815,7 @@ do.end11:                                         ; preds = %do.body3
 cond.true:                                        ; preds = %do.end11
   %16 = load i32, ptr %call16, align 8
   %ne.i20 = getelementptr inbounds i8, ptr %call16, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i20, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i20, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end11, %cond.true
@@ -8868,7 +8868,7 @@ ggml_set_op_params.exit:                          ; preds = %entry
 cond.true:                                        ; preds = %ggml_set_op_params.exit
   %4 = load i32, ptr %call, align 8
   %ne.i = getelementptr inbounds i8, ptr %call, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %ggml_set_op_params.exit, %cond.true
@@ -9153,7 +9153,7 @@ ggml_view_tensor.exit:                            ; preds = %for.body.i
 
 cond.true:                                        ; preds = %ggml_view_tensor.exit
   %35 = load i32, ptr %call.i, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %35, i32 noundef 4, ptr noundef nonnull %ne115, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %35, i32 noundef 4, ptr noundef nonnull readonly %ne115, ptr noundef null, i64 noundef 0)
   br label %ggml_set_op_params.exit
 
 ggml_set_op_params.exit:                          ; preds = %cond.true, %ggml_view_tensor.exit
@@ -9219,7 +9219,7 @@ ggml_view_tensor.exit:                            ; preds = %for.body.i
 
 cond.true:                                        ; preds = %ggml_view_tensor.exit
   %7 = load i32, ptr %call.i, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne2, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne2, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %ggml_view_tensor.exit, %cond.true
@@ -9311,7 +9311,7 @@ if.end23:                                         ; preds = %if.then22, %lor.lhs
   store i64 %0, ptr %arrayinit.element1.i, align 16
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %ne.i, i64 24
   store i64 %14, ptr %arrayinit.element2.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 34, ptr %op, align 8
@@ -9320,7 +9320,7 @@ if.end23:                                         ; preds = %if.then22, %lor.lhs
 cond.true:                                        ; preds = %if.end23
   %15 = load i32, ptr %call.i.i, align 8
   %ne.i17 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i18 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %15, i32 noundef 4, ptr noundef nonnull %ne.i17, ptr noundef null, i64 noundef 0)
+  %call.i.i18 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %15, i32 noundef 4, ptr noundef nonnull readonly %ne.i17, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end23, %cond.true
@@ -9433,7 +9433,7 @@ if.end19:                                         ; preds = %if.then18, %lor.lhs
   store i64 %10, ptr %ne.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ne.i, i64 8
   store i64 %16, ptr %arrayinit.element.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 2, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ne.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 35, ptr %op, align 8
@@ -9442,7 +9442,7 @@ if.end19:                                         ; preds = %if.then18, %lor.lhs
 cond.true:                                        ; preds = %if.end19
   %17 = load i32, ptr %call.i.i, align 8
   %ne.i27 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i28 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull %ne.i27, ptr noundef null, i64 noundef 0)
+  %call.i.i28 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull readonly %ne.i27, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end19, %cond.true
@@ -9488,7 +9488,7 @@ do.end:                                           ; preds = %entry
   %5 = load <2 x i64>, ptr %arrayidx11, align 8
   store <2 x i64> %5, ptr %arrayinit.element9, align 16
   %6 = load i32, ptr %a, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne4, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne4, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 36, ptr %op, align 8
   br i1 %tobool.not.not, label %cond.end, label %cond.true
@@ -9496,7 +9496,7 @@ do.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %do.end
   %7 = load i32, ptr %call.i, align 8
   %ne.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end, %cond.true
@@ -9544,7 +9544,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %ggml_set_op_params.exit, label %for.body.i, !llvm.loop !41
 
 cond.end:                                         ; preds = %entry
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -9568,7 +9568,7 @@ ggml_set_op_params.exit:                          ; preds = %for.body.i, %cond.e
 cond.true4:                                       ; preds = %ggml_set_op_params.exit
   %5 = load i32, ptr %cond17, align 8
   %ne.i13 = getelementptr inbounds i8, ptr %cond17, i64 16
-  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i13, ptr noundef null, i64 noundef 0)
+  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %ne.i13, ptr noundef null, i64 noundef 0)
   br label %cond.end7
 
 cond.end7:                                        ; preds = %ggml_set_op_params.exit, %cond.true4
@@ -9615,7 +9615,7 @@ ggml_set_op_params.exit.i:                        ; preds = %for.body.i.i
 cond.true4.i:                                     ; preds = %ggml_set_op_params.exit.i
   %3 = load i32, ptr %call.i.i, align 8
   %ne.i13.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
+  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i13.i, ptr noundef null, i64 noundef 0)
   br label %ggml_diag_mask_inf_impl.exit
 
 ggml_diag_mask_inf_impl.exit:                     ; preds = %ggml_set_op_params.exit.i, %cond.true4.i
@@ -9663,7 +9663,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %ggml_set_op_params.exit, label %for.body.i, !llvm.loop !41
 
 cond.end:                                         ; preds = %entry
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -9687,7 +9687,7 @@ ggml_set_op_params.exit:                          ; preds = %for.body.i, %cond.e
 cond.true4:                                       ; preds = %ggml_set_op_params.exit
   %5 = load i32, ptr %cond17, align 8
   %ne.i13 = getelementptr inbounds i8, ptr %cond17, i64 16
-  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i13, ptr noundef null, i64 noundef 0)
+  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %ne.i13, ptr noundef null, i64 noundef 0)
   br label %cond.end7
 
 cond.end7:                                        ; preds = %ggml_set_op_params.exit, %cond.true4
@@ -9734,7 +9734,7 @@ ggml_set_op_params.exit.i:                        ; preds = %for.body.i.i
 cond.true4.i:                                     ; preds = %ggml_set_op_params.exit.i
   %3 = load i32, ptr %call.i.i, align 8
   %ne.i13.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
+  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i13.i, ptr noundef null, i64 noundef 0)
   br label %ggml_diag_mask_zero_impl.exit
 
 ggml_diag_mask_zero_impl.exit:                    ; preds = %ggml_set_op_params.exit.i, %cond.true4.i
@@ -9929,7 +9929,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %ggml_set_op_params.exit, label %for.body.i, !llvm.loop !41
 
 cond.end:                                         ; preds = %if.end33
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -9953,7 +9953,7 @@ ggml_set_op_params.exit:                          ; preds = %for.body.i, %cond.e
 cond.true41:                                      ; preds = %ggml_set_op_params.exit
   %35 = load i32, ptr %cond52, align 8
   %ne.i48 = getelementptr inbounds i8, ptr %cond52, i64 16
-  %call.i.i49 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %35, i32 noundef 4, ptr noundef nonnull %ne.i48, ptr noundef null, i64 noundef 0)
+  %call.i.i49 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %35, i32 noundef 4, ptr noundef nonnull readonly %ne.i48, ptr noundef null, i64 noundef 0)
   br label %cond.end44
 
 cond.end44:                                       ; preds = %ggml_set_op_params.exit, %cond.true41
@@ -9998,7 +9998,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %2 = load i32, ptr %a, align 8
   %ne.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %ne.i.i, ptr noundef null, i64 noundef 0)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i32 40, ptr %op.i, align 8
   br label %ggml_soft_max_back_impl.exit
@@ -10006,12 +10006,12 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 cond.true6.i:                                     ; preds = %entry, %lor.lhs.false.i
   %3 = load i32, ptr %a, align 8
   %ne.i.i2 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i3 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i.i2, ptr noundef null, i64 noundef 0)
+  %call.i.i.i3 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i.i2, ptr noundef null, i64 noundef 0)
   %op.i4 = getelementptr inbounds i8, ptr %call.i.i.i3, i64 80
   store i32 40, ptr %op.i4, align 8
   %4 = load i32, ptr %call.i.i.i3, align 8
   %ne.i13.i = getelementptr inbounds i8, ptr %call.i.i.i3, i64 16
-  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
+  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i13.i, ptr noundef null, i64 noundef 0)
   br label %ggml_soft_max_back_impl.exit
 
 ggml_soft_max_back_impl.exit:                     ; preds = %if.end.i, %cond.true6.i
@@ -10072,7 +10072,7 @@ cond.end.i:                                       ; preds = %for.body.i.i
 cond.true6.i:                                     ; preds = %cond.end.i
   %4 = load i32, ptr %call.i.i, align 8
   %ne.i13.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
+  %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i13.i, ptr noundef null, i64 noundef 0)
   br label %ggml_soft_max_back_impl.exit
 
 ggml_soft_max_back_impl.exit:                     ; preds = %cond.end.i, %cond.true6.i
@@ -10186,7 +10186,7 @@ cond.end.thread:                                  ; preds = %for.body.i
   br label %ggml_set_op_params.exit
 
 cond.end:                                         ; preds = %do.end18
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %params.sroa.15, i8 0, i64 3, i1 false)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
@@ -10237,7 +10237,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end.thread, %c
 cond.true44:                                      ; preds = %ggml_set_op_params.exit
   %17 = load i32, ptr %cond24, align 8
   %ne.i20 = getelementptr inbounds i8, ptr %cond24, i64 16
-  %call.i.i21 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull %ne.i20, ptr noundef null, i64 noundef 0)
+  %call.i.i21 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull readonly %ne.i20, ptr noundef null, i64 noundef 0)
   br label %cond.end47
 
 cond.end47:                                       ; preds = %ggml_set_op_params.exit, %cond.true44
@@ -10356,7 +10356,7 @@ if.then20:                                        ; preds = %do.body18
 do.end24:                                         ; preds = %do.body18
   %14 = load i32, ptr %a, align 8
   %ne.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -10688,7 +10688,7 @@ cond.end69:                                       ; preds = %cond.end61, %cond.t
   %24 = getelementptr inbounds i8, ptr %ne37, i64 16
   store i64 %.sink, ptr %24, align 16
   store i64 %cond70, ptr %arrayinit.element6354, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %ne37, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 1, i32 noundef 4, ptr noundef nonnull readonly %ne37, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -10880,7 +10880,7 @@ if.end41:                                         ; preds = %lor.lhs.false
   store i64 1, ptr %arrayinit.element50, align 16
   %arrayinit.element53 = getelementptr inbounds i8, ptr %ne42, i64 24
   store i64 1, ptr %arrayinit.element53, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne42, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne42, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -11087,7 +11087,7 @@ if.end11:                                         ; preds = %lor.lhs.false
   %arrayidx28 = getelementptr inbounds i8, ptr %b, i64 40
   %16 = load i64, ptr %arrayidx28, align 8
   store i64 %16, ptr %arrayinit.element26, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne12, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne12, ptr noundef null, i64 noundef 0)
   %op_params.i = getelementptr inbounds i8, ptr %call.i, i64 84
   store i32 %stride, ptr %op_params.i, align 4
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
@@ -11136,7 +11136,7 @@ if.end:                                           ; preds = %entry
   %arrayidx5 = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load i64, ptr %arrayidx5, align 8
   store i64 %5, ptr %arrayinit.element, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 2, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -11207,7 +11207,7 @@ if.end:                                           ; preds = %entry
   %arrayidx9 = getelementptr inbounds i8, ptr %a, i64 32
   %18 = load i64, ptr %arrayidx9, align 8
   store i64 %18, ptr %arrayinit.element7, align 16
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 3, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -11273,7 +11273,7 @@ if.end:                                           ; preds = %entry
   %9 = load <4 x i64>, ptr %ne, align 8
   %10 = add nsw <4 x i64> %9, %8
   store <4 x i64> %10, ptr %ne.i, align 16
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 51, ptr %op, align 8
@@ -11319,7 +11319,7 @@ ggml_upscale_impl.exit:                           ; preds = %entry
   %arrayinit.element1.i.i = getelementptr inbounds i8, ptr %ne.i.i, i64 16
   %6 = load <2 x i64>, ptr %arrayidx7.i, align 8
   store <2 x i64> %6, ptr %arrayinit.element1.i.i, align 16
-  %call.i.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i.i)
   %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i32 50, ptr %op.i, align 8
@@ -11338,7 +11338,7 @@ ggml_upscale_impl.exit:                           ; preds = %entry
 define noundef ptr @ggml_argsort(ptr nocapture noundef %ctx, ptr noundef %a, i32 noundef %order) local_unnamed_addr #0 {
 entry:
   %ne = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op_params.i = getelementptr inbounds i8, ptr %call.i, i64 84
   store i32 %order, ptr %op_params.i, align 4
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
@@ -11370,7 +11370,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 18, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op_params.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 84
   store i32 1, ptr %op_params.i.i, align 4
   %op.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
@@ -11462,7 +11462,7 @@ if.then8:                                         ; preds = %lor.lhs.false5, %lo
 
 if.end9:                                          ; preds = %if.then8, %lor.lhs.false5
   %is_node.0 = phi i1 [ true, %if.then8 ], [ false, %lor.lhs.false5 ]
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne1.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -11486,7 +11486,7 @@ ggml_set_op_params.exit:                          ; preds = %if.end9
 cond.true:                                        ; preds = %ggml_set_op_params.exit
   %13 = load i32, ptr %call.i, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i16, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %ggml_set_op_params.exit, %cond.true
@@ -11570,18 +11570,18 @@ lor.lhs.false11:                                  ; preds = %lor.lhs.false8
   br i1 %tobool13.not, label %if.end15, label %cond.true
 
 if.end15:                                         ; preds = %lor.lhs.false11
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne1.i, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 55, ptr %op, align 8
   br label %cond.end
 
 cond.true:                                        ; preds = %do.end, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false8, %lor.lhs.false11
-  %call.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
+  %call.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne1.i, ptr noundef null, i64 noundef 0)
   %op21 = getelementptr inbounds i8, ptr %call.i20, i64 80
   store i32 55, ptr %op21, align 8
   %13 = load i32, ptr %call.i20, align 8
   %ne.i18 = getelementptr inbounds i8, ptr %call.i20, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end15, %cond.true
@@ -11800,7 +11800,7 @@ do.end136:                                        ; preds = %do.body103
   %div66 = lshr exact i64 %add148, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 %div66, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
@@ -11908,7 +11908,7 @@ if.end14:                                         ; preds = %do.end8
   %sext28 = mul i64 %mul, %div40
   %conv49 = ashr exact i64 %sext28, 32
   store i64 %conv49, ptr %arrayinit.element48, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne42, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %ne42, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -11983,7 +11983,7 @@ if.end7:                                          ; preds = %do.end
   store i64 %conv10, ptr %arrayinit.element9, align 16
   %arrayinit.element11 = getelementptr inbounds i8, ptr %ne, i64 24
   store i64 1, ptr %arrayinit.element11, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 3, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -12068,7 +12068,7 @@ if.end16:                                         ; preds = %do.end10
   store i64 %conv20, ptr %arrayinit.element21, align 16
   %arrayinit.element23 = getelementptr inbounds i8, ptr %ne17, i64 24
   store i64 1, ptr %arrayinit.element23, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %ne17, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 1, i32 noundef 3, ptr noundef nonnull readonly %ne17, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 59, ptr %op, align 8
   %grad32 = getelementptr inbounds i8, ptr %call.i, i64 152
@@ -12374,7 +12374,7 @@ for.body.i:                                       ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !41
 
 cond.false:                                       ; preds = %lor.lhs.false77
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull readonly %ne.i34, ptr noundef null, i64 noundef 0)
   %op_params.i94 = getelementptr inbounds i8, ptr %call.i.i, i64 84
   store i32 0, ptr %op_params.i94, align 4
   %op95 = getelementptr inbounds i8, ptr %call.i.i, i64 80
@@ -12389,14 +12389,14 @@ cond.end:                                         ; preds = %for.body.i
   br label %cond.end91
 
 cond.true88:                                      ; preds = %land.lhs.true, %lor.lhs.false, %lor.lhs.false77
-  %call.i.i99 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef null, i64 noundef 0)
+  %call.i.i99 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull readonly %ne.i34, ptr noundef null, i64 noundef 0)
   %op_params.i94100 = getelementptr inbounds i8, ptr %call.i.i99, i64 84
   store i32 0, ptr %op_params.i94100, align 4
   %op95101 = getelementptr inbounds i8, ptr %call.i.i99, i64 80
   store i32 60, ptr %op95101, align 8
   %54 = load i32, ptr %call.i.i99, align 8
   %ne.i88 = getelementptr inbounds i8, ptr %call.i.i99, i64 16
-  %call.i.i89 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %54, i32 noundef 4, ptr noundef nonnull %ne.i88, ptr noundef null, i64 noundef 0)
+  %call.i.i89 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %54, i32 noundef 4, ptr noundef nonnull readonly %ne.i88, ptr noundef null, i64 noundef 0)
   br label %cond.end91
 
 cond.end91:                                       ; preds = %cond.false, %cond.end, %cond.true88
@@ -12464,7 +12464,7 @@ cond.end:                                         ; preds = %entry
   %2 = load ptr, ptr %grad, align 8
   %3 = load i32, ptr %a, align 8
   %ne.i12 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i12, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i12, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -12488,7 +12488,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true5:                                       ; preds = %ggml_set_op_params.exit
   %6 = load i32, ptr %call.i.i, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   br label %cond.end8
 
 cond.end8:                                        ; preds = %ggml_set_op_params.exit.thread, %ggml_set_op_params.exit, %cond.true5
@@ -12632,7 +12632,7 @@ cond.end.thread:                                  ; preds = %for.body.i
 cond.end:                                         ; preds = %lor.lhs.false, %if.then6
   %is_node.0.ph = phi i1 [ false, %lor.lhs.false ], [ true, %if.then6 ]
   %14 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -12655,7 +12655,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true12:                                      ; preds = %ggml_set_op_params.exit
   %17 = load i32, ptr %call.i.i, align 8
   %ne.i19 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull %ne.i19, ptr noundef null, i64 noundef 0)
+  %call.i.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull readonly %ne.i19, ptr noundef null, i64 noundef 0)
   br label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end.thread, %ggml_set_op_params.exit, %cond.true12
@@ -12721,7 +12721,7 @@ cond.end:                                         ; preds = %entry
   %2 = load ptr, ptr %grad, align 8
   %3 = load i32, ptr %a, align 8
   %ne.i12 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i12, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i12, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -12745,7 +12745,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true5:                                       ; preds = %ggml_set_op_params.exit
   %6 = load i32, ptr %call.i.i, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i15 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   br label %cond.end8
 
 cond.end8:                                        ; preds = %ggml_set_op_params.exit.thread, %ggml_set_op_params.exit, %cond.true5
@@ -12850,7 +12850,7 @@ cond.end:                                         ; preds = %lor.lhs.false, %if.
   %is_node.0.ph = phi i1 [ false, %lor.lhs.false ], [ true, %if.then ]
   %4 = load i32, ptr %a, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -12873,7 +12873,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true7:                                       ; preds = %ggml_set_op_params.exit
   %7 = load i32, ptr %call.i.i, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i17 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
+  %call.i.i17 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne.i16, ptr noundef null, i64 noundef 0)
   br label %cond.end10
 
 cond.end10:                                       ; preds = %cond.end.thread, %ggml_set_op_params.exit, %cond.true7
@@ -12988,7 +12988,7 @@ cond.end:                                         ; preds = %lor.lhs.false4, %if
   %is_node.0.ph = phi i1 [ false, %lor.lhs.false4 ], [ true, %if.then ]
   %5 = load i32, ptr %a, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %ne.i16, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -13011,7 +13011,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true10:                                      ; preds = %ggml_set_op_params.exit
   %8 = load i32, ptr %call.i.i, align 8
   %ne.i18 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i19 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i19 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %8, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end.thread, %ggml_set_op_params.exit, %cond.true10
@@ -13129,7 +13129,7 @@ cond.end:                                         ; preds = %do.end
   %4 = load ptr, ptr %grad, align 8
   %5 = load i32, ptr %a, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %ne.i14, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -13157,7 +13157,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true13:                                      ; preds = %ggml_set_op_params.exit
   %8 = load i32, ptr %call.i.i, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i17 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
+  %call.i.i17 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %8, i32 noundef 4, ptr noundef nonnull readonly %ne.i16, ptr noundef null, i64 noundef 0)
   br label %cond.end16
 
 cond.end16:                                       ; preds = %ggml_set_op_params.exit.thread, %ggml_set_op_params.exit, %cond.true13
@@ -13254,7 +13254,7 @@ cond.end:                                         ; preds = %lor.lhs.false4, %if
   %is_node.0.ph = phi i1 [ false, %lor.lhs.false4 ], [ true, %if.then7 ]
   %6 = load i32, ptr %a, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %ne.i16, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -13281,7 +13281,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true16:                                      ; preds = %ggml_set_op_params.exit
   %9 = load i32, ptr %call.i.i, align 8
   %ne.i18 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i19 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i19 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %9, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end19
 
 cond.end19:                                       ; preds = %cond.end.thread, %ggml_set_op_params.exit, %cond.true16
@@ -13386,7 +13386,7 @@ cond.end:                                         ; preds = %lor.lhs.false7, %if
   %is_node.0.ph = phi i1 [ false, %lor.lhs.false7 ], [ true, %if.then10 ]
   %7 = load i32, ptr %a, align 8
   %ne.i18 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne.i18, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
 
@@ -13413,7 +13413,7 @@ ggml_set_op_params.exit:                          ; preds = %cond.end
 cond.true19:                                      ; preds = %ggml_set_op_params.exit
   %10 = load i32, ptr %call.i.i, align 8
   %ne.i20 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i21 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %10, i32 noundef 4, ptr noundef nonnull %ne.i20, ptr noundef null, i64 noundef 0)
+  %call.i.i21 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %10, i32 noundef 4, ptr noundef nonnull readonly %ne.i20, ptr noundef null, i64 noundef 0)
   br label %cond.end22
 
 cond.end22:                                       ; preds = %cond.end.thread, %ggml_set_op_params.exit, %cond.true19
@@ -13501,7 +13501,7 @@ if.end6:                                          ; preds = %if.then5, %lor.lhs.
   %12 = load i32, ptr %a, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 1, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 70, ptr %op, align 8
@@ -13510,7 +13510,7 @@ if.end6:                                          ; preds = %if.then5, %lor.lhs.
 cond.true:                                        ; preds = %if.end6
   %13 = load i32, ptr %call.i.i, align 8
   %ne.i12 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %call.i.i13 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i12, ptr noundef null, i64 noundef 0)
+  %call.i.i13 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull readonly %ne.i12, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end6, %cond.true
@@ -13602,7 +13602,7 @@ if.then5:                                         ; preds = %do.body3, %land.lhs
 
 do.end9:                                          ; preds = %ggml_is_scalar.exit
   %16 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 71, ptr %op, align 8
   %grad = getelementptr inbounds i8, ptr %call.i.i, i64 152
@@ -13638,7 +13638,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %3 = load i32, ptr %tensor, align 8
   %ne.i = getelementptr inbounds i8, ptr %tensor, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   store ptr %call.i.i, ptr %grad, align 8
   %name = getelementptr inbounds i8, ptr %tensor, i64 288
   %call5 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i.i, ptr noundef nonnull @.str.109, ptr noundef nonnull %name)
@@ -14301,7 +14301,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then6:                                         ; preds = %for.body
   %7 = load i32, ptr %5, align 8
   %ne.i = getelementptr inbounds i8, ptr %5, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   store ptr %call.i.i, ptr %grad, align 8
   %8 = load ptr, ptr %grads, align 8
   %arrayidx11 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
@@ -14582,7 +14582,7 @@ if.then22:                                        ; preds = %do.end
 if.end24:                                         ; preds = %do.end
   %17 = load i32, ptr %node, align 8
   %ne = getelementptr inbounds i8, ptr %node, i64 16
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %17, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %18 = load ptr, ptr %9, align 8
   %arrayidx29 = getelementptr inbounds ptr, ptr %18, i64 %i.0.fr.i
   %19 = load ptr, ptr %arrayidx29, align 8
@@ -18901,7 +18901,7 @@ if.then8:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 %call3, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef nonnull %call6, i32 noundef 16, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef nonnull %call6, i32 noundef 16, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %data13 = getelementptr inbounds i8, ptr %call.i.i, i64 280
   %2 = load ptr, ptr %data13, align 8
@@ -19130,7 +19130,7 @@ for.body62:                                       ; preds = %for.body, %for.body
 
 for.end:                                          ; preds = %for.body62
   %25 = load ptr, ptr %ctx_eval, align 8
-  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %25, i32 noundef %21, i32 noundef 4, ptr noundef nonnull %ne, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %25, i32 noundef %21, i32 noundef 4, ptr noundef nonnull readonly %ne, ptr noundef null, i64 noundef 0)
   %op68 = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 %22, ptr %op68, align 8
   %name = getelementptr inbounds i8, ptr %call.i, i64 288
@@ -19380,7 +19380,7 @@ sw.bb177:                                         ; preds = %for.end156
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.end156
-  %call.i206 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %55, i32 noundef %48, i32 noundef 4, ptr noundef nonnull %ne107, ptr noundef null, i64 noundef 0)
+  %call.i206 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %55, i32 noundef %48, i32 noundef 4, ptr noundef nonnull readonly %ne107, ptr noundef null, i64 noundef 0)
   %op186 = getelementptr inbounds i8, ptr %call.i206, i64 80
   store i32 %49, ptr %op186, align 8
   br label %sw.epilog
@@ -20279,21 +20279,21 @@ if.end68:                                         ; preds = %if.end65, %entry
 sw.bb:                                            ; preds = %if.end68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 %nx, ptr %ne0.addr.i, align 8
-  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %adam = getelementptr inbounds i8, ptr %opt, i64 160
   store ptr %call.i.i, ptr %adam, align 8
   %8 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i76)
   store i64 %nx, ptr %ne0.addr.i76, align 8
-  %call.i.i77 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i76, ptr noundef null, i64 noundef 0)
+  %call.i.i77 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i76, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i76)
   %m76 = getelementptr inbounds i8, ptr %opt, i64 168
   store ptr %call.i.i77, ptr %m76, align 8
   %9 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i78)
   store i64 %nx, ptr %ne0.addr.i78, align 8
-  %call.i.i79 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %9, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i78, ptr noundef null, i64 noundef 0)
+  %call.i.i79 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %9, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i78, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i78)
   %v = getelementptr inbounds i8, ptr %opt, i64 176
   store ptr %call.i.i79, ptr %v, align 8
@@ -20307,7 +20307,7 @@ cond.true:                                        ; preds = %sw.bb
   %conv85 = zext nneg i32 %10 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i80)
   store i64 %conv85, ptr %ne0.addr.i80, align 8
-  %call.i.i81 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %11, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i80, ptr noundef null, i64 noundef 0)
+  %call.i.i81 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %11, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i80, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i80)
   br label %cond.end
 
@@ -20501,35 +20501,35 @@ ggml_set_zero.exit153:                            ; preds = %for.body17.i.i128, 
 sw.bb101:                                         ; preds = %if.end68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i154)
   store i64 %nx, ptr %ne0.addr.i154, align 8
-  %call.i.i155 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i154, ptr noundef null, i64 noundef 0)
+  %call.i.i155 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i154, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i154)
   %lbfgs104 = getelementptr inbounds i8, ptr %opt, i64 208
   store ptr %call.i.i155, ptr %lbfgs104, align 8
   %48 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i156)
   store i64 %nx, ptr %ne0.addr.i156, align 8
-  %call.i.i157 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %48, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i156, ptr noundef null, i64 noundef 0)
+  %call.i.i157 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %48, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i156, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i156)
   %xp = getelementptr inbounds i8, ptr %opt, i64 216
   store ptr %call.i.i157, ptr %xp, align 8
   %49 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i158)
   store i64 %nx, ptr %ne0.addr.i158, align 8
-  %call.i.i159 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %49, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i158, ptr noundef null, i64 noundef 0)
+  %call.i.i159 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %49, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i158, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i158)
   %g111 = getelementptr inbounds i8, ptr %opt, i64 224
   store ptr %call.i.i159, ptr %g111, align 8
   %50 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i160)
   store i64 %nx, ptr %ne0.addr.i160, align 8
-  %call.i.i161 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %50, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i160, ptr noundef null, i64 noundef 0)
+  %call.i.i161 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %50, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i160, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i160)
   %gp = getelementptr inbounds i8, ptr %opt, i64 232
   store ptr %call.i.i161, ptr %gp, align 8
   %51 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i162)
   store i64 %nx, ptr %ne0.addr.i162, align 8
-  %call.i.i163 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %51, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i162, ptr noundef null, i64 noundef 0)
+  %call.i.i163 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %51, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i162, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i162)
   %d = getelementptr inbounds i8, ptr %opt, i64 240
   store ptr %call.i.i163, ptr %d, align 8
@@ -20543,7 +20543,7 @@ cond.true121:                                     ; preds = %sw.bb101
   %conv124 = zext nneg i32 %52 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i164)
   store i64 %conv124, ptr %ne0.addr.i164, align 8
-  %call.i.i165 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %53, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i164, ptr noundef null, i64 noundef 0)
+  %call.i.i165 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %53, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i164, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i164)
   br label %cond.end127
 
@@ -20557,14 +20557,14 @@ cond.end127:                                      ; preds = %sw.bb101, %cond.tru
   %conv134 = sext i32 %55 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i166)
   store i64 %conv134, ptr %ne0.addr.i166, align 8
-  %call.i.i167 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %54, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i166, ptr noundef null, i64 noundef 0)
+  %call.i.i167 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %54, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i166, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i166)
   %lmal = getelementptr inbounds i8, ptr %opt, i64 256
   store ptr %call.i.i167, ptr %lmal, align 8
   %56 = load ptr, ptr %opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i168)
   store i64 %conv134, ptr %ne0.addr.i168, align 8
-  %call.i.i169 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %56, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i168, ptr noundef null, i64 noundef 0)
+  %call.i.i169 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %56, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i168, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i168)
   %lmys = getelementptr inbounds i8, ptr %opt, i64 264
   store ptr %call.i.i169, ptr %lmys, align 8
@@ -20573,7 +20573,7 @@ cond.end127:                                      ; preds = %sw.bb101, %cond.tru
   store i64 %nx, ptr %ne.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ne.i, i64 8
   store i64 %conv134, ptr %arrayinit.element.i, align 8
-  %call.i.i170 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %57, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %call.i.i170 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %57, i32 noundef 0, i32 noundef 2, ptr noundef nonnull readonly %ne.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ne.i)
   %lms = getelementptr inbounds i8, ptr %opt, i64 272
   store ptr %call.i.i170, ptr %lms, align 8
@@ -20582,7 +20582,7 @@ cond.end127:                                      ; preds = %sw.bb101, %cond.tru
   store i64 %nx, ptr %ne.i171, align 16
   %arrayinit.element.i172 = getelementptr inbounds i8, ptr %ne.i171, i64 8
   store i64 %conv134, ptr %arrayinit.element.i172, align 8
-  %call.i.i173 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %58, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %ne.i171, ptr noundef null, i64 noundef 0)
+  %call.i.i173 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %58, i32 noundef 0, i32 noundef 2, ptr noundef nonnull readonly %ne.i171, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ne.i171)
   %lmy = getelementptr inbounds i8, ptr %opt, i64 280
   store ptr %call.i.i173, ptr %lmy, align 8
@@ -21744,7 +21744,7 @@ for.body3.i.preheader.us.i:                       ; preds = %for.body.i.us.i
   br label %for.body3.i.us.i
 
 ggml_opt_acc_grad.exit.loopexit.us.i:             ; preds = %for.inc9.i.us.i
-  %call87.us.i = call float @ggml_get_f32_1d(ptr noundef %f, i32 noundef 0)
+  %call87.us.i = call float @ggml_get_f32_1d(ptr noundef readonly %f, i32 noundef 0)
   %add88.us.i = fadd float %fx.0249.us.i, %call87.us.i
   %inc90.us.i = add nuw nsw i32 %accum_step.0248.us.i, 1
   %exitcond294.not.i = icmp eq i32 %inc90.us.i, %cond.i
@@ -21759,7 +21759,7 @@ for.body78.us250.i:                               ; preds = %ggml_set_zero.exit.
   %67 = load ptr, ptr %grad.i, align 8
   %call85.us254.i = call ptr @ggml_set_f32(ptr noundef %67, float noundef 1.000000e+00)
   %call86.us255.i = call i32 @ggml_graph_compute(ptr noundef %gb, ptr noundef nonnull %cplan.i)
-  %call87.us256.i = call float @ggml_get_f32_1d(ptr noundef %f, i32 noundef 0)
+  %call87.us256.i = call float @ggml_get_f32_1d(ptr noundef readonly %f, i32 noundef 0)
   %add88.us257.i = fadd float %fx.0249.us251.i, %call87.us256.i
   %inc90.us258.i = add nuw nsw i32 %accum_step.0248.us252.i, 1
   %exitcond292.not.i = icmp eq i32 %inc90.us258.i, %cond.i
@@ -21777,7 +21777,7 @@ if.end84.i:                                       ; preds = %for.body78.i
   %69 = load ptr, ptr %grad.i, align 8
   %call85.i = call ptr @ggml_set_f32(ptr noundef %69, float noundef 1.000000e+00)
   %call86.i = call i32 @ggml_graph_compute(ptr noundef %gb, ptr noundef nonnull %cplan.i)
-  %call87.i = call float @ggml_get_f32_1d(ptr noundef %f, i32 noundef 0)
+  %call87.i = call float @ggml_get_f32_1d(ptr noundef readonly %f, i32 noundef 0)
   %add88.i = fadd float %fx.0249.i, %call87.i
   %inc90.i = add nuw nsw i32 %accum_step.0248.i, 1
   %exitcond290.not.i = icmp eq i32 %inc90.i, %cond.i
@@ -22107,7 +22107,7 @@ for.inc9.i210.i:                                  ; preds = %for.body3.i214.i, %
   br i1 %exitcond14.not.i213.i, label %ggml_opt_acc_grad.exit224.i, label %for.body.i198.i, !llvm.loop !102
 
 ggml_opt_acc_grad.exit224.i:                      ; preds = %for.inc9.i210.i, %if.end250.i
-  %call255.i = call float @ggml_get_f32_1d(ptr noundef %f, i32 noundef 0)
+  %call255.i = call float @ggml_get_f32_1d(ptr noundef readonly %f, i32 noundef 0)
   %add256.i = fadd float %fx.1273.i, %call255.i
   %inc258.i = add nuw nsw i32 %accum_step240.0274.i, 1
   %exitcond303.not.i = icmp eq i32 %inc258.i, %cond.i
@@ -22554,7 +22554,7 @@ for.inc9.i229.i:                                  ; preds = %for.body3.i232.i, %
   br i1 %exitcond14.not.i.i, label %ggml_opt_acc_grad.exit.i, label %for.body.i217.i, !llvm.loop !102
 
 ggml_opt_acc_grad.exit.i:                         ; preds = %for.inc9.i229.i, %if.end108.i
-  %call112.i = call float @ggml_get_f32_1d(ptr noundef %f, i32 noundef 0)
+  %call112.i = call float @ggml_get_f32_1d(ptr noundef readonly %f, i32 noundef 0)
   %add113.i = fadd float %fx.0734.i, %call112.i
   %inc115.i = add nuw nsw i32 %accum_step.0735.i, 1
   %exitcond755.not.i = icmp eq i32 %inc115.i, %cond87.i
@@ -23189,7 +23189,7 @@ for.inc9.i84.i.i:                                 ; preds = %for.body3.i87.i.i, 
   br i1 %exitcond14.not.i.i.i, label %ggml_opt_acc_grad.exit.i.i, label %for.body.i72.i.i, !llvm.loop !102
 
 ggml_opt_acc_grad.exit.i.i:                       ; preds = %for.inc9.i84.i.i, %if.end16.i.i
-  %call18.i.i = call float @ggml_get_f32_1d(ptr noundef %f, i32 noundef 0)
+  %call18.i.i = call float @ggml_get_f32_1d(ptr noundef readonly %f, i32 noundef 0)
   %add.i.i = fadd float %fx.2.i, %call18.i.i
   %inc19.i.i = add nuw nsw i32 %accum_step.0141.i.i, 1
   %exitcond.not.i332.i = icmp eq i32 %inc19.i.i, %cond87.i
@@ -25742,7 +25742,7 @@ gguf_get_key.exit.i:                              ; preds = %for.inc.i, %gguf_ge
   %indvars.iv.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %data.i.i = getelementptr inbounds %struct.gguf_kv, ptr %45, i64 %indvars.iv.i, i32 0, i32 1
   %46 = load ptr, ptr %data.i.i, align 8
-  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(18) @.str.221, ptr noundef nonnull dereferenceable(1) %46) #48
+  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.221, ptr noundef nonnull dereferenceable(1) %46) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %if.then371, label %for.inc.i
 
@@ -25863,7 +25863,7 @@ if.then460:                                       ; preds = %if.then435
   %63 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 %63, ptr %ne0.addr.i, align 8
-  %call.i.i311 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %call454, i32 noundef 16, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, ptr noundef null, i64 noundef 0)
+  %call.i.i311 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %call454, i32 noundef 16, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %cmp466.not = icmp eq ptr %call.i.i311, null
   br i1 %cmp466.not, label %if.then480, label %land.end477
@@ -25912,13 +25912,13 @@ for.body493:                                      ; preds = %for.body493.lr.ph, 
   %71 = load i32, ptr %type515, align 8
   %n_dims518 = getelementptr inbounds i8, ptr %arrayidx514, i64 16
   %72 = load i32, ptr %n_dims518, align 8
-  %call.i315 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %call454, i32 noundef %71, i32 noundef %72, ptr noundef nonnull %ne494, ptr noundef null, i64 noundef 0)
+  %call.i315 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %call454, i32 noundef %71, i32 noundef %72, ptr noundef nonnull readonly %ne494, ptr noundef null, i64 noundef 0)
   %cmp524.not = icmp eq ptr %call.i315, null
   %73 = load ptr, ptr %infos, align 8
   %data531 = getelementptr inbounds %struct.gguf_tensor_info, ptr %73, i64 %i487.0396, i32 0, i32 1
   %74 = load ptr, ptr %data531, align 8
   %name1.i = getelementptr inbounds i8, ptr %call.i315, i64 288
-  %call.i316 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name1.i, ptr noundef nonnull dereferenceable(1) %74, i64 noundef 64) #45
+  %call.i316 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name1.i, ptr noundef nonnull readonly dereferenceable(1) %74, i64 noundef 64) #45
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i315, i64 351
   store i8 0, ptr %arrayidx.i, align 1
   br i1 %cmp524.not, label %if.then549, label %if.end535
@@ -27186,7 +27186,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27202,11 +27202,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27249,7 +27249,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27265,11 +27265,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27312,7 +27312,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27328,11 +27328,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27375,7 +27375,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27391,11 +27391,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27438,7 +27438,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27454,11 +27454,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27501,7 +27501,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27517,11 +27517,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27564,7 +27564,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27580,11 +27580,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27627,7 +27627,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27643,11 +27643,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27690,7 +27690,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27706,11 +27706,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27753,7 +27753,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27769,11 +27769,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27816,7 +27816,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27832,11 +27832,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27880,7 +27880,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27896,11 +27896,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -27951,7 +27951,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -27967,11 +27967,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -28030,7 +28030,7 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %indvars.iv.i.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %data.i.i.i = getelementptr inbounds %struct.gguf_kv, ptr %1, i64 %indvars.iv.i.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
@@ -28046,11 +28046,11 @@ if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %mul.i = mul nsw i64 %conv.i, 48
   %call2.i = tail call ptr @realloc(ptr noundef %1, i64 noundef %mul.i) #52
   store ptr %call2.i, ptr %kv.i.i.i, align 8
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #48
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #48
   %idxprom.i = ashr exact i64 %add.i, 32
   %arrayidx.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i
   store i64 %call4.i, ptr %arrayidx.i, align 8
-  %call7.i = tail call noalias ptr @strdup(ptr noundef %key) #45
+  %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
   %3 = load i64, ptr %n_kv.i.i.i, align 8
@@ -28525,7 +28525,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %data.i.i = getelementptr inbounds %struct.gguf_tensor_info, ptr %1, i64 %indvars.iv.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i, align 8
-  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %if.end, label %for.inc.i
 
@@ -28569,7 +28569,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %data.i.i = getelementptr inbounds %struct.gguf_tensor_info, ptr %1, i64 %indvars.iv.i, i32 0, i32 1
   %2 = load ptr, ptr %data.i.i, align 8
-  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #48
+  %call2.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %if.end, label %for.inc.i
 
@@ -29703,7 +29703,7 @@ gguf_buf_grow.exit.i541:                          ; preds = %gguf_buf_grow.exitt
 
 if.then.i544:                                     ; preds = %gguf_buf_grow.exit.i541
   %add.ptr.i545 = getelementptr inbounds i8, ptr %122, i64 %.pre8.i542
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i545, ptr align 1 %117, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i545, ptr readonly align 1 %117, i64 %mul, i1 false)
   %.pre.i546 = load i64, ptr %offset.i.i, align 8
   br label %gguf_bwrite_el.exit557
 
@@ -30209,7 +30209,7 @@ gguf_buf_grow.exit.i747:                          ; preds = %gguf_buf_grow.exitt
 
 if.then.i750:                                     ; preds = %gguf_buf_grow.exit.i747
   %add.ptr.i751 = getelementptr inbounds i8, ptr %195, i64 %.pre8.i748
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i751, ptr align 1 %192, i64 %190, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i751, ptr readonly align 1 %192, i64 %190, i1 false)
   %.pre.i752 = load i64, ptr %offset.i.i, align 8
   br label %gguf_bwrite_el.exit763
 
@@ -30951,7 +30951,7 @@ if.then:                                          ; preds = %ggml_hash_contains.
   %tobool1.not.not.i.i.i = icmp eq ptr %3, null
   %4 = load i32, ptr %b, align 8
   %ne.i12.i.i.i = getelementptr inbounds i8, ptr %b, i64 16
-  %call.i.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i12.i.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %ne.i12.i.i.i, ptr noundef null, i64 noundef 0)
   %op_params.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 84
   store i32 2, ptr %op_params.i.i.i.i, align 4
   %op4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 80
@@ -30961,7 +30961,7 @@ if.then:                                          ; preds = %ggml_hash_contains.
 cond.true6.i.i.i:                                 ; preds = %if.then
   %5 = load i32, ptr %call.i.i.i.i.i, align 8
   %ne.i14.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
-  %call.i.i15.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i14.i.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i15.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %ne.i14.i.i.i, ptr noundef null, i64 noundef 0)
   br label %ggml_neg.exit
 
 ggml_neg.exit:                                    ; preds = %if.then, %cond.true6.i.i.i
@@ -31067,7 +31067,7 @@ if.then:                                          ; preds = %ggml_hash_contains.
   store ptr null, ptr %data.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i.i)
   store i64 1, ptr %ne0.addr.i.i, align 8
-  %call.i.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i.i, ptr noundef null, i64 noundef 0)
+  %call.i.i.i = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %ne0.addr.i.i, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i.i)
   %4 = load i8, ptr %no_alloc_save.i.i, align 2
   %frombool.i6.i = and i8 %4, 1
@@ -31369,13 +31369,13 @@ sw.bb106:                                         ; preds = %if.end3
 sw.bb111:                                         ; preds = %if.end3
   %src112 = getelementptr inbounds i8, ptr %tensor, i64 160
   %44 = load ptr, ptr %src112, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull %params, ptr noundef %44, ptr noundef nonnull %tensor)
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull readonly %params, ptr noundef readonly %44, ptr noundef nonnull readonly %tensor)
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %if.end3
   %src115 = getelementptr inbounds i8, ptr %tensor, i64 160
   %45 = load ptr, ptr %src115, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull %params, ptr noundef %45, ptr noundef nonnull %tensor)
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull readonly %params, ptr noundef readonly %45, ptr noundef nonnull readonly %tensor)
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %if.end3
@@ -32007,7 +32007,7 @@ land.lhs.true.i351.i:                             ; preds = %land.lhs.true.i41
   br i1 %or.cond407.i, label %if.then46.i, label %if.end47.i
 
 if.then46.i:                                      ; preds = %land.lhs.true.i351.i
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef nonnull %params, ptr noundef nonnull %src0, ptr noundef nonnull %dst)
+  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef nonnull readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
   br label %sw.epilog
 
 if.end47.i:                                       ; preds = %land.lhs.true.i351.i, %land.lhs.true.i41, %land.lhs.true.i.i, %if.end8.if.end47_crit_edge.i
@@ -33097,7 +33097,7 @@ land.lhs.true.i312.i:                             ; preds = %land.lhs.true.i200
   br i1 %or.cond361.i, label %if.then46.i202, label %if.end47.i70
 
 if.then46.i202:                                   ; preds = %land.lhs.true.i312.i
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef nonnull %params, ptr noundef nonnull %src0, ptr noundef nonnull %dst)
+  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef nonnull readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
   br label %sw.epilog
 
 if.end47.i70:                                     ; preds = %land.lhs.true.i312.i, %land.lhs.true.i200, %land.lhs.true.i.i191, %if.end8.if.end47_crit_edge.i68

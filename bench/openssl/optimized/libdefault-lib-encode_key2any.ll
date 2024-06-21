@@ -4166,7 +4166,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -4310,7 +4310,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -4662,7 +4662,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then11.i
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre6.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull @dsa_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull readonly @dsa_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -4911,7 +4911,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -5053,7 +5053,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -5403,7 +5403,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then11.i
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre6.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull @ec_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull readonly @ec_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -5652,7 +5652,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -5794,7 +5794,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -6144,7 +6144,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then11.i
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre6.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull @ec_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull readonly @ec_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -6380,7 +6380,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -6503,7 +6503,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -6834,7 +6834,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -6951,7 +6951,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -7074,7 +7074,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7197,7 +7197,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7528,7 +7528,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -7645,7 +7645,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -7768,7 +7768,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7891,7 +7891,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -8222,7 +8222,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -8339,7 +8339,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -8462,7 +8462,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -8585,7 +8585,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -8916,7 +8916,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -9033,7 +9033,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -13044,7 +13044,7 @@ land.lhs.true.if.end3_crit_edge.i:                ; preds = %land.lhs.true.i
 if.end3.i:                                        ; preds = %land.lhs.true.if.end3_crit_edge.i, %if.end.i
   %2 = phi i32 [ %.pre8.i, %land.lhs.true.if.end3_crit_edge.i ], [ -1, %if.end.i ]
   %3 = phi ptr [ %.pre.i, %land.lhs.true.if.end3_crit_edge.i ], [ null, %if.end.i ]
-  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef %k2d, ptr noundef nonnull %ctx)
+  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef readonly %k2d, ptr noundef nonnull %ctx)
   %cmp5.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
@@ -13155,7 +13155,7 @@ land.lhs.true.if.end3_crit_edge.i:                ; preds = %land.lhs.true.i
 if.end3.i:                                        ; preds = %land.lhs.true.if.end3_crit_edge.i, %if.end.i
   %2 = phi i32 [ %.pre8.i, %land.lhs.true.if.end3_crit_edge.i ], [ -1, %if.end.i ]
   %3 = phi ptr [ %.pre.i, %land.lhs.true.if.end3_crit_edge.i ], [ null, %if.end.i ]
-  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef %k2d, ptr noundef nonnull %ctx)
+  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef readonly %k2d, ptr noundef nonnull %ctx)
   %cmp5.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 

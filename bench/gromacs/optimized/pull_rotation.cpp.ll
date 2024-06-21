@@ -3759,7 +3759,7 @@ _ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit.i:        ; preds = %._crit_edge.i201
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %25)
   %1334 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %28) #26
   %1335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1332) #30
-  %1336 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #30
+  %1336 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %25) #30
   %1337 = add i64 %1336, %1335
   %1338 = shl i64 %1337, 32
   %sext.i.i.i = add i64 %1338, 4294967296
@@ -3768,7 +3768,7 @@ _ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit.i:        ; preds = %._crit_edge.i201
           to label %_ZL21add_to_string_alignedPPcS_.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZL21add_to_string_alignedPPcS_.exit.i:           ; preds = %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit.i
-  %1341 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1340, ptr noundef nonnull dereferenceable(1) %25) #26
+  %1341 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1340, ptr noundef nonnull readonly dereferenceable(1) %25) #26
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %25)
   %1342 = load ptr, ptr %1208, align 8
   %1343 = load ptr, ptr %1207, align 8
@@ -3795,7 +3795,7 @@ _ZL21add_to_string_alignedPPcS_.exit.i:           ; preds = %_ZL13gmx_snew_implI
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %24)
   %1354 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %28) #26
   %1355 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0179195.i) #30
-  %1356 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #30
+  %1356 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #30
   %1357 = add i64 %1356, %1355
   %1358 = shl i64 %1357, 32
   %sext.i.i145.i = add i64 %1358, 4294967296
@@ -3804,7 +3804,7 @@ _ZL21add_to_string_alignedPPcS_.exit.i:           ; preds = %_ZL13gmx_snew_implI
           to label %1361 unwind label %.loopexit.split-lp.loopexit.i
 
 1361:                                             ; preds = %1351
-  %1362 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1360, ptr noundef nonnull dereferenceable(1) %24) #26
+  %1362 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1360, ptr noundef nonnull readonly dereferenceable(1) %24) #26
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %24)
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr noundef nonnull @.str.111, ptr noundef nonnull %28)
           to label %1363 unwind label %.loopexit.split-lp.loopexit.i
@@ -3862,7 +3862,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %23)
   %1388 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %28) #26
   %1389 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1198.i) #30
-  %1390 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #30
+  %1390 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #30
   %1391 = add i64 %1390, %1389
   %1392 = shl i64 %1391, 32
   %sext.i.i149.i = add i64 %1392, 4294967296
@@ -3871,7 +3871,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
           to label %1395 unwind label %.loopexit.i
 
 1395:                                             ; preds = %.lr.ph200.i
-  %1396 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1394, ptr noundef nonnull dereferenceable(1) %23) #26
+  %1396 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1394, ptr noundef nonnull readonly dereferenceable(1) %23) #26
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %23)
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr noundef nonnull @.str.111, ptr noundef nonnull %28)
           to label %1397 unwind label %.loopexit.i
@@ -3899,7 +3899,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %22)
   %1405 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %28) #26
   %1406 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1394) #30
-  %1407 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #30
+  %1407 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #30
   %1408 = add i64 %1407, %1406
   %1409 = shl i64 %1408, 32
   %sext.i.i156.i = add i64 %1409, 4294967296
@@ -3908,7 +3908,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
           to label %1412 unwind label %.loopexit.i
 
 1412:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit155.i
-  %1413 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1411, ptr noundef nonnull dereferenceable(1) %22) #26
+  %1413 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1411, ptr noundef nonnull readonly dereferenceable(1) %22) #26
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %22)
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %37, ptr noundef nonnull @.str.115, ptr noundef nonnull %28)
           to label %1414 unwind label %.loopexit.i
@@ -3936,7 +3936,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %21)
   %1422 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %28) #26
   %1423 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1411) #30
-  %1424 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
+  %1424 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #30
   %1425 = add i64 %1424, %1423
   %1426 = shl i64 %1425, 32
   %sext.i.i163.i = add i64 %1426, 4294967296
@@ -3945,7 +3945,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
           to label %1429 unwind label %.loopexit.i
 
 1429:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit162.i
-  %1430 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1428, ptr noundef nonnull dereferenceable(1) %21) #26
+  %1430 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1428, ptr noundef nonnull readonly dereferenceable(1) %21) #26
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %21)
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr noundef nonnull @.str.115, ptr noundef nonnull %28)
           to label %1431 unwind label %.loopexit.i
@@ -9001,7 +9001,7 @@ _ZL18shift_single_coordPA3_KfPfPKi.exit.i:        ; preds = %592, %._crit_edge.i
   %598 = load float, ptr %524, align 4
   %599 = tail call float @llvm.fmuladd.f32(float %.sink30.i.i, float %598, float %568)
   store float %599, ptr %519, align 4
-  %600 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef nonnull %22, ptr noundef nonnull %2)
+  %600 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef nonnull %22, ptr noundef nonnull readonly %2)
   %601 = icmp sgt i32 %600, 0
   br i1 %601, label %.lr.ph235.i, label %._crit_edge.i64
 
@@ -9775,7 +9775,7 @@ _ZL18shift_single_coordPA3_KfPfPKi.exit.i84:      ; preds = %1198, %._crit_edge.
   %1204 = load float, ptr %1120, align 4
   %1205 = tail call float @llvm.fmuladd.f32(float %.sink30.i.i85, float %1204, float %1174)
   store float %1205, ptr %1115, align 4
-  %1206 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef nonnull %12, ptr noundef nonnull %2)
+  %1206 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef nonnull %12, ptr noundef nonnull readonly %2)
   %1207 = icmp sgt i32 %1206, 0
   br i1 %1207, label %.lr.ph279.i, label %._crit_edge.i86
 

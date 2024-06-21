@@ -1861,14 +1861,14 @@ if.end4.i:                                        ; preds = %Py_DECREF.exit57.i
   br i1 %cmp.not.i.i, label %if.end8.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #12
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #12
   %add.i.i = add i64 %call.i.i, 1
   %call1.i36.i = tail call ptr @PyMem_Malloc(i64 noundef %add.i.i) #11
   %cmp2.i37.i = icmp eq ptr %call1.i36.i, null
   br i1 %cmp2.i37.i, label %if.then7.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.then.i.i
-  %call5.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i36.i, ptr noundef nonnull dereferenceable(1) %21) #11
+  %call5.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i36.i, ptr noundef nonnull readonly dereferenceable(1) %21) #11
   %format.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 72
   store ptr %call1.i36.i, ptr %format.i.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
@@ -2064,7 +2064,7 @@ init_flags.exit.thread.i:                         ; preds = %init_flags.exit.i, 
   %57 = phi i32 [ 14, %if.end25.i ], [ 0, %lor.lhs.false.i.i ], [ 6, %if.then.i63.i ], [ %spec.select.i, %init_flags.exit.i ]
   %flags18.i.i = getelementptr inbounds i8, ptr %call9.i, i64 40
   store i32 %57, ptr %flags18.i.i, align 8
-  %call26.i = tail call fastcc i32 @copy_buffer(ptr noundef nonnull %view.i, ptr noundef nonnull %view1)
+  %call26.i = tail call fastcc i32 @copy_buffer(ptr noundef nonnull %view.i, ptr noundef nonnull readonly %view1)
   %cmp27.i = icmp slt i32 %call26.i, 0
   br i1 %cmp27.i, label %if.then29.i, label %memory_from_contiguous_copy.exit
 
@@ -3891,11 +3891,11 @@ if.then.i:                                        ; preds = %if.then
   br i1 %or.cond.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dptr, ptr align 1 %sptr, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dptr, ptr readonly align 1 %sptr, i64 %mul.i, i1 false)
   br label %for.end
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %dptr, ptr align 1 %sptr, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %dptr, ptr readonly align 1 %sptr, i64 %mul.i, i1 false)
   br label %for.end
 
 for.cond15.preheader.i:                           ; preds = %cond.end.i, %for.body.us.i
@@ -6169,11 +6169,11 @@ if.then.i20:                                      ; preds = %last_dim_is_contigu
   br i1 %or.cond.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.then.i20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %35, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %35, i64 %mul.i, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.then.i20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %35, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %35, i64 %mul.i, i1 false)
   br label %return
 
 for.cond15.preheader.i:                           ; preds = %cond.end.i, %for.body.us.i
@@ -6950,7 +6950,7 @@ sw.bb119:                                         ; preds = %entry
   %9 = load ptr, ptr %item.i.i, align 8
   %itemsize.i.i = getelementptr inbounds i8, ptr %unpack_p, i64 24
   %10 = load i64, ptr %itemsize.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %p, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %p, i64 %10, i1 false)
   %11 = load ptr, ptr %unpack_p, align 8
   %mview.i.i = getelementptr inbounds i8, ptr %unpack_p, i64 8
   %12 = load ptr, ptr %mview.i.i, align 8
@@ -6998,7 +6998,7 @@ if.end.i:                                         ; preds = %if.then1.i.i.i, %if
   %18 = load ptr, ptr %item.i14.i, align 8
   %itemsize.i15.i = getelementptr inbounds i8, ptr %unpack_q, i64 24
   %19 = load i64, ptr %itemsize.i15.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %q, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr readonly align 1 %q, i64 %19, i1 false)
   %20 = load ptr, ptr %unpack_q, align 8
   %mview.i16.i = getelementptr inbounds i8, ptr %unpack_q, i64 8
   %21 = load ptr, ptr %mview.i16.i, align 8
@@ -7769,7 +7769,7 @@ if.end6.i:                                        ; preds = %land.lhs.true.i.i
   ]
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %call9.i = tail call fastcc ptr @unpack_single(ptr noundef nonnull %self, ptr noundef %10, ptr noundef nonnull %cond.i.i)
+  %call9.i = tail call fastcc ptr @unpack_single(ptr noundef nonnull readonly %self, ptr noundef %10, ptr noundef nonnull %cond.i.i)
   br label %memoryview_tolist_impl.exit
 
 if.then12.i:                                      ; preds = %if.end6.i
@@ -7779,7 +7779,7 @@ if.then12.i:                                      ; preds = %if.end6.i
   %12 = load ptr, ptr %strides.i, align 8
   %suboffsets.i = getelementptr inbounds i8, ptr %self, i64 120
   %13 = load ptr, ptr %suboffsets.i, align 8
-  %call14.i = tail call fastcc ptr @tolist_base(ptr noundef nonnull %self, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %cond.i.i)
+  %call14.i = tail call fastcc ptr @tolist_base(ptr noundef nonnull readonly %self, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %cond.i.i)
   br label %memoryview_tolist_impl.exit
 
 if.else15.i:                                      ; preds = %if.end6.i
@@ -7790,7 +7790,7 @@ if.else15.i:                                      ; preds = %if.end6.i
   %15 = load ptr, ptr %strides19.i, align 8
   %suboffsets20.i = getelementptr inbounds i8, ptr %self, i64 120
   %16 = load ptr, ptr %suboffsets20.i, align 8
-  %call21.i = tail call fastcc ptr @tolist_rec(ptr noundef nonnull %self, ptr noundef %10, i64 noundef %conv.i, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %cond.i.i)
+  %call21.i = tail call fastcc ptr @tolist_rec(ptr noundef nonnull readonly %self, ptr noundef %10, i64 noundef %conv.i, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %cond.i.i)
   br label %memoryview_tolist_impl.exit
 
 memoryview_tolist_impl.exit:                      ; preds = %if.then.i, %adjust_fmt.exit.thread.i, %if.then8.i, %if.then12.i, %if.else15.i
@@ -7989,7 +7989,7 @@ if.end63.i:                                       ; preds = %if.end58.i
   br i1 %tobool14.not.i, label %exit, label %land.lhs.true65.i
 
 land.lhs.true65.i:                                ; preds = %if.end63.i
-  %call67.i = call fastcc i32 @cast_to_ND(ptr noundef nonnull %call54.i, ptr noundef nonnull %shape.0, i32 noundef %conv47.i)
+  %call67.i = call fastcc i32 @cast_to_ND(ptr noundef nonnull %call54.i, ptr noundef nonnull readonly %shape.0, i32 noundef %conv47.i)
   %cmp68.i = icmp slt i32 %call67.i, 0
   br i1 %cmp68.i, label %error.i, label %exit
 

@@ -33,7 +33,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_add_passphrase(ptr noundef 
   br i1 %13, label %new_read_passphrase.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #6
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #6
   store ptr %15, ptr %12, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %new_read_passphrase.exit
@@ -192,7 +192,7 @@ remove_passphrases_from_head.exit47:              ; preds = %21
   br i1 %38, label %new_read_passphrase.exit.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call noalias ptr @strdup(ptr noundef nonnull %35) #6
+  %40 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %35) #6
   store ptr %40, ptr %37, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %new_read_passphrase.exit

@@ -1944,7 +1944,7 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %.074.lcssa.i = phi ptr [ %20, %50 ], [ %58, %57 ], [ %.074123.i, %55 ], [ %.074123.i, %.lr.ph127.i ]
   %.073.lcssa.i = phi ptr [ %21, %50 ], [ %59, %57 ], [ %.073124.i, %55 ], [ %.073124.i, %.lr.ph127.i ]
   %.072.lcssa.i = phi ptr [ %19, %50 ], [ %60, %57 ], [ %.072125.i, %55 ], [ %.072125.i, %.lr.ph127.i ]
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.072.lcssa.i) #14
+  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.072.lcssa.i) #14
   %63 = trunc i64 %62 to i32
   %64 = icmp slt i32 %63, 1
   br i1 %64, label %convert_one_string_to_scalar.exit.i, label %65
@@ -1982,7 +1982,7 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
 convert_one_string_to_scalar.exit.i:              ; preds = %71, %._crit_edge128.i
   %.021.i.i = phi double [ 0.000000e+00, %._crit_edge128.i ], [ %81, %71 ]
   store double %.021.i.i, ptr %3, align 8
-  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.074.lcssa.i) #14
+  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.074.lcssa.i) #14
   %85 = trunc i64 %84 to i32
   %86 = icmp slt i32 %85, 1
   br i1 %86, label %convert_one_string_to_scalar.exit98.i, label %87
@@ -2019,7 +2019,7 @@ convert_one_string_to_scalar.exit.i:              ; preds = %71, %._crit_edge128
 convert_one_string_to_scalar.exit98.i:            ; preds = %92, %convert_one_string_to_scalar.exit.i
   %.021.i97.i = phi double [ 0.000000e+00, %convert_one_string_to_scalar.exit.i ], [ %102, %92 ]
   store double %.021.i97.i, ptr %7, align 8
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.073.lcssa.i) #14
+  %105 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.073.lcssa.i) #14
   %106 = trunc i64 %105 to i32
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %convert_string_to_scalar.exit, label %108
@@ -9355,7 +9355,7 @@ gincost_opexpr.exit.thread:                       ; preds = %180
 gincost_opexpr.exit:                              ; preds = %185
   %189 = getelementptr inbounds i8, ptr %.0.i224, i64 24
   %190 = load i64, ptr %189, align 8
-  %191 = call fastcc zeroext i1 @gincost_pattern(ptr noundef %22, i32 noundef %169, i32 noundef %.val, i64 noundef %190, ptr noundef nonnull %18)
+  %191 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %169, i32 noundef %.val, i64 noundef %190, ptr noundef nonnull %18)
   br i1 %191, label %338, label %.thread236
 
 192:                                              ; preds = %.lr.ph299
@@ -9570,7 +9570,7 @@ estimate_array_length.exit:                       ; preds = %223, %227, %241, %2
   %299 = load ptr, ptr %15, align 8
   %300 = getelementptr i64, ptr %299, i64 %indvars.iv.i226
   %301 = load i64, ptr %300, align 8
-  %302 = call fastcc zeroext i1 @gincost_pattern(ptr noundef %22, i32 noundef %194, i32 noundef %.val216, i64 noundef %301, ptr noundef nonnull %17)
+  %302 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %194, i32 noundef %.val216, i64 noundef %301, ptr noundef nonnull %17)
   br i1 %302, label %303, label %316
 
 303:                                              ; preds = %298

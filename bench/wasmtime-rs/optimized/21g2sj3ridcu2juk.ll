@@ -848,7 +848,7 @@ default.unreachable41:                            ; preds = %2
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   %31 = mul i64 %26, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull align 4 %24, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull readonly align 4 %24, i64 %31, i1 false)
   store i64 %28, ptr %5, align 8
   store ptr %29, ptr %.sroa.4.0..sroa_idx39, align 8
   store <2 x i64> %25, ptr %.sroa.5.0..sroa_idx40, align 8
@@ -943,7 +943,7 @@ default.unreachable41:                            ; preds = %2
   br label %1501
 
 77:                                               ; preds = %2
-  %78 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %78 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %1501
 
 79:                                               ; preds = %2
@@ -1020,7 +1020,7 @@ default.unreachable41:                            ; preds = %2
 125:                                              ; preds = %2
   %126 = getelementptr inbounds i8, ptr %1, i64 4
   %127 = load i32, ptr %126, align 4, !noundef !5
-  %128 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_set17h6e23be69e70e4764E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %127)
+  %128 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_set17h6e23be69e70e4764E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %127)
   br label %1501
 
 129:                                              ; preds = %2
@@ -1045,52 +1045,52 @@ default.unreachable41:                            ; preds = %2
 
 141:                                              ; preds = %2
   %142 = getelementptr inbounds i8, ptr %1, i64 8
-  %143 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %142)
+  %143 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %142)
   br label %1501
 
 144:                                              ; preds = %2
   %145 = getelementptr inbounds i8, ptr %1, i64 8
-  %146 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %145)
+  %146 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %145)
   br label %1501
 
 147:                                              ; preds = %2
   %148 = getelementptr inbounds i8, ptr %1, i64 8
-  %149 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %148)
+  %149 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %148)
   br label %1501
 
 150:                                              ; preds = %2
   %151 = getelementptr inbounds i8, ptr %1, i64 8
-  %152 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %151)
+  %152 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %151)
   br label %1501
 
 153:                                              ; preds = %2
   %154 = getelementptr inbounds i8, ptr %1, i64 8
-  %155 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %154)
+  %155 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %154)
   br label %1501
 
 156:                                              ; preds = %2
   %157 = getelementptr inbounds i8, ptr %1, i64 8
-  %158 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %157)
+  %158 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %157)
   br label %1501
 
 159:                                              ; preds = %2
   %160 = getelementptr inbounds i8, ptr %1, i64 8
-  %161 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %160)
+  %161 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %160)
   br label %1501
 
 162:                                              ; preds = %2
   %163 = getelementptr inbounds i8, ptr %1, i64 8
-  %164 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %163)
+  %164 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %163)
   br label %1501
 
 165:                                              ; preds = %2
   %166 = getelementptr inbounds i8, ptr %1, i64 8
-  %167 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %166)
+  %167 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %166)
   br label %1501
 
 168:                                              ; preds = %2
   %169 = getelementptr inbounds i8, ptr %1, i64 8
-  %170 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %169)
+  %170 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %169)
   br label %1501
 
 171:                                              ; preds = %2
@@ -1203,43 +1203,43 @@ default.unreachable41:                            ; preds = %2
   br label %1501
 
 231:                                              ; preds = %2
-  %232 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %232 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 233:                                              ; preds = %2
-  %234 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %234 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 235:                                              ; preds = %2
-  %236 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %236 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 237:                                              ; preds = %2
-  %238 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %238 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 239:                                              ; preds = %2
-  %240 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %240 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 241:                                              ; preds = %2
-  %242 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %242 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 243:                                              ; preds = %2
-  %244 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %244 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 245:                                              ; preds = %2
-  %246 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %246 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 247:                                              ; preds = %2
-  %248 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %248 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 249:                                              ; preds = %2
-  %250 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %250 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 251:                                              ; preds = %2
@@ -1247,43 +1247,43 @@ default.unreachable41:                            ; preds = %2
   br label %1501
 
 253:                                              ; preds = %2
-  %254 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %254 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 255:                                              ; preds = %2
-  %256 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %256 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 257:                                              ; preds = %2
-  %258 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %258 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 259:                                              ; preds = %2
-  %260 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %260 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 261:                                              ; preds = %2
-  %262 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %262 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 263:                                              ; preds = %2
-  %264 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %264 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 265:                                              ; preds = %2
-  %266 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %266 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 267:                                              ; preds = %2
-  %268 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %268 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 269:                                              ; preds = %2
-  %270 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %270 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 271:                                              ; preds = %2
-  %272 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %272 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 273:                                              ; preds = %2
@@ -1335,147 +1335,147 @@ default.unreachable41:                            ; preds = %2
   br label %1501
 
 297:                                              ; preds = %2
-  %298 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %298 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 299:                                              ; preds = %2
-  %300 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %300 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 301:                                              ; preds = %2
-  %302 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %302 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 303:                                              ; preds = %2
-  %304 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %304 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 305:                                              ; preds = %2
-  %306 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %306 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 307:                                              ; preds = %2
-  %308 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %308 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 309:                                              ; preds = %2
-  %310 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %310 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 311:                                              ; preds = %2
-  %312 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %312 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 313:                                              ; preds = %2
-  %314 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %314 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 315:                                              ; preds = %2
-  %316 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %316 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 317:                                              ; preds = %2
-  %318 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %318 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 319:                                              ; preds = %2
-  %320 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %320 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 321:                                              ; preds = %2
-  %322 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %322 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 323:                                              ; preds = %2
-  %324 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %324 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 325:                                              ; preds = %2
-  %326 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %326 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 327:                                              ; preds = %2
-  %328 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %328 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 329:                                              ; preds = %2
-  %330 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %330 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 331:                                              ; preds = %2
-  %332 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0)
+  %332 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
   br label %1501
 
 333:                                              ; preds = %2
-  %334 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %334 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 335:                                              ; preds = %2
-  %336 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %336 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 337:                                              ; preds = %2
-  %338 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %338 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 339:                                              ; preds = %2
-  %340 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %340 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 341:                                              ; preds = %2
-  %342 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %342 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 343:                                              ; preds = %2
-  %344 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %344 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 345:                                              ; preds = %2
-  %346 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %346 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 347:                                              ; preds = %2
-  %348 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %348 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 349:                                              ; preds = %2
-  %350 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %350 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 351:                                              ; preds = %2
-  %352 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %352 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 353:                                              ; preds = %2
-  %354 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %354 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 355:                                              ; preds = %2
-  %356 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %356 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 357:                                              ; preds = %2
-  %358 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %358 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 359:                                              ; preds = %2
-  %360 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %360 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 361:                                              ; preds = %2
-  %362 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %362 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 363:                                              ; preds = %2
-  %364 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %364 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 365:                                              ; preds = %2
-  %366 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %366 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 367:                                              ; preds = %2
-  %368 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1)
+  %368 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
   br label %1501
 
 369:                                              ; preds = %2
@@ -1591,47 +1591,47 @@ default.unreachable41:                            ; preds = %2
   br label %1501
 
 425:                                              ; preds = %2
-  %426 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 1)
+  %426 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 1)
   br label %1501
 
 427:                                              ; preds = %2
-  %428 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 2)
+  %428 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
   br label %1501
 
 429:                                              ; preds = %2
-  %430 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 2)
+  %430 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
   br label %1501
 
 431:                                              ; preds = %2
-  %432 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 3)
+  %432 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 3)
   br label %1501
 
 433:                                              ; preds = %2
-  %434 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 3)
+  %434 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 3)
   br label %1501
 
 435:                                              ; preds = %2
-  %436 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 0)
+  %436 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 0)
   br label %1501
 
 437:                                              ; preds = %2
-  %438 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 0)
+  %438 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 0)
   br label %1501
 
 439:                                              ; preds = %2
-  %440 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 2)
+  %440 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 2)
   br label %1501
 
 441:                                              ; preds = %2
-  %442 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 2)
+  %442 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 2)
   br label %1501
 
 443:                                              ; preds = %2
-  %444 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 3)
+  %444 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
   br label %1501
 
 445:                                              ; preds = %2
-  %446 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 3)
+  %446 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
   br label %1501
 
 447:                                              ; preds = %2
@@ -1675,11 +1675,11 @@ default.unreachable41:                            ; preds = %2
   br label %1501
 
 467:                                              ; preds = %2
-  %468 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 2)
+  %468 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
   br label %1501
 
 469:                                              ; preds = %2
-  %470 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 3)
+  %470 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
   br label %1501
 
 471:                                              ; preds = %2
@@ -4155,7 +4155,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %24, %.critedge.i, %29
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %19, %24 ], [ %19, %29 ], [ 8, %2 ], [ %19, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre51 = load ptr, ptr %.phi.trans.insert, align 8
@@ -4223,7 +4223,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit50": ; preds = %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i36", %54, %.critedge.i46, %59
   %.sroa.0.0.insert.insert.i56.i44 = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i36" ], [ %49, %54 ], [ %49, %59 ], [ 8, %36 ], [ %49, %.critedge.i46 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i44)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i44)
   %.pre52 = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert53 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre54 = load ptr, ptr %.phi.trans.insert53, align 8
@@ -4479,7 +4479,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i.us:                                 ; preds = %47, %.critedge.i.us, %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us", %29
   %.sroa.0.0.insert.insert.i56.i.us = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us" ], [ %40, %43 ], [ %40, %47 ], [ 8, %29 ], [ %40, %.critedge.i.us ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us, i32 %.sroa.0.0.insert.insert.i56.i.us)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us, i32 %.sroa.0.0.insert.insert.i56.i.us)
   %.pre53 = load i8, ptr %2, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us"
 
@@ -4561,7 +4561,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i:                                    ; preds = %91, %.critedge.i, %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %73
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %84, %87 ], [ %84, %91 ], [ 8, %73 ], [ %84, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %59, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %59, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %2, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
@@ -4690,7 +4690,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i:                                    ; preds = %42, %.critedge.i, %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %21
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %33, %38 ], [ %33, %42 ], [ 8, %21 ], [ %33, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.08.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.08.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
@@ -4981,7 +4981,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %23, %.critedge.i, %28
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %18, %23 ], [ %18, %28 ], [ 8, %2 ], [ %18, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre19 = load ptr, ptr %.phi.trans.insert, align 8
@@ -5083,7 +5083,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %24, %.critedge.i, %29
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %19, %24 ], [ %19, %29 ], [ 8, %2 ], [ %19, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre51 = load ptr, ptr %.phi.trans.insert, align 8
@@ -5151,7 +5151,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit50": ; preds = %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i36", %54, %.critedge.i46, %59
   %.sroa.0.0.insert.insert.i56.i44 = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i36" ], [ %49, %54 ], [ %49, %59 ], [ 8, %36 ], [ %49, %.critedge.i46 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i44)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i44)
   %.pre52 = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert53 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre54 = load ptr, ptr %.phi.trans.insert53, align 8
@@ -5509,7 +5509,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %23, %.critedge.i, %28
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %18, %23 ], [ %18, %28 ], [ 8, %2 ], [ %18, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre19 = load ptr, ptr %.phi.trans.insert, align 8
@@ -5604,7 +5604,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 .critedge45.i:                                    ; preds = %34, %.critedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %14
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %29, %34 ], [ 8, %14 ], [ %29, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %.sroa.014.0.insert.insert, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %.sroa.014.0.insert.insert, i32 %.sroa.0.0.insert.insert.i56.i)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
 .critedge.i:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i"
@@ -5790,7 +5790,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %53
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %48, %53 ], [ 8, %33 ], [ %48, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %9, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 8
   %.pre50 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6041,7 +6041,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %54, %.critedge.i, %59
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %49, %54 ], [ %49, %59 ], [ 8, %34 ], [ %49, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %10, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 8
   %.pre74 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6081,7 +6081,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i51:                                  ; preds = %86, %.critedge.i54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i44", %66
   %.sroa.0.0.insert.insert.i56.i52 = phi i32 [ %79, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i44" ], [ %79, %86 ], [ 8, %66 ], [ %79, %.critedge.i54 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i52)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i52)
   %.pre75 = load i8, ptr %9, align 8, !range !17
   %.phi.trans.insert76 = getelementptr inbounds i8, ptr %9, i64 8
   %.pre77 = load ptr, ptr %.phi.trans.insert76, align 8
@@ -6196,7 +6196,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6422,7 +6422,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %83
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %79, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %79, %83 ], [ 8, %63 ], [ %79, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %11, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 8
   %.pre120 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6443,7 +6443,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %97 = icmp ne ptr %96, null
   tail call void @llvm.assume(i1 %97)
   %98 = shl i64 %93, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull align 1 %91, i64 %98, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull readonly align 1 %91, i64 %98, i1 false)
   store i64 %95, ptr %4, align 8, !alias.scope !305, !noalias !310
   %.sroa.4.0..sroa_idx.i.i77 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %96, ptr %.sroa.4.0..sroa_idx.i.i77, align 8, !alias.scope !305, !noalias !310
@@ -6555,7 +6555,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i86:                                  ; preds = %147, %.critedge.i89, %143, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i80", %126
   %.sroa.0.0.insert.insert.i56.i87 = phi i32 [ %138, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i80" ], [ %138, %143 ], [ %138, %147 ], [ 8, %126 ], [ %138, %.critedge.i89 ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.026.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i87)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.026.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i87)
           to label %".critedge45.i86._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit94_crit_edge" unwind label %.loopexit
 
 ".critedge45.i86._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit94_crit_edge": ; preds = %.critedge45.i86
@@ -6710,7 +6710,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %3, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %24, %.critedge.i, %29
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %19, %24 ], [ %19, %29 ], [ 8, %3 ], [ %19, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre19 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6799,7 +6799,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %22
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %18, %22 ], [ 8, %1 ], [ %18, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre57 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6855,7 +6855,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit56": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43", %.critedge.i52, %46
   %.sroa.0.0.insert.insert.i56.i50 = phi i32 [ %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43" ], [ %42, %46 ], [ 8, %29 ], [ %42, %.critedge.i52 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50)
   %.pre58 = load i8, ptr %2, align 8, !range !17
   %.phi.trans.insert59 = getelementptr inbounds i8, ptr %2, i64 8
   %.pre60 = load ptr, ptr %.phi.trans.insert59, align 8
@@ -6944,7 +6944,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %22
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %18, %22 ], [ 8, %1 ], [ %18, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre57 = load ptr, ptr %.phi.trans.insert, align 8
@@ -7000,7 +7000,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit56": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43", %.critedge.i52, %46
   %.sroa.0.0.insert.insert.i56.i50 = phi i32 [ %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43" ], [ %42, %46 ], [ 8, %29 ], [ %42, %.critedge.i52 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50)
   %.pre58 = load i8, ptr %2, align 8, !range !17
   %.phi.trans.insert59 = getelementptr inbounds i8, ptr %2, i64 8
   %.pre60 = load ptr, ptr %.phi.trans.insert59, align 8
@@ -7113,7 +7113,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %13
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %13 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !394
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !394
@@ -7282,7 +7282,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i.us:                                 ; preds = %57, %.critedge.i.us, %53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us", %39
   %.sroa.0.0.insert.insert.i56.i.us = phi i32 [ %50, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us" ], [ %50, %53 ], [ %50, %57 ], [ 8, %39 ], [ %50, %.critedge.i.us ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us, i32 %.sroa.0.0.insert.insert.i56.i.us)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us, i32 %.sroa.0.0.insert.insert.i56.i.us)
   %.pre102 = load i8, ptr %3, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us"
 
@@ -7378,7 +7378,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i.us86:                               ; preds = %102, %.critedge.i.us83, %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us76", %84
   %.sroa.0.0.insert.insert.i56.i.us87 = phi i32 [ %95, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us76" ], [ %95, %98 ], [ %95, %102 ], [ 8, %84 ], [ %95, %.critedge.i.us83 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.8.16.extract.trunc.us, i32 %.sroa.0.0.insert.insert.i56.i.us87)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.8.16.extract.trunc.us, i32 %.sroa.0.0.insert.insert.i56.i.us87)
   %.pre101 = load i8, ptr %3, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us88"
 
@@ -7505,7 +7505,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 .critedge45.i:                                    ; preds = %163, %.critedge.i, %159, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %145
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %156, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %156, %159 ], [ %156, %163 ], [ 8, %145 ], [ %156, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %115, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %115, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
@@ -7654,7 +7654,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %23
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %19, %23 ], [ 8, %1 ], [ %19, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre88 = load ptr, ptr %.phi.trans.insert, align 8
@@ -7710,7 +7710,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73": ; preds = %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i60", %.critedge.i69, %47
   %.sroa.0.0.insert.insert.i56.i67 = phi i32 [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i60" ], [ %43, %47 ], [ 8, %30 ], [ %43, %.critedge.i69 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i67)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i67)
   %.pre89 = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert90 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre91 = load ptr, ptr %.phi.trans.insert90, align 8
@@ -7766,7 +7766,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit87": ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i74", %.critedge.i83, %71
   %.sroa.0.0.insert.insert.i56.i81 = phi i32 [ %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i74" ], [ %67, %71 ], [ 8, %54 ], [ %67, %.critedge.i83 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i81)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i81)
   %.pre92 = load i8, ptr %2, align 8, !range !17
   %.phi.trans.insert93 = getelementptr inbounds i8, ptr %2, i64 8
   %.pre94 = load ptr, ptr %.phi.trans.insert93, align 8
@@ -7942,7 +7942,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %54, %.critedge.i, %59
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %49, %54 ], [ %49, %59 ], [ 8, %34 ], [ %49, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %10, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 8
   %.pre83 = load ptr, ptr %.phi.trans.insert, align 8
@@ -8001,7 +8001,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit67": ; preds = %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i53", %.critedge.i63, %84
   %.sroa.0.0.insert.insert.i56.i61 = phi i32 [ %79, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i53" ], [ %79, %84 ], [ 8, %66 ], [ %79, %.critedge.i63 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i61)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i61)
   %.pre84 = load i8, ptr %9, align 8, !range !17
   %.phi.trans.insert85 = getelementptr inbounds i8, ptr %9, i64 8
   %.pre86 = load ptr, ptr %.phi.trans.insert85, align 8
@@ -8178,7 +8178,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %55, %.critedge.i, %60
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %50, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %50, %55 ], [ %50, %60 ], [ 8, %35 ], [ %50, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %11, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 8
   %.pre115 = load ptr, ptr %.phi.trans.insert, align 8
@@ -8246,7 +8246,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit83": ; preds = %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i69", %85, %.critedge.i79, %90
   %.sroa.0.0.insert.insert.i56.i77 = phi i32 [ %80, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i69" ], [ %80, %85 ], [ %80, %90 ], [ 8, %67 ], [ %80, %.critedge.i79 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i77)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i56.i77)
   %.pre116 = load i8, ptr %10, align 8, !range !17
   %.phi.trans.insert117 = getelementptr inbounds i8, ptr %10, i64 8
   %.pre118 = load ptr, ptr %.phi.trans.insert117, align 8
@@ -8305,7 +8305,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit99": ; preds = %97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i85", %.critedge.i95, %115
   %.sroa.0.0.insert.insert.i56.i93 = phi i32 [ %110, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i85" ], [ %110, %115 ], [ 8, %97 ], [ %110, %.critedge.i95 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i93)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i56.i93)
   %.pre119 = load i8, ptr %9, align 8, !range !17
   %.phi.trans.insert120 = getelementptr inbounds i8, ptr %9, i64 8
   %.pre121 = load ptr, ptr %.phi.trans.insert120, align 8
@@ -8490,7 +8490,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i"
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %21, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ 8, %2 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 6, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 6, i32 %.sroa.0.0.insert.insert.i56.i)
   %22 = load i8, ptr %6, align 8, !range !17, !noundef !5
   %trunc = trunc nuw i8 %22 to i1
   %23 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8890,7 +8890,7 @@ common.resume:                                    ; preds = %43, %46
 
 .critedge45.i.us:                                 ; preds = %81, %.critedge.i.us, %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us", %63
   %.sroa.0.0.insert.insert.i56.i.us = phi i32 [ %74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us" ], [ %74, %77 ], [ %74, %81 ], [ 8, %63 ], [ %74, %.critedge.i.us ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %.sroa.563.8.extract.trunc.us, i32 %.sroa.0.0.insert.insert.i56.i.us)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %.sroa.563.8.extract.trunc.us, i32 %.sroa.0.0.insert.insert.i56.i.us)
   %.pre90 = load i8, ptr %5, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us"
 
@@ -8970,7 +8970,7 @@ common.resume:                                    ; preds = %43, %46
 
 .critedge45.i:                                    ; preds = %123, %.critedge.i, %119, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %105
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %116, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %116, %119 ], [ %116, %123 ], [ 8, %105 ], [ %116, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %102, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %102, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %5, align 8, !range !17
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
@@ -9310,7 +9310,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %50 = getelementptr inbounds i8, ptr %27, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !645
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !645
-  %51 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
+  %51 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit": ; preds = %48, %49
@@ -9445,7 +9445,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i:                                    ; preds = %54, %.critedge.i, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %27
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %42, %49 ], [ %42, %54 ], [ 8, %27 ], [ %42, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.0.extract.trunc, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.0.extract.trunc, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre15 = load ptr, ptr %.phi.trans.insert, align 8
@@ -9566,7 +9566,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -9684,7 +9684,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -9802,7 +9802,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -9920,7 +9920,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -10038,7 +10038,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -10156,7 +10156,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %31, %.critedge.i, %36
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %3, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert, align 8
@@ -10266,7 +10266,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %30
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %30 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre33 = load ptr, ptr %.phi.trans.insert, align 8
@@ -10376,7 +10376,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i", %.critedge.i, %30
   %.sroa.0.0.insert.insert.i56.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i" ], [ %26, %30 ], [ 8, %11 ], [ %26, %.critedge.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %4, align 8, !range !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre33 = load ptr, ptr %.phi.trans.insert, align 8
@@ -10450,7 +10450,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_call17hd0c5d15043a80785E.exit"
 
 19:                                               ; preds = %2
-  %20 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  %20 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_call17hd0c5d15043a80785E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_call17hd0c5d15043a80785E.exit": ; preds = %10, %19
@@ -10493,7 +10493,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17hd8b16fedcd6b7b31E.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i"
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ 8, %1 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %18 = load i8, ptr %2, align 8, !range !17, !noalias !765, !noundef !5
   %trunc.i = trunc nuw i8 %18 to i1
   %19 = getelementptr inbounds i8, ptr %2, i64 8
@@ -10509,7 +10509,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %3 = alloca { [25 x i8], i8, [6 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !779
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$8pop_ctrl17h37579c70dcab1d55E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$8pop_ctrl17h37579c70dcab1d55E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %4 = getelementptr inbounds i8, ptr %3, i64 25
   %5 = load i8, ptr %4, align 1, !range !38, !noalias !779, !noundef !5
   %6 = icmp eq i8 %5, 2
@@ -10526,7 +10526,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %7
-  %9 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 2, i64 %.sroa.518.0.copyload.i)
+  %9 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef 2, i64 %.sroa.518.0.copyload.i)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_else17h703b946a75f2a984E.exit"
 
 10:                                               ; preds = %7
@@ -10654,7 +10654,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.us.i:                               ; preds = %43, %.critedge.i.us.i, %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i", %25
   %.sroa.0.0.insert.insert.i56.i.us.i = phi i32 [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i" ], [ %36, %39 ], [ %36, %43 ], [ 8, %25 ], [ %36, %.critedge.i.us.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
   %.pre57.i = load i8, ptr %3, align 8, !range !17, !noalias !782
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us.i"
 
@@ -10684,7 +10684,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.i", %.preheader.split.i, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.us.i"
   %.sroa.027.0.copyload.i = load i64, ptr %5, align 8, !noalias !782
-  %57 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 3, i64 %.sroa.027.0.copyload.i)
+  %57 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef 3, i64 %.sroa.027.0.copyload.i)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_loop17hea6ef4de464f84d1E.exit"
 
 58:                                               ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.i"
@@ -10717,7 +10717,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.i:                                  ; preds = %76, %.critedge.i.i, %72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %58
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %69, %72 ], [ %69, %76 ], [ 8, %58 ], [ %69, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %55, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %55, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !782
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i"
 
@@ -10856,7 +10856,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.us.i:                               ; preds = %43, %.critedge.i.us.i, %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i", %25
   %.sroa.0.0.insert.insert.i56.i.us.i = phi i32 [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i" ], [ %36, %39 ], [ %36, %43 ], [ 8, %25 ], [ %36, %.critedge.i.us.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
   %.pre57.i = load i8, ptr %3, align 8, !range !17, !noalias !798
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us.i"
 
@@ -10886,7 +10886,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.i", %.preheader.split.i, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.us.i"
   %.sroa.027.0.copyload.i = load i64, ptr %5, align 8, !noalias !798
-  %57 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 0, i64 %.sroa.027.0.copyload.i)
+  %57 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef 0, i64 %.sroa.027.0.copyload.i)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_block17h9d676ff7001f625bE.exit"
 
 58:                                               ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.i"
@@ -10919,7 +10919,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.i:                                  ; preds = %76, %.critedge.i.i, %72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %58
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %69, %72 ], [ %69, %76 ], [ 8, %58 ], [ %69, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %55, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %55, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !798
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i"
 
@@ -11015,7 +11015,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %26, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %2
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %22, %26 ], [ 8, %2 ], [ %22, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %7, align 8, !range !17, !noalias !814
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %7, i64 8
   %.pre65.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !814
@@ -11119,7 +11119,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store ptr %.sroa.5.0.ph.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !814
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.9.051.ph.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !814
-  %74 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  %74 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_br_if17h52c416af0869af04E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_br_if17h52c416af0869af04E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %37, %44, %65, %69, %73
@@ -11279,7 +11279,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %42 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %42)
   %43 = shl i64 %38, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %36, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %36, i64 %43, i1 false)
   store i64 %40, ptr %3, align 8, !alias.scope !863, !noalias !868
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %41, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !863, !noalias !868
@@ -11390,7 +11390,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.i:                                  ; preds = %92, %.critedge.i.i, %88, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %71
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %83, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %83, %88 ], [ %83, %92 ], [ 8, %71 ], [ %83, %.critedge.i.i ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.015.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.015.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
           to label %".critedge45.i._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit_crit_edge.i" unwind label %.loopexit.i
 
 ".critedge45.i._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit_crit_edge.i": ; preds = %.critedge45.i.i
@@ -11516,7 +11516,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11553,7 +11553,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11590,7 +11590,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11627,7 +11627,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11664,7 +11664,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11701,7 +11701,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11738,7 +11738,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11775,7 +11775,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11812,7 +11812,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11849,7 +11849,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11886,7 +11886,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -11923,7 +11923,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_fcmp_op17h5e63480cbe008d71E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12024,7 +12024,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %38, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %19
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %33, %38 ], [ 8, %19 ], [ %33, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1275068411, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1275068411, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !946
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre80.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !946
@@ -12086,7 +12086,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit78.i": ; preds = %63, %.critedge.i74.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i65.i", %45
   %.sroa.0.0.insert.insert.i56.i72.i = phi i32 [ %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i65.i" ], [ %58, %63 ], [ 8, %45 ], [ %58, %.critedge.i74.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1275068411, i32 %.sroa.0.0.insert.insert.i56.i72.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1275068411, i32 %.sroa.0.0.insert.insert.i56.i72.i)
   %.pre81.i = load i8, ptr %2, align 8, !range !17, !noalias !946
   %.phi.trans.insert82.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre83.i = load ptr, ptr %.phi.trans.insert82.i, align 8, !noalias !946
@@ -12185,7 +12185,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %25, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %1
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %21, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %21, %25 ], [ 8, %1 ], [ %21, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !968
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre108.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !968
@@ -12225,7 +12225,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit93.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i80.i", %32
   %.sroa.0.0.insert.insert.i56.i87.i = phi i32 [ %45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i80.i" ], [ 8, %32 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i56.i87.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i56.i87.i)
   %46 = load i8, ptr %5, align 8, !range !17, !noalias !968, !noundef !5
   %trunc61.i = trunc nuw i8 %46 to i1
   %47 = getelementptr inbounds i8, ptr %5, i64 8
@@ -12265,7 +12265,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit107.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i94.i", %50
   %.sroa.0.0.insert.insert.i56.i101.i = phi i32 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i94.i" ], [ 8, %50 ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i56.i101.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i56.i101.i)
   %64 = load i8, ptr %4, align 8, !range !17, !noalias !968, !noundef !5
   %trunc63.i = trunc nuw i8 %64 to i1
   %65 = getelementptr inbounds i8, ptr %4, i64 8
@@ -12411,7 +12411,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12448,7 +12448,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12485,7 +12485,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12522,7 +12522,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12559,7 +12559,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12596,7 +12596,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12633,7 +12633,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12670,7 +12670,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12707,7 +12707,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12744,7 +12744,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12781,7 +12781,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12818,7 +12818,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12855,7 +12855,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12892,7 +12892,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12929,7 +12929,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -12966,7 +12966,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -13027,7 +13027,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %21, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %1
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %17, %21 ], [ 8, %1 ], [ %17, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !1046
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1046
@@ -13122,7 +13122,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %21, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %1
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %17, %21 ], [ 8, %1 ], [ %17, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !1060
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1060
@@ -13254,7 +13254,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !1083
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre17.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1083
@@ -13473,7 +13473,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %34, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %2
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %30, %34 ], [ 8, %2 ], [ %30, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1118
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1118
   %.pre.i = load i8, ptr %15, align 8, !range !17, !noalias !1120
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %15, i64 8
   %.pre436.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1120
@@ -13724,7 +13724,7 @@ default.unreachable:                              ; preds = %107
 
 .critedge45.i196.us.i:                            ; preds = %142, %.critedge.i199.us.i, %138, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i", %124
   %.sroa.0.0.insert.insert.i56.i197.us.i = phi i32 [ %135, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i" ], [ %135, %138 ], [ %135, %142 ], [ 8, %124 ], [ %135, %.critedge.i199.us.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us.i, i32 %.sroa.0.0.insert.insert.i56.i197.us.i), !noalias !1118
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us.i, i32 %.sroa.0.0.insert.insert.i56.i197.us.i), !noalias !1118
   %.pre440.i = load i8, ptr %9, align 8, !range !17, !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i"
 
@@ -13797,7 +13797,7 @@ default.unreachable:                              ; preds = %107
 
 .critedge45.i196.us409.i:                         ; preds = %169, %.critedge.i199.us406.i, %165, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i", %151
   %.sroa.0.0.insert.insert.i56.i197.us410.i = phi i32 [ %162, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i" ], [ %162, %165 ], [ %162, %169 ], [ 8, %151 ], [ %162, %.critedge.i199.us406.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.8316.16.extract.trunc319.us.i, i32 %.sroa.0.0.insert.insert.i56.i197.us410.i), !noalias !1118
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.8316.16.extract.trunc319.us.i, i32 %.sroa.0.0.insert.insert.i56.i197.us410.i), !noalias !1118
   %.pre439.i = load i8, ptr %9, align 8, !range !17, !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i"
 
@@ -13859,7 +13859,7 @@ default.unreachable:                              ; preds = %107
 
 .critedge45.i196.i:                               ; preds = %202, %.critedge.i199.i, %198, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i", %184
   %.sroa.0.0.insert.insert.i56.i197.i = phi i32 [ %195, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i" ], [ %195, %198 ], [ %195, %202 ], [ 8, %184 ], [ %195, %.critedge.i199.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %181, i32 %.sroa.0.0.insert.insert.i56.i197.i), !noalias !1118
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %181, i32 %.sroa.0.0.insert.insert.i56.i197.i), !noalias !1118
   %.pre438.i = load i8, ptr %9, align 8, !range !17, !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i"
 
@@ -14214,7 +14214,7 @@ default.unreachable:                              ; preds = %107
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i": ; preds = %342, %.critedge.i257.i, %338, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i", %324
   %.sroa.0.0.insert.insert.i56.i255.i = phi i32 [ %335, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i" ], [ %335, %338 ], [ %335, %342 ], [ 8, %324 ], [ %335, %.critedge.i257.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i239.i, i32 %.sroa.0.0.insert.insert.i56.i255.i), !noalias !1118
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i239.i, i32 %.sroa.0.0.insert.insert.i56.i255.i), !noalias !1118
   %.pre437.i = load i8, ptr %11, align 8, !range !17, !noalias !1120
   %trunc157.i = trunc nuw i8 %.pre437.i to i1
   %347 = load ptr, ptr %105, align 8, !noalias !1120, !nonnull !5, !align !6
@@ -14455,7 +14455,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -14497,7 +14497,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1230
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val40.i = load ptr, ptr %16, align 8, !alias.scope !1225, !noalias !1228, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val40.i, i64 %.val43.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !1225
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val40.i, i64 %.val43.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1225
   %17 = load i8, ptr %5, align 8, !range !17, !noalias !1230, !noundef !5
   %trunc.i = trunc nuw i8 %17 to i1
   %18 = getelementptr inbounds i8, ptr %5, i64 8
@@ -14569,7 +14569,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %21
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %35, %40 ], [ %35, %45 ], [ 8, %21 ], [ %35, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.025.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1228
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.025.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1228
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !1230
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre45.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1230
@@ -14640,7 +14640,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -14710,7 +14710,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -14780,7 +14780,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -14850,7 +14850,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -14920,7 +14920,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -14990,7 +14990,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15060,7 +15060,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15097,7 +15097,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -15139,7 +15139,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1325
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val40.i = load ptr, ptr %16, align 8, !alias.scope !1320, !noalias !1323, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val40.i, i64 %.val43.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !1320
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val40.i, i64 %.val43.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1320
   %17 = load i8, ptr %5, align 8, !range !17, !noalias !1325, !noundef !5
   %trunc.i = trunc nuw i8 %17 to i1
   %18 = getelementptr inbounds i8, ptr %5, i64 8
@@ -15211,7 +15211,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %21
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %35, %40 ], [ %35, %45 ], [ 8, %21 ], [ %35, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.025.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1323
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.025.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1323
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !1325
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre45.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1325
@@ -15282,7 +15282,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -15352,7 +15352,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15422,7 +15422,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15492,7 +15492,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15562,7 +15562,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15632,7 +15632,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15702,7 +15702,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -15818,7 +15818,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val33.i = load ptr, ptr %5, align 8, !alias.scope !1430, !noalias !1435, !nonnull !5, !align !6, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %.val34.i = load i64, ptr %6, align 8, !alias.scope !1430, !noalias !1435
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val34.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !1430
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val34.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1430
   %7 = load i8, ptr %4, align 8, !range !17, !noalias !1433, !noundef !5
   %trunc.i = trunc nuw i8 %7 to i1
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -15891,7 +15891,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %31, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %11
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1435
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1435
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !1433
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1433
@@ -16041,7 +16041,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val33.i = load ptr, ptr %5, align 8, !alias.scope !1465, !noalias !1470, !nonnull !5, !align !6, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %.val34.i = load i64, ptr %6, align 8, !alias.scope !1465, !noalias !1470
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val34.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !1465
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val34.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1465
   %7 = load i8, ptr %4, align 8, !range !17, !noalias !1468, !noundef !5
   %trunc.i = trunc nuw i8 %7 to i1
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -16114,7 +16114,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %31, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %11
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %26, %31 ], [ %26, %36 ], [ 8, %11 ], [ %26, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1470
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1470
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !1468
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1468
@@ -16765,7 +16765,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !1572
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1572
@@ -17028,7 +17028,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %71, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %53
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %67, %71 ], [ 8, %53 ], [ %67, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !1604
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre67.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1604
@@ -17053,7 +17053,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 84:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1604
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %85 = load i8, ptr %8, align 8, !range !17, !noalias !1604, !noundef !5
   %trunc40.i = trunc nuw i8 %85 to i1
   %86 = getelementptr inbounds i8, ptr %8, i64 8
@@ -17185,7 +17185,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %37 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1342177275, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1342177275, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !1633
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1633
@@ -17389,7 +17389,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %67, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %49
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %63, %67 ], [ 8, %49 ], [ %63, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !1656
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre74.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1656
@@ -17466,7 +17466,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit63.i": ; preds = %101, %.critedge.i59.i, %96, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i50.i", %78
   %.sroa.0.0.insert.insert.i56.i57.i = phi i32 [ %91, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i50.i" ], [ %91, %96 ], [ %91, %101 ], [ 8, %78 ], [ %91, %.critedge.i59.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.018.0.insert.insert21.i, i32 %.sroa.0.0.insert.insert.i56.i57.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.018.0.insert.insert21.i, i32 %.sroa.0.0.insert.insert.i56.i57.i)
   %.pre75.i = load i8, ptr %8, align 8, !range !17, !noalias !1656
   %.phi.trans.insert76.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre77.i = load ptr, ptr %.phi.trans.insert76.i, align 8, !noalias !1656
@@ -17484,7 +17484,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %78
 
 113:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit63.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit63.thread.i"
-  %114 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %114 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_new17h3767f50772ad38f8E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_new17h3767f50772ad38f8E.exit": ; preds = %113, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit63.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %48, %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -17707,7 +17707,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %94, %.critedge.i.i, %89, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %70
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %84, %89 ], [ %84, %94 ], [ 8, %70 ], [ %84, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.010.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.010.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %10, align 8, !range !17, !noalias !1691
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1691
@@ -17767,7 +17767,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit71.i": ; preds = %118, %.critedge.i67.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i58.i", %101
   %.sroa.0.0.insert.insert.i56.i65.i = phi i32 [ %114, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i58.i" ], [ %114, %118 ], [ 8, %101 ], [ %114, %.critedge.i67.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i65.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i65.i)
   %.pre83.i = load i8, ptr %9, align 8, !range !17, !noalias !1691
   %.phi.trans.insert84.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre85.i = load ptr, ptr %.phi.trans.insert84.i, align 8, !noalias !1691
@@ -17777,7 +17777,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 125:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit71.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit71.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1691
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %126 = load i8, ptr %8, align 8, !range !17, !noalias !1691, !noundef !5
   %trunc40.i = trunc nuw i8 %126 to i1
   %127 = getelementptr inbounds i8, ptr %8, i64 8
@@ -18126,7 +18126,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -18169,7 +18169,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1767
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %17, align 8, !alias.scope !1762, !noalias !1765, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr %.val.i, i64 %.val51.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !1762
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr %.val.i, i64 %.val51.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1762
   %18 = load i8, ptr %6, align 8, !range !17, !noalias !1767, !noundef !5
   %trunc.i = trunc nuw i8 %18 to i1
   %19 = getelementptr inbounds i8, ptr %6, i64 8
@@ -18228,7 +18228,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %40, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %22
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %36, %40 ], [ 8, %22 ], [ %36, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1765
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1765
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !1767
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre67.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1767
@@ -18276,7 +18276,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i58.i:                                ; preds = %72, %.critedge.i61.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i52.i", %47
   %.sroa.0.0.insert.insert.i56.i59.i = phi i32 [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i52.i" ], [ %60, %67 ], [ %60, %72 ], [ 8, %47 ], [ %60, %.critedge.i61.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.028.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i59.i), !noalias !1765
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.028.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i59.i), !noalias !1765
   %.pre68.i = load i8, ptr %4, align 8, !range !17, !noalias !1767
   %.phi.trans.insert69.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre70.i = load ptr, ptr %.phi.trans.insert69.i, align 8, !noalias !1767
@@ -18344,7 +18344,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -18463,7 +18463,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -18533,7 +18533,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -18603,7 +18603,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -18673,7 +18673,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -18743,7 +18743,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -18862,7 +18862,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -18954,7 +18954,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -18997,7 +18997,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1888
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %17, align 8, !alias.scope !1883, !noalias !1886, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr %.val.i, i64 %.val51.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !1883
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr %.val.i, i64 %.val51.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1883
   %18 = load i8, ptr %6, align 8, !range !17, !noalias !1888, !noundef !5
   %trunc.i = trunc nuw i8 %18 to i1
   %19 = getelementptr inbounds i8, ptr %6, i64 8
@@ -19056,7 +19056,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %40, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %22
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %36, %40 ], [ 8, %22 ], [ %36, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1886
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !1886
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !1888
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre67.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1888
@@ -19104,7 +19104,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i58.i:                                ; preds = %72, %.critedge.i61.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i52.i", %47
   %.sroa.0.0.insert.insert.i56.i59.i = phi i32 [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i52.i" ], [ %60, %67 ], [ %60, %72 ], [ 8, %47 ], [ %60, %.critedge.i61.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.028.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i59.i), !noalias !1886
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.028.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i59.i), !noalias !1886
   %.pre68.i = load i8, ptr %4, align 8, !range !17, !noalias !1888
   %.phi.trans.insert69.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre70.i = load ptr, ptr %.phi.trans.insert69.i, align 8, !noalias !1888
@@ -19172,7 +19172,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -19291,7 +19291,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -19361,7 +19361,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -19431,7 +19431,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -19501,7 +19501,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -19571,7 +19571,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -19690,7 +19690,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -19788,7 +19788,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2007
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2007
@@ -20018,7 +20018,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2048
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2048
@@ -20250,7 +20250,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %37 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1610612731, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1610612731, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2089
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre17.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2089
@@ -20384,7 +20384,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %37 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1610612731, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1610612731, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2112
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre17.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2112
@@ -20465,7 +20465,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !2129, !noalias !2134, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !2129, !noalias !2134
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !2129
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !2129
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !2132, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -20525,7 +20525,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !2134
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !2134
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !2132
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2132
@@ -20573,7 +20573,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !2134
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !2134
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !2132
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !2132
@@ -20702,7 +20702,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2160
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2160
@@ -20932,7 +20932,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2201
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2201
@@ -21111,7 +21111,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !2236, !noalias !2241, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !2236, !noalias !2241
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !2236
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !2236
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !2239, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21171,7 +21171,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !2241
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !2241
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !2239
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2239
@@ -21219,7 +21219,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !2241
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !2241
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !2239
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !2239
@@ -21348,7 +21348,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2267
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2267
@@ -21578,7 +21578,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2308
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2308
@@ -21808,7 +21808,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2349
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2349
@@ -21989,7 +21989,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2381
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2381
@@ -22376,7 +22376,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %48, %.critedge.i.i, %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %43 ], [ %40, %48 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !2435
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre44.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2435
@@ -22556,7 +22556,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %48, %.critedge.i.i, %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %43 ], [ %40, %48 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !2462
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre52.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2462
@@ -22759,7 +22759,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %51, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %32
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %47, %51 ], [ 8, %32 ], [ %47, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !2503
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre20.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2503
@@ -22931,7 +22931,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %33
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %48, %53 ], [ 8, %33 ], [ %48, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.04.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.04.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !2526
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre48.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2526
@@ -22972,7 +22972,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i40.i:                                ; preds = %79, %.critedge.i43.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i34.i", %60
   %.sroa.0.0.insert.insert.i56.i41.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i34.i" ], [ %73, %79 ], [ 8, %60 ], [ %73, %.critedge.i43.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i41.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i41.i)
   %.pre49.i = load i8, ptr %3, align 8, !range !17, !noalias !2526
   %.phi.trans.insert50.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre51.i = load ptr, ptr %.phi.trans.insert50.i, align 8, !noalias !2526
@@ -23097,7 +23097,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %37 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -2080374779, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -2080374779, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !2554
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre18.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2554
@@ -23309,7 +23309,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 .critedge45.i.us.i:                               ; preds = %89, %.critedge.i.us.i, %85, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i", %71
   %.sroa.0.0.insert.insert.i56.i.us.i = phi i32 [ %82, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i" ], [ %82, %85 ], [ %82, %89 ], [ 8, %71 ], [ %82, %.critedge.i.us.i ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
           to label %".critedge45.i.us._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us_crit_edge.i" unwind label %.loopexit823.split.us.i
 
 ".critedge45.i.us._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us_crit_edge.i": ; preds = %.critedge45.i.us.i
@@ -23377,7 +23377,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 .critedge45.i.i:                                  ; preds = %123, %.critedge.i.i, %119, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %105
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %116, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %116, %119 ], [ %116, %123 ], [ 8, %105 ], [ %116, %.critedge.i.i ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %103, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %103, i32 %.sroa.0.0.insert.insert.i56.i.i)
           to label %".critedge45.i._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit_crit_edge.i" unwind label %.loopexit823.split.i
 
 ".critedge45.i._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit_crit_edge.i": ; preds = %.critedge45.i.i
@@ -23496,7 +23496,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
   call void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17h2ee6225ad111daa8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31), !noalias !2582
   %.sroa.0163.0.copyload.i = load i64, ptr %52, align 8, !alias.scope !2580, !noalias !2577
-  %142 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 4, i64 %.sroa.0163.0.copyload.i)
+  %142 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef 4, i64 %.sroa.0163.0.copyload.i)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_try_table17h12d939e70ca52d16E.exit"
 
 143:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd46babf2b698401aE.exit.i"
@@ -23927,7 +23927,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 .critedge45.i395.i:                               ; preds = %319, %.critedge.i398.i, %315, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i388.i", %298
   %.sroa.0.0.insert.insert.i56.i396.i = phi i32 [ %312, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i388.i" ], [ %312, %315 ], [ %312, %319 ], [ 8, %298 ], [ %312, %.critedge.i398.i ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0555.2.i, i32 %.sroa.0.0.insert.insert.i56.i396.i)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0555.2.i, i32 %.sroa.0.0.insert.insert.i56.i396.i)
           to label %".critedge45.i395._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit403_crit_edge.i" unwind label %.loopexit818.i
 
 ".critedge45.i395._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit403_crit_edge.i": ; preds = %.critedge45.i395.i
@@ -24391,7 +24391,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc6932fdd68099183E.exit.thread.
 
 .critedge45.i461.i:                               ; preds = %492, %.critedge.i464.i, %488, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i454.i", %471
   %.sroa.0.0.insert.insert.i56.i462.i = phi i32 [ %485, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i454.i" ], [ %485, %488 ], [ %485, %492 ], [ 8, %471 ], [ %485, %.critedge.i464.i ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i440.i, i32 %.sroa.0.0.insert.insert.i56.i462.i)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i440.i, i32 %.sroa.0.0.insert.insert.i56.i462.i)
           to label %".critedge45.i461._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit469_crit_edge.i" unwind label %456
 
 ".critedge45.i461._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit469_crit_edge.i": ; preds = %.critedge45.i461.i
@@ -24830,7 +24830,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2819
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val33.i = load ptr, ptr %21, align 8, !alias.scope !2816, !noalias !2821, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !2816
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !2816
   %22 = load i8, ptr %4, align 8, !range !17, !noalias !2819, !noundef !5
   %trunc.i = trunc nuw i8 %22 to i1
   %23 = getelementptr inbounds i8, ptr %4, i64 8
@@ -24902,7 +24902,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %50, %.critedge.i.i, %45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %45 ], [ %40, %50 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !2821
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !2821
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !2819
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2819
@@ -25244,7 +25244,7 @@ default.unreachable:                              ; preds = %106
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %134, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %116
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %130, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %130, %134 ], [ 8, %116 ], [ %130, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %18, align 8, !range !17, !noalias !2842
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %18, i64 8
   %.pre188.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2842
@@ -25433,7 +25433,7 @@ default.unreachable:                              ; preds = %106
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit152.i": ; preds = %193, %.critedge.i148.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i139.i", %176
   %.sroa.0.0.insert.insert.i56.i146.i = phi i32 [ %189, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i139.i" ], [ %189, %193 ], [ 8, %176 ], [ %189, %.critedge.i148.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i146.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i146.i)
   %.pre189.i = load i8, ptr %17, align 8, !range !17, !noalias !2842
   %.phi.trans.insert190.i = getelementptr inbounds i8, ptr %17, i64 8
   %.pre191.i = load ptr, ptr %.phi.trans.insert190.i, align 8, !noalias !2842
@@ -25443,7 +25443,7 @@ default.unreachable:                              ; preds = %106
 
 200:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit152.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit152.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !2842
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %2)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %2)
   %201 = load i8, ptr %16, align 8, !range !17, !noalias !2842, !noundef !5
   %trunc102.i = trunc nuw i8 %201 to i1
   %202 = getelementptr inbounds i8, ptr %16, i64 8
@@ -25499,7 +25499,7 @@ default.unreachable:                              ; preds = %106
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit166.i": ; preds = %221, %.critedge.i162.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i153.i", %204
   %.sroa.0.0.insert.insert.i56.i160.i = phi i32 [ %217, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i153.i" ], [ %217, %221 ], [ 8, %204 ], [ %217, %.critedge.i162.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i160.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i160.i)
   %.pre192.i = load i8, ptr %15, align 8, !range !17, !noalias !2842
   %.phi.trans.insert193.i = getelementptr inbounds i8, ptr %15, i64 8
   %.pre194.i = load ptr, ptr %.phi.trans.insert193.i, align 8, !noalias !2842
@@ -25509,7 +25509,7 @@ default.unreachable:                              ; preds = %106
 
 228:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit166.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit166.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2842
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %229 = load i8, ptr %14, align 8, !range !17, !noalias !2842, !noundef !5
   %trunc106.i = trunc nuw i8 %229 to i1
   %230 = getelementptr inbounds i8, ptr %14, i64 8
@@ -25709,7 +25709,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %80, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %62
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %76, %80 ], [ 8, %62 ], [ %76, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %11, align 8, !range !17, !noalias !2914
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %11, i64 8
   %.pre120.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2914
@@ -25786,7 +25786,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit95.i": ; preds = %114, %.critedge.i91.i, %109, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i82.i", %91
   %.sroa.0.0.insert.insert.i56.i89.i = phi i32 [ %104, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i82.i" ], [ %104, %109 ], [ %104, %114 ], [ 8, %91 ], [ %104, %.critedge.i91.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.insert.insert22.i, i32 %.sroa.0.0.insert.insert.i56.i89.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.insert.insert22.i, i32 %.sroa.0.0.insert.insert.i56.i89.i)
   %.pre121.i = load i8, ptr %10, align 8, !range !17, !noalias !2914
   %.phi.trans.insert122.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre123.i = load ptr, ptr %.phi.trans.insert122.i, align 8, !noalias !2914
@@ -25855,7 +25855,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit109.i": ; preds = %143, %.critedge.i105.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i96.i", %126
   %.sroa.0.0.insert.insert.i56.i103.i = phi i32 [ %139, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i96.i" ], [ %139, %143 ], [ 8, %126 ], [ %139, %.critedge.i105.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i103.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i103.i)
   %.pre124.i = load i8, ptr %9, align 8, !range !17, !noalias !2914
   %.phi.trans.insert125.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre126.i = load ptr, ptr %.phi.trans.insert125.i, align 8, !noalias !2914
@@ -25865,7 +25865,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 150:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit109.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit109.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2914
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %151 = load i8, ptr %8, align 8, !range !17, !noalias !2914, !noundef !5
   %trunc60.i = trunc nuw i8 %151 to i1
   %152 = getelementptr inbounds i8, ptr %8, i64 8
@@ -26236,7 +26236,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %151, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %133
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %147, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %147, %151 ], [ 8, %133 ], [ %147, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.065.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.065.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %13, align 8, !range !17, !noalias !2956
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %13, i64 8
   %.pre171.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !2956
@@ -26251,7 +26251,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store ptr %.sroa.5.0.ph162.i, ptr %.sroa.6129.0..sroa_idx.i, align 8, !noalias !2956
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %.sroa.9.0141.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !2956
-  %158 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
+  %158 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2956
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_br_on_cast17h852c54f734dd6c6bE.exit"
@@ -26323,7 +26323,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3006)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !3006
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %24 = load i8, ptr %7, align 8, !range !17, !noalias !3006, !noundef !5
   %trunc.i = trunc nuw i8 %24 to i1
   %25 = getelementptr inbounds i8, ptr %7, i64 8
@@ -26427,7 +26427,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store ptr %.sroa.5.0.ph.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3006
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.9.081.ph.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !3006
-  %68 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  %68 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_br_on_null17h84f2e3d875b13ff4E.exit"
 
@@ -26578,7 +26578,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -26648,7 +26648,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -26816,7 +26816,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -26886,7 +26886,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_v128_binary_op17h0aec09582b767759E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_v128_fbinary_op17h36e9ee598bb873f6E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -27406,7 +27406,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !3180, !noalias !3185, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !3180, !noalias !3185
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !3180
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3180
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !3183, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -27466,7 +27466,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3185
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3185
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3183
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3183
@@ -27514,7 +27514,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3185
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3185
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !3183
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !3183
@@ -27956,7 +27956,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !3274, !noalias !3279, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !3274, !noalias !3279
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !3274
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3274
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !3277, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -28016,7 +28016,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3279
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3279
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3277
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3277
@@ -28064,7 +28064,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3279
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3279
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !3277
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !3277
@@ -28764,7 +28764,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3413
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %33 = load i8, ptr %4, align 8, !range !17, !noalias !3413, !noundef !5
   %trunc20.i = trunc nuw i8 %33 to i1
   %34 = getelementptr inbounds i8, ptr %4, i64 8
@@ -28951,7 +28951,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
-  %63 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %63 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_new17h72ee893e7a2bd527E.exit"
 
 64:                                               ; preds = %60
@@ -29003,7 +29003,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.i:                                  ; preds = %88, %.critedge.i.i, %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %70
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %81, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %81, %84 ], [ %81, %88 ], [ 8, %70 ], [ %81, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.015.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.015.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %8, align 8, !range !17, !noalias !3428
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i"
 
@@ -29191,7 +29191,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %64, %.critedge.i.i, %59, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %38
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %55, %59 ], [ %55, %64 ], [ 8, %38 ], [ %55, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.010.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.010.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !3454
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre52.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3454
@@ -29201,7 +29201,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 71:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3454
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %72 = load i8, ptr %4, align 8, !range !17, !noalias !3454, !noundef !5
   %trunc31.i = trunc nuw i8 %72 to i1
   %73 = getelementptr inbounds i8, ptr %4, i64 8
@@ -29370,7 +29370,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %65, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %47
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %61, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %61, %65 ], [ 8, %47 ], [ %61, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !3474
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre81.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3474
@@ -29430,7 +29430,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit66.i": ; preds = %89, %.critedge.i62.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i53.i", %72
   %.sroa.0.0.insert.insert.i56.i60.i = phi i32 [ %85, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i53.i" ], [ %85, %89 ], [ 8, %72 ], [ %85, %.critedge.i62.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i60.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i60.i)
   %.pre82.i = load i8, ptr %5, align 8, !range !17, !noalias !3474
   %.phi.trans.insert83.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre84.i = load ptr, ptr %.phi.trans.insert83.i, align 8, !noalias !3474
@@ -29471,7 +29471,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i73.i:                                ; preds = %115, %.critedge.i76.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i", %96
   %.sroa.0.0.insert.insert.i56.i74.i = phi i32 [ %109, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i" ], [ %109, %115 ], [ 8, %96 ], [ %109, %.critedge.i76.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i74.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i74.i)
   %.pre85.i = load i8, ptr %4, align 8, !range !17, !noalias !3474
   %.phi.trans.insert86.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre87.i = load ptr, ptr %.phi.trans.insert86.i, align 8, !noalias !3474
@@ -29633,7 +29633,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %34
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %34 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !3510
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre75.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3510
@@ -29698,7 +29698,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit60.i": ; preds = %78, %.critedge.i56.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i47.i", %60
   %.sroa.0.0.insert.insert.i56.i54.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i47.i" ], [ %73, %78 ], [ 8, %60 ], [ %73, %.critedge.i56.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.015.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i54.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.015.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i54.i)
   %.pre76.i = load i8, ptr %4, align 8, !range !17, !noalias !3510
   %.phi.trans.insert77.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre78.i = load ptr, ptr %.phi.trans.insert77.i, align 8, !noalias !3510
@@ -29739,7 +29739,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i67.i:                                ; preds = %104, %.critedge.i70.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i61.i", %85
   %.sroa.0.0.insert.insert.i56.i68.i = phi i32 [ %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i61.i" ], [ %98, %104 ], [ 8, %85 ], [ %98, %.critedge.i70.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i68.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i68.i)
   %.pre79.i = load i8, ptr %3, align 8, !range !17, !noalias !3510
   %.phi.trans.insert80.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre81.i = load ptr, ptr %.phi.trans.insert80.i, align 8, !noalias !3510
@@ -29894,7 +29894,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %52, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %33
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %48, %52 ], [ 8, %33 ], [ %48, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3546
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre58.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3546
@@ -29959,7 +29959,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit57.i": ; preds = %77, %.critedge.i53.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i44.i", %59
   %.sroa.0.0.insert.insert.i56.i51.i = phi i32 [ %72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i44.i" ], [ %72, %77 ], [ 8, %59 ], [ %72, %.critedge.i53.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.021.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i51.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.021.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i51.i)
   %.pre59.i = load i8, ptr %3, align 8, !range !17, !noalias !3546
   %.phi.trans.insert60.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre61.i = load ptr, ptr %.phi.trans.insert60.i, align 8, !noalias !3546
@@ -30190,7 +30190,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %79, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %61
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %75, %79 ], [ 8, %61 ], [ %75, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !3577
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre111.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3577
@@ -30250,7 +30250,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit81.i": ; preds = %103, %.critedge.i77.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i68.i", %86
   %.sroa.0.0.insert.insert.i56.i75.i = phi i32 [ %99, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i68.i" ], [ %99, %103 ], [ 8, %86 ], [ %99, %.critedge.i77.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i75.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i75.i)
   %.pre112.i = load i8, ptr %8, align 8, !range !17, !noalias !3577
   %.phi.trans.insert113.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre114.i = load ptr, ptr %.phi.trans.insert113.i, align 8, !noalias !3577
@@ -30291,7 +30291,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i88.i:                                ; preds = %129, %.critedge.i91.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i82.i", %110
   %.sroa.0.0.insert.insert.i56.i89.i = phi i32 [ %123, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i82.i" ], [ %123, %129 ], [ 8, %110 ], [ %123, %.critedge.i91.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i89.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i89.i)
   %.pre115.i = load i8, ptr %7, align 8, !range !17, !noalias !3577
   %.phi.trans.insert116.i = getelementptr inbounds i8, ptr %7, i64 8
   %.pre117.i = load ptr, ptr %.phi.trans.insert116.i, align 8, !noalias !3577
@@ -30542,7 +30542,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3658
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %22, align 8, !alias.scope !3655, !noalias !3660, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !3655
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3655
   %23 = load i8, ptr %5, align 8, !range !17, !noalias !3658, !noundef !5
   %trunc.i = trunc nuw i8 %23 to i1
   %24 = getelementptr inbounds i8, ptr %5, i64 8
@@ -30601,7 +30601,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %27
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %41, %45 ], [ 8, %27 ], [ %41, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3660
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3660
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3658
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3658
@@ -30649,7 +30649,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %77, %.critedge.i52.i, %72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %52
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %65, %72 ], [ %65, %77 ], [ 8, %52 ], [ %65, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3660
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3660
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !3658
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !3658
@@ -30875,7 +30875,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %77, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %59
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %73, %77 ], [ 8, %59 ], [ %73, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !3686
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre67.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3686
@@ -30885,7 +30885,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 84:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !3686
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %85 = load i8, ptr %8, align 8, !range !17, !noalias !3686, !noundef !5
   %trunc40.i = trunc nuw i8 %85 to i1
   %86 = getelementptr inbounds i8, ptr %8, i64 8
@@ -31110,7 +31110,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %77, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %59
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %73, %77 ], [ 8, %59 ], [ %73, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !3715
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre67.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3715
@@ -31120,7 +31120,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 84:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !3715
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %85 = load i8, ptr %8, align 8, !range !17, !noalias !3715, !noundef !5
   %trunc40.i = trunc nuw i8 %85 to i1
   %86 = getelementptr inbounds i8, ptr %8, i64 8
@@ -31187,7 +31187,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -31306,7 +31306,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_splat17h0458aa049833ad35E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_v128_splat17h5a1f84a6551b9e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_v128_splat17h5a1f84a6551b9e8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_splat17h0458aa049833ad35E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_splat17h0458aa049833ad35E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -31392,7 +31392,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_funary_op17hb3d00b41da85db16E.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -31511,7 +31511,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_splat17h9216f706a9283d13E.exit"
 
 25:                                               ; preds = %18
-  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_v128_splat17h5a1f84a6551b9e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %26 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_v128_splat17h5a1f84a6551b9e8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_splat17h9216f706a9283d13E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_splat17h9216f706a9283d13E.exit": ; preds = %25, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -31922,7 +31922,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !3864, !noalias !3869, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !3864, !noalias !3869
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !3864
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3864
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !3867, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -31982,7 +31982,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3869
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3869
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3867
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3867
@@ -32030,7 +32030,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3869
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3869
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !3867
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !3867
@@ -32423,7 +32423,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !3949, !noalias !3954, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !3949, !noalias !3954
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !3949
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3949
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !3952, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -32483,7 +32483,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3954
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3954
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3952
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3952
@@ -32531,7 +32531,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3954
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3954
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !3952
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !3952
@@ -32581,7 +32581,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !3971, !noalias !3976, !nonnull !5, !align !6, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val42.i = load i64, ptr %7, align 8, !alias.scope !3971, !noalias !3976
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !3971
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr %.val.i, i64 %.val42.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !3971
   %8 = load i8, ptr %5, align 8, !range !17, !noalias !3974, !noundef !5
   %trunc.i = trunc nuw i8 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -32641,7 +32641,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %31, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %12
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %27, %31 ], [ 8, %12 ], [ %27, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3976
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !3976
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !3974
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !3974
@@ -32689,7 +32689,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i49.i:                                ; preds = %63, %.critedge.i52.i, %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %38
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %51, %58 ], [ %51, %63 ], [ 8, %38 ], [ %51, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3976
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i50.i), !noalias !3976
   %.pre58.i = load i8, ptr %3, align 8, !range !17, !noalias !3974
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !3974
@@ -33406,7 +33406,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %72, %.critedge.i.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %49
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %64, %67 ], [ %64, %72 ], [ 8, %49 ], [ %64, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %..sroa.6.0.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %..sroa.6.0.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %14, align 8, !range !17, !noalias !4092
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %14, i64 8
   %.pre132.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4092
@@ -33469,7 +33469,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit96.i": ; preds = %97, %.critedge.i92.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i82.i", %79
   %.sroa.0.0.insert.insert.i56.i90.i = phi i32 [ %92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i82.i" ], [ %92, %97 ], [ 8, %79 ], [ %92, %.critedge.i92.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4115.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i90.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4115.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i90.i)
   %.pre133.i = load i8, ptr %13, align 8, !range !17, !noalias !4092
   %.phi.trans.insert134.i = getelementptr inbounds i8, ptr %13, i64 8
   %.pre135.i = load ptr, ptr %.phi.trans.insert134.i, align 8, !noalias !4092
@@ -33513,7 +33513,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i105.i:                               ; preds = %124, %.critedge.i108.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i98.i", %104
   %.sroa.0.0.insert.insert.i56.i106.i = phi i32 [ %117, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i98.i" ], [ %117, %124 ], [ 8, %104 ], [ %117, %.critedge.i108.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i106.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i106.i)
   %.pre136.i = load i8, ptr %12, align 8, !range !17, !noalias !4092
   %.phi.trans.insert137.i = getelementptr inbounds i8, ptr %12, i64 8
   %.pre138.i = load ptr, ptr %.phi.trans.insert137.i, align 8, !noalias !4092
@@ -33685,7 +33685,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %54, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %54 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !4146
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre97.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4146
@@ -33745,7 +33745,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i": ; preds = %78, %.critedge.i68.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i59.i", %61
   %.sroa.0.0.insert.insert.i56.i66.i = phi i32 [ %74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i59.i" ], [ %74, %78 ], [ 8, %61 ], [ %74, %.critedge.i68.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i66.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i66.i)
   %.pre98.i = load i8, ptr %8, align 8, !range !17, !noalias !4146
   %.phi.trans.insert99.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre100.i = load ptr, ptr %.phi.trans.insert99.i, align 8, !noalias !4146
@@ -33789,7 +33789,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i81.i:                                ; preds = %105, %.critedge.i84.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i74.i", %85
   %.sroa.0.0.insert.insert.i56.i82.i = phi i32 [ %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i74.i" ], [ %98, %105 ], [ 8, %85 ], [ %98, %.critedge.i84.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i82.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i82.i)
   %.pre101.i = load i8, ptr %7, align 8, !range !17, !noalias !4146
   %.phi.trans.insert102.i = getelementptr inbounds i8, ptr %7, i64 8
   %.pre103.i = load ptr, ptr %.phi.trans.insert102.i, align 8, !noalias !4146
@@ -33953,7 +33953,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %55, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %50, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %50, %55 ], [ 8, %35 ], [ %50, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %8, align 8, !range !17, !noalias !4182
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre41.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4182
@@ -34185,7 +34185,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %78, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %60
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %74, %78 ], [ 8, %60 ], [ %74, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %10, align 8, !range !17, !noalias !4214
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre101.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4214
@@ -34245,7 +34245,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit78.i": ; preds = %102, %.critedge.i74.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i65.i", %85
   %.sroa.0.0.insert.insert.i56.i72.i = phi i32 [ %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i65.i" ], [ %98, %102 ], [ 8, %85 ], [ %98, %.critedge.i74.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i72.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i72.i)
   %.pre102.i = load i8, ptr %9, align 8, !range !17, !noalias !4214
   %.phi.trans.insert103.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre104.i = load ptr, ptr %.phi.trans.insert103.i, align 8, !noalias !4214
@@ -34289,7 +34289,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i85.i:                                ; preds = %129, %.critedge.i88.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i79.i", %109
   %.sroa.0.0.insert.insert.i56.i86.i = phi i32 [ %122, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i79.i" ], [ %122, %129 ], [ 8, %109 ], [ %122, %.critedge.i88.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i86.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i86.i)
   %.pre105.i = load i8, ptr %8, align 8, !range !17, !noalias !4214
   %.phi.trans.insert106.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre107.i = load ptr, ptr %.phi.trans.insert106.i, align 8, !noalias !4214
@@ -34477,7 +34477,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 18:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !4280
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %19 = load i8, ptr %2, align 8, !range !17, !noalias !4280, !noundef !5
   %trunc.i = trunc nuw i8 %19 to i1
   %20 = getelementptr inbounds i8, ptr %2, i64 8
@@ -34590,13 +34590,13 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_return_call17h066733ab1ec53ff9E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$10check_call17h89a9e0e88a8f044eE.exit.i": ; preds = %21
-  %32 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  %32 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !4295
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_return_call17h066733ab1ec53ff9E.exit"
 
 34:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$10check_call17h89a9e0e88a8f044eE.exit.i"
-  %35 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %35 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_return_call17h066733ab1ec53ff9E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_return_call17h066733ab1ec53ff9E.exit": ; preds = %34, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$10check_call17h89a9e0e88a8f044eE.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$10check_call17h89a9e0e88a8f044eE.exit.thread.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -34760,7 +34760,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -34797,7 +34797,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16check_fbinary_op17hd9e80fe60bfe692fE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -34993,7 +34993,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4362
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4362
@@ -35123,7 +35123,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 38:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4385
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %39 = load i8, ptr %4, align 8, !range !17, !noalias !4385, !noundef !5
   %trunc20.i = trunc nuw i8 %39 to i1
   %40 = getelementptr inbounds i8, ptr %4, i64 8
@@ -35248,7 +35248,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 38:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4400
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %39 = load i8, ptr %4, align 8, !range !17, !noalias !4400, !noundef !5
   %trunc20.i = trunc nuw i8 %39 to i1
   %40 = getelementptr inbounds i8, ptr %4, i64 8
@@ -35405,7 +35405,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %52, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit.thread.i
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %48, %52 ], [ 8, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit.thread.i ], [ %48, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !4415
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre94.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4415
@@ -35479,7 +35479,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit74.i": ; preds = %82, %.critedge.i70.i, %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i61.i", %59
   %.sroa.0.0.insert.insert.i56.i68.i = phi i32 [ %72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i61.i" ], [ %72, %77 ], [ %72, %82 ], [ 8, %59 ], [ %72, %.critedge.i70.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.018.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i68.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.018.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i68.i)
   %.pre95.i = load i8, ptr %4, align 8, !range !17, !noalias !4415
   %.phi.trans.insert96.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre97.i = load ptr, ptr %.phi.trans.insert96.i, align 8, !noalias !4415
@@ -35555,7 +35555,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit90.i": ; preds = %112, %.critedge.i86.i, %107, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i76.i", %89
   %.sroa.0.0.insert.insert.i56.i84.i = phi i32 [ %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i76.i" ], [ %102, %107 ], [ %102, %112 ], [ 8, %89 ], [ %102, %.critedge.i86.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i84.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i84.i)
   %.pre98.i = load i8, ptr %3, align 8, !range !17, !noalias !4415
   %.phi.trans.insert99.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre100.i = load ptr, ptr %.phi.trans.insert99.i, align 8, !noalias !4415
@@ -35612,7 +35612,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %9, %4
-  %8 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_call_indirect17h8569be672b663f6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2)
+  %8 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_call_indirect17h8569be672b663f6aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_call_indirect17h37b1b88cbeac0564E.exit"
 
 9:                                                ; preds = %4
@@ -35833,7 +35833,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4484
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4484
@@ -36014,7 +36014,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4516
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4516
@@ -36195,7 +36195,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4548
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4548
@@ -36327,7 +36327,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4571
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4571
@@ -36462,7 +36462,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %40, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %22
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %36, %40 ], [ 8, %22 ], [ %36, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !4606
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !4606
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !4594
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre81.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4594
@@ -36522,7 +36522,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i": ; preds = %64, %.critedge.i68.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i59.i", %47
   %.sroa.0.0.insert.insert.i56.i66.i = phi i32 [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i59.i" ], [ %60, %64 ], [ 8, %47 ], [ %60, %.critedge.i68.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i66.i), !noalias !4606
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i66.i), !noalias !4606
   %.pre82.i = load i8, ptr %5, align 8, !range !17, !noalias !4594
   %.phi.trans.insert83.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre84.i = load ptr, ptr %.phi.trans.insert83.i, align 8, !noalias !4594
@@ -36532,7 +36532,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 71:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.thread.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !4594
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false), !noalias !4615
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 1 dereferenceable(16) %1, i64 16, i1 false), !noalias !4615
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !4594
   %.sroa.624.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
@@ -36687,7 +36687,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %19
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %33, %37 ], [ 8, %19 ], [ %33, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !4631
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4631
@@ -36747,7 +36747,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit56.i": ; preds = %61, %.critedge.i52.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %44
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %57, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %57, %61 ], [ 8, %44 ], [ %57, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50.i)
   %.pre58.i = load i8, ptr %2, align 8, !range !17, !noalias !4631
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !4631
@@ -36879,7 +36879,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4662
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4662
@@ -37162,7 +37162,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %103, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %85
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %99, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %99, %103 ], [ 8, %85 ], [ %99, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %10, align 8, !range !17, !noalias !4685
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre77.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4685
@@ -37222,7 +37222,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit65.i": ; preds = %127, %.critedge.i61.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i52.i", %110
   %.sroa.0.0.insert.insert.i56.i59.i = phi i32 [ %123, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i52.i" ], [ %123, %127 ], [ 8, %110 ], [ %123, %.critedge.i61.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i59.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i59.i)
   %.pre78.i = load i8, ptr %9, align 8, !range !17, !noalias !4685
   %.phi.trans.insert79.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre80.i = load ptr, ptr %.phi.trans.insert79.i, align 8, !noalias !4685
@@ -37231,7 +37231,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %133, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_data17h4949ea19c677f87eE.exit", label %134
 
 134:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit65.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit65.thread.i"
-  %135 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %135 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_data17h4949ea19c677f87eE.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_data17h4949ea19c677f87eE.exit": ; preds = %54, %62, %68, %78, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit65.i", %134
@@ -37520,7 +37520,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %109, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %91
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %105, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %105, %109 ], [ 8, %91 ], [ %105, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %13, align 8, !range !17, !noalias !4725
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %13, i64 8
   %.pre122.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4725
@@ -37585,7 +37585,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit91.i": ; preds = %134, %.critedge.i87.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i78.i", %117
   %.sroa.0.0.insert.insert.i56.i85.i = phi i32 [ %130, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i78.i" ], [ %130, %134 ], [ 8, %117 ], [ %130, %.critedge.i87.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i85.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i85.i)
   %.pre123.i = load i8, ptr %12, align 8, !range !17, !noalias !4725
   %.phi.trans.insert124.i = getelementptr inbounds i8, ptr %12, i64 8
   %.pre125.i = load ptr, ptr %.phi.trans.insert124.i, align 8, !noalias !4725
@@ -37594,7 +37594,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %140, label %116, label %141
 
 141:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit91.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit91.thread.i"
-  %142 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %142 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %16), !noalias !4725
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %18), !noalias !4725
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_elem17h1a14d8f4e5943c23E.exit"
@@ -37663,7 +37663,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4774)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !4774
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %30 = load i8, ptr %13, align 8, !range !17, !noalias !4774, !noundef !5
   %trunc.i = trunc nuw i8 %30 to i1
   %31 = getelementptr inbounds i8, ptr %13, i64 8
@@ -37852,7 +37852,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store ptr %.sroa.5.0.ph130.i, ptr %.sroa.698.0..sroa_idx.i, align 8, !noalias !4774
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.9.0109.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !4774
-  %111 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  %111 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !4774
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_br_on_non_null17h7fb74deba6fb5c14E.exit"
 
@@ -37953,7 +37953,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 3)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 3)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -38051,7 +38051,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4813
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4813
@@ -38232,7 +38232,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4845
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4845
@@ -38462,7 +38462,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4886
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4886
@@ -38594,7 +38594,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !4909
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4909
@@ -38774,7 +38774,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %34
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %48, %53 ], [ 8, %34 ], [ %48, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %8, align 8, !range !17, !noalias !4932
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4932
@@ -38818,7 +38818,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i50.i:                                ; preds = %80, %.critedge.i53.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %60
   %.sroa.0.0.insert.insert.i56.i51.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %73, %80 ], [ 8, %60 ], [ %73, %.critedge.i53.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i51.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i51.i)
   %.pre67.i = load i8, ptr %7, align 8, !range !17, !noalias !4932
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %7, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !4932
@@ -38943,7 +38943,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %38, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %20
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %34, %38 ], [ 8, %20 ], [ %34, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !4969
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre88.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4969
@@ -39003,7 +39003,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73.i": ; preds = %62, %.critedge.i69.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i60.i", %45
   %.sroa.0.0.insert.insert.i56.i67.i = phi i32 [ %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i60.i" ], [ %58, %62 ], [ 8, %45 ], [ %58, %.critedge.i69.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i67.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i67.i)
   %.pre89.i = load i8, ptr %3, align 8, !range !17, !noalias !4969
   %.phi.trans.insert90.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre91.i = load ptr, ptr %.phi.trans.insert90.i, align 8, !noalias !4969
@@ -39063,7 +39063,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit87.i": ; preds = %86, %.critedge.i83.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i74.i", %69
   %.sroa.0.0.insert.insert.i56.i81.i = phi i32 [ %82, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i74.i" ], [ %82, %86 ], [ 8, %69 ], [ %82, %.critedge.i83.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i81.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i81.i)
   %.pre92.i = load i8, ptr %2, align 8, !range !17, !noalias !4969
   %.phi.trans.insert93.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre94.i = load ptr, ptr %.phi.trans.insert93.i, align 8, !noalias !4969
@@ -39468,7 +39468,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %116, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %98
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %112, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %112, %116 ], [ 8, %98 ], [ %112, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %12, align 8, !range !17, !noalias !5026
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %12, i64 8
   %.pre122.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5026
@@ -39528,7 +39528,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit96.i": ; preds = %140, %.critedge.i92.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i83.i", %123
   %.sroa.0.0.insert.insert.i56.i90.i = phi i32 [ %136, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i83.i" ], [ %136, %140 ], [ 8, %123 ], [ %136, %.critedge.i92.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i90.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i90.i)
   %.pre123.i = load i8, ptr %11, align 8, !range !17, !noalias !5026
   %.phi.trans.insert124.i = getelementptr inbounds i8, ptr %11, i64 8
   %.pre125.i = load ptr, ptr %.phi.trans.insert124.i, align 8, !noalias !5026
@@ -39588,7 +39588,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit110.i": ; preds = %164, %.critedge.i106.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i97.i", %147
   %.sroa.0.0.insert.insert.i56.i104.i = phi i32 [ %160, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i97.i" ], [ %160, %164 ], [ 8, %147 ], [ %160, %.critedge.i106.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i104.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i104.i)
   %.pre126.i = load i8, ptr %10, align 8, !range !17, !noalias !5026
   %.phi.trans.insert127.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre128.i = load ptr, ptr %.phi.trans.insert127.i, align 8, !noalias !5026
@@ -39598,7 +39598,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 171:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit110.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit110.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !5026
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %172 = load i8, ptr %9, align 8, !range !17, !noalias !5026, !noundef !5
   %trunc57.i = trunc nuw i8 %172 to i1
   %173 = getelementptr inbounds i8, ptr %9, i64 8
@@ -39917,7 +39917,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %122, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %104
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %118, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %118, %122 ], [ 8, %104 ], [ %118, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %15, align 8, !range !17, !noalias !5074
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %15, i64 8
   %.pre168.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5074
@@ -39982,7 +39982,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit123.i": ; preds = %147, %.critedge.i119.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i110.i", %130
   %.sroa.0.0.insert.insert.i56.i117.i = phi i32 [ %143, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i110.i" ], [ %143, %147 ], [ 8, %130 ], [ %143, %.critedge.i119.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i117.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i117.i)
   %.pre169.i = load i8, ptr %14, align 8, !range !17, !noalias !5074
   %.phi.trans.insert170.i = getelementptr inbounds i8, ptr %14, i64 8
   %.pre171.i = load ptr, ptr %.phi.trans.insert170.i, align 8, !noalias !5074
@@ -40042,7 +40042,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit137.i": ; preds = %171, %.critedge.i133.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i124.i", %154
   %.sroa.0.0.insert.insert.i56.i131.i = phi i32 [ %167, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i124.i" ], [ %167, %171 ], [ 8, %154 ], [ %167, %.critedge.i133.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i131.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i131.i)
   %.pre172.i = load i8, ptr %13, align 8, !range !17, !noalias !5074
   %.phi.trans.insert173.i = getelementptr inbounds i8, ptr %13, i64 8
   %.pre174.i = load ptr, ptr %.phi.trans.insert173.i, align 8, !noalias !5074
@@ -40052,7 +40052,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 178:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit137.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit137.thread.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !5074
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$16pop_concrete_ref17h67b350bfe0c98a88E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %179 = load i8, ptr %12, align 8, !range !17, !noalias !5074, !noundef !5
   %trunc80.i = trunc nuw i8 %179 to i1
   %180 = getelementptr inbounds i8, ptr %12, i64 8
@@ -40221,7 +40221,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %exitcond.not.i, label %.split51.us.i, label %64
 
 .split51.us.i:                                    ; preds = %.split.i
-  %63 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %63 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_new_fixed17hc00dfa59a62f2113E.exit"
 
 64:                                               ; preds = %.split.i
@@ -40255,7 +40255,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.i:                                  ; preds = %83, %.critedge.i.i, %79, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %64
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %76, %79 ], [ %76, %83 ], [ 8, %64 ], [ %76, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %9, align 8, !range !17, !noalias !5131
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i"
 
@@ -40656,7 +40656,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %153, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %135
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %149, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %149, %153 ], [ 8, %135 ], [ %149, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.067.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.067.0.insert.insert.i, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %13, align 8, !range !17, !noalias !5157
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %13, i64 8
   %.pre161.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5157
@@ -40671,7 +40671,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store ptr %.sroa.5.0.ph.i, ptr %.sroa.6130.0..sroa_idx.i, align 8, !noalias !5157
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %.sroa.9.0142.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !5157
-  %160 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
+  %160 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20pop_push_label_types17h2ea25cc8ed12444aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !5157
   %161 = icmp eq ptr %160, null
   br i1 %161, label %162, label %163
@@ -40727,7 +40727,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 2)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 2)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -41268,7 +41268,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 18:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !5300
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h5bda0ef0269cdbaeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %19 = load i8, ptr %2, align 8, !range !17, !noalias !5300, !noundef !5
   %trunc.i = trunc nuw i8 %19 to i1
   %20 = getelementptr inbounds i8, ptr %2, i64 8
@@ -41352,12 +41352,12 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %19 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_call_ref17had4077294f9cd68cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %19 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_call_ref17had4077294f9cd68cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_return_call_ref17h92747b69f6294937E.exit"
 
 21:                                               ; preds = %18
-  %22 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %22 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_return_call_ref17h92747b69f6294937E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_return_call_ref17h92747b69f6294937E.exit": ; preds = %21, %18, %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -41610,7 +41610,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5363
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val64.i = load ptr, ptr %24, align 8, !alias.scope !5360, !noalias !5365, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5360
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5360
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5363, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -41688,7 +41688,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5365
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5365
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5363
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5363
@@ -41761,7 +41761,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit80.i": ; preds = %83, %.critedge.i76.i, %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i", %60
   %.sroa.0.0.insert.insert.i56.i74.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i" ], [ %73, %78 ], [ %73, %83 ], [ 8, %60 ], [ %73, %.critedge.i76.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5365
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5365
   %.pre83.i = load i8, ptr %5, align 8, !range !17, !noalias !5363
   %.phi.trans.insert84.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre85.i = load ptr, ptr %.phi.trans.insert84.i, align 8, !noalias !5363
@@ -41950,7 +41950,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5415
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val64.i = load ptr, ptr %24, align 8, !alias.scope !5412, !noalias !5417, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5412
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5412
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5415, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -42028,7 +42028,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5417
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5417
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5415
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5415
@@ -42101,7 +42101,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit80.i": ; preds = %83, %.critedge.i76.i, %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i", %60
   %.sroa.0.0.insert.insert.i56.i74.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i" ], [ %73, %78 ], [ %73, %83 ], [ 8, %60 ], [ %73, %.critedge.i76.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5417
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5417
   %.pre83.i = load i8, ptr %5, align 8, !range !17, !noalias !5415
   %.phi.trans.insert84.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre85.i = load ptr, ptr %.phi.trans.insert84.i, align 8, !noalias !5415
@@ -42192,7 +42192,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5449
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val64.i = load ptr, ptr %24, align 8, !alias.scope !5446, !noalias !5451, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5446
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5446
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5449, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -42270,7 +42270,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5451
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5451
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5449
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5449
@@ -42343,7 +42343,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit80.i": ; preds = %83, %.critedge.i76.i, %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i", %60
   %.sroa.0.0.insert.insert.i56.i74.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i" ], [ %73, %78 ], [ %73, %83 ], [ 8, %60 ], [ %73, %.critedge.i76.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5451
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5451
   %.pre83.i = load i8, ptr %5, align 8, !range !17, !noalias !5449
   %.phi.trans.insert84.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre85.i = load ptr, ptr %.phi.trans.insert84.i, align 8, !noalias !5449
@@ -42483,7 +42483,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5492
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val64.i = load ptr, ptr %24, align 8, !alias.scope !5489, !noalias !5494, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5489
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val64.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5489
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5492, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -42561,7 +42561,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5494
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5494
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5492
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5492
@@ -42634,7 +42634,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit80.i": ; preds = %83, %.critedge.i76.i, %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i", %60
   %.sroa.0.0.insert.insert.i56.i74.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i67.i" ], [ %73, %78 ], [ %73, %83 ], [ 8, %60 ], [ %73, %.critedge.i76.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5494
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i74.i), !noalias !5494
   %.pre83.i = load i8, ptr %5, align 8, !range !17, !noalias !5492
   %.phi.trans.insert84.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre85.i = load ptr, ptr %.phi.trans.insert84.i, align 8, !noalias !5492
@@ -42772,7 +42772,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !5535
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val33.i = load ptr, ptr %21, align 8, !alias.scope !5532, !noalias !5537, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5532
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5532
   %22 = load i8, ptr %4, align 8, !range !17, !noalias !5535, !noundef !5
   %trunc.i = trunc nuw i8 %22 to i1
   %23 = getelementptr inbounds i8, ptr %4, i64 8
@@ -42844,7 +42844,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %50, %.critedge.i.i, %45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %45 ], [ %40, %50 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5537
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5537
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !5535
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5535
@@ -42935,7 +42935,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5561
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5558, !noalias !5563, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5558
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5558
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5561, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -43013,7 +43013,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5563
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5563
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5561
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5561
@@ -43061,7 +43061,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i57.i:                                ; preds = %85, %.critedge.i60.i, %80, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %60
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %73, %80 ], [ %73, %85 ], [ 8, %60 ], [ %73, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5563
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5563
   %.pre67.i = load i8, ptr %5, align 8, !range !17, !noalias !5561
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !5561
@@ -43301,7 +43301,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %85, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %.thread.i
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %81, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %81, %85 ], [ 8, %.thread.i ], [ %81, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %8, align 8, !range !17, !noalias !5589
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre49.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5589
@@ -43315,7 +43315,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_array_new_default17h6a309e49481f130bE.exit"
 
 93:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.thread.i"
-  %94 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %94 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !5589
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_array_new_default17h6a309e49481f130bE.exit"
 
@@ -43353,7 +43353,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 0)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43390,7 +43390,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 0)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43427,7 +43427,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 1)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 1)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43464,7 +43464,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 1)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 1)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43599,7 +43599,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 0)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43636,7 +43636,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 0)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43673,7 +43673,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 1)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 1)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43710,7 +43710,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 1)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 1)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -43989,7 +43989,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5699)
-  %20 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_set17h6e23be69e70e4764E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %20 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_set17h6e23be69e70e4764E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_global_atomic_set17h1a3ac14a73725377E.exit"
 
@@ -44324,7 +44324,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !5756
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.42)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext false, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.42)
   %20 = load i8, ptr %3, align 8, !range !17, !noalias !5756, !noundef !5
   %trunc.i = trunc nuw i8 %20 to i1
   %21 = getelementptr inbounds i8, ptr %3, i64 8
@@ -44406,7 +44406,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !5771
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.42)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext true, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.42)
   %20 = load i8, ptr %3, align 8, !range !17, !noalias !5771, !noundef !5
   %trunc.i = trunc nuw i8 %20 to i1
   %21 = getelementptr inbounds i8, ptr %3, i64 8
@@ -44488,7 +44488,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !5786
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.43)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext false, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.43)
   %20 = load i8, ptr %3, align 8, !range !17, !noalias !5786, !noundef !5
   %trunc.i = trunc nuw i8 %20 to i1
   %21 = getelementptr inbounds i8, ptr %3, i64 8
@@ -44568,7 +44568,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !5801
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.43)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_downcast17hc9defcdda2f53f6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext true, i64 %1, ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.43)
   %20 = load i8, ptr %3, align 8, !range !17, !noalias !5801, !noundef !5
   %trunc.i = trunc nuw i8 %20 to i1
   %21 = getelementptr inbounds i8, ptr %3, i64 8
@@ -44652,7 +44652,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !5819
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val33.i = load ptr, ptr %21, align 8, !alias.scope !5816, !noalias !5821, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5816
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr %.val33.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5816
   %22 = load i8, ptr %4, align 8, !range !17, !noalias !5819, !noundef !5
   %trunc.i = trunc nuw i8 %22 to i1
   %23 = getelementptr inbounds i8, ptr %4, i64 8
@@ -44724,7 +44724,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %50, %.critedge.i.i, %45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %45 ], [ %40, %50 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5821
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5821
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !5819
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre35.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5819
@@ -44913,7 +44913,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5863
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5860, !noalias !5865, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5860
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5860
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5863, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -44991,7 +44991,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5865
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5865
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5863
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5863
@@ -45039,7 +45039,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i57.i:                                ; preds = %85, %.critedge.i60.i, %80, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %60
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %73, %80 ], [ %73, %85 ], [ 8, %60 ], [ %73, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5865
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5865
   %.pre67.i = load i8, ptr %5, align 8, !range !17, !noalias !5863
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !5863
@@ -45127,7 +45127,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5894
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5891, !noalias !5896, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5891
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5891
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5894, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -45205,7 +45205,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5896
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5896
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5894
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5894
@@ -45253,7 +45253,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i57.i:                                ; preds = %85, %.critedge.i60.i, %80, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %60
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %73, %80 ], [ %73, %85 ], [ 8, %60 ], [ %73, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5896
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5896
   %.pre67.i = load i8, ptr %5, align 8, !range !17, !noalias !5894
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !5894
@@ -45341,7 +45341,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5925
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %24, align 8, !alias.scope !5922, !noalias !5927, !nonnull !5, !align !6, !noundef !5
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !noalias !5922
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17h0bac3cfb50afb85aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr %.val.i, i64 %.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !5922
   %25 = load i8, ptr %7, align 8, !range !17, !noalias !5925, !noundef !5
   %trunc.i = trunc nuw i8 %25 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -45419,7 +45419,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5927
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !5927
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !5925
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5925
@@ -45467,7 +45467,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i57.i:                                ; preds = %85, %.critedge.i60.i, %80, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %60
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %73, %80 ], [ %73, %85 ], [ 8, %60 ], [ %73, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5927
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload.i, i32 %.sroa.0.0.insert.insert.i56.i58.i), !noalias !5927
   %.pre67.i = load i8, ptr %5, align 8, !range !17, !noalias !5925
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !5925
@@ -45604,7 +45604,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %37 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1946157051, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1946157051, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !5953
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre29.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5953
@@ -45771,7 +45771,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %37 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 -1140850683, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 -1140850683, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !5978
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre43.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !5978
@@ -45971,7 +45971,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %52, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %34
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %48, %52 ], [ 8, %34 ], [ %48, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !6003
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre46.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6003
@@ -46194,7 +46194,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !6035
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre79.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6035
@@ -46254,7 +46254,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit76.i": ; preds = %77, %.critedge.i72.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i63.i", %60
   %.sroa.0.0.insert.insert.i56.i70.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i63.i" ], [ %73, %77 ], [ 8, %60 ], [ %73, %.critedge.i72.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i70.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i70.i)
   %.pre80.i = load i8, ptr %5, align 8, !range !17, !noalias !6035
   %.phi.trans.insert81.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert81.i, align 8, !noalias !6035
@@ -46427,7 +46427,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %52, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %34
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %48, %52 ], [ 8, %34 ], [ %48, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !6066
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre46.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6066
@@ -46650,7 +46650,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %53, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %35
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %49, %53 ], [ 8, %35 ], [ %49, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !6098
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre79.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6098
@@ -46710,7 +46710,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit76.i": ; preds = %77, %.critedge.i72.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i63.i", %60
   %.sroa.0.0.insert.insert.i56.i70.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i63.i" ], [ %73, %77 ], [ 8, %60 ], [ %73, %.critedge.i72.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i70.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i70.i)
   %.pre80.i = load i8, ptr %5, align 8, !range !17, !noalias !6098
   %.phi.trans.insert81.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre82.i = load ptr, ptr %.phi.trans.insert81.i, align 8, !noalias !6098
@@ -46863,7 +46863,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %27
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %41, %45 ], [ 8, %27 ], [ %41, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !6129
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6129
@@ -46923,7 +46923,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit64.i": ; preds = %69, %.critedge.i60.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %52
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %65, %69 ], [ 8, %52 ], [ %65, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
   %.pre67.i = load i8, ptr %4, align 8, !range !17, !noalias !6129
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !6129
@@ -47369,7 +47369,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %44, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %44 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !6214
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre33.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6214
@@ -47522,7 +47522,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %27
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %41, %45 ], [ 8, %27 ], [ %41, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !6237
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6237
@@ -47582,7 +47582,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit64.i": ; preds = %69, %.critedge.i60.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %52
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %65, %69 ], [ 8, %52 ], [ %65, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
   %.pre67.i = load i8, ptr %4, align 8, !range !17, !noalias !6237
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !6237
@@ -48077,7 +48077,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %44, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %26
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %40, %44 ], [ 8, %26 ], [ %40, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %4, align 8, !range !17, !noalias !6331
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre33.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6331
@@ -48230,7 +48230,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %27
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %41, %45 ], [ 8, %27 ], [ %41, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !6354
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6354
@@ -48290,7 +48290,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit64.i": ; preds = %69, %.critedge.i60.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %52
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %65, %69 ], [ 8, %52 ], [ %65, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
   %.pre67.i = load i8, ptr %4, align 8, !range !17, !noalias !6354
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !6354
@@ -48443,7 +48443,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %45, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %27
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %41, %45 ], [ 8, %27 ], [ %41, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !6385
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre66.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6385
@@ -48503,7 +48503,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit64.i": ; preds = %69, %.critedge.i60.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i", %52
   %.sroa.0.0.insert.insert.i56.i58.i = phi i32 [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i51.i" ], [ %65, %69 ], [ 8, %52 ], [ %65, %.critedge.i60.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i58.i)
   %.pre67.i = load i8, ptr %4, align 8, !range !17, !noalias !6385
   %.phi.trans.insert68.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre69.i = load ptr, ptr %.phi.trans.insert68.i, align 8, !noalias !6385
@@ -48669,7 +48669,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %56, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %50
-  %57 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %57 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$17push_concrete_ref17h490fa9177a95b67aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_struct_new_default17ha518ea06751519c8E.exit"
 
 .lr.ph.i:                                         ; preds = %50, %.thread.i
@@ -48751,7 +48751,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 2, i32 0)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 0)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -48837,7 +48837,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 3, i32 1)
+  %13 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 1)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_fconversion_op17h07dd06f57e751eebE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h41f70f5b841bb68dE.exit.i", %12
@@ -50285,7 +50285,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %67, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %49
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %63, %67 ], [ 8, %49 ], [ %63, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !6692
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !6692
   %.pre.i = load i8, ptr %10, align 8, !range !17, !noalias !6710
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre119.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6710
@@ -50345,7 +50345,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit89.i": ; preds = %91, %.critedge.i85.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i76.i", %74
   %.sroa.0.0.insert.insert.i56.i83.i = phi i32 [ %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i76.i" ], [ %87, %91 ], [ 8, %74 ], [ %87, %.critedge.i85.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i83.i), !noalias !6692
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i83.i), !noalias !6692
   %.pre120.i = load i8, ptr %9, align 8, !range !17, !noalias !6710
   %.phi.trans.insert121.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre122.i = load ptr, ptr %.phi.trans.insert121.i, align 8, !noalias !6710
@@ -50408,7 +50408,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit103.i": ; preds = %116, %.critedge.i99.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i90.i", %98
   %.sroa.0.0.insert.insert.i56.i97.i = phi i32 [ %111, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i90.i" ], [ %111, %116 ], [ 8, %98 ], [ %111, %.critedge.i99.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i97.i), !noalias !6692
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i97.i), !noalias !6692
   %.pre123.i = load i8, ptr %8, align 8, !range !17, !noalias !6710
   %.phi.trans.insert124.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre125.i = load ptr, ptr %.phi.trans.insert124.i, align 8, !noalias !6710
@@ -50616,7 +50616,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %67, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %49
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %63, %67 ], [ 8, %49 ], [ %63, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !6750
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !6750
   %.pre.i = load i8, ptr %10, align 8, !range !17, !noalias !6768
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
   %.pre112.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6768
@@ -50676,7 +50676,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit82.i": ; preds = %91, %.critedge.i78.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i69.i", %74
   %.sroa.0.0.insert.insert.i56.i76.i = phi i32 [ %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i69.i" ], [ %87, %91 ], [ 8, %74 ], [ %87, %.critedge.i78.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i76.i), !noalias !6750
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i56.i76.i), !noalias !6750
   %.pre113.i = load i8, ptr %9, align 8, !range !17, !noalias !6768
   %.phi.trans.insert114.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre115.i = load ptr, ptr %.phi.trans.insert114.i, align 8, !noalias !6768
@@ -50739,7 +50739,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit96.i": ; preds = %116, %.critedge.i92.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i83.i", %98
   %.sroa.0.0.insert.insert.i56.i90.i = phi i32 [ %111, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i83.i" ], [ %111, %116 ], [ 8, %98 ], [ %111, %.critedge.i92.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i90.i), !noalias !6750
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext.i, i32 %.sroa.0.0.insert.insert.i56.i90.i), !noalias !6750
   %.pre116.i = load i8, ptr %8, align 8, !range !17, !noalias !6768
   %.phi.trans.insert117.i = getelementptr inbounds i8, ptr %8, i64 8
   %.pre118.i = load ptr, ptr %.phi.trans.insert117.i, align 8, !noalias !6768
@@ -50822,12 +50822,12 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %20 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_call_indirect17h8569be672b663f6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2)
+  %20 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_call_indirect17h8569be672b663f6aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_return_call_indirect17h582b72be1e05f6c5E.exit"
 
 22:                                               ; preds = %19
-  %23 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %23 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_return_call_indirect17h582b72be1e05f6c5E.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_return_call_indirect17h582b72be1e05f6c5E.exit": ; preds = %22, %19, %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
@@ -51563,7 +51563,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %37, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %19
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %33, %37 ], [ 8, %19 ], [ %33, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %3, align 8, !range !17, !noalias !6931
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6931
@@ -51623,7 +51623,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit56.i": ; preds = %61, %.critedge.i52.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i", %44
   %.sroa.0.0.insert.insert.i56.i50.i = phi i32 [ %57, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i43.i" ], [ %57, %61 ], [ 8, %44 ], [ %57, %.critedge.i52.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i50.i)
   %.pre58.i = load i8, ptr %2, align 8, !range !17, !noalias !6931
   %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre60.i = load ptr, ptr %.phi.trans.insert59.i, align 8, !noalias !6931
@@ -52931,7 +52931,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7178
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7178
@@ -53063,7 +53063,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7201
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7201
@@ -53342,7 +53342,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7251
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7251
@@ -53474,7 +53474,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7274
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7274
@@ -53753,7 +53753,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7324
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7324
@@ -53885,7 +53885,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7347
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7347
@@ -54311,7 +54311,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7424
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7424
@@ -54443,7 +54443,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7447
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7447
@@ -54722,7 +54722,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7497
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7497
@@ -54854,7 +54854,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7520
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7520
@@ -55133,7 +55133,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7570
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7570
@@ -55265,7 +55265,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7593
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7593
@@ -55642,7 +55642,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7661
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7661
@@ -55774,7 +55774,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7684
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7684
@@ -56004,7 +56004,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7725
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7725
@@ -56136,7 +56136,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7748
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7748
@@ -56268,7 +56268,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7771
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7771
@@ -56400,7 +56400,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7794
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7794
@@ -56581,7 +56581,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7826
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7826
@@ -56713,7 +56713,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %36, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %18
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %32, %36 ], [ 8, %18 ], [ %32, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !17, !noalias !7849
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre26.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7849
@@ -56967,7 +56967,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.us.us.i:                            ; preds = %70, %.critedge.i.us.us.i, %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.us.i", %52
   %.sroa.0.0.insert.insert.i56.i.us.us.i = phi i32 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.us.i" ], [ %63, %66 ], [ %63, %70 ], [ 8, %52 ], [ %63, %.critedge.i.us.us.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.868.16.extract.trunc.us.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.us.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.868.16.extract.trunc.us.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us.us.i)
   %.pre127.i = load i8, ptr %6, align 8, !range !17, !noalias !7872
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us.us.i"
 
@@ -57044,7 +57044,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.us.i:                               ; preds = %102, %.critedge.i.us.i, %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i", %84
   %.sroa.0.0.insert.insert.i56.i.us.i = phi i32 [ %95, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us.i" ], [ %95, %98 ], [ %95, %102 ], [ 8, %84 ], [ %95, %.critedge.i.us.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %82, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %82, i32 %.sroa.0.0.insert.insert.i56.i.us.i)
   %.pre126.i = load i8, ptr %6, align 8, !range !17, !noalias !7872
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us.i"
 
@@ -57126,7 +57126,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.us108.i:                            ; preds = %134, %.critedge.i.us105.i, %130, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us98.i", %116
   %.sroa.0.0.insert.insert.i56.i.us109.i = phi i32 [ %127, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.us98.i" ], [ %127, %130 ], [ %127, %134 ], [ 8, %116 ], [ %127, %.critedge.i.us105.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.868.16.extract.trunc71.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us109.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.868.16.extract.trunc71.us.i, i32 %.sroa.0.0.insert.insert.i56.i.us109.i)
   %.pre125.i = load i8, ptr %6, align 8, !range !17, !noalias !7872
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.us110.i"
 
@@ -57209,7 +57209,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i.i:                                  ; preds = %179, %.critedge.i.i, %175, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %161
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %172, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %172, %175 ], [ %172, %179 ], [ 8, %161 ], [ %172, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %146, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %146, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !17, !noalias !7872
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i"
 
@@ -57307,7 +57307,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i": ; preds = %28, %.critedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i", %9
   %.sroa.0.0.insert.insert.i56.i.i = phi i32 [ %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i.i" ], [ %24, %28 ], [ 8, %9 ], [ %24, %.critedge.i.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %5, align 8, !range !17, !noalias !7904
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
   %.pre94.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7904
@@ -57404,7 +57404,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i81.us.i:                             ; preds = %68, %.critedge.i84.us.i, %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i75.us.i", %50
   %.sroa.0.0.insert.insert.i56.i82.us.i = phi i32 [ %61, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i75.us.i" ], [ %61, %64 ], [ %61, %68 ], [ 8, %50 ], [ %61, %.critedge.i84.us.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i82.us.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us.i, i32 %.sroa.0.0.insert.insert.i56.i82.us.i)
   %.pre96.i = load i8, ptr %3, align 8, !range !17, !noalias !7904
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit88.us.i"
 
@@ -57434,7 +57434,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.i", %.preheader.split.i, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.us.i"
   %.sroa.041.0.copyload.i = load i64, ptr %6, align 8, !noalias !7904
-  %82 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 1, i64 %.sroa.041.0.copyload.i)
+  %82 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$9push_ctrl17h024d97586b0b04b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef 1, i64 %.sroa.041.0.copyload.i)
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$8visit_if17h9324e81ce8b34ba7E.exit"
 
 83:                                               ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.i"
@@ -57467,7 +57467,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 .critedge45.i81.i:                                ; preds = %101, %.critedge.i84.i, %97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i75.i", %83
   %.sroa.0.0.insert.insert.i56.i82.i = phi i32 [ %94, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i75.i" ], [ %94, %97 ], [ %94, %101 ], [ 8, %83 ], [ %94, %.critedge.i84.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %80, i32 %.sroa.0.0.insert.insert.i56.i82.i)
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %80, i32 %.sroa.0.0.insert.insert.i56.i82.i)
   %.pre95.i = load i8, ptr %3, align 8, !range !17, !noalias !7904
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit88.i"
 

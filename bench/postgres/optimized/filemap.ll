@@ -581,7 +581,7 @@ datasegpath.exit:                                 ; preds = %4, %7
   %.01214.i.i.i = phi i32 [ %29, %27 ], [ %15, %datasegpath.exit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.0.i) #12
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #12
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %34, label %27
 

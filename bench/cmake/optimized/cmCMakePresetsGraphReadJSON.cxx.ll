@@ -5565,7 +5565,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_112CMakeVersionEPKN4Json5ValueEP11cmJSONStateEEa
   store i64 %2, ptr %34, align 8
   store ptr %29, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %35 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -29551,7 +29551,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -29587,7 +29587,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -29623,7 +29623,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph10TestPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph10TestPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph10TestPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -29659,7 +29659,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph13PackagePresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph13PackagePresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph13PackagePresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -29695,7 +29695,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE4BindIS4_St6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaIS9_EEPFbRSB_PKN4Json5ValueEP11cmJSONStateEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SG_SI_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -41318,7 +41318,7 @@ _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i.i: ; preds = %
   store ptr %1312, ptr %12, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIiSt8functionIFbRiS6_S8_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1317, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIiSt8functionIFbRiS6_S8_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %1318, align 8
-  %1319 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext true)
+  %1319 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext true)
           to label %1320 unwind label %1335
 
 1320:                                             ; preds = %1316
@@ -41407,7 +41407,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
   store i64 16, ptr %.sroa.2.0..sroa_idx.i.i228, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1352, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph15ConfigurePresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %1351, align 8
-  %1353 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(32) %11, i1 noundef zeroext false)
+  %1353 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(32) %11, i1 noundef zeroext false)
           to label %1354 unwind label %1361
 
 1354:                                             ; preds = %1349
@@ -41457,7 +41457,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
   store i64 40, ptr %.sroa.2.0..sroa_idx.i21.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph11BuildPresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1372, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph11BuildPresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %1371, align 8
-  %1373 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext false)
+  %1373 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext false)
           to label %1374 unwind label %1381
 
 1374:                                             ; preds = %1369
@@ -41507,7 +41507,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
   store i64 64, ptr %.sroa.2.0..sroa_idx.i28.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph10TestPresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1392, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph10TestPresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %1391, align 8
-  %1393 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext false)
+  %1393 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext false)
           to label %1394 unwind label %1401
 
 1394:                                             ; preds = %1389
@@ -41557,7 +41557,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
   store i64 88, ptr %.sroa.2.0..sroa_idx.i35.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph13PackagePresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1412, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph13PackagePresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %1411, align 8
-  %1413 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false)
+  %1413 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false)
           to label %1414 unwind label %1421
 
 1414:                                             ; preds = %1409
@@ -41607,7 +41607,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
   store i64 112, ptr %.sroa.2.0..sroa_idx.i42.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1432, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaISG_EEPFbRSI_S6_S8_EEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %1431, align 8
-  %1433 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false)
+  %1433 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false)
           to label %1434 unwind label %1441
 
 1434:                                             ; preds = %1429
@@ -41711,7 +41711,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
   store ptr %1453, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_NS0_12CMakeVersionENSB_ISE_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1473, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_NS0_12CMakeVersionENSB_ISE_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation, ptr %1474, align 8
-  %1480 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
+  %1480 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
           to label %1481 unwind label %1509
 
 1481:                                             ; preds = %1472
@@ -41934,7 +41934,7 @@ _ZNSt8functionIFbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store ptr %1554, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EESt8functionIFbRSM_S6_S8_EEEERSC_RKSt17basic_string_viewIcSI_EMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %1559, align 8
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EESt8functionIFbRSM_S6_S8_EEEERSC_RKSt17basic_string_viewIcSI_EMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation, ptr %1560, align 8
-  %1562 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
+  %1562 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE11BindPrivateERKSt17basic_string_viewIcSt11char_traitsIcEEOSt8functionIFbRS2_PKN4Json5ValueEP11cmJSONStateEEb(ptr noundef nonnull align 8 dereferenceable(65) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
           to label %1563 unwind label %1578
 
 1563:                                             ; preds = %1558

@@ -1121,7 +1121,7 @@ cleanup9.thread.i:                                ; preds = %entry
   %st_size.i = getelementptr inbounds i8, ptr %req.i, i64 168
   %call.i.i = call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22, !noalias !34
   %stat_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stat_.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %statbuf.i, i64 160, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stat_.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %statbuf.i, i64 160, i1 false), !noalias !34
   %2 = load i64, ptr %st_size.i, align 8, !noalias !34
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntryE, i64 16), ptr %call.i.i, align 8, !noalias !34
   %env_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
@@ -1543,7 +1543,7 @@ _ZNSt10unique_ptrIN4node12_GLOBAL__N_17FdEntryESt14default_deleteIS2_EED2Ev.exit
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %end.coerce0)
   %new_end.0 = select i1 %tobool.i.i, i64 %.sroa.speculated, i64 %1
   %stat_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stat_.i.i, ptr noundef nonnull align 8 dereferenceable(160) %stat_, i64 160, i1 false), !noalias !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stat_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %stat_, i64 160, i1 false), !noalias !37
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntryE, i64 16), ptr %call.i, align 8, !noalias !37
   %env_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store <2 x ptr> %2, ptr %env_.i.i, align 8, !noalias !37
@@ -7095,7 +7095,7 @@ entry:
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_125IdempotentDataQueueReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN4node12_GLOBAL__N_125IdempotentDataQueueReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl.i) #20
+  tail call void @_ZN4node12_GLOBAL__N_125IdempotentDataQueueReaderD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %_M_impl.i) #20
   ret void
 }
 
@@ -8368,7 +8368,7 @@ entry:
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl.i) #20
+  tail call void @_ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(72) %_M_impl.i) #20
   ret void
 }
 

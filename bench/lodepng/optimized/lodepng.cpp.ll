@@ -175,7 +175,7 @@ $_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef range(i32 0, 84) i32 @_Z17lodepng_load_filePPhPmPKc(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outsize, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.115)
+  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.115)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -208,7 +208,7 @@ if.end:                                           ; preds = %_ZL16lodepng_filesi
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call.i9 = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.115)
+  %call.i9 = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.115)
   %tobool.not.i10 = icmp eq ptr %call.i9, null
   br i1 %tobool.not.i10, label %return, label %if.end.i11
 
@@ -395,7 +395,7 @@ for.end46.i:                                      ; preds = %for.end42.i
   br i1 %or.cond.i, label %_ZL12bpmnode_sortP7BPMNodem.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.end46.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %call.i.i, i64 %mul.i, i1 false), !alias.scope !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %call.i.i, i64 %mul.i, i1 false), !alias.scope !12
   br label %_ZL12bpmnode_sortP7BPMNodem.exit
 
 _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %for.end46.i, %for.body.preheader.i.i
@@ -1149,7 +1149,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %if.end33.i
   %idx.neg.i = sub nsw i64 0, %conv24.i
   %add.ptr38.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   %add.ptr40.i = getelementptr inbounds i8, ptr %in, i64 %add2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr38.i, ptr nonnull align 1 %add.ptr40.i, i64 %conv24.i, i1 false), !alias.scope !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr38.i, ptr nonnull readonly align 1 %add.ptr40.i, i64 %conv24.i, i1 false), !alias.scope !29
   br label %if.end14.thread101
 
 if.end14.thread101:                               ; preds = %if.end33.i, %_ZL14lodepng_memcpyPvPKvm.exit.i
@@ -2178,7 +2178,7 @@ for.body.preheader.i.i:                           ; preds = %if.then64.i
   %123 = load ptr, ptr %out, align 8
   %add.ptr67.i = getelementptr inbounds i8, ptr %123, i64 %sub59.i
   %add.ptr.i41 = getelementptr inbounds i8, ptr %123, i64 %122
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i41, ptr align 1 %add.ptr67.i, i64 %conv54.i, i1 false), !alias.scope !46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i41, ptr readonly align 1 %add.ptr67.i, i64 %conv54.i, i1 false), !alias.scope !46
   br label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.body.preheader.i.i, %if.then64.i
@@ -2208,7 +2208,7 @@ for.body.preheader.i253.i:                        ; preds = %if.else80.i
   %126 = load ptr, ptr %out, align 8
   %add.ptr84.i = getelementptr inbounds i8, ptr %126, i64 %sub59.i
   %add.ptr82.i = getelementptr inbounds i8, ptr %126, i64 %122
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr82.i, ptr align 1 %add.ptr84.i, i64 %length.0.i, i1 false), !alias.scope !51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr82.i, ptr readonly align 1 %add.ptr84.i, i64 %length.0.i, i1 false), !alias.scope !51
   br label %if.end92.i
 
 if.else86.i:                                      ; preds = %if.else20.i
@@ -2422,7 +2422,7 @@ for.body.preheader.i.i.i:                         ; preds = %if.end13.i.i
   %14 = load ptr, ptr %v, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %3
   %add.ptr41.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr41.i.i, ptr align 1 %add.ptr42.i.i, i64 %conv9.i.i, i1 false), !alias.scope !60
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr41.i.i, ptr readonly align 1 %add.ptr42.i.i, i64 %conv9.i.i, i1 false), !alias.scope !60
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %for.body.preheader.i.i.i, %if.end13.i.i
@@ -2782,7 +2782,7 @@ if.then5.i.i:                                     ; preds = %_ZL9writeBitsP16Lod
   %49 = load i32, ptr %minmatch.i63.i, align 4
   %50 = load i32, ptr %nicematch.i64.i, align 8
   %51 = load i32, ptr %lazymatching.i65.i, align 4
-  %call6.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef nonnull %lz77_encoded.i.i, ptr noundef nonnull %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51)
+  %call6.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef nonnull %lz77_encoded.i.i, ptr noundef nonnull readonly %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51)
   %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool7.not.i.i, label %if.then8.i.i, label %if.end23.critedge.i.i
 
@@ -3021,7 +3021,7 @@ if.then8.i61.i:                                   ; preds = %while.body.i.i
   %103 = load i32, ptr %minmatch.i63.i, align 4
   %104 = load i32, ptr %nicematch.i64.i, align 8
   %105 = load i32, ptr %lazymatching.i65.i, align 4
-  %call9.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef nonnull %lz77_encoded.i51.i, ptr noundef nonnull %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105)
+  %call9.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef nonnull %lz77_encoded.i51.i, ptr noundef nonnull readonly %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105)
   %tobool10.not.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.then8.if.end20_crit_edge.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -3127,7 +3127,7 @@ if.end.i.i70.i:                                   ; preds = %while.end.i.i.i
   store i32 15, ptr %maxbitlen3.i.i.i, align 8
   %conv.i.i.i = trunc i64 %numcodes.addr.0.i.i.i to i32
   store i32 %conv.i.i.i, ptr %numcodes4.i.i.i, align 4
-  %call6.i.i.i = call noundef i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef nonnull %call.i.i167.i.i, ptr noundef nonnull %call.i.i56.i, i64 noundef %numcodes.addr.0.i.i.i, i32 noundef 15)
+  %call6.i.i.i = call noundef i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef nonnull %call.i.i167.i.i, ptr noundef nonnull readonly %call.i.i56.i, i64 noundef %numcodes.addr.0.i.i.i, i32 noundef 15)
   %tobool7.not.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %tobool7.not.i.i.i, label %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -3161,7 +3161,7 @@ if.end.i181.i.i:                                  ; preds = %while.end.i176.i.i
   store i32 15, ptr %maxbitlen3.i182.i.i, align 8
   %conv.i183.i.i = trunc i64 %numcodes.addr.0.i171.i.i to i32
   store i32 %conv.i183.i.i, ptr %numcodes4.i184.i.i, align 4
-  %call6.i185.i.i = call noundef i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef nonnull %call.i.i178.i.i, ptr noundef nonnull %call.i162.i.i, i64 noundef %numcodes.addr.0.i171.i.i, i32 noundef 15)
+  %call6.i185.i.i = call noundef i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef nonnull %call.i.i178.i.i, ptr noundef nonnull readonly %call.i162.i.i, i64 noundef %numcodes.addr.0.i171.i.i, i32 noundef 15)
   %tobool7.not.i186.i.i = icmp eq i32 %call6.i185.i.i, 0
   br i1 %tobool7.not.i186.i.i, label %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit190.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -5312,7 +5312,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i.i, %i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %data, i64 %length, i1 false), !alias.scope !107
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %data, i64 %length, i1 false), !alias.scope !107
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %for.body.preheader.i.i, %if.end.i
@@ -5389,7 +5389,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %dest, ptr noundef nonnull align 1 dereferenceable(40) %source, i64 40, i1 false), !alias.scope !111
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %dest, ptr noundef nonnull readonly align 1 dereferenceable(40) %source, i64 40, i1 false), !alias.scope !111
   %palette = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load ptr, ptr %palette, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -5415,7 +5415,7 @@ if.end:                                           ; preds = %if.then
 
 for.body.preheader.i:                             ; preds = %if.end
   %4 = load ptr, ptr %palette, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %4, i64 %3, i1 false), !alias.scope !115
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %4, i64 %3, i1 false), !alias.scope !115
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %for.body.preheader.i, %if.end, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
@@ -5816,7 +5816,7 @@ if.then.i.i:                                      ; preds = %_ZL14lodepng_strlen
   br i1 %cmp4.not.i.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %key, i64 %sub.ptr.sub.i.i, i1 false), !alias.scope !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %key, i64 %sub.ptr.sub.i.i, i1 false), !alias.scope !121
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %for.body.preheader.i.i.i, %if.then.i.i
@@ -5839,7 +5839,7 @@ if.then.i:                                        ; preds = %_ZL12alloc_stringPK
   br i1 %cmp4.not.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %str, i64 %size, i1 false), !alias.scope !125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %str, i64 %size, i1 false), !alias.scope !125
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %for.body.preheader.i.i, %if.then.i
@@ -6087,7 +6087,7 @@ if.then.i.i:                                      ; preds = %_ZL14lodepng_strlen
   br i1 %cmp4.not.i.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %key, i64 %sub.ptr.sub.i.i, i1 false), !alias.scope !131
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %key, i64 %sub.ptr.sub.i.i, i1 false), !alias.scope !131
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %for.body.preheader.i.i.i, %if.then.i.i
@@ -6123,7 +6123,7 @@ if.then.i.i45:                                    ; preds = %_ZL14lodepng_strlen
   br i1 %cmp4.not.i.i.i46, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i48, label %for.body.preheader.i.i.i47
 
 for.body.preheader.i.i.i47:                       ; preds = %if.then.i.i45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i43, ptr align 1 %langtag, i64 %sub.ptr.sub.i.i41, i1 false), !alias.scope !135
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i43, ptr readonly align 1 %langtag, i64 %sub.ptr.sub.i.i41, i1 false), !alias.scope !135
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i48
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i48:             ; preds = %for.body.preheader.i.i.i47, %if.then.i.i45
@@ -6160,7 +6160,7 @@ if.then.i.i62:                                    ; preds = %_ZL14lodepng_strlen
   br i1 %cmp4.not.i.i.i63, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i65, label %for.body.preheader.i.i.i64
 
 for.body.preheader.i.i.i64:                       ; preds = %if.then.i.i62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i60, ptr align 1 %transkey, i64 %sub.ptr.sub.i.i58, i1 false), !alias.scope !139
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i60, ptr readonly align 1 %transkey, i64 %sub.ptr.sub.i.i58, i1 false), !alias.scope !139
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i65
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i65:             ; preds = %for.body.preheader.i.i.i64, %if.then.i.i62
@@ -6184,7 +6184,7 @@ if.then.i:                                        ; preds = %_ZL12alloc_stringPK
   br i1 %cmp4.not.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %str, i64 %size, i1 false), !alias.scope !143
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %str, i64 %size, i1 false), !alias.scope !143
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %for.body.preheader.i.i, %if.then.i
@@ -6251,7 +6251,7 @@ if.then.i.i.i:                                    ; preds = %_ZL14lodepng_strlen
   br i1 %cmp4.not.i.i.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i.i, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.then.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %name, i64 %sub.ptr.sub.i.i.i, i1 false), !alias.scope !147
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr readonly align 1 %name, i64 %sub.ptr.sub.i.i.i, i1 false), !alias.scope !147
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i.i:             ; preds = %for.body.preheader.i.i.i.i, %if.then.i.i.i
@@ -6270,7 +6270,7 @@ _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpy
   br i1 %or.cond.i, label %_ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit, label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %_ZL12alloc_stringPKc.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %profile, i64 %conv.i, i1 false), !alias.scope !151
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %profile, i64 %conv.i, i1 false), !alias.scope !151
   %iccp_profile_size.i6 = getelementptr inbounds i8, ptr %info, i64 256
   store i32 %profile_size, ptr %iccp_profile_size.i6, align 8
   br label %_ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit
@@ -6414,7 +6414,7 @@ _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit: ; preds = %for.body.i5
 define noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr nocapture noundef %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
 entry:
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef %dest)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(328) %dest, ptr noundef nonnull align 1 dereferenceable(328) %source, i64 328, i1 false), !alias.scope !156
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(328) %dest, ptr noundef nonnull readonly align 1 dereferenceable(328) %source, i64 328, i1 false), !alias.scope !156
   %color = getelementptr inbounds i8, ptr %dest, i64 16
   %key_defined.i = getelementptr inbounds i8, ptr %dest, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
@@ -6424,7 +6424,7 @@ entry:
   %palette.i = getelementptr inbounds i8, ptr %dest, i64 24
   %color2 = getelementptr inbounds i8, ptr %source, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %color, ptr noundef nonnull align 1 dereferenceable(40) %color2, i64 40, i1 false), !alias.scope !160
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %color, ptr noundef nonnull readonly align 1 dereferenceable(40) %color2, i64 40, i1 false), !alias.scope !160
   %palette.i22 = getelementptr inbounds i8, ptr %source, i64 24
   %0 = load ptr, ptr %palette.i22, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -6449,7 +6449,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i
   %3 = load ptr, ptr %palette.i22, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %3, i64 %2, i1 false), !alias.scope !164
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %3, i64 %2, i1 false), !alias.scope !164
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry, %if.end.i, %for.body.preheader.i.i
@@ -6585,7 +6585,7 @@ if.then.i.i.i50:                                  ; preds = %_ZL14lodepng_strlen
   br i1 %cmp4.not.i.i.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i.i, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.then.i.i.i50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %23, i64 %sub.ptr.sub.i.i.i49, i1 false), !alias.scope !170
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr readonly align 1 %23, i64 %sub.ptr.sub.i.i.i49, i1 false), !alias.scope !170
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i.i:             ; preds = %for.body.preheader.i.i.i.i, %if.then.i.i.i50
@@ -6605,7 +6605,7 @@ _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpy
   br i1 %or.cond.i, label %return, label %_ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit
 
 _ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit: ; preds = %_ZL12alloc_stringPKc.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i51, ptr align 1 %24, i64 %conv.i, i1 false), !alias.scope !174
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i51, ptr readonly align 1 %24, i64 %conv.i, i1 false), !alias.scope !174
   %iccp_profile_size.i = getelementptr inbounds i8, ptr %dest, i64 256
   store i32 %25, ptr %iccp_profile_size.i, align 8
   br label %if.end20
@@ -6824,7 +6824,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %if.then3, %if.th
   br i1 %cmp4.not.i, label %return, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %add6.i.i, i1 false), !alias.scope !181
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr readonly align 1 %in, i64 %add6.i.i, i1 false), !alias.scope !181
   br label %return
 
 if.end5:                                          ; preds = %for.body.i, %if.end, %if.end.i, %if.end5.i, %if.then11.i, %if.end15.i, %if.end19.i, %if.end24.i
@@ -6869,7 +6869,7 @@ if.then22:                                        ; preds = %land.lhs.true18
   br i1 %cmp4.not.i65, label %return, label %for.body.preheader.i66
 
 for.body.preheader.i66:                           ; preds = %if.then22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %call24, i1 false), !alias.scope !188
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr readonly align 1 %in, i64 %call24, i1 false), !alias.scope !188
   br label %return
 
 if.end26:                                         ; preds = %if.then13, %land.lhs.true18
@@ -7317,7 +7317,7 @@ for.body92.i:                                     ; preds = %for.cond90.preheade
   %i.4234.i = phi i64 [ %inc97.i, %for.body92.i ], [ 0, %for.cond90.preheader.i ]
   %mul93.i = mul i64 %i.4234.i, 3
   %arrayidx94.i = getelementptr inbounds i8, ptr %in, i64 %mul93.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.4235.i, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx94.i, i64 3, i1 false), !alias.scope !209
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.4235.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx94.i, i64 3, i1 false), !alias.scope !209
   %arrayidx95.i = getelementptr inbounds i8, ptr %buffer.addr.4235.i, i64 3
   store i8 -1, ptr %arrayidx95.i, align 1, !alias.scope !198, !noalias !201
   %inc97.i = add nuw i64 %i.4234.i, 1
@@ -7590,7 +7590,7 @@ if.then287.i:                                     ; preds = %if.then284.i
   br i1 %cmp4.not.i204.i, label %if.end87, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then287.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %mul288.i, i1 false), !alias.scope !230
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr readonly align 1 %in, i64 %mul288.i, i1 false), !alias.scope !230
   br label %if.end87
 
 for.body292.i:                                    ; preds = %for.cond290.preheader.i, %for.body292.i
@@ -8348,7 +8348,7 @@ if.then43:                                        ; preds = %if.then40
 
 for.body.preheader.i:                             ; preds = %if.then43
   %mul44 = mul i64 %numpixels, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %in, i64 %mul44, i1 false), !alias.scope !240
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr readonly align 1 %in, i64 %mul44, i1 false), !alias.scope !240
   br label %if.end177
 
 for.body48:                                       ; preds = %for.cond46.preheader, %for.body48
@@ -8391,7 +8391,7 @@ for.body87.lr.ph:                                 ; preds = %for.cond85.preheade
 for.body87.us:                                    ; preds = %for.body87.lr.ph, %for.body87.us
   %buffer.addr.5154.us = phi ptr [ %add.ptr98.us, %for.body87.us ], [ %buffer, %for.body87.lr.ph ]
   %i.5153.us = phi i64 [ %inc97.us, %for.body87.us ], [ 0, %for.body87.lr.ph ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.5154.us, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false), !alias.scope !245
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.5154.us, ptr noundef nonnull readonly align 1 dereferenceable(3) %13, i64 3, i1 false), !alias.scope !245
   %inc97.us = add nuw i64 %i.5153.us, 1
   %add.ptr98.us = getelementptr inbounds i8, ptr %buffer.addr.5154.us, i64 3
   %cmp86.not.us = icmp eq i64 %inc97.us, %numpixels
@@ -8413,7 +8413,7 @@ for.body74:                                       ; preds = %for.body74.lr.ph, %
   %conv76 = zext i8 %15 to i64
   %mul77 = shl nuw nsw i64 %conv76, 2
   %arrayidx78 = getelementptr inbounds i8, ptr %14, i64 %mul77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.4157, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx78, i64 3, i1 false), !alias.scope !250
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.4157, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx78, i64 3, i1 false), !alias.scope !250
   %inc80 = add nuw i64 %i.4156, 1
   %add.ptr81 = getelementptr inbounds i8, ptr %buffer.addr.4157, i64 3
   %cmp73.not = icmp eq i64 %inc80, %numpixels
@@ -8450,7 +8450,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit127.loopexit: ; preds = %for.body.i111
   %mul93 = shl i32 %or.i123, 2
   %idxprom94 = zext i32 %mul93 to i64
   %arrayidx95 = getelementptr inbounds i8, ptr %13, i64 %idxprom94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.5154, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx95, i64 3, i1 false), !alias.scope !245
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.5154, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx95, i64 3, i1 false), !alias.scope !245
   %inc97 = add nuw i64 %i.5153, 1
   %add.ptr98 = getelementptr inbounds i8, ptr %buffer.addr.5154, i64 3
   %cmp86.not = icmp eq i64 %inc97, %numpixels
@@ -8519,7 +8519,7 @@ for.body145:                                      ; preds = %for.cond143.prehead
   %i.8143 = phi i64 [ %inc149, %for.body145 ], [ 0, %for.cond143.preheader ]
   %mul146 = shl i64 %i.8143, 2
   %arrayidx147 = getelementptr inbounds i8, ptr %in, i64 %mul146
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.8144, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx147, i64 3, i1 false), !alias.scope !257
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %buffer.addr.8144, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx147, i64 3, i1 false), !alias.scope !257
   %inc149 = add nuw i64 %i.8143, 1
   %add.ptr150 = getelementptr inbounds i8, ptr %buffer.addr.8144, i64 3
   %cmp144.not = icmp eq i64 %inc149, %numpixels
@@ -11046,7 +11046,7 @@ if.end:                                           ; preds = %while.end
   br i1 %tobool8.not, label %while.end29, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %data, i64 %conv.lcssa, i1 false), !alias.scope !283
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %data, i64 %conv.lcssa, i1 false), !alias.scope !283
   %arrayidx13 = getelementptr inbounds i8, ptr %call.i, i64 %conv.lcssa
   store i8 0, ptr %arrayidx13, align 1
   %cond = tail call i64 @llvm.usub.sat.i64(i64 %chunkLength, i64 %conv7)
@@ -11063,7 +11063,7 @@ if.end24:                                         ; preds = %_ZL14lodepng_memcpy
 
 for.body.preheader.i29:                           ; preds = %if.end24
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %conv7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i27, ptr nonnull align 1 %add.ptr, i64 %conv25, i1 false), !alias.scope !287
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i27, ptr nonnull readonly align 1 %add.ptr, i64 %conv25, i1 false), !alias.scope !287
   br label %_ZL14lodepng_memcpyPvPKvm.exit30
 
 _ZL14lodepng_memcpyPvPKvm.exit30:                 ; preds = %if.end24, %for.body.preheader.i29
@@ -11142,7 +11142,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %tobool12.not, label %while.end, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.end9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %data, i64 %conv.lcssa, i1 false), !alias.scope !292
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %data, i64 %conv.lcssa, i1 false), !alias.scope !292
   %arrayidx17 = getelementptr inbounds i8, ptr %call.i, i64 %conv.lcssa
   store i8 0, ptr %arrayidx17, align 1
   %arrayidx20 = getelementptr inbounds i8, ptr %data, i64 %conv11
@@ -11261,7 +11261,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %tobool15.not, label %while.end, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.end12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %data, i64 %conv.lcssa, i1 false), !alias.scope !297
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %data, i64 %conv.lcssa, i1 false), !alias.scope !297
   %arrayidx20 = getelementptr inbounds i8, ptr %call.i, i64 %conv.lcssa
   store i8 0, ptr %arrayidx20, align 1
   %arrayidx23 = getelementptr inbounds i8, ptr %data, i64 %conv14
@@ -11303,7 +11303,7 @@ if.end52:                                         ; preds = %for.end46
 
 for.body.preheader.i75:                           ; preds = %if.end52
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %conv5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i73, ptr nonnull align 1 %add.ptr, i64 %conv53, i1 false), !alias.scope !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i73, ptr nonnull readonly align 1 %add.ptr, i64 %conv53, i1 false), !alias.scope !302
   br label %_ZL14lodepng_memcpyPvPKvm.exit76
 
 _ZL14lodepng_memcpyPvPKvm.exit76:                 ; preds = %if.end52, %for.body.preheader.i75
@@ -11345,7 +11345,7 @@ if.end77:                                         ; preds = %for.end71
 
 for.body.preheader.i79:                           ; preds = %if.end77
   %add.ptr79 = getelementptr inbounds i8, ptr %data, i64 %conv5990
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i77, ptr align 1 %add.ptr79, i64 %conv80, i1 false), !alias.scope !307
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i77, ptr readonly align 1 %add.ptr79, i64 %conv80, i1 false), !alias.scope !307
   br label %_ZL14lodepng_memcpyPvPKvm.exit80
 
 _ZL14lodepng_memcpyPvPKvm.exit80:                 ; preds = %if.end77, %for.body.preheader.i79
@@ -12358,7 +12358,7 @@ if.end56.i:                                       ; preds = %if.then46.i
 
 for.body.preheader.i.i:                           ; preds = %if.end56.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %idatsize.0537.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx.i.i, i64 %conv.i, i1 false), !alias.scope !316
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %arrayidx.i.i, i64 %conv.i, i1 false), !alias.scope !316
   br label %if.end276.i
 
 land.lhs.true9.i238.i:                            ; preds = %land.lhs.true.i.i
@@ -13906,7 +13906,7 @@ if.then.i.i.i:                                    ; preds = %if.then8
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i.i, %if.then8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %info_raw.i, ptr noundef nonnull align 1 dereferenceable(40) %color.i, i64 40, i1 false), !alias.scope !337
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %info_raw.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %color.i, i64 40, i1 false), !alias.scope !337
   %palette.i36 = getelementptr inbounds i8, ptr %state, i64 232
   %182 = load ptr, ptr %palette.i36, align 8
   %tobool.not.i37 = icmp eq ptr %182, null
@@ -13929,7 +13929,7 @@ if.end.i40:                                       ; preds = %if.then.i
   br i1 %cmp4.not.i.i41, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %for.body.preheader.i.i42
 
 for.body.preheader.i.i42:                         ; preds = %if.end.i40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i38, ptr nonnull align 1 %182, i64 %184, i1 false), !alias.scope !341
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i38, ptr nonnull readonly align 1 %182, i64 %184, i1 false), !alias.scope !341
   br label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %if.end.i40, %for.body.preheader.i.i42, %land.lhs.true.i44
@@ -14249,7 +14249,7 @@ entry:
   store ptr null, ptr %out, align 8
   store i32 0, ptr %h, align 4
   store i32 0, ptr %w, align 4
-  %call.i = call noundef i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %filename)
+  %call.i = call noundef i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef readonly %filename)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %.pre.i = load ptr, ptr %buffer.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %_Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit
@@ -14278,7 +14278,7 @@ entry:
   store ptr null, ptr %out, align 8
   store i32 0, ptr %h, align 4
   store i32 0, ptr %w, align 4
-  %call.i = call noundef i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %filename)
+  %call.i = call noundef i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef readonly %filename)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %.pre.i = load ptr, ptr %buffer.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %_Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit
@@ -14390,7 +14390,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i, i8 0, i64 68, i1 false)
   %info_raw2 = getelementptr inbounds i8, ptr %source, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %info_raw, ptr noundef nonnull align 1 dereferenceable(40) %info_raw2, i64 40, i1 false), !alias.scope !345
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %info_raw, ptr noundef nonnull readonly align 1 dereferenceable(40) %info_raw2, i64 40, i1 false), !alias.scope !345
   %palette.i14 = getelementptr inbounds i8, ptr %source, i64 176
   %1 = load ptr, ptr %palette.i14, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -14415,7 +14415,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i
   %4 = load ptr, ptr %palette.i14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %4, i64 %3, i1 false), !alias.scope !349
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %4, i64 %3, i1 false), !alias.scope !349
   br label %if.end
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %land.lhs.true.i
@@ -15748,7 +15748,7 @@ if.then.i.i67:                                    ; preds = %if.then71
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i67, %if.then71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %mode_out, ptr noundef nonnull align 1 dereferenceable(40) %mode_in, i64 40, i1 false), !alias.scope !360
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %mode_out, ptr noundef nonnull readonly align 1 dereferenceable(40) %mode_in, i64 40, i1 false), !alias.scope !360
   %palette.i68 = getelementptr inbounds i8, ptr %mode_in, i64 8
   %38 = load ptr, ptr %palette.i68, align 8
   %tobool.not.i69 = icmp eq ptr %38, null
@@ -15768,7 +15768,7 @@ if.end.i:                                         ; preds = %if.then.i70
 
 for.body.preheader.i.i:                           ; preds = %if.end.i
   %41 = load ptr, ptr %palette.i68, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %41, i64 %40, i1 false), !alias.scope !364
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %41, i64 %40, i1 false), !alias.scope !364
   br label %if.end98
 
 if.else:                                          ; preds = %entry
@@ -16746,7 +16746,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.then3.i.i.i, %if
   store i32 1346585449, ptr %add.ptr11.i, align 1, !alias.scope !385
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -4
   %10 = load ptr, ptr %iccp_name, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %10, i64 %sub.ptr.sub.i, i1 false), !alias.scope !389
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %10, i64 %sub.ptr.sub.i, i1 false), !alias.scope !389
   %11 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %sub.ptr.sub.i
   %arrayidx = getelementptr inbounds i8, ptr %11, i64 8
   store i8 0, ptr %arrayidx, align 1
@@ -16760,7 +16760,7 @@ for.body.preheader.i15:                           ; preds = %_ZL14lodepng_memcpy
   %13 = load ptr, ptr %compressed, align 8
   %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -2
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr13, i64 %sub.ptr.sub.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr align 1 %13, i64 %12, i1 false), !alias.scope !393
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr readonly align 1 %13, i64 %12, i1 false), !alias.scope !393
   br label %_ZL14lodepng_memcpyPvPKvm.exit16
 
 _ZL14lodepng_memcpyPvPKvm.exit16:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %for.body.preheader.i15
@@ -18088,7 +18088,7 @@ if.end.i:                                         ; preds = %if.then3.i.i.i.i, %
 
 for.body.preheader.i.i:                           ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %2, i64 %1, i1 false), !alias.scope !468
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %2, i64 %1, i1 false), !alias.scope !468
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %for.body.preheader.i.i, %if.end.i
@@ -18294,7 +18294,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.then3.i.i.i, %if
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -8
   store i32 1951945850, ptr %add.ptr11.i, align 1, !alias.scope !476
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %keyword, i64 %sub.ptr.sub.i17, i1 false), !alias.scope !480
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %keyword, i64 %sub.ptr.sub.i17, i1 false), !alias.scope !480
   %8 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %sub.ptr.sub.i17
   %arrayidx = getelementptr inbounds i8, ptr %8, i64 8
   store i8 0, ptr %arrayidx, align 1
@@ -18308,7 +18308,7 @@ for.body.preheader.i22:                           ; preds = %_ZL14lodepng_memcpy
   %10 = load ptr, ptr %compressed, align 8
   %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -2
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr13, i64 %sub.ptr.sub.i17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr align 1 %10, i64 %9, i1 false), !alias.scope !484
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr readonly align 1 %10, i64 %9, i1 false), !alias.scope !484
   br label %_ZL14lodepng_memcpyPvPKvm.exit23
 
 _ZL14lodepng_memcpyPvPKvm.exit23:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %for.body.preheader.i22
@@ -18416,7 +18416,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.then3.i.i.i, %if
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -8
   store i32 1951942004, ptr %add.ptr11.i, align 1, !alias.scope !488
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %keyword, i64 %sub.ptr.sub.i, i1 false), !alias.scope !492
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %keyword, i64 %sub.ptr.sub.i, i1 false), !alias.scope !492
   %6 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %sub.ptr.sub.i
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 8
   store i8 0, ptr %arrayidx, align 1
@@ -18426,7 +18426,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.then3.i.i.i, %if
 for.body.preheader.i19:                           ; preds = %_ZL14lodepng_memcpyPvPKvm.exit
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -3
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr8, i64 %sub.ptr.sub.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr9, ptr align 1 %textstring, i64 %sub.ptr.sub.i16, i1 false), !alias.scope !496
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr9, ptr readonly align 1 %textstring, i64 %sub.ptr.sub.i16, i1 false), !alias.scope !496
   br label %_ZL14lodepng_memcpyPvPKvm.exit20
 
 _ZL14lodepng_memcpyPvPKvm.exit20:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %for.body.preheader.i19
@@ -18582,7 +18582,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.then3.i.i.i, %if
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -8
   store i32 1951945833, ptr %add.ptr11.i, align 1, !alias.scope !500
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %keyword, i64 %sub.ptr.sub.i39, i1 false), !alias.scope !504
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %keyword, i64 %sub.ptr.sub.i39, i1 false), !alias.scope !504
   %10 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %sub.ptr.sub.i39
   %arrayidx = getelementptr inbounds i8, ptr %10, i64 8
   store i8 0, ptr %arrayidx, align 1
@@ -18597,7 +18597,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.then3.i.i.i, %if
 
 for.body.preheader.i60:                           ; preds = %_ZL14lodepng_memcpyPvPKvm.exit
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %inc25
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr27, ptr align 1 %langtag, i64 %sub.ptr.sub.i47, i1 false), !alias.scope !508
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr27, ptr readonly align 1 %langtag, i64 %sub.ptr.sub.i47, i1 false), !alias.scope !508
   br label %_ZL14lodepng_memcpyPvPKvm.exit61
 
 _ZL14lodepng_memcpyPvPKvm.exit61:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %for.body.preheader.i60
@@ -18610,7 +18610,7 @@ _ZL14lodepng_memcpyPvPKvm.exit61:                 ; preds = %_ZL14lodepng_memcpy
 
 for.body.preheader.i63:                           ; preds = %_ZL14lodepng_memcpyPvPKvm.exit61
   %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %inc29
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31, ptr align 1 %transkey, i64 %sub.ptr.sub.i55, i1 false), !alias.scope !512
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31, ptr readonly align 1 %transkey, i64 %sub.ptr.sub.i55, i1 false), !alias.scope !512
   br label %_ZL14lodepng_memcpyPvPKvm.exit64
 
 _ZL14lodepng_memcpyPvPKvm.exit64:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit61, %for.body.preheader.i63
@@ -18628,7 +18628,7 @@ if.then36:                                        ; preds = %_ZL14lodepng_memcpy
 for.body.preheader.i66:                           ; preds = %if.then36
   %12 = load ptr, ptr %compressed, align 8
   %add.ptr37 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %inc33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr37, ptr align 1 %12, i64 %11, i1 false), !alias.scope !516
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr37, ptr readonly align 1 %12, i64 %11, i1 false), !alias.scope !516
   br label %if.end39
 
 if.else:                                          ; preds = %_ZL14lodepng_memcpyPvPKvm.exit64
@@ -18637,7 +18637,7 @@ if.else:                                          ; preds = %_ZL14lodepng_memcpy
 
 for.body.preheader.i69:                           ; preds = %if.else
   %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %inc33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr38, ptr align 1 %textstring, i64 %sub.ptr.sub.i, i1 false), !alias.scope !520
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr38, ptr readonly align 1 %textstring, i64 %sub.ptr.sub.i, i1 false), !alias.scope !520
   br label %if.end39
 
 if.end39:                                         ; preds = %for.body.preheader.i69, %if.else, %for.body.preheader.i66, %if.then36
@@ -18814,7 +18814,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i64, ptr %buffersize, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.1)
+  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.1)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
@@ -18843,7 +18843,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i64, ptr %buffersize.i, align 8
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.1)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.1)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit, label %if.end.i.i
 
@@ -18874,7 +18874,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i64, ptr %buffersize.i, align 8
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.1)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.1)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit, label %if.end.i.i
 
@@ -18912,7 +18912,7 @@ return:                                           ; preds = %entry, %switch.look
 define noundef range(i32 0, 79) i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
-  %call.i = tail call noalias ptr @fopen(ptr noundef %call, ptr noundef nonnull @.str.115)
+  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %call, ptr noundef nonnull @.str.115)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -18943,7 +18943,7 @@ if.end:                                           ; preds = %_ZL16lodepng_filesi
 cond.false:                                       ; preds = %if.end
   %0 = load ptr, ptr %buffer, align 8
   %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
-  %call.i6 = tail call noalias ptr @fopen(ptr noundef %call4, ptr noundef nonnull @.str.115)
+  %call.i6 = tail call noalias ptr @fopen(ptr noundef readonly %call4, ptr noundef nonnull @.str.115)
   %tobool.not.i7 = icmp eq ptr %call.i6, null
   br i1 %tobool.not.i7, label %return, label %if.end.i8
 
@@ -19077,7 +19077,7 @@ entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
-  %call.i = tail call noalias ptr @fopen(ptr noundef %call3, ptr noundef nonnull @.str.1)
+  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %call3, ptr noundef nonnull @.str.1)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_Z17lodepng_save_filePKhmPKc.exit, label %if.end.i
 
@@ -20054,7 +20054,7 @@ if.then:                                          ; preds = %invoke.cont
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
-  %call.i.i = call noalias ptr @fopen(ptr noundef %call3.i, ptr noundef nonnull @.str.1)
+  %call.i.i = call noalias ptr @fopen(ptr noundef readonly %call3.i, ptr noundef nonnull @.str.1)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end, label %if.end.i.i
 
@@ -23434,7 +23434,7 @@ for.body248:                                      ; preds = %for.body248.lr.ph, 
   br i1 %cmp247.not, label %return, label %for.body248, !llvm.loop !601
 
 if.then269:                                       ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %zlibsettings, ptr noundef nonnull align 1 dereferenceable(48) %settings, i64 48, i1 false), !alias.scope !602
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %zlibsettings, ptr noundef nonnull readonly align 1 dereferenceable(48) %settings, i64 48, i1 false), !alias.scope !602
   store i32 1, ptr %zlibsettings, align 8
   %custom_zlib = getelementptr inbounds i8, ptr %zlibsettings, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %custom_zlib, i8 0, i64 16, i1 false)

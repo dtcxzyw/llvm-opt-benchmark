@@ -2374,7 +2374,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %.not, label %x509_crt_verify_name.exit, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #17
   %25 = getelementptr inbounds i8, ptr %0, i64 512
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 32
@@ -2393,7 +2393,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %33, label %x509_crt_check_san.exit.i, label %x509_crt_check_san.exit.thread.i
 
 x509_crt_check_san.exit.i:                        ; preds = %30
-  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %.02030.i, ptr noundef nonnull %4, i64 noundef %24)
+  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull readonly %.02030.i, ptr noundef nonnull readonly %4, i64 noundef %24)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %x509_crt_verify_name.exit, label %x509_crt_check_san.exit.thread.i
 
@@ -2423,7 +2423,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
-  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull %4, i64 noundef %24)
+  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull readonly %4, i64 noundef %24)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %x509_crt_verify_name.exit, label %.critedge.i
 
@@ -2598,7 +2598,7 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
 131:                                              ; preds = %128
   %132 = getelementptr inbounds i8, ptr %.042.i, i64 160
   %133 = getelementptr inbounds i8, ptr %.042.i, i64 224
-  %134 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %132, ptr noundef nonnull %133)
+  %134 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull readonly %132, ptr noundef nonnull readonly %133)
   %.not.i55.i = icmp eq i32 %134, 0
   br i1 %.not.i55.i, label %.preheader.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i
 
@@ -4361,7 +4361,7 @@ define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr nocapture nou
   br i1 %exitcond.not.i, label %x509_check_wildcard.exit, label %.lr.ph.i, !llvm.loop !18
 
 x509_memcasecmp.exit:                             ; preds = %18, %15, %3
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %24 = icmp ult i64 %5, 3
   br i1 %24, label %x509_check_wildcard.exit, label %25
 

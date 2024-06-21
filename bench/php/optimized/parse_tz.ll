@@ -1779,7 +1779,7 @@ define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr nocapture
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %29) #19
+  %30 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %29) #19
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -1818,7 +1818,7 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   store i32 0, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 72
   %54 = load i64, ptr %53, align 8
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
+  %55 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #19
   %56 = add i64 %55, %54
   %57 = add i64 %56, 1
   %58 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1826,8 +1826,8 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   %60 = tail call ptr @_erealloc(ptr noundef %59, i64 noundef %57) #20
   store ptr %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %54
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %45, i64 %62, i1 false)
+  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %45, i64 %62, i1 false)
   store i64 %57, ptr %53, align 8
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %56
@@ -1893,7 +1893,7 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %100, i64 %103
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %104) #19
+  %105 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %104) #19
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %109
 
@@ -1933,7 +1933,7 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
   store i32 1, ptr %128, align 4
   %129 = getelementptr inbounds i8, ptr %0, i64 72
   %130 = load i64, ptr %129, align 8
-  %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #19
+  %131 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %121) #19
   %132 = add i64 %131, %130
   %133 = add i64 %132, 1
   %134 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1941,8 +1941,8 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
   %136 = tail call ptr @_erealloc(ptr noundef %135, i64 noundef %133) #20
   store ptr %136, ptr %134, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %130
-  %138 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr align 1 %121, i64 %138, i1 false)
+  %138 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %121) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr readonly align 1 %121, i64 %138, i1 false)
   store i64 %133, ptr %129, align 8
   %139 = load ptr, ptr %134, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 %132

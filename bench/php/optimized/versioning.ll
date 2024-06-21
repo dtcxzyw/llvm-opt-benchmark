@@ -282,7 +282,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   %50 = phi ptr [ %59, %57 ], [ @.str.16, %49 ]
   %.028.i = phi ptr [ %58, %57 ], [ @__const.compare_special_version_forms.special_forms, %49 ]
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #6
-  %52 = tail call i32 @strncmp(ptr noundef nonnull %.062140182, ptr noundef nonnull %50, i64 noundef %51) #6
+  %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.062140182, ptr noundef nonnull %50, i64 noundef %51) #6
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %57
 
@@ -305,7 +305,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   %61 = phi ptr [ @.str.16, %.critedge.i ], [ %70, %68 ]
   %.129.i = phi ptr [ @__const.compare_special_version_forms.special_forms, %.critedge.i ], [ %69, %68 ]
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #6
-  %63 = tail call i32 @strncmp(ptr noundef nonnull %.060142181, ptr noundef nonnull %61, i64 noundef %62) #6
+  %63 = tail call i32 @strncmp(ptr noundef nonnull readonly %.060142181, ptr noundef nonnull %61, i64 noundef %62) #6
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %68
 
@@ -329,7 +329,7 @@ compare_special_version_forms.exit:               ; preds = %68, %65
   %71 = phi ptr [ %80, %78 ], [ @.str.16, %45 ]
   %.028.i89 = phi ptr [ %79, %78 ], [ @__const.compare_special_version_forms.special_forms, %45 ]
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #6
-  %73 = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef nonnull %71, i64 noundef %72) #6
+  %73 = tail call i32 @strncmp(ptr noundef nonnull readonly @.str, ptr noundef nonnull %71, i64 noundef %72) #6
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %78
 
@@ -352,7 +352,7 @@ compare_special_version_forms.exit:               ; preds = %68, %65
   %82 = phi ptr [ @.str.16, %.critedge.i91 ], [ %91, %89 ]
   %.129.i93 = phi ptr [ @__const.compare_special_version_forms.special_forms, %.critedge.i91 ], [ %90, %89 ]
   %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #6
-  %84 = tail call i32 @strncmp(ptr noundef nonnull %.060142181, ptr noundef nonnull %82, i64 noundef %83) #6
+  %84 = tail call i32 @strncmp(ptr noundef nonnull readonly %.060142181, ptr noundef nonnull %82, i64 noundef %83) #6
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %89
 
@@ -376,7 +376,7 @@ compare_special_version_forms.exit97:             ; preds = %89, %86
   %92 = phi ptr [ %101, %99 ], [ @.str.16, %49 ]
   %.028.i98 = phi ptr [ %100, %99 ], [ @__const.compare_special_version_forms.special_forms, %49 ]
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #6
-  %94 = tail call i32 @strncmp(ptr noundef nonnull %.062140182, ptr noundef nonnull %92, i64 noundef %93) #6
+  %94 = tail call i32 @strncmp(ptr noundef nonnull readonly %.062140182, ptr noundef nonnull %92, i64 noundef %93) #6
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %99
 
@@ -399,7 +399,7 @@ compare_special_version_forms.exit97:             ; preds = %89, %86
   %103 = phi ptr [ @.str.16, %.critedge.i100 ], [ %112, %110 ]
   %.129.i102 = phi ptr [ @__const.compare_special_version_forms.special_forms, %.critedge.i100 ], [ %111, %110 ]
   %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #6
-  %105 = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef nonnull %103, i64 noundef %104) #6
+  %105 = tail call i32 @strncmp(ptr noundef nonnull readonly @.str, ptr noundef nonnull %103, i64 noundef %104) #6
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %110
 

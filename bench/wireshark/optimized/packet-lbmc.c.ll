@@ -9682,7 +9682,7 @@ dissect_msg_properties.exit:                      ; preds = %3864, %3817, %3810,
   br label %3883
 
 3882:                                             ; preds = %3870
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3879, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3879, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
   br label %3883
 
 3883:                                             ; preds = %3882, %3880
@@ -9699,7 +9699,7 @@ dissect_msg_properties.exit:                      ; preds = %3864, %3817, %3810,
   br label %lbmc_dup_stream_info.exit
 
 3890:                                             ; preds = %3883
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3887, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3887, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit
 
 lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
@@ -9980,7 +9980,7 @@ lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
   br label %4007
 
 4006:                                             ; preds = %3994
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4003, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4003, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
   br label %4007
 
 4007:                                             ; preds = %4006, %4004
@@ -9997,7 +9997,7 @@ lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
   br label %lbmc_dup_stream_info.exit964
 
 4014:                                             ; preds = %4007
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4011, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4011, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit964
 
 lbmc_dup_stream_info.exit964:                     ; preds = %4012, %4014

@@ -854,7 +854,7 @@ Ndr_DataResize.exit.i:                            ; preds = %104, %100
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i32, ptr %119, i64 %121
   %123 = shl nsw i64 %118, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %122, ptr align 4 %7, i64 %123, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %122, ptr readonly align 4 %7, i64 %123, i1 false)
   %124 = load i32, ptr %0, align 8
   %125 = add nsw i32 %124, %6
   store i32 %125, ptr %0, align 8
@@ -900,7 +900,7 @@ Ndr_DataResize.exit.i39:                          ; preds = %130, %126
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i32, ptr %145, i64 %147
   %149 = shl nsw i64 %144, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %148, ptr align 4 %9, i64 %149, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %148, ptr readonly align 4 %9, i64 %149, i1 false)
   %150 = load i32, ptr %0, align 8
   %151 = add nsw i32 %150, %8
   store i32 %151, ptr %0, align 8
@@ -1002,7 +1002,7 @@ Ndr_DataResize.exit.i.i:                          ; preds = %190, %186
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %205, i64 %207
   %209 = shl nsw i64 %204, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr align 4 %185, i64 %209, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr readonly align 4 %185, i64 %209, i1 false)
   %210 = load i32, ptr %0, align 8
   %211 = add nsw i32 %210, %182
   store i32 %211, ptr %0, align 8
@@ -2332,7 +2332,7 @@ Ndr_ObjReadOutName.exit469.i:                     ; preds = %Ndr_DataSize.exit.i
 
 499:                                              ; preds = %Ndr_ObjReadOutName.exit469.i
   %500 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 7, i64 1, ptr %9)
-  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef %1, i32 noundef %.4906.i, ptr noundef %9, i32 noundef 1)
+  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %1, i32 noundef %.4906.i, ptr noundef %9, i32 noundef 1)
   %.val14.i.i470.i = load ptr, ptr %11, align 8
   %501 = getelementptr inbounds i32, ptr %.val14.i.i470.i, i64 %424
   %502 = load i32, ptr %501, align 4
@@ -3707,7 +3707,7 @@ Ndr_ObjReadBody.exit719.thread.i:                 ; preds = %Ndr_DataSize.exit.i
   %1225 = getelementptr inbounds ptr, ptr %2, i64 %1224
   %1226 = load ptr, ptr %1225, align 8
   %fputs.i = tail call i32 @fputs(ptr %1226, ptr %9)
-  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef %1, i32 noundef %.5919.i, ptr noundef %9, i32 noundef 0)
+  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %1, i32 noundef %.5919.i, ptr noundef %9, i32 noundef 0)
   %1227 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr %9)
   br label %Ndr_ObjIsType.exit485.thread.i
 
@@ -3878,7 +3878,7 @@ Ndr_ObjReadBody.exit:                             ; preds = %Ndr_DataSize.exit.i
   br label %Ndr_ObjIsType.exit485.thread.i
 
 1330:                                             ; preds = %1312
-  %1331 = tail call fastcc i32 @Ndr_ObjReadBody(ptr noundef %1, i32 noundef %.5919.i, i32 noundef 6)
+  %1331 = tail call fastcc i32 @Ndr_ObjReadBody(ptr noundef readonly %1, i32 noundef %.5919.i, i32 noundef 6)
   %1332 = tail call fastcc ptr @Abc_OperName(i32 noundef %1331)
   %1333 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.76, ptr noundef %1332) #18
   br label %Ndr_ObjIsType.exit485.thread.i
@@ -7039,10 +7039,10 @@ define void @Ndr_DumpNdr(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %5) #18
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
+  %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #19
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
-  %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %2) #18
+  %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %2) #18
   %11 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   store ptr %9, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

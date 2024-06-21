@@ -485,7 +485,7 @@ define i64 @ossl_buf2str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %12, %7
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %12 ], [ %11, %7 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.2.0.i.i, ptr nonnull align 1 %0, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.2.0.i.i, ptr nonnull readonly align 1 %0, i64 %4, i1 false)
   br label %14
 
 13:                                               ; preds = %2

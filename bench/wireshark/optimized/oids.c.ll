@@ -1045,7 +1045,7 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @oid_get_from_encoded(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = tail call i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1)
+  %7 = tail call i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef 1)
   %8 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %12, label %9

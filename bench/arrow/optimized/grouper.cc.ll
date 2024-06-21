@@ -8676,7 +8676,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -9966,7 +9966,7 @@ cond.true.i:                                      ; preds = %if.end10.i
   br i1 %tobool.i.i, label %cond.false.i.i, label %_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i
 
 cond.false.i.i:                                   ; preds = %cond.true.i
-  %bcmp.i.i = call i32 @bcmp(ptr %80, ptr %call12.i, i64 %sub.ptr.sub.i.i.i), !noalias !215
+  %bcmp.i.i = call i32 @bcmp(ptr %80, ptr readonly %call12.i, i64 %sub.ptr.sub.i.i.i), !noalias !215
   %cmp.i80.i = icmp eq i32 %bcmp.i.i, 0
   %82 = zext i1 %cmp.i80.i to i8
   br label %_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i
@@ -9974,7 +9974,7 @@ cond.false.i.i:                                   ; preds = %cond.true.i
 _ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i: ; preds = %cond.false.i.i, %cond.true.i
   %cond.i.i = phi i8 [ %82, %cond.false.i.i ], [ 1, %cond.true.i ]
   store i8 1, ptr %extend_was_called_.i.i, align 8, !noalias !215
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %call12.i, i64 %sub.ptr.sub.i.i.i, i1 false), !noalias !215
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr readonly align 1 %call12.i, i64 %sub.ptr.sub.i.i.i, i1 false), !noalias !215
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i, %if.end10.i
@@ -10251,7 +10251,7 @@ for.body.i.i:                                     ; preds = %while.end12.i, %for
   %byte_cursor.012.i.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ %mul.i126, %while.end12.i ]
   %cursor.011.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ %offset, %while.end12.i ]
   %add.ptr.i.i143 = getelementptr inbounds i8, ptr %add.ptr.i.i118, i64 %byte_cursor.012.i.i
-  %bcmp.i.i144 = call i32 @bcmp(ptr %add.ptr.i, ptr %add.ptr.i.i143, i64 %conv.i125), !noalias !228
+  %bcmp.i.i144 = call i32 @bcmp(ptr readonly %add.ptr.i, ptr readonly %add.ptr.i.i143, i64 %conv.i125), !noalias !228
   %cmp1.not.i.i = icmp eq i32 %bcmp.i.i144, 0
   br i1 %cmp1.not.i.i, label %for.inc.i.i, label %_ZN5arrow7compute12_GLOBAL__N_114GetMatchLengthEPKhlS3_ll.exit.i
 
@@ -10282,7 +10282,7 @@ cond.true.i132:                                   ; preds = %_ZN5arrow7compute12
   br i1 %tobool.i.i134, label %cond.false.i.i142, label %_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i140
 
 cond.false.i.i142:                                ; preds = %cond.true.i132
-  %bcmp.i49.i = call i32 @bcmp(ptr %114, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i139), !noalias !228
+  %bcmp.i49.i = call i32 @bcmp(ptr %114, ptr readonly %add.ptr.i, i64 %sub.ptr.sub.i.i.i139), !noalias !228
   %cmp.i50.i = icmp eq i32 %bcmp.i49.i, 0
   %116 = zext i1 %cmp.i50.i to i8
   br label %_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i140
@@ -10290,7 +10290,7 @@ cond.false.i.i142:                                ; preds = %cond.true.i132
 _ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i140: ; preds = %cond.false.i.i142, %cond.true.i132
   %cond.i.i141 = phi i8 [ %116, %cond.false.i.i142 ], [ 1, %cond.true.i132 ]
   store i8 1, ptr %extend_was_called_.i.i133, align 8, !noalias !228
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i139, i1 false), !noalias !228
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr readonly align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i139, i1 false), !noalias !228
   br label %cond.end.i128
 
 cond.end.i128:                                    ; preds = %_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter6ExtendEPKv.exit.i140, %_ZN5arrow7compute12_GLOBAL__N_114GetMatchLengthEPKhlS3_ll.exit.i

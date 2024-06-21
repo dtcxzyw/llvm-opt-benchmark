@@ -558,7 +558,7 @@ addlit.exit:                                      ; preds = %189, %198
   %218 = sext i32 %214 to i64
   %219 = getelementptr i8, ptr %217, i64 %218
   %220 = sext i32 %191 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr align 1 %190, i64 %220, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr readonly align 1 %190, i64 %220, i1 false)
   %221 = load ptr, ptr %2, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 48
   %223 = load i32, ptr %222, align 8
@@ -983,7 +983,7 @@ addlit.exit747:                                   ; preds = %464, %473
   %493 = sext i32 %489 to i64
   %494 = getelementptr i8, ptr %492, i64 %493
   %495 = sext i32 %466 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %494, ptr align 1 %465, i64 %495, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %494, ptr readonly align 1 %465, i64 %495, i1 false)
   %496 = load ptr, ptr %2, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 48
   %498 = load i32, ptr %497, align 8
@@ -1035,7 +1035,7 @@ addlit.exit753:                                   ; preds = %500, %509
   %529 = sext i32 %525 to i64
   %530 = getelementptr i8, ptr %528, i64 %529
   %531 = sext i32 %502 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %530, ptr align 1 %501, i64 %531, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %530, ptr readonly align 1 %501, i64 %531, i1 false)
   %532 = load ptr, ptr %2, align 8
   %533 = getelementptr inbounds i8, ptr %532, i64 48
   %534 = load i32, ptr %533, align 8
@@ -1307,7 +1307,7 @@ scanner_errposition.exit13.i:                     ; preds = %694, %687
   br label %check_string_escape_warning.exit
 
 703:                                              ; preds = %645
-  tail call fastcc void @check_escape_warning(ptr noundef nonnull %2)
+  tail call fastcc void @check_escape_warning(ptr noundef nonnull readonly %2)
   br label %check_string_escape_warning.exit
 
 check_string_escape_warning.exit:                 ; preds = %673, %700, %703
@@ -1679,7 +1679,7 @@ addlit.exit779:                                   ; preds = %904, %912
   %932 = sext i32 %928 to i64
   %933 = getelementptr i8, ptr %931, i64 %932
   %934 = sext i32 %906 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %933, ptr align 1 %883, i64 %934, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %933, ptr readonly align 1 %883, i64 %934, i1 false)
   %935 = load ptr, ptr %2, align 8
   %936 = getelementptr inbounds i8, ptr %935, i64 48
   %937 = load i32, ptr %936, align 8
@@ -1744,7 +1744,7 @@ addlit.exit785:                                   ; preds = %945, %954
   %974 = sext i32 %970 to i64
   %975 = getelementptr i8, ptr %973, i64 %974
   %976 = sext i32 %947 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %975, ptr align 1 %946, i64 %976, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %975, ptr readonly align 1 %946, i64 %976, i1 false)
   %977 = load ptr, ptr %2, align 8
   %978 = getelementptr inbounds i8, ptr %977, i64 48
   %979 = load i32, ptr %978, align 8
@@ -1796,7 +1796,7 @@ addlit.exit791:                                   ; preds = %981, %990
   %1010 = sext i32 %1006 to i64
   %1011 = getelementptr i8, ptr %1009, i64 %1010
   %1012 = sext i32 %983 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1011, ptr align 1 %982, i64 %1012, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1011, ptr readonly align 1 %982, i64 %1012, i1 false)
   %1013 = load ptr, ptr %2, align 8
   %1014 = getelementptr inbounds i8, ptr %1013, i64 48
   %1015 = load i32, ptr %1014, align 8
@@ -2037,7 +2037,7 @@ addlit.exit807:                                   ; preds = %1136, %1145
   %1165 = sext i32 %1161 to i64
   %1166 = getelementptr i8, ptr %1164, i64 %1165
   %1167 = sext i32 %1138 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1166, ptr align 1 %1137, i64 %1167, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1166, ptr readonly align 1 %1137, i64 %1167, i1 false)
   %1168 = load ptr, ptr %2, align 8
   %1169 = getelementptr inbounds i8, ptr %1168, i64 48
   %1170 = load i32, ptr %1169, align 8
@@ -3740,7 +3740,7 @@ addlit.exit:                                      ; preds = %8, %26
   %47 = getelementptr i8, ptr %45, i64 %46
   %sext = shl i64 %18, 32
   %48 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 16 %4, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull readonly align 16 %4, i64 %48, i1 false)
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 48
   %51 = load i32, ptr %50, align 8

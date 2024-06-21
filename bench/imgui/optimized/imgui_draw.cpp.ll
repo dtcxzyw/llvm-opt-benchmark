@@ -6510,7 +6510,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i:     ; preds = %if.end7.i.i.i159, %
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit
 
 if.end.i:                                         ; preds = %if.else
-  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp46, float noundef %cond27, i32 noundef 24, i32 noundef 36, i32 noundef 0)
+  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp46, float noundef %cond27, i32 noundef 24, i32 noundef 36, i32 noundef 0)
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i, %if.end.i
@@ -6586,7 +6586,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i171:  ; preds = %if.end7.i.i.i192, %
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit194
 
 if.end.i163:                                      ; preds = %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit
-  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp50, float noundef %cond33, i32 noundef 36, i32 noundef 48, i32 noundef 0)
+  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp50, float noundef %cond33, i32 noundef 36, i32 noundef 48, i32 noundef 0)
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit194
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit194: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i171, %if.end.i163
@@ -6661,7 +6661,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i205:  ; preds = %if.end7.i.i.i226, %
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit228
 
 if.end.i197:                                      ; preds = %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit194
-  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp55, float noundef %cond39, i32 noundef 0, i32 noundef 12, i32 noundef 0)
+  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp55, float noundef %cond39, i32 noundef 0, i32 noundef 12, i32 noundef 0)
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit228
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit228: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i205, %if.end.i197
@@ -6737,7 +6737,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i239:  ; preds = %if.end7.i.i.i260, %
   br label %if.end65
 
 if.end.i231:                                      ; preds = %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit228
-  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp60, float noundef %cond45, i32 noundef 12, i32 noundef 24, i32 noundef 0)
+  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp60, float noundef %cond45, i32 noundef 12, i32 noundef 24, i32 noundef 0)
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end.i231, %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i239, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit131
@@ -9190,7 +9190,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   %2 = load float, ptr %FontSize.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %this, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %clip_rect.i, ptr noundef nonnull align 8 dereferenceable(16) %_CmdHeader.i, i64 16, i1 false)
-  call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %1, ptr noundef nonnull %this, float noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect.i, ptr noundef %text_begin, ptr noundef %text_end.addr.0.i, float noundef 0.000000e+00, i1 noundef zeroext false)
+  call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %1, ptr noundef nonnull %this, float noundef %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect.i, ptr noundef %text_begin, ptr noundef %text_end.addr.0.i, float noundef 0.000000e+00, i1 noundef zeroext false)
   br label %_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit
 
 _ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit: ; preds = %entry, %if.end4.i, %if.end7.i
@@ -12153,7 +12153,7 @@ if.end15:                                         ; preds = %for.end, %cond.end
   %2 = load i64, ptr %data_size, align 8
   %conv16 = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %font_cfg.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %font_cfg.i, ptr noundef nonnull align 8 dereferenceable(144) %font_cfg, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %font_cfg.i, ptr noundef nonnull readonly align 8 dereferenceable(144) %font_cfg, i64 144, i1 false)
   store ptr %call, ptr %font_cfg.i, align 8
   %FontDataSize.i = getelementptr inbounds i8, ptr %font_cfg.i, i64 8
   store i32 %conv16, ptr %FontDataSize.i, align 8
@@ -12423,7 +12423,7 @@ if.end.i78.i.i:                                   ; preds = %if.else26.i.i
   br i1 %cmp3.i79.i.i, label %_ZL8stb__litPKhj.exit.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i78.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr7.lcssa.sink.i.i52.i, ptr nonnull align 1 %add.ptr27.i.i, i64 %idx.ext.i75.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr7.lcssa.sink.i.i52.i, ptr nonnull readonly align 1 %add.ptr27.i.i, i64 %idx.ext.i75.i.i, i1 false)
   %.pre185.i.i = load i8, ptr %i.addr.0.i, align 1
   br label %_ZL8stb__litPKhj.exit.i.i
 
@@ -12561,7 +12561,7 @@ if.end.i125.i.i:                                  ; preds = %if.then93.i.i
   br i1 %cmp3.i126.i.i, label %_ZL8stb__litPKhj.exit131.i.i, label %if.end6.i127.i.i
 
 if.end6.i127.i.i:                                 ; preds = %if.end.i125.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr7.lcssa.sink.i.i52.i, ptr nonnull align 1 %add.ptr94.i.i, i64 %idx.ext.i122.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr7.lcssa.sink.i.i52.i, ptr nonnull readonly align 1 %add.ptr94.i.i, i64 %idx.ext.i122.i.i, i1 false)
   %.pre183.i.i = load i8, ptr %i.addr.0.i, align 1
   %.pre184.i.i = load i8, ptr %arrayidx98.i.i, align 1
   br label %_ZL8stb__litPKhj.exit131.i.i
@@ -12604,7 +12604,7 @@ if.end.i135.i.i:                                  ; preds = %if.then117.i.i
   br i1 %cmp3.i136.i.i, label %_ZL8stb__litPKhj.exit141.i.i, label %if.end6.i137.i.i
 
 if.end6.i137.i.i:                                 ; preds = %if.end.i135.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr7.lcssa.sink.i.i52.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr118.i.i, i64 %add125.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr7.lcssa.sink.i.i52.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr118.i.i, i64 %add125.i.i, i1 false)
   %.pre.i.i = load i8, ptr %arrayidx119.i.i, align 1
   %.pre182.i.i = load i8, ptr %arrayidx122.i.i, align 1
   %.pre186.i.i = zext i8 %.pre.i.i to i64
@@ -12749,7 +12749,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %FontDataOwnedByAtlas = getelementptr inbounds i8, ptr %font_cfg, i64 12
   store i8 1, ptr %FontDataOwnedByAtlas, align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %font_cfg.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %font_cfg.i, ptr noundef nonnull align 8 dereferenceable(144) %font_cfg, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %font_cfg.i, ptr noundef nonnull readonly align 8 dereferenceable(144) %font_cfg, i64 144, i1 false)
   store ptr %call2, ptr %font_cfg.i, align 8
   %FontDataSize.i = getelementptr inbounds i8, ptr %font_cfg.i, i64 8
   store i32 %add10.i, ptr %FontDataSize.i, align 8
@@ -16236,7 +16236,7 @@ cond.end47.i:                                     ; preds = %cond.false41.i, %co
   %mul.i28.i.i = shl nuw i16 %conv.i27.i.i, 8
   %conv2.i29.i.i = zext i8 %add.ptr7.val26.i.i to i16
   %add.i30.i.i523 = or disjoint i16 %mul.i28.i.i, %conv2.i29.i.i
-  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull %arrayidx.i505, i32 noundef %call49.i, float noundef %408, float noundef %409, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly %arrayidx.i505, i32 noundef %call49.i, float noundef %408, float noundef %409, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %432 = load i32, ptr %x.i, align 4
   %idx.ext.i525 = sext i32 %432 to i64
   %add.ptr.i526 = getelementptr inbounds i8, ptr %383, i64 %idx.ext.i525
@@ -16251,7 +16251,7 @@ cond.end47.i:                                     ; preds = %cond.false41.i, %co
   %sub71.i = sub i32 %435, %conv10.i
   %add72.i = add i32 %sub71.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vertices.i.i)
-  %call.i.i575 = invoke fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr noundef nonnull %arrayidx.i505, i32 noundef %call49.i, ptr noundef nonnull %vertices.i.i)
+  %call.i.i575 = invoke fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr noundef nonnull readonly %arrayidx.i505, i32 noundef %call49.i, ptr noundef nonnull %vertices.i.i)
           to label %call.i.i.noexc574 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.noexc574:                                ; preds = %cond.end47.i
@@ -16263,7 +16263,7 @@ if.then.i.i.i528:                                 ; preds = %call.i.i.noexc574
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i.i.i, align 8
-  %call.i.i.i199.i = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull %arrayidx.i505, i32 noundef %call49.i, ptr noundef nonnull %c.i.i.i.i)
+  %call.i.i.i199.i = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %arrayidx.i505, i32 noundef %call49.i, ptr noundef nonnull %c.i.i.i.i)
   %tobool1.not.i.i.i.i = icmp eq i32 %call.i.i.i199.i, 0
   %437 = load i32, ptr %min_x.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool1.not.i.i.i.i, i32 0, i32 %437
@@ -23914,7 +23914,7 @@ entry:
   br i1 %or.cond.i, label %_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji.exit, label %_ZN10ImDrawList9PathArcToERK6ImVec2fffi.exit
 
 _ZN10ImDrawList9PathArcToERK6ImVec2fffi.exit:     ; preds = %entry
-  call void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %pos, float noundef %mul, float noundef 0.000000e+00, float noundef 0x4015FDBC00000000, i32 noundef 7)
+  call void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull readonly align 4 dereferenceable(8) %pos, float noundef %mul, float noundef 0.000000e+00, float noundef 0x4015FDBC00000000, i32 noundef 7)
   %_Path.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %draw_list, i64 120
   %.pre.i = load i32, ptr %_Path.i.phi.trans.insert.i, align 8
   %Data.i.i = getelementptr inbounds i8, ptr %draw_list, i64 128
@@ -24548,12 +24548,12 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i165:  ; preds = %if.end7.i.i.i186, %
   br label %if.end72
 
 if.end.i157:                                      ; preds = %if.then53
-  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp54, float noundef %cond5.i, i32 noundef 12, i32 noundef 24, i32 noundef 0)
+  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp54, float noundef %cond5.i, i32 noundef 12, i32 noundef 24, i32 noundef 0)
   %add59 = fadd float %3, %cond5.i
   store float %cond.i93, ptr %ref.tmp57, align 8
   %y.i155 = getelementptr inbounds i8, ptr %ref.tmp57, i64 4
   store float %add59, ptr %y.i155, align 4
-  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp57, float noundef %cond5.i, i32 noundef 24, i32 noundef 36, i32 noundef 0)
+  call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp57, float noundef %cond5.i, i32 noundef 24, i32 noundef 36, i32 noundef 0)
   br label %if.end72
 
 if.else60:                                        ; preds = %if.else
@@ -24685,14 +24685,14 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i231:  ; preds = %if.end7.i.i.i252, %
 if.end.i223:                                      ; preds = %if.else60
   %sub65 = fsub float 0x400921FB60000000, %retval.0.i
   %sub64 = fsub float 0x400921FB60000000, %retval.0.i86
-  call void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp61, float noundef %cond5.i, float noundef %sub64, float noundef %sub65, i32 noundef 3)
+  call void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp61, float noundef %cond5.i, float noundef %sub64, float noundef %sub65, i32 noundef 3)
   %add68 = fadd float %3, %cond5.i
   store float %cond.i93, ptr %ref.tmp66, align 8
   %y.i221 = getelementptr inbounds i8, ptr %ref.tmp66, i64 4
   store float %add68, ptr %y.i221, align 4
   %add69 = fadd float %retval.0.i, 0x400921FB60000000
   %add70 = fadd float %retval.0.i86, 0x400921FB60000000
-  call void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp66, float noundef %cond5.i, float noundef %add69, float noundef %add70, i32 noundef 3)
+  call void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp66, float noundef %cond5.i, float noundef %add69, float noundef %add70, i32 noundef 3)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end.i223, %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i231, %if.end.i157, %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i165, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit124
@@ -25283,7 +25283,7 @@ if.then5.i:                                       ; preds = %if.end63
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end63
-  call void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp67, float noundef %rounding, i32 noundef %cond)
+  call void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp67, float noundef %rounding, i32 noundef %cond)
   %33 = load ptr, ptr %Data.i.i, align 8
   %34 = load i32, ptr %_Path.i.i, align 8
   tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef %33, i32 noundef %34, i32 noundef %call6)
@@ -25704,7 +25704,7 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull %font, i32 noundef %glyph, ptr noundef nonnull %c.i.i)
+  %call.i.i = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %font, i32 noundef %glyph, ptr noundef nonnull %c.i.i)
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   %min_x.i.i = getelementptr inbounds i8, ptr %c.i.i, i64 24
   %1 = load i32, ptr %min_x.i.i, align 8
@@ -27557,7 +27557,7 @@ if.end8.i:                                        ; preds = %_ZL22stbtt__cff_ind
   %idx.sroa.7.8.insert.shift.i = and i64 %agg.tmp288.sroa.2.0.copyload, -4294967296
   %idx.sroa.3.8.insert.ext.i = zext i32 %idx.sroa.3.1.i to i64
   %idx.sroa.3.8.insert.insert.i = or disjoint i64 %idx.sroa.7.8.insert.shift.i, %idx.sroa.3.8.insert.ext.i
-  %call9.i = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %agg.tmp288.sroa.0.0.copyload, i64 %idx.sroa.3.8.insert.insert.i, i32 noundef %add.i196)
+  %call9.i = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr readonly %agg.tmp288.sroa.0.0.copyload, i64 %idx.sroa.3.8.insert.insert.i, i32 noundef %add.i196)
   br label %_ZL15stbtt__get_subr10stbtt__bufi.exit
 
 _ZL15stbtt__get_subr10stbtt__bufi.exit:           ; preds = %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i, %if.end8.i
@@ -29299,7 +29299,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i, i8 0, i64 56, i1 false)
-  %call.i5 = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i)
+  %call.i5 = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i)
   %tobool.not.i6 = icmp eq i32 %call.i5, 0
   br i1 %tobool.not.i6, label %if.end7.i, label %if.then.i
 
@@ -29312,7 +29312,7 @@ if.then.i:                                        ; preds = %if.else
   store ptr %call1.i, ptr %pvertices, align 8
   %pvertices2.i = getelementptr inbounds i8, ptr %output_ctx.i, i64 40
   store ptr %call1.i, ptr %pvertices2.i, align 8
-  %call3.i = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i)
+  %call3.i = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end7.i, label %do.end.i
 

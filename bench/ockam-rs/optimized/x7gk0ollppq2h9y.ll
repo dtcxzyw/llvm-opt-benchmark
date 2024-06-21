@@ -798,7 +798,7 @@ define hidden void @"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$ock
 "_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit.i.i": ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 4
   %28 = getelementptr inbounds i8, ptr %27, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %1, i64 %2, i1 false), !alias.scope !128, !noalias !135
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !128, !noalias !135
   %29 = trunc nuw nsw i64 %14 to i16
   store i16 %29, ptr %9, align 2, !alias.scope !138, !noalias !117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !115
@@ -823,7 +823,7 @@ define hidden void @"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$ock
   %39 = phi i64 [ %33, %30 ], [ %.pre.i.i.i, %38 ]
   %40 = load ptr, ptr %31, align 8, !alias.scope !141, !noalias !146, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds i8, ptr %40, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %42 = load i64, ptr %32, align 8, !alias.scope !141, !noalias !146, !noundef !4
   %43 = add i64 %42, %2
   store i64 %43, ptr %32, align 8, !alias.scope !141, !noalias !146

@@ -916,7 +916,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %186,
   %229 = phi i64 [ %221, %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit ], [ %.pre.i.i16, %225 ]
   %230 = load ptr, ptr %25, align 8, !alias.scope !217, !noalias !222, !nonnull !18, !noundef !18
   %231 = getelementptr inbounds i8, ptr %230, i64 %229
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %231, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %220, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %231, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %220, i1 false)
   %232 = load i64, ptr %24, align 8, !alias.scope !217, !noalias !222, !noundef !18
   %233 = add i64 %232, %220
   store i64 %233, ptr %24, align 8, !alias.scope !217, !noalias !222
@@ -1759,7 +1759,7 @@ define hidden void @_ZN3std2fs8metadata17h673c8d764eb7d420E(ptr noalias nocaptur
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !462
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !462
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb380d6014865e99aE.llvm.13024266015450051711.exit"
 
 8:                                                ; preds = %3

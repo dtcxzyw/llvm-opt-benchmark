@@ -1441,7 +1441,7 @@ for.body16.i.i:                                   ; preds = %for.inc25.i.i, %for
   %idxprom18.i.i = sext i32 %i.19.i.i to i64
   %id_str20.i.i = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idxprom18.i.i, i32 2
   %5 = load ptr, ptr %id_str20.i.i, align 8
-  %call21.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %snapshot_id) #20
+  %call21.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %snapshot_id) #20
   %tobool22.not.i.i = icmp eq i32 %call21.i.i, 0
   br i1 %tobool22.not.i.i, label %find_snapshot_by_id_and_name.exit.i, label %for.inc25.i.i
 
@@ -1462,7 +1462,7 @@ for.body34.i.i:                                   ; preds = %for.body34.i.i.preh
   %idxprom36.i.i = sext i32 %i.26.i.i to i64
   %name38.i.i = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idxprom36.i.i, i32 3
   %6 = load ptr, ptr %name38.i.i, align 8
-  %call39.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %snapshot_id) #20
+  %call39.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %snapshot_id) #20
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
   br i1 %tobool40.not.i.i, label %find_snapshot_by_id_or_name.exit, label %for.inc43.i.i
 

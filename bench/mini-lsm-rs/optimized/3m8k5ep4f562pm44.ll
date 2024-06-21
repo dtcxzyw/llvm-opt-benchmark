@@ -2620,7 +2620,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
   %16 = load i64, ptr %15, align 8, !noundef !19
   %17 = sub i64 %8, %14
   %..i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %14)
-  %18 = tail call i32 @memcmp(ptr nonnull %6, ptr nonnull %12, i64 %..i.i), !alias.scope !408
+  %18 = tail call i32 @memcmp(ptr nonnull readonly %6, ptr nonnull readonly %12, i64 %..i.i), !alias.scope !408
   %19 = sext i32 %18 to i64
   %20 = icmp eq i32 %18, 0
   %spec.store.select.i.i = select i1 %20, i64 %17, i64 %19
@@ -2789,7 +2789,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   %17 = load i64, ptr %16, align 8, !noalias !437, !noundef !19
   %18 = sub i64 %9, %15
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %15)
-  %19 = tail call i32 @memcmp(ptr nonnull %7, ptr nonnull %13, i64 %..i.i.i), !alias.scope !438, !noalias !437
+  %19 = tail call i32 @memcmp(ptr nonnull readonly %7, ptr nonnull readonly %13, i64 %..i.i.i), !alias.scope !438, !noalias !437
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -2828,7 +2828,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %17 = load i64, ptr %16, align 8, !noalias !454, !noundef !19
   %18 = sub i64 %9, %15
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %15)
-  %19 = tail call i32 @memcmp(ptr nonnull %7, ptr nonnull %13, i64 %..i.i.i.i), !alias.scope !455, !noalias !454
+  %19 = tail call i32 @memcmp(ptr nonnull readonly %7, ptr nonnull readonly %13, i64 %..i.i.i.i), !alias.scope !455, !noalias !454
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -8207,7 +8207,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
   %51 = getelementptr inbounds i8, ptr %.0.val1, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1011, !noalias !1012, !nonnull !19, !noundef !19
   %53 = getelementptr inbounds i8, ptr %52, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %50, i64 %41, i1 false), !noalias !1011
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %50, i64 %41, i1 false), !noalias !1011
   %54 = add i64 %49, %41
   store i64 %54, ptr %43, align 8, !alias.scope !1011, !noalias !1012
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)

@@ -2400,7 +2400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit249: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %363
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  %365 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %355, ptr noundef nonnull align 8 dereferenceable(32) %126, i1 noundef zeroext true)
+  %365 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef readonly %355, ptr noundef nonnull align 8 dereferenceable(32) %126, i1 noundef zeroext true)
           to label %366 unwind label %372
 
 366:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -2410,7 +2410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store i32 %369, ptr %367, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #24
-  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %365, ptr noundef nonnull align 8 dereferenceable(24) %134)
+  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %365, ptr noundef nonnull readonly align 8 dereferenceable(24) %134)
           to label %.noexc251 unwind label %336
 
 .noexc251:                                        ; preds = %366
@@ -2528,7 +2528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit259: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i264: ; preds = %395
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  %397 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %387, ptr noundef nonnull align 8 dereferenceable(32) %124, i1 noundef zeroext true)
+  %397 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef readonly %387, ptr noundef nonnull align 8 dereferenceable(32) %124, i1 noundef zeroext true)
           to label %398 unwind label %405
 
 398:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i264
@@ -2539,7 +2539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i264:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #24
   %402 = getelementptr inbounds i8, ptr %134, i64 24
-  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %397, ptr noundef nonnull align 8 dereferenceable(24) %402)
+  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %397, ptr noundef nonnull readonly align 8 dereferenceable(24) %402)
           to label %407 unwind label %336
 
 403:                                              ; preds = %.noexc.i262, %386
@@ -2653,7 +2653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit272: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i277: ; preds = %428
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  %430 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %420, ptr noundef nonnull align 8 dereferenceable(32) %122, i1 noundef zeroext true)
+  %430 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef readonly %420, ptr noundef nonnull align 8 dereferenceable(32) %122, i1 noundef zeroext true)
           to label %431 unwind label %438
 
 431:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i277
@@ -2664,7 +2664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i277:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #24
   %435 = getelementptr inbounds i8, ptr %134, i64 48
-  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %430, ptr noundef nonnull align 8 dereferenceable(24) %435)
+  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %430, ptr noundef nonnull readonly align 8 dereferenceable(24) %435)
           to label %.noexc278 unwind label %336
 
 .noexc278:                                        ; preds = %431
@@ -3024,7 +3024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit306: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i310: ; preds = %517
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %519 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %509, ptr noundef nonnull align 8 dereferenceable(32) %99, i1 noundef zeroext true)
+  %519 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef readonly %509, ptr noundef nonnull align 8 dereferenceable(32) %99, i1 noundef zeroext true)
           to label %520 unwind label %536
 
 520:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i310
@@ -4902,7 +4902,7 @@ _ZNSt6vectorIPKN7V3Sched12LogicByScopeESaIS3_EED2Ev.exit144.i: ; preds = %1020
   %1042 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i, i64 8
   %1043 = load ptr, ptr %1042, align 8
   %1044 = trunc i64 %.06.i.i to i32
-  invoke fastcc void @_ZNK7V3Sched12_GLOBAL__N_110TriggerKit25addExtraTriggerAssignmentEP11AstVarScopej(ptr noundef nonnull align 8 dereferenceable(80) %81, ptr noundef %1043, i32 noundef %1044)
+  invoke fastcc void @_ZNK7V3Sched12_GLOBAL__N_110TriggerKit25addExtraTriggerAssignmentEP11AstVarScopej(ptr noundef nonnull readonly align 8 dereferenceable(80) %81, ptr noundef %1043, i32 noundef %1044)
           to label %.noexc148.i unwind label %.loopexit236.i
 
 .noexc148.i:                                      ; preds = %.lr.ph.i145.i
@@ -5291,7 +5291,7 @@ _ZNSt3mapIPK8AstIfaceP10AstSenTreeSt4lessIS2_ESaISt4pairIKS2_S4_EEEC2ERKSB_.exit
           to label %.noexc183.i unwind label %1292
 
 .noexc183.i:                                      ; preds = %_ZNSt3mapIPK8AstIfaceP10AstSenTreeSt4lessIS2_ESaISt4pairIKS2_S4_EEEC2ERKSB_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1186, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1186, ptr noundef nonnull readonly align 8 dereferenceable(16) %91, i64 16, i1 false)
   %1187 = getelementptr inbounds i8, ptr %1186, i64 24
   store i32 0, ptr %1187, align 8
   %1188 = getelementptr inbounds i8, ptr %1186, i64 32
@@ -6146,7 +6146,7 @@ _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %1412, %1409
   %1426 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 8
   %1427 = load ptr, ptr %1426, align 8
   %1428 = trunc i64 %.06.i to i32
-  invoke fastcc void @_ZNK7V3Sched12_GLOBAL__N_110TriggerKit25addExtraTriggerAssignmentEP11AstVarScopej(ptr noundef nonnull align 8 dereferenceable(80) %192, ptr noundef %1427, i32 noundef %1428)
+  invoke fastcc void @_ZNK7V3Sched12_GLOBAL__N_110TriggerKit25addExtraTriggerAssignmentEP11AstVarScopej(ptr noundef nonnull readonly align 8 dereferenceable(80) %192, ptr noundef %1427, i32 noundef %1428)
           to label %.noexc456 unwind label %.loopexit896
 
 .noexc456:                                        ; preds = %.lr.ph.i453
@@ -7574,7 +7574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit650: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i654: ; preds = %1894
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %1896 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %1880, ptr noundef nonnull align 8 dereferenceable(32) %55, i1 noundef zeroext true)
+  %1896 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef readonly %1880, ptr noundef nonnull align 8 dereferenceable(32) %55, i1 noundef zeroext true)
           to label %1897 unwind label %1903
 
 1897:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i654
@@ -7584,7 +7584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i654:
   store i32 %1900, ptr %1898, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #24
-  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %1896, ptr noundef nonnull align 8 dereferenceable(24) %1881)
+  invoke fastcc void @_ZN7V3Sched12_GLOBAL__N_117orderSequentiallyEP8AstCFuncRKNS_12LogicByScopeE(ptr noundef nonnull %1896, ptr noundef nonnull readonly align 8 dereferenceable(24) %1881)
           to label %.noexc655 unwind label %1813
 
 .noexc655:                                        ; preds = %1897
@@ -8857,7 +8857,7 @@ _ZNSt8functionIFP11AstNodeStmtP11AstVarScopeEED2Ev.exit170.i: ; preds = %2259, %
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit175.i: ; preds = %2273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %2275 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %2265, ptr noundef nonnull align 8 dereferenceable(32) %51, i1 noundef zeroext false)
+  %2275 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef readonly %2265, ptr noundef nonnull align 8 dereferenceable(32) %51, i1 noundef zeroext false)
           to label %2276 unwind label %2299
 
 2276:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit175.i
@@ -18992,7 +18992,7 @@ define internal fastcc { ptr, ptr } @_ZN7V3Sched12_GLOBAL__N_114createEvalLoopEP
           to label %54 unwind label %192
 
 54:                                               ; preds = %10
-  %55 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %33, i1 noundef zeroext %3)
+  %55 = invoke fastcc noundef nonnull ptr @_ZN7V3Sched12_GLOBAL__N_115makeSubFunctionEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %33, i1 noundef zeroext %3)
           to label %56 unwind label %194
 
 56:                                               ; preds = %54
@@ -23520,7 +23520,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPK11AstVarScopeR
 
 8:                                                ; preds = %7
   %9 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.val6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val6, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 32
@@ -32192,7 +32192,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPK11AstVarScopeR
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN7V3Sched8scheduleEP10AstNetlistENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPNS1_12LogicByScopeESaISF_EEEUlPK11AstVarScopeRSD_IP10AstSenTreeSaISO_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
@@ -33459,7 +33459,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP11AstNodeStmtP11
   br label %"_ZNSt14_Function_base13_Base_managerIZN7V3Sched12_GLOBAL__N_110createEvalEP10AstNetlistP7AstNodeRKNS2_7EvalKitEP11AstVarScopeS9_S9_S9_P8AstCFuncRNS1_9TimingKitEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN7V3Sched12_GLOBAL__N_110createEvalEP10AstNetlistP7AstNodeRKNS2_7EvalKitEP11AstVarScopeS9_S9_S9_P8AstCFuncRNS1_9TimingKitEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN7V3Sched12_GLOBAL__N_110createEvalEP10AstNetlistP7AstNodeRKNS2_7EvalKitEP11AstVarScopeS9_S9_S9_P8AstCFuncRNS1_9TimingKitEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -34205,7 +34205,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPK11AstVarScopeR
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN7V3Sched8scheduleEP10AstNetlistE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 

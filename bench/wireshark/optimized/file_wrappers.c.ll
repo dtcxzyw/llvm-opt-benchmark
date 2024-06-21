@@ -2114,14 +2114,14 @@ fill_in_buffer.exit.thread.i.thread:              ; preds = %407
   %448 = zext i32 %444 to i64
   %449 = getelementptr i8, ptr %377, i64 %448
   %450 = zext i32 %446 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %447, ptr align 1 %449, i64 %450, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %447, ptr readonly align 1 %449, i64 %450, i1 false)
   %451 = getelementptr i8, ptr %447, i64 %450
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr nonnull align 4 %377, i64 %448, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr nonnull readonly align 4 %377, i64 %448, i1 false)
   br label %454
 
 452:                                              ; preds = %433
   %453 = getelementptr inbounds i8, ptr %439, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %453, ptr noundef nonnull align 4 dereferenceable(32768) %377, i64 32768, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %453, ptr noundef nonnull readonly align 4 dereferenceable(32768) %377, i64 32768, i1 false)
   br label %454
 
 454:                                              ; preds = %452, %445

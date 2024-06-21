@@ -270,9 +270,9 @@ define ptr @get_udp_conversation_data(ptr noundef %0, ptr noundef %1) local_unna
   store i32 %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 72
   %16 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 8 dereferenceable(16) %16, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %11, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %16, i64 16, i1 false)
   %18 = load i32, ptr @proto_udp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %.025, i32 noundef %18, ptr noundef %11) #13
   br label %19

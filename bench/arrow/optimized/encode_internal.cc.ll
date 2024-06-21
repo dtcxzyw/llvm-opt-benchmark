@@ -2809,7 +2809,7 @@ for.body.i375:                                    ; preds = %for.body.i375, %for
   %mul.i.i = mul i32 %1, %conv.i.i377
   %idx.ext.i.i = zext i32 %mul.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %143, i64 %idx.ext.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.079.i, ptr align 1 %add.ptr.i.i, i64 %conv2.i.i373, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.079.i, ptr readonly align 1 %add.ptr.i.i, i64 %conv2.i.i373, i1 false)
   %add.ptr8.i378 = getelementptr inbounds i8, ptr %dst.079.i, i64 %idx.ext7.i374
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
@@ -2882,7 +2882,7 @@ for.body45.i343:                                  ; preds = %for.body45.i343, %f
   %mul.i53.i = mul i32 %1, %conv.i52.i
   %idx.ext.i54.i = zext i32 %mul.i53.i to i64
   %add.ptr.i55.i = getelementptr inbounds i8, ptr %143, i64 %idx.ext.i54.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr49.i347, ptr align 1 %add.ptr.i55.i, i64 %conv2.i56.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr49.i347, ptr readonly align 1 %add.ptr.i55.i, i64 %conv2.i56.i, i1 false)
   %indvars.iv.next.i349 = add nuw nsw i64 %indvars.iv.i344, 1
   %exitcond.not.i350 = icmp eq i64 %indvars.iv.next.i349, %wide.trip.count.i342
   br i1 %exitcond.not.i350, label %for.end54.i351, label %for.body45.i343, !llvm.loop !81

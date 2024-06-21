@@ -670,7 +670,7 @@ if.end.i.i:                                       ; preds = %entry
   %2 = load ptr, ptr %RHS, align 8
   %3 = load ptr, ptr %this, align 8
   %mul.i.i = shl nuw nsw i64 %conv.i, 2
-  %bcmp.i.i = tail call i32 @bcmp(ptr %3, ptr %2, i64 %mul.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %3, ptr readonly %2, i64 %mul.i.i)
   %cmp5.i.i = icmp eq i32 %bcmp.i.i, 0
   br label %_ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE.exit
 
@@ -691,7 +691,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %mul.i = shl nuw nsw i64 %RHS.coerce1, 2
-  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %RHS.coerce0, i64 %mul.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr readonly %RHS.coerce0, i64 %mul.i)
   %cmp5.i = icmp eq i32 %bcmp.i, 0
   br label %_ZNK4llvh19FoldingSetNodeIDRefeqES0_.exit
 
@@ -722,7 +722,7 @@ if.end.i.i:                                       ; preds = %entry
   %2 = load ptr, ptr %RHS, align 8
   %3 = load ptr, ptr %this, align 8
   %mul.i.i = shl nuw nsw i64 %conv.i, 2
-  %call.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %mul.i.i) #20
+  %call.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef readonly %2, i64 noundef %mul.i.i) #20
   %cmp8.i.i = icmp slt i32 %call.i.i, 0
   br label %_ZNK4llvh16FoldingSetNodeIDltENS_19FoldingSetNodeIDRefE.exit
 
@@ -747,7 +747,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %mul.i = shl nuw nsw i64 %RHS.coerce1, 2
-  %call.i = tail call i32 @memcmp(ptr noundef %1, ptr noundef %RHS.coerce0, i64 noundef %mul.i) #20
+  %call.i = tail call i32 @memcmp(ptr noundef %1, ptr noundef readonly %RHS.coerce0, i64 noundef %mul.i) #20
   %cmp8.i = icmp slt i32 %call.i, 0
   br label %_ZNK4llvh19FoldingSetNodeIDRefltES0_.exit
 

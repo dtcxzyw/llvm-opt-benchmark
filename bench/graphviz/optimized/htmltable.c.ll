@@ -457,7 +457,7 @@ setFill.exit:                                     ; preds = %84, %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false)
   %96 = getelementptr inbounds i8, ptr %17, i64 32
   %97 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %96, ptr noundef nonnull readonly align 8 dereferenceable(16) %97, i64 16, i1 false)
   %98 = icmp ugt i8 %95, 1
   %.pre.i = load double, ptr %96, align 16
   %99 = load double, ptr %17, align 16
@@ -632,7 +632,7 @@ setFill.exit94:                                   ; preds = %171, %176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %127, ptr noundef nonnull readonly align 8 dereferenceable(16) %128, i64 16, i1 false)
   %182 = icmp ugt i8 %181, 1
   %.pre.i82 = load double, ptr %127, align 16
   %183 = load double, ptr %11, align 16
@@ -1811,13 +1811,13 @@ unreachable:                                      ; preds = %2
   %40 = getelementptr inbounds i8, ptr %1, i64 106
   store i8 0, ptr %40, align 2
   %41 = load ptr, ptr %1, align 8
-  %42 = call noalias ptr @strdup(ptr noundef %41) #20
+  %42 = call noalias ptr @strdup(ptr noundef readonly %41) #20
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %gv_strdup.exit
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr @stderr, align 8
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #23
+  %46 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %41) #23
   %47 = add i64 %46, 1
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.8, i64 noundef %47) #21
   call fastcc void @graphviz_exit() #24
@@ -1888,13 +1888,13 @@ gv_strdup.exit:                                   ; preds = %39
 
 nameOf.exit:                                      ; preds = %49, %52, %54, %80, %81
   %82 = call fastcc ptr @agxbuse(ptr noundef nonnull %5)
-  %83 = call noalias ptr @strdup(ptr noundef %82) #20
+  %83 = call noalias ptr @strdup(ptr noundef readonly %82) #20
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %gv_strdup.exit63
 
 85:                                               ; preds = %nameOf.exit
   %86 = load ptr, ptr @stderr, align 8
-  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #23
+  %87 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %82) #23
   %88 = add i64 %87, 1
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.8, i64 noundef %88) #21
   call fastcc void @graphviz_exit() #24
@@ -1994,13 +1994,13 @@ gv_strdup.exit63:                                 ; preds = %nameOf.exit
 
 getPenColor.exit70:                               ; preds = %124, %128, %130
   %.0.i67 = phi ptr [ null, %130 ], [ %123, %124 ], [ %127, %128 ]
-  %131 = call noalias ptr @strdup(ptr noundef %.0.i67) #20
+  %131 = call noalias ptr @strdup(ptr noundef readonly %.0.i67) #20
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %gv_strdup.exit71
 
 133:                                              ; preds = %getPenColor.exit70
   %134 = load ptr, ptr @stderr, align 8
-  %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i67) #23
+  %135 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i67) #23
   %136 = add i64 %135, 1
   %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.8, i64 noundef %136) #21
   call fastcc void @graphviz_exit() #24
@@ -2075,7 +2075,7 @@ getPenColor.exit:                                 ; preds = %120, %118, %gv_strd
 181:                                              ; preds = %176
   %182 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %182) #20
-  %183 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #20
+  %183 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.3) #20
   %184 = icmp eq ptr %183, null
   br i1 %184, label %185, label %gv_strdup.exit72
 
@@ -3186,13 +3186,13 @@ define internal fastcc void @pos_html_tbl(ptr nocapture noundef %0, ptr nocaptur
   br i1 %.not132, label %15, label %23
 
 15:                                               ; preds = %12
-  %16 = tail call noalias ptr @strdup(ptr noundef nonnull %11) #20
+  %16 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %11) #20
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %gv_strdup.exit
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #23
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #23
   %21 = add i64 %20, 1
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.8, i64 noundef %21) #21
   tail call fastcc void @graphviz_exit() #24
@@ -3477,13 +3477,13 @@ gv_strdup.exit:                                   ; preds = %15
   br i1 %.not81.i, label %198, label %190
 
 190:                                              ; preds = %185
-  %191 = tail call noalias ptr @strdup(ptr noundef nonnull %189) #20
+  %191 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %189) #20
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %gv_strdup.exit141
 
 193:                                              ; preds = %190
   %194 = load ptr, ptr @stderr, align 8
-  %195 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %189) #23
+  %195 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %189) #23
   %196 = add i64 %195, 1
   %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.8, i64 noundef %196) #21
   tail call fastcc void @graphviz_exit() #24
@@ -4245,13 +4245,13 @@ define internal fastcc i32 @initAnchor(ptr noundef %0, ptr nocapture noundef %1,
   %33 = getelementptr inbounds i8, ptr %8, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @getObjId(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %6) #20
-  %36 = call noalias ptr @strdup(ptr noundef %35) #20
+  %36 = call noalias ptr @strdup(ptr noundef readonly %35) #20
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %gv_strdup.exit
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr @stderr, align 8
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #23
+  %40 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #23
   %41 = add i64 %40, 1
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.8, i64 noundef %41) #21
   call fastcc void @graphviz_exit() #24
@@ -4391,7 +4391,7 @@ define internal fastcc void @doBorder(ptr noundef %0, ptr nocapture noundef read
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %33 = getelementptr inbounds i8, ptr %6, i64 32
   %34 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull readonly align 8 dereferenceable(16) %34, i64 16, i1 false)
   %35 = icmp ugt i8 %32, 1
   %.pre.i = load double, ptr %33, align 16
   %36 = load double, ptr %6, align 16
@@ -4453,7 +4453,7 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %63 = getelementptr inbounds i8, ptr %6, i64 48
   %64 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, ptr noundef nonnull readonly align 8 dereferenceable(16) %64, i64 16, i1 false)
   %65 = icmp ugt i8 %62, 1
   %.pre.i46 = load double, ptr %63, align 16
   %66 = load double, ptr %61, align 16
@@ -4711,7 +4711,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #20
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -4800,7 +4800,7 @@ gv_calloc.exit.i.i:                               ; preds = %26
 
 agxbnext.exit.i:                                  ; preds = %37, %35
   %41 = phi ptr [ %36, %35 ], [ %40, %37 ]
-  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #20
+  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #20
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %vagxbprint.exit
 
@@ -5145,7 +5145,7 @@ gv_calloc.exit.i.i:                               ; preds = %.thread.i
 
 29:                                               ; preds = %agxblen.exit.thread.i
   %30 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr readonly align 1 %1, i64 %3, i1 false)
   %31 = trunc i64 %3 to i8
   %32 = load i8, ptr %6, align 1
   %33 = add i8 %32, %31
@@ -5157,7 +5157,7 @@ gv_calloc.exit.i.i:                               ; preds = %.thread.i
   %36 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.0.i25.i, %.thread35.i ]
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = getelementptr inbounds i8, ptr %36, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr readonly align 1 %1, i64 %3, i1 false)
   %39 = load i64, ptr %37, align 8
   %40 = add i64 %39, %3
   store i64 %40, ptr %37, align 8

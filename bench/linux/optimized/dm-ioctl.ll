@@ -302,7 +302,7 @@ define dso_local i32 @dm_early_create(ptr noundef %0, ptr nocapture noundef read
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = tail call ptr @strchr(ptr noundef %10, i32 noundef 47) #21
+  %11 = tail call ptr @strchr(ptr noundef readonly %10, i32 noundef 47) #21
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
 
@@ -311,7 +311,7 @@ define dso_local i32 @dm_early_create(ptr noundef %0, ptr nocapture noundef read
   br label %check_name.exit
 
 15:                                               ; preds = %9
-  %16 = tail call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(8) @.str.54) #21
+  %16 = tail call i32 @strcmp(ptr noundef readonly %10, ptr noundef nonnull dereferenceable(8) @.str.54) #21
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %24, label %sub_0.i
 
@@ -1550,7 +1550,7 @@ define internal i32 @dev_create(ptr nocapture readnone %0, ptr noundef %1, i64 %
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   %5 = getelementptr inbounds i8, ptr %1, i64 48
-  %6 = tail call ptr @strchr(ptr noundef %5, i32 noundef 47) #21
+  %6 = tail call ptr @strchr(ptr noundef readonly %5, i32 noundef 47) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
@@ -1559,7 +1559,7 @@ define internal i32 @dev_create(ptr nocapture readnone %0, ptr noundef %1, i64 %
   br label %check_name.exit
 
 10:                                               ; preds = %3
-  %11 = tail call i32 @strcmp(ptr noundef %5, ptr noundef nonnull dereferenceable(8) @.str.54) #21
+  %11 = tail call i32 @strcmp(ptr noundef readonly %5, ptr noundef nonnull dereferenceable(8) @.str.54) #21
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %19, label %sub_0.i
 
@@ -1769,7 +1769,7 @@ define internal i32 @dev_rename(ptr nocapture readnone %0, ptr noundef %1, i64 n
   br i1 %12, label %33, label %check_name.exit.thread
 
 33:                                               ; preds = %32
-  %34 = tail call ptr @strchr(ptr noundef %8, i32 noundef 47) #21
+  %34 = tail call ptr @strchr(ptr noundef readonly %8, i32 noundef 47) #21
   %35 = icmp eq ptr %34, null
   br i1 %35, label %38, label %36
 
@@ -1778,7 +1778,7 @@ define internal i32 @dev_rename(ptr nocapture readnone %0, ptr noundef %1, i64 n
   br label %check_name.exit
 
 38:                                               ; preds = %33
-  %39 = tail call i32 @strcmp(ptr noundef %8, ptr noundef nonnull dereferenceable(8) @.str.54) #21
+  %39 = tail call i32 @strcmp(ptr noundef readonly %8, ptr noundef nonnull dereferenceable(8) @.str.54) #21
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %46, label %sub_0.i
 

@@ -592,9 +592,9 @@ if.end.i208:                                      ; preds = %land.lhs.true119
   store i8 0, ptr %arrayidx4.i.i204, align 1
   %add.ptr.i205 = getelementptr i8, ptr %retval.0.i195, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %add.ptr.i205, i8 32, i64 13, i1 false)
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %51) #10
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i205, ptr nonnull align 1 %51, i64 %spec.store.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i205, ptr nonnull readonly align 1 %51, i64 %spec.store.select.i, i1 false)
   %52 = getelementptr i8, ptr %retval.0.i195, i64 %spec.store.select.i
   %arrayidx.i206 = getelementptr i8, ptr %52, i64 5
   store i8 10, ptr %arrayidx.i206, align 1
@@ -638,9 +638,9 @@ if.end.i236:                                      ; preds = %land.lhs.true127
   store i8 0, ptr %arrayidx4.i.i230, align 1
   %add.ptr.i231 = getelementptr i8, ptr %desc.1395, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %add.ptr.i231, i8 32, i64 13, i1 false)
-  %call.i232 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #10
+  %call.i232 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #10
   %spec.store.select.i233 = tail call i64 @llvm.umin.i64(i64 %call.i232, i64 12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i231, ptr nonnull align 1 %54, i64 %spec.store.select.i233, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i231, ptr nonnull readonly align 1 %54, i64 %spec.store.select.i233, i1 false)
   %55 = getelementptr i8, ptr %desc.1395, i64 %spec.store.select.i233
   %arrayidx.i234 = getelementptr i8, ptr %55, i64 5
   store i8 10, ptr %arrayidx.i234, align 1

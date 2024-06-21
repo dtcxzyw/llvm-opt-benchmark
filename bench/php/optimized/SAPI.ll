@@ -1203,7 +1203,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %83, label %84, label %94
 
 84:                                               ; preds = %79
-  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef %31, i64 noundef %.1266) #19
+  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.1266) #19
   %.not27.i = icmp eq i32 %85, 0
   br i1 %.not27.i, label %86, label %94
 
@@ -1673,7 +1673,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef %1) 
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %22
-  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef %14, i64 noundef %15) #19
+  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef readonly %14, i64 noundef %15) #19
   %.not27.i = icmp eq i32 %28, 0
   br i1 %.not27.i, label %29, label %37
 

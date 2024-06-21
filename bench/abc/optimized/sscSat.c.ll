@@ -1086,7 +1086,7 @@ Gia_ManAddClausesMux.exit:                        ; preds = %.critedge2, %245
   %260 = ptrtoint ptr %257 to i64
   %261 = xor i64 %259, %260
   %262 = inttoptr i64 %261 to ptr
-  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef %251, ptr noundef %262, ptr noundef %252)
+  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef readonly %251, ptr noundef %262, ptr noundef %252)
   %263 = load i64, ptr %46, align 4
   %264 = lshr i64 %263, 32
   %265 = and i64 %264, 536870911
@@ -1097,7 +1097,7 @@ Gia_ManAddClausesMux.exit:                        ; preds = %.critedge2, %245
   %270 = ptrtoint ptr %267 to i64
   %271 = xor i64 %269, %270
   %272 = inttoptr i64 %271 to ptr
-  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef %251, ptr noundef %272, ptr noundef %252)
+  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef readonly %251, ptr noundef %272, ptr noundef %252)
   %273 = load ptr, ptr %29, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val108 = load i32, ptr %274, align 4

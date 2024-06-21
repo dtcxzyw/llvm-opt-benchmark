@@ -554,7 +554,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_color_tab
 23:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
   %24 = load ptr, ptr %9, align 8, !alias.scope !224, !noalias !225, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds i8, ptr %24, i64 %.promoted.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !226
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !226
   %26 = add i64 %.promoted.i.i, %2
   %27 = load i64, ptr %8, align 8, !noalias !4, !noundef !4
   %28 = icmp ugt i64 %26, %27
@@ -817,7 +817,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 70:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i47"
   %71 = load ptr, ptr %13, align 8, !alias.scope !370, !noalias !371, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds i8, ptr %71, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %3, i64 %4, i1 false), !noalias !372
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !noalias !372
   %73 = add i64 %51, %4
   %74 = load i64, ptr %12, align 8, !alias.scope !370, !noalias !371, !noundef !4
   %75 = icmp ugt i64 %73, %74
@@ -1051,7 +1051,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 78:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i.i.i49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i48"
   %79 = load ptr, ptr %64, align 8, !alias.scope !524, !noalias !525, !nonnull !4, !noundef !4
   %80 = getelementptr inbounds i8, ptr %79, i64 %.promoted.i.i.i.i46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %3, i64 %4, i1 false), !noalias !526
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !noalias !526
   %81 = add i64 %.promoted.i.i.i.i46, %4
   %82 = load i64, ptr %63, align 8, !alias.scope !524, !noalias !525, !noundef !4
   %83 = icmp ugt i64 %81, %82
@@ -2141,7 +2141,7 @@ switch.lookup:                                    ; preds = %88
 361:                                              ; preds = %357
   %362 = load ptr, ptr %337, align 8, !nonnull !4, !noundef !4
   %363 = getelementptr inbounds i8, ptr %362, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %363, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0433.0533, i64 %.0.sroa.speculated.i.i392, i1 false), !alias.scope !646, !noalias !650
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %363, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0433.0533, i64 %.0.sroa.speculated.i.i392, i1 false), !alias.scope !646, !noalias !650
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   %364 = add nuw nsw i64 %.0.sroa.speculated.i.i392, 4
   %365 = load i64, ptr %338, align 8, !noundef !4
@@ -2314,7 +2314,7 @@ define internal fastcc void @"_ZN3png7encoder15Writer$LT$W$GT$23write_zlib_encod
   %.sroa.014.020 = phi ptr [ %11, %9 ], [ %2, %4 ]
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.021, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i32 1413563465, ptr noalias noundef nonnull readonly align 1 %.sroa.014.020, i64 noundef %.0.sroa.speculated.i.i)
+  call void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i32 1413563465, ptr noalias noundef nonnull readonly align 1 %.sroa.014.020, i64 noundef %.0.sroa.speculated.i.i)
   %.pr = load i64, ptr %5, align 8
   %7 = icmp eq i64 %.pr, 6
   br i1 %7, label %9, label %13
@@ -2376,7 +2376,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$4init17h03b874a269f962aaE.l
 21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !665
   store i8 1, ptr %18, align 4, !alias.scope !665
-  call void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i32 1145980233, ptr noalias noundef nonnull readonly align 1 @anon.4aeb4060f50188e165d023b28402e215.7.llvm.17057414408856058071, i64 noundef 0)
+  call void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i32 1145980233, ptr noalias noundef nonnull readonly align 1 @anon.4aeb4060f50188e165d023b28402e215.7.llvm.17057414408856058071, i64 noundef 0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !666)
   %22 = load i64, ptr %5, align 8, !range !633, !alias.scope !666, !noalias !665, !noundef !4
   %23 = icmp eq i64 %22, 6
@@ -2912,7 +2912,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaee
 21:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us"
   %22 = load ptr, ptr %7, align 8, !alias.scope !780, !noalias !781, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds i8, ptr %22, i64 %.promoted
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !782
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !782
   %24 = add i64 %.promoted, %2
   %25 = load i64, ptr %6, align 8, !alias.scope !780, !noalias !781, !noundef !4
   %26 = icmp ugt i64 %24, %25
@@ -3036,7 +3036,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wri
 22:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i"
   %23 = load ptr, ptr %8, align 8, !alias.scope !822, !noalias !823, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds i8, ptr %23, i64 %.promoted.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !824
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !824
   %25 = add i64 %.promoted.i, %2
   %26 = load i64, ptr %7, align 8, !alias.scope !822, !noalias !823, !noundef !4
   %27 = icmp ugt i64 %25, %26
@@ -3538,7 +3538,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %.sroa.4.0.insert.ext.i.i = zext nneg i8 %46 to i48
   %.sroa.4.0.insert.shift.i.i = shl nuw nsw i48 %.sroa.4.0.insert.ext.i.i, 8
   %.sroa.4.0.insert.insert.i.i = or disjoint i48 %.sroa.5.0.insert.insert.i.i, %.sroa.4.0.insert.shift.i.i
-  invoke fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i48 %.sroa.4.0.insert.insert.i.i)
+  invoke fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i48 %.sroa.4.0.insert.insert.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %34
@@ -4077,7 +4077,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 263:                                              ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i69.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i68.i.i.i"
   %264 = load ptr, ptr %158, align 8, !alias.scope !1182, !noalias !1183, !nonnull !4, !noundef !4
   %265 = getelementptr inbounds i8, ptr %264, i64 %246
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %265, ptr nonnull align 1 %182, i64 %180, i1 false), !noalias !1184
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %265, ptr nonnull readonly align 1 %182, i64 %180, i1 false), !noalias !1184
   %266 = add i64 %246, %180
   %267 = load i64, ptr %157, align 8, !noalias !1058, !noundef !4
   %268 = icmp ugt i64 %266, %267
@@ -4132,7 +4132,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 283:                                              ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i77.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i75.i.i.i"
   %284 = load ptr, ptr %158, align 8, !alias.scope !1217, !noalias !1218, !nonnull !4, !noundef !4
   %285 = getelementptr inbounds i8, ptr %284, i64 %203
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %285, ptr noundef nonnull align 1 dereferenceable(255) %.sroa.0.02430.i.i.i, i64 255, i1 false), !noalias !1219
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %285, ptr noundef nonnull readonly align 1 dereferenceable(255) %.sroa.0.02430.i.i.i, i64 255, i1 false), !noalias !1219
   %286 = add i64 %.promoted.i.i48.i.i.i, 256
   %287 = load i64, ptr %157, align 8, !noalias !1058, !noundef !4
   %288 = icmp ugt i64 %286, %287
@@ -4457,7 +4457,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 387:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !1332
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1332
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !noalias !1333
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %16, i64 16, i1 false), !noalias !1333
   invoke void @"_ZN5image6codecs3gif42_$LT$impl$u20$image..error..ImageError$GT$13from_encoding17h91af58e596c8cd7dE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h08720c6f662a9178E.exit" unwind label %399
 

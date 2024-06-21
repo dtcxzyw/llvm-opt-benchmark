@@ -408,7 +408,7 @@ if.end13.i.i:                                     ; preds = %if.end7.i.i
 
 while.body.i.i:                                   ; preds = %if.end13.i.i, %allocString.exit.i
   %tag.08.i.i = phi ptr [ %call21.i.i, %allocString.exit.i ], [ %call14.i.i, %if.end13.i.i ]
-  %call.i27.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tag.08.i.i) #20
+  %call.i27.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %tag.08.i.i) #20
   %conv.i.i = trunc i64 %call.i27.i to i32
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
   %47 = and i32 %conv.i.i, -2
@@ -432,7 +432,7 @@ if.end8.i.i:                                      ; preds = %while.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 %idx.ext.i.i
   %sext.i = shl i64 %call.i27.i, 32
   %conv10.i.i = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %tag.08.i.i, i64 %conv10.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %tag.08.i.i, i64 %conv10.i.i, i1 false)
   %arrayidx.i29.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %conv10.i.i
   store i8 0, ptr %arrayidx.i29.i, align 1
   %and11.i.i = and i32 %conv.i.i, 1

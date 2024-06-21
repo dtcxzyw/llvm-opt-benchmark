@@ -103,7 +103,7 @@ define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef reado
   %.01317.i = phi i64 [ 0, %40 ], [ %52, %51 ]
   %43 = getelementptr inbounds i8, ptr %5, i64 %.01317.i
   %44 = sub i64 8, %.01317.i
-  %45 = call i64 @write(i32 noundef %9, ptr noundef nonnull %43, i64 noundef %44) #6
+  %45 = call i64 @write(i32 noundef %9, ptr noundef nonnull readonly %43, i64 noundef %44) #6
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %47, label %50
 

@@ -93,7 +93,7 @@ entry:
   br i1 %cmp.i, label %_ZL17TestSocketConnectv.exit.thread, label %if.end.i
 
 _ZL17TestSocketConnectv.exit.thread:              ; preds = %entry
-  tail call void @perror(ptr noundef nonnull @.str.1) #17
+  tail call void @perror(ptr noundef nonnull readonly @.str.1) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sin.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sockaddr_len.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %hostname.i)
@@ -110,7 +110,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  call void @perror(ptr noundef nonnull @.str.3) #17
+  call void @perror(ptr noundef nonnull readonly @.str.3) #17
   br label %cleanup64.i
 
 lpad.i:                                           ; preds = %invoke.cont22.i, %if.end19.i
@@ -124,7 +124,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  call void @perror(ptr noundef nonnull @.str.4) #17
+  call void @perror(ptr noundef nonnull readonly @.str.4) #17
   br label %cleanup64.i
 
 if.end8.i:                                        ; preds = %if.end3.i
@@ -133,7 +133,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   br i1 %tobool10.not.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  call void @perror(ptr noundef nonnull @.str.5) #17
+  call void @perror(ptr noundef nonnull readonly @.str.5) #17
   br label %cleanup64.i
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -146,7 +146,7 @@ if.end13.i:                                       ; preds = %if.end8.i
   br i1 %or.cond.i, label %if.then17.i, label %if.end19.i
 
 if.then17.i:                                      ; preds = %if.end13.i
-  call void @perror(ptr noundef nonnull @.str.6) #17
+  call void @perror(ptr noundef nonnull readonly @.str.6) #17
   br label %cleanup64.i
 
 if.end19.i:                                       ; preds = %if.end13.i
@@ -195,7 +195,7 @@ invoke.cont43.i:                                  ; preds = %if.end42.i
   br i1 %cmp45.i, label %if.then46.i, label %if.end48.i
 
 if.then46.i:                                      ; preds = %invoke.cont43.i
-  call void @perror(ptr noundef nonnull @.str.10) #17
+  call void @perror(ptr noundef nonnull readonly @.str.10) #17
   br label %if.then.i.i
 
 if.end48.i:                                       ; preds = %invoke.cont43.i
@@ -207,7 +207,7 @@ invoke.cont52.i:                                  ; preds = %if.end48.i
   br i1 %cmp54.not.i, label %if.end57.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %invoke.cont52.i
-  call void @perror(ptr noundef nonnull @.str.11) #17
+  call void @perror(ptr noundef nonnull readonly @.str.11) #17
   br label %cleanup.i
 
 lpad51.i:                                         ; preds = %if.end48.i
@@ -498,7 +498,7 @@ if.end.i.i:                                       ; preds = %call.i.noexc.i
   %38 = load i64, ptr %write_buf_offset.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 %38
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %bio1_application_send_buffer.i, i64 %len_written.0.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %add.ptr2.i.i, i64 %.sroa.speculated.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %add.ptr2.i.i, i64 %.sroa.speculated.i.i, i1 false)
   %39 = load i64, ptr %available_bytes.i.i, align 8
   %call3.i32.i = invoke i32 @BIO_zero_copy_get_write_buf_done(ptr noundef %33, i64 noundef %39)
           to label %call3.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -601,7 +601,7 @@ if.end.i40.i:                                     ; preds = %call.i.noexc49.i
   %53 = load i64, ptr %write_buf_offset.i35.i, align 8
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %52, i64 %53
   %add.ptr2.i44.i = getelementptr inbounds i8, ptr %add.ptr36.i, i64 %len_written.0.i38.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i43.i, ptr nonnull align 1 %add.ptr2.i44.i, i64 %.sroa.speculated.i42.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i43.i, ptr nonnull readonly align 1 %add.ptr2.i44.i, i64 %.sroa.speculated.i42.i, i1 false)
   %54 = load i64, ptr %available_bytes.i36.i, align 8
   %call3.i52.i = invoke i32 @BIO_zero_copy_get_write_buf_done(ptr noundef %50, i64 noundef %54)
           to label %call3.i.noexc51.i unwind label %lpad.loopexit.split-lp.loopexit.i

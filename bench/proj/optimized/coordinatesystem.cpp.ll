@@ -16723,7 +16723,7 @@ define void @_ZN5osgeo4proj2cs18DateTimeTemporalCS6createERKNS0_4util11PropertyM
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs18DateTimeTemporalCS14nn_make_sharedIS2_JRKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEEEEENS6_IS7_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.146") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
-  invoke void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %4 unwind label %23
 
 4:                                                ; preds = %2
@@ -16995,7 +16995,7 @@ define void @_ZN5osgeo4proj2cs15TemporalCountCS6createERKNS0_4util11PropertyMapE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs15TemporalCountCS14nn_make_sharedIS2_JRKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEEEEENS6_IS7_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.150") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
-  invoke void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %4 unwind label %23
 
 4:                                                ; preds = %2
@@ -17267,7 +17267,7 @@ define void @_ZN5osgeo4proj2cs17TemporalMeasureCS6createERKNS0_4util11PropertyMa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs17TemporalMeasureCS14nn_make_sharedIS2_JRKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEEEEENS6_IS7_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
-  invoke void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %4 unwind label %23
 
 4:                                                ; preds = %2

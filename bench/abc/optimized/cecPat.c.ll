@@ -778,10 +778,10 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %61 = sext i32 %.val35 to i64
   call void @qsort(ptr noundef %.val36, i64 noundef %61, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #17
   %.val14.i = load i32, ptr %53, align 4
-  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull %0, i32 noundef %.val14.i)
+  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %.val14.i)
   %.val16.i = load ptr, ptr %60, align 8
   %62 = load i32, ptr %.val16.i, align 4
-  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull %0, i32 noundef %62)
+  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %62)
   %.val17.i = load i32, ptr %53, align 4
   %63 = icmp sgt i32 %.val17.i, 1
   br i1 %63, label %.lr.ph.i, label %Cec_ManPatStore.exit
@@ -793,7 +793,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %64 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 4
   %66 = sub nsw i32 %65, %.019.i
-  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull %0, i32 noundef %66)
+  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %66)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %53, align 4
   %67 = sext i32 %.val.i to i64
@@ -835,10 +835,10 @@ define void @Cec_ManPatSavePatternCSat(ptr nocapture noundef readonly %0, ptr no
   %5 = sext i32 %.val to i64
   tail call void @qsort(ptr noundef %.val3, i64 noundef %5, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #17
   %.val14.i = load i32, ptr %3, align 4
-  tail call fastcc void @Cec_ManPatStoreNum(ptr noundef %0, i32 noundef %.val14.i)
+  tail call fastcc void @Cec_ManPatStoreNum(ptr noundef readonly %0, i32 noundef %.val14.i)
   %.val16.i = load ptr, ptr %4, align 8
   %6 = load i32, ptr %.val16.i, align 4
-  tail call fastcc void @Cec_ManPatStoreNum(ptr noundef %0, i32 noundef %6)
+  tail call fastcc void @Cec_ManPatStoreNum(ptr noundef readonly %0, i32 noundef %6)
   %.val17.i = load i32, ptr %3, align 4
   %7 = icmp sgt i32 %.val17.i, 1
   br i1 %7, label %.lr.ph.i, label %Cec_ManPatStore.exit
@@ -850,7 +850,7 @@ define void @Cec_ManPatSavePatternCSat(ptr nocapture noundef readonly %0, ptr no
   %8 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
   %10 = sub nsw i32 %9, %.019.i
-  tail call fastcc void @Cec_ManPatStoreNum(ptr noundef %0, i32 noundef %10)
+  tail call fastcc void @Cec_ManPatStoreNum(ptr noundef readonly %0, i32 noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %3, align 4
   %11 = sext i32 %.val.i to i64

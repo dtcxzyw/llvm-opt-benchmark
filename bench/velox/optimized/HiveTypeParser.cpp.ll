@@ -5154,7 +5154,7 @@ entry:
 
 lor.rhs:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %1, ptr %0, i1 noundef zeroext false)
+  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %1, ptr %0, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %lor.rhs
@@ -5532,7 +5532,7 @@ land.lhs.true46:                                  ; preds = %if.end44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   %agg.tmp.sroa.0.0.copyload.i59 = load ptr, ptr %remaining_.i, align 8
   %agg.tmp.sroa.2.0.copyload.i61 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8
-  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i59, ptr %agg.tmp.sroa.2.0.copyload.i61, i1 noundef zeroext false)
+  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i59, ptr %agg.tmp.sroa.2.0.copyload.i61, i1 noundef zeroext false)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %land.lhs.true46
@@ -6579,7 +6579,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   %agg.tmp.sroa.0.0.copyload.i3 = load ptr, ptr %remaining_.i, align 8
   %agg.tmp.sroa.2.0.copyload.i5 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8
-  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i3, ptr %agg.tmp.sroa.2.0.copyload.i5, i1 noundef zeroext false)
+  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i3, ptr %agg.tmp.sroa.2.0.copyload.i5, i1 noundef zeroext false)
           to label %invoke.cont2 unwind label %lpad.loopexit
 
 invoke.cont2:                                     ; preds = %while.cond
@@ -6768,7 +6768,7 @@ invoke.cont18:                                    ; preds = %_ZNSt16allocator_tr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i57)
   %agg.tmp.sroa.0.0.copyload.i59 = load ptr, ptr %remaining_.i, align 8
   %agg.tmp.sroa.2.0.copyload.i61 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8
-  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i57, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i59, ptr %agg.tmp.sroa.2.0.copyload.i61, i1 noundef zeroext false)
+  invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i57, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i59, ptr %agg.tmp.sroa.2.0.copyload.i61, i1 noundef zeroext false)
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont18

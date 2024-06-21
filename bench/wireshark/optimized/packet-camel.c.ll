@@ -2790,7 +2790,7 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef 
   store i32 0, ptr %25, align 8
   %26 = getelementptr i8, ptr %13, i64 56
   %27 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, i64 16, i1 false)
   %28 = getelementptr inbounds i8, ptr %19, i64 112
   store ptr @camelsrt_tcap_matching, ptr %28, align 8
   br label %29
@@ -2934,7 +2934,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   store i32 0, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %71, i64 8
   %80 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 8 dereferenceable(16) %80, i64 16, i1 false)
   br label %proto_item_set_hidden.exit
 
 81:                                               ; preds = %66
@@ -2987,7 +2987,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   store i32 0, ptr %103, align 8
   %104 = getelementptr i8, ptr %9, i64 216
   %105 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull readonly align 8 dereferenceable(16) %105, i64 16, i1 false)
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %93, %90, %87, %81, %97, %99, %76

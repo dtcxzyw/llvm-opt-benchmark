@@ -300,7 +300,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
-  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
+  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.end10.i, label %for.inc.i.i
 
@@ -508,7 +508,7 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i
   store i8 %conv10.i.i.i, ptr %25, align 1
   %27 = load ptr, ptr %outgoing_frame.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %retval.0.i.i, i64 %call6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %retval.0.i.i, i64 %call6.i, i1 false)
   store i64 0, ptr %offset.i.i49, align 8
   store i32 1, ptr %needs_draining.i, align 8
   %28 = tail call i32 @llvm.smin.i32(i32 %20, i32 2)
@@ -665,7 +665,7 @@ if.then8.i59:                                     ; preds = %if.end5.i
   %call9.i = tail call ptr @gpr_malloc(i64 noundef %sub35)
   %unused_bytes10.i = getelementptr inbounds i8, ptr %call.i.i57, i64 8
   store ptr %call9.i, ptr %unused_bytes10.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr align 1 %spec.select, i64 %sub35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr readonly align 1 %spec.select, i64 %sub35, i1 false)
   br label %if.then42
 
 if.then42:                                        ; preds = %if.then8.i59, %if.end5.i

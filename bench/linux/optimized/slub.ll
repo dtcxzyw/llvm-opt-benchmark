@@ -5814,7 +5814,7 @@ define dso_local range(i32 0, 2) i32 @__kmem_cache_shrink(ptr noundef %0) local_
   %96 = phi ptr [ %98, %.preheader.i ], [ %94, %93 ]
   %97 = getelementptr i8, ptr %96, i64 -16
   %98 = load ptr, ptr %96, align 16
-  call fastcc void @free_slab(ptr noundef %0, ptr noundef %97)
+  call fastcc void @free_slab(ptr noundef readonly %0, ptr noundef %97)
   %99 = icmp eq ptr %98, %2
   br i1 %99, label %.loopexit.i, label %.preheader.i, !llvm.loop !119
 
@@ -10982,7 +10982,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %31
-  %38 = tail call fastcc i32 @check_slab(ptr noundef %0, ptr noundef %1), !range !130
+  %38 = tail call fastcc i32 @check_slab(ptr noundef readonly %0, ptr noundef %1), !range !130
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread.i, label %40
 
@@ -11010,7 +11010,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br label %58
 
 57:                                               ; preds = %40
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.65, i32 noundef %43, i32 noundef %4)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.65, i32 noundef %43, i32 noundef %4)
   br label %.thread.i
 
 58:                                               ; preds = %183, %47
@@ -11026,7 +11026,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %65, label %.split.i, label %67
 
 .split.i:                                         ; preds = %64
-  %66 = tail call fastcc i32 @on_freelist(ptr noundef %0, ptr noundef %1, ptr noundef null), !range !130
+  %66 = tail call fastcc i32 @on_freelist(ptr noundef readonly %0, ptr noundef %1, ptr noundef null), !range !130
   br label %101
 
 67:                                               ; preds = %64
@@ -11072,11 +11072,11 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %98, label %.split1.i, label %100
 
 .split1.i:                                        ; preds = %93
-  %99 = tail call fastcc i32 @on_freelist(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %60), !range !130
+  %99 = tail call fastcc i32 @on_freelist(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %60), !range !130
   br label %101
 
 100:                                              ; preds = %93, %84, %81
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.68, ptr noundef nonnull %60)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.68, ptr noundef nonnull %60)
   br label %.thread.i
 
 101:                                              ; preds = %.split1.i, %.split.i
@@ -11085,13 +11085,13 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %101
-  tail call void (ptr, ptr, ...) @slab_bug(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.69)
-  tail call fastcc void @print_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %60)
+  tail call void (ptr, ptr, ...) @slab_bug(ptr noundef readonly %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.69)
+  tail call fastcc void @print_trailer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60)
   tail call void @add_taint(i32 noundef 5, i32 noundef 1) #25
   br label %.thread.i
 
 104:                                              ; preds = %101
-  %105 = tail call fastcc i32 @check_object(ptr noundef %0, ptr noundef %1, ptr noundef %60, i8 noundef zeroext -52), !range !130
+  %105 = tail call fastcc i32 @check_object(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60, i8 noundef zeroext -52), !range !130
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.thread.i, label %107
 
@@ -11111,7 +11111,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %110
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef %60)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef %60)
   br label %.thread.i
 
 115:                                              ; preds = %110
@@ -11124,7 +11124,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br label %.thread.i
 
 119:                                              ; preds = %115
-  tail call fastcc void @object_err(ptr noundef %0, ptr noundef %1, ptr noundef %60)
+  tail call fastcc void @object_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60)
   br label %.thread.i
 
 120:                                              ; preds = %._crit_edge.i, %58
@@ -11252,7 +11252,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   br i1 %196, label %198, label %197
 
 197:                                              ; preds = %.loopexit.i
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %4, i32 noundef %194)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %4, i32 noundef %194)
   br label %198
 
 198:                                              ; preds = %197, %.loopexit.i
@@ -11261,7 +11261,7 @@ thread-pre-split.i:                               ; preds = %160, %160
 
 .thread.i:                                        ; preds = %104, %198, %119, %117, %114, %103, %100, %57, %37
   %200 = phi ptr [ %193, %198 ], [ %2, %37 ], [ %60, %100 ], [ %60, %103 ], [ %60, %119 ], [ %60, %117 ], [ %60, %114 ], [ %2, %57 ], [ %60, %104 ]
-  tail call void (ptr, ptr, ...) @slab_fix(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef %200)
+  tail call void (ptr, ptr, ...) @slab_fix(ptr noundef readonly %0, ptr noundef nonnull @.str.67, ptr noundef %200)
   br label %.thread17.i
 
 201:                                              ; preds = %198
@@ -11379,7 +11379,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   %274 = getelementptr inbounds i8, ptr %271, i64 40
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %274, i64 %273, ptr elementtype(i64) %274) #25, !srcloc !99
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %25, i64 noundef %33) #25
-  tail call fastcc void @free_slab(ptr noundef %0, ptr noundef nonnull %263)
+  tail call fastcc void @free_slab(ptr noundef readonly %0, ptr noundef nonnull %263)
   br label %free_to_partial_list.exit
 
 .thread17.i:                                      ; preds = %251, %241, %.thread16.i, %.thread.i

@@ -1438,7 +1438,7 @@ blk_next.exit.i:                                  ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %blk_next.exit.i
   %2 = load ptr, ptr %cond.i.i, align 8
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #19
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #19
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.then15, label %while.cond.i, !llvm.loop !12
 

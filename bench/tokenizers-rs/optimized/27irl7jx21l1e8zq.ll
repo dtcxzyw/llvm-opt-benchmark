@@ -6629,7 +6629,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h00f86f4d603005c1E(ptr n
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h09bf78a9905fcfaeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h09bf78a9905fcfaeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hdf852a42aa52b471E.llvm.1299376021755125212.exit
 
 11:                                               ; preds = %4
@@ -6639,11 +6639,11 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h00f86f4d603005c1E(ptr n
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49e6e26bf9cc4b04E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
+  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49e6e26bf9cc4b04E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hdf852a42aa52b471E.llvm.1299376021755125212.exit
 
 15:                                               ; preds = %11
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf7eea82016fa27f5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf7eea82016fa27f5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hdf852a42aa52b471E.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h75723ae2b82b78b1E.llvm.1299376021755125212.exit"
@@ -6681,7 +6681,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h1168d5645b42f33fE(ptr n
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hcc69b2b9adcd9ecdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hcc69b2b9adcd9ecdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h5faa2f3db19950e0E.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %10
@@ -6698,7 +6698,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h1168d5645b42f33fE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h5faa2f3db19950e0E.llvm.1299376021755125212.exit
 
 19:                                               ; preds = %16
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hca38f61719ab332dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hca38f61719ab332dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h5faa2f3db19950e0E.llvm.1299376021755125212.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h5faa2f3db19950e0E.llvm.1299376021755125212.exit: ; preds = %.noexc5, %15, %19, %9
@@ -6734,7 +6734,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h166a4aeda89935e7E(ptr n
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h40be3281d74e468eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h40be3281d74e468eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h4731460b860cd04aE.llvm.1299376021755125212.exit
 
 11:                                               ; preds = %4
@@ -6744,11 +6744,11 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h166a4aeda89935e7E(ptr n
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h5907a64e124c1b76E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
+  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h5907a64e124c1b76E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h4731460b860cd04aE.llvm.1299376021755125212.exit
 
 15:                                               ; preds = %11
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h1d741b466bad48a4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h1d741b466bad48a4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h4731460b860cd04aE.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h75723ae2b82b78b1E.llvm.1299376021755125212.exit"
@@ -6786,7 +6786,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h3ea3e276b62a0991E(ptr n
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h04c6eede06d7245dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h04c6eede06d7245dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h6ee529dd3c9453e4E.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %10
@@ -6803,7 +6803,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h3ea3e276b62a0991E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h6ee529dd3c9453e4E.llvm.1299376021755125212.exit
 
 19:                                               ; preds = %16
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hce31a5034320e4d1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hce31a5034320e4d1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h6ee529dd3c9453e4E.llvm.1299376021755125212.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h6ee529dd3c9453e4E.llvm.1299376021755125212.exit: ; preds = %.noexc5, %15, %19, %9
@@ -6850,7 +6850,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h4adb8561cebfb112E(ptr n
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17habc5765ef51c8a5fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17habc5765ef51c8a5fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(104) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h7947ced763504910E.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %10
@@ -6867,7 +6867,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h4adb8561cebfb112E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h7947ced763504910E.llvm.1299376021755125212.exit
 
 19:                                               ; preds = %16
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hafcc5a035194cf10E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hafcc5a035194cf10E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(104) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h7947ced763504910E.llvm.1299376021755125212.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h7947ced763504910E.llvm.1299376021755125212.exit: ; preds = %.noexc5, %15, %19, %9
@@ -6903,7 +6903,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h4c6902168542756bE(ptr n
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h7ed763a9243945f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h7ed763a9243945f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hadba886054127cdeE.llvm.1299376021755125212.exit
 
 11:                                               ; preds = %4
@@ -6913,11 +6913,11 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h4c6902168542756bE(ptr n
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h6d5606db315d1851E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([192 x i8]) align 8 dereferenceable(192) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
+  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h6d5606db315d1851E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([192 x i8]) align 8 dereferenceable(192) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hadba886054127cdeE.llvm.1299376021755125212.exit
 
 15:                                               ; preds = %11
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h64c142a8c0cac6caE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h64c142a8c0cac6caE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hadba886054127cdeE.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h75723ae2b82b78b1E.llvm.1299376021755125212.exit"
@@ -6955,7 +6955,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h5d7442d1d25cb63eE(ptr n
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h4f3a4149753612faE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h4f3a4149753612faE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h9af41dc15a316c83E.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %10
@@ -6972,7 +6972,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h5d7442d1d25cb63eE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h9af41dc15a316c83E.llvm.1299376021755125212.exit
 
 19:                                               ; preds = %16
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0c38b19b4c289a44E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0c38b19b4c289a44E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %12, ptr noundef nonnull align 128 %13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h9af41dc15a316c83E.llvm.1299376021755125212.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h9af41dc15a316c83E.llvm.1299376021755125212.exit: ; preds = %.noexc5, %15, %19, %9
@@ -7008,7 +7008,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hacbd50ba97106d46E(ptr n
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h83c675abb748bee3E(ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h83c675abb748bee3E(ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17he6a3fd94b964a4c1E.llvm.1299376021755125212.exit
 
 10:                                               ; preds = %3
@@ -7018,11 +7018,11 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hacbd50ba97106d46E(ptr n
   br i1 %.not.i, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 128 %7, i1 noundef zeroext false)
+  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 128 %7, i1 noundef zeroext false)
   br label %_ZN10rayon_core8registry8Registry9in_worker17he6a3fd94b964a4c1E.llvm.1299376021755125212.exit
 
 14:                                               ; preds = %10
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hde4a60205fbf052aE(ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hde4a60205fbf052aE(ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17he6a3fd94b964a4c1E.llvm.1299376021755125212.exit
 
 15:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h75723ae2b82b78b1E.llvm.1299376021755125212.exit"
@@ -7049,7 +7049,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hc06d2f9317cf54ccE(ptr n
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hb6ae64164797c05aE(ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hb6ae64164797c05aE(ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hf5c410dd4fb69b15E.llvm.1299376021755125212.exit
 
 10:                                               ; preds = %3
@@ -7059,11 +7059,11 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hc06d2f9317cf54ccE(ptr n
   br i1 %.not.i, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 128 %7, i1 noundef zeroext false)
+  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 128 %7, i1 noundef zeroext false)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hf5c410dd4fb69b15E.llvm.1299376021755125212.exit
 
 14:                                               ; preds = %10
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hc4c86b324db87874E(ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hc4c86b324db87874E(ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hf5c410dd4fb69b15E.llvm.1299376021755125212.exit
 
 15:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h75723ae2b82b78b1E.llvm.1299376021755125212.exit"
@@ -7090,7 +7090,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hc3271d7bef1388b6E(ptr n
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h6f4bc990163874aaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h6f4bc990163874aaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 128 %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hc93bbbf2e5f362d2E.llvm.1299376021755125212.exit
 
 11:                                               ; preds = %4
@@ -7100,11 +7100,11 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hc3271d7bef1388b6E(ptr n
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hefbd22824809315fE.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
+  tail call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hefbd22824809315fE.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noundef nonnull align 128 %8, i1 noundef zeroext false)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hc93bbbf2e5f362d2E.llvm.1299376021755125212.exit
 
 15:                                               ; preds = %11
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h212bb4995e8224bbE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h212bb4995e8224bbE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 128 %7, ptr noundef nonnull align 128 %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hc93bbbf2e5f362d2E.llvm.1299376021755125212.exit
 
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h75723ae2b82b78b1E.llvm.1299376021755125212.exit"
@@ -22400,7 +22400,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h34eb5db2e610ae68E.exit.i.i.i": ; preds = %8
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h5907a64e124c1b76E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h5907a64e124c1b76E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h3676e3e47f355027E.exit.i unwind label %12, !noalias !4200
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h34eb5db2e610ae68E.exit.i.i.i", %11
@@ -24305,7 +24305,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0240f0d10ec7167dE.exit.i.i.i": ; preds = %7
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h369c108632f28e81E.exit.thread.i unwind label %11, !noalias !4455
 
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0240f0d10ec7167dE.exit.i.i.i", %10
@@ -25471,7 +25471,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha5193882f90320bdE.exit.i.i.i": ; preds = %7
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hefbd22824809315fE.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hefbd22824809315fE.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h83114ebfc84e41a2E.exit.i unwind label %11, !noalias !4606
 
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha5193882f90320bdE.exit.i.i.i", %10
@@ -25861,7 +25861,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h5c6b578a37c3a30cE.exit.i.i.i": ; preds = %9
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49e6e26bf9cc4b04E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 128 %10, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49e6e26bf9cc4b04E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %4, ptr noundef nonnull align 128 %10, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17hf1e8e1db0bc7b77bE.exit.i unwind label %13, !noalias !4660
 
 13:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h5c6b578a37c3a30cE.exit.i.i.i", %12
@@ -26254,7 +26254,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb072808b3f894139E.exit.i.i.i": ; preds = %7
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %4, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h28ac03748abee0efE.exit.thread.i unwind label %11, !noalias !4717
 
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb072808b3f894139E.exit.i.i.i", %10
@@ -26726,7 +26726,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h27ba8e66276c062fE.exit.i.i.i": ; preds = %8
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hefbd22824809315fE.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hefbd22824809315fE.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %4, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17had02c2d716ac3031E.exit.i unwind label %12, !noalias !4773
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h27ba8e66276c062fE.exit.i.i.i", %11
@@ -27246,7 +27246,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h742a430b019c47bcE.exit.i.i.i": ; preds = %8
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h6d5606db315d1851E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([192 x i8]) align 8 dereferenceable(192) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h6d5606db315d1851E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([192 x i8]) align 8 dereferenceable(192) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %4, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h1096f4ad9b09e39eE.exit.i unwind label %12, !noalias !4847
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h742a430b019c47bcE.exit.i.i.i", %11
@@ -28052,7 +28052,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he284af77f75f210fE.exit.i.i.i": ; preds = %8
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49e6e26bf9cc4b04E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49e6e26bf9cc4b04E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([112 x i8]) align 8 dereferenceable(112) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %3, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h092443c93553ff2bE.exit.i unwind label %12, !noalias !4966
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he284af77f75f210fE.exit.i.i.i", %11
@@ -28204,7 +28204,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc4401c9a677a34bcE.exit.i.i.i": ; preds = %8
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h6d5606db315d1851E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([192 x i8]) align 8 dereferenceable(192) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h6d5606db315d1851E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([192 x i8]) align 8 dereferenceable(192) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %3, ptr noundef nonnull align 128 %9, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17heddcece9010ce9d7E.exit.i unwind label %12, !noalias !4988
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc4401c9a677a34bcE.exit.i.i.i", %11
@@ -28529,7 +28529,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf51fdce8e0d046bbE.exit.i.i.i": ; preds = %7
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %4, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17ha2240e930c410932E.exit.thread.i unwind label %11, !noalias !5031
 
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf51fdce8e0d046bbE.exit.i.i.i", %10
@@ -29008,7 +29008,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8f0083b41e1c2059E.exit.i.i.i": ; preds = %7
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17hdc1e1ee12930ac22E.exit.thread.i unwind label %11, !noalias !5096
 
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8f0083b41e1c2059E.exit.i.i.i", %10
@@ -29176,7 +29176,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   unreachable
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17haf6517ff9c10861dE.exit.i.i.i": ; preds = %9
-  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h5907a64e124c1b76E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 128 %10, i1 noundef zeroext true)
+  invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h5907a64e124c1b76E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %4, ptr noundef nonnull align 128 %10, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17hfd045d6762af79c4E.exit.i unwind label %13, !noalias !5114
 
 13:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17haf6517ff9c10861dE.exit.i.i.i", %12
@@ -29494,7 +29494,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9has
   call void @llvm.experimental.noalias.scope.decl(metadata !5177)
   call void @llvm.experimental.noalias.scope.decl(metadata !5180)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !5183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !5157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !5157
   %15 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i, align 16, !alias.scope !5184, !noalias !5157, !noundef !4
   %16 = shl i64 %15, 56
   %17 = getelementptr inbounds i8, ptr %4, i64 56
@@ -30230,7 +30230,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i.i
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %89
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %84, ptr noundef nonnull dereferenceable(9) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.170, i64 9), !alias.scope !5281
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %84, ptr noundef nonnull readonly dereferenceable(9) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.170, i64 9), !alias.scope !5281
   %90 = icmp eq i32 %bcmp.i, 0
   br i1 %90, label %91, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160.thread"
 
@@ -30255,7 +30255,7 @@ _ZN5serde2de9MapAccess10next_value17h7ac0bd0fb29ef22dE.exit.i: ; preds = %91
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha34e96d7a8bf24fcE.exit" unwind label %.loopexit286
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit140": ; preds = %89
-  %bcmp.i139 = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) %84, ptr noundef nonnull dereferenceable(25) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.167, i64 25), !alias.scope !5295
+  %bcmp.i139 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) %84, ptr noundef nonnull readonly dereferenceable(25) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.167, i64 25), !alias.scope !5295
   %95 = icmp eq i32 %bcmp.i139, 0
   br i1 %95, label %96, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160.thread"
 
@@ -30280,7 +30280,7 @@ _ZN5serde2de9MapAccess10next_value17h7ac0bd0fb29ef22dE.exit.i147: ; preds = %96
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha34e96d7a8bf24fcE.exit150" unwind label %.loopexit281
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit146": ; preds = %89
-  %bcmp.i145 = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %84, ptr noundef nonnull dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.168, i64 24), !alias.scope !5309
+  %bcmp.i145 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %84, ptr noundef nonnull readonly dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.168, i64 24), !alias.scope !5309
   %100 = icmp eq i32 %bcmp.i145, 0
   br i1 %100, label %101, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160.thread"
 
@@ -30304,7 +30304,7 @@ _ZN5serde2de9MapAccess10next_value17h42b8852a290e3440E.exit.i: ; preds = %101
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hcb1260908e6457d3E.exit" unwind label %.loopexit276
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit154": ; preds = %89
-  %bcmp.i153 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %84, ptr noundef nonnull dereferenceable(5) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.169, i64 5), !alias.scope !5318
+  %bcmp.i153 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %84, ptr noundef nonnull readonly dereferenceable(5) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.169, i64 5), !alias.scope !5318
   %106 = icmp eq i32 %bcmp.i153, 0
   br i1 %106, label %107, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160.thread"
 
@@ -30329,7 +30329,7 @@ _ZN5serde2de9MapAccess10next_value17h09d5f23df31a19f7E.exit.i: ; preds = %107
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h47f93bb8c576f019E.exit" unwind label %.loopexit271
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160": ; preds = %89
-  %bcmp.i159 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %84, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !5332
+  %bcmp.i159 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %84, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !5332
   %111 = icmp eq i32 %bcmp.i159, 0
   br i1 %111, label %112, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160.thread"
 
@@ -30368,7 +30368,7 @@ _ZN5serde2de9MapAccess10next_value17hce9f3d41d4d6c2f4E.exit.i: ; preds = %112
   br label %127
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit168": ; preds = %118
-  %bcmp.i167 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %116, ptr noundef nonnull dereferenceable(9) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.172, i64 9), !alias.scope !5346
+  %bcmp.i167 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %116, ptr noundef nonnull readonly dereferenceable(9) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.172, i64 9), !alias.scope !5346
   %122 = icmp eq i32 %bcmp.i167, 0
   br i1 %122, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit160.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit168.thread"
 
@@ -31060,13 +31060,13 @@ define void @_ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary3new17h
 21:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !5463
   %22 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !5460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !5460
   call void @_ZN4core6result13unwrap_failed17h5119205a73b72b0dE(ptr noalias noundef nonnull readonly align 1 @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.177, i64 noundef 31, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.120, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.179) #36, !noalias !5464
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb007b8d21374b8c8E.exit": ; preds = %1
   %23 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !alias.scope !5464, !noalias !5465
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull readonly align 8 dereferenceable(24) %23, i64 24, i1 false), !alias.scope !5464, !noalias !5465
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -31140,7 +31140,7 @@ define void @_ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary3new17h
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !5484
   %37 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !5481
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !5481
   invoke void @_ZN4core6result13unwrap_failed17h5119205a73b72b0dE(ptr noalias noundef nonnull readonly align 1 @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.180, i64 noundef 42, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.120, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.181) #36
           to label %.noexc95 unwind label %32
 
@@ -31149,7 +31149,7 @@ define void @_ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary3new17h
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !alias.scope !5485, !noalias !5486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %39, i64 24, i1 false), !alias.scope !5485, !noalias !5486
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -32588,7 +32588,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h2c1b19bb65f50811E.exit
 
 145:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !5768
-  invoke fastcc void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hcebb6af1d2b66c7aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(64) %.sroa.01.sroa.2.0..sroa_idx, i64 %131, i64 %.sroa.7.0.copyload82.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %69, ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
+  invoke fastcc void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hcebb6af1d2b66c7aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(64) %.sroa.01.sroa.2.0..sroa_idx, i64 %131, i64 %.sroa.7.0.copyload82.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
           to label %.noexc27 unwind label %.loopexit
 
 .noexc27:                                         ; preds = %145
@@ -34181,7 +34181,7 @@ define hidden noundef align 8 ptr @"_ZN198_$LT$tokenizers..normalizers..unicode.
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.194.llvm.1299376021755125212, i64 3), !alias.scope !5957
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %0, ptr noundef nonnull readonly dereferenceable(3) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.194.llvm.1299376021755125212, i64 3), !alias.scope !5957
   %3 = icmp eq i32 %bcmp.i, 0
   br i1 %3, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
@@ -34329,7 +34329,7 @@ define hidden void @"_ZN200_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !5987
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !5987
   %4 = icmp ne i32 %bcmp.i, 0
   %spec.select = zext i1 %4 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
@@ -34448,7 +34448,7 @@ define hidden noundef align 8 ptr @"_ZN199_$LT$tokenizers..normalizers..unicode.
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.200.llvm.1299376021755125212, i64 4), !alias.scope !6000
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.200.llvm.1299376021755125212, i64 4), !alias.scope !6000
   %3 = icmp eq i32 %bcmp.i, 0
   br i1 %3, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
@@ -34602,7 +34602,7 @@ define hidden void @"_ZN201_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6030
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6030
   %4 = icmp ne i32 %bcmp.i, 0
   %spec.select = zext i1 %4 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
@@ -34721,7 +34721,7 @@ define hidden noundef align 8 ptr @"_ZN198_$LT$tokenizers..normalizers..unicode.
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.204.llvm.1299376021755125212, i64 3), !alias.scope !6043
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %0, ptr noundef nonnull readonly dereferenceable(3) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.204.llvm.1299376021755125212, i64 3), !alias.scope !6043
   %3 = icmp eq i32 %bcmp.i, 0
   br i1 %3, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
@@ -34869,7 +34869,7 @@ define hidden void @"_ZN200_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6073
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6073
   %4 = icmp ne i32 %bcmp.i, 0
   %spec.select = zext i1 %4 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
@@ -34988,7 +34988,7 @@ define hidden noundef align 8 ptr @"_ZN199_$LT$tokenizers..normalizers..unicode.
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.208.llvm.1299376021755125212, i64 4), !alias.scope !6086
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.208.llvm.1299376021755125212, i64 4), !alias.scope !6086
   %3 = icmp eq i32 %bcmp.i, 0
   br i1 %3, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
@@ -35142,7 +35142,7 @@ define hidden void @"_ZN201_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6116
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6116
   %4 = icmp ne i32 %bcmp.i, 0
   %spec.select = zext i1 %4 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
@@ -35261,7 +35261,7 @@ define hidden noundef align 8 ptr @"_ZN198_$LT$tokenizers..normalizers..unicode.
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.212.llvm.1299376021755125212, i64 3), !alias.scope !6129
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %0, ptr noundef nonnull readonly dereferenceable(3) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.212.llvm.1299376021755125212, i64 3), !alias.scope !6129
   %3 = icmp eq i32 %bcmp.i, 0
   br i1 %3, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
@@ -35409,7 +35409,7 @@ define hidden void @"_ZN200_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6159
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull readonly dereferenceable(4) @anon.8ee95910ab1eca9b8d11ddf1d0860e8a.171.llvm.1299376021755125212, i64 4), !alias.scope !6159
   %4 = icmp ne i32 %bcmp.i, 0
   %spec.select = zext i1 %4 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"

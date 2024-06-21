@@ -104,7 +104,7 @@ for.body:                                         ; preds = %entry, %if.end55
   %seq4.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %4 = load ptr, ptr %seq4.i, align 8
   %call5.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %4, ptr noundef null) #5
-  %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %arrayidx, ptr noundef nonnull %ptlen.i)
+  %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef nonnull %ptlen.i)
   %5 = insertelement <4 x ptr> poison, ptr %call3.i, i64 0
   %6 = insertelement <4 x ptr> %5, ptr %call.i, i64 1
   %7 = insertelement <4 x ptr> %6, ptr %call5.i, i64 2
@@ -172,7 +172,7 @@ if.end20:                                         ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i)
   store i64 0, ptr %refdatalen.i, align 8
   %ciphertext.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %call.i12 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %ciphertext.i, ptr noundef nonnull %refdatalen.i)
+  %call.i12 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %ciphertext.i, ptr noundef nonnull %refdatalen.i)
   %call3.i14 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call.i12) #5
   %tobool4.not.i = icmp eq i32 %call3.i14, 0
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end6.i
@@ -231,7 +231,7 @@ if.then46:                                        ; preds = %if.end37
 if.end47:                                         ; preds = %if.end37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i18)
   store i64 0, ptr %refdatalen.i18, align 8
-  %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %arrayidx, ptr noundef nonnull %refdatalen.i18)
+  %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef nonnull %refdatalen.i18)
   %call3.i20 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call2.i) #5
   %tobool4.not.i21 = icmp eq i32 %call3.i20, 0
   br i1 %tobool4.not.i21, label %if.then5.i30, label %if.end6.i22

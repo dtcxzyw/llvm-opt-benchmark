@@ -1767,7 +1767,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h90b853b39b127050E.exit.i: 
 89:                                               ; preds = %.noexc29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !548
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !548
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !545
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull readonly align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !545
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !549
   store ptr %17, ptr %16, align 8, !noalias !549
   %90 = getelementptr inbounds i8, ptr %16, i64 8
@@ -1923,7 +1923,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h90b853b39b127050E.exit69.i
 133:                                              ; preds = %.noexc36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !594
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !594
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !noalias !592
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(32) %23, i64 32, i1 false), !noalias !592
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !595
   store ptr %9, ptr %8, align 8, !noalias !595
   %134 = getelementptr inbounds i8, ptr %8, i64 8

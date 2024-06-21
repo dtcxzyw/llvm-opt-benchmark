@@ -4651,7 +4651,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
-  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %3, ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %12), !noalias !131
+  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %3, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull %12), !noalias !131
   %22 = getelementptr inbounds i8, ptr %12, i64 236
   %23 = getelementptr inbounds i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %23, i8 0, i64 32, i1 false), !alias.scope !134, !noalias !131
@@ -5287,7 +5287,7 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit.i: ; preds = %15
   br label %_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit
 
 _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %13
-  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %4, ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %14), !noalias !151
+  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %4, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull %14), !noalias !151
   %21 = getelementptr inbounds i8, ptr %14, i64 236
   %22 = getelementptr inbounds i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %22, i8 0, i64 32, i1 false), !alias.scope !158, !noalias !151

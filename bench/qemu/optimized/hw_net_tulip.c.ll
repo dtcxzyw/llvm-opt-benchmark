@@ -2003,7 +2003,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %ret.014.i = phi i8 [ 0, %if.end ], [ %spec.select.i, %for.body.i ]
   %arrayidx.i = getelementptr [16 x [6 x i8]], ptr %filter.i, i64 0, i64 %indvars.iv.i
-  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %arrayidx.i, ptr noundef nonnull dereferenceable(6) %buf, i64 6)
+  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(6) %buf, i64 6)
   %tobool3.not.i = icmp eq i32 %bcmp12.i, 0
   %spec.select.i = select i1 %tobool3.not.i, i8 1, i8 %ret.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2014,7 +2014,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %11, label %for.body.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @tulip_filter_address.broadcast, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @tulip_filter_address.broadcast, i64 6)
   %tobool5.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool5.not.i, label %do.body.preheader, label %if.end7.i
 

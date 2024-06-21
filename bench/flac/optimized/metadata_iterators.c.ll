@@ -542,7 +542,7 @@ simple_iterator_free_guts_.exit:                  ; preds = %if.end10.i, %if.the
 
 if.then:                                          ; preds = %simple_iterator_free_guts_.exit
   %stats = getelementptr inbounds i8, ptr %iterator, i64 24
-  %call.i11 = tail call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats) #28
+  %call.i11 = tail call i32 @stat64(ptr noundef readonly %filename, ptr noundef nonnull %stats) #28
   %cmp.i = icmp eq i32 %call.i11, 0
   %conv.i = zext i1 %cmp.i to i32
   %has_stats = getelementptr inbounds i8, ptr %iterator, i64 168
@@ -5028,7 +5028,7 @@ if.end6:                                          ; preds = %if.end3
 
 if.then8:                                         ; preds = %if.end6
   %2 = load ptr, ptr %chain, align 8
-  %call.i = call i32 @stat64(ptr noundef %2, ptr noundef nonnull %stats) #28
+  %call.i = call i32 @stat64(ptr noundef readonly %2, ptr noundef nonnull %stats) #28
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end6
@@ -5357,7 +5357,7 @@ for.body.i47.i.i.i:                               ; preds = %for.body.i47.i.i.i,
 
 write_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %for.body.i47.i.i.i
   %md5sum.i.i.i = getelementptr inbounds i8, ptr %37, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %md5sum.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %md5sum.i.i.i, i64 16, i1 false)
   %call.i.i19.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i4.i, i64 noundef 1, i64 noundef 34, ptr noundef %call.i20) #28
   %cmp.not.i.i20.i = icmp eq i64 %call.i.i19.i, 34
   %..i.i.i = zext i1 %cmp.not.i.i20.i to i32
@@ -8625,7 +8625,7 @@ sw.bb12.i:                                        ; preds = %if.end22
   %length14.i = getelementptr inbounds i8, ptr %40, i64 8
   %69 = load i32, ptr %length14.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i54.i)
-  %call.i55.i = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr noundef %read_cb, ptr noundef nonnull %data13.i, i32 noundef %69)
+  %call.i55.i = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr noundef readonly %read_cb, ptr noundef nonnull %data13.i, i32 noundef %69)
   %cmp.i.i = icmp ugt i32 %69, 3
   %sub.i56.i = add i32 %69, -4
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i56.i, i32 %69
@@ -8704,7 +8704,7 @@ for.body.i70.i:                                   ; preds = %if.else32.i.i, %if.
   %indvars.iv.i71.i = phi i64 [ %indvars.iv.next.i74.i, %if.end63.i.i ], [ 0, %if.else32.i.i ]
   %block_length.addr.159.i.i = phi i32 [ %sub66.i.i, %if.end63.i.i ], [ %sub12.i.i, %if.else32.i.i ]
   %add.ptr.i72.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %72, i64 %indvars.iv.i71.i
-  %call48.i.i = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr noundef %read_cb, ptr noundef %add.ptr.i72.i, i32 noundef %block_length.addr.159.i.i)
+  %call48.i.i = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr noundef readonly %read_cb, ptr noundef %add.ptr.i72.i, i32 noundef %block_length.addr.159.i.i)
   %cmp49.i.i = icmp ugt i32 %block_length.addr.159.i.i, 3
   %sub52.i.i = add i32 %block_length.addr.159.i.i, -4
   %spec.select46.i.i = select i1 %cmp49.i.i, i32 %sub52.i.i, i32 %block_length.addr.159.i.i
@@ -9256,7 +9256,7 @@ unpack_uint32_.exit127.i.i:                       ; preds = %for.body.i116.i.i, 
   store i32 %ret.0.lcssa.i126.i.i, ptr %colors.i.i, align 4
   %data.i136.i = getelementptr inbounds i8, ptr %40, i64 64
   %data_length.i.i = getelementptr inbounds i8, ptr %40, i64 56
-  %call59.i.i = call fastcc i32 @read_metadata_block_data_picture_cstring_cb_(ptr noundef %handle, ptr noundef %read_cb, ptr noundef nonnull %data.i136.i, ptr noundef nonnull %data_length.i.i, i32 noundef %11)
+  %call59.i.i = call fastcc i32 @read_metadata_block_data_picture_cstring_cb_(ptr noundef %handle, ptr noundef readonly %read_cb, ptr noundef nonnull %data.i136.i, ptr noundef nonnull %data_length.i.i, i32 noundef %11)
   br label %read_metadata_block_data_picture_cb_.exit.i
 
 read_metadata_block_data_picture_cb_.exit.i:      ; preds = %unpack_uint32_.exit127.i.i, %unpack_uint32_.exit114.i.i, %unpack_uint32_.exit101.i.i, %unpack_uint32_.exit88.i.i, %if.end14.i.i, %read_metadata_block_data_picture_cstring_cb_.exit75.thread.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, %sw.bb19.i
@@ -9921,7 +9921,7 @@ for.body.i47.i.i:                                 ; preds = %for.body.i47.i.i, %
 
 write_metadata_block_data_streaminfo_cb_.exit.i:  ; preds = %for.body.i47.i.i
   %md5sum.i.i = getelementptr inbounds i8, ptr %block, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i.i, ptr noundef nonnull align 8 dereferenceable(16) %md5sum.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %md5sum.i.i, i64 16, i1 false)
   %call.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef 34, ptr noundef %file) #28
   %cmp.not.i.i = icmp eq i64 %call.i.i, 34
   %..i.i = zext i1 %cmp.not.i.i to i32
@@ -11140,7 +11140,7 @@ for.body.i47.i:                                   ; preds = %for.body.i47.i, %pa
 
 write_metadata_block_data_streaminfo_cb_.exit:    ; preds = %for.body.i47.i
   %md5sum.i = getelementptr inbounds i8, ptr %block, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i, ptr noundef nonnull align 8 dereferenceable(16) %md5sum.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %md5sum.i, i64 16, i1 false)
   %call.i = call i64 %write_cb(ptr noundef nonnull %buffer.i, i64 noundef 1, i64 noundef 34, ptr noundef %handle) #28
   %cmp.not.i = icmp eq i64 %call.i, 34
   %..i = zext i1 %cmp.not.i to i32

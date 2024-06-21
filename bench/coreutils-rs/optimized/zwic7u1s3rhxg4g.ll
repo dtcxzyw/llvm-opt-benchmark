@@ -99,7 +99,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5), !noalias !20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %0, i64 %1, i1 false), !noalias !24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !noalias !24
   %8 = getelementptr inbounds i8, ptr %5, i64 %1
   store i8 0, ptr %8, align 1, !noalias !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !20
@@ -118,7 +118,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !20, !nonnull !4, !align !26, !noundef !4
-  %18 = call noundef i32 @stat(ptr noundef nonnull %17, ptr noundef nonnull %2), !noalias !27
+  %18 = call noundef i32 @stat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !27
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -145,7 +145,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5), !noalias !28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %0, i64 %1, i1 false), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !noalias !32
   %8 = getelementptr inbounds i8, ptr %5, i64 %1
   store i8 0, ptr %8, align 1, !noalias !28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !28
@@ -164,7 +164,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !28, !nonnull !4, !align !26, !noundef !4
-  %18 = call noundef i32 @lstat(ptr noundef nonnull %17, ptr noundef nonnull %2), !noalias !33
+  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !33
   br label %19
 
 19:                                               ; preds = %15, %7

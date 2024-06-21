@@ -334,7 +334,7 @@ entry:
   call void @strbuf_add(ptr noundef nonnull %path, ptr noundef nonnull %name, i64 noundef %conv3) #16
   %buf = getelementptr inbounds i8, ptr %path, i64 16
   %6 = load ptr, ptr %buf, align 8
-  %call.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #19
+  %call.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %6, i32 noundef 47) #19
   %tobool4.not = icmp eq ptr %call.i, null
   br i1 %tobool4.not, label %if.end, label %land.lhs.true
 
@@ -736,7 +736,7 @@ if.else.i.i.i.i:                                  ; preds = %cond.end.i.i.i
 oidcpy_with_padding.exit.i.i.i:                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %hashsz.0.in.i.i.i.i = phi ptr [ %rawsz2.i.i.i.i, %if.else.i.i.i.i ], [ %rawsz.i.i.i.i, %if.then.i.i.i.i ]
   %hashsz.0.i.i.i.i = load i64, ptr %hashsz.0.in.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i.i.i, ptr nonnull align 4 %oid14.i.i.i, i64 %hashsz.0.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i.i.i, ptr nonnull readonly align 4 %oid14.i.i.i, i64 %hashsz.0.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %oid.i.i.i, i64 %hashsz.0.i.i.i.i
   %sub.i.i.i.i = sub i64 32, %hashsz.0.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)

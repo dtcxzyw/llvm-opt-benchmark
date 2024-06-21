@@ -6667,7 +6667,7 @@ if.end.i:                                         ; preds = %if.then9
   br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit": ; preds = %if.end.i, %if.then.i, %if.end
-  call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull align 8 dereferenceable(2616) %this)
+  call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull readonly align 8 dereferenceable(2616) %this)
   ret i1 true
 }
 

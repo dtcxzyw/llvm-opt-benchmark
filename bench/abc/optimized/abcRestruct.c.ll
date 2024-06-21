@@ -759,7 +759,7 @@ Abc_Clock.exit103.i.i:                            ; preds = %335, %.critedge2.i.
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %340
   store i32 0, ptr %16, align 4
-  %367 = call i32 @Abc_NodeEvaluateDsd_rec(ptr noundef nonnull %calloc.i.i.i.i, ptr noundef nonnull %33, ptr noundef %263, i32 noundef %167, i32 noundef %318, ptr noundef nonnull %16)
+  %367 = call i32 @Abc_NodeEvaluateDsd_rec(ptr noundef nonnull %calloc.i.i.i.i, ptr noundef nonnull readonly %33, ptr noundef %263, i32 noundef %167, i32 noundef %318, ptr noundef nonnull %16)
   %368 = icmp ugt i32 %367, 2001
   br i1 %368, label %369, label %372
 

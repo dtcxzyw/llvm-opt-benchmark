@@ -15684,7 +15684,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %if.end23.i.i.i.i.i
   %__trip_count.037.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end23.i.i.i.i.i ], [ %shr.i.i.i.i.i, %entry ]
   %__first.sroa.0.036.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i, %if.end23.i.i.i.i.i ], [ %0, %entry ]
-  %call5.i.i.i.i.i2 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr %__first.sroa.0.036.i.i.i.i.i)
+  %call5.i.i.i.i.i2 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.036.i.i.i.i.i)
           to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i.i.i
@@ -15692,7 +15692,7 @@ call5.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i.i.i, i64 16
-  %call9.i.i.i.i.i3 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr nonnull %incdec.ptr.i.i.i.i.i.i)
+  %call9.i.i.i.i.i3 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i.i.i.i.i.i)
           to label %call9.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call9.i.i.i.i.i.noexc:                            ; preds = %if.end.i.i.i.i.i
@@ -15700,7 +15700,7 @@ call9.i.i.i.i.i.noexc:                            ; preds = %if.end.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %call9.i.i.i.i.i.noexc
   %incdec.ptr.i15.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i.i.i, i64 32
-  %call15.i.i.i.i.i4 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr nonnull %incdec.ptr.i15.i.i.i.i.i)
+  %call15.i.i.i.i.i4 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i15.i.i.i.i.i)
           to label %call15.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call15.i.i.i.i.i.noexc:                           ; preds = %if.end11.i.i.i.i.i
@@ -15708,7 +15708,7 @@ call15.i.i.i.i.i.noexc:                           ; preds = %if.end11.i.i.i.i.i
 
 if.end17.i.i.i.i.i:                               ; preds = %call15.i.i.i.i.i.noexc
   %incdec.ptr.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i.i.i, i64 48
-  %call21.i.i.i.i.i5 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr nonnull %incdec.ptr.i16.i.i.i.i.i)
+  %call21.i.i.i.i.i5 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i16.i.i.i.i.i)
           to label %call21.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call21.i.i.i.i.i.noexc:                           ; preds = %if.end17.i.i.i.i.i
@@ -15736,7 +15736,7 @@ for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i.i:                                  ; preds = %for.end.i.i.i.i.i
-  %call28.i.i.i.i.i6 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i)
+  %call28.i.i.i.i.i6 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i)
           to label %call28.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call28.i.i.i.i.i.noexc:                           ; preds = %sw.bb.i.i.i.i.i
@@ -15748,7 +15748,7 @@ if.end30.i.i.i.i.i:                               ; preds = %call28.i.i.i.i.i.no
 
 sw.bb32.i.i.i.i.i:                                ; preds = %if.end30.i.i.i.i.i, %for.end.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i22.i.i.i.i.i, %if.end30.i.i.i.i.i ]
-  %call35.i.i.i.i.i7 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr %__first.sroa.0.1.i.i.i.i.i)
+  %call35.i.i.i.i.i7 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.1.i.i.i.i.i)
           to label %call35.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call35.i.i.i.i.i.noexc:                           ; preds = %sw.bb32.i.i.i.i.i
@@ -15760,7 +15760,7 @@ if.end37.i.i.i.i.i:                               ; preds = %call35.i.i.i.i.i.no
 
 sw.bb39.i.i.i.i.i:                                ; preds = %if.end37.i.i.i.i.i, %for.end.i.i.i.i.i
   %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i23.i.i.i.i.i, %if.end37.i.i.i.i.i ]
-  %call42.i.i.i.i.i8 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr %__first.sroa.0.2.i.i.i.i.i)
+  %call42.i.i.i.i.i8 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.2.i.i.i.i.i)
           to label %call42.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call42.i.i.i.i.i.noexc:                           ; preds = %sw.bb39.i.i.i.i.i
@@ -15778,7 +15778,7 @@ call42.i.i.i.i.i.noexc:                           ; preds = %sw.bb39.i.i.i.i.i
 for.body.i.i.i:                                   ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS2_8internal12FilterVectorIS4_ZNS3_12_GLOBAL__N_123ExtractKnownFieldValuesEPS8_PNS3_16KnownFieldValuesEE3$_0EES6_IT_SaISJ_EESL_OT0_EUlRKS4_E_EEESJ_SJ_SJ_SM_.exit.i.i.i", %for.inc.i.i.i
   %__first.sroa.0.019.i.i.i = phi ptr [ %__first.sroa.0.0.i.i.i, %for.inc.i.i.i ], [ %__first.sroa.0.015.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS2_8internal12FilterVectorIS4_ZNS3_12_GLOBAL__N_123ExtractKnownFieldValuesEPS8_PNS3_16KnownFieldValuesEE3$_0EES6_IT_SaISJ_EESL_OT0_EUlRKS4_E_EEESJ_SJ_SJ_SM_.exit.i.i.i" ]
   %retval.sroa.0.018.i.i.i = phi ptr [ %retval.sroa.0.1.i.i.i, %for.inc.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS2_8internal12FilterVectorIS4_ZNS3_12_GLOBAL__N_123ExtractKnownFieldValuesEPS8_PNS3_16KnownFieldValuesEE3$_0EES6_IT_SaISJ_EESL_OT0_EUlRKS4_E_EEESJ_SJ_SJ_SM_.exit.i.i.i" ]
-  %call16.i.i.i9 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull %ref.tmp1, ptr nonnull %__first.sroa.0.019.i.i.i)
+  %call16.i.i.i9 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %__first.sroa.0.019.i.i.i)
           to label %call16.i.i.i.noexc unwind label %lpad.loopexit
 
 call16.i.i.i.noexc:                               ; preds = %for.body.i.i.i
@@ -24311,7 +24311,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow16KeyValueMetadataE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp26.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp27.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp30.i)
-  invoke fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %ToRecordBatch, ptr noundef nonnull align 8 dereferenceable(16) %expr)
+  invoke fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %ToRecordBatch, ptr noundef nonnull readonly align 8 dereferenceable(16) %expr)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_0C2Ev.exit"

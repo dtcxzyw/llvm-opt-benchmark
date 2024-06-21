@@ -1373,7 +1373,7 @@ if.then12.us:                                     ; preds = %for.body6.us
   %arrayidx.us = getelementptr inbounds [1 x i8], ptr %pixels, i64 0, i64 %8
   %9 = mul nuw nsw i64 %6, 3
   %add.ptr3.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx.us, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx.us, i64 3, i1 false)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then12.us, %for.body6.us
@@ -1439,7 +1439,7 @@ if.then12.us:                                     ; preds = %for.body6.us
   %arrayidx.us = getelementptr inbounds [1 x i8], ptr %pixels, i64 0, i64 %8
   %9 = mul nuw nsw i64 %6, 3
   %add.ptr3.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx.us, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx.us, i64 3, i1 false)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then12.us, %for.body6.us
@@ -2411,7 +2411,7 @@ if.then12.us.i:                                   ; preds = %for.body6.us.i
   %arrayidx.us.i = getelementptr inbounds [1 x i8], ptr %pixels.i, i64 0, i64 %75
   %76 = mul nuw nsw i64 %73, 3
   %add.ptr3.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.us.i, i64 %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx.us.i, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx.us.i, i64 3, i1 false)
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.then12.us.i, %for.body6.us.i
@@ -2482,7 +2482,7 @@ if.then12.us.i405:                                ; preds = %for.body6.us.i397
   %arrayidx.us.i406 = getelementptr inbounds [1 x i8], ptr %pixels.i387, i64 0, i64 %88
   %89 = mul nuw nsw i64 %86, 3
   %add.ptr3.i.us.i407 = getelementptr inbounds i8, ptr %add.ptr.i.us.i396, i64 %89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i407, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx.us.i406, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i407, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx.us.i406, i64 3, i1 false)
   br label %for.inc.us.i402
 
 for.inc.us.i402:                                  ; preds = %if.then12.us.i405, %for.body6.us.i397
@@ -2617,7 +2617,7 @@ if.then12.us.i433:                                ; preds = %for.body6.us.i425
   %arrayidx.us.i434 = getelementptr inbounds [1 x i8], ptr %pixels.i411, i64 0, i64 %117
   %118 = mul nuw nsw i64 %115, 3
   %add.ptr3.i.us.i435 = getelementptr inbounds i8, ptr %add.ptr.i.us.i424, i64 %118
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i435, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx.us.i434, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i435, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx.us.i434, i64 3, i1 false)
   br label %for.inc.us.i430
 
 for.inc.us.i430:                                  ; preds = %if.then12.us.i433, %for.body6.us.i425
@@ -2688,7 +2688,7 @@ if.then12.us.i462:                                ; preds = %for.body6.us.i454
   %arrayidx.us.i463 = getelementptr inbounds [1 x i8], ptr %pixels.i440, i64 0, i64 %130
   %131 = mul nuw nsw i64 %128, 3
   %add.ptr3.i.us.i464 = getelementptr inbounds i8, ptr %add.ptr.i.us.i453, i64 %131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i464, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx.us.i463, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i464, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx.us.i463, i64 3, i1 false)
   br label %for.inc.us.i459
 
 for.inc.us.i459:                                  ; preds = %if.then12.us.i462, %for.body6.us.i454
@@ -3244,7 +3244,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = add nsw i64 %indvars.iv, %0
   %2 = mul nsw i64 %1, 3
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !62
@@ -3340,7 +3340,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = add nsw i64 %indvars.iv, %0
   %3 = mul nsw i64 %2, %1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !64
@@ -3467,7 +3467,7 @@ if.end.us28:                                      ; preds = %if.else.us23
   %13 = add nsw i64 %indvars.iv, %2
   %14 = mul nsw i64 %13, 3
   %add.ptr3.i.us = getelementptr inbounds i8, ptr %add.ptr.i, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29
 
 for.inc.us29:                                     ; preds = %for.body3.us20, %for.body3.us20, %if.end.us28, %if.else.us23
@@ -3487,7 +3487,7 @@ if.end:                                           ; preds = %for.body3
   %16 = add nsw i64 %indvars.iv41, %2
   %17 = mul nsw i64 %16, 3
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body3, %if.end
@@ -3542,7 +3542,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %5 = add nsw i64 %indvars.iv.i, %4
   %6 = mul nsw i64 %5, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !62
@@ -3627,7 +3627,7 @@ for.body.i82:                                     ; preds = %for.body.i82, %for.
   %15 = add nsw i64 %indvars.iv.i83, %14
   %16 = mul nsw i64 %15, 3
   %add.ptr3.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i.i80, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i84, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i84, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i81
   br i1 %exitcond.not.i86, label %for.end.i39, label %for.body.i82, !llvm.loop !62
@@ -3711,7 +3711,7 @@ for.body.i124:                                    ; preds = %for.body.i124, %for
   %26 = add nsw i64 %indvars.iv.i125, %24
   %27 = mul nsw i64 %26, %25
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125, 1
   %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, %wide.trip.count.i123
   br i1 %exitcond.not.i127, label %for.end.i94, label %for.body.i124, !llvm.loop !64
@@ -3797,7 +3797,7 @@ for.body.i177:                                    ; preds = %for.body.i177, %for
   %38 = add nsw i64 %indvars.iv.i178, %36
   %39 = mul nsw i64 %38, %37
   %gep.i179 = getelementptr i8, ptr %invariant.gep.i175, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i179, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i179, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i178, 1
   %exitcond.not.i181 = icmp eq i64 %indvars.iv.next.i180, %wide.trip.count.i176
   br i1 %exitcond.not.i181, label %for.end.i134, label %for.body.i177, !llvm.loop !64
@@ -3881,7 +3881,7 @@ for.body.i232:                                    ; preds = %for.body.i232, %for
   %49 = add nsw i64 %indvars.iv.i233, %48
   %50 = mul nsw i64 %49, 3
   %add.ptr3.i.i234 = getelementptr inbounds i8, ptr %add.ptr.i.i230, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i234, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i234, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i233, 1
   %exitcond.not.i236 = icmp eq i64 %indvars.iv.next.i235, %wide.trip.count.i231
   br i1 %exitcond.not.i236, label %for.end.i189, label %for.body.i232, !llvm.loop !62
@@ -3963,7 +3963,7 @@ for.body.i287:                                    ; preds = %for.body.i287, %for
   %59 = add nsw i64 %indvars.iv.i288, %58
   %60 = mul nsw i64 %59, 3
   %add.ptr3.i.i289 = getelementptr inbounds i8, ptr %add.ptr.i.i285, i64 %60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i289, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i289, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i290 = add nuw nsw i64 %indvars.iv.i288, 1
   %exitcond.not.i291 = icmp eq i64 %indvars.iv.next.i290, %wide.trip.count.i286
   br i1 %exitcond.not.i291, label %for.end.i244, label %for.body.i287, !llvm.loop !62
@@ -4069,7 +4069,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %5 = add nsw i64 %indvars.iv.i, %4
   %6 = mul nsw i64 %5, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !62
@@ -4155,7 +4155,7 @@ for.body.i69:                                     ; preds = %for.body.i69, %for.
   %16 = add nsw i64 %indvars.iv.i70, %14
   %17 = mul nsw i64 %16, %15
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i68
   br i1 %exitcond.not.i72, label %for.end.i39, label %for.body.i69, !llvm.loop !64
@@ -4240,7 +4240,7 @@ for.body.i122:                                    ; preds = %for.body.i122, %for
   %28 = add nsw i64 %indvars.iv.i123, %26
   %29 = mul nsw i64 %28, %27
   %gep.i124 = getelementptr i8, ptr %invariant.gep.i120, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i124, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i124, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i121
   br i1 %exitcond.not.i126, label %for.end.i79, label %for.body.i122, !llvm.loop !64
@@ -4325,7 +4325,7 @@ for.body.i177:                                    ; preds = %for.body.i177, %for
   %40 = add nsw i64 %indvars.iv.i178, %38
   %41 = mul nsw i64 %40, %39
   %gep.i179 = getelementptr i8, ptr %invariant.gep.i175, i64 %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i179, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i179, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i178, 1
   %exitcond.not.i181 = icmp eq i64 %indvars.iv.next.i180, %wide.trip.count.i176
   br i1 %exitcond.not.i181, label %for.end.i134, label %for.body.i177, !llvm.loop !64
@@ -4409,7 +4409,7 @@ for.body.i232:                                    ; preds = %for.body.i232, %for
   %52 = add nsw i64 %indvars.iv.i233, %50
   %53 = mul nsw i64 %52, %51
   %gep.i234 = getelementptr i8, ptr %invariant.gep.i230, i64 %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i234, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i234, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i233, 1
   %exitcond.not.i236 = icmp eq i64 %indvars.iv.next.i235, %wide.trip.count.i231
   br i1 %exitcond.not.i236, label %for.end.i189, label %for.body.i232, !llvm.loop !64
@@ -4494,7 +4494,7 @@ for.body.i287:                                    ; preds = %for.body.i287, %for
   %63 = add nsw i64 %indvars.iv.i288, %62
   %64 = mul nsw i64 %63, 3
   %add.ptr3.i.i289 = getelementptr inbounds i8, ptr %add.ptr.i.i285, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i289, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i289, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i290 = add nuw nsw i64 %indvars.iv.i288, 1
   %exitcond.not.i291 = icmp eq i64 %indvars.iv.next.i290, %wide.trip.count.i286
   br i1 %exitcond.not.i291, label %for.end.i244, label %for.body.i287, !llvm.loop !62
@@ -4604,7 +4604,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %6 = add nsw i64 %indvars.iv.i, %5
   %7 = mul nsw i64 %6, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !62
@@ -4693,7 +4693,7 @@ for.body.i180:                                    ; preds = %for.body.i180, %for
   %17 = add nsw i64 %indvars.iv.i181, %16
   %18 = mul nsw i64 %17, 3
   %add.ptr3.i.i182 = getelementptr inbounds i8, ptr %add.ptr.i.i178, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i182, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i182, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i183 = add nuw nsw i64 %indvars.iv.i181, 1
   %exitcond.not.i184 = icmp eq i64 %indvars.iv.next.i183, %wide.trip.count.i179
   br i1 %exitcond.not.i184, label %for.end.i137, label %for.body.i180, !llvm.loop !62
@@ -4780,7 +4780,7 @@ for.body.i222:                                    ; preds = %for.body.i222, %for
   %29 = add nsw i64 %indvars.iv.i223, %27
   %30 = mul nsw i64 %29, %28
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i223, 1
   %exitcond.not.i225 = icmp eq i64 %indvars.iv.next.i224, %wide.trip.count.i221
   br i1 %exitcond.not.i225, label %for.end.i192, label %for.body.i222, !llvm.loop !64
@@ -4869,7 +4869,7 @@ for.body.i275:                                    ; preds = %for.body.i275, %for
   %42 = add nsw i64 %indvars.iv.i276, %40
   %43 = mul nsw i64 %42, %41
   %gep.i277 = getelementptr i8, ptr %invariant.gep.i273, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i277, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i277, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i278 = add nuw nsw i64 %indvars.iv.i276, 1
   %exitcond.not.i279 = icmp eq i64 %indvars.iv.next.i278, %wide.trip.count.i274
   br i1 %exitcond.not.i279, label %for.end.i232, label %for.body.i275, !llvm.loop !64
@@ -4957,7 +4957,7 @@ for.body.i330:                                    ; preds = %for.body.i330, %for
   %54 = add nsw i64 %indvars.iv.i331, %53
   %55 = mul nsw i64 %54, 3
   %add.ptr3.i.i332 = getelementptr inbounds i8, ptr %add.ptr.i.i328, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i332, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i332, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i333 = add nuw nsw i64 %indvars.iv.i331, 1
   %exitcond.not.i334 = icmp eq i64 %indvars.iv.next.i333, %wide.trip.count.i329
   br i1 %exitcond.not.i334, label %for.end.i287, label %for.body.i330, !llvm.loop !62
@@ -5041,7 +5041,7 @@ for.body.i385:                                    ; preds = %for.body.i385, %for
   %65 = add nsw i64 %indvars.iv.i386, %64
   %66 = mul nsw i64 %65, 3
   %add.ptr3.i.i387 = getelementptr inbounds i8, ptr %add.ptr.i.i383, i64 %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i387, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i387, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i388 = add nuw nsw i64 %indvars.iv.i386, 1
   %exitcond.not.i389 = icmp eq i64 %indvars.iv.next.i388, %wide.trip.count.i384
   br i1 %exitcond.not.i389, label %for.end.i342, label %for.body.i385, !llvm.loop !62
@@ -5163,7 +5163,7 @@ if.end.us28.i:                                    ; preds = %if.else.us23.i
   %84 = add nsw i64 %indvars.iv.i392, %75
   %85 = mul nsw i64 %84, 3
   %add.ptr3.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.i391, i64 %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i
 
 for.inc.us29.i:                                   ; preds = %if.end.us28.i, %if.else.us23.i, %for.body3.us20.i, %for.body3.us20.i
@@ -5183,7 +5183,7 @@ if.end.i:                                         ; preds = %for.body3.i
   %87 = add nsw i64 %indvars.iv41.i, %75
   %88 = mul nsw i64 %87, 3
   %add.ptr3.i.i395 = getelementptr inbounds i8, ptr %add.ptr.i.i391, i64 %88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i395, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i395, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body3.i
@@ -5261,7 +5261,7 @@ if.end.us28.i419:                                 ; preds = %if.else.us23.i415
   %103 = add nsw i64 %indvars.iv.i408, %93
   %104 = mul nsw i64 %103, 3
   %add.ptr3.i.us.i420 = getelementptr inbounds i8, ptr %add.ptr.i.i403, i64 %104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i420, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i420, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i409
 
 for.inc.us29.i409:                                ; preds = %if.end.us28.i419, %if.else.us23.i415, %for.body3.us20.i407, %for.body3.us20.i407
@@ -5281,7 +5281,7 @@ if.end.i426:                                      ; preds = %for.body3.i421
   %106 = add nsw i64 %indvars.iv41.i422, %93
   %107 = mul nsw i64 %106, 3
   %add.ptr3.i.i427 = getelementptr inbounds i8, ptr %add.ptr.i.i403, i64 %107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i427, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i427, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i428
 
 for.inc.i428:                                     ; preds = %if.end.i426, %for.body3.i421
@@ -5361,7 +5361,7 @@ if.end.us28.i455:                                 ; preds = %if.else.us23.i451
   %122 = add nsw i64 %indvars.iv.i444, %112
   %123 = mul nsw i64 %122, 3
   %add.ptr3.i.us.i456 = getelementptr inbounds i8, ptr %add.ptr.i.i439, i64 %123
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i456, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i456, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i445
 
 for.inc.us29.i445:                                ; preds = %if.end.us28.i455, %if.else.us23.i451, %for.body3.us20.i443, %for.body3.us20.i443
@@ -5381,7 +5381,7 @@ if.end.i462:                                      ; preds = %for.body3.i457
   %125 = add nsw i64 %indvars.iv41.i458, %112
   %126 = mul nsw i64 %125, 3
   %add.ptr3.i.i463 = getelementptr inbounds i8, ptr %add.ptr.i.i439, i64 %126
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i463, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i463, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i464
 
 for.inc.i464:                                     ; preds = %if.end.i462, %for.body3.i457
@@ -5458,7 +5458,7 @@ if.end.us28.i491:                                 ; preds = %if.else.us23.i487
   %140 = add nsw i64 %indvars.iv.i480, %130
   %141 = mul nsw i64 %140, 3
   %add.ptr3.i.us.i492 = getelementptr inbounds i8, ptr %add.ptr.i.i475, i64 %141
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i492, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i492, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i481
 
 for.inc.us29.i481:                                ; preds = %if.end.us28.i491, %if.else.us23.i487, %for.body3.us20.i479, %for.body3.us20.i479
@@ -5478,7 +5478,7 @@ if.end.i498:                                      ; preds = %for.body3.i493
   %143 = add nsw i64 %indvars.iv41.i494, %130
   %144 = mul nsw i64 %143, 3
   %add.ptr3.i.i499 = getelementptr inbounds i8, ptr %add.ptr.i.i475, i64 %144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i499, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i499, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i500
 
 for.inc.i500:                                     ; preds = %if.end.i498, %for.body3.i493
@@ -5557,7 +5557,7 @@ if.end.us28.i527:                                 ; preds = %if.else.us23.i523
   %159 = add nsw i64 %indvars.iv.i516, %149
   %160 = mul nsw i64 %159, 3
   %add.ptr3.i.us.i528 = getelementptr inbounds i8, ptr %add.ptr.i.i511, i64 %160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i528, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i528, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i517
 
 for.inc.us29.i517:                                ; preds = %if.end.us28.i527, %if.else.us23.i523, %for.body3.us20.i515, %for.body3.us20.i515
@@ -5577,7 +5577,7 @@ if.end.i534:                                      ; preds = %for.body3.i529
   %162 = add nsw i64 %indvars.iv41.i530, %149
   %163 = mul nsw i64 %162, 3
   %add.ptr3.i.i535 = getelementptr inbounds i8, ptr %add.ptr.i.i511, i64 %163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i535, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i535, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i536
 
 for.inc.i536:                                     ; preds = %if.end.i534, %for.body3.i529
@@ -5659,7 +5659,7 @@ if.end.us28.i563:                                 ; preds = %if.else.us23.i559
   %179 = add nsw i64 %indvars.iv.i552, %168
   %180 = mul nsw i64 %179, 3
   %add.ptr3.i.us.i564 = getelementptr inbounds i8, ptr %add.ptr.i.i547, i64 %180
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i564, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i564, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i553
 
 for.inc.us29.i553:                                ; preds = %if.end.us28.i563, %if.else.us23.i559, %for.body3.us20.i551, %for.body3.us20.i551
@@ -5679,7 +5679,7 @@ if.end.i570:                                      ; preds = %for.body3.i565
   %182 = add nsw i64 %indvars.iv41.i566, %168
   %183 = mul nsw i64 %182, 3
   %add.ptr3.i.i571 = getelementptr inbounds i8, ptr %add.ptr.i.i547, i64 %183
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i571, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i571, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i572
 
 for.inc.i572:                                     ; preds = %if.end.i570, %for.body3.i565
@@ -5707,7 +5707,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %mul1.i577 = mul nsw i32 %xpos, 3
   %idx.ext2.i = sext i32 %mul1.i577 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx121, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx121, i64 3, i1 false)
   %186 = load ptr, ptr %data, align 8
   %187 = load i32, ptr %stride, align 8
   %arrayidx126 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 24), i64 0, i64 %idxprom2
@@ -5717,7 +5717,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %mul1.i581 = mul nsw i32 %add6, 3
   %idx.ext2.i582 = sext i32 %mul1.i581 to i64
   %add.ptr3.i583 = getelementptr inbounds i8, ptr %add.ptr.i580, i64 %idx.ext2.i582
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i583, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx126, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i583, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx126, i64 3, i1 false)
   %188 = load ptr, ptr %data, align 8
   %189 = load i32, ptr %stride, align 8
   %arrayidx134 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 36), i64 0, i64 %idxprom10
@@ -5727,7 +5727,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %mul1.i587 = mul nsw i32 %add22, 3
   %idx.ext2.i588 = sext i32 %mul1.i587 to i64
   %add.ptr3.i589 = getelementptr inbounds i8, ptr %add.ptr.i586, i64 %idx.ext2.i588
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i589, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx134, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i589, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx134, i64 3, i1 false)
   %190 = load ptr, ptr %data, align 8
   %191 = load i32, ptr %stride, align 8
   %arrayidx141 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom17
@@ -5735,7 +5735,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i591 = sext i32 %mul.i590 to i64
   %add.ptr.i592 = getelementptr inbounds i8, ptr %190, i64 %idx.ext.i591
   %add.ptr3.i595 = getelementptr inbounds i8, ptr %add.ptr.i592, i64 %idx.ext2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i595, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx141, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i595, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx141, i64 3, i1 false)
   %192 = load ptr, ptr %data, align 8
   %193 = load i32, ptr %stride, align 8
   %arrayidx149 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 12), i64 0, i64 %idxprom35
@@ -5743,7 +5743,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i597 = sext i32 %mul.i596 to i64
   %add.ptr.i598 = getelementptr inbounds i8, ptr %192, i64 %idx.ext.i597
   %add.ptr3.i601 = getelementptr inbounds i8, ptr %add.ptr.i598, i64 %idx.ext2.i582
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i601, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx149, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i601, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx149, i64 3, i1 false)
   %194 = load ptr, ptr %data, align 8
   %195 = load i32, ptr %stride, align 8
   %arrayidx159 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 24), i64 0, i64 %idxprom26
@@ -5751,7 +5751,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i603 = sext i32 %mul.i602 to i64
   %add.ptr.i604 = getelementptr inbounds i8, ptr %194, i64 %idx.ext.i603
   %add.ptr3.i607 = getelementptr inbounds i8, ptr %add.ptr.i604, i64 %idx.ext2.i588
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i607, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx159, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i607, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx159, i64 3, i1 false)
   ret void
 }
 
@@ -5797,7 +5797,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %6 = add nsw i64 %indvars.iv.i, %5
   %7 = mul nsw i64 %6, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !62
@@ -5886,7 +5886,7 @@ for.body.i167:                                    ; preds = %for.body.i167, %for
   %18 = add nsw i64 %indvars.iv.i168, %16
   %19 = mul nsw i64 %18, %17
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, %wide.trip.count.i166
   br i1 %exitcond.not.i170, label %for.end.i137, label %for.body.i167, !llvm.loop !64
@@ -5975,7 +5975,7 @@ for.body.i220:                                    ; preds = %for.body.i220, %for
   %31 = add nsw i64 %indvars.iv.i221, %29
   %32 = mul nsw i64 %31, %30
   %gep.i222 = getelementptr i8, ptr %invariant.gep.i218, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i222, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i222, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i221, 1
   %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, %wide.trip.count.i219
   br i1 %exitcond.not.i224, label %for.end.i177, label %for.body.i220, !llvm.loop !64
@@ -6064,7 +6064,7 @@ for.body.i275:                                    ; preds = %for.body.i275, %for
   %44 = add nsw i64 %indvars.iv.i276, %42
   %45 = mul nsw i64 %44, %43
   %gep.i277 = getelementptr i8, ptr %invariant.gep.i273, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i277, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i277, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i278 = add nuw nsw i64 %indvars.iv.i276, 1
   %exitcond.not.i279 = icmp eq i64 %indvars.iv.next.i278, %wide.trip.count.i274
   br i1 %exitcond.not.i279, label %for.end.i232, label %for.body.i275, !llvm.loop !64
@@ -6151,7 +6151,7 @@ for.body.i330:                                    ; preds = %for.body.i330, %for
   %57 = add nsw i64 %indvars.iv.i331, %55
   %58 = mul nsw i64 %57, %56
   %gep.i332 = getelementptr i8, ptr %invariant.gep.i328, i64 %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i332, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i332, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i333 = add nuw nsw i64 %indvars.iv.i331, 1
   %exitcond.not.i334 = icmp eq i64 %indvars.iv.next.i333, %wide.trip.count.i329
   br i1 %exitcond.not.i334, label %for.end.i287, label %for.body.i330, !llvm.loop !64
@@ -6238,7 +6238,7 @@ for.body.i385:                                    ; preds = %for.body.i385, %for
   %69 = add nsw i64 %indvars.iv.i386, %68
   %70 = mul nsw i64 %69, 3
   %add.ptr3.i.i387 = getelementptr inbounds i8, ptr %add.ptr.i.i383, i64 %70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i387, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i387, ptr noundef nonnull readonly align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i388 = add nuw nsw i64 %indvars.iv.i386, 1
   %exitcond.not.i389 = icmp eq i64 %indvars.iv.next.i388, %wide.trip.count.i384
   br i1 %exitcond.not.i389, label %for.end.i342, label %for.body.i385, !llvm.loop !62
@@ -6360,7 +6360,7 @@ if.end.us28.i:                                    ; preds = %if.else.us23.i
   %88 = add nsw i64 %indvars.iv.i392, %79
   %89 = mul nsw i64 %88, 3
   %add.ptr3.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.i391, i64 %89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i
 
 for.inc.us29.i:                                   ; preds = %if.end.us28.i, %if.else.us23.i, %for.body3.us20.i, %for.body3.us20.i
@@ -6380,7 +6380,7 @@ if.end.i:                                         ; preds = %for.body3.i
   %91 = add nsw i64 %indvars.iv41.i, %79
   %92 = mul nsw i64 %91, 3
   %add.ptr3.i.i395 = getelementptr inbounds i8, ptr %add.ptr.i.i391, i64 %92
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i395, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i395, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body3.i
@@ -6457,7 +6457,7 @@ if.end.us28.i419:                                 ; preds = %if.else.us23.i415
   %106 = add nsw i64 %indvars.iv.i408, %96
   %107 = mul nsw i64 %106, 3
   %add.ptr3.i.us.i420 = getelementptr inbounds i8, ptr %add.ptr.i.i403, i64 %107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i420, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i420, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i409
 
 for.inc.us29.i409:                                ; preds = %if.end.us28.i419, %if.else.us23.i415, %for.body3.us20.i407, %for.body3.us20.i407
@@ -6477,7 +6477,7 @@ if.end.i426:                                      ; preds = %for.body3.i421
   %109 = add nsw i64 %indvars.iv41.i422, %96
   %110 = mul nsw i64 %109, 3
   %add.ptr3.i.i427 = getelementptr inbounds i8, ptr %add.ptr.i.i403, i64 %110
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i427, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i427, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i428
 
 for.inc.i428:                                     ; preds = %if.end.i426, %for.body3.i421
@@ -6556,7 +6556,7 @@ if.end.us28.i455:                                 ; preds = %if.else.us23.i451
   %124 = add nsw i64 %indvars.iv.i444, %114
   %125 = mul nsw i64 %124, 3
   %add.ptr3.i.us.i456 = getelementptr inbounds i8, ptr %add.ptr.i.i439, i64 %125
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i456, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i456, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i445
 
 for.inc.us29.i445:                                ; preds = %if.end.us28.i455, %if.else.us23.i451, %for.body3.us20.i443, %for.body3.us20.i443
@@ -6576,7 +6576,7 @@ if.end.i462:                                      ; preds = %for.body3.i457
   %127 = add nsw i64 %indvars.iv41.i458, %114
   %128 = mul nsw i64 %127, 3
   %add.ptr3.i.i463 = getelementptr inbounds i8, ptr %add.ptr.i.i439, i64 %128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i463, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i463, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i464
 
 for.inc.i464:                                     ; preds = %if.end.i462, %for.body3.i457
@@ -6654,7 +6654,7 @@ if.end.us28.i491:                                 ; preds = %if.else.us23.i487
   %143 = add nsw i64 %indvars.iv.i480, %133
   %144 = mul nsw i64 %143, 3
   %add.ptr3.i.us.i492 = getelementptr inbounds i8, ptr %add.ptr.i.i475, i64 %144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i492, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i492, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i481
 
 for.inc.us29.i481:                                ; preds = %if.end.us28.i491, %if.else.us23.i487, %for.body3.us20.i479, %for.body3.us20.i479
@@ -6674,7 +6674,7 @@ if.end.i498:                                      ; preds = %for.body3.i493
   %146 = add nsw i64 %indvars.iv41.i494, %133
   %147 = mul nsw i64 %146, 3
   %add.ptr3.i.i499 = getelementptr inbounds i8, ptr %add.ptr.i.i475, i64 %147
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i499, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i499, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i500
 
 for.inc.i500:                                     ; preds = %if.end.i498, %for.body3.i493
@@ -6753,7 +6753,7 @@ if.end.us28.i527:                                 ; preds = %if.else.us23.i523
   %162 = add nsw i64 %indvars.iv.i516, %152
   %163 = mul nsw i64 %162, 3
   %add.ptr3.i.us.i528 = getelementptr inbounds i8, ptr %add.ptr.i.i511, i64 %163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i528, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i528, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i517
 
 for.inc.us29.i517:                                ; preds = %if.end.us28.i527, %if.else.us23.i523, %for.body3.us20.i515, %for.body3.us20.i515
@@ -6773,7 +6773,7 @@ if.end.i534:                                      ; preds = %for.body3.i529
   %165 = add nsw i64 %indvars.iv41.i530, %152
   %166 = mul nsw i64 %165, 3
   %add.ptr3.i.i535 = getelementptr inbounds i8, ptr %add.ptr.i.i511, i64 %166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i535, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i535, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i536
 
 for.inc.i536:                                     ; preds = %if.end.i534, %for.body3.i529
@@ -6855,7 +6855,7 @@ if.end.us28.i563:                                 ; preds = %if.else.us23.i559
   %182 = add nsw i64 %indvars.iv.i552, %171
   %183 = mul nsw i64 %182, 3
   %add.ptr3.i.us.i564 = getelementptr inbounds i8, ptr %add.ptr.i.i547, i64 %183
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i564, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.us.i564, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.us29.i553
 
 for.inc.us29.i553:                                ; preds = %if.end.us28.i563, %if.else.us23.i559, %for.body3.us20.i551, %for.body3.us20.i551
@@ -6875,7 +6875,7 @@ if.end.i570:                                      ; preds = %for.body3.i565
   %185 = add nsw i64 %indvars.iv41.i566, %171
   %186 = mul nsw i64 %185, 3
   %add.ptr3.i.i571 = getelementptr inbounds i8, ptr %add.ptr.i.i547, i64 %186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i571, ptr noundef nonnull align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i.i571, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %for.inc.i572
 
 for.inc.i572:                                     ; preds = %if.end.i570, %for.body3.i565
@@ -6903,7 +6903,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %mul1.i577 = mul nsw i32 %xpos, 3
   %idx.ext2.i = sext i32 %mul1.i577 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx121, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx121, i64 3, i1 false)
   %189 = load ptr, ptr %data, align 8
   %190 = load i32, ptr %stride, align 8
   %arrayidx126 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 36), i64 0, i64 %idxprom9
@@ -6911,7 +6911,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i579 = sext i32 %mul.i578 to i64
   %add.ptr.i580 = getelementptr inbounds i8, ptr %189, i64 %idx.ext.i579
   %add.ptr3.i583 = getelementptr inbounds i8, ptr %add.ptr.i580, i64 %idx.ext2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i583, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx126, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i583, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx126, i64 3, i1 false)
   %191 = load ptr, ptr %data, align 8
   %192 = load i32, ptr %stride, align 8
   %arrayidx134 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 24), i64 0, i64 %idxprom26
@@ -6919,7 +6919,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i585 = sext i32 %mul.i584 to i64
   %add.ptr.i586 = getelementptr inbounds i8, ptr %191, i64 %idx.ext.i585
   %add.ptr3.i589 = getelementptr inbounds i8, ptr %add.ptr.i586, i64 %idx.ext2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i589, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx134, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i589, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx134, i64 3, i1 false)
   %193 = load ptr, ptr %data, align 8
   %194 = load i32, ptr %stride, align 8
   %arrayidx141 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 12), i64 0, i64 %idxprom2
@@ -6929,7 +6929,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %mul1.i593 = mul nsw i32 %add14, 3
   %idx.ext2.i594 = sext i32 %mul1.i593 to i64
   %add.ptr3.i595 = getelementptr inbounds i8, ptr %add.ptr.i592, i64 %idx.ext2.i594
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i595, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx141, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i595, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx141, i64 3, i1 false)
   %195 = load ptr, ptr %data, align 8
   %196 = load i32, ptr %stride, align 8
   %arrayidx149 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom18
@@ -6937,7 +6937,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i597 = sext i32 %mul.i596 to i64
   %add.ptr.i598 = getelementptr inbounds i8, ptr %195, i64 %idx.ext.i597
   %add.ptr3.i601 = getelementptr inbounds i8, ptr %add.ptr.i598, i64 %idx.ext2.i594
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i601, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx149, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i601, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx149, i64 3, i1 false)
   %197 = load ptr, ptr %data, align 8
   %198 = load i32, ptr %stride, align 8
   %arrayidx159 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds (i8, ptr @stbhw__corner_colors, i64 36), i64 0, i64 %idxprom36
@@ -6945,7 +6945,7 @@ if.end117:                                        ; preds = %if.end117.loopexit,
   %idx.ext.i603 = sext i32 %mul.i602 to i64
   %add.ptr.i604 = getelementptr inbounds i8, ptr %197, i64 %idx.ext.i603
   %add.ptr3.i607 = getelementptr inbounds i8, ptr %add.ptr.i604, i64 %idx.ext2.i594
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i607, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx159, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr3.i607, ptr noundef nonnull readonly align 1 dereferenceable(3) %arrayidx159, i64 3, i1 false)
   ret void
 }
 

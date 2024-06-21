@@ -13681,7 +13681,7 @@ newarc.exit176:                                   ; preds = %317, %329, %.loopex
   tail call fastcc void @nonword(ptr noundef nonnull %0, i32 noundef 114, ptr noundef %.1, ptr noundef %337)
   %.val.i = load ptr, ptr %47, align 8
   %.val740.i = load ptr, ptr %60, align 8
-  tail call fastcc void @cloneouts(ptr noundef %.val.i, ptr noundef %.val740.i, ptr noundef %337, ptr noundef %4, i32 noundef 97)
+  tail call fastcc void @cloneouts(ptr noundef %.val.i, ptr noundef readonly %.val740.i, ptr noundef %337, ptr noundef %4, i32 noundef 97)
   %340 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   br label %parseqatom.exit
 
@@ -13696,7 +13696,7 @@ newarc.exit176:                                   ; preds = %317, %329, %.loopex
 345:                                              ; preds = %341
   %.val741.i = load ptr, ptr %47, align 8
   %.val742.i = load ptr, ptr %60, align 8
-  tail call fastcc void @cloneouts(ptr noundef %.val741.i, ptr noundef %.val742.i, ptr noundef %.1, ptr noundef %343, i32 noundef 114)
+  tail call fastcc void @cloneouts(ptr noundef %.val741.i, ptr noundef readonly %.val742.i, ptr noundef %.1, ptr noundef %343, i32 noundef 114)
   tail call fastcc void @nonword(ptr noundef nonnull %0, i32 noundef 97, ptr noundef %343, ptr noundef %4)
   %346 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   br label %parseqatom.exit
@@ -13713,7 +13713,7 @@ newarc.exit176:                                   ; preds = %317, %329, %.loopex
   tail call fastcc void @nonword(ptr noundef nonnull %0, i32 noundef 114, ptr noundef %.1, ptr noundef %349)
   %.val743.i = load ptr, ptr %47, align 8
   %.val744.i = load ptr, ptr %60, align 8
-  tail call fastcc void @cloneouts(ptr noundef %.val743.i, ptr noundef %.val744.i, ptr noundef %349, ptr noundef %4, i32 noundef 97)
+  tail call fastcc void @cloneouts(ptr noundef %.val743.i, ptr noundef readonly %.val744.i, ptr noundef %349, ptr noundef %4, i32 noundef 97)
   %352 = load ptr, ptr %47, align 8
   %353 = tail call fastcc ptr @newstate(ptr noundef %352)
   %354 = load i32, ptr %.phi.trans.insert, align 8
@@ -13723,7 +13723,7 @@ newarc.exit176:                                   ; preds = %317, %329, %.loopex
 355:                                              ; preds = %351
   %.val745.i = load ptr, ptr %47, align 8
   %.val746.i = load ptr, ptr %60, align 8
-  tail call fastcc void @cloneouts(ptr noundef %.val745.i, ptr noundef %.val746.i, ptr noundef %.1, ptr noundef %353, i32 noundef 114)
+  tail call fastcc void @cloneouts(ptr noundef %.val745.i, ptr noundef readonly %.val746.i, ptr noundef %.1, ptr noundef %353, i32 noundef 114)
   tail call fastcc void @nonword(ptr noundef nonnull %0, i32 noundef 97, ptr noundef %353, ptr noundef %4)
   %356 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   br label %parseqatom.exit
@@ -13739,10 +13739,10 @@ newarc.exit176:                                   ; preds = %317, %329, %.loopex
 361:                                              ; preds = %357
   %.val747.i = load ptr, ptr %47, align 8
   %.val748.i = load ptr, ptr %60, align 8
-  tail call fastcc void @cloneouts(ptr noundef %.val747.i, ptr noundef %.val748.i, ptr noundef %.1, ptr noundef %359, i32 noundef 114)
+  tail call fastcc void @cloneouts(ptr noundef %.val747.i, ptr noundef readonly %.val748.i, ptr noundef %.1, ptr noundef %359, i32 noundef 114)
   %.val749.i = load ptr, ptr %47, align 8
   %.val750.i = load ptr, ptr %60, align 8
-  tail call fastcc void @cloneouts(ptr noundef %.val749.i, ptr noundef %.val750.i, ptr noundef %359, ptr noundef %4, i32 noundef 97)
+  tail call fastcc void @cloneouts(ptr noundef %.val749.i, ptr noundef readonly %.val750.i, ptr noundef %359, ptr noundef %4, i32 noundef 97)
   %362 = load ptr, ptr %47, align 8
   %363 = tail call fastcc ptr @newstate(ptr noundef %362)
   %364 = load i32, ptr %.phi.trans.insert, align 8
@@ -22564,7 +22564,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %173 = getelementptr inbounds i8, ptr %168, i64 8
   store i32 %172, ptr %173, align 4
   %174 = add i32 %.1132161.i171, 1
-  call fastcc void @subcoloronerow(ptr noundef %0, i32 noundef %172, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @subcoloronerow(ptr noundef readonly %0, i32 noundef %172, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %175 = load i32, ptr %.1129162.i168, align 4
   br label %177
 
@@ -22653,7 +22653,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %.0.i104 = phi i32 [ %185, %180 ], [ %203, %218 ], [ %203, %195 ]
   %.2136.in.i = load i32, ptr %.2136.in.in.i, align 4
   %.2136.i = add i32 %.2136.in.i, 1
-  call fastcc void @subcoloronerow(ptr noundef %0, i32 noundef %.0.i104, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @subcoloronerow(ptr noundef readonly %0, i32 noundef %.0.i104, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %223 = getelementptr i8, ptr %.1129162.i168, i64 12
   %224 = add nuw nsw i32 %.1163.i167, 1
   %225 = load i32, ptr %131, align 8
@@ -22679,7 +22679,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %233 = getelementptr inbounds i8, ptr %230, i64 8
   store i32 %232, ptr %233, align 4
   %234 = add i32 %.1132.lcssa.i, 1
-  call fastcc void @subcoloronerow(ptr noundef %0, i32 noundef %232, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @subcoloronerow(ptr noundef readonly %0, i32 noundef %232, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.pre.i103 = load i32, ptr %131, align 8
   br label %235
 

@@ -2437,7 +2437,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   store i32 %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %46, i64 584
   store i32 3, ptr %80, align 8
-  %81 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef nonnull %46)
+  %81 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %46)
   %.not29.i = icmp eq i32 %81, 0
   br i1 %.not29.i, label %82, label %85
 
@@ -2452,7 +2452,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %288
 
 85:                                               ; preds = %77
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull %0, ptr noundef nonnull %46)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %46)
   %86 = getelementptr inbounds i8, ptr %46, i64 592
   store ptr null, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %17, i64 64
@@ -2669,11 +2669,11 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %220 = getelementptr inbounds i8, ptr %187, i64 440
   %221 = getelementptr inbounds i8, ptr %187, i64 488
   %222 = getelementptr inbounds i8, ptr %187, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %218, ptr noundef nonnull align 8 dereferenceable(48) %161, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %219, ptr noundef nonnull align 8 dereferenceable(48) %162, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef nonnull align 8 dereferenceable(48) %163, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %221, ptr noundef nonnull align 8 dereferenceable(48) %164, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %222, ptr noundef nonnull align 8 dereferenceable(48) %165, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %218, ptr noundef nonnull readonly align 8 dereferenceable(48) %161, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %219, ptr noundef nonnull readonly align 8 dereferenceable(48) %162, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef nonnull readonly align 8 dereferenceable(48) %163, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %221, ptr noundef nonnull readonly align 8 dereferenceable(48) %164, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %222, ptr noundef nonnull readonly align 8 dereferenceable(48) %165, i64 48, i1 false)
   %223 = load i32, ptr %166, align 8
   %.not.i145 = icmp eq i32 %223, 0
   br i1 %.not.i145, label %228, label %224
@@ -2720,7 +2720,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %spec.select.i = select i1 %245, i32 %246, i32 6
   %247 = getelementptr inbounds i8, ptr %187, i64 584
   store i32 %spec.select.i, ptr %247, align 8
-  %248 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef nonnull %187)
+  %248 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %187)
   %.not82.i = icmp eq i32 %248, 0
   br i1 %.not82.i, label %249, label %250
 
@@ -2729,7 +2729,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %IDAAckpntNew.exit.thread
 
 250:                                              ; preds = %242
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull %0, ptr noundef nonnull %187)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %187)
   %251 = load ptr, ptr %147, align 8
   %252 = getelementptr inbounds i8, ptr %187, i64 592
   store ptr %251, ptr %252, align 8

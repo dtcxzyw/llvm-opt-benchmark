@@ -122,7 +122,7 @@ define dso_local noundef ptr @JsonbValueToJsonb(ptr noundef %0) local_unnamed_ad
   store i32 %32, ptr %28, align 8
   %33 = sext i32 %31 to i64
   %34 = getelementptr %struct.JsonbPair, ptr %30, i64 %33, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
 
 35:                                               ; preds = %24
@@ -344,7 +344,7 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %82, ptr %78, align 8
   %83 = sext i32 %81 to i64
   %84 = getelementptr %struct.JsonbPair, ptr %80, i64 %83, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull readonly align 8 dereferenceable(32) %71, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
 
 85:                                               ; preds = %74
@@ -1660,7 +1660,7 @@ lengthCompareJsonbString.exit.thread:             ; preds = %getJsonbLength.exit
   br label %65
 
 lengthCompareJsonbString.exit:                    ; preds = %getJsonbLength.exit
-  %48 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %1, i64 noundef %13) #15
+  %48 = tail call i32 @memcmp(ptr noundef readonly %29, ptr noundef readonly %1, i64 noundef %13) #15
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %65
 
@@ -1904,7 +1904,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %64
   %72 = getelementptr inbounds i8, ptr %52, i64 16
   %73 = sext i32 %70 to i64
   %74 = getelementptr %struct.JsonbPair, ptr %71, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   %75 = load i32, ptr %53, align 8
   %76 = load ptr, ptr %72, align 8
   %77 = sext i32 %75 to i64
@@ -1922,7 +1922,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %64
   store i32 %85, ptr %81, align 8
   %86 = sext i32 %84 to i64
   %87 = getelementptr %struct.JsonbPair, ptr %83, i64 %86, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %194
 
 88:                                               ; preds = %3
@@ -2164,7 +2164,7 @@ uniqueifyJsonbObject.exit:                        ; preds = %118, %.thread.i, %.
   store i32 %185, ptr %181, align 8
   %186 = sext i32 %184 to i64
   %187 = getelementptr %struct.JsonbPair, ptr %183, i64 %186, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull readonly align 8 dereferenceable(32) %174, i64 32, i1 false)
   br label %194
 
 188:                                              ; preds = %177
@@ -2826,7 +2826,7 @@ lengthCompareJsonbStringValue.exit:               ; preds = %3
   %10 = getelementptr i8, ptr %0, i64 16
   %.val13 = load ptr, ptr %10, align 8
   %11 = sext i32 %.val to i64
-  %12 = tail call i32 @memcmp(ptr noundef %.val13, ptr noundef %.val15, i64 noundef %11) #15
+  %12 = tail call i32 @memcmp(ptr noundef readonly %.val13, ptr noundef readonly %.val15, i64 noundef %11) #15
   %13 = icmp eq i32 %12, 0
   %14 = icmp ne ptr %2, null
   %or.cond = and i1 %14, %13
@@ -3259,7 +3259,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef %0, ptr nocapture no
   %17 = sext i32 %12 to i64
   %18 = getelementptr i8, ptr %.val.i, i64 %17
   %19 = sext i32 %10 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %9, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr readonly align 1 %9, i64 %19, i1 false)
   %20 = load i32, ptr %7, align 8
   br label %99
 
@@ -3345,7 +3345,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %43
   %67 = sext i32 %62 to i64
   %68 = getelementptr i8, ptr %.val.i31, i64 %67
   %69 = zext nneg i32 %44 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %61, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr readonly align 1 %61, i64 %69, i1 false)
   %sext33 = shl i32 %49, 16
   %70 = ashr exact i32 %sext33, 16
   %71 = add nsw i32 %70, %44
@@ -3382,7 +3382,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %43
   %94 = getelementptr i8, ptr %.val.i32, i64 %93
   %sext = shl i64 %85, 32
   %95 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr nonnull align 16 %4, i64 %95, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr nonnull readonly align 16 %4, i64 %95, i1 false)
   br label %99
 
 96:                                               ; preds = %3

@@ -44,7 +44,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 
 13:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %.sroa.0.025, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %1, i64 %2), !alias.scope !6
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %1, i64 %2), !alias.scope !6
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %16, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge"
 
@@ -679,7 +679,7 @@ thread-pre-split:                                 ; preds = %13, %35
 40:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4), !noalias !108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %4, ptr noundef nonnull align 16 dereferenceable(176) %9, i64 176, i1 false), !noalias !106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %4, ptr noundef nonnull readonly align 16 dereferenceable(176) %9, i64 176, i1 false), !noalias !106
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %41 = load i128, ptr %4, align 16, !range !114, !alias.scope !112, !noalias !115, !noundef !4
@@ -796,7 +796,7 @@ default.unreachable1:                             ; preds = %2
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, ptr noundef nonnull align 16 dereferenceable(160) %3, i64 160, i1 false), !alias.scope !124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, ptr noundef nonnull readonly align 16 dereferenceable(160) %3, i64 160, i1 false), !alias.scope !124
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc409ee80fd7c632dE.llvm.17569681730523550952.exit"
 
 14:                                               ; preds = %10

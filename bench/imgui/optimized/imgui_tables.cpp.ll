@@ -6643,7 +6643,7 @@ for.end269:                                       ; preds = %for.body257, %if.th
   %retval.sroa.0.4.vec.insert.i.i202 = shufflevector <4 x float> %123, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %124, i64 1
   %ClipRect.i = getelementptr inbounds i8, ptr %1, i64 584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %ClipRect272, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %ClipRect272, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %125 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %125, i64 136
@@ -9215,7 +9215,7 @@ if.else:                                          ; preds = %if.end40
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %21, i64 1
   %ClipRect.i = getelementptr inbounds i8, ptr %2, i64 584
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %ClipRect, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %ClipRect, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %2, i64 680
   %22 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %22, i64 136
@@ -9586,7 +9586,7 @@ entry:
   %4 = extractelement <4 x float> %3, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %4, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull align 4 dereferenceable(16) %Bg2ClipRectForDrawCmd, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull readonly align 4 dereferenceable(16) %Bg2ClipRectForDrawCmd, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %5 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %5, i64 136
@@ -9634,7 +9634,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %6, i64 1
   %ClipRect.i = getelementptr inbounds i8, ptr %1, i64 584
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %HostBackupInnerClipRect, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %HostBackupInnerClipRect, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %7 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %7, i64 136
@@ -14415,7 +14415,7 @@ if.end:                                           ; preds = %entry
   %5 = extractelement <4 x float> %4, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %5, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull align 4 dereferenceable(16) %HostInitialClipRect, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull readonly align 4 dereferenceable(16) %HostInitialClipRect, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %6 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %6, i64 136
@@ -14463,7 +14463,7 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %5, i64 1
   %ClipRect.i = getelementptr inbounds i8, ptr %1, i64 584
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %HostBackupClipRect, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %HostBackupClipRect, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %6 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %6, i64 136
@@ -15237,7 +15237,7 @@ if.end13:                                         ; preds = %if.end
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %13, i64 1
   %ClipRect.i = getelementptr inbounds i8, ptr %2, i64 584
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %ClipRect, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %ClipRect, i64 16, i1 false)
   %DrawList.i = getelementptr inbounds i8, ptr %2, i64 680
   %14 = load ptr, ptr %DrawList.i, align 8
   %_CmdHeader.i = getelementptr inbounds i8, ptr %14, i64 136

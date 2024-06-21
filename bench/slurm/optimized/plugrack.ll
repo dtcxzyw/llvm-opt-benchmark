@@ -705,14 +705,14 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   ]
 
 29:                                               ; preds = %25
-  %30 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %17, ptr noundef %.015.i)
+  %30 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly %17, ptr noundef %.015.i)
   %31 = icmp eq i32 %30, -1
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   br i1 %31, label %plugrack_read_dir.exit.thread, label %plugrack_read_dir.exit
 
 32:                                               ; preds = %25
   store i8 0, ptr %27, align 1
-  %33 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %17, ptr noundef %.015.i)
+  %33 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly %17, ptr noundef %.015.i)
   %34 = icmp eq i32 %33, -1
   %spec.select21.i = select i1 %34, i32 -1, i32 %.0.i
   %35 = load ptr, ptr %9, align 8

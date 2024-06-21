@@ -2716,7 +2716,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %56 = getelementptr i8, ptr %18, i64 %55
   %57 = getelementptr i8, ptr %56, i64 1
   %58 = sext i32 %49 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %57, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr readonly align 1 %57, i64 %58, i1 false)
   %59 = getelementptr i8, ptr %51, i64 %58
   store i8 0, ptr %59, align 1
   %60 = load ptr, ptr %23, align 8

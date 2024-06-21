@@ -786,7 +786,7 @@ _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %308, %2
 
 328:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %329 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %329 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull readonly %5, ptr noundef nonnull %4)
           to label %.noexc17 unwind label %342
 
 .noexc17:                                         ; preds = %328

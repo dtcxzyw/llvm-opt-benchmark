@@ -132,7 +132,7 @@ define void @slurm_print_partition_info_msg(ptr nocapture noundef %0, ptr nounde
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %12 = getelementptr inbounds %struct.partition_info, ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %13 = call ptr @slurm_sprint_partition_info(ptr noundef %12, i32 noundef %2)
+  %13 = call ptr @slurm_sprint_partition_info(ptr noundef readonly %12, i32 noundef %2)
   store ptr %13, ptr %4, align 8
   %fputs.i = call i32 @fputs(ptr %13, ptr %0)
   call void @slurm_xfree(ptr noundef nonnull %4) #11

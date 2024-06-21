@@ -7516,7 +7516,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRSt14_List_itera
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %.val6, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZL12main_nix_enviPPcE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
@@ -39357,7 +39357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %200 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 32
   %201 = load ptr, ptr %200, align 8, !noalias !139
-  %202 = call i32 @memcmp(ptr noundef %201, ptr noundef %.val68.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #29, !noalias !139
+  %202 = call i32 @memcmp(ptr noundef %201, ptr noundef readonly %.val68.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i.i.i.i.i = icmp eq i32 %202, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
 
@@ -39394,7 +39394,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %206
   %.19.i.i.i.sroa.sel13.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %204, ptr %.083.i.i.i.i, ptr %.04.i.i.i.i
   %.19.i.i.i.sroa.sel13.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.sroa.sel13.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %209 = load ptr, ptr %.19.i.i.i.sroa.sel13.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !noalias !139
-  %210 = call i32 @memcmp(ptr noundef %.val68.i, ptr noundef %209, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #29, !noalias !139
+  %210 = call i32 @memcmp(ptr noundef readonly %.val68.i, ptr noundef %209, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i.i.i.i = icmp eq i32 %210, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_15MatchESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i
 
@@ -39716,7 +39716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.i: ; preds = %_
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i101.i: ; preds = %.lr.ph.i.i.i99.i
   %305 = getelementptr inbounds i8, ptr %.018.i.i.i.i, i64 32
   %306 = load ptr, ptr %305, align 8, !noalias !139
-  %307 = call i32 @memcmp(ptr noundef %306, ptr noundef %.val71.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i100.i) #29, !noalias !139
+  %307 = call i32 @memcmp(ptr noundef %306, ptr noundef readonly %.val71.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i100.i) #29, !noalias !139
   %.not.i.i.i.i.i.i102.i = icmp eq i32 %307, 0
   br i1 %.not.i.i.i.i.i.i102.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread7.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread.i.i.i.i
 
@@ -39735,7 +39735,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %312, label %335, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i34.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i34.i.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread7.i.i.i.i
-  %313 = call i32 @memcmp(ptr noundef %.val71.i, ptr noundef %306, i64 noundef %.sroa.speculated.i.i.i.i.i.i100.i) #29, !noalias !139
+  %313 = call i32 @memcmp(ptr noundef readonly %.val71.i, ptr noundef %306, i64 noundef %.sroa.speculated.i.i.i.i.i.i100.i) #29, !noalias !139
   %.not.i.i.i35.i.i.i.i = icmp eq i32 %313, 0
   br i1 %.not.i.i.i35.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i37.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41.i.i.i.i
 
@@ -39771,7 +39771,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i71
   %322 = getelementptr inbounds i8, ptr %.04.i.i.i.i.i, i64 32
   %323 = load ptr, ptr %322, align 8, !noalias !139
-  %324 = call i32 @memcmp(ptr noundef %323, ptr noundef %.val71.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #29, !noalias !139
+  %324 = call i32 @memcmp(ptr noundef %323, ptr noundef readonly %.val71.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %324, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i
 
@@ -39809,7 +39809,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47.i.i.i.i: ; preds = %.lr.ph.i43.i.i.i.i
   %330 = getelementptr inbounds i8, ptr %.04.i44.i.i.i.i, i64 32
   %331 = load ptr, ptr %330, align 8, !noalias !139
-  %332 = call i32 @memcmp(ptr noundef %.val71.i, ptr noundef %331, i64 noundef %.sroa.speculated.i.i.i.i46.i.i.i.i) #29, !noalias !139
+  %332 = call i32 @memcmp(ptr noundef readonly %.val71.i, ptr noundef %331, i64 noundef %.sroa.speculated.i.i.i.i46.i.i.i.i) #29, !noalias !139
   %.not.i.i.i.i48.i.i.i.i = icmp eq i32 %332, 0
   br i1 %.not.i.i.i.i48.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i57.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i49.i.i.i.i
 
@@ -39919,7 +39919,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_15Ma
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i110.i: ; preds = %.lr.ph.i.i.i.i106.i
   %356 = getelementptr inbounds i8, ptr %.04.i.i.i.i107.i, i64 32
   %357 = load ptr, ptr %356, align 8, !noalias !139
-  %358 = call i32 @memcmp(ptr noundef %357, ptr noundef %.val14.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i109.i) #29, !noalias !139
+  %358 = call i32 @memcmp(ptr noundef %357, ptr noundef readonly %.val14.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i109.i) #29, !noalias !139
   %.not.i.i.i.i.i.i.i111.i = icmp eq i32 %358, 0
   br i1 %.not.i.i.i.i.i.i.i111.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i136.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i112.i
 
@@ -40124,7 +40124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i161:
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i22.i.i: ; preds = %409
   %414 = getelementptr inbounds i8, ptr %410, i64 32
   %415 = load ptr, ptr %414, align 8, !noalias !139
-  %416 = call i32 @memcmp(ptr noundef %415, ptr noundef %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i21.i.i) #29, !noalias !139
+  %416 = call i32 @memcmp(ptr noundef %415, ptr noundef readonly %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i21.i.i) #29, !noalias !139
   %.not.i.i.i.i.i.i23.i.i = icmp eq i32 %416, 0
   br i1 %.not.i.i.i.i.i.i23.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i26.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i24.i.i
 
@@ -40150,7 +40150,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i20.i.i.i.i.i: ; preds = %419
   %423 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i37.i.i, i64 32
   %424 = load ptr, ptr %423, align 8, !noalias !139
-  %425 = call i32 @memcmp(ptr noundef %.val7.i.i.i.i, ptr noundef %424, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i.i) #29, !noalias !139
+  %425 = call i32 @memcmp(ptr noundef readonly %.val7.i.i.i.i, ptr noundef %424, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i21.i.i.i.i.i = icmp eq i32 %425, 0
   br i1 %.not.i.i.i21.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread23.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread.i.i.i.i.i
 
@@ -40184,7 +40184,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i29.i.i.i.i.i: ; preds = %434
   %439 = getelementptr inbounds i8, ptr %435, i64 32
   %440 = load ptr, ptr %439, align 8, !noalias !139
-  %441 = call i32 @memcmp(ptr noundef %440, ptr noundef %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i28.i.i.i.i.i) #29, !noalias !139
+  %441 = call i32 @memcmp(ptr noundef %440, ptr noundef readonly %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i28.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i30.i.i.i.i.i = icmp eq i32 %441, 0
   br i1 %.not.i.i.i30.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i32.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36.i.i.i.i.i
 
@@ -40209,7 +40209,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i38.i.i.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread23.i.i.i.i.i
-  %447 = call i32 @memcmp(ptr noundef %424, ptr noundef %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i.i) #29, !noalias !139
+  %447 = call i32 @memcmp(ptr noundef %424, ptr noundef readonly %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i39.i.i.i.i.i = icmp eq i32 %447, 0
   br i1 %.not.i.i.i39.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i41.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45.i.i.i.i.i
 
@@ -40241,7 +40241,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i47.i.i.i.i.i: ; preds = %453
   %458 = getelementptr inbounds i8, ptr %454, i64 32
   %459 = load ptr, ptr %458, align 8, !noalias !139
-  %460 = call i32 @memcmp(ptr noundef %.val7.i.i.i.i, ptr noundef %459, i64 noundef %.sroa.speculated.i.i.i46.i.i.i.i.i) #29, !noalias !139
+  %460 = call i32 @memcmp(ptr noundef readonly %.val7.i.i.i.i, ptr noundef %459, i64 noundef %.sroa.speculated.i.i.i46.i.i.i.i.i) #29, !noalias !139
   %.not.i.i.i48.i.i.i.i.i = icmp eq i32 %460, 0
   br i1 %.not.i.i.i48.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i50.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit54.i.i.i.i.i
 
@@ -40281,7 +40281,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i126.i: ; preds = %.lr.ph.i.i.i124.i
   %469 = getelementptr inbounds i8, ptr %.01317.i.i.i.i, i64 32
   %470 = load ptr, ptr %469, align 8, !noalias !139
-  %471 = call i32 @memcmp(ptr noundef %.val7.i.i.i.i, ptr noundef %470, i64 noundef %.sroa.speculated.i.i.i.i.i.i125.i) #29, !noalias !139
+  %471 = call i32 @memcmp(ptr noundef readonly %.val7.i.i.i.i, ptr noundef %470, i64 noundef %.sroa.speculated.i.i.i.i.i.i125.i) #29, !noalias !139
   %.not.i.i.i.i.i.i127.i = icmp eq i32 %471, 0
   br i1 %.not.i.i.i.i.i.i127.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i131.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i128.i
 
@@ -40328,7 +40328,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13.i.i.i.i: ; preds = %477
   %480 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i.i.i, i64 32
   %481 = load ptr, ptr %480, align 8, !noalias !139
-  %482 = call i32 @memcmp(ptr noundef %481, ptr noundef %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i12.i.pre-phi.i.i.i) #29, !noalias !139
+  %482 = call i32 @memcmp(ptr noundef %481, ptr noundef readonly %.val7.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i12.i.pre-phi.i.i.i) #29, !noalias !139
   %.not.i.i.i14.i.i.i.i = icmp eq i32 %482, 0
   br i1 %.not.i.i.i14.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i16.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit20.i.i.i.i
 

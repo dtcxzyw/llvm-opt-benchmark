@@ -22969,11 +22969,11 @@ invoke.cont12:                                    ; preds = %invoke.cont9, %_ZN1
   store ptr null, ptr %t.i, align 8
   %m_manager.i.i33 = getelementptr inbounds i8, ptr %t.i, i64 8
   store ptr %8, ptr %m_manager.i.i33, align 8
-  invoke void @_ZN16fpa2bv_converter6mk_negEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr poison, ptr noundef nonnull align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %t.i)
+  invoke void @_ZN16fpa2bv_converter6mk_negEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr poison, ptr noundef nonnull readonly align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %t.i)
           to label %invoke.cont.i unwind label %lpad6.body
 
 invoke.cont.i:                                    ; preds = %invoke.cont12
-  invoke void @_ZN16fpa2bv_converter6mk_addEP4sortR7obj_refI4expr11ast_managerES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %rm, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %t.i, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  invoke void @_ZN16fpa2bv_converter6mk_addEP4sortR7obj_refI4expr11ast_managerES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %rm, ptr noundef nonnull readonly align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %t.i, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont2.i unwind label %lpad6.body
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
@@ -33272,11 +33272,11 @@ invoke.cont865:                                   ; preds = %invoke.cont847
   store ptr null, ptr %t.i, align 8
   %m_manager.i.i1269 = getelementptr inbounds i8, ptr %t.i, i64 8
   store ptr %282, ptr %m_manager.i.i1269, align 8
-  invoke void @_ZN16fpa2bv_converter6mk_negEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr poison, ptr noundef nonnull align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %t.i)
+  invoke void @_ZN16fpa2bv_converter6mk_negEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr poison, ptr noundef nonnull readonly align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %t.i)
           to label %invoke.cont.i unwind label %lpad.i1270
 
 invoke.cont.i:                                    ; preds = %invoke.cont865
-  invoke void @_ZN16fpa2bv_converter6mk_addEP4sortR7obj_refI4expr11ast_managerES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(16) %rne_bv, ptr noundef nonnull align 8 dereferenceable(16) %rndd, ptr noundef nonnull align 8 dereferenceable(16) %t.i, ptr noundef nonnull align 8 dereferenceable(16) %rounded_sub_y)
+  invoke void @_ZN16fpa2bv_converter6mk_addEP4sortR7obj_refI4expr11ast_managerES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %s, ptr noundef nonnull readonly align 8 dereferenceable(16) %rne_bv, ptr noundef nonnull readonly align 8 dereferenceable(16) %rndd, ptr noundef nonnull align 8 dereferenceable(16) %t.i, ptr noundef nonnull align 8 dereferenceable(16) %rounded_sub_y)
           to label %invoke.cont2.i unwind label %lpad.i1270
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i

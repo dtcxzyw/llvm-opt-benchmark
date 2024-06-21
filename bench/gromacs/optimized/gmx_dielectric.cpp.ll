@@ -746,7 +746,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %169
   %261 = load float, ptr @_ZZ14gmx_dielectriciPPcE7tendInt, align 4
   %262 = load i32, ptr @_ZZ14gmx_dielectriciPPcE7nsmooth, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
-  %263 = invoke fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %102, ptr noundef %256, float noundef %261)
+  %263 = invoke fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %102, ptr noundef readonly %256, float noundef %261)
           to label %.noexc119 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc119:                                        ; preds = %235

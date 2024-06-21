@@ -5028,7 +5028,7 @@ _ZN7datalog17lazy_table_plugin7join_fnD2Ev.exit:  ; preds = %_ZN7svectorIjjED2Ev
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin7join_fnclERKNS_10table_baseES4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t1, ptr noundef nonnull align 8 dereferenceable(36) %_t2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -5037,7 +5037,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_t2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i1, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2
 
@@ -5724,7 +5724,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin8union_fnclERNS_10table_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(36) %_tgt, ptr noundef nonnull align 8 dereferenceable(36) %_src, ptr noundef %_delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_tgt, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
@@ -5733,7 +5733,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i7, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -5746,7 +5746,7 @@ _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %_ZN7datal
   br i1 %4, label %_ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   br label %_ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit
 
 _ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit: ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit, %dynamic_cast.notnull.i
@@ -5975,7 +5975,7 @@ _ZN7datalog17lazy_table_plugin10project_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin10project_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -6556,7 +6556,7 @@ _ZN7datalog17lazy_table_plugin9rename_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin9rename_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -6882,7 +6882,7 @@ _ZN7datalog17lazy_table_plugin19filter_identical_fnD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin19filter_identical_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
@@ -7166,7 +7166,7 @@ _ZN7datalog17lazy_table_plugin21filter_interpreted_fnD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_interpreted_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %if.end.i.i
 
@@ -7418,7 +7418,7 @@ _ZN7datalog17lazy_table_plugin21filter_by_negation_fnD2Ev.exit: ; preds = %_ZN7s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_by_negation_fnclERNS_10table_baseERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t, ptr noundef nonnull align 8 dereferenceable(36) %_intersected_obj) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
@@ -7427,7 +7427,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_intersected_obj, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_intersected_obj, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i2, label %if.end.i.i
 
@@ -7672,7 +7672,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin15filter_equal_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %if.end.i.i
 

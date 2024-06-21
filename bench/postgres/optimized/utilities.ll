@@ -1018,7 +1018,7 @@ define hidden range(i32 0, 2) i32 @eq_v(ptr nocapture noundef %0, ptr nocapture 
   %13 = sext i32 %8 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
   %15 = sext i32 %4 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %14, ptr nonnull %1, i64 %15)
+  %bcmp.i = tail call i32 @bcmp(ptr %14, ptr nonnull readonly %1, i64 %15)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %16, label %eq_s.exit
 
@@ -1051,7 +1051,7 @@ define hidden range(i32 0, 2) i32 @eq_v_b(ptr nocapture noundef %0, ptr nocaptur
   %15 = sext i32 %4 to i64
   %16 = sub nsw i64 0, %15
   %17 = getelementptr i8, ptr %14, i64 %16
-  %bcmp.i = tail call i32 @bcmp(ptr %17, ptr nonnull %1, i64 %15)
+  %bcmp.i = tail call i32 @bcmp(ptr %17, ptr nonnull readonly %1, i64 %15)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %18, label %eq_s_b.exit
 
@@ -1511,7 +1511,7 @@ slice_check.exit.i:                               ; preds = %16
   br i1 %.not.i, label %slice_from_s.exit, label %21
 
 21:                                               ; preds = %slice_check.exit.i
-  %22 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %10, i32 noundef %4, ptr noundef nonnull %1, ptr noundef null)
+  %22 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %10, i32 noundef %4, ptr noundef nonnull readonly %1, ptr noundef null)
   br label %slice_from_s.exit
 
 slice_from_s.exit:                                ; preds = %2, %8, %12, %16, %slice_check.exit.i, %21
@@ -1550,7 +1550,7 @@ slice_check.exit.i:                               ; preds = %13
   br i1 %.not.i, label %slice_from_s.exit, label %18
 
 18:                                               ; preds = %slice_check.exit.i
-  %19 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %7, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %19 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %7, i32 noundef 0, ptr noundef readonly null, ptr noundef null)
   br label %slice_from_s.exit
 
 slice_from_s.exit:                                ; preds = %1, %5, %9, %13, %slice_check.exit.i, %18
@@ -1600,7 +1600,7 @@ define hidden range(i32 -1, 1) i32 @insert_v(ptr nocapture noundef %0, i32 nound
   %6 = getelementptr i8, ptr %3, i64 -4
   %7 = load i32, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %8 = call i32 @replace_s(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %7, ptr noundef %3, ptr noundef nonnull %5)
+  %8 = call i32 @replace_s(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %7, ptr noundef readonly %3, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %insert_s.exit
 

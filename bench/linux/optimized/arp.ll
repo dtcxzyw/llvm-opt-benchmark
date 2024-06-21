@@ -299,7 +299,7 @@ define internal noundef range(i32 -22, 1) i32 @arp_constructor(ptr nocapture nou
   %121 = getelementptr inbounds i8, ptr %4, i64 813
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 8 %120, i64 %123, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr readonly align 8 %120, i64 %123, i1 false)
   br label %arp_mc_map.exit.thread
 
 124:                                              ; preds = %52

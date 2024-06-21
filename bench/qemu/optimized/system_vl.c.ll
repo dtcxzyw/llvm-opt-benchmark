@@ -1499,7 +1499,7 @@ entry.tail.i.i:                                   ; preds = %sw.bb71
   br i1 %33, label %if.then.i164, label %is_help_option.exit.i
 
 is_help_option.exit.i:                            ; preds = %entry.tail.i.i, %sw.bb71
-  %call1.i.i156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str.193) #20
+  %call1.i.i156 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str.193) #20
   %tobool2.not.i.i157 = icmp eq i32 %call1.i.i156, 0
   br i1 %tobool2.not.i.i157, label %if.then.i164, label %if.end.i158
 
@@ -1683,7 +1683,7 @@ entry.tail.i:                                     ; preds = %land.lhs.true120
   br i1 %61, label %if.then124, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %land.lhs.true120, %entry.tail.i
-  %call1.i165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call121, ptr noundef nonnull dereferenceable(5) @.str.193) #20
+  %call1.i165 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call121, ptr noundef nonnull dereferenceable(5) @.str.193) #20
   %tobool2.not.i = icmp eq i32 %call1.i165, 0
   br i1 %tobool2.not.i, label %if.then124, label %if.end125
 
@@ -1721,7 +1721,7 @@ entry.tail.i170:                                  ; preds = %if.then132
   br i1 %65, label %if.then136, label %is_help_option.exit171
 
 is_help_option.exit171:                           ; preds = %if.then132, %entry.tail.i170
-  %call1.i168 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call134, ptr noundef nonnull dereferenceable(5) @.str.193) #20
+  %call1.i168 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call134, ptr noundef nonnull dereferenceable(5) @.str.193) #20
   %tobool2.not.i169 = icmp eq i32 %call1.i168, 0
   br i1 %tobool2.not.i169, label %if.then136, label %if.end138
 
@@ -2228,7 +2228,7 @@ entry.tail.i192:                                  ; preds = %sw.bb184
   br i1 %320, label %if.then186, label %is_help_option.exit193
 
 is_help_option.exit193:                           ; preds = %sw.bb184, %entry.tail.i192
-  %call1.i190 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %316, ptr noundef nonnull dereferenceable(5) @.str.193) #20
+  %call1.i190 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %316, ptr noundef nonnull dereferenceable(5) @.str.193) #20
   %tobool2.not.i191 = icmp eq i32 %call1.i190, 0
   br i1 %tobool2.not.i191, label %if.then186, label %if.else187
 
@@ -2722,7 +2722,7 @@ entry.tail.i216:                                  ; preds = %lor.lhs.false420
   br i1 %362, label %if.then423, label %is_help_option.exit217
 
 is_help_option.exit217:                           ; preds = %lor.lhs.false420, %entry.tail.i216
-  %call1.i214 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call418, ptr noundef nonnull dereferenceable(5) @.str.193) #20
+  %call1.i214 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call418, ptr noundef nonnull dereferenceable(5) @.str.193) #20
   %tobool2.not.i215 = icmp eq i32 %call1.i214, 0
   br i1 %tobool2.not.i215, label %if.then423, label %if.end651
 
@@ -3588,7 +3588,7 @@ entry.tail.i.i293:                                ; preds = %land.lhs.true.i281
   br i1 %440, label %if.then.i292, label %is_help_option.exit.i283
 
 is_help_option.exit.i283:                         ; preds = %entry.tail.i.i293, %land.lhs.true.i281
-  %call1.i.i284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %436, ptr noundef nonnull dereferenceable(5) @.str.193) #20
+  %call1.i.i284 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %436, ptr noundef nonnull dereferenceable(5) @.str.193) #20
   %tobool2.not.i.i285 = icmp eq i32 %call1.i.i284, 0
   br i1 %tobool2.not.i.i285, label %if.then.i292, label %if.end.i286
 
@@ -3946,7 +3946,7 @@ for.body.i.i.i365:                                ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.inc.i.i.i367 ], [ 0, %for.body.i.i ]
   %arrayidx.i.i.i = getelementptr [20 x %struct.anon.13], ptr @default_list, i64 0, i64 %indvars.iv.i.i.i
   %471 = load ptr, ptr %arrayidx.i.i.i, align 16
-  %call.i.i.i366 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %471, ptr noundef nonnull dereferenceable(1) %call.i14.i) #20
+  %call.i.i.i366 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %471, ptr noundef nonnull readonly dereferenceable(1) %call.i14.i) #20
   %cmp3.not.i.i.i = icmp eq i32 %call.i.i.i366, 0
   br i1 %cmp3.not.i.i.i, label %if.end6.i.i.i, label %for.inc.i.i.i367
 
@@ -4303,7 +4303,7 @@ if.then54.i397:                                   ; preds = %if.end52.i
   br i1 %tobool.not.i.i398, label %if.end13.i.i, label %if.then.i.i399
 
 if.then.i.i399:                                   ; preds = %if.then54.i397
-  %call1.i44.i = call fastcc ptr @get_default_vga_model(ptr noundef %call1.i.i390)
+  %call1.i44.i = call fastcc ptr @get_default_vga_model(ptr noundef readonly %call1.i.i390)
   %call1.fr.i.i = freeze ptr %call1.i44.i
   %tobool7.not.i.i = icmp eq ptr %call1.fr.i.i, null
   br i1 %tobool7.not.i.i, label %if.end.i.us.i.i, label %if.end.i.i.i
@@ -6857,7 +6857,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr [20 x %struct.anon.13], ptr @default_list, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %call) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %call) #20
   %cmp3.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.not.i, label %if.end6.i, label %for.inc.i
 

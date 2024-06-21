@@ -4543,10 +4543,10 @@ define noundef ptr @Bac_ManCollapse(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not.i.i, label %Abc_UtilStrsav.exit.i, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val19.i) #22
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val19.i) #22
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #24
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %.val19.i) #21
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %.val19.i) #21
   br label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %8, %1
@@ -4558,10 +4558,10 @@ Abc_UtilStrsav.exit.i:                            ; preds = %8, %1
   br i1 %.not.i21.i, label %Bac_ManNtk.exit.preheader.i, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit.i
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val20.i) #22
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val20.i) #22
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #24
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %.val20.i) #21
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %.val20.i) #21
   br label %Bac_ManNtk.exit.preheader.i
 
 Bac_ManNtk.exit.preheader.i:                      ; preds = %15, %Abc_UtilStrsav.exit.i

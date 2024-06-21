@@ -82,7 +82,7 @@ define i32 @mca_topo_treematch_dist_graph_create(ptr noundef %0, ptr noundef %1,
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @opal_hwloc_topology, align 8
-  %46 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %45, i32 noundef 0, i32 noundef 0) #12
+  %46 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %45, i32 noundef 0, i32 noundef 0) #12
   %47 = icmp eq ptr %46, null
   br i1 %47, label %25, label %48
 
@@ -2288,7 +2288,7 @@ define internal fastcc ptr @hwloc_get_obj_covering_cpuset(ptr noundef readonly %
   br i1 %.not, label %4, label %hwloc_get_child_covering_cpuset.exit.thread
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
+  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #12
   %6 = getelementptr inbounds i8, ptr %5, i64 184
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %7) #12
@@ -2296,42 +2296,47 @@ define internal fastcc ptr @hwloc_get_obj_covering_cpuset(ptr noundef readonly %
   br i1 %.not13, label %hwloc_get_child_covering_cpuset.exit.thread, label %hwloc_get_child_covering_cpuset.exit.preheader
 
 hwloc_get_child_covering_cpuset.exit.preheader:   ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 120
-  %.01.i20 = load ptr, ptr %9, align 8
-  %.not112.i21 = icmp eq ptr %.01.i20, null
-  br i1 %.not112.i21, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader
+  %9 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %1) #12
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %.lr.ph.split.us, label %hwloc_get_child_covering_cpuset.exit.thread
 
-hwloc_get_child_covering_cpuset.exit.loopexit:    ; preds = %13
-  %10 = getelementptr inbounds i8, ptr %.03.i, i64 120
-  %.01.i = load ptr, ptr %10, align 8
-  %.not112.i = icmp eq ptr %.01.i, null
-  br i1 %.not112.i, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader
+.lr.ph.split.us:                                  ; preds = %hwloc_get_child_covering_cpuset.exit.preheader
+  %10 = getelementptr inbounds i8, ptr %5, i64 120
+  %.01.i.us23 = load ptr, ptr %10, align 8
+  %.not112.i.us24 = icmp eq ptr %.01.i.us23, null
+  br i1 %.not112.i.us24, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
 
-.lr.ph.i.preheader:                               ; preds = %hwloc_get_child_covering_cpuset.exit.preheader, %hwloc_get_child_covering_cpuset.exit.loopexit
-  %.01.i23 = phi ptr [ %.01.i, %hwloc_get_child_covering_cpuset.exit.loopexit ], [ %.01.i20, %hwloc_get_child_covering_cpuset.exit.preheader ]
-  %.01122 = phi ptr [ %.03.i, %hwloc_get_child_covering_cpuset.exit.loopexit ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ]
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %15
-  %.03.i = phi ptr [ %.0.i, %15 ], [ %.01.i23, %.lr.ph.i.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.03.i, i64 184
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %15
+  %.03.i.us = phi ptr [ %.0.i.us, %15 ], [ %.01.i.us26, %.lr.ph.i.preheader.us ]
+  %11 = getelementptr inbounds i8, ptr %.03.i.us, i64 184
   %12 = load ptr, ptr %11, align 8
-  %.not12.i = icmp eq ptr %12, null
-  br i1 %.not12.i, label %15, label %13
+  %.not12.i.us = icmp eq ptr %12, null
+  br i1 %.not12.i.us, label %15, label %13
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef nonnull %12) #12
-  %.not13.i = icmp eq i32 %14, 0
-  br i1 %.not13.i, label %15, label %hwloc_get_child_covering_cpuset.exit.loopexit
+13:                                               ; preds = %.lr.ph.i.us
+  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %1, ptr noundef nonnull %12) #12
+  %.not13.i.us = icmp eq i32 %14, 0
+  br i1 %.not13.i.us, label %15, label %hwloc_get_child_covering_cpuset.exit.loopexit.us
 
-15:                                               ; preds = %13, %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %.03.i, i64 88
-  %.0.i = load ptr, ptr %16, align 8
-  %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i, !llvm.loop !53
+15:                                               ; preds = %13, %.lr.ph.i.us
+  %16 = getelementptr inbounds i8, ptr %.03.i.us, i64 88
+  %.0.i.us = load ptr, ptr %16, align 8
+  %.not11.i.us = icmp eq ptr %.0.i.us, null
+  br i1 %.not11.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.us, !llvm.loop !53
 
-hwloc_get_child_covering_cpuset.exit.thread:      ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit, %15, %hwloc_get_child_covering_cpuset.exit.preheader, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %.01122, %15 ], [ %.03.i, %hwloc_get_child_covering_cpuset.exit.loopexit ]
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us
+  %.01.i.us26 = phi ptr [ %.01.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %.01.i.us23, %.lr.ph.split.us ]
+  %.01120.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
+  br label %.lr.ph.i.us
+
+hwloc_get_child_covering_cpuset.exit.loopexit.us: ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.03.i.us, i64 120
+  %.01.i.us = load ptr, ptr %17, align 8
+  %.not112.i.us = icmp eq ptr %.01.i.us, null
+  br i1 %.not112.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
+
+hwloc_get_child_covering_cpuset.exit.thread:      ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.us, %15, %hwloc_get_child_covering_cpuset.exit.preheader, %.lr.ph.split.us, %2, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.01120.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ]
   ret ptr %.0
 }
 

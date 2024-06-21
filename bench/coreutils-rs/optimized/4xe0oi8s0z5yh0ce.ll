@@ -331,7 +331,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 61:                                               ; preds = %52
   %62 = getelementptr inbounds { [10 x i64] }, ptr %13, i64 %47
   %63 = mul nuw nsw i64 %44, 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %62, i64 %63, i1 false), !alias.scope !34, !noalias !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull readonly align 8 %62, i64 %63, i1 false), !alias.scope !34, !noalias !33
   %64 = trunc nuw nsw i64 %.0.i to i16
   store i16 %64, ptr %14, align 2, !noalias !31
   %.sroa.0.i.sroa.0.0.copyload = load i64, ptr %9, align 8, !noalias !14
@@ -728,7 +728,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 204:                                              ; preds = %196
   %205 = getelementptr inbounds { [10 x i64] }, ptr %127, i64 %191
   %206 = mul nuw nsw i64 %188, 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %180, ptr nonnull align 8 %205, i64 %206, i1 false), !alias.scope !97, !noalias !96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %180, ptr nonnull readonly align 8 %205, i64 %206, i1 false), !alias.scope !97, !noalias !96
   %207 = trunc nuw nsw i64 %.0.i38 to i16
   store i16 %207, ptr %139, align 2, !noalias !94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %6, i64 80, i1 false), !noalias !101
@@ -764,7 +764,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 221:                                              ; preds = %218
   %222 = shl nuw nsw i64 %211, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %214, ptr nonnull align 8 %212, i64 %222, i1 false), !alias.scope !102, !noalias !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %214, ptr nonnull readonly align 8 %212, i64 %222, i1 false), !alias.scope !102, !noalias !87
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   br label %223
 
@@ -1107,7 +1107,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %.val28.i = load i64, ptr %27, align 8, !alias.scope !132, !noalias !135, !noundef !4
   %28 = sub i64 %.val26.i, %.val28.i
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %.val26.i, i64 %.val28.i)
-  %29 = tail call i32 @memcmp(ptr nonnull %.val25.i, ptr nonnull %.val27.i, i64 %..i.i.i), !alias.scope !137, !noalias !141
+  %29 = tail call i32 @memcmp(ptr nonnull readonly %.val25.i, ptr nonnull readonly %.val27.i, i64 %..i.i.i), !alias.scope !137, !noalias !141
   %30 = sext i32 %29 to i64
   %31 = icmp eq i32 %29, 0
   %spec.store.select.i.i.i = select i1 %31, i64 %28, i64 %30
@@ -1168,7 +1168,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$uu_ptx..
   %.val24.i = load i64, ptr %61, align 8, !alias.scope !132, !noalias !135, !noundef !4
   %62 = sub i64 %.val22.i, %.val24.i
   %..i.i29.i = tail call i64 @llvm.umin.i64(i64 %.val22.i, i64 %.val24.i)
-  %63 = tail call i32 @memcmp(ptr nonnull %.val.i, ptr nonnull %.val23.i, i64 %..i.i29.i), !alias.scope !142, !noalias !141
+  %63 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val23.i, i64 %..i.i29.i), !alias.scope !142, !noalias !141
   %64 = sext i32 %63 to i64
   %65 = icmp eq i32 %63, 0
   %spec.store.select.i.i30.i = select i1 %65, i64 %62, i64 %64

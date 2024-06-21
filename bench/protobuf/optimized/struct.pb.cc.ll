@@ -3637,7 +3637,7 @@ if.end.i.i:                                       ; preds = %for.body
   %second.i = getelementptr inbounds i8, ptr %9, i64 40
   %second = getelementptr inbounds i8, ptr %__begin0.sroa.0.119, i64 40
   call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i)
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %second)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second)
   br label %_ZN6google8protobuf5ValueaSERKS1_.exit
 
 _ZN6google8protobuf5ValueaSERKS1_.exit:           ; preds = %for.body, %if.end.i.i
@@ -5252,7 +5252,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.i
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i7
   %second2.i.i.i = getelementptr inbounds i8, ptr %12, i64 40
   call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %second2.i.i.i)
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i7, %for.body.i
@@ -5386,7 +5386,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.i
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i7
   %second2.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %second2.i.i.i)
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i7, %for.body.i

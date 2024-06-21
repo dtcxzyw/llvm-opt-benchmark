@@ -3026,11 +3026,11 @@ entry:
 if.then.i:                                        ; preds = %entry
   %m_curNodeIndex.i = getelementptr inbounds i8, ptr %this, i64 68
   %1 = load i32, ptr %m_curNodeIndex.i, align 4
-  call void @_ZNK14b3QuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull align 16 dereferenceable(16) %raySource, ptr noundef nonnull align 16 dereferenceable(16) %rayTarget, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp3, i32 noundef 0, i32 noundef %1)
+  call void @_ZNK14b3QuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 dereferenceable(16) %raySource, ptr noundef nonnull readonly align 16 dereferenceable(16) %rayTarget, ptr noundef nonnull readonly align 16 dereferenceable(16) %ref.tmp, ptr noundef nonnull readonly align 16 dereferenceable(16) %ref.tmp3, i32 noundef 0, i32 noundef %1)
   br label %_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_.exit
 
 if.else.i:                                        ; preds = %entry
-  call void @_ZNK14b3QuantizedBvh27walkStacklessTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull align 16 dereferenceable(16) %raySource, ptr noundef nonnull align 16 dereferenceable(16) %rayTarget, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp3, i32 poison, i32 poison)
+  call void @_ZNK14b3QuantizedBvh27walkStacklessTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 dereferenceable(16) %raySource, ptr noundef nonnull readonly align 16 dereferenceable(16) %rayTarget, ptr noundef nonnull readonly align 16 dereferenceable(16) %ref.tmp, ptr noundef nonnull readonly align 16 dereferenceable(16) %ref.tmp3, i32 poison, i32 poison)
   br label %_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_.exit
 
 _ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_.exit: ; preds = %if.then.i, %if.else.i

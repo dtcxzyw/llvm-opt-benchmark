@@ -128376,7 +128376,7 @@ _ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %32
 _ZNSt12_Vector_baseI11insn_desc_tSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %44, %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %47 = phi ptr [ null, %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %46, %44 ]
   %48 = getelementptr inbounds %struct.insn_desc_t, ptr %47, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, ptr noundef nonnull readonly align 8 dereferenceable(80) %3, i64 80, i1 false)
   %49 = icmp sgt i64 %36, 0
   br i1 %49, label %50, label %_ZNSt6vectorI11insn_desc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 

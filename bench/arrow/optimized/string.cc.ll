@@ -247,7 +247,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow9HexEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %str.coerce0, ptr nocapture readonly %str.coerce1) local_unnamed_addr #0 {
 entry:
-  tail call void @_ZN5arrow9HexEncodeB5cxx11EPKhm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %str.coerce1, i64 noundef %str.coerce0)
+  tail call void @_ZN5arrow9HexEncodeB5cxx11EPKhm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly %str.coerce1, i64 noundef %str.coerce0)
   ret void
 }
 

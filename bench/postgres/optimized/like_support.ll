@@ -1328,7 +1328,7 @@ pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.
   %175 = add nsw i64 %170, 4
   %176 = tail call ptr @palloc(i64 noundef %175) #11
   %177 = getelementptr inbounds i8, ptr %176, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr nonnull align 1 %69, i64 %170, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr nonnull readonly align 1 %69, i64 %170, i1 false)
   %178 = trunc i64 %175 to i32
   %179 = shl i32 %178, 2
   store i32 %179, ptr %176, align 4
@@ -2073,7 +2073,7 @@ select.unfold:                                    ; preds = %15, %22, %25
 97:                                               ; preds = %105, %.lr.ph.us
   %98 = tail call ptr @palloc(i64 noundef %94) #11
   %99 = getelementptr inbounds i8, ptr %98, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr align 1 %81, i64 %indvars.iv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr readonly align 1 %81, i64 %indvars.iv, i1 false)
   store i32 %96, ptr %98, align 4
   %100 = ptrtoint ptr %98 to i64
   %101 = tail call ptr @makeConst(i32 noundef 17, i32 noundef -1, i32 noundef 0, i32 noundef -1, i64 noundef %100, i1 noundef zeroext false, i1 noundef zeroext false) #11

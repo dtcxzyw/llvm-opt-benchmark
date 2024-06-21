@@ -2003,7 +2003,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 16 dereferenceable(1) %27, i64 %24, i1 false)
   call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
-  %28 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %.pre169)
+  %28 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull readonly %4, i32 noundef %.pre169)
   %.not.i.us = icmp eq i32 %28, 0
   br i1 %.not.i.us, label %30, label %mbedtls_camellia_setkey_dec.exit.us
 
@@ -2136,7 +2136,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
 80:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %2, i8 0, i64 276, i1 false)
-  %81 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %79)
+  %81 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %2, ptr noundef nonnull readonly %4, i32 noundef %79)
   %.not.i103 = icmp eq i32 %81, 0
   br i1 %.not.i103, label %82, label %.thread174
 
@@ -2196,7 +2196,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %44, %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %100, i64 16, i1 false)
   %101 = getelementptr inbounds [3 x [16 x i8]], ptr @camellia_test_cbc_plain, i64 0, i64 %indvars.iv163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %101, i64 16, i1 false)
-  %102 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %102 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br label %104
 
 103:                                              ; preds = %mbedtls_camellia_crypt_cbc.exit.us
@@ -2250,7 +2250,7 @@ mbedtls_camellia_crypt_cbc.exit.us:               ; preds = %104
   br i1 %exitcond.not.i, label %mbedtls_camellia_crypt_cbc.exit112.loopexit, label %113, !llvm.loop !24
 
 mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
-  %120 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %120 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   %bcmp95 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not96 = icmp eq i32 %bcmp95, 0
@@ -2328,7 +2328,7 @@ mbedtls_camellia_crypt_cbc.exit112.loopexit:      ; preds = %113
   br i1 %144, label %145, label %.loopexit.i
 
 145:                                              ; preds = %142
-  %146 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %146 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
   br label %147
 
 147:                                              ; preds = %147, %145
@@ -2383,7 +2383,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   br i1 %166, label %167, label %.loopexit.i123
 
 167:                                              ; preds = %164
-  %168 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %168 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %10)
   br label %169
 
 169:                                              ; preds = %169, %167

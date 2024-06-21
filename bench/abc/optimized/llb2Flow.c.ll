@@ -4324,7 +4324,7 @@ Llb_ManFlowGetObjSet.exit:                        ; preds = %Vec_PtrPush.exit.i
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %.lr.ph.i93 ], [ 0, %.lr.ph.i93.preheader ]
   %83 = getelementptr inbounds ptr, ptr %.val.i95, i64 %indvars.iv.i94
   %84 = load ptr, ptr %83, align 8
-  tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef %0, ptr noundef %84, ptr noundef nonnull %31)
+  tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef readonly %0, ptr noundef %84, ptr noundef nonnull %31)
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i96, %82
   br i1 %exitcond.not, label %Llb_ManFlowCollectAndMarkCone.exit, label %.lr.ph.i93, !llvm.loop !47
@@ -4539,7 +4539,7 @@ Vec_PtrFree.exit139:                              ; preds = %._crit_edge.thread,
   %indvars.iv.i145 = phi i64 [ %indvars.iv.next.i147, %.lr.ph.i144 ], [ 0, %.lr.ph.i144.preheader ]
   %144 = getelementptr inbounds ptr, ptr %.val.i146, i64 %indvars.iv.i145
   %145 = load ptr, ptr %144, align 8
-  tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef %0, ptr noundef %145, ptr noundef nonnull %31)
+  tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef readonly %0, ptr noundef %145, ptr noundef nonnull %31)
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i145, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next.i147, %143
   br i1 %exitcond200.not, label %Llb_ManFlowCollectAndMarkCone.exit149, label %.lr.ph.i144, !llvm.loop !47

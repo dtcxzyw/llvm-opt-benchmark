@@ -2904,7 +2904,7 @@ invoke.cont21:                                    ; preds = %.noexc
 
 if.then.i:                                        ; preds = %invoke.cont21
   store i32 0, ptr %status.i, align 4
-  %call2.i59 = invoke noundef i32 @_ZNK6icu_756NFRule12prefixLengthERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
+  %call2.i59 = invoke noundef i32 @_ZNK6icu_756NFRule12prefixLengthERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.noexc unwind label %lpad20
 
 call2.i.noexc:                                    ; preds = %if.then.i

@@ -544,7 +544,7 @@ define noundef ptr @data_set_string(ptr noundef returned %0, ptr noundef %1) loc
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = add nuw nsw i64 %14, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %18, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %18, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 65286, ptr %19, align 4
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -625,7 +625,7 @@ define noundef ptr @_data_set_string_own(ptr noundef returned %0, ptr noundef %1
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = add nuw nsw i64 %17, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 %21, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull readonly align 1 dereferenceable(1) %6, i64 %21, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 65286, ptr %22, align 4
   %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8

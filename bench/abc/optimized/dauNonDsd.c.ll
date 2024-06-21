@@ -1151,7 +1151,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr nocapture nou
   br i1 %.not64.i25, label %183, label %150
 
 150:                                              ; preds = %146
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.05188.i, ptr noundef nonnull dereferenceable(1) %149, i64 %141)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.05188.i, ptr noundef nonnull readonly dereferenceable(1) %149, i64 %141)
   %.not65.i26 = icmp eq i32 %bcmp.i, 0
   br i1 %.not65.i26, label %183, label %151
 
@@ -1191,7 +1191,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr nocapture nou
   br i1 %exitcond.not.i.i37, label %.sink.split.i28, label %.lr.ph.i.i30, !llvm.loop !16
 
 163:                                              ; preds = %151
-  %bcmp67.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.089.i, ptr noundef nonnull dereferenceable(1) %149, i64 %141)
+  %bcmp67.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.089.i, ptr noundef nonnull readonly dereferenceable(1) %149, i64 %141)
   %.not68.i = icmp eq i32 %bcmp67.i, 0
   br i1 %.not68.i, label %164, label %Dau_DecCheckSet5.exit
 
@@ -2550,7 +2550,7 @@ define void @Dau_DecFindSetsTest2() local_unnamed_addr #8 {
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %6 = call ptr @Dau_DecFindSets_int(ptr noundef nonnull %2, i32 noundef 5, ptr noundef nonnull %1)
+  %6 = call ptr @Dau_DecFindSets_int(ptr noundef nonnull readonly %2, i32 noundef 5, ptr noundef nonnull %1)
   br label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %10, %._crit_edge.i
@@ -3692,11 +3692,11 @@ Dau_DecSortSet.exit:                              ; preds = %29
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.split73
-  %96 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef 0, i32 noundef 0, ptr noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %96 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef 0, i32 noundef 0, ptr noundef readonly %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 97:                                               ; preds = %.split73
-  %98 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef 0, i32 noundef 0, ptr noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %98 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef 0, i32 noundef 0, ptr noundef readonly %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 .split:                                           ; preds = %._crit_edge120
@@ -3706,11 +3706,11 @@ Dau_DecSortSet.exit:                              ; preds = %29
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %.split
-  %103 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef %.017.lcssa.i140146154162, i32 noundef %100, ptr noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %103 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef %.017.lcssa.i140146154162, i32 noundef %100, ptr noundef readonly %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 104:                                              ; preds = %.split
-  %105 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef %.017.lcssa.i140146154162, i32 noundef %100, ptr noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %105 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i141145155161, i32 noundef %80, i32 noundef %.017.lcssa.i140146154162, i32 noundef %100, ptr noundef readonly %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 Dau_DecCheckSetTop.exit:                          ; preds = %104, %102, %97, %95
@@ -3814,7 +3814,7 @@ define void @Dau_DecTrySets(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br i1 %5, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %3
-  %6 = call ptr @Dau_DecFindSets_int(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
+  %6 = call ptr @Dau_DecFindSets_int(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %4)
   br label %Dau_DecFindSets.exit
 
 .lr.ph.preheader.i:                               ; preds = %3
@@ -3832,7 +3832,7 @@ define void @Dau_DecTrySets(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br i1 %exitcond.not.i, label %.lr.ph18.preheader.i, label %.lr.ph.i, !llvm.loop !39
 
 .lr.ph18.preheader.i:                             ; preds = %.lr.ph.i
-  %10 = call ptr @Dau_DecFindSets_int(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
+  %10 = call ptr @Dau_DecFindSets_int(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %4)
   br label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %14, %.lr.ph18.preheader.i

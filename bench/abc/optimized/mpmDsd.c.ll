@@ -1105,7 +1105,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %128 = mul nsw i32 %.val42.i.i, %127
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %.val43.val.i.i, i64 %129
-  %131 = tail call fastcc ptr @Hsh_IntManLookup(ptr noundef nonnull %35, ptr noundef %130)
+  %131 = tail call fastcc ptr @Hsh_IntManLookup(ptr noundef nonnull readonly %35, ptr noundef %130)
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, -1
   br i1 %133, label %134, label %Hsh_IntManAdd.exit.i

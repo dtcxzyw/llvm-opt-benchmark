@@ -141,7 +141,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %3, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %file_name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %file_name) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else5, label %for.cond.i
 
@@ -206,7 +206,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %file_name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %file_name) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 
@@ -299,7 +299,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %dest_file) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %dest_file) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %for.body.lr.ph.i24, label %for.cond.i
 
@@ -317,7 +317,7 @@ for.body.i25:                                     ; preds = %for.cond.i31, %for.
   %idxprom.i27 = sext i32 %i.06.i26 to i64
   %arrayidx.i28 = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i27
   %4 = load ptr, ptr %arrayidx.i28, align 8
-  %call.i29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %src_file) #12
+  %call.i29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %src_file) #12
   %tobool.not.i30 = icmp eq i32 %call.i29, 0
   br i1 %tobool.not.i30, label %bios_linker_find_file.exit35, label %for.cond.i31
 
@@ -435,7 +435,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %src_file) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %src_file) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 

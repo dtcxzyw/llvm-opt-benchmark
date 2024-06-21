@@ -3917,7 +3917,7 @@ RSTRING_PTR.exit1002:                             ; preds = %577, %587
   %652 = or i64 %.0804, %651
   %653 = trunc i64 %652 to i8
   store i8 %653, ptr %.2..2..2..sroa_idx, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.18111358, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 %603, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.18111358, ptr noundef nonnull readonly align 1 dereferenceable(1) %8, i64 %603, i1 false)
   %654 = getelementptr i8, ptr %.18111358, i64 %603
   %655 = sub nsw i64 %.267541359, %603
   %656 = icmp sgt i64 %655, 0

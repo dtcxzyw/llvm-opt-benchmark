@@ -4311,28 +4311,28 @@ for.body.i.i.i.i.i:                               ; preds = %if.end, %if.end12.i
   %__trip_count.057.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end12.i.i.i.i.i ], [ 4, %if.end ]
   %__first.addr.056.i.i.i.i.i = phi ptr [ %incdec.ptr13.i.i.i.i.i, %if.end12.i.i.i.i.i ], [ @"_ZZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvE5terms", %if.end ]
   %__first.addr.0.val.i.i.i.i.i = load ptr, ptr %__first.addr.056.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %__first.addr.0.val.i.i.i.i.i) #38
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %__first.addr.0.val.i.i.i.i.i) #38
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit"
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 8
   %incdec.ptr.val.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
-  %call.i.i33.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %incdec.ptr.val.i.i.i.i.i) #38
+  %call.i.i33.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr.val.i.i.i.i.i) #38
   %cmp.i.i34.not.i.i.i.i.i = icmp eq ptr %call.i.i33.i.i.i.i.i, null
   br i1 %cmp.i.i34.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit16"
 
 if.end4.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %incdec.ptr5.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 16
   %incdec.ptr5.val.i.i.i.i.i = load ptr, ptr %incdec.ptr5.i.i.i.i.i, align 8
-  %call.i.i35.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %incdec.ptr5.val.i.i.i.i.i) #38
+  %call.i.i35.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr5.val.i.i.i.i.i) #38
   %cmp.i.i36.not.i.i.i.i.i = icmp eq ptr %call.i.i35.i.i.i.i.i, null
   br i1 %cmp.i.i36.not.i.i.i.i.i, label %if.end8.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit18"
 
 if.end8.i.i.i.i.i:                                ; preds = %if.end4.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 24
   %incdec.ptr9.val.i.i.i.i.i = load ptr, ptr %incdec.ptr9.i.i.i.i.i, align 8
-  %call.i.i37.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %incdec.ptr9.val.i.i.i.i.i) #38
+  %call.i.i37.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr9.val.i.i.i.i.i) #38
   %cmp.i.i38.not.i.i.i.i.i = icmp eq ptr %call.i.i37.i.i.i.i.i, null
   br i1 %cmp.i.i38.not.i.i.i.i.i, label %if.end12.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit20"
 
@@ -18789,7 +18789,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN6spdlog7details1
   %__n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i ], [ %sub.ptr.div10.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i, i64 96, i1 false)
   %buffer.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 96
   %size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 112
   store i64 0, ptr %size_.i.i.i.i.i.i.i, align 8
@@ -18911,7 +18911,7 @@ for.body.i.i.i.i.i47:                             ; preds = %_ZN6spdlog7details1
   %__n.09.i.i.i.i.i48 = phi i64 [ %dec.i.i.i.i.i85, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i78 ], [ %sub.ptr.div10.i.i.i.i.i46, %for.body.preheader.i.i.i.i.i45 ]
   %__result.addr.08.i.i.i.i.i49 = phi ptr [ %incdec.ptr1.i.i.i.i.i84, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i78 ], [ %3, %for.body.preheader.i.i.i.i.i45 ]
   %__first.addr.07.i.i.i.i.i50 = phi ptr [ %incdec.ptr.i.i.i.i.i83, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i78 ], [ %1, %for.body.preheader.i.i.i.i.i45 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i50, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i49, ptr noundef nonnull readonly align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i50, i64 96, i1 false)
   %buffer.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i49, i64 96
   %size_.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i49, i64 112
   store i64 0, ptr %size_.i.i.i.i.i.i.i52, align 8

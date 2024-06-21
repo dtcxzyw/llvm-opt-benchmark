@@ -363,7 +363,7 @@ define internal i64 @xz_filter_read(ptr nocapture noundef readonly %0, ptr nocap
 
 .sink.split.i:                                    ; preds = %65, %47
   %.sink.i = phi i32 [ %64, %47 ], [ %66, %65 ]
-  call fastcc void @set_error(ptr noundef nonnull %0, i32 noundef %.sink.i)
+  call fastcc void @set_error(ptr noundef nonnull readonly %0, i32 noundef %.sink.i)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %38, %.sink.split.i

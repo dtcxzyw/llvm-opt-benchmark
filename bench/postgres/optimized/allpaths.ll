@@ -3201,7 +3201,7 @@ list_length.exit.i.i:                             ; preds = %378
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %404, i64 16
   %408 = load i16, ptr %407, align 8
-  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef nonnull %8)
   br i1 %409, label %410, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %397
@@ -3243,7 +3243,7 @@ list_length.exit.i.i:                             ; preds = %378
   %431 = load ptr, ptr %430, align 8
   %432 = getelementptr inbounds i8, ptr %429, i64 16
   %433 = load i16, ptr %432, align 8
-  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %8)
   br i1 %434, label %check_and_push_window_quals.exit.i, label %check_and_push_window_quals.exit.thread.i
 
 check_and_push_window_quals.exit.thread.i:        ; preds = %422, %418, %413, %383, %list_length.exit.i.i, %378, %375

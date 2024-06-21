@@ -1183,7 +1183,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pKey.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prop.i)
   store ptr @.str.4, ptr %pKey.addr.i, align 8
-  %call.i = call i32 @aiGetMaterialProperty(ptr noundef %mat, ptr noundef nonnull @.str.4, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop.i)
+  %call.i = call i32 @aiGetMaterialProperty(ptr noundef readonly %mat, ptr noundef nonnull @.str.4, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop.i)
   %0 = load ptr, ptr %prop.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %aiGetMaterialString.exit.thread, label %if.end.i
@@ -1424,7 +1424,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %data.i1 = getelementptr inbounds i8, ptr %2, i64 4
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull dereferenceable(10) @.str.12) #17
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull readonly dereferenceable(10) @.str.12) #17
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %land.lhs.true2.i, label %for.inc.i
 

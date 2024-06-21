@@ -365,7 +365,7 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_encode(ptr noundef %0, i
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %17 = call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %17 = call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %6, ptr noundef nonnull readonly %4)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %H5O__dtype_encode.exit
 

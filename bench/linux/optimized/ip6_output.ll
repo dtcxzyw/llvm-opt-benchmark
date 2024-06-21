@@ -3056,7 +3056,7 @@ ip6_fraglist_prepare.exit:                        ; preds = %278, %319
   %330 = getelementptr i8, ptr %327, i64 %329
   %331 = getelementptr inbounds i8, ptr %330, i64 4
   store i16 %326, ptr %331, align 4
-  call fastcc void @ip6_copy_metadata(ptr noundef nonnull %275, ptr noundef %276)
+  call fastcc void @ip6_copy_metadata(ptr noundef nonnull %275, ptr noundef readonly %276)
   br label %332
 
 332:                                              ; preds = %ip6_fraglist_prepare.exit, %274

@@ -17116,7 +17116,7 @@ add_ff_action_sa_query.exit:                      ; preds = %536, %.sink.split.i
   %.02931.i.i = phi i32 [ %588, %590 ], [ %601, %598 ]
   %594 = add i32 %.032.i.i132, 1
   %595 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %594) #22
-  %596 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %.032.i.i132, i32 noundef 0, ptr noundef nonnull %18, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %596 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %.032.i.i132, i32 noundef 0, ptr noundef nonnull readonly %18, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %597 = icmp eq i32 %596, 0
   br i1 %597, label %wnm_bss_trans_mgmt_query.exit.i, label %598
 
@@ -17256,7 +17256,7 @@ wnm_bss_trans_mgmt_query.exit.i:                  ; preds = %598, %593, %578
   %.2106113.i.i = phi i32 [ %.1105.i.i, %674 ], [ %685, %682 ]
   %678 = add i32 %.2114.i.i, 1
   %679 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %678) #22
-  %680 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %.2114.i.i, i32 noundef 0, ptr noundef nonnull %17, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %680 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %.2114.i.i, i32 noundef 0, ptr noundef nonnull readonly %17, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %681 = icmp eq i32 %680, 0
   br i1 %681, label %.loopexit.i.i, label %682
 
@@ -17321,7 +17321,7 @@ wnm_bss_trans_mgmt_req.exit.i:                    ; preds = %.loopexit.i.i, %661
   %.04244.i.i = phi i32 [ %709, %711 ], [ %722, %719 ]
   %715 = add i32 %.145.i.i, 1
   %716 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %715) #22
-  %717 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %.145.i.i, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %717 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %.145.i.i, i32 noundef 0, ptr noundef nonnull readonly %16, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %718 = icmp eq i32 %717, 0
   br i1 %718, label %wnm_bss_trans_mgmt_resp.exit.i, label %719
 
@@ -18247,7 +18247,7 @@ add_ff_action_fst.exit:                           ; preds = %1248, %1256, %1267,
   %1330 = load i32, ptr @hf_ieee80211_ff_dialog_token, align 4
   %1331 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1330, ptr noundef %1, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648) #22
   %1332 = add i32 %3, 3
-  %1333 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1332, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1333 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1332, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1334 = add i32 %1333, %1332
   br label %add_ff_action_robust_av_streaming.exit
 
@@ -18298,7 +18298,7 @@ add_ff_action_fst.exit:                           ; preds = %1248, %1256, %1267,
   %1363 = load i32, ptr @hf_ieee80211_ff_dialog_token, align 4
   %1364 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1363, ptr noundef %1, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648) #22
   %1365 = add i32 %3, 3
-  %1366 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1365, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1366 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1365, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1367 = add i32 %1366, %1365
   br label %add_ff_action_robust_av_streaming.exit
 
@@ -18319,7 +18319,7 @@ add_ff_action_fst.exit:                           ; preds = %1248, %1256, %1267,
   br i1 %1380, label %1381, label %add_ff_action_robust_av_streaming.exit
 
 1381:                                             ; preds = %1368
-  %1382 = tail call i32 @add_tagged_field_with_validation(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %1, i32 noundef %1378, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1382 = tail call i32 @add_tagged_field_with_validation(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %1, i32 noundef %1378, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1383 = add i32 %1382, %1378
   br label %add_ff_action_robust_av_streaming.exit
 
@@ -19011,7 +19011,7 @@ add_ff_action_vht.exit:                           ; preds = %1418, %.sink.split.
   %1658 = load i32, ptr @hf_ieee80211_ff_dialog_token, align 4
   %1659 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1658, ptr noundef %1, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #22
   %1660 = add i32 %3, 3
-  %1661 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1660, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1661 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1660, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1662 = add i32 %1661, %1660
   br label %add_ff_action_s1g.exit
 
@@ -19024,7 +19024,7 @@ add_ff_action_vht.exit:                           ; preds = %1418, %.sink.split.
   %1668 = load i32, ptr @hf_ieee80211_ff_dialog_token, align 4
   %1669 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1668, ptr noundef %1, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #22
   %1670 = add i32 %3, 3
-  %1671 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1670, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1671 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1670, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1672 = add i32 %1671, %1670
   br label %add_ff_action_s1g.exit
 
@@ -19044,17 +19044,17 @@ add_ff_action_vht.exit:                           ; preds = %1418, %.sink.split.
   br label %add_ff_action_s1g.exit
 
 1685:                                             ; preds = %1645
-  %1686 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1686 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1687 = add i32 %1686, %1652
   br label %add_ff_action_s1g.exit
 
 1688:                                             ; preds = %1645
-  %1689 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1689 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1690 = add i32 %1689, %1652
   br label %add_ff_action_s1g.exit
 
 1691:                                             ; preds = %1645
-  %1692 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1692 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1693 = add i32 %1692, %1652
   br label %add_ff_action_s1g.exit
 
@@ -19069,7 +19069,7 @@ add_ff_action_vht.exit:                           ; preds = %1418, %.sink.split.
   %1701 = add i32 %3, 3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 -40, ptr %14, align 1
-  %1702 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1701, i32 noundef 0, ptr noundef nonnull %14, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1702 = call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1701, i32 noundef 0, ptr noundef nonnull readonly %14, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %1703 = add i32 %1702, %1701
   br label %add_ff_action_s1g.exit
@@ -19120,7 +19120,7 @@ add_ff_s1g_twt_teardown.exit.i:                   ; preds = %1720, %1716, %1712,
   br label %add_ff_action_s1g.exit
 
 1725:                                             ; preds = %1645
-  %1726 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1726 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %1652, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1727 = add i32 %1726, %1652
   br label %add_ff_action_s1g.exit
 
@@ -19986,12 +19986,12 @@ add_ff_action_protected_eht.exit:                 ; preds = %1926, %1926, %.thre
   br label %add_ff_action_protected_ftm.exit
 
 2207:                                             ; preds = %2187
-  %2208 = tail call fastcc i32 @add_ff_ftm(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %2194)
+  %2208 = tail call fastcc i32 @add_ff_ftm(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly %2, i32 noundef %2194)
   %2209 = add i32 %2208, %2194
   br label %add_ff_action_protected_ftm.exit
 
 2210:                                             ; preds = %2187
-  %2211 = tail call fastcc i32 @add_ff_lmr_report(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %2194)
+  %2211 = tail call fastcc i32 @add_ff_lmr_report(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly %2, i32 noundef %2194)
   %2212 = add i32 %2211, %2194
   br label %add_ff_action_protected_ftm.exit
 
@@ -24675,7 +24675,7 @@ define internal i32 @dissect_data_encap(ptr noundef %0, ptr noundef %1, ptr noun
   %.039.i = phi i32 [ %26, %.thread.i ], [ %16, %.lr.ph.i ]
   %.03038.i = phi i32 [ %27, %.thread.i ], [ %17, %.lr.ph.i ]
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.i) #22
-  %24 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %22, ptr noundef %0, i32 noundef %.039.i, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %24 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %22, ptr noundef %0, i32 noundef %.039.i, i32 noundef -1, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %ieee_80211_add_tagged_parameters.exit, label %.thread.i
 
@@ -25306,7 +25306,7 @@ keydata_padding_len.exit:                         ; preds = %.lr.ph.i275, %319, 
   %.039.i = phi i32 [ %329, %.thread.i ], [ 0, %keydata_padding_len.exit ]
   %.03038.i = phi i32 [ %330, %.thread.i ], [ %324, %keydata_padding_len.exit ]
   %326 = call zeroext i8 @tvb_get_guint8(ptr noundef %295, i32 noundef %.039.i) #22
-  %327 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %297, ptr noundef %295, i32 noundef %.039.i, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %327 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %297, ptr noundef %295, i32 noundef %.039.i, i32 noundef -1, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %328 = icmp eq i32 %327, 0
   br i1 %328, label %ieee_80211_add_tagged_parameters.exit, label %.thread.i
 
@@ -25342,7 +25342,7 @@ save_proto_data_value.exit274:                    ; preds = %299, %308, %save_pr
   %.039.i279 = phi i32 [ %343, %.thread.i281 ], [ %232, %335 ]
   %.03038.i280 = phi i32 [ %344, %.thread.i281 ], [ %338, %335 ]
   %340 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.i279) #22
-  %341 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %337, ptr noundef %0, i32 noundef %.039.i279, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %341 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %337, ptr noundef %0, i32 noundef %.039.i279, i32 noundef -1, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %342 = icmp eq i32 %341, 0
   br i1 %342, label %ieee_80211_add_tagged_parameters.exit283, label %.thread.i281
 
@@ -27218,7 +27218,7 @@ define internal i32 @ieee80211_tag_measure_rep(ptr noundef %0, ptr noundef %1, p
   %.039.i = phi i32 [ %192, %.thread.i ], [ %.1, %188 ]
   %.03038.i = phi i32 [ %193, %.thread.i ], [ %.pre-phi, %188 ]
   %189 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.i) #22
-  %190 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %166, ptr noundef %0, i32 noundef %.039.i, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %190 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %166, ptr noundef %0, i32 noundef %.039.i, i32 noundef 5, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %ieee_80211_add_tagged_parameters.exit, label %.thread.i
 
@@ -29599,7 +29599,7 @@ save_proto_data.exit.i:                           ; preds = %226
   br i1 %.not.i170.i, label %343, label %340
 
 340:                                              ; preds = %331
-  %341 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 11, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %341 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 11, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %342 = add i32 %341, 11
   br label %343
 
@@ -29610,7 +29610,7 @@ save_proto_data.exit.i:                           ; preds = %226
   br i1 %.not21.i.i, label %dissect_rsn_ie_mlo_link.exit.i, label %345
 
 345:                                              ; preds = %343
-  %346 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %346 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   br label %dissect_rsn_ie_mlo_link.exit.i
 
 dissect_rsn_ie_mlo_link.exit.i:                   ; preds = %345, %343
@@ -32013,7 +32013,7 @@ define internal i32 @dissect_ric_data(ptr noundef %0, ptr noundef %1, ptr nounde
   %31 = tail call ptr @val_to_str_ext(i32 noundef %29, ptr noundef nonnull @tag_num_vals_ext, ptr noundef nonnull @.str.9414) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.9670, i32 noundef %indvars.iv, ptr noundef %31) #22
   %32 = load i32, ptr %3, align 8
-  %33 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef %32, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %33 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef %32, ptr noundef nonnull readonly %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %._crit_edge, label %26
 
@@ -32332,7 +32332,7 @@ define internal i32 @dissect_measurement_pilot_trans_ie(ptr noundef %0, ptr noun
   %17 = add i32 %.028, 1
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #22
   %19 = add i32 %.028, 2
-  %20 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %20 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef 0, ptr noundef nonnull readonly %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit, label %22
 
@@ -32733,7 +32733,7 @@ define internal i32 @dissect_tfs_request(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.06875 = phi i32 [ %34, %.lr.ph ], [ %23, %.preheader ]
   %31 = load i32, ptr %3, align 8
-  %32 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.06875, i32 noundef %31, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %32 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.06875, i32 noundef %31, ptr noundef nonnull readonly %5, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %33 = icmp ne i32 %32, 0
   %34 = add i32 %32, %.06875
   %35 = icmp slt i32 %34, %25
@@ -32810,7 +32810,7 @@ define internal i32 @dissect_tfs_response(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.05863 = phi i32 [ %30, %.lr.ph ], [ %14, %.preheader ]
   %27 = load i32, ptr %3, align 8
-  %28 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.05863, i32 noundef %27, ptr noundef nonnull @__const.dissect_tfs_response.ids, i32 noundef 3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %28 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.05863, i32 noundef %27, ptr noundef nonnull readonly @__const.dissect_tfs_response.ids, i32 noundef 3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %29 = icmp ne i32 %28, 0
   %30 = add i32 %28, %.05863
   %31 = icmp slt i32 %30, %16
@@ -33075,7 +33075,7 @@ define internal i32 @dissect_multiple_bssid_ie(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !114
 
 43:                                               ; preds = %34
-  %44 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %24, ptr noundef %0, i32 noundef %29, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %44 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %24, ptr noundef %0, i32 noundef %29, i32 noundef 0, ptr noundef nonnull readonly %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   br label %.loopexit
 
 45:                                               ; preds = %34
@@ -34890,7 +34890,7 @@ define internal i32 @ieee80211_tag_scs_descriptor(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %12, label %49
 
 12:                                               ; preds = %4
-  %13 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %13 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %14 = add i32 %13, 2
   %15 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %14) #22
   %16 = icmp sgt i32 %15, 0
@@ -34903,7 +34903,7 @@ define internal i32 @ieee80211_tag_scs_descriptor(ptr noundef %0, ptr noundef %1
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %.lr.ph
-  %20 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.053, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %20 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.053, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %21 = add i32 %20, %.053
   %22 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %21) #22
   %23 = icmp sgt i32 %22, 0
@@ -34921,7 +34921,7 @@ define internal i32 @ieee80211_tag_scs_descriptor(ptr noundef %0, ptr noundef %1
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %30 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   br label %31
 
 31:                                               ; preds = %29, %26, %.critedge
@@ -34941,7 +34941,7 @@ define internal i32 @ieee80211_tag_scs_descriptor(ptr noundef %0, ptr noundef %1
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %42 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %43 = add i32 %42, %.0.lcssa
   br label %44
 
@@ -34953,7 +34953,7 @@ define internal i32 @ieee80211_tag_scs_descriptor(ptr noundef %0, ptr noundef %1
 
 47:                                               ; preds = %44
   store i8 13, ptr %5, align 1
-  %48 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %48 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull readonly %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   br label %49
 
 49:                                               ; preds = %44, %47, %4
@@ -36204,7 +36204,7 @@ define internal i32 @dissect_vendor_action_wfa_qos_mgmt(ptr noundef %0, ptr noun
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %.010.i = phi i32 [ %13, %.lr.ph.i ], [ 2, %10 ]
-  %12 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.010.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %12 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.010.i, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %13 = add i32 %12, %.010.i
   %14 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %13) #22
   %.not.i = icmp eq i32 %14, 0
@@ -36220,7 +36220,7 @@ define internal i32 @dissect_vendor_action_wfa_qos_mgmt(ptr noundef %0, ptr noun
 
 .lr.ph.i26:                                       ; preds = %15, %.lr.ph.i26
   %.014.i = phi i32 [ %21, %.lr.ph.i26 ], [ 3, %15 ]
-  %20 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.014.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %20 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.014.i, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %21 = add i32 %20, %.014.i
   %22 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %21) #22
   %.not.i27 = icmp eq i32 %22, 0
@@ -43515,7 +43515,7 @@ get_or_create_conversation_data.exit359.i:        ; preds = %1351, %1340
   %.039.i.i = phi i32 [ %1388, %.thread.i.i ], [ 0, %1378 ]
   %.03038.i.i = phi i32 [ %1389, %.thread.i.i ], [ %1379, %1378 ]
   %1385 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i.i) #22
-  %1386 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1383, ptr noundef %.31115, i32 noundef %.039.i.i, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1386 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1383, ptr noundef %.31115, i32 noundef %.039.i.i, i32 noundef 4, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1387 = icmp eq i32 %1386, 0
   br i1 %1387, label %dissect_ieee80211_mgt.exit, label %.thread.i.i
 
@@ -43557,7 +43557,7 @@ get_or_create_conversation_data.exit359.i:        ; preds = %1351, %1340
   %.039.i362.i = phi i32 [ %1413, %.thread.i364.i ], [ 12, %1391 ]
   %.03038.i363.i = phi i32 [ %1414, %.thread.i364.i ], [ %1404, %1391 ]
   %1410 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i362.i) #22
-  %1411 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1408, ptr noundef %.31115, i32 noundef %.039.i362.i, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1411 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1408, ptr noundef %.31115, i32 noundef %.039.i362.i, i32 noundef 5, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1412 = icmp eq i32 %1411, 0
   br i1 %1412, label %dissect_ieee80211_mgt.exit, label %.thread.i364.i
 
@@ -43611,7 +43611,7 @@ get_or_create_conversation_data.exit359.i:        ; preds = %1351, %1340
   %.039.i369.i = phi i32 [ %1450, %.thread.i371.i ], [ 21, %1416 ]
   %.03038.i370.i = phi i32 [ %1451, %.thread.i371.i ], [ %1441, %1416 ]
   %1447 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i369.i) #22
-  %1448 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1445, ptr noundef %.31115, i32 noundef %.039.i369.i, i32 noundef 6, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1448 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1445, ptr noundef %.31115, i32 noundef %.039.i369.i, i32 noundef 6, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1449 = icmp eq i32 %1448, 0
   br i1 %1449, label %dissect_ieee80211_mgt.exit, label %.thread.i371.i
 
@@ -43653,7 +43653,7 @@ get_or_create_conversation_data.exit359.i:        ; preds = %1351, %1340
   %.039.i376.i = phi i32 [ %1475, %.thread.i378.i ], [ 12, %1453 ]
   %.03038.i377.i = phi i32 [ %1476, %.thread.i378.i ], [ %1466, %1453 ]
   %1472 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i376.i) #22
-  %1473 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1470, ptr noundef %.31115, i32 noundef %.039.i376.i, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1473 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1470, ptr noundef %.31115, i32 noundef %.039.i376.i, i32 noundef 8, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1474 = icmp eq i32 %1473, 0
   br i1 %1474, label %dissect_ieee80211_mgt.exit, label %.thread.i378.i
 
@@ -43689,7 +43689,7 @@ get_or_create_conversation_data.exit359.i:        ; preds = %1351, %1340
   %.039.i383.i = phi i32 [ %1494, %.thread.i385.i ], [ 2, %.lr.ph.i381.i ]
   %.03038.i384.i = phi i32 [ %1495, %.thread.i385.i ], [ %1485, %.lr.ph.i381.i ]
   %1491 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i383.i) #22
-  %1492 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1490, ptr noundef %.31115, i32 noundef %.039.i383.i, i32 noundef 10, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1492 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1490, ptr noundef %.31115, i32 noundef %.039.i383.i, i32 noundef 10, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1493 = icmp eq i32 %1492, 0
   br i1 %1493, label %ieee_80211_add_tagged_parameters.exit387.i, label %.thread.i385.i
 
@@ -43744,7 +43744,7 @@ ieee_80211_add_tagged_parameters.exit387.i:       ; preds = %.thread.i385.i, %.l
   %.039.i390.i = phi i32 [ %1522, %.thread.i392.i ], [ %1512, %.lr.ph.i388.i ]
   %.03038.i391.i = phi i32 [ %1523, %.thread.i392.i ], [ %1513, %.lr.ph.i388.i ]
   %1519 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i390.i) #22
-  %1520 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1518, ptr noundef %.31115, i32 noundef %.039.i390.i, i32 noundef 11, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1520 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1518, ptr noundef %.31115, i32 noundef %.039.i390.i, i32 noundef 11, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1521 = icmp eq i32 %1520, 0
   br i1 %1521, label %dissect_ieee80211_mgt.exit, label %.thread.i392.i
 
@@ -43780,7 +43780,7 @@ ieee_80211_add_tagged_parameters.exit387.i:       ; preds = %.thread.i385.i, %.l
   %.039.i397.i = phi i32 [ %1541, %.thread.i399.i ], [ 2, %.lr.ph.i395.i ]
   %.03038.i398.i = phi i32 [ %1542, %.thread.i399.i ], [ %1532, %.lr.ph.i395.i ]
   %1538 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i397.i) #22
-  %1539 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1537, ptr noundef %.31115, i32 noundef %.039.i397.i, i32 noundef 12, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1539 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1537, ptr noundef %.31115, i32 noundef %.039.i397.i, i32 noundef 12, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1540 = icmp eq i32 %1539, 0
   br i1 %1540, label %ieee_80211_add_tagged_parameters.exit401.i, label %.thread.i399.i
 
@@ -43841,7 +43841,7 @@ ieee_80211_add_tagged_parameters.exit401.i:       ; preds = %.thread.i399.i, %.l
   %.039.i404.i = phi i32 [ %1570, %.thread.i406.i ], [ %1558, %.lr.ph.i402.i ]
   %.03038.i405.i = phi i32 [ %1571, %.thread.i406.i ], [ %1561, %.lr.ph.i402.i ]
   %1567 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i404.i) #22
-  %1568 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1566, ptr noundef %.31115, i32 noundef %.039.i404.i, i32 noundef 14, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1568 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1566, ptr noundef %.31115, i32 noundef %.039.i404.i, i32 noundef 14, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1569 = icmp eq i32 %1568, 0
   br i1 %1569, label %dissect_ieee80211_mgt.exit, label %.thread.i406.i
 
@@ -44359,7 +44359,7 @@ add_ff_cc_field.exit.i:                           ; preds = %1879, %1876, %1845
   %.039.i.i1321 = phi i32 [ %1909, %.thread.i.i1323 ], [ %.0110.i, %1900 ]
   %.03038.i.i1322 = phi i32 [ %1910, %.thread.i.i1323 ], [ %1899, %1900 ]
   %1906 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i.i1321) #22
-  %1907 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1904, ptr noundef %.31115, i32 noundef %.039.i.i1321, i32 noundef 48, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1907 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1904, ptr noundef %.31115, i32 noundef %.039.i.i1321, i32 noundef 48, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1908 = icmp eq i32 %1907, 0
   br i1 %1908, label %dissect_ieee80211_extension.exit, label %.thread.i.i1323
 
@@ -44437,7 +44437,7 @@ add_ff_cc_field.exit.i:                           ; preds = %1879, %1876, %1845
   %.039.i123.i = phi i32 [ %1949, %.thread.i125.i ], [ %.3.i, %1940 ]
   %.03038.i124.i = phi i32 [ %1950, %.thread.i125.i ], [ %1939, %1940 ]
   %1946 = call zeroext i8 @tvb_get_guint8(ptr noundef %.31115, i32 noundef %.039.i123.i) #22
-  %1947 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1944, ptr noundef %.31115, i32 noundef %.039.i123.i, i32 noundef 49, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1947 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %1944, ptr noundef %.31115, i32 noundef %.039.i123.i, i32 noundef 49, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %1948 = icmp eq i32 %1947, 0
   br i1 %1948, label %dissect_ieee80211_extension.exit, label %.thread.i125.i
 
@@ -46116,7 +46116,7 @@ define internal fastcc void @ieee_80211_add_tagged_parameters(ptr noundef %0, i3
   %.039.us = phi i32 [ %15, %.thread.us ], [ %1, %.lr.ph ]
   %.03038.us = phi i32 [ %16, %.thread.us ], [ %4, %.lr.ph ]
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.us) #22
-  %12 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %.039.us, i32 noundef %5, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6)
+  %12 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %.039.us, i32 noundef %5, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %14
 
@@ -46145,7 +46145,7 @@ define internal fastcc void @ieee_80211_add_tagged_parameters(ptr noundef %0, i3
   %.039 = phi i32 [ %26, %.thread ], [ %1, %.lr.ph ]
   %.03038 = phi i32 [ %27, %.thread ], [ %4, %.lr.ph ]
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039) #22
-  %24 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %.039, i32 noundef %5, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %24 = tail call i32 @add_tagged_field_with_validation(ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %.039, i32 noundef %5, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit, label %.thread
 
@@ -46508,7 +46508,7 @@ get_group_element_len.exit.i32:                   ; preds = %94, %switch.lookup
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %.04259.i = phi i32 [ %121, %.lr.ph60.i ], [ 6, %.preheader.i ]
-  %120 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.04259.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %120 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.04259.i, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %121 = add i32 %120, %.04259.i
   %122 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %121) #22
   %.not47.i = icmp eq i32 %122, 0
@@ -46529,7 +46529,7 @@ get_group_element_len.exit.i32:                   ; preds = %94, %switch.lookup
 
 .lr.ph56.i:                                       ; preds = %.preheader48.i, %.lr.ph56.i
   %.155.i = phi i32 [ %128, %.lr.ph56.i ], [ 6, %.preheader48.i ]
-  %127 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.155.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %127 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.155.i, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %128 = add i32 %127, %.155.i
   %129 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %128) #22
   %.not46.i = icmp eq i32 %129, 0
@@ -46537,7 +46537,7 @@ get_group_element_len.exit.i32:                   ; preds = %94, %switch.lookup
 
 .lr.ph.i:                                         ; preds = %.preheader50.i, %.lr.ph.i
   %.253.i = phi i32 [ %131, %.lr.ph.i ], [ 6, %.preheader50.i ]
-  %130 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.253.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %130 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.253.i, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %131 = add i32 %130, %.253.i
   %132 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %131) #22
   %.not44.i = icmp eq i32 %132, 0
@@ -49729,7 +49729,7 @@ get_subelt_tvb.exit:                              ; preds = %.critedge.i, %223
   br i1 %.not274.i, label %324, label %dissect_multi_link_per_sta.exit.thread.sink.split
 
 324:                                              ; preds = %323
-  %325 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %239, ptr noundef %.0.i, i32 noundef %.5292.i, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %325 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %239, ptr noundef %.0.i, i32 noundef %.5292.i, i32 noundef 0, ptr noundef nonnull readonly %5, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %326 = add i32 %325, %.5292.i
   br label %340
 
@@ -49952,7 +49952,7 @@ dissect_multi_link_per_sta.exit.thread303:        ; preds = %.lr.ph294.i
   br label %471
 
 445:                                              ; preds = %.lr.ph294.i
-  %446 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %243, ptr noundef %.0.i, i32 noundef %.13293.i, i32 noundef %410, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %446 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %243, ptr noundef %.0.i, i32 noundef %.13293.i, i32 noundef %410, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %447 = add i32 %446, %.13293.i
   %448 = icmp slt i32 %447, %240
   br i1 %448, label %.lr.ph294.i, label %dissect_multi_link_per_sta.exit, !llvm.loop !227
@@ -50540,7 +50540,7 @@ define internal fastcc void @dissect_mscs_descriptor_element(ptr noundef %0, ptr
   br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %.lr.ph
-  %31 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.160, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %31 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %.160, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %32 = add i32 %31, %.160
   %33 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %32) #22
   %.not = icmp eq i32 %33, 0
@@ -50721,7 +50721,7 @@ define internal fastcc void @dissect_ranging_parameters(ptr noundef %0, ptr noun
   %81 = load i32, ptr @hf_ieee80211_tag_ranging_tb_specific_reserved, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef -2147483648) #22
   %83 = add i32 %.064, 6
-  %84 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %83, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %84 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %83, i32 noundef 0, ptr noundef readonly null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %85 = add i32 %84, %83
   %.pre = add i32 %85, %37
   br label %dissect_ntb_specific.exit

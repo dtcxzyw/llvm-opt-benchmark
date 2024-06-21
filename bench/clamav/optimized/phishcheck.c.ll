@@ -583,7 +583,7 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   br i1 %111, label %196, label %112
 
 112:                                              ; preds = %110
-  %113 = call i32 @cli_url_canon(ptr noundef nonnull %105, i64 noundef %106, ptr noundef nonnull %12, i64 noundef 1027, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %113 = call i32 @cli_url_canon(ptr noundef nonnull readonly %105, i64 noundef %106, ptr noundef nonnull %12, i64 noundef 1027, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %114 = icmp eq i32 %113, 100
   br i1 %114, label %197, label %115
 
@@ -1048,7 +1048,7 @@ isNumericURL.exit..thread130_crit_edge.i:         ; preds = %isNumericURL.exit.i
   br i1 %.not.i95.i, label %isSSL.exit.thread.i, label %isSSL.exit.i
 
 isSSL.exit.i:                                     ; preds = %276
-  %278 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @https, ptr noundef nonnull dereferenceable(1) %277, i64 noundef 6) #17
+  %278 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @https, ptr noundef nonnull readonly dereferenceable(1) %277, i64 noundef 6) #17
   %.not2.i.not.i = icmp eq i32 %278, 0
   br i1 %.not2.i.not.i, label %279, label %isSSL.exit.thread.i
 
@@ -1058,7 +1058,7 @@ isSSL.exit.i:                                     ; preds = %276
   br i1 %.not.i96.i, label %.thread134.i, label %isSSL.exit98.i
 
 isSSL.exit98.i:                                   ; preds = %279
-  %281 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @https, ptr noundef nonnull dereferenceable(1) %280, i64 noundef 6) #17
+  %281 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @https, ptr noundef nonnull readonly dereferenceable(1) %280, i64 noundef 6) #17
   %.not2.i97.not.i = icmp eq i32 %281, 0
   br i1 %.not2.i97.not.i, label %isSSL.exit.thread.i, label %.thread134.i
 
@@ -2292,7 +2292,7 @@ tld_hash.exit.i:                                  ; preds = %77, %76
   %112 = getelementptr inbounds i8, ptr %108, i64 1
   %113 = add i64 %73, 4294967295
   %114 = and i64 %113, 4294967295
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %85, ptr nonnull %112, i64 %114)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %85, ptr nonnull %112, i64 %114)
   %.not.i114 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i114, label %in_tld_set.exit, label %in_tld_set.exit.thread
 
@@ -2439,7 +2439,7 @@ tld_hash.exit.i119:                               ; preds = %148, %147
   %183 = getelementptr inbounds i8, ptr %179, i64 1
   %184 = add i64 %137, 4294967295
   %185 = and i64 %184, 4294967295
-  %bcmp.i121 = tail call i32 @bcmp(ptr nonnull %156, ptr nonnull %183, i64 %185)
+  %bcmp.i121 = tail call i32 @bcmp(ptr nonnull readonly %156, ptr nonnull %183, i64 %185)
   %.not.i122 = icmp eq i32 %bcmp.i121, 0
   br i1 %.not.i122, label %in_tld_set.exit123, label %186
 
@@ -2534,7 +2534,7 @@ tld_hash.exit.i127:                               ; preds = %206, %205
   %241 = getelementptr inbounds i8, ptr %237, i64 1
   %242 = add i64 %202, 4294967295
   %243 = and i64 %242, 4294967295
-  %bcmp.i129 = tail call i32 @bcmp(ptr nonnull %214, ptr nonnull %241, i64 %243)
+  %bcmp.i129 = tail call i32 @bcmp(ptr nonnull readonly %214, ptr nonnull %241, i64 %243)
   %.not.i130 = icmp eq i32 %bcmp.i129, 0
   %brmerge = or i1 %.not95, %.not.i130
   %.mux = zext i1 %.not.i130 to i32
@@ -2728,7 +2728,7 @@ string_assign_null.exit:                          ; preds = %.string_assign_null
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #17
+  %73 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %59) #17
   %74 = trunc i64 %73 to i32
   store i32 0, ptr %9, align 4
   %75 = add i32 %74, -16
@@ -2736,7 +2736,7 @@ string_assign_null.exit:                          ; preds = %.string_assign_null
   br i1 %or.cond.i, label %isNumeric.exit.thread, label %76
 
 76:                                               ; preds = %72
-  %77 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %59, ptr noundef nonnull @.str.334, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %77 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull readonly %59, ptr noundef nonnull @.str.334, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
   %78 = load i32, ptr %9, align 4
   %79 = icmp eq i32 %78, %74
   br i1 %79, label %80, label %isNumeric.exit.thread
@@ -3772,7 +3772,7 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   %73 = getelementptr inbounds i8, ptr %69, i64 1
   %74 = add i64 %34, 4294967295
   %75 = and i64 %74, 4294967295
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %46, ptr nonnull %73, i64 %75)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %46, ptr nonnull %73, i64 %75)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %76, label %.thread
 
@@ -4038,7 +4038,7 @@ tld_hash.exit.i:                                  ; preds = %82, %81
   %117 = getelementptr inbounds i8, ptr %113, i64 1
   %118 = add i64 %77, 4294967293
   %119 = and i64 %118, 4294967295
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %90, ptr nonnull %117, i64 %119)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %90, ptr nonnull %117, i64 %119)
   %.not.i47 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i47, label %in_tld_set.exit, label %.preheader
 

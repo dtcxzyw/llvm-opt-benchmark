@@ -330,7 +330,7 @@ _ZN10serde_json3ser9Formatter16begin_object_key17hbc4a9f7bb81b0525E.llvm.1820640
   br i1 %17, label %18, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h48bf8dac617cdb62E.llvm.18206402751905676474.exit"
 
 18:                                               ; preds = %_ZN10serde_json3ser9Formatter16begin_object_key17hbc4a9f7bb81b0525E.llvm.18206402751905676474.exit.thread.i
-  %19 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14), !noalias !159
+  %19 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias nonnull readnone align 1 poison, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14), !noalias !159
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h48bf8dac617cdb62E.llvm.18206402751905676474.exit"
 
@@ -379,7 +379,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls73_$LT$impl$u20$serde..se
   br i1 %9, label %10, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
 10:                                               ; preds = %2
-  %11 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
+  %11 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
@@ -412,7 +412,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls73_$LT$impl$u20$serde..se
   br i1 %9, label %10, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i
 
 10:                                               ; preds = %2
-  %11 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
+  %11 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 1 poison, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i
 
@@ -463,7 +463,7 @@ _ZN10serde_json3ser9Formatter16begin_object_key17hbc4a9f7bb81b0525E.llvm.1820640
   br i1 %16, label %17, label %.sink.split
 
 17:                                               ; preds = %_ZN10serde_json3ser9Formatter16begin_object_key17hbc4a9f7bb81b0525E.llvm.18206402751905676474.exit.thread
-  %18 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13), !noalias !232
+  %18 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias nonnull readnone align 1 poison, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13), !noalias !232
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i, label %.sink.split
 
@@ -542,7 +542,7 @@ define hidden noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F
   br i1 %31, label %32, label %.sink.split
 
 32:                                               ; preds = %24
-  %33 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28), !noalias !274
+  %33 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28), !noalias !274
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i, label %.sink.split
 
@@ -622,7 +622,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$serde_json..ser..MapKeySerializer$
   br i1 %6, label %7, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread
 
 7:                                                ; preds = %3
-  %8 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %8 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread
 
@@ -650,7 +650,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$serde_json..ser..MapKeySerializer$
   br i1 %6, label %7, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread
 
 7:                                                ; preds = %3
-  %8 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %8 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias nonnull readnone align 1 poison, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread
 
@@ -1509,7 +1509,7 @@ select.unfold.i.i:                                ; preds = %128
   br i1 %150, label %151, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
 151:                                              ; preds = %143
-  %152 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull readonly align 1 %145, i64 noundef %147)
+  %152 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %145, i64 noundef %147)
   %153 = icmp eq ptr %152, null
   br i1 %153, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
@@ -2015,7 +2015,7 @@ select.unfold.i.i:                                ; preds = %127
   br i1 %149, label %150, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i
 
 150:                                              ; preds = %142
-  %151 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 1 %144, i64 noundef %146)
+  %151 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 1 poison, ptr noalias noundef nonnull readonly align 1 %144, i64 noundef %146)
   %152 = icmp eq ptr %151, null
   br i1 %152, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i
 
@@ -2145,7 +2145,7 @@ _ZN10serde_json3ser9Formatter16begin_object_key17hbc4a9f7bb81b0525E.llvm.1820640
   br i1 %197, label %198, label %.loopexit.sink.split
 
 198:                                              ; preds = %_ZN10serde_json3ser9Formatter16begin_object_key17hbc4a9f7bb81b0525E.llvm.18206402751905676474.exit.thread.i
-  %199 = call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 1 %193, i64 noundef %195), !noalias !712
+  %199 = call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 1 poison, ptr noalias noundef nonnull readonly align 1 %193, i64 noundef %195), !noalias !712
   %200 = icmp eq ptr %199, null
   br i1 %200, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i, label %.loopexit.sink.split
 

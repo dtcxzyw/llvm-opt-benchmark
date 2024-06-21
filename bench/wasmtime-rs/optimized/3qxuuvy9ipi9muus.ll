@@ -8815,7 +8815,7 @@ define hidden void @"_ZN4core4iter8adapters5cycle14Cycle$LT$I$GT$3new17hba111d32
   %11 = extractvalue { i64, ptr } %6, 1
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %4, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %4, i64 %5, i1 false)
   %13 = getelementptr inbounds i8, ptr %11, i64 %5
   store ptr %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -23136,7 +23136,7 @@ define hidden { ptr, ptr } @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$4bi
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %3, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !4211
   %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %.sroa.55.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %.sroa.55.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(168) %1, i64 168, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !4211
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4216
@@ -23437,7 +23437,7 @@ define hidden { ptr, ptr } @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$4bi
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %3, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !4231
   %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %.sroa.55.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %.sroa.55.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(168) %1, i64 168, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !4231
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4236
@@ -29181,7 +29181,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h801352cbca4e5ca3E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !4638
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !4638
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h801352cbca4e5ca3E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h801352cbca4e5ca3E.exit": ; preds = %7, %11
@@ -29378,7 +29378,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h79e929b440ae652aE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !4649
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !4649
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h79e929b440ae652aE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h79e929b440ae652aE.exit": ; preds = %7, %11
@@ -29575,7 +29575,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf303d62144427fe4E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !4660
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !4660
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf303d62144427fe4E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hf303d62144427fe4E.exit": ; preds = %7, %11

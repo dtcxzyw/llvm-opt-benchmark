@@ -3695,7 +3695,7 @@ RSTRING_PTR.exit:                                 ; preds = %25, %37
 
 41:                                               ; preds = %39
   %42 = getelementptr i8, ptr %.sroa.2.0.i, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %.0, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %.0, i64 %40, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %39, %41

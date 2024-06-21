@@ -1083,7 +1083,7 @@ getJsonPathVariable.exit.i:                       ; preds = %setBaseObject.exit.
 
 125:                                              ; preds = %124
   %126 = call noundef ptr @palloc(i64 noundef 32) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull readonly align 8 dereferenceable(32) %71, i64 32, i1 false)
   br label %127
 
 127:                                              ; preds = %125, %124
@@ -1161,7 +1161,7 @@ executeNextItem.exit:                             ; preds = %137, %136, %130, %1
 
 159:                                              ; preds = %158
   %160 = call noundef ptr @palloc(i64 noundef 32) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
   %161 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %161, null
   br i1 %.not.i.i, label %165, label %162
@@ -1483,7 +1483,7 @@ JsonbArraySize.exit:                              ; preds = %254, %259
 
 317:                                              ; preds = %316
   %318 = call noundef ptr @palloc(i64 noundef 32) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull align 8 dereferenceable(32) %.0518.us, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull readonly align 8 dereferenceable(32) %.0518.us, i64 32, i1 false)
   br label %319
 
 319:                                              ; preds = %317, %316
@@ -3543,7 +3543,7 @@ define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef %0, ptr 
 
 23:                                               ; preds = %22
   %24 = call noundef ptr @palloc(i64 noundef 32) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %25
 
 25:                                               ; preds = %22, %23
@@ -4355,7 +4355,7 @@ define internal fastcc range(i32 0, 3) i32 @executeAnyItem(ptr noundef %0, ptr n
 
 32:                                               ; preds = %31
   %33 = call noundef ptr @palloc(i64 noundef 32) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull readonly align 8 dereferenceable(32) %11, i64 32, i1 false)
   %34 = load ptr, ptr %3, align 8
   %.not.i.us = icmp eq ptr %34, null
   br i1 %.not.i.us, label %37, label %35
@@ -5037,7 +5037,7 @@ setBaseObject.exit.us:                            ; preds = %96, %92, %89
 
 112:                                              ; preds = %111
   %113 = call noundef ptr @palloc(i64 noundef 32) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   %114 = load ptr, ptr %3, align 8
   %.not.i48.us = icmp eq ptr %114, null
   br i1 %.not.i48.us, label %117, label %115
@@ -5526,7 +5526,7 @@ define internal range(i32 0, 3) i32 @executeComparison(ptr nocapture noundef rea
   %81 = icmp slt i32 %74, %80
   %82 = tail call i32 @llvm.smin.i32(i32 %74, i32 %80)
   %83 = sext i32 %82 to i64
-  %84 = tail call i32 @memcmp(ptr noundef %67, ptr noundef %68, i64 noundef %83) #13
+  %84 = tail call i32 @memcmp(ptr noundef readonly %67, ptr noundef readonly %68, i64 noundef %83) #13
   %.not.i44.i.i = icmp eq i32 %84, 0
   %85 = icmp eq i32 %74, %80
   %86 = select i1 %81, i32 -1, i32 1
@@ -5557,7 +5557,7 @@ define internal range(i32 0, 3) i32 @executeComparison(ptr nocapture noundef rea
   %93 = icmp slt i32 %56, %60
   %94 = tail call i32 @llvm.smin.i32(i32 %56, i32 %60)
   %95 = sext i32 %94 to i64
-  %96 = tail call i32 @memcmp(ptr noundef %55, ptr noundef %59, i64 noundef %95) #13
+  %96 = tail call i32 @memcmp(ptr noundef readonly %55, ptr noundef readonly %59, i64 noundef %95) #13
   %.not.i47.i.i = icmp eq i32 %96, 0
   %97 = icmp eq i32 %56, %60
   %98 = select i1 %93, i32 -1, i32 1

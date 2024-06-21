@@ -1241,7 +1241,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call fastcc void @array_common(ptr noundef %jw)
-  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef %0)
+  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef readonly %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1262,7 +1262,7 @@ while.body:                                       ; preds = %entry, %while.body
   %argv.addr.03 = phi ptr [ %incdec.ptr, %while.body ], [ %argv, %entry ]
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.03, i64 8
   tail call fastcc void @array_common(ptr noundef %jw)
-  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef nonnull %1)
+  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef nonnull readonly %1)
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11

@@ -15,7 +15,7 @@ define dso_local range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr nocaptur
   %.019.i = phi i32 [ %12, %8 ], [ 0, %4 ]
   %5 = zext i32 %.019.i to i64
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str, i64 3)
   %7 = icmp eq i32 %bcmp.i, 0
   br i1 %7, label %select_next_protocol.exit14.thread.sink.split, label %8
 
@@ -36,7 +36,7 @@ define dso_local range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr nocaptur
   %.019.i10 = phi i32 [ %21, %17 ], [ 0, %.loopexit ]
   %14 = zext i32 %.019.i10 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
-  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
+  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull readonly dereferenceable(9) @.str.1, i64 9)
   %16 = icmp eq i32 %bcmp.i11, 0
   br i1 %16, label %select_next_protocol.exit14.thread.sink.split, label %17
 

@@ -163,7 +163,7 @@ if.end51:                                         ; preds = %if.then47
 
 if.end.i:                                         ; preds = %if.end51
   %buf.i = getelementptr inbounds i8, ptr %vctx, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %buf.i, ptr noundef nonnull align 1 dereferenceable(13) %10, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %buf.i, ptr noundef nonnull readonly align 1 dereferenceable(13) %10, i64 13, i1 false)
   %tls_aad_len.i = getelementptr inbounds i8, ptr %vctx, i64 32
   store i64 13, ptr %tls_aad_len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %vctx, i64 75

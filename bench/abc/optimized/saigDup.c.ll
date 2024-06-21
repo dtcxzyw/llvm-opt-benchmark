@@ -30,10 +30,10 @@ define ptr @Saig_ManDupOrpos(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #10
   %14 = add i64 %13, 1
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #11
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %11) #9
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %11) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %6, %12
@@ -297,10 +297,10 @@ define ptr @Saig_ManCreateEquivMiter(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #10
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #11
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #9
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %8, %14
@@ -594,10 +594,10 @@ define ptr @Saig_ManTrimPis(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %20
 
 20:                                               ; preds = %.critedge
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #10
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #10
   %22 = add i64 %21, 1
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #11
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %19) #9
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %20
@@ -972,10 +972,10 @@ define ptr @Saig_ManDupAbstraction(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #10
   %7 = add i64 %6, 1
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #11
-  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %4) #9
+  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %4) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %5
@@ -2817,10 +2817,10 @@ define ptr @Saig_ManDupWithPhase(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #10
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #11
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #9
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %8
@@ -3509,10 +3509,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %63
 
 63:                                               ; preds = %.critedge
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #10
+  %64 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #10
   %65 = add i64 %64, 1
   %66 = tail call noalias ptr @malloc(i64 noundef %65) #11
-  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %62) #9
+  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %62) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %63

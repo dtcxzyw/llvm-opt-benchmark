@@ -1050,7 +1050,7 @@ define internal i32 @capture_tr(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 .preheader:                                       ; preds = %5, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 1, %5 ]
   %8 = getelementptr i8, ptr %0, i64 %indvars.iv.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8, i64 %indvars.iv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %8, i64 %indvars.iv.i)
   %9 = icmp eq i32 %bcmp.i, 0
   br i1 %9, label %.split.loop.exit10.i, label %10
 

@@ -1052,7 +1052,7 @@ apply_transforms.exit.i:                          ; preds = %apply_transforms.ex
   br i1 %.not122.i, label %464, label %463
 
 463:                                              ; preds = %apply_transforms.exit.i
-  call fastcc void @reanalyze_gop(ptr noundef %0, ptr noundef nonnull %458)
+  call fastcc void @reanalyze_gop(ptr noundef readonly %0, ptr noundef nonnull %458)
   br label %analyze_pdu.exit
 
 464:                                              ; preds = %apply_transforms.exit.i
@@ -1266,7 +1266,7 @@ adopt_gop.exit.i.i:                               ; preds = %477
   br label %581
 
 581:                                              ; preds = %580, %adopt_gop.exit.i.i
-  call fastcc void @reanalyze_gop(ptr noundef %0, ptr noundef nonnull %458)
+  call fastcc void @reanalyze_gop(ptr noundef readonly %0, ptr noundef nonnull %458)
   br label %analyze_gop.exit.i
 
 analyze_gop.exit.i:                               ; preds = %581, %474

@@ -198,7 +198,7 @@ if.then15.i.i:                                    ; preds = %if.end11.i.i
   br label %parallels_load_bitmap.exit.thread.i
 
 if.end16.i.i:                                     ; preds = %if.end11.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, ptr noundef nonnull align 1 dereferenceable(16) %bf.sroa.5.0..sroa_idx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bf.sroa.5.0..sroa_idx.i.i, i64 16, i1 false)
   call void @qemu_uuid_unparse(ptr noundef nonnull %uuid.i.i, ptr noundef nonnull %uuidstr.i.i) #8
   %call20.i.i = call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %bs, i32 noundef %shl.i.i, ptr noundef nonnull %uuidstr.i.i, ptr noundef %errp) #8
   %tobool.not.i.i = icmp eq ptr %call20.i.i, null

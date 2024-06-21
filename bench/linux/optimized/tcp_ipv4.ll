@@ -7196,7 +7196,7 @@ define dso_local ptr @tcp_seq_start(ptr nocapture noundef readonly %0, ptr nocap
   store i32 0, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %81, i64 28
   store i32 0, ptr %83, align 4
-  %84 = tail call fastcc ptr @listening_get_first(ptr noundef %0)
+  %84 = tail call fastcc ptr @listening_get_first(ptr noundef readonly %0)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.loopexit9.i, label %.preheader7.i
 
@@ -7207,7 +7207,7 @@ define dso_local ptr @tcp_seq_start(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %88, label %tcp_get_idx.exit, label %89
 
 89:                                               ; preds = %.preheader7.i
-  %90 = tail call fastcc ptr @listening_get_next(ptr noundef %0, ptr noundef nonnull %87)
+  %90 = tail call fastcc ptr @listening_get_next(ptr noundef readonly %0, ptr noundef nonnull %87)
   %91 = add i64 %86, -1
   %92 = icmp eq ptr %90, null
   br i1 %92, label %.loopexit9.i, label %.preheader7.i, !llvm.loop !94
@@ -7218,7 +7218,7 @@ define dso_local ptr @tcp_seq_start(ptr nocapture noundef readonly %0, ptr nocap
   %93 = load ptr, ptr %3, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 24
   store i32 0, ptr %94, align 8
-  %95 = tail call fastcc ptr @established_get_first(ptr noundef %0)
+  %95 = tail call fastcc ptr @established_get_first(ptr noundef readonly %0)
   %96 = icmp ne ptr %95, null
   %97 = icmp ne i64 %.ph.i, 0
   %98 = and i1 %97, %96
@@ -7227,7 +7227,7 @@ define dso_local ptr @tcp_seq_start(ptr nocapture noundef readonly %0, ptr nocap
 .preheader.i:                                     ; preds = %.loopexit9.i, %.preheader.i
   %99 = phi ptr [ %101, %.preheader.i ], [ %95, %.loopexit9.i ]
   %100 = phi i64 [ %102, %.preheader.i ], [ %.ph.i, %.loopexit9.i ]
-  %101 = tail call fastcc ptr @established_get_next(ptr noundef %0, ptr noundef nonnull %99)
+  %101 = tail call fastcc ptr @established_get_next(ptr noundef readonly %0, ptr noundef nonnull %99)
   %102 = add i64 %100, -1
   %103 = icmp ne ptr %101, null
   %104 = icmp ne i64 %102, 0
@@ -7257,7 +7257,7 @@ define dso_local ptr @tcp_seq_next(ptr nocapture noundef readonly %0, ptr nounde
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 28
   store i32 0, ptr %11, align 4
-  %12 = tail call fastcc ptr @listening_get_first(ptr noundef %0)
+  %12 = tail call fastcc ptr @listening_get_first(ptr noundef readonly %0)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit9.i, label %tcp_get_idx.exit
 
@@ -7266,7 +7266,7 @@ define dso_local ptr @tcp_seq_next(ptr nocapture noundef readonly %0, ptr nounde
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   store i32 0, ptr %15, align 8
-  %16 = tail call fastcc ptr @established_get_first(ptr noundef %0)
+  %16 = tail call fastcc ptr @established_get_first(ptr noundef readonly %0)
   br label %tcp_get_idx.exit
 
 17:                                               ; preds = %3

@@ -221,7 +221,7 @@ if.end22:                                         ; preds = %while.body
   %call37 = tail call ptr @strncpy(ptr noundef nonnull %add.ptr31, ptr noundef nonnull %d_name33, i64 noundef %add36) #14
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %ctx.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %ctx.i, i8 0, i64 424, i1 false)
-  %call.i = call i32 @stat(ptr noundef nonnull %name23, ptr noundef nonnull %s.i) #14
+  %call.i = call i32 @stat(ptr noundef nonnull readonly %name23, ptr noundef nonnull %s.i) #14
   %cmp1.not.i = icmp eq i32 %call.i, 0
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %2, 61440
@@ -354,7 +354,7 @@ if.end17:                                         ; preds = %while.body
   %call32 = tail call ptr @strncpy(ptr noundef nonnull %gep, ptr noundef nonnull %d_name28, i64 noundef %add31) #14
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %ctx.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %ctx.i, i8 0, i64 424, i1 false)
-  %call.i = call i32 @stat(ptr noundef nonnull %name4, ptr noundef nonnull %s.i) #14
+  %call.i = call i32 @stat(ptr noundef nonnull readonly %name4, ptr noundef nonnull %s.i) #14
   %cmp1.not.i = icmp eq i32 %call.i, 0
   %3 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %3, 61440

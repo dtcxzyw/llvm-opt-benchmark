@@ -4540,7 +4540,7 @@ common.ret:                                       ; preds = %222, %225
   %43 = extractvalue { ptr, i64 } %40, 1
   %44 = icmp ne ptr %42, null
   tail call void @llvm.assume(i1 %44)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %32, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %32, i64 %34, i1 false)
   store ptr %42, ptr %8, align 8, !alias.scope !607, !noalias !612
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %43, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !607, !noalias !612
@@ -6198,7 +6198,7 @@ common.ret:                                       ; preds = %2582, %1513, %1490,
   %479 = extractvalue { ptr, i64 } %450, 1
   %480 = icmp ne ptr %478, null
   call void @llvm.assume(i1 %480)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %478, ptr nonnull align 1 %448, i64 %449, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %478, ptr nonnull readonly align 1 %448, i64 %449, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0675.sroa.10, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8684, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8684)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1144) %.sroa.0675.sroa.11, ptr noundef nonnull align 8 dereferenceable(1144) %.sroa.0670.sroa.9, i64 1144, i1 false), !alias.scope !837
@@ -6644,7 +6644,7 @@ common.ret:                                       ; preds = %2582, %1513, %1490,
   %612 = extractvalue { ptr, i64 } %607, 1
   %613 = icmp ne ptr %611, null
   call void @llvm.assume(i1 %613)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %611, ptr nonnull align 1 %605, i64 %606, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %611, ptr nonnull readonly align 1 %605, i64 %606, i1 false)
   %614 = getelementptr inbounds i8, ptr %136, i64 24
   store i8 %603, ptr %614, align 8, !alias.scope !886, !noalias !896
   store ptr %611, ptr %136, align 8, !alias.scope !886, !noalias !896
@@ -7587,7 +7587,7 @@ common.ret:                                       ; preds = %2582, %1513, %1490,
   %930 = extractvalue { ptr, i64 } %925, 1
   %931 = icmp ne ptr %929, null
   call void @llvm.assume(i1 %931)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %929, ptr nonnull align 1 %923, i64 %924, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %929, ptr nonnull readonly align 1 %923, i64 %924, i1 false)
   %932 = getelementptr inbounds i8, ptr %103, i64 24
   store i8 %921, ptr %932, align 8, !alias.scope !1011, !noalias !1022
   store ptr %929, ptr %103, align 8, !alias.scope !1011, !noalias !1022
@@ -7680,7 +7680,7 @@ common.ret:                                       ; preds = %2582, %1513, %1490,
   %958 = extractvalue { ptr, i64 } %953, 1
   %959 = icmp ne ptr %957, null
   call void @llvm.assume(i1 %959)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %957, ptr nonnull align 1 %951, i64 %952, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %957, ptr nonnull readonly align 1 %951, i64 %952, i1 false)
   %960 = getelementptr inbounds i8, ptr %99, i64 24
   store i8 %950, ptr %960, align 8, !alias.scope !1023, !noalias !1034
   store ptr %957, ptr %99, align 8, !alias.scope !1023, !noalias !1034
@@ -10835,7 +10835,7 @@ common.ret:                                       ; preds = %2582, %1513, %1490,
   %2066 = extractvalue { ptr, i64 } %2063, 1
   %2067 = icmp ne ptr %2065, null
   call void @llvm.assume(i1 %2067)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2065, ptr nonnull align 1 %2061, i64 %2062, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2065, ptr nonnull readonly align 1 %2061, i64 %2062, i1 false)
   %2068 = getelementptr inbounds i8, ptr %54, i64 24
   store i8 %2059, ptr %2068, align 8, !alias.scope !1406, !noalias !1416
   store ptr %2065, ptr %54, align 8, !alias.scope !1406, !noalias !1416

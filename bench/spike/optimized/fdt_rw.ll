@@ -886,7 +886,7 @@ fdt_find_add_string_.exit:                        ; preds = %50, %118
   br i1 %.not.i.not, label %167, label %fdt_find_add_string_.exit.thread
 
 167:                                              ; preds = %166
-  %168 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
+  %168 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %169 = trunc i64 %168 to i32
   %.neg.i = xor i32 %169, -1
   %170 = load i8, ptr %31, align 1
@@ -1540,7 +1540,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %136 = or disjoint i64 %132, %135
   %137 = getelementptr inbounds i8, ptr %0, i64 %136
   %138 = sext i32 %29 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %118, ptr align 1 %137, i64 %138, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %118, ptr readonly align 1 %137, i64 %138, i1 false)
   %139 = getelementptr inbounds i8, ptr %.048, i64 16
   store i32 671088640, ptr %139, align 4
   %140 = sext i32 %85 to i64
@@ -1565,7 +1565,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %159 = or disjoint i64 %155, %158
   %160 = getelementptr inbounds i8, ptr %0, i64 %159
   %161 = sext i32 %76 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %141, ptr align 1 %160, i64 %161, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %141, ptr readonly align 1 %160, i64 %161, i1 false)
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %85)
   %162 = getelementptr inbounds i8, ptr %.048, i64 8
   store i32 %rev.i.i.i, ptr %162, align 4
@@ -1607,7 +1607,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %196 = load i8, ptr %101, align 1
   %197 = zext i8 %196 to i64
   %198 = or disjoint i64 %195, %197
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %165, ptr align 1 %184, i64 %198, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %165, ptr readonly align 1 %184, i64 %198, i1 false)
   %rev.i.i29.i = call noundef i32 @llvm.bswap.i32(i32 %86)
   %199 = getelementptr inbounds i8, ptr %.048, i64 12
   store i32 %rev.i.i29.i, ptr %199, align 4
@@ -1893,7 +1893,7 @@ fdt_rw_probe_.exit:                               ; preds = %45, %44
   %83 = or disjoint i64 %79, %82
   %84 = getelementptr inbounds i8, ptr %0, i64 %83
   %85 = sext i32 %48 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %65, ptr align 1 %84, i64 %85, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %65, ptr readonly align 1 %84, i64 %85, i1 false)
   store i32 671088640, ptr %66, align 4
   %86 = sext i32 %63 to i64
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
@@ -1917,7 +1917,7 @@ fdt_rw_probe_.exit:                               ; preds = %45, %44
   %105 = or disjoint i64 %101, %104
   %106 = getelementptr inbounds i8, ptr %0, i64 %105
   %107 = sext i32 %62 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %106, i64 %107, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %87, ptr readonly align 1 %106, i64 %107, i1 false)
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %63)
   store i32 %rev.i.i.i, ptr %88, align 4
   %rev.i.i28.i = tail call noundef i32 @llvm.bswap.i32(i32 %62)
@@ -1961,7 +1961,7 @@ fdt_rw_probe_.exit:                               ; preds = %45, %44
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i64
   %146 = or disjoint i64 %142, %145
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %109, ptr align 1 %128, i64 %146, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %109, ptr readonly align 1 %128, i64 %146, i1 false)
   %rev.i.i29.i = tail call noundef i32 @llvm.bswap.i32(i32 %64)
   store i32 %rev.i.i29.i, ptr %110, align 4
   %147 = load i8, ptr %129, align 1

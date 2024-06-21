@@ -2236,7 +2236,7 @@ default.unreachable171:                           ; preds = %1110, %1099, %1083,
   %191 = extractvalue { ptr, i64 } %186, 1
   %192 = icmp ne ptr %190, null
   call void @llvm.assume(i1 %192)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %190, ptr nonnull align 1 %184, i64 %185, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %190, ptr nonnull readonly align 1 %184, i64 %185, i1 false)
   %193 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %182, ptr %193, align 8, !alias.scope !345, !noalias !348
   store ptr %190, ptr %0, align 8, !alias.scope !345, !noalias !348
@@ -2301,7 +2301,7 @@ default.unreachable171:                           ; preds = %1110, %1099, %1083,
   %217 = extractvalue { ptr, i64 } %212, 1
   %218 = icmp ne ptr %216, null
   call void @llvm.assume(i1 %218)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %216, ptr nonnull align 1 %210, i64 %211, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %216, ptr nonnull readonly align 1 %210, i64 %211, i1 false)
   %219 = getelementptr inbounds i8, ptr %88, i64 24
   store i8 %209, ptr %219, align 8, !alias.scope !355, !noalias !358
   store ptr %216, ptr %88, align 8, !alias.scope !355, !noalias !358
@@ -2428,7 +2428,7 @@ default.unreachable171:                           ; preds = %1110, %1099, %1083,
   %261 = extractvalue { ptr, i64 } %256, 1
   %262 = icmp ne ptr %260, null
   call void @llvm.assume(i1 %262)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %260, ptr nonnull align 1 %254, i64 %255, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %260, ptr nonnull readonly align 1 %254, i64 %255, i1 false)
   %263 = getelementptr inbounds i8, ptr %85, i64 24
   store i8 %252, ptr %263, align 8, !alias.scope !365, !noalias !368
   store ptr %260, ptr %85, align 8, !alias.scope !365, !noalias !368
@@ -2822,7 +2822,7 @@ common.ret:                                       ; preds = %1338, %295
   %389 = extractvalue { ptr, i64 } %387, 1
   %390 = icmp ne ptr %388, null
   call void @llvm.assume(i1 %390)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %388, ptr nonnull align 1 %385, i64 %386, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %388, ptr nonnull readonly align 1 %385, i64 %386, i1 false)
   %391 = getelementptr inbounds i8, ptr %73, i64 24
   store i8 %383, ptr %391, align 8, !alias.scope !392, !noalias !402
   store ptr %388, ptr %73, align 8, !alias.scope !392, !noalias !402

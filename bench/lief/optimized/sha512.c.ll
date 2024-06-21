@@ -1171,7 +1171,7 @@ mbedtls_sha512_starts.exit:                       ; preds = %22, %23
 42:                                               ; preds = %41
   %43 = and i64 %31, 127
   %44 = getelementptr inbounds i8, ptr %15, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %35, i1 false)
   %45 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %3, ptr noundef nonnull %15)
   %46 = getelementptr inbounds i8, ptr %4, i64 %35
   %47 = sub nuw nsw i64 1000, %35

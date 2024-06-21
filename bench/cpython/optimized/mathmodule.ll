@@ -3142,7 +3142,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.end10.thread17.i:                              ; preds = %if.then3.i
   %mul6.i = shl i64 %i.0.lcssa, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 16 %ps, i64 %mul6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 16 %ps, i64 %mul6.i, i1 false)
   br label %if.else59
 
 if.end10.i:                                       ; preds = %if.then.i
@@ -6815,7 +6815,7 @@ skip_optional:                                    ; preds = %if.end
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %skip_optional.thread, %skip_optional
-  %call.i = tail call ptr @math_factorial(ptr poison, ptr noundef %1)
+  %call.i = tail call ptr @math_factorial(ptr readnone poison, ptr noundef %1)
   br label %math_perm_impl.exit
 
 if.end.i:                                         ; preds = %skip_optional

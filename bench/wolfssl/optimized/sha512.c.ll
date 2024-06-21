@@ -725,7 +725,7 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
   %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512.exit.i, label %for.body.i.i.i.preheader
@@ -817,7 +817,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef %data, i32 noundef %len)
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -962,7 +962,7 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
   %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_224.exit.i, label %for.body.i.i.i.preheader
@@ -998,7 +998,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha512Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull align 8 dereferenceable(224) %src, i64 224, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull readonly align 8 dereferenceable(224) %src, i64 224, i1 false)
   br label %wc_Sha512Copy.exit
 
 wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
@@ -1054,7 +1054,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef %data, i32 noundef %len)
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -1199,7 +1199,7 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
   %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_256.exit.i, label %for.body.i.i.i.preheader
@@ -1235,7 +1235,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha512Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull align 8 dereferenceable(224) %src, i64 224, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull readonly align 8 dereferenceable(224) %src, i64 224, i1 false)
   br label %wc_Sha512Copy.exit
 
 wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
@@ -1253,7 +1253,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i5
 
 if.end.i5:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull align 8 dereferenceable(224) %sha384, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha384, i64 224, i1 false)
   %call.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha384)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %for.body.i.i.preheader

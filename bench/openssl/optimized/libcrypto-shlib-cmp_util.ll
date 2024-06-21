@@ -275,7 +275,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %cmp3.i, label %improve_location_name.exit, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.18) #7
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.18) #7
   %cmp6.i = icmp eq i32 %call.i, 0
   %spec.select.i = select i1 %cmp6.i, ptr %call1, ptr %0
   br label %improve_location_name.exit

@@ -327,7 +327,7 @@ for.body:                                         ; preds = %for.end.i, %for.bod
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
-  tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull %s, ptr noundef nonnull @ossl_curve448_scalar_one)
+  tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull readonly %s, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull %s, ptr noundef nonnull @sc_r2)
   %4 = and i128 %sub, 79228162495817593519834398720
   %isnotneg = icmp ne i128 %4, 0
@@ -407,7 +407,7 @@ while.cond.preheader:                             ; preds = %scalar_decode_short
   br i1 %tobool.not32, label %while.end, label %while.body
 
 if.then7:                                         ; preds = %scalar_decode_short.exit
-  call fastcc void @sc_montmul(ptr noundef %s, ptr noundef nonnull %t1, ptr noundef nonnull @ossl_curve448_scalar_one)
+  call fastcc void @sc_montmul(ptr noundef %s, ptr noundef nonnull readonly %t1, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   tail call fastcc void @sc_montmul(ptr noundef %s, ptr noundef %s, ptr noundef nonnull @sc_r2)
   call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #6
   br label %return
@@ -452,7 +452,7 @@ for.end.i.i:                                      ; preds = %for.body4.i.i, %for
   br i1 %exitcond.not.i.i, label %for.body.i.preheader, label %for.cond1.preheader.i.i, !llvm.loop !12
 
 for.body.i.preheader:                             ; preds = %for.end.i.i
-  call fastcc void @sc_montmul(ptr noundef nonnull %t2, ptr noundef nonnull %t2, ptr noundef nonnull @ossl_curve448_scalar_one)
+  call fastcc void @sc_montmul(ptr noundef nonnull %t2, ptr noundef nonnull readonly %t2, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   call fastcc void @sc_montmul(ptr noundef nonnull %t2, ptr noundef nonnull %t2, ptr noundef nonnull @sc_r2)
   br label %for.body.i19
 
@@ -522,7 +522,7 @@ ossl_curve448_scalar_add.exit:                    ; preds = %for.body14.i.i
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %ossl_curve448_scalar_add.exit, %while.cond.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %s, ptr noundef nonnull align 16 dereferenceable(56) %t1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %s, ptr noundef nonnull readonly align 16 dereferenceable(56) %t1, i64 56, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %t2, i64 noundef 56) #6
   br label %return

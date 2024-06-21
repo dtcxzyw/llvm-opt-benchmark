@@ -1075,7 +1075,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.
 lor.lhs.false.i.i.i:                              ; preds = %strbuf_setlen.exit.i
   %sub.i.i.i = add i64 %40, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %39, i64 %sub.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.116, i64 5)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.116, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_strip_suffix.exit.i
 
@@ -1221,7 +1221,7 @@ strbuf_setlen.exit.i90:                           ; preds = %if.then4.i.i89, %if
 lor.lhs.false.i.i.i94:                            ; preds = %strbuf_setlen.exit.i90
   %sub.i.i.i95 = add i64 %54, -5
   %add.ptr.i.i.i96 = getelementptr inbounds i8, ptr %53, i64 %sub.i.i.i95
-  %bcmp.i.i.i97 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i96, ptr noundef nonnull dereferenceable(5) @.str.116, i64 5)
+  %bcmp.i.i.i97 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i96, ptr noundef nonnull readonly dereferenceable(5) @.str.116, i64 5)
   %tobool.not.i.i.i98 = icmp eq i32 %bcmp.i.i.i97, 0
   br i1 %tobool.not.i.i.i98, label %if.then.i.i101, label %strbuf_strip_suffix.exit.i99
 
@@ -1635,7 +1635,7 @@ if.then483:                                       ; preds = %if.end480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.write_midx_included_packs.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.geometry_remove_redundant_packs.buf, i64 24, i1 false)
   %106 = load ptr, ptr @packtmp, align 8
-  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd.i, ptr noundef nonnull %po_args, ptr noundef %106)
+  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd.i, ptr noundef nonnull readonly %po_args, ptr noundef %106)
   %in.i = getelementptr inbounds i8, ptr %cmd.i, i64 80
   store i32 -1, ptr %in.i, align 8
   %call.i121 = call i32 @for_each_packed_object(ptr noundef nonnull @write_oid, ptr noundef nonnull %cmd.i, i32 noundef 2) #15
@@ -2092,7 +2092,7 @@ do.cond.i.i164:                                   ; preds = %do.body.i.i160
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i164, %do.body.i.i160
   %conv.i168 = zext i1 %tobool.not.i.i163 to i32
-  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd.i159, ptr noundef nonnull %po_args, ptr noundef %173)
+  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd.i159, ptr noundef nonnull readonly %po_args, ptr noundef %173)
   %call2.i169 = call ptr @strvec_push(ptr noundef nonnull %cmd.i159, ptr noundef nonnull @.str.85) #15
   %180 = load i32, ptr @pack_kept_objects, align 4
   %tobool.not.i170 = icmp eq i32 %180, 0
@@ -2444,7 +2444,7 @@ if.end.i207:                                      ; preds = %for.body24.i
 lor.lhs.false.i.i.i210:                           ; preds = %if.end.i207
   %sub.i.i.i211 = add i64 %245, -5
   %add.ptr.i.i.i212 = getelementptr inbounds i8, ptr %244, i64 %sub.i.i.i211
-  %bcmp.i.i.i213 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i212, ptr noundef nonnull dereferenceable(5) @.str.116, i64 5)
+  %bcmp.i.i.i213 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i212, ptr noundef nonnull readonly dereferenceable(5) @.str.116, i64 5)
   %tobool.not.i.i.i214 = icmp eq i32 %bcmp.i.i.i213, 0
   br i1 %tobool.not.i.i.i214, label %if.then.i.i218, label %strbuf_strip_suffix.exit.i215
 
@@ -3402,7 +3402,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.e
 lor.lhs.false.i.i.i:                              ; preds = %strbuf_setlen.exit.i
   %sub.i.i.i = add i64 %16, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.116, i64 5)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.116, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then.i34.i, label %strbuf_strip_suffix.exit.i
 
@@ -3515,7 +3515,7 @@ if.else.i:                                        ; preds = %st_add.exit.i
 lor.lhs.false.i.i.i.i:                            ; preds = %if.else.i
   %sub.i.i.i.i = add i64 %25, -5
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 %sub.i.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.116, i64 5)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.116, i64 5)
   %tobool.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i43.i, label %strbuf_strip_suffix.exit.i.i
 
@@ -3899,7 +3899,7 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %st
 lor.lhs.false.i.i:                                ; preds = %for.body
   %sub.i.i = add i64 %12, -4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %sub.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.158, i64 4)
   %tobool.not.i.i9 = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i9, label %if.then.i10, label %strbuf_strip_suffix.exit
 
@@ -4036,7 +4036,7 @@ strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
 lor.lhs.false.i.i:                                ; preds = %strbuf_setlen.exit
   %sub.i.i = add i64 %5, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.116, i64 5)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.116, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
 

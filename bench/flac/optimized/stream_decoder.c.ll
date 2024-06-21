@@ -778,7 +778,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end7.i
-  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull %filename, ptr noundef nonnull @.str.35)
+  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.35)
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end7.i
@@ -851,7 +851,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end7.i
-  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull %filename, ptr noundef nonnull @.str.35)
+  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.35)
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end7.i

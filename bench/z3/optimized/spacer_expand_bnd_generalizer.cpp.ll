@@ -755,7 +755,7 @@ lpad23.loopexit.split-lp:                         ; preds = %if.then2.i.i.i, %if
 if.end36:                                         ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lhs.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i)
-  %call.i.i30 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113is_arith_compEPK4exprRPS0_R8rationalRbR11ast_manager(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(8) %lhs.i, ptr noundef nonnull align 8 dereferenceable(32) %bnd, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i, ptr noundef nonnull align 8 dereferenceable(976) %30)
+  %call.i.i30 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113is_arith_compEPK4exprRPS0_R8rationalRbR11ast_manager(ptr noundef readonly %26, ptr noundef nonnull align 8 dereferenceable(8) %lhs.i, ptr noundef nonnull align 8 dereferenceable(32) %bnd, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i, ptr noundef nonnull align 8 dereferenceable(976) %30)
           to label %invoke.cont40 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont40:                                    ; preds = %if.end36

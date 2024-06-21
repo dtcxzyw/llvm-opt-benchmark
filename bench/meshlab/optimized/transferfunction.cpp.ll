@@ -4178,7 +4178,7 @@ define void @_ZN16TransferFunction8flipRampEv(ptr nocapture noundef nonnull read
   br i1 %.not.i, label %_ZN9TfChannel4flipEv.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN9TfChannel4flipEv.exit:                        ; preds = %.lr.ph.i, %2
-  tail call void @_ZN9TfChannel15updateKeysOrderEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  tail call void @_ZN9TfChannel15updateKeysOrderEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %3)
   %13 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %13, 3
   br i1 %exitcond.not, label %14, label %2, !llvm.loop !33

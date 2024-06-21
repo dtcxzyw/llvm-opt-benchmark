@@ -2799,7 +2799,7 @@ tstoken_list_member.exit.us.loopexit:             ; preds = %.split.us
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %37) #12
+  %38 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %37) #12
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %tstoken_list_member.exit.thread, label %32
 

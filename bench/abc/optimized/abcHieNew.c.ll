@@ -72,10 +72,10 @@ define noundef ptr @Au_NtkAlloc(ptr noundef %0, ptr noundef readonly %1) local_u
   br i1 %.not.i, label %Vec_PtrGrow.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %6 = add i64 %5, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #30
-  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #31
+  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #31
   br label %Vec_PtrGrow.exit
 
 Vec_PtrGrow.exit:                                 ; preds = %2, %4
@@ -641,10 +641,10 @@ define noalias noundef ptr @Au_ManAlloc(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %Vec_PtrPush.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #30
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #31
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #31
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %1, %3
@@ -747,7 +747,7 @@ define ptr @Au_ManFindNtkP(ptr nocapture noundef readonly %0, ptr nocapture noun
   %7 = getelementptr inbounds ptr, ptr %.val10.i, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.val9.i = load ptr, ptr %8, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull dereferenceable(1) %1) #29
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %Au_ManFindNtk.exit, label %10
 
@@ -3775,10 +3775,10 @@ Vec_IntPush.exit202:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i.i, label %Au_ManAlloc.exit, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %53 = add i64 %52, 1
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #30
-  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %0) #31
+  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull readonly dereferenceable(1) %0) #31
   br label %Au_ManAlloc.exit
 
 Au_ManAlloc.exit:                                 ; preds = %49, %51
@@ -4786,7 +4786,7 @@ Vec_IntFree.exit289:                              ; preds = %Vec_IntFree.exit287
   %526 = getelementptr inbounds ptr, ptr %.val10.i, i64 %indvars.iv.i292
   %527 = load ptr, ptr %526, align 8
   %.val9.i = load ptr, ptr %527, align 8
-  %528 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull dereferenceable(1) %523) #29
+  %528 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i, ptr noundef nonnull readonly dereferenceable(1) %523) #29
   %.not.i293 = icmp eq i32 %528, 0
   br i1 %.not.i293, label %Au_ManFindNtk.exit, label %529
 
@@ -5961,10 +5961,10 @@ Au_NtkCleanCopy.exit:                             ; preds = %23, %Vec_IntGrow.ex
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %28
 
 28:                                               ; preds = %Au_NtkCleanCopy.exit
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #29
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #29
   %30 = add i64 %29, 1
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #30
-  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.val) #31
+  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(1) %.val) #31
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Au_NtkCleanCopy.exit, %28
@@ -7434,10 +7434,10 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit, %20
   br i1 %.not.i.i, label %Au_ManAlloc.exit, label %29
 
 29:                                               ; preds = %Abc_Clock.exit50
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #29
+  %30 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #29
   %31 = add i64 %30, 1
   %32 = call noalias ptr @malloc(i64 noundef %31) #30
-  %33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %27) #31
+  %33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %27) #31
   br label %Au_ManAlloc.exit
 
 Au_ManAlloc.exit:                                 ; preds = %Abc_Clock.exit50, %29
@@ -7582,7 +7582,7 @@ Vec_PtrFree.exit58:                               ; preds = %.critedge, %88
   %93 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
   %94 = load ptr, ptr %93, align 8
   %.val9.i.i = load ptr, ptr %94, align 8
-  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull dereferenceable(15) @.str.44) #29
+  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull readonly dereferenceable(15) @.str.44) #29
   %.not.i.i60 = icmp eq i32 %95, 0
   br i1 %.not.i.i60, label %Au_ManFindNtkP.exit, label %96
 
@@ -7840,7 +7840,7 @@ Abc_Clock.exit32:                                 ; preds = %30, %33
   %53 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
   %54 = load ptr, ptr %53, align 8
   %.val9.i.i = load ptr, ptr %54, align 8
-  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull dereferenceable(1) %1) #29
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val9.i.i, ptr noundef nonnull readonly dereferenceable(1) %1) #29
   %.not.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i, label %Au_ManFindNtk.exit.i, label %56
 

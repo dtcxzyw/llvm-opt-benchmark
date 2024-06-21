@@ -1582,7 +1582,7 @@ define dso_local noundef zeroext i1 @_ZThn8_N10cmDebugger30cmDebuggerPipeConnect
   br i1 %7, label %8, label %_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @write(i32 noundef %6, ptr noundef %1, i64 noundef %2)
+  %9 = tail call i64 @write(i32 noundef %6, ptr noundef readonly %1, i64 noundef %2)
   %10 = icmp sgt i64 %9, -1
   br i1 %10, label %_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm.exit, label %11
 
@@ -2464,7 +2464,7 @@ define dso_local noundef zeroext i1 @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
-  %12 = tail call i64 @write(i32 noundef %11, ptr noundef %1, i64 noundef %2)
+  %12 = tail call i64 @write(i32 noundef %11, ptr noundef readonly %1, i64 noundef %2)
   %13 = trunc i64 %12 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %_ZN10cmDebugger26cmDebuggerPipeClient_POSIX5writeEPKvm.exit

@@ -588,7 +588,7 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %54 = select i1 %52, i64 0, i64 %53
   %55 = getelementptr i8, ptr %6, i64 %51
   call void @llvm.memset.p0.i64(ptr align 1 %55, i8 0, i64 %54, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %50, i64 %51, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %50, i64 %51, i1 false)
   %56 = getelementptr inbounds i8, ptr %6, i64 4
   br label %57
 
@@ -1120,7 +1120,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %98 = select i1 %96, i64 0, i64 %97
   %99 = getelementptr i8, ptr %8, i64 %.val258
   call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %98, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %95, i64 %.val258, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %95, i64 %.val258, i1 false)
   %100 = getelementptr inbounds i8, ptr %8, i64 4
   br label %101
 
@@ -6183,7 +6183,7 @@ ssl_check_ctr_renegotiate.exit.thread.thread:     ; preds = %16, %12, %20, %ssl_
   store i32 23, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 360
   %60 = load ptr, ptr %59, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %1, i64 %.029.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr readonly align 1 %1, i64 %.029.i, i1 false)
   %61 = tail call i32 @mbedtls_ssl_write_record(ptr noundef nonnull %0, i32 noundef 1)
   %.not35.i = icmp eq i32 %61, 0
   br i1 %.not35.i, label %63, label %62

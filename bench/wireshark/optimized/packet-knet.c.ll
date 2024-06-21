@@ -306,7 +306,7 @@ dissect_knet_message.exit:                        ; preds = %dissect_content_len
   tail call void @proto_item_set_len(ptr noundef %59, i32 noundef %95) #4
   %96 = icmp ne i32 %.040, 0
   %97 = zext i1 %96 to i32
-  %98 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %61, ptr noundef %1, i32 noundef %97)
+  %98 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %61, ptr noundef readonly %1, i32 noundef %97)
   %99 = load i32, ptr %5, align 4
   tail call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %99, i32 noundef %98, ptr noundef %61, i32 noundef %67)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

@@ -209,7 +209,7 @@ define hidden i32 @mbedtls_hmac_drbg_reseed(ptr noundef %0, ptr noundef readonly
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %4, i64 %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %22 = add i64 %17, %2
   br label %23
 
@@ -306,7 +306,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %7, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %4, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %4, i64 %5, i1 false)
   %49 = add i64 %44, %5
   br label %50
 
@@ -414,7 +414,7 @@ define hidden i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef %0, ptr nocaptu
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %6, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %3, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %41 = add i64 %36, %4
   br label %42
 
@@ -688,11 +688,11 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
   %36 = select i1 %34, i64 0, i64 %35
   %37 = getelementptr i8, ptr %2, i64 %28
   call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %36, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %33, i64 %28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 1 %33, i64 %28, i1 false)
   %38 = add i64 %32, %28
   %39 = lshr i64 %28, 1
   %40 = getelementptr inbounds i8, ptr @entropy_pr, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull align 1 %40, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull readonly align 1 %40, i64 %39, i1 false)
   %41 = add i64 %38, %39
   store i64 %41, ptr @test_offset, align 8
   %42 = add i64 %39, %28

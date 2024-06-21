@@ -156,7 +156,7 @@ padr_match.exit.thread:                           ; preds = %lor.lhs.false26
   br label %lor.lhs.false30
 
 padr_match.exit:                                  ; preds = %lor.lhs.false26
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %padr.i, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %padr.i, i64 6)
   %tobool35.not.i.not = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %padr.i)
   br i1 %tobool35.not.i.not, label %if.then38, label %lor.lhs.false30
@@ -166,7 +166,7 @@ lor.lhs.false30:                                  ; preds = %padr_match.exit.thr
   br i1 %tobool.not.i176, label %padr_bcast.exit, label %lor.lhs.false34
 
 padr_bcast.exit:                                  ; preds = %lor.lhs.false30
-  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @padr_bcast.BCAST, i64 6)
+  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @padr_bcast.BCAST, i64 6)
   %tobool1.not.i.not = icmp eq i32 %bcmp.i179, 0
   br i1 %tobool1.not.i.not, label %if.then38, label %lor.lhs.false34
 

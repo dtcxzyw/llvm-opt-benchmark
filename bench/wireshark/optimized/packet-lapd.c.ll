@@ -651,7 +651,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   store i32 %227, ptr %228, align 4
   %229 = getelementptr inbounds i8, ptr %211, i64 16
   %230 = sext i32 %227 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %229, ptr nonnull align 1 %221, i64 %230, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %229, ptr nonnull readonly align 1 %221, i64 %230, i1 false)
   br label %236
 
 231:                                              ; preds = %209
@@ -704,7 +704,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   store i32 %252, ptr %253, align 4
   %254 = getelementptr inbounds i8, ptr %247, i64 12
   %255 = sext i32 %252 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %254, ptr nonnull align 16 %5, i64 %255, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %254, ptr nonnull readonly align 16 %5, i64 %255, i1 false)
   br label %320
 
 256:                                              ; preds = %239
@@ -734,7 +734,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   store i32 %268, ptr %269, align 4
   %270 = getelementptr inbounds i8, ptr %263, i64 12
   %271 = sext i32 %268 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %270, ptr nonnull align 16 %5, i64 %271, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %270, ptr nonnull readonly align 16 %5, i64 %271, i1 false)
   br label %320
 
 272:                                              ; preds = %236
@@ -753,7 +753,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   store i32 %279, ptr %280, align 4
   %281 = getelementptr inbounds i8, ptr %274, i64 12
   %282 = sext i32 %279 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %281, ptr nonnull align 16 %5, i64 %282, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %281, ptr nonnull readonly align 16 %5, i64 %282, i1 false)
   %283 = call ptr @wmem_file_scope() #7
   %284 = call noalias ptr @wmem_alloc(ptr noundef %283, i64 noundef 72) #7
   %285 = call ptr @wmem_file_scope() #7

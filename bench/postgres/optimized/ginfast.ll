@@ -170,7 +170,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
   %78 = getelementptr ptr, ptr %70, i64 %77
   %79 = sub i32 %.04046.i, %.049.i
   %80 = tail call i32 @BufferGetBlockNumber(i32 noundef %74) #9
-  %81 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.04245.i, ptr noundef %78, i32 noundef %79, i32 noundef %80)
+  %81 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.04245.i, ptr noundef readonly %78, i32 noundef %79, i32 noundef %80)
   br label %84
 
 82:                                               ; preds = %73
@@ -217,7 +217,7 @@ makeSublist.exit:                                 ; preds = %makeSublist.exit.lo
   %101 = sext i32 %.0.lcssa.i to i64
   %102 = getelementptr ptr, ptr %70, i64 %101
   %103 = sub i32 %69, %.0.lcssa.i
-  %104 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.035.lcssa.i, ptr noundef %102, i32 noundef %103, i32 noundef -1)
+  %104 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.035.lcssa.i, ptr noundef readonly %102, i32 noundef %103, i32 noundef -1)
   tail call void @LockBuffer(i32 noundef %30, i32 noundef 2) #9
   %105 = getelementptr i8, ptr %.0.i.i, i64 24
   tail call void @CheckForSerializableConflictIn(ptr noundef %4, ptr noundef null, i32 noundef 0) #9

@@ -3657,7 +3657,7 @@ common.ret:                                       ; preds = %1939, %381
   %512 = extractvalue { ptr, i64 } %508, 1
   %513 = icmp ne ptr %511, null
   call void @llvm.assume(i1 %513)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %511, ptr nonnull align 1 %506, i64 %507, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %511, ptr nonnull readonly align 1 %506, i64 %507, i1 false)
   %514 = getelementptr inbounds i8, ptr %96, i64 24
   store i8 %504, ptr %514, align 8, !alias.scope !567, !noalias !577
   store ptr %511, ptr %96, align 8, !alias.scope !567, !noalias !577
@@ -5013,7 +5013,7 @@ common.ret:                                       ; preds = %1939, %381
   %1018 = extractvalue { ptr, i64 } %1013, 1
   %1019 = icmp ne ptr %1017, null
   call void @llvm.assume(i1 %1019)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1017, ptr nonnull align 1 %1011, i64 %1012, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1017, ptr nonnull readonly align 1 %1011, i64 %1012, i1 false)
   %1020 = getelementptr inbounds i8, ptr %62, i64 24
   store i8 %1009, ptr %1020, align 8, !alias.scope !722, !noalias !733
   store ptr %1017, ptr %62, align 8, !alias.scope !722, !noalias !733
@@ -5106,7 +5106,7 @@ common.ret:                                       ; preds = %1939, %381
   %1046 = extractvalue { ptr, i64 } %1041, 1
   %1047 = icmp ne ptr %1045, null
   call void @llvm.assume(i1 %1047)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1045, ptr nonnull align 1 %1039, i64 %1040, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1045, ptr nonnull readonly align 1 %1039, i64 %1040, i1 false)
   %1048 = getelementptr inbounds i8, ptr %58, i64 24
   store i8 %1038, ptr %1048, align 8, !alias.scope !734, !noalias !745
   store ptr %1045, ptr %58, align 8, !alias.scope !734, !noalias !745

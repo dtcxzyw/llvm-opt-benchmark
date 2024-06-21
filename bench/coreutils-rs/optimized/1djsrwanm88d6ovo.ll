@@ -563,7 +563,7 @@ define hidden { ptr, i1 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf35d16
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h5d72b917bd16ac58E.llvm.8124630272768993320"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 } } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !58
   ret void
 }
 
@@ -661,7 +661,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !68, !noalias !73, !nonnull !12, !noundef !12
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !68, !noalias !73, !noundef !12
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !68, !noalias !73
@@ -718,7 +718,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !81, !noalias !86, !nonnull !12, !noundef !12
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !81, !noalias !86, !noundef !12
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !81, !noalias !86
@@ -997,7 +997,7 @@ define hidden void @_ZN9indicatif5multi10MultiState7suspend17hbfeda8517474d2bdE.
 
 .thread14:                                        ; preds = %18, %.thread21
   %eh.lpad-body517 = phi { ptr, i32 } [ %14, %.thread21 ], [ %19, %18 ]
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$17h54ca3c8d46248a55E.llvm.8124630272768993320"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$17h54ca3c8d46248a55E.llvm.8124630272768993320"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
           to label %.thread18 unwind label %52
 }
 
@@ -1139,7 +1139,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.13937331920422269825.exit
 51:                                               ; preds = %29
   %52 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$17h54ca3c8d46248a55E.llvm.8124630272768993320"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$17h54ca3c8d46248a55E.llvm.8124630272768993320"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
           to label %"_ZN4core3ptr76drop_in_place$LT$uu_mv..move_files_into_dir..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64a30ecfb671658bE.llvm.8124630272768993320.exit" unwind label %53
 
 53:                                               ; preds = %.thread19, %51, %"_ZN4core3ptr76drop_in_place$LT$uu_mv..move_files_into_dir..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64a30ecfb671658bE.llvm.8124630272768993320.exit"
@@ -1154,7 +1154,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.13937331920422269825.exit
 
 .thread19:                                        ; preds = %24, %.thread23
   %eh.lpad-body22 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread23 ], [ %25, %24 ]
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$17h54ca3c8d46248a55E.llvm.8124630272768993320"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$17h54ca3c8d46248a55E.llvm.8124630272768993320"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %.thread unwind label %53
 }
 

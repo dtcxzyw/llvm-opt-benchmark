@@ -508,7 +508,7 @@ dbuf_realloc.exit.i:                              ; preds = %13
   %24 = phi i64 [ %5, %._crit_edge.i ], [ %.pre15.i, %dbuf_realloc.exit.i ]
   %25 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %21, %dbuf_realloc.exit.i ]
   %26 = getelementptr i8, ptr %25, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr readonly align 1 %1, i64 %3, i1 false)
   %27 = load i64, ptr %4, align 8
   %28 = add i64 %27, %3
   store i64 %28, ptr %4, align 8
@@ -576,7 +576,7 @@ dbuf_realloc.exit.i:                              ; preds = %18
   %29 = phi i64 [ %9, %._crit_edge.i ], [ %.pre15.i, %dbuf_realloc.exit.i ]
   %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %26, %dbuf_realloc.exit.i ]
   %31 = getelementptr i8, ptr %30, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 16 %4, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull readonly align 16 %4, i64 %6, i1 false)
   %32 = load i64, ptr %8, align 8
   %33 = add i64 %32, %6
   store i64 %33, ptr %8, align 8

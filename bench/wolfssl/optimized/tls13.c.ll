@@ -5603,7 +5603,7 @@ if.then.i:                                        ; preds = %if.then148
   %idx.ext.i = zext i32 %18 to i64
   %add.ptr.i151 = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i
   %conv.i152 = zext i32 %cond.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr154, ptr align 1 %add.ptr.i151, i64 %conv.i152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr154, ptr readonly align 1 %add.ptr.i151, i64 %conv.i152, i1 false)
   %cmp1.not.i = icmp ult i32 %sub.i, %fragSz.2192
   br i1 %cmp1.not.i, label %if.end4.i, label %AddCertExt.exit
 
@@ -5729,7 +5729,7 @@ if.then.i173:                                     ; preds = %NextCert.exit, %if.
   %idx.ext.i176 = zext i32 %offset.2212 to i64
   %add.ptr.i177 = getelementptr inbounds i8, ptr %p.3215, i64 %idx.ext.i176
   %conv.i178 = zext i32 %cond.i.i175 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr203217, ptr align 1 %add.ptr.i177, i64 %conv.i178, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr203217, ptr readonly align 1 %add.ptr.i177, i64 %conv.i178, i1 false)
   %cmp1.not.i179 = icmp ult i32 %sub.i174, %fragSz.4
   br i1 %cmp1.not.i179, label %if.then.i173.if.end4.i159_crit_edge, label %AddCertExt.exit180
 
@@ -7351,7 +7351,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm.i, align 2
   %conv.i = zext i8 %1 to i32
-  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull %ssl, ptr noundef nonnull %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
+  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
   %cmp4.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp4.not.i, label %DeriveHandshakeSecret.exit, label %DeriveHandshakeSecret.exit.thread
 

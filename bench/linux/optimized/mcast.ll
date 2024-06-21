@@ -6615,7 +6615,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   %247 = getelementptr inbounds i8, ptr %244, i64 2
   store i16 0, ptr %247, align 2
   %248 = getelementptr inbounds i8, ptr %244, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %248, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %248, ptr noundef readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %249 = getelementptr inbounds i8, ptr %243, i64 192
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %243, i64 178

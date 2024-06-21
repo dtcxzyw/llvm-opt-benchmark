@@ -691,34 +691,34 @@ if.end2.i:                                        ; preds = %if.end
   br i1 %cond.i.i, label %land.lhs.true4.i.i, label %if.then8.i
 
 land.lhs.true4.i.i:                               ; preds = %if.end2.i
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 92) #23
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %7, i32 noundef 92) #23
   %cmp5.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp5.i.i, label %land.lhs.true7.i.i, label %if.then8.i
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true4.i.i
-  %call8.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24) #23
+  %call8.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24) #23
   %cmp9.i.i = icmp eq ptr %call8.i.i, null
   br i1 %cmp9.i.i, label %land.lhs.true11.i.i, label %if.then8.i
 
 land.lhs.true11.i.i:                              ; preds = %land.lhs.true7.i.i
-  %call12.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.25) #23
+  %call12.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.25) #23
   %cmp13.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp13.i.i, label %land.lhs.true15.i.i, label %if.then8.i
 
 land.lhs.true15.i.i:                              ; preds = %land.lhs.true11.i.i
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #23
+  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #23
   %cmp.i.i.i = icmp ult i64 %call.i.i.i, 3
   br i1 %cmp.i.i.i, label %check_path.exit.i, label %ends_with.exit.i.i
 
 ends_with.exit.i.i:                               ; preds = %land.lhs.true15.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %call.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -3
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr2.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.26, i64 3)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %add.ptr2.i.i.i, ptr noundef nonnull readonly dereferenceable(3) @.str.26, i64 3)
   %cmp4.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp4.i.not.i.i, label %if.then8.i, label %check_path.exit.i
 
 check_path.exit.i:                                ; preds = %ends_with.exit.i.i, %land.lhs.true15.i.i
-  %call18.i.i = tail call fastcc i32 @ends_with(ptr noundef nonnull %7, ptr noundef nonnull @.str.27)
+  %call18.i.i = tail call fastcc i32 @ends_with(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.27)
   %tobool7.not.not.i = icmp eq i32 %call18.i.i, 0
   br i1 %tobool7.not.not.i, label %for.cond.i, label %if.then8.i
 
@@ -996,7 +996,7 @@ for.end.i:                                        ; preds = %for.cond.backedge.i
 if.else.i:                                        ; preds = %for.end.thread, %for.end
   %call.i18 = phi ptr [ %call.i15, %for.end.thread ], [ %call.i, %for.end ]
   %j.0.lcssa17 = phi i64 [ 0, %for.end.thread ], [ %j.0.lcssa, %for.end ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i18, ptr align 1 %value, i64 %j.0.lcssa17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i18, ptr readonly align 1 %value, i64 %j.0.lcssa17, i1 false)
   %arrayidx41.i = getelementptr inbounds i8, ptr %call.i18, i64 %j.0.lcssa17
   br label %percent_decode.exit
 

@@ -4097,7 +4097,7 @@ for.body379.i:                                    ; preds = %for.body379.i, %for
   %in.addr.322371.i = phi ptr [ %in, %for.body379.preheader.i ], [ %add.ptr.i.i, %for.body379.i ]
   %816 = shl nsw i64 %indvars.iv.i, 5
   %add.ptr382.i = getelementptr inbounds i32, ptr %out, i64 %816
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr382.i, ptr noundef nonnull align 4 dereferenceable(128) %in.addr.322371.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr382.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %in.addr.322371.i, i64 128, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.322371.i, i64 128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

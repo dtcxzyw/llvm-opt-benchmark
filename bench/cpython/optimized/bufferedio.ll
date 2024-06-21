@@ -1228,7 +1228,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -1260,7 +1260,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -5344,7 +5344,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -5376,7 +5376,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then

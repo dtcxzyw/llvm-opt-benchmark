@@ -14801,7 +14801,7 @@ invoke.cont4:                                     ; preds = %entry
   store i32 7, ptr %call.i82, align 4, !noalias !144
   store ptr %call.i82, ptr %ref.tmp, align 8, !alias.scope !144
   %0 = ptrtoint ptr %call.i82 to i64
-  %call.i.i.i.i.i.i83 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call.i.i.i.i.i.i83 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp)
           to label %call.i.i.i.i.i.i.noexc unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit144
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %invoke.cont4
@@ -14830,7 +14830,7 @@ invoke.cont9:                                     ; preds = %_ZNSt10unique_ptrIi
   store i32 17, ptr %call.i84, align 4, !noalias !160
   store ptr %call.i84, ptr %ref.tmp7, align 8, !alias.scope !160
   %3 = ptrtoint ptr %call.i84 to i64
-  %call.i.i.i.i.i.i98 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
+  %call.i.i.i.i.i.i98 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp7)
           to label %call.i.i.i.i.i.i.noexc97 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit147
 
 call.i.i.i.i.i.i.noexc97:                         ; preds = %invoke.cont9
@@ -14859,7 +14859,7 @@ invoke.cont15:                                    ; preds = %_ZNSt10unique_ptrIi
   store i32 7, ptr %call.i103, align 4, !noalias !176
   store ptr %call.i103, ptr %ref.tmp13, align 8, !alias.scope !176
   %6 = ptrtoint ptr %call.i103 to i64
-  %call.i.i.i.i.i.i117 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
+  %call.i.i.i.i.i.i117 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp13)
           to label %call.i.i.i.i.i.i.noexc116 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit150
 
 call.i.i.i.i.i.i.noexc116:                        ; preds = %invoke.cont15
@@ -14888,7 +14888,7 @@ invoke.cont21:                                    ; preds = %_ZNSt10unique_ptrIi
   store i32 19, ptr %call.i122, align 4, !noalias !192
   store ptr %call.i122, ptr %ref.tmp19, align 8, !alias.scope !192
   %9 = ptrtoint ptr %call.i122 to i64
-  %call.i.i.i.i.i.i136 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19)
+  %call.i.i.i.i.i.i136 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp19)
           to label %call.i.i.i.i.i.i.noexc135 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit153
 
 call.i.i.i.i.i.i.noexc135:                        ; preds = %invoke.cont21
@@ -15197,7 +15197,7 @@ _ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10u
   %__x.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i = phi i8 [ %43, %for.body.i ], [ %49, %while.body.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i9.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
-  %call.i.i.i.i.i186 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(8) %it.sroa.5.018.i)
+  %call.i.i.i.i.i186 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull readonly align 8 dereferenceable(8) %it.sroa.5.018.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad3.loopexit
 
 call.i.i.i.i.i.noexc:                             ; preds = %_ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS1_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE8iteratorEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit.i
@@ -16148,7 +16148,7 @@ if.then.i311:                                     ; preds = %_ZN7testing15Assert
   br label %invoke.cont242.sink.split
 
 if.end.i312:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit308
-  %call.i.i.i.i.i319 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull align 8 dereferenceable(8) %slot_space_.i.i)
+  %call.i.i.i.i.i319 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull readonly align 8 dereferenceable(8) %slot_space_.i.i)
           to label %call.i.i.i.i.i.noexc318 unwind label %lpad155
 
 call.i.i.i.i.i.noexc318:                          ; preds = %if.end.i312
@@ -17355,7 +17355,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562: ; preds = %_ZNKSt14defaul
   br i1 %tobool.i.i.i.i.i564, label %if.end.i569, label %invoke.cont528
 
 if.end.i569:                                      ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562
-  %call.i.i.i.i.i599 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull align 8 dereferenceable(8) %slot_space_.i.i)
+  %call.i.i.i.i.i599 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull readonly align 8 dereferenceable(8) %slot_space_.i.i)
           to label %call.i.i.i.i.i.noexc598 unwind label %lpad246
 
 call.i.i.i.i.i.noexc598:                          ; preds = %if.end.i569
@@ -18991,7 +18991,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %key.0.val.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val.i = load ptr, ptr %this, align 8
-  tail call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i = sext i32 %key.0.val.0.val to i64
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !334
@@ -19524,7 +19524,7 @@ define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setIN
 entry:
   %tmp.i.i.i = alloca [8 x i8], align 8
   %this.val6 = load ptr, ptr %this, align 8
-  tail call void @llvm.prefetch.p0(ptr %this.val6, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val6, i32 0, i32 1, i32 1)
   %key.val = load ptr, ptr %key, align 8
   %key.val.val = load i32, ptr %key.val, align 4
   %conv.i = sext i32 %key.val.val to i64
@@ -30642,7 +30642,7 @@ _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %if.end51, %_ZNKSt14
   store ptr null, ptr %message_.i75, align 8
   %a.val50 = load i64, ptr %a, align 8
   %this.val.i.i = load ptr, ptr %set, align 8
-  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %a.val50, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -30965,7 +30965,7 @@ _ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_1
           to label %invoke.cont122 unwind label %lpad114
 
 invoke.cont122:                                   ; preds = %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull align 8 dereferenceable(32) %set111, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull readonly align 8 dereferenceable(32) %set111, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set111, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i131, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar116, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
@@ -31547,7 +31547,7 @@ entry:
   %arg.val.i.i.i.i = load i64, ptr %value, align 8, !noalias !838
   tail call void @llvm.experimental.noalias.scope.decl(metadata !839)
   %this.val6.i.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !842
-  tail call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !842
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !842
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %arg.val.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593

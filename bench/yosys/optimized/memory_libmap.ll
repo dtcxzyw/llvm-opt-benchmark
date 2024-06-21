@@ -6670,7 +6670,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.e
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %913, %.lr.ph.i.i.i.i.i.i ], [ %910, %_ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.exit.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %912, %.lr.ph.i.i.i.i.i.i ], [ %891, %_ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !37
   %912 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 32
   %913 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i63 = icmp eq ptr %912, %892
@@ -6806,7 +6806,7 @@ _ZNSt6vectorIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE9push_backERKS1_.exit: ;
 
 .lr.ph.i.i.i.i.i.i67:                             ; preds = %953, %.lr.ph.i.i.i.i.i.i67
   %.05.i.i.i.i.i.i = phi ptr [ %956, %.lr.ph.i.i.i.i.i.i67 ], [ %954, %953 ]
-  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i.i.i) #25
+  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i.i.i) #25
   %956 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 160
   %.not.i.i.i.i.i.i68 = icmp eq ptr %956, %955
   br i1 %.not.i.i.i.i.i.i68, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i67, !llvm.loop !43
@@ -7505,7 +7505,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EED2Ev.exit.i: ; preds = %1198, %_Z
 
 .lr.ph.i.i.i.i98.i:                               ; preds = %1200, %.lr.ph.i.i.i.i98.i
   %.05.i.i.i.i99.i = phi ptr [ %1203, %.lr.ph.i.i.i.i98.i ], [ %1201, %1200 ]
-  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i99.i) #25
+  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i99.i) #25
   %1203 = getelementptr inbounds i8, ptr %.05.i.i.i.i99.i, i64 160
   %.not.i.i.i.i100.i = icmp eq ptr %1203, %1202
   br i1 %.not.i.i.i.i100.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i101.i, label %.lr.ph.i.i.i.i98.i, !llvm.loop !43
@@ -11268,7 +11268,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EED2Ev.exit.i91: ; preds = %2630, %
 
 .lr.ph.i.i.i.i280.i:                              ; preds = %.body.i, %.lr.ph.i.i.i.i280.i
   %.05.i.i.i.i281.i = phi ptr [ %2644, %.lr.ph.i.i.i.i280.i ], [ %2642, %.body.i ]
-  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i281.i) #25
+  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i281.i) #25
   %2644 = getelementptr inbounds i8, ptr %.05.i.i.i.i281.i, i64 160
   %.not.i.i.i.i282.i = icmp eq ptr %2644, %2643
   br i1 %.not.i.i.i.i282.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i283.i, label %.lr.ph.i.i.i.i280.i, !llvm.loop !43
@@ -11403,7 +11403,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exit.i285.i: ; preds
 
 .lr.ph.i.i.i.i.i200:                              ; preds = %2662, %.lr.ph.i.i.i.i.i200
   %.05.i.i.i.i.i201 = phi ptr [ %2666, %.lr.ph.i.i.i.i.i200 ], [ %2663, %2662 ]
-  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i.i201) #25
+  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i.i201) #25
   %2666 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i201, i64 160
   %.not.i.i.i.i.i202 = icmp eq ptr %2666, %2665
   br i1 %.not.i.i.i.i.i202, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i203, label %.lr.ph.i.i.i.i.i200, !llvm.loop !43
@@ -17458,7 +17458,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit.i:          ; preds = %.invoke.i456, %_ZNS
 
 .lr.ph.i.i.i.i.i428:                              ; preds = %5059, %.lr.ph.i.i.i.i.i428
   %.05.i.i.i.i.i429 = phi ptr [ %5063, %.lr.ph.i.i.i.i.i428 ], [ %5060, %5059 ]
-  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i.i429) #25
+  call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i.i429) #25
   %5063 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i429, i64 160
   %.not.i.i.i.i.i430 = icmp eq ptr %5063, %5062
   br i1 %.not.i.i.i.i.i430, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i431, label %.lr.ph.i.i.i.i.i428, !llvm.loop !43
@@ -21559,7 +21559,7 @@ _ZN5Yosys7hashlib4dictIiiNS0_8hash_opsIiEEED2Ev.exit: ; preds = %_ZNSt6vectorIN5
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5Yosys7hashlib4dictIiiNS0_8hash_opsIiEEED2Ev.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %29, %_ZN5Yosys7hashlib4dictIiiNS0_8hash_opsIiEEED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i) #25
   %32 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 160
   %.not.i.i.i.i11 = icmp eq ptr %32, %31
   br i1 %.not.i.i.i.i11, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !43
@@ -90970,7 +90970,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE9pus
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull readonly align 8 dereferenceable(160) %1)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 160
   store ptr %9, ptr %3, align 8
@@ -91007,7 +91007,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pr
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE11_M_allocateEm.exit.i: ; preds = %22, %_ZNKSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE12_M_check_lenEmPKc.exit.i
   %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %26 = getelementptr inbounds %"struct.(anonymous namespace)::MemConfig", ptr %25, i64 %16
-  invoke fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %26, ptr noundef nonnull align 8 dereferenceable(160) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %26, ptr noundef nonnull readonly align 8 dereferenceable(160) %1)
           to label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_19MemConfigEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i unwind label %58
 
 _ZNSt16allocator_traitsISaIN12_GLOBAL__N_19MemConfigEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE11_M_allocateEm.exit.i
@@ -91059,7 +91059,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_19MemConfigEEE9constructIS1_JRKS1_EEEvR
   %52 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 120
   %53 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %53, i64 40, i1 false), !alias.scope !719
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.092.i.i.i.i.i) #25, !noalias !714
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.092.i.i.i.i.i) #25, !noalias !714
   %54 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 160
   %55 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 160
   %.not.i.i.i.i.i = icmp eq ptr %54, %4
@@ -91084,7 +91084,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   br i1 %.not.i, label %.thread.i, label %64
 
 .thread.i:                                        ; preds = %58
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %26) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %26) #25
   br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE13_M_deallocateEPS1_m.exit39.i
 
 62:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE13_M_deallocateEPS1_m.exit39.i
@@ -91783,7 +91783,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EED2Ev
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i) #25
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 160
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !43
@@ -96121,7 +96121,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_117SharedClockConfigEEE8allocateERS2_m.
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc29, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i ], [ %52, %.noexc29 ]
   %.sroa.06.08.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %.val12.i25, %.noexc29 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.08.i.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.06.08.i.i.i.i.i, i64 32, i1 false)
   %56 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i, i64 32
   %57 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %56, %.val13.i26
@@ -96311,7 +96311,7 @@ define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__
 .lr.ph.i.i.i:                                     ; preds = %3, %26
   %.017.i.i.i = phi ptr [ %33, %26 ], [ %2, %3 ]
   %.sroa.011.016.i.i.i = phi ptr [ %32, %26 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.017.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.016.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.017.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.011.016.i.i.i, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 24
   %5 = getelementptr inbounds i8, ptr %.sroa.011.016.i.i.i, i64 24
   %6 = getelementptr inbounds i8, ptr %.sroa.011.016.i.i.i, i64 32
@@ -96442,7 +96442,7 @@ define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__
 .lr.ph.i.i.i:                                     ; preds = %3, %26
   %.017.i.i.i = phi ptr [ %29, %26 ], [ %2, %3 ]
   %.sroa.011.016.i.i.i = phi ptr [ %28, %26 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %.017.i.i.i, ptr noundef nonnull align 8 dereferenceable(31) %.sroa.011.016.i.i.i, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %.017.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(31) %.sroa.011.016.i.i.i, i64 31, i1 false)
   %4 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 32
   %5 = getelementptr inbounds i8, ptr %.sroa.011.016.i.i.i, i64 32
   %6 = getelementptr inbounds i8, ptr %.sroa.011.016.i.i.i, i64 40
@@ -96598,7 +96598,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE11_M_allocateEm.exit.i: ; 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE11_M_allocateEm.exit.i, %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.014.i.i.i.i.i = phi ptr [ %19, %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %17, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE11_M_allocateEm.exit.i ]
   %.sroa.010.013.i.i.i.i.i = phi ptr [ %18, %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %.val31, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19MemConfigESaIS1_EE11_M_allocateEm.exit.i ]
-  invoke fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %.014.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.010.013.i.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %.014.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %.sroa.010.013.i.i.i.i.i)
           to label %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %20
 
 _ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -96617,7 +96617,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; 
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %20, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %17, %20 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i.i.i.i) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i.i.i.i) #25
   %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 160
   %.not.i.i.i.i.i.i.i = icmp eq ptr %24, %.014.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !43
@@ -96682,7 +96682,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE20_M_allocate_and_copyIN9__gnu_cx
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i ], [ %39, %_ZNSt6vectorIN12_GLOBAL__N_19MemConfigESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i) #25
   %42 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 160
   %.not.i.i.i = icmp eq ptr %42, %41
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !43
@@ -96752,7 +96752,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_19MemConfigESt6vectorIS
 
 .lr.ph.i.i.i42:                                   ; preds = %.lr.ph.i.i.i42.preheader, %.lr.ph.i.i.i42
   %.sroa.03.05.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i42 ], [ %59, %.lr.ph.i.i.i42.preheader ]
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.03.05.i.i.i) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.sroa.03.05.i.i.i) #25
   %60 = getelementptr inbounds i8, ptr %.sroa.03.05.i.i.i, i64 160
   %.not.i.i.i43 = icmp eq ptr %60, %.val
   br i1 %.not.i.i.i43, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19MemConfigESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RSaIT0_E.exit, label %.lr.ph.i.i.i42, !llvm.loop !760
@@ -96798,7 +96798,7 @@ _ZSt4copyIPN12_GLOBAL__N_19MemConfigES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4copyI
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN12_GLOBAL__N_19MemConfigES2_ET0_T_S4_S3_.exit, %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRS1_EEvPT_DpOT0_.exit.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %73, %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.val26, %_ZSt4copyIPN12_GLOBAL__N_19MemConfigES2_ET0_T_S4_S3_.exit ]
   %.01215.i.i.i.i = phi ptr [ %72, %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %71, %_ZSt4copyIPN12_GLOBAL__N_19MemConfigES2_ET0_T_S4_S3_.exit ]
-  invoke fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %.016.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.01215.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %.016.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %.01215.i.i.i.i)
           to label %_ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRS1_EEvPT_DpOT0_.exit.i.i.i.i unwind label %74
 
 _ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -96817,7 +96817,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_19MemConfigEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %74, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i.i.i.i ], [ %.val26, %74 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.05.i.i.i.i.i.i) #25
+  tail call fastcc void @_ZN12_GLOBAL__N_19MemConfigD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %.05.i.i.i.i.i.i) #25
   %78 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 160
   %.not.i.i.i.i.i.i = icmp eq ptr %78, %.016.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19MemConfigEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !43
@@ -97082,7 +97082,7 @@ _ZSt4copyIPN12_GLOBAL__N_112WrPortConfigES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZSt
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4copyIPN12_GLOBAL__N_112WrPortConfigES2_ET0_T_S4_S3_.exit.i, %102
   %.019.i.i.i.i.i = phi ptr [ %109, %102 ], [ %.val25.i, %_ZSt4copyIPN12_GLOBAL__N_112WrPortConfigES2_ET0_T_S4_S3_.exit.i ]
   %.01218.i.i.i.i.i = phi ptr [ %108, %102 ], [ %79, %_ZSt4copyIPN12_GLOBAL__N_112WrPortConfigES2_ET0_T_S4_S3_.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.01218.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.01218.i.i.i.i.i, i64 24, i1 false)
   %80 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 24
   %81 = getelementptr inbounds i8, ptr %.01218.i.i.i.i.i, i64 24
   %82 = getelementptr inbounds i8, ptr %.01218.i.i.i.i.i, i64 32
@@ -97410,7 +97410,7 @@ _ZSt4copyIPN12_GLOBAL__N_112RdPortConfigES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZSt
 .lr.ph.i.i.i.i.i33:                               ; preds = %_ZSt4copyIPN12_GLOBAL__N_112RdPortConfigES2_ET0_T_S4_S3_.exit.i, %215
   %.019.i.i.i.i.i34 = phi ptr [ %218, %215 ], [ %.val25.i31, %_ZSt4copyIPN12_GLOBAL__N_112RdPortConfigES2_ET0_T_S4_S3_.exit.i ]
   %.01218.i.i.i.i.i35 = phi ptr [ %217, %215 ], [ %192, %_ZSt4copyIPN12_GLOBAL__N_112RdPortConfigES2_ET0_T_S4_S3_.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %.019.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(31) %.01218.i.i.i.i.i35, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %.019.i.i.i.i.i34, ptr noundef nonnull readonly align 8 dereferenceable(31) %.01218.i.i.i.i.i35, i64 31, i1 false)
   %193 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i34, i64 32
   %194 = getelementptr inbounds i8, ptr %.01218.i.i.i.i.i35, i64 32
   %195 = getelementptr inbounds i8, ptr %.01218.i.i.i.i.i35, i64 40
@@ -97560,7 +97560,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.e
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.exit.i.i
   %250 = and i64 %240, 9223372036854775776
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %249, ptr align 8 %.val31.i77, i64 %250, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %.val31.i77, i64 %250, i1 false)
   br label %_ZNSt6vectorIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_117SharedClockConfigESaIS1_EE11_M_allocateEm.exit.i.i
@@ -97620,7 +97620,7 @@ _ZSt4copyIPN12_GLOBAL__N_117SharedClockConfigES2_ET0_T_S4_S3_.exit.i: ; preds = 
 .lr.ph.i.i.i.i.i84:                               ; preds = %_ZSt4copyIPN12_GLOBAL__N_117SharedClockConfigES2_ET0_T_S4_S3_.exit.i, %.lr.ph.i.i.i.i.i84
   %.011.i.i.i.i.i = phi ptr [ %265, %.lr.ph.i.i.i.i.i84 ], [ %.val26.i, %_ZSt4copyIPN12_GLOBAL__N_117SharedClockConfigES2_ET0_T_S4_S3_.exit.i ]
   %.0810.i.i.i.i.i = phi ptr [ %264, %.lr.ph.i.i.i.i.i84 ], [ %263, %_ZSt4copyIPN12_GLOBAL__N_117SharedClockConfigES2_ET0_T_S4_S3_.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.0810.i.i.i.i.i, i64 32, i1 false)
   %264 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 32
   %265 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i85 = icmp eq ptr %264, %261
@@ -97766,7 +97766,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_112RdPortConfigESaIS1_EE
   br i1 %.not, label %34, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %4, ptr noundef nonnull align 8 dereferenceable(31) %1, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %4, ptr noundef nonnull readonly align 8 dereferenceable(31) %1, i64 31, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = getelementptr inbounds i8, ptr %1, i64 40
@@ -97851,7 +97851,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_112RdPortConfigESaIS1_EE12_M_check_lenEmPKc.exit.i: 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_112RdPortConfigESaIS1_EE11_M_allocateEm.exit.i: ; preds = %46, %_ZNKSt6vectorIN12_GLOBAL__N_112RdPortConfigESaIS1_EE12_M_check_lenEmPKc.exit.i
   %49 = phi ptr [ %48, %46 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_112RdPortConfigESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %50 = getelementptr inbounds %"struct.(anonymous namespace)::RdPortConfig", ptr %49, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %50, ptr noundef nonnull align 8 dereferenceable(31) %1, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %50, ptr noundef nonnull readonly align 8 dereferenceable(31) %1, i64 31, i1 false)
   %51 = getelementptr inbounds i8, ptr %50, i64 32
   %52 = getelementptr inbounds i8, ptr %1, i64 32
   %53 = getelementptr inbounds i8, ptr %1, i64 40
@@ -101575,7 +101575,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110SwizzleBitESaIS1_EE17_S_check_init_lenEmRKS2_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc180, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %317, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %315, %.noexc180 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %313, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %313, i64 16, i1 false)
   %317 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %317, %314
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph339.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !836

@@ -212,7 +212,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 21:                                               ; preds = %20
   %22 = zext i8 %.val.i25.i to i64
   %23 = getelementptr inbounds [31 x i8], ptr %8, i64 0, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %9, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %9, i64 %6, i1 false)
   %24 = trunc i64 %6 to i8
   %25 = load i8, ptr %10, align 1
   %26 = add i8 %25, %24
@@ -224,7 +224,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %9, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %9, i64 %6, i1 false)
   %32 = load i64, ptr %28, align 8
   %33 = add i64 %32, %6
   store i64 %33, ptr %28, align 8
@@ -274,7 +274,7 @@ agxblen.exit.i4:                                  ; preds = %41, %agxbsizeof.exi
 50:                                               ; preds = %49
   %51 = zext i8 %.val.i25.i7 to i64
   %52 = getelementptr inbounds [31 x i8], ptr %34, i64 0, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr readonly align 1 %35, i64 %36, i1 false)
   %53 = trunc i64 %36 to i8
   %54 = load i8, ptr %39, align 1
   %55 = add i8 %54, %53
@@ -286,7 +286,7 @@ agxblen.exit.i4:                                  ; preds = %41, %agxbsizeof.exi
   %58 = load i64, ptr %57, align 8
   %59 = load ptr, ptr %34, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr readonly align 1 %35, i64 %36, i1 false)
   %61 = load i64, ptr %57, align 8
   %62 = add i64 %61, %36
   store i64 %62, ptr %57, align 8
@@ -1473,7 +1473,7 @@ agxblen.exit.i.i11.i:                             ; preds = %agxbuse.exit.i
 100:                                              ; preds = %99
   %101 = zext i8 %.val.i25.i.i.i to i64
   %102 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (i8, ptr @state, i64 32), i64 0, i64 %101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %102, ptr noundef nonnull align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %102, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
   %103 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %104 = add i8 %103, 5
   store i8 %104, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
@@ -1483,7 +1483,7 @@ agxblen.exit.i.i11.i:                             ; preds = %agxbuse.exit.i
   %106 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 32), align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 %106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %108, ptr noundef nonnull align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %108, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
   %109 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %110 = add i64 %109, 5
   store i64 %110, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
@@ -2359,7 +2359,7 @@ define internal range(i32 0, 2) i32 @stylefn(ptr nocapture noundef %0, ptr nound
   ]
 
 strview_case_str_eq.exit:                         ; preds = %6
-  %7 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.67, i64 noundef 7) #20
+  %7 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.67, i64 noundef 7) #20
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %strview_case_str_eq.exit46.thread
 
@@ -2370,7 +2370,7 @@ strview_case_str_eq.exit:                         ; preds = %6
   br label %41
 
 strview_case_str_eq.exit26:                       ; preds = %6
-  %12 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.68, i64 noundef %.sroa.9.057) #20
+  %12 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.68, i64 noundef %.sroa.9.057) #20
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %strview_case_str_eq.exit42
 
@@ -2381,7 +2381,7 @@ strview_case_str_eq.exit26:                       ; preds = %6
   br label %41
 
 strview_case_str_eq.exit30:                       ; preds = %6
-  %17 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.69, i64 noundef %.sroa.9.057) #20
+  %17 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.69, i64 noundef %.sroa.9.057) #20
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %strview_case_str_eq.exit38
 
@@ -2392,12 +2392,12 @@ strview_case_str_eq.exit30:                       ; preds = %6
   br label %41
 
 strview_case_str_eq.exit34:                       ; preds = %6
-  %22 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.70, i64 noundef %.sroa.9.057) #20
+  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.70, i64 noundef %.sroa.9.057) #20
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %strview_case_str_eq.exit46.thread
 
 strview_case_str_eq.exit38:                       ; preds = %strview_case_str_eq.exit30
-  %24 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.71, i64 noundef %.sroa.9.057) #20
+  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.71, i64 noundef %.sroa.9.057) #20
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %strview_case_str_eq.exit46.thread
 
@@ -2408,7 +2408,7 @@ strview_case_str_eq.exit38:                       ; preds = %strview_case_str_eq
   br label %41
 
 strview_case_str_eq.exit42:                       ; preds = %strview_case_str_eq.exit26
-  %29 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.72, i64 noundef %.sroa.9.057) #20
+  %29 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.72, i64 noundef %.sroa.9.057) #20
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %strview_case_str_eq.exit46
 
@@ -2419,7 +2419,7 @@ strview_case_str_eq.exit42:                       ; preds = %strview_case_str_eq
   br label %41
 
 strview_case_str_eq.exit46:                       ; preds = %strview_case_str_eq.exit42
-  %34 = tail call i32 @strncasecmp(ptr noundef nonnull %.sroa.4.055, ptr noundef nonnull @.str.73, i64 noundef 6) #20
+  %34 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.73, i64 noundef 6) #20
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %strview_case_str_eq.exit46.thread
 
@@ -2882,20 +2882,20 @@ declare ptr @scanEntity(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @agxbput_move(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = tail call noalias ptr @strdup(ptr noundef %0) #19
+  %2 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_strdup.exit
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %7 = add i64 %6, 1
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, i64 noundef %7) #22
   tail call fastcc void @graphviz_exit() #23
   unreachable
 
 gv_strdup.exit:                                   ; preds = %1
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #20
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %agxbput.exit, label %agxblen.exit.i.i
 
@@ -2924,7 +2924,7 @@ agxblen.exit.i.i:                                 ; preds = %gv_strdup.exit
 18:                                               ; preds = %17
   %19 = zext i8 %.val.i25.i.i to i64
   %20 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (i8, ptr @state, i64 32), i64 0, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %2, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %2, i64 %9, i1 false)
   %21 = trunc i64 %9 to i8
   %22 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %23 = add i8 %22, %21
@@ -2935,7 +2935,7 @@ agxblen.exit.i.i:                                 ; preds = %gv_strdup.exit
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 32), align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %2, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull readonly align 1 %2, i64 %9, i1 false)
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %29 = add i64 %28, %9
   store i64 %29, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8

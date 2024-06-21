@@ -2340,7 +2340,7 @@ lpad23:                                           ; preds = %invoke.cont22
 
 if.end34:                                         ; preds = %land.lhs.true13, %land.lhs.true16, %invoke.cont24
   %tmpLocaleID.0 = phi ptr [ %cond, %invoke.cont24 ], [ %localeID, %land.lhs.true16 ], [ %localeID, %land.lhs.true13 ]
-  %call.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %tmpLocaleID.0, i32 noundef 64) #20
+  %call.i = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %tmpLocaleID.0, i32 noundef 64) #20
   %cmp36 = icmp eq ptr %call.i, null
   br i1 %cmp36, label %cleanup, label %while.cond
 
@@ -2774,7 +2774,7 @@ if.end51:                                         ; preds = %if.end51.loopexit, 
   %idxprom52 = zext nneg i32 %keywordValueLen.1 to i64
   %arrayidx53 = getelementptr inbounds [97 x i8], ptr %keywordValueBuffer, i64 0, i64 %idxprom52
   store i8 0, ptr %arrayidx53, align 1
-  %call.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %buffer, i32 noundef 64) #20
+  %call.i = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %buffer, i32 noundef 64) #20
   %cmp55 = icmp eq ptr %call.i, null
   br i1 %cmp55, label %if.then60, label %lor.lhs.false56
 
@@ -3112,7 +3112,7 @@ while.cond1.preheader.i:                          ; preds = %while.end.i, %entry
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %if.end.i
   %1 = phi ptr [ %2, %if.end.i ], [ %0, %while.cond1.preheader.i ]
   %list.addr.18.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %list.addr.09.i, %while.cond1.preheader.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %oldID, ptr noundef nonnull dereferenceable(1) %1) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %oldID, ptr noundef nonnull dereferenceable(1) %1) #20
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %_ZL10_findIndexPKPKcS0_.exit, label %if.end.i
 
@@ -3163,7 +3163,7 @@ while.cond1.preheader.i:                          ; preds = %while.end.i, %entry
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %if.end.i
   %1 = phi ptr [ %2, %if.end.i ], [ %0, %while.cond1.preheader.i ]
   %list.addr.18.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %list.addr.09.i, %while.cond1.preheader.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %oldID, ptr noundef nonnull dereferenceable(1) %1) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %oldID, ptr noundef nonnull dereferenceable(1) %1) #20
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %_ZL10_findIndexPKPKcS0_.exit, label %if.end.i
 
@@ -3335,7 +3335,7 @@ while.cond1.preheader.i:                          ; preds = %while.end.i, %if.th
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %if.end.i
   %8 = phi ptr [ %9, %if.end.i ], [ %7, %while.cond1.preheader.i ]
   %list.addr.18.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %list.addr.09.i, %while.cond1.preheader.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %8) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %8) #20
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %_ZL10_findIndexPKPKcS0_.exit, label %if.end.i
 
@@ -3574,7 +3574,7 @@ while.cond1.preheader.i:                          ; preds = %while.end.i, %if.th
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %if.end.i
   %5 = phi ptr [ %6, %if.end.i ], [ %4, %while.cond1.preheader.i ]
   %list.addr.18.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %list.addr.09.i, %while.cond1.preheader.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %5) #20
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %5) #20
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %_ZL10_findIndexPKPKcS0_.exit, label %if.end.i
 
@@ -3792,7 +3792,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true4, label %if.end25
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %localeID) #20
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %localeID) #20
   %conv.i22 = trunc i64 %call.i to i32
   %cmp11.i = icmp sgt i32 %conv.i22, 0
   br i1 %cmp11.i, label %for.body.preheader.i, label %if.end25
@@ -3938,7 +3938,7 @@ invoke.cont57.if.end64_crit_edge:                 ; preds = %invoke.cont57
 
 if.end64:                                         ; preds = %invoke.cont57.if.end64_crit_edge, %if.end48, %if.end32
   %21 = phi ptr [ %.pre, %invoke.cont57.if.end64_crit_edge ], [ %18, %if.end48 ], [ %13, %if.end32 ]
-  %call.i36 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %21, i32 noundef 64) #20
+  %call.i36 = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %21, i32 noundef 64) #20
   store ptr %call.i36, ptr %tmpLocaleID, align 8
   %cmp66.not = icmp eq ptr %call.i36, null
   br i1 %cmp66.not, label %cleanup88, label %if.then67
@@ -4391,7 +4391,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true4, label %if.end25
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %localeID) #20
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %localeID) #20
   %conv.i28 = trunc i64 %call.i to i32
   %cmp11.i = icmp sgt i32 %conv.i28, 0
   br i1 %cmp11.i, label %for.body.preheader.i, label %if.end25
@@ -4683,7 +4683,7 @@ if.then19:                                        ; preds = %entry, %if.end17
   br i1 %cmp21, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.then19
-  %call.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %localeID.addr.125, i32 noundef 64) #20
+  %call.i = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %localeID.addr.125, i32 noundef 64) #20
   %cmp24.not = icmp eq ptr %call.i, null
   br i1 %cmp24.not, label %if.end60, label %if.then25
 
@@ -4836,7 +4836,7 @@ land.lhs.true:                                    ; preds = %invoke.cont
   br i1 %cmp, label %land.lhs.true3, label %if.end45
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %localeID) #20
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %localeID) #20
   %conv.i74 = trunc i64 %call.i to i32
   %cmp11.i = icmp sgt i32 %conv.i74, 0
   br i1 %cmp11.i, label %for.body.preheader.i, label %if.end45
@@ -5233,7 +5233,7 @@ do.cond:                                          ; preds = %sw.default
 
 if.end146:                                        ; preds = %do.body, %do.body, %land.lhs.true137, %if.end135
   %55 = phi ptr [ %.pre155, %land.lhs.true137 ], [ %.pre155, %if.end135 ], [ %53, %do.body ], [ %53, %do.body ]
-  %call.i100 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %55, i32 noundef 64) #20
+  %call.i100 = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %55, i32 noundef 64) #20
   store ptr %call.i100, ptr %tmpLocaleID, align 8
   %cmp148.not = icmp ne ptr %call.i100, null
   br i1 %cmp148.not, label %if.end152, label %if.end170
@@ -5650,7 +5650,7 @@ while.cond1.preheader.i:                          ; preds = %uloc_getLanguage_75
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %if.end.i4
   %2 = phi ptr [ %3, %if.end.i4 ], [ %1, %while.cond1.preheader.i ]
   %list.addr.18.i = phi ptr [ %incdec.ptr.i, %if.end.i4 ], [ %list.addr.09.i, %while.cond1.preheader.i ]
-  %call.i3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %lang, ptr noundef nonnull dereferenceable(1) %2) #20
+  %call.i3 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %lang, ptr noundef nonnull dereferenceable(1) %2) #20
   %cmp3.i = icmp eq i32 %call.i3, 0
   br i1 %cmp3.i, label %_ZL10_findIndexPKPKcS0_.exit, label %if.end.i4
 
@@ -5716,7 +5716,7 @@ while.cond1.preheader.i:                          ; preds = %if.end, %while.end.
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %if.end.i
   %2 = phi ptr [ %3, %if.end.i ], [ %1, %while.cond1.preheader.i ]
   %list.addr.18.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %list.addr.09.i, %while.cond1.preheader.i ]
-  %call.i3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cntry, ptr noundef nonnull dereferenceable(1) %2) #20
+  %call.i3 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %cntry, ptr noundef nonnull dereferenceable(1) %2) #20
   %cmp3.i = icmp eq i32 %call.i3, 0
   br i1 %cmp3.i, label %_ZL10_findIndexPKPKcS0_.exit, label %if.end.i
 

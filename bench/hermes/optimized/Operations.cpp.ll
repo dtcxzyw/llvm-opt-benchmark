@@ -3708,7 +3708,7 @@ land.lhs.true33:                                  ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp.i33, label %if.then36, label %if.end67
 
 if.then36:                                        ; preds = %land.lhs.true33
-  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i20)
+  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i20)
   %15 = extractvalue { i32, i64 } %call.i, 0
   %16 = extractvalue { i32, i64 } %call.i, 1
   %cmp.i.i = icmp eq i32 %15, 0
@@ -3737,7 +3737,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br label %return
 
 if.then54:                                        ; preds = %land.lhs.true
-  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i)
+  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i)
   %22 = extractvalue { i32, i64 } %call.i38, 0
   %23 = extractvalue { i32, i64 } %call.i38, 1
   %cmp.i.i39 = icmp eq i32 %22, 0
@@ -4148,7 +4148,7 @@ land.lhs.true33:                                  ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp.i33, label %if.then36, label %if.end67
 
 if.then36:                                        ; preds = %land.lhs.true33
-  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i20)
+  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i20)
   %15 = extractvalue { i32, i64 } %call.i, 0
   %16 = extractvalue { i32, i64 } %call.i, 1
   %cmp.i.i = icmp eq i32 %15, 0
@@ -4177,7 +4177,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br label %return
 
 if.then54:                                        ; preds = %land.lhs.true
-  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i)
+  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i)
   %22 = extractvalue { i32, i64 } %call.i38, 0
   %23 = extractvalue { i32, i64 } %call.i38, 1
   %cmp.i.i39 = icmp eq i32 %22, 0
@@ -4520,7 +4520,7 @@ land.lhs.true33:                                  ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp.i33, label %if.then36, label %if.end67
 
 if.then36:                                        ; preds = %land.lhs.true33
-  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i20)
+  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i20)
   %15 = extractvalue { i32, i64 } %call.i, 0
   %16 = extractvalue { i32, i64 } %call.i, 1
   %cmp.i.i = icmp eq i32 %15, 0
@@ -4549,7 +4549,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br label %return
 
 if.then54:                                        ; preds = %land.lhs.true
-  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i)
+  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i)
   %22 = extractvalue { i32, i64 } %call.i38, 0
   %23 = extractvalue { i32, i64 } %call.i38, 1
   %cmp.i.i39 = icmp eq i32 %22, 0
@@ -4892,7 +4892,7 @@ land.lhs.true33:                                  ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp.i33, label %if.then36, label %if.end67
 
 if.then36:                                        ; preds = %land.lhs.true33
-  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i20)
+  %call.i = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i20)
   %15 = extractvalue { i32, i64 } %call.i, 0
   %16 = extractvalue { i32, i64 } %call.i, 1
   %cmp.i.i = icmp eq i32 %15, 0
@@ -4921,7 +4921,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br label %return
 
 if.then54:                                        ; preds = %land.lhs.true
-  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i)
+  %call.i38 = tail call { i32, i64 } @_ZN6hermes2vm14stringToBigIntERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %retval.0.i.i.i.i.i.i)
   %22 = extractvalue { i32, i64 } %call.i38, 0
   %23 = extractvalue { i32, i64 } %call.i38, 1
   %cmp.i.i39 = icmp eq i32 %22, 0

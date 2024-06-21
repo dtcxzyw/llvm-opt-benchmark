@@ -315,7 +315,7 @@ if.else.i:                                        ; preds = %if.then9
   %dp2.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i = shl i32 %0, 3
   %conv.i = zext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %_sp_copy.exit
 
 _sp_copy.exit:                                    ; preds = %if.then.i, %if.else.i
@@ -363,7 +363,7 @@ if.else.i.i:                                      ; preds = %if.then9.i
   %dp2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i.i = shl nuw nsw i32 %0, 3
   %conv.i.i = zext nneg i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -3538,7 +3538,7 @@ if.else.i89:                                      ; preds = %if.then8
   %dp2.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i = shl i32 %0, 3
   %conv.i = zext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i88, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i88, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %_sp_copy.exit
 
 _sp_copy.exit:                                    ; preds = %if.then.i, %if.else.i89
@@ -3900,7 +3900,7 @@ if.else.i184:                                     ; preds = %sp_count_bits.exit1
   %dp2.i185 = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i186 = shl i32 %37, 3
   %conv.i187 = zext i32 %mul.i186 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i185, i64 %conv.i187, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i185, i64 %conv.i187, i1 false)
   br label %_sp_copy.exit190
 
 _sp_copy.exit190:                                 ; preds = %if.then.i189, %if.else.i184
@@ -3989,7 +3989,7 @@ if.then.i218:                                     ; preds = %if.then100
   %dp2.i211 = getelementptr inbounds i8, ptr %d, i64 8
   %mul.i212 = shl i32 %46, 3
   %conv.i213 = zext i32 %mul.i212 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i144, ptr nonnull align 8 %dp2.i211, i64 %conv.i213, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i144, ptr nonnull readonly align 8 %dp2.i211, i64 %conv.i213, i1 false)
   store i32 %46, ptr %vla, align 16
   %shr.i219 = lshr i32 %sub93, 6
   %add.i220 = add i32 %46, %shr.i219
@@ -4571,7 +4571,7 @@ if.else.i318:                                     ; preds = %if.end125.thread450
   %123 = phi i32 [ %114, %if.end125.thread450 ], [ %122, %if.end125 ]
   %mul.i320 = shl i32 %123, 3
   %conv.i321 = zext i32 %mul.i320 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i317455, ptr nonnull align 8 %dp.i.i276, i64 %conv.i321, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i317455, ptr nonnull readonly align 8 %dp.i.i276, i64 %conv.i321, i1 false)
   br label %_sp_copy.exit324
 
 _sp_copy.exit324:                                 ; preds = %if.then.i323, %if.else.i318
@@ -4618,7 +4618,7 @@ if.else.i327:                                     ; preds = %if.then149
   %dp2.i328 = getelementptr inbounds i8, ptr %tr.0.ph, i64 8
   %mul.i329 = shl i32 %129, 3
   %conv.i330 = zext i32 %mul.i329 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i326, ptr nonnull align 8 %dp2.i328, i64 %conv.i330, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i326, ptr nonnull readonly align 8 %dp2.i328, i64 %conv.i330, i1 false)
   br label %_sp_copy.exit333
 
 _sp_copy.exit333:                                 ; preds = %if.then.i332, %if.else.i327
@@ -5289,7 +5289,7 @@ if.else.i:                                        ; preds = %if.then118
   %dp2.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i = shl i32 %10, 3
   %conv.i = zext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
@@ -5380,7 +5380,7 @@ if.else.i.i:                                      ; preds = %while.cond.i, %sp_c
   %dp.i.i = getelementptr inbounds i8, ptr %vla, i64 8
   %mul.i.i = shl i32 %.pr210266, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp.i94, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp.i94, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -5407,7 +5407,7 @@ if.else.i53.i:                                    ; preds = %if.then.i100
   %dp2.i54.i = getelementptr inbounds i8, ptr %ma.0.ph190198221, i64 8
   %mul.i55.i = shl i32 %15, 3
   %conv.i56.i = zext i32 %mul.i55.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i52.i, ptr nonnull align 8 %dp2.i54.i, i64 %conv.i56.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i52.i, ptr nonnull readonly align 8 %dp2.i54.i, i64 %conv.i56.i, i1 false)
   br label %_sp_copy.exit58.i
 
 _sp_copy.exit58.i:                                ; preds = %if.else.i53.i, %if.then.i57.i
@@ -6776,7 +6776,7 @@ if.then.i163:                                     ; preds = %if.then158
 if.else.i158:                                     ; preds = %if.then158
   %mul.i160 = shl i32 %200, 3
   %conv.i161 = zext i32 %mul.i160 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i157, ptr nonnull align 8 %dp.i.i.i89, i64 %conv.i161, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i157, ptr nonnull readonly align 8 %dp.i.i.i89, i64 %conv.i161, i1 false)
   br label %do.end167.sink.split
 
 do.end167.sink.split:                             ; preds = %for.cond50.i.i137, %land.rhs53.i.i142, %if.else.i158, %if.then.i163
@@ -6905,7 +6905,7 @@ if.else.i.i:                                      ; preds = %if.then53.i
   %dp2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i.i = shl i32 %14, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i103.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i103.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -7142,7 +7142,7 @@ if.else.i127.i:                                   ; preds = %for.end126.i
   %dp2.i128.i = getelementptr inbounds i8, ptr %42, i64 8
   %mul.i129.i = shl i32 %43, 3
   %conv.i130.i = zext i32 %mul.i129.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i.i, ptr nonnull align 8 %dp2.i128.i, i64 %conv.i130.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i.i, ptr nonnull readonly align 8 %dp2.i128.i, i64 %conv.i130.i, i1 false)
   br label %_sp_copy.exit132.i
 
 _sp_copy.exit132.i:                               ; preds = %if.else.i127.i, %if.then.i131.i
@@ -7272,7 +7272,7 @@ if.then.i153.i:                                   ; preds = %if.else222.i
 if.else.i149.i:                                   ; preds = %if.else222.i
   %mul.i151.i = shl i32 %50, 3
   %conv.i152.i = zext i32 %mul.i151.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i148.i, ptr nonnull align 8 %dp.i.i.i, i64 %conv.i152.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i148.i, ptr nonnull readonly align 8 %dp.i.i.i, i64 %conv.i152.i, i1 false)
   br label %_sp_copy.exit154.i
 
 _sp_copy.exit154.i:                               ; preds = %if.else.i149.i, %if.then.i153.i
@@ -7779,7 +7779,7 @@ if.else.i:                                        ; preds = %if.then212
   %dp2.i = getelementptr i8, ptr %1, i64 24
   %mul.i129 = shl i32 %11, 3
   %conv.i = zext i32 %mul.i129 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %_sp_copy.exit
 
 _sp_copy.exit:                                    ; preds = %if.then.i, %if.else.i
@@ -7926,7 +7926,7 @@ if.else.i65:                                      ; preds = %if.else
   %dp2.i = getelementptr inbounds i8, ptr %b, i64 8
   %mul.i = shl i32 %11, 3
   %conv.i = zext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %_sp_copy.exit
 
 _sp_copy.exit:                                    ; preds = %if.then.i, %if.else.i65
@@ -7984,7 +7984,7 @@ if.else.i69:                                      ; preds = %if.then112
   %dp2.i70 = getelementptr inbounds i8, ptr %vla, i64 8
   %mul.i71 = shl i32 %20, 3
   %conv.i72 = zext i32 %mul.i71 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i68, ptr nonnull align 8 %dp2.i70, i64 %conv.i72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i68, ptr nonnull readonly align 8 %dp2.i70, i64 %conv.i72, i1 false)
   br label %_sp_copy.exit74
 
 _sp_copy.exit74:                                  ; preds = %if.then.i73, %if.else.i69
@@ -8002,7 +8002,7 @@ if.else.i77:                                      ; preds = %_sp_copy.exit74
   %dp2.i78 = getelementptr inbounds i8, ptr %vla, i64 8
   %mul.i79 = shl i32 %21, 3
   %conv.i80 = zext i32 %mul.i79 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i76, ptr nonnull align 8 %dp2.i78, i64 %conv.i80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i76, ptr nonnull readonly align 8 %dp2.i78, i64 %conv.i80, i1 false)
   br label %if.end117
 
 if.end117:                                        ; preds = %if.else.i77, %if.then.i81
@@ -8044,7 +8044,7 @@ if.else.i85:                                      ; preds = %for.body124
   %dp2.i86 = getelementptr inbounds i8, ptr %26, i64 8
   %mul.i87 = shl i32 %27, 3
   %conv.i88 = zext i32 %mul.i87 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i84, ptr nonnull align 8 %dp2.i86, i64 %conv.i88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i84, ptr nonnull readonly align 8 %dp2.i86, i64 %conv.i88, i1 false)
   br label %_sp_copy.exit90
 
 _sp_copy.exit90:                                  ; preds = %if.then.i89, %if.else.i85
@@ -8071,7 +8071,7 @@ if.then.i97:                                      ; preds = %if.end142
 if.else.i93:                                      ; preds = %if.end142
   %mul.i95 = shl i32 %29, 3
   %conv.i96 = zext i32 %mul.i95 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i92, ptr nonnull align 8 %dp.i84, i64 %conv.i96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i92, ptr nonnull readonly align 8 %dp.i84, i64 %conv.i96, i1 false)
   br label %_sp_copy.exit98
 
 _sp_copy.exit98:                                  ; preds = %if.then.i97, %if.else.i93
@@ -8114,7 +8114,7 @@ if.else.i101:                                     ; preds = %if.then156
   %dp2.i102 = getelementptr inbounds i8, ptr %35, i64 8
   %mul.i103 = shl i32 %36, 3
   %conv.i104 = zext i32 %mul.i103 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i84, ptr nonnull align 8 %dp2.i102, i64 %conv.i104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i84, ptr nonnull readonly align 8 %dp2.i102, i64 %conv.i104, i1 false)
   br label %_sp_copy.exit106
 
 _sp_copy.exit106:                                 ; preds = %if.then.i105, %if.else.i101
@@ -8141,7 +8141,7 @@ if.then.i113:                                     ; preds = %if.end184
 if.else.i109:                                     ; preds = %if.end184
   %mul.i111 = shl i32 %38, 3
   %conv.i112 = zext i32 %mul.i111 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i108, ptr nonnull align 8 %dp.i84, i64 %conv.i112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i108, ptr nonnull readonly align 8 %dp.i84, i64 %conv.i112, i1 false)
   br label %for.inc197
 
 for.inc197:                                       ; preds = %if.else.i109, %if.then.i113
@@ -8175,7 +8175,7 @@ if.else.i117:                                     ; preds = %if.then210
   %dp2.i118 = getelementptr inbounds i8, ptr %6, i64 8
   %mul.i119 = shl i32 %41, 3
   %conv.i120 = zext i32 %mul.i119 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i116, ptr nonnull align 8 %dp2.i118, i64 %conv.i120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i116, ptr nonnull readonly align 8 %dp2.i118, i64 %conv.i120, i1 false)
   br label %_sp_copy.exit122
 
 _sp_copy.exit122:                                 ; preds = %if.then.i121, %if.else.i117
@@ -8313,7 +8313,7 @@ if.else.i53:                                      ; preds = %if.else
   %dp2.i = getelementptr inbounds i8, ptr %b, i64 8
   %mul.i = shl i32 %9, 3
   %conv.i = zext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %_sp_copy.exit
 
 _sp_copy.exit:                                    ; preds = %if.then.i, %if.else.i53
@@ -8337,7 +8337,7 @@ if.else.i56:                                      ; preds = %if.then85
   %dp2.i57 = getelementptr inbounds i8, ptr %vla, i64 8
   %mul.i58 = shl i32 %16, 3
   %conv.i59 = zext i32 %mul.i58 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i55, ptr nonnull align 8 %dp2.i57, i64 %conv.i59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i55, ptr nonnull readonly align 8 %dp2.i57, i64 %conv.i59, i1 false)
   br label %_sp_copy.exit61
 
 _sp_copy.exit61:                                  ; preds = %if.then.i60, %if.else.i56
@@ -8381,7 +8381,7 @@ if.else.i64:                                      ; preds = %for.body94
   %dp2.i65 = getelementptr inbounds i8, ptr %21, i64 8
   %mul.i66 = shl i32 %22, 3
   %conv.i67 = zext i32 %mul.i66 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i63, ptr nonnull align 8 %dp2.i65, i64 %conv.i67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i63, ptr nonnull readonly align 8 %dp2.i65, i64 %conv.i67, i1 false)
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i64, %if.then.i68
@@ -8443,7 +8443,7 @@ if.else.i78:                                      ; preds = %sp_sqrmod.exit.thre
   %26 = phi i32 [ %25, %sp_sqrmod.exit.thread ], [ %.pr, %sp_sqrmod.exit ]
   %mul.i80 = shl i32 %26, 3
   %conv.i81 = zext i32 %mul.i80 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i77134, ptr nonnull align 8 %dp.i63, i64 %conv.i81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i77134, ptr nonnull readonly align 8 %dp.i63, i64 %conv.i81, i1 false)
   br label %_sp_copy.exit83
 
 _sp_copy.exit83:                                  ; preds = %if.then.i82, %if.else.i78
@@ -8488,7 +8488,7 @@ if.else.i86:                                      ; preds = %if.then120
   %dp2.i87 = getelementptr inbounds i8, ptr %32, i64 8
   %mul.i88 = shl i32 %33, 3
   %conv.i89 = zext i32 %mul.i88 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i63, ptr nonnull align 8 %dp2.i87, i64 %conv.i89, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i63, ptr nonnull readonly align 8 %dp2.i87, i64 %conv.i89, i1 false)
   br label %_sp_copy.exit91
 
 _sp_copy.exit91:                                  ; preds = %if.then.i90, %if.else.i86
@@ -8535,7 +8535,7 @@ if.else.i101:                                     ; preds = %_sp_mulmod.exit.thr
   %36 = phi i32 [ %35, %_sp_mulmod.exit.thread ], [ %.pr135, %_sp_mulmod.exit ]
   %mul.i103 = shl i32 %36, 3
   %conv.i104 = zext i32 %mul.i103 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i100141, ptr nonnull align 8 %dp.i63, i64 %conv.i104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i100141, ptr nonnull readonly align 8 %dp.i63, i64 %conv.i104, i1 false)
   br label %for.inc154
 
 for.inc154:                                       ; preds = %if.else.i101, %if.then.i105
@@ -8569,7 +8569,7 @@ if.else.i109:                                     ; preds = %if.then161
   %dp2.i110 = getelementptr inbounds i8, ptr %6, i64 8
   %mul.i111 = shl i32 %39, 3
   %conv.i112 = zext i32 %mul.i111 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i108, ptr nonnull align 8 %dp2.i110, i64 %conv.i112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i108, ptr nonnull readonly align 8 %dp2.i110, i64 %conv.i112, i1 false)
   br label %_sp_copy.exit114
 
 _sp_copy.exit114:                                 ; preds = %if.then.i113, %if.else.i109
@@ -8900,7 +8900,7 @@ if.else.i224.i:                                   ; preds = %if.else114.i
   %dp2.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %mul.i225.i = shl i32 %26, 3
   %conv.i.i = zext i32 %mul.i225.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i209.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i209.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i224.i, %if.then.i.i
@@ -8954,7 +8954,7 @@ if.then.i234.i:                                   ; preds = %if.then138.i
 if.else.i230.i:                                   ; preds = %if.then138.i
   %mul.i232.i = shl i32 %35, 3
   %conv.i233.i = zext i32 %mul.i232.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i229.i, ptr nonnull align 8 %dp.i.i209.i, i64 %conv.i233.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i229.i, ptr nonnull readonly align 8 %dp.i.i209.i, i64 %conv.i233.i, i1 false)
   br label %if.end140.i
 
 if.end140.i:                                      ; preds = %if.else.i230.i, %if.then.i234.i
@@ -9064,7 +9064,7 @@ if.else.i238.i:                                   ; preds = %if.end228.i
   %dp2.i239.i = getelementptr inbounds i8, ptr %41, i64 8
   %mul.i240.i = shl i32 %42, 3
   %conv.i241.i = zext i32 %mul.i240.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i207.i, ptr nonnull align 8 %dp2.i239.i, i64 %conv.i241.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i207.i, ptr nonnull readonly align 8 %dp2.i239.i, i64 %conv.i241.i, i1 false)
   br label %if.end233.thread.i
 
 if.end233.thread.i:                               ; preds = %if.else.i238.i, %if.then.i242.i
@@ -9265,7 +9265,7 @@ if.then.i250.i:                                   ; preds = %if.then423.i
 if.else.i246.i:                                   ; preds = %if.then423.i
   %mul.i248.i = shl i32 %55, 3
   %conv.i249.i = zext i32 %mul.i248.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i245.i, ptr nonnull align 8 %dp.i.i207.i, i64 %conv.i249.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i245.i, ptr nonnull readonly align 8 %dp.i.i207.i, i64 %conv.i249.i, i1 false)
   br label %_sp_copy.exit251.i
 
 _sp_copy.exit251.i:                               ; preds = %if.else.i246.i, %if.then.i250.i
@@ -9384,7 +9384,7 @@ if.else.i.i:                                      ; preds = %if.then9.i
   %dp2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i.i = shl i32 %3, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -9415,7 +9415,7 @@ if.else.i.i44:                                    ; preds = %if.then9.i41
   %dp2.i.i45 = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i.i46 = shl i32 %0, 3
   %conv.i.i47 = zext i32 %mul.i.i46 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i43, ptr nonnull align 8 %dp2.i.i45, i64 %conv.i.i47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i43, ptr nonnull readonly align 8 %dp2.i.i45, i64 %conv.i.i47, i1 false)
   br label %_sp_copy.exit.i48
 
 _sp_copy.exit.i48:                                ; preds = %if.else.i.i44, %if.then.i.i50
@@ -9485,7 +9485,7 @@ if.else23.i:                                      ; preds = %if.then14.i
   %add.ptr29.i = getelementptr inbounds i64, ptr %dp26.i, i64 %idx.ext28.i
   %mul31.i = shl i32 %sub.i, 3
   %conv32.i = zext i32 %mul31.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i65, ptr nonnull align 8 %add.ptr29.i, i64 %conv32.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i65, ptr nonnull readonly align 8 %add.ptr29.i, i64 %conv32.i, i1 false)
   br label %if.end17
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -9771,7 +9771,7 @@ if.else.i.i:                                      ; preds = %if.then9.i
   %dp2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i.i = shl i32 %0, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -12060,7 +12060,7 @@ while.end:                                        ; preds = %while.body, %if.the
   ]
 
 if.then12:                                        ; preds = %while.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in.addr.0.lcssa) #22
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %in.addr.0.lcssa) #22
   %1 = trunc i64 %call.i to i32
   %i.037.i = add i32 %1, -1
   %cmp38.i = icmp slt i32 %i.037.i, 0
@@ -12505,7 +12505,7 @@ _sp_copy.exit:                                    ; preds = %if.then29
   %dp2.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i = shl nsw i32 %3, 3
   %conv.i = zext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   store i32 %3, ptr %vla, align 16
   %5 = icmp eq i32 %3, -1
   br i1 %5, label %do.body42.us, label %do.body42.preheader
@@ -12894,7 +12894,7 @@ for.body.preheader:                               ; preds = %if.then34
   %dp2.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i26 = shl nuw nsw i32 %8, 3
   %conv.i = zext nneg i32 %mul.i26 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i24, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i24, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   store i32 %8, ptr %vla, align 16
   br label %for.body
 
@@ -14054,7 +14054,7 @@ _sp_copy.exit:                                    ; preds = %_sp_cmp.exit
   %dp2.i = getelementptr inbounds i8, ptr %13, i64 8
   %mul.i = shl i32 %11, 3
   %conv.i = zext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   store i32 %11, ptr %vla, align 16
   %cmp55 = icmp eq i32 %11, 1
   br i1 %cmp55, label %if.then57, label %if.end6.i
@@ -14158,7 +14158,7 @@ if.else.i84:                                      ; preds = %if.then119
   %dp2.i85 = getelementptr inbounds i8, ptr %.us-phi, i64 8
   %mul.i86 = shl i32 %23, 3
   %conv.i87 = zext i32 %mul.i86 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i83, ptr nonnull align 8 %dp2.i85, i64 %conv.i87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i83, ptr nonnull readonly align 8 %dp2.i85, i64 %conv.i87, i1 false)
   br label %_sp_copy.exit89
 
 _sp_copy.exit89:                                  ; preds = %if.then.i88, %if.else.i84
@@ -14267,7 +14267,7 @@ if.else.i:                                        ; preds = %if.then15
   %dp2.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i = shl i32 %1, 3
   %conv.i = zext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull align 8 %dp2.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i, ptr nonnull readonly align 8 %dp2.i, i64 %conv.i, i1 false)
   br label %_sp_copy.exit
 
 _sp_copy.exit:                                    ; preds = %if.then.i, %if.else.i
@@ -14290,7 +14290,7 @@ if.else.i68:                                      ; preds = %if.end16
   %dp2.i69 = getelementptr inbounds i8, ptr %m, i64 8
   %mul.i70 = shl i32 %3, 3
   %conv.i71 = zext i32 %mul.i70 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i67, ptr nonnull align 8 %dp2.i69, i64 %conv.i71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i67, ptr nonnull readonly align 8 %dp2.i69, i64 %conv.i71, i1 false)
   br label %land.lhs.true20.lr.ph
 
 land.lhs.true20.lr.ph:                            ; preds = %if.else.i68, %if.then.i72
@@ -15221,7 +15221,7 @@ if.else.i.i:                                      ; preds = %if.then9.i
   %dp2.i.i = getelementptr inbounds i8, ptr %c.addr.0521, i64 8
   %mul.i.i = shl i32 %136, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -15291,7 +15291,7 @@ if.else.i.i:                                      ; preds = %if.then9.i
   %dp2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %mul.i.i = shl i32 %2, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i.i, ptr nonnull readonly align 8 %dp2.i.i, i64 %conv.i.i, i1 false)
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %if.else.i.i, %if.then.i.i
@@ -15421,7 +15421,7 @@ if.then19.i:                                      ; preds = %if.then14.i
 
 if.else23.i:                                      ; preds = %if.then14.i
   %add.ptr29.i = getelementptr inbounds i64, ptr %dp, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i48, ptr nonnull align 8 %add.ptr29.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.i48, ptr nonnull readonly align 8 %add.ptr29.i, i64 %conv.i, i1 false)
   br label %sp_rshb.exit
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i

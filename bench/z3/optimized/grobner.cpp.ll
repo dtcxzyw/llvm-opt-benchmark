@@ -843,7 +843,7 @@ _ZN6vectorIPN7grobner8monomialELb0EjE3endEv.exit.i: ; preds = %entry
 for.body.i:                                       ; preds = %_ZN6vectorIPN7grobner8monomialELb0EjE3endEv.exit.i, %for.body.i
   %__begin1.06.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %3, %_ZN6vectorIPN7grobner8monomialELb0EjE3endEv.exit.i ]
   %6 = load ptr, ptr %__begin1.06.i, align 8
-  call void @_ZN7grobner12del_monomialEPNS_8monomialE(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %6)
+  call void @_ZN7grobner12del_monomialEPNS_8monomialE(ptr noundef nonnull readonly align 8 dereferenceable(228) %this, ptr noundef %6)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.06.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
@@ -1802,7 +1802,7 @@ if.else.i:                                        ; preds = %for.body.i
   br label %if.end.i4
 
 if.end.i4:                                        ; preds = %if.else.i, %for.body.i
-  tail call void @_ZNK7grobner16display_monomialERSoRKNS_8monomialERSt8functionIFvS0_P4exprEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %display_var)
+  tail call void @_ZNK7grobner16display_monomialERSoRKNS_8monomialERSt8functionIFvS0_P4exprEE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %display_var)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK7grobner17display_monomialsERSojPKPNS_8monomialERSt8functionIFvS0_P4exprEE.exit, label %for.body.i, !llvm.loop !13
@@ -1877,7 +1877,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i4.i
 
 if.end.i4.i:                                      ; preds = %if.else.i.i, %for.body.i.i
-  tail call void @_ZNK7grobner16display_monomialERSoRKNS_8monomialERSt8functionIFvS0_P4exprEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %display_var)
+  tail call void @_ZNK7grobner16display_monomialERSoRKNS_8monomialERSt8functionIFvS0_P4exprEE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %display_var)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZNK7grobner16display_equationERSoRKNS_8equationERSt8functionIFvS0_P4exprEE.exit, label %for.body.i.i, !llvm.loop !13
@@ -3803,7 +3803,7 @@ _ZN6vectorIPN7grobner8monomialELb0EjE3endEv.exit.i: ; preds = %_ZN6vectorIPN7gro
 for.body.i71:                                     ; preds = %_ZN6vectorIPN7grobner8monomialELb0EjE3endEv.exit.i, %for.body.i71
   %__begin1.06.i = phi ptr [ %incdec.ptr.i72, %for.body.i71 ], [ %43, %_ZN6vectorIPN7grobner8monomialELb0EjE3endEv.exit.i ]
   %46 = load ptr, ptr %__begin1.06.i, align 8
-  tail call void @_ZN7grobner12del_monomialEPNS_8monomialE(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %46)
+  tail call void @_ZN7grobner12del_monomialEPNS_8monomialE(ptr noundef nonnull readonly align 8 dereferenceable(228) %this, ptr noundef %46)
   %incdec.ptr.i72 = getelementptr inbounds i8, ptr %__begin1.06.i, i64 8
   %cmp.not.i73 = icmp eq ptr %incdec.ptr.i72, %add.ptr.i.i70
   br i1 %cmp.not.i73, label %for.end.i, label %for.body.i71
@@ -9661,7 +9661,7 @@ _ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6pt
 for.body.i13:                                     ; preds = %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit.i11, %_ZN14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8iteratorppEv.exit.i18
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.2.i, %_ZN14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8iteratorppEv.exit.i18 ], [ %retval.sroa.0.1.i.i12, %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit.i11 ]
   %18 = load ptr, ptr %__begin1.sroa.0.010.i, align 8
-  tail call void @_ZN7grobner9superposeEPNS_8equationES1_(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %eq.0, ptr noundef %18)
+  tail call void @_ZN7grobner9superposeEPNS_8equationES1_(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef readonly %eq.0, ptr noundef %18)
   %incdec.ptr.i.i14 = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 8
   %cmp.not2.i.i.i15 = icmp eq ptr %incdec.ptr.i.i14, %add.ptr.i.i6
   br i1 %cmp.not2.i.i.i15, label %_ZN14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8iteratorppEv.exit.i18, label %land.rhs.i.i.i16

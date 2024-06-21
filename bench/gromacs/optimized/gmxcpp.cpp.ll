@@ -3972,7 +3972,7 @@ _ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread: ; preds = %_ZL14find_direct
 
 .preheader143:                                    ; preds = %374
   %377 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0115.0191) #20
-  %378 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %377) #22
+  %378 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %377) #22
   %.not17.i183 = icmp eq ptr %378, null
   br i1 %.not17.i183, label %.loopexit140.thread, label %.lr.ph.i100
 
@@ -3981,7 +3981,7 @@ _ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread: ; preds = %_ZL14find_direct
   %380 = phi ptr [ %406, %_ZL7strstrwPKcS0_.exit ], [ %377, %.preheader143 ]
   %.065185 = phi ptr [ %405, %_ZL7strstrwPKcS0_.exit ], [ %2, %.preheader143 ]
   %.066184 = phi i32 [ %402, %_ZL7strstrwPKcS0_.exit ], [ 0, %.preheader143 ]
-  %381 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %380) #22
+  %381 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %380) #22
   br label %382
 
 382:                                              ; preds = %400, %.lr.ph.i100
@@ -4015,7 +4015,7 @@ _ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread: ; preds = %_ZL14find_direct
   br i1 %.old.i, label %_ZL7strstrwPKcS0_.exit, label %400
 
 400:                                              ; preds = %399, %392, %382
-  %401 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %384, ptr noundef nonnull dereferenceable(1) %380) #22
+  %401 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %384, ptr noundef nonnull readonly dereferenceable(1) %380) #22
   %.not.i101 = icmp eq ptr %401, null
   br i1 %.not.i101, label %.loopexit140, label %382, !llvm.loop !71
 
@@ -4025,7 +4025,7 @@ _ZL7strstrwPKcS0_.exit:                           ; preds = %392, %399
   %404 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %403) #22
   %405 = getelementptr inbounds i8, ptr %383, i64 %404
   %406 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0115.0191) #20
-  %407 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %405, ptr noundef nonnull dereferenceable(1) %406) #22
+  %407 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %405, ptr noundef nonnull readonly dereferenceable(1) %406) #22
   %.not17.i = icmp eq ptr %407, null
   br i1 %.not17.i, label %.preheader.preheader, label %.lr.ph.i100, !llvm.loop !72
 
@@ -4051,7 +4051,7 @@ _ZL7strstrwPKcS0_.exit:                           ; preds = %392, %399
 _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE5eraseERKS5_.exit: ; preds = %410
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   %413 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0115.0191) #20
-  %414 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %413) #22
+  %414 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %413) #22
   %.not17.i104187 = icmp eq ptr %414, null
   br i1 %.not17.i104187, label %.loopexit, label %.lr.ph.i105
 
@@ -4059,7 +4059,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
   %415 = phi ptr [ %448, %444 ], [ %414, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE5eraseERKS5_.exit ]
   %416 = phi ptr [ %447, %444 ], [ %413, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE5eraseERKS5_.exit ]
   %.063188 = phi ptr [ %446, %444 ], [ %2, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE5eraseERKS5_.exit ]
-  %417 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %416) #22
+  %417 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %416) #22
   br label %418
 
 418:                                              ; preds = %436, %.lr.ph.i105
@@ -4093,7 +4093,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
   br i1 %.old.i111, label %_ZL7strstrwPKcS0_.exit113, label %436
 
 436:                                              ; preds = %435, %428, %418
-  %437 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %420, ptr noundef nonnull dereferenceable(1) %416) #22
+  %437 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %420, ptr noundef nonnull readonly dereferenceable(1) %416) #22
   %.not.i108 = icmp eq ptr %437, null
   br i1 %.not.i108, label %.loopexit, label %418, !llvm.loop !71
 
@@ -4112,7 +4112,7 @@ _ZL7strstrwPKcS0_.exit113:                        ; preds = %428, %435
   %445 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0115.0191) #20
   %446 = getelementptr inbounds i8, ptr %419, i64 %445
   %447 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0115.0191) #20
-  %448 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %446, ptr noundef nonnull dereferenceable(1) %447) #22
+  %448 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %446, ptr noundef nonnull readonly dereferenceable(1) %447) #22
   %.not17.i104 = icmp eq ptr %448, null
   br i1 %.not17.i104, label %.loopexit, label %.lr.ph.i105, !llvm.loop !74
 

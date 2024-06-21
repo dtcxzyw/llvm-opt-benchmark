@@ -572,7 +572,7 @@ switch.lookup:                                    ; preds = %18
 
 .lr.ph21.i:                                       ; preds = %75
   %wide.trip.count.i = zext nneg i32 %87 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %10, i64 %wide.trip.count.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 16 %10, i64 %wide.trip.count.i, i1 false)
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 122)
   %90 = add nsw i32 %87, -1
   %91 = zext nneg i32 %90 to i64

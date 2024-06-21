@@ -406,11 +406,11 @@ if.else:                                          ; preds = %if.then182
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %15, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %15, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.else
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %15, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %15, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -504,7 +504,7 @@ if.else249:                                       ; preds = %if.then235
   %30 = load ptr, ptr %hash_algo250, align 8
   %empty_blob251 = getelementptr inbounds i8, ptr %30, i64 88
   %31 = load ptr, ptr %empty_blob251, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid236, ptr noundef nonnull align 4 dereferenceable(32) %31, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid236, ptr noundef nonnull readonly align 4 dereferenceable(32) %31, i64 32, i1 false)
   %algo.i49 = getelementptr inbounds i8, ptr %31, i64 32
   %32 = load i32, ptr %algo.i49, align 4
   %algo3.i = getelementptr inbounds i8, ptr %oid236, i64 32

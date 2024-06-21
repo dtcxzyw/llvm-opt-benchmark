@@ -1167,7 +1167,7 @@ pmix_pointer_array_get_item.exit476:              ; preds = %pmix_pointer_array_
   %532 = load ptr, ptr %526, align 8
   %533 = getelementptr inbounds i8, ptr %529, i64 152
   %534 = load ptr, ptr %533, align 8
-  %535 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull dereferenceable(1) %532) #15
+  %535 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull readonly dereferenceable(1) %532) #15
   %536 = icmp eq i32 %535, 0
   br i1 %536, label %.thread575, label %537
 
@@ -1177,12 +1177,12 @@ pmix_pointer_array_get_item.exit476:              ; preds = %pmix_pointer_array_
   br i1 %539, label %540, label %546
 
 540:                                              ; preds = %537
-  %541 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.24) #15
+  %541 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.24) #15
   %542 = icmp eq i32 %541, 0
   br i1 %542, label %.thread575, label %543
 
 543:                                              ; preds = %540
-  %544 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.25) #15
+  %544 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.25) #15
   %545 = icmp eq i32 %544, 0
   br i1 %545, label %.thread575, label %546
 
@@ -1207,7 +1207,7 @@ pmix_pointer_array_get_item.exit476:              ; preds = %pmix_pointer_array_
 .lr.ph.i478:                                      ; preds = %.preheader.i, %550
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %550 ], [ 0, %.preheader.i ]
   %553 = phi ptr [ %552, %550 ], [ %549, %.preheader.i ]
-  %554 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %553, ptr noundef nonnull dereferenceable(1) %532) #15
+  %554 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %553, ptr noundef nonnull readonly dereferenceable(1) %532) #15
   %555 = icmp eq i32 %554, 0
   br i1 %555, label %.thread575, label %550
 

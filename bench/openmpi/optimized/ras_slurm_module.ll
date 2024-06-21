@@ -1432,7 +1432,7 @@ pmix_obj_run_constructors.exit185:                ; preds = %.lr.ph.i182, %126
   br i1 %149, label %parse_alloc_msg.exit.thread, label %150
 
 150:                                              ; preds = %147
-  %151 = call noalias ptr @strdup(ptr noundef nonnull %148) #20
+  %151 = call noalias ptr @strdup(ptr noundef nonnull readonly %148) #20
   %152 = call ptr @strtok(ptr noundef %151, ptr noundef nonnull @.str.29) #20
   %.not35.i = icmp eq ptr %152, null
   br i1 %.not35.i, label %parse_alloc_msg.exit.thread270, label %.lr.ph.i186
@@ -2444,7 +2444,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 
 55:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %52, align 1
-  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull %.0111289, ptr noundef %.02942.i, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.02942.i, ptr noundef nonnull %4)
   switch i32 %56, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %57
     i32 -43, label %.thread148
@@ -2486,7 +2486,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %72
 
 72:                                               ; preds = %70, %65, %63
-  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull %.0111289, ptr noundef %.029.lcssa.i, ptr noundef nonnull %4)
+  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.029.lcssa.i, ptr noundef nonnull %4)
   switch i32 %73, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %prte_ras_slurm_parse_ranges.exit.thread145
     i32 -43, label %.thread148

@@ -150,7 +150,7 @@ blake2s_init_param.exit:                          ; preds = %20
   store i64 0, ptr %33, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 48
   %39 = getelementptr inbounds i8, ptr %38, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 16 %6, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 16 %6, i64 %35, i1 false)
   %40 = load i32, ptr %19, align 8
   %41 = add i32 %40, 64
   store i32 %41, ptr %19, align 8
@@ -1760,7 +1760,7 @@ blake2s_init.exit:                                ; preds = %29
   store i64 0, ptr %40, align 16
   %45 = getelementptr inbounds i8, ptr %9, i64 48
   %46 = getelementptr inbounds i8, ptr %45, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %2, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %2, i64 %42, i1 false)
   %47 = getelementptr inbounds i8, ptr %9, i64 32
   %48 = load i32, ptr %47, align 16
   %49 = add i32 %48, 64

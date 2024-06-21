@@ -701,7 +701,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %or.cond236.i, label %353, label %352
 
 352:                                              ; preds = %348, %339
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0207.i, ptr align 8 %.0320, i64 %142, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0207.i, ptr readonly align 8 %.0320, i64 %142, i1 false)
   br label %zend_bitset_union.exit.i
 
 353:                                              ; preds = %348

@@ -1003,7 +1003,7 @@ index_get_field_name.exit:                        ; preds = %138, %146
 
 158:                                              ; preds = %._crit_edge230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %159 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef %2, ptr noundef %14, i32 noundef -1, ptr noundef nonnull %8)
+  %159 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef readonly %2, ptr noundef %14, i32 noundef -1, ptr noundef nonnull %8)
   %160 = load i32, ptr %8, align 4
   %161 = icmp sgt i32 %160, 0
   br i1 %161, label %162, label %.preheader.i.thread

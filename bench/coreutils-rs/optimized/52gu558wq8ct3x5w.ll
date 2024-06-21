@@ -2838,7 +2838,7 @@ common.resume:                                    ; preds = %133, %111, %30, %53
   %104 = extractvalue { i64, ptr } %102, 1
   %105 = icmp ne ptr %104, null
   tail call void @llvm.assume(i1 %105)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull align 1 %100, i64 %101, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull readonly align 1 %100, i64 %101, i1 false)
   store i64 %103, ptr %9, align 8
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %104, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
@@ -2895,7 +2895,7 @@ common.resume:                                    ; preds = %133, %111, %30, %53
   %126 = extractvalue { i64, ptr } %124, 1
   %127 = icmp ne ptr %126, null
   tail call void @llvm.assume(i1 %127)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull align 1 %122, i64 %123, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull readonly align 1 %122, i64 %123, i1 false)
   store i64 %125, ptr %8, align 8
   %.sroa.034.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %126, ptr %.sroa.034.sroa.2.0..sroa_idx, align 8
@@ -3767,7 +3767,7 @@ _ZN3std4path4Path4join17he564b9443042d886E.exit:  ; preds = %.invoke, %182
   %308 = extractvalue { i64, ptr } %294, 1
   %309 = icmp ne ptr %308, null
   call void @llvm.assume(i1 %309)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %308, ptr nonnull align 1 %292, i64 %293, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %308, ptr nonnull readonly align 1 %292, i64 %293, i1 false)
   store i64 %307, ptr %14, align 8
   store ptr %308, ptr %.sroa.074.sroa.4.0..sroa_idx, align 8
   store i64 %293, ptr %.sroa.074.sroa.5.0..sroa_idx, align 8
@@ -5267,7 +5267,7 @@ define internal fastcc void @_ZN5uu_ln18simple_backup_path17hb2142b67527defc9E(p
   %28 = phi ptr [ %17, %14 ], [ %.pre, %.noexc12 ]
   %29 = phi i64 [ %12, %14 ], [ %.pre.i.i, %.noexc12 ]
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %3, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %31 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1441, !noalias !1446, !noundef !5
   %32 = add i64 %31, %4
   store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1441, !noalias !1446

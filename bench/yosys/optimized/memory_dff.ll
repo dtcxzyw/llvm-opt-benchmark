@@ -76979,14 +76979,14 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.preheader: ; preds = %2385, %2383, %_ZNK5
   br label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i
 
 _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i:           ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.preheader, %.noexc443
-  %2387 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113MemQueryCache16walk_up_mux_condEN5Yosys5RTLIL6SigBitEbRS3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr %.sroa.068.0.copyload, i32 %.sroa.4.0.copyload, i1 noundef zeroext %2330, ptr noundef nonnull align 8 dereferenceable(12) %22)
+  %2387 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113MemQueryCache16walk_up_mux_condEN5Yosys5RTLIL6SigBitEbRS3_(ptr noundef nonnull readonly align 8 dereferenceable(264) %72, ptr %.sroa.068.0.copyload, i32 %.sroa.4.0.copyload, i1 noundef zeroext %2330, ptr noundef nonnull align 8 dereferenceable(12) %22)
           to label %.noexc443 unwind label %.loopexit.split-lp862.loopexit.split-lp.loopexit
 
 .noexc443:                                        ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i
   br i1 %2387, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i, label %.preheader.i, !llvm.loop !579
 
 .preheader.i:                                     ; preds = %.noexc443, %.noexc444
-  %2388 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113MemQueryCache16walk_up_mux_condEN5Yosys5RTLIL6SigBitEbRS3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr %.sroa.068.0.copyload, i32 %.sroa.4.0.copyload, i1 noundef zeroext %2330, ptr noundef nonnull align 8 dereferenceable(12) %23)
+  %2388 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113MemQueryCache16walk_up_mux_condEN5Yosys5RTLIL6SigBitEbRS3_(ptr noundef nonnull readonly align 8 dereferenceable(264) %72, ptr %.sroa.068.0.copyload, i32 %.sroa.4.0.copyload, i1 noundef zeroext %2330, ptr noundef nonnull align 8 dereferenceable(12) %23)
           to label %.noexc444 unwind label %.loopexit.split-lp862.loopexit
 
 .noexc444:                                        ; preds = %.preheader.i
@@ -77691,7 +77691,7 @@ _ZNSt12_Vector_baseISt4pairIRN12_GLOBAL__N_18PortDataEiESaIS4_EE11_M_allocateEm.
 .lr.ph.i.i.i.i.i.i.i498:                          ; preds = %_ZNSt12_Vector_baseISt4pairIRN12_GLOBAL__N_18PortDataEiESaIS4_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i498
   %.03.i.i.i.i.i.i.i499 = phi ptr [ %2662, %.lr.ph.i.i.i.i.i.i.i498 ], [ %2659, %_ZNSt12_Vector_baseISt4pairIRN12_GLOBAL__N_18PortDataEiESaIS4_EE11_M_allocateEm.exit.i.i.i ]
   %.092.i.i.i.i.i.i.i500 = phi ptr [ %2661, %.lr.ph.i.i.i.i.i.i.i498 ], [ %.sroa.0806.21669, %_ZNSt12_Vector_baseISt4pairIRN12_GLOBAL__N_18PortDataEiESaIS4_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i499, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i500, i64 16, i1 false), !alias.scope !582
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i499, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i500, i64 16, i1 false), !alias.scope !582
   %2661 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i500, i64 16
   %2662 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i499, i64 16
   %.not.i.i.i.i.i.i.i501 = icmp eq ptr %2661, %.sroa.6.21668
@@ -78680,7 +78680,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit579:              ; preds = %_ZSt8_DestroyIPN5Yo
 
 .lr.ph.i.i.i.i581:                                ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit579, %.lr.ph.i.i.i.i581
   %.05.i.i.i.i582 = phi ptr [ %3061, %.lr.ph.i.i.i.i581 ], [ %3059, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit579 ]
-  call fastcc void @_ZN12_GLOBAL__N_17MuxDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.05.i.i.i.i582) #20
+  call fastcc void @_ZN12_GLOBAL__N_17MuxDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(104) %.05.i.i.i.i582) #20
   %3061 = getelementptr inbounds i8, ptr %.05.i.i.i.i582, i64 104
   %.not.i.i.i.i583 = icmp eq ptr %3061, %3060
   br i1 %.not.i.i.i.i583, label %_ZSt8_DestroyIPN12_GLOBAL__N_17MuxDataES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i581, !llvm.loop !594
@@ -79898,7 +79898,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_17MuxDataESaIS1_EED2Ev(p
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_17MuxDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.05.i.i.i) #20
+  tail call fastcc void @_ZN12_GLOBAL__N_17MuxDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(104) %.05.i.i.i) #20
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17MuxDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !594

@@ -278,7 +278,7 @@ define range(i32 0, 2) i32 @ipaddstroption_(ptr nocapture noundef readonly %0, p
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #7
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %15, i64 %17
   store i8 0, ptr %19, align 1
   br label %f2cstr.exit
@@ -311,7 +311,7 @@ f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
 
 29:                                               ; preds = %._crit_edge.i11
   %30 = sext i32 %.0.lcssa.i12 to i64
-  %31 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef %2, i64 noundef %30) #7
+  %31 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef readonly %2, i64 noundef %30) #7
   %32 = getelementptr inbounds i8, ptr %28, i64 %30
   store i8 0, ptr %32, align 1
   br label %f2cstr.exit18
@@ -359,7 +359,7 @@ define range(i32 0, 2) i32 @ipaddnumoption_(ptr nocapture noundef readonly %0, p
 
 15:                                               ; preds = %._crit_edge.i
   %16 = sext i32 %.0.lcssa.i to i64
-  %17 = tail call ptr @strncpy(ptr noundef nonnull %14, ptr noundef %1, i64 noundef %16) #7
+  %17 = tail call ptr @strncpy(ptr noundef nonnull %14, ptr noundef readonly %1, i64 noundef %16) #7
   %18 = getelementptr inbounds i8, ptr %14, i64 %16
   store i8 0, ptr %18, align 1
   br label %f2cstr.exit
@@ -408,7 +408,7 @@ define range(i32 0, 2) i32 @ipaddintoption_(ptr nocapture noundef readonly %0, p
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #7
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %15, i64 %17
   store i8 0, ptr %19, align 1
   br label %f2cstr.exit
@@ -456,7 +456,7 @@ define range(i32 0, 2) i32 @ipopenoutputfile_(ptr nocapture noundef readonly %0,
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #7
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %15, i64 %17
   store i8 0, ptr %19, align 1
   br label %f2cstr.exit

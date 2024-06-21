@@ -1931,7 +1931,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call3 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %6 = call ptr @__dynamic_cast(ptr nonnull %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %6 = call ptr @__dynamic_cast(ptr nonnull readonly %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %7 = icmp eq ptr %6, null
   br i1 %7, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -1940,7 +1940,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.then
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %if.then
-  %8 = call ptr @__dynamic_cast(ptr nonnull %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %8 = call ptr @__dynamic_cast(ptr nonnull readonly %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %9 = icmp eq ptr %8, null
   br i1 %9, label %dynamic_cast.bad_cast.i26, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit27
 
@@ -1965,7 +1965,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %call8 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %13 = call ptr @__dynamic_cast(ptr nonnull %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %13 = call ptr @__dynamic_cast(ptr nonnull readonly %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %14 = icmp eq ptr %13, null
   br i1 %14, label %dynamic_cast.bad_cast.i32, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit33
 
@@ -1991,7 +1991,7 @@ if.end10:                                         ; preds = %if.end
 
 if.then12:                                        ; preds = %if.end10
   %call13 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %18 = call ptr @__dynamic_cast(ptr nonnull %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %18 = call ptr @__dynamic_cast(ptr nonnull readonly %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %dynamic_cast.bad_cast.i38, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit39
 
@@ -2236,7 +2236,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -2778,7 +2778,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %trans, align 8
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %for.cond.preheader
 
@@ -3166,7 +3166,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true3
   br i1 %cmp.i27, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true3
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -3175,7 +3175,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.then
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %if.then
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %dynamic_cast.bad_cast.i28, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit29
 
@@ -3241,7 +3241,7 @@ land.lhs.true8:                                   ; preds = %for.cond.i, %for.co
   br i1 %tobool.not, label %if.then14, label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit
 
 _ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit: ; preds = %land.lhs.true8
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br i1 %cmp.i.i.i, label %_ZNK7datalog16product_relation4sizeEv.exit.i36, label %if.end.i.i.i34
 
 if.end.i.i.i34:                                   ; preds = %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit
@@ -3294,7 +3294,7 @@ for.body.i50:                                     ; preds = %for.cond.i57, %for.
 
 if.then14:                                        ; preds = %for.cond.i57, %for.cond.preheader.i46, %land.lhs.true8
   %call15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  %23 = tail call ptr @__dynamic_cast(ptr nonnull %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %23 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %24 = icmp eq ptr %23, null
   br i1 %24, label %dynamic_cast.bad_cast.i61, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit62
 
@@ -3303,7 +3303,7 @@ dynamic_cast.bad_cast.i61:                        ; preds = %if.then14
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit62: ; preds = %if.then14
-  %25 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %25 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %dynamic_cast.bad_cast.i63, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64
 
@@ -3315,7 +3315,7 @@ _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64: ; preds =
   br i1 %tobool.not, label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit66, label %dynamic_cast.notnull.i65
 
 dynamic_cast.notnull.i65:                         ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64
-  %27 = tail call ptr @__dynamic_cast(ptr nonnull %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit66
 
 _ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit66: ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64, %dynamic_cast.notnull.i65
@@ -3359,7 +3359,7 @@ lpad8.i:                                          ; preds = %invoke.cont2.i
 
 if.end:                                           ; preds = %for.body.i, %for.body.i50, %_ZNK7datalog16product_relation4sizeEv.exit12.i42, %_ZNK7datalog16product_relation4sizeEv.exit12.i
   %call20 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %34 = tail call ptr @__dynamic_cast(ptr nonnull %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %34 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %35 = icmp eq ptr %34, null
   br i1 %35, label %dynamic_cast.bad_cast.i67, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit68
 
@@ -3368,7 +3368,7 @@ dynamic_cast.bad_cast.i67:                        ; preds = %if.end
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit68: ; preds = %if.end
-  %36 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %36 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %37 = icmp eq ptr %36, null
   br i1 %37, label %dynamic_cast.bad_cast.i69, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70
 
@@ -3380,7 +3380,7 @@ _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70: ; preds =
   br i1 %tobool.not, label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit72, label %dynamic_cast.notnull.i71
 
 dynamic_cast.notnull.i71:                         ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70
-  %38 = tail call ptr @__dynamic_cast(ptr nonnull %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %38 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit72
 
 _ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit72: ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70, %dynamic_cast.notnull.i71
@@ -3392,7 +3392,7 @@ if.end25:                                         ; preds = %lor.lhs.false, %ent
   br i1 %cmp.i25, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end25
-  %40 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %40 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %41 = icmp eq ptr %40, null
   br i1 %41, label %dynamic_cast.bad_cast.i75, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit76
 
@@ -3764,7 +3764,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -4009,7 +4009,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -4218,7 +4218,7 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_13re
 define hidden noundef ptr @_ZN7datalog23product_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(28) %t, ptr noundef %condition) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -9176,7 +9176,7 @@ cond.false:                                       ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i, label %cond.end
 
 if.then.i:                                        ; preds = %.noexc
-  %9 = call ptr @__dynamic_cast(ptr nonnull %_r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %9 = call ptr @__dynamic_cast(ptr nonnull readonly %_r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %dynamic_cast.bad_cast.i.i.invoke, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit.i
 
@@ -9225,7 +9225,7 @@ cond.false19:                                     ; preds = %cond.end
   br i1 %cmp.i.i.i30, label %if.then.i32, label %cond.end24
 
 if.then.i32:                                      ; preds = %.noexc38
-  %20 = call ptr @__dynamic_cast(ptr nonnull %_r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %20 = call ptr @__dynamic_cast(ptr nonnull readonly %_r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %21 = icmp eq ptr %20, null
   br i1 %21, label %dynamic_cast.bad_cast.i.i.invoke, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit.i33
 
@@ -10428,7 +10428,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog23product_relation_plugin12transform_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relations = alloca %class.ptr_vector.33, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -11098,7 +11098,7 @@ entry:
   %fresh_delta133 = alloca %"class.datalog::scoped_rel", align 8
   %side_result146 = alloca %"class.datalog::scoped_rel", align 8
   %side_delta151 = alloca %"class.datalog::scoped_rel", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -11107,7 +11107,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i54, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -11120,7 +11120,7 @@ _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %
   br i1 %4, label %_ZN7datalog23product_relation_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br label %_ZN7datalog23product_relation_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog23product_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit, %dynamic_cast.notnull.i
@@ -12395,7 +12395,7 @@ _ZN7datalog23product_relation_plugin18unaligned_union_fnD2Ev.exit: ; preds = %_Z
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin18unaligned_union_fnclERNS_13relation_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %_tgt, ptr noundef nonnull align 8 dereferenceable(28) %_src, ptr noundef %_delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src_scoped = alloca %"class.datalog::scoped_rel.108", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -12404,7 +12404,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i11, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -12422,7 +12422,7 @@ cond.end.thread:                                  ; preds = %_ZN7datalog23produc
   br label %if.end
 
 cond.end:                                         ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %m_common_spec = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7datalog16product_relation12convert_specERKNS_8rel_specE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %m_common_spec)
   %tobool4.not = icmp eq ptr %4, null
@@ -12736,7 +12736,7 @@ _ZN7datalog23product_relation_plugin35single_non_transparent_src_union_fnD2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin35single_non_transparent_src_union_fnclERNS_13relation_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %tgt, ptr noundef nonnull align 8 dereferenceable(28) %_src, ptr noundef %delta) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -12893,7 +12893,7 @@ _ZN7datalog23product_relation_plugin10mutator_fnD2Ev.exit: ; preds = %entry, %in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin10mutator_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %for.cond.preheader
 
@@ -13078,7 +13078,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin21filter_interpreted_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %for.cond.preheader
 

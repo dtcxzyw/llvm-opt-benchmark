@@ -264,7 +264,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   store i32 %106, ptr %10, align 4
   call void @Extra_PrintBinary(ptr noundef %102, ptr noundef nonnull %10, i32 noundef %59) #19
   %107 = call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %102)
-  %108 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull %91, i32 noundef %104, i32 noundef %67)
+  %108 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull readonly %91, i32 noundef %104, i32 noundef %67)
   %fputs.i.i = call i32 @fputs(ptr %108, ptr %102)
   %fputc.i.i = call i32 @fputc(i32 10, ptr %102)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -280,7 +280,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   store i32 %114, ptr %9, align 4
   call void @Extra_PrintBinary(ptr noundef %109, ptr noundef nonnull %9, i32 noundef %59) #19
   %115 = call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %109)
-  %116 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull %110, i32 noundef %112, i32 noundef %67)
+  %116 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull readonly %110, i32 noundef %112, i32 noundef %67)
   %fputs.i145.i = call i32 @fputs(ptr %116, ptr %109)
   %fputc.i146.i = call i32 @fputc(i32 10, ptr %109)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -804,7 +804,7 @@ Abc_Clock.exit36.i:                               ; preds = %359, %Abc_Clock.exi
   call void @Extra_PrintBinary(ptr noundef %373, ptr noundef nonnull %4, i32 noundef %403) #19
   %404 = call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %373)
   %405 = load i32, ptr %334, align 8
-  %406 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull %396, i32 noundef %400, i32 noundef %405)
+  %406 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull readonly %396, i32 noundef %400, i32 noundef %405)
   %fputs.i.i34 = call i32 @fputs(ptr %406, ptr %373)
   %fputc.i.i35 = call i32 @fputc(i32 10, ptr %373)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)

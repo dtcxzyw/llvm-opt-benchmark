@@ -25,7 +25,7 @@ define range(i32 -2147483647, -2147483648) i32 @pmix_mca_base_component_compare_
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 40
   %16 = getelementptr inbounds i8, ptr %14, i64 40
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 31) #5
+  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %16, i64 noundef 31) #5
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %20, label %18
 
@@ -36,7 +36,7 @@ define range(i32 -2147483647, -2147483648) i32 @pmix_mca_base_component_compare_
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %12, i64 84
   %22 = getelementptr inbounds i8, ptr %14, i64 84
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 63) #5
+  %23 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %22, i64 noundef 63) #5
   %.not28.i = icmp eq i32 %23, 0
   br i1 %.not28.i, label %26, label %24
 

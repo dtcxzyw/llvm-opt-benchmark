@@ -5964,7 +5964,7 @@ define void @_ZN14SequenceDialog20on_buttonBox_clickedEP15QAbstractButton(ptr no
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @_ZN14SequenceDialog9resetAxesEb(ptr noundef nonnull align 8 dereferenceable(297) %0, i1 noundef zeroext false)
+  tail call void @_ZN14SequenceDialog9resetAxesEb(ptr noundef nonnull readonly align 8 dereferenceable(297) %0, i1 noundef zeroext false)
   br label %12
 
 7:                                                ; preds = %2

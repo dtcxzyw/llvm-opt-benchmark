@@ -1179,7 +1179,7 @@ sw.epilog40:                                      ; preds = %usrc_writeUCPTrieAr
   store i8 0, ptr %line2, align 16
   store i8 0, ptr %line3, align 16
   store i8 0, ptr %line4, align 16
-  %call.i = call i32 @fputs(ptr noundef nonnull %line, ptr noundef %f)
+  %call.i = call i32 @fputs(ptr noundef nonnull readonly %line, ptr noundef %f)
   br label %usrc_writeUCPTrieStruct.exit
 
 if.then2.i:                                       ; preds = %usrc_writeUCPTrieArrays.exit
@@ -1187,7 +1187,7 @@ if.then2.i:                                       ; preds = %usrc_writeUCPTrieAr
   %call30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line2, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %name) #18
   %call32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line3, i64 noundef 100, ptr noundef nonnull @.str.26, ptr noundef %name) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %line4, ptr noundef nonnull align 1 dereferenceable(5) @.str.27, i64 5, i1 false)
-  %call.i18 = call i32 @fputs(ptr noundef nonnull %line, ptr noundef %f)
+  %call.i18 = call i32 @fputs(ptr noundef nonnull readonly %line, ptr noundef %f)
   %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.15, ptr noundef nonnull %line2, ptr noundef nonnull %line3)
   br label %usrc_writeUCPTrieStruct.exit
 
@@ -1218,7 +1218,7 @@ usrc_writeUCPTrieStruct.exit:                     ; preds = %sw.epilog40, %if.th
   %14 = load i32, ptr %nullValue.i, align 4
   %conv13.i = zext i32 %14 to i64
   %call14.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull %cond.i14, i64 noundef %conv.i, i64 noundef %conv6.i, i64 noundef %conv7.i, i32 noundef %conv8.i, i32 noundef %conv9.i, i32 noundef %conv10.i, i32 noundef %conv11.i, i64 noundef %conv12.i, i64 noundef %conv13.i)
-  %call17.i = call i32 @fputs(ptr noundef nonnull %line4, ptr noundef %f)
+  %call17.i = call i32 @fputs(ptr noundef nonnull readonly %line4, ptr noundef %f)
   ret void
 }
 

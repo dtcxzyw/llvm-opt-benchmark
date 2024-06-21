@@ -1247,7 +1247,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pstrdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 0, ptr %5, align 4
@@ -1255,7 +1255,7 @@ define dso_local ptr @pstrdup(ptr nocapture noundef readonly %0) local_unnamed_a
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %2, i64 noundef %4, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %0, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %0, i64 %4, i1 false)
   ret ptr %9
 }
 
@@ -1300,7 +1300,7 @@ define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 .critedge:                                        ; preds = %.lr.ph, %5, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ 0, %5 ], [ %.07, %.lr.ph ]
-  %7 = tail call i64 @strnlen(ptr noundef %0, i64 noundef %.0.lcssa) #18
+  %7 = tail call i64 @strnlen(ptr noundef readonly %0, i64 noundef %.0.lcssa) #18
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
@@ -1309,7 +1309,7 @@ define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_ad
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef %9, i64 noundef %8, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %0, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr readonly align 1 %0, i64 %7, i1 false)
   %15 = getelementptr i8, ptr %14, i64 %7
   store i8 0, ptr %15, align 1
   ret ptr %14

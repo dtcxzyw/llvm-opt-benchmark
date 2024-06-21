@@ -236,7 +236,7 @@ _verify_signature.exit.thread:                    ; preds = %10
 
 _verify_signature.exit:                           ; preds = %20
   %26 = zext i32 %16 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %14, ptr %25, i64 %26)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %14, ptr %25, i64 %26)
   %.not10.i = icmp eq i32 %bcmp.i, 0
   tail call void @free(ptr noundef %25) #7
   call void @slurm_xfree(ptr noundef nonnull %3) #7
@@ -564,7 +564,7 @@ _verify_signature.exit.thread:                    ; preds = %19
 
 _verify_signature.exit:                           ; preds = %29
   %35 = zext i32 %24 to i64
-  %bcmp.i = call i32 @bcmp(ptr %23, ptr %34, i64 %35)
+  %bcmp.i = call i32 @bcmp(ptr readonly %23, ptr %34, i64 %35)
   %.not10.i = icmp eq i32 %bcmp.i, 0
   call void @free(ptr noundef %34) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7

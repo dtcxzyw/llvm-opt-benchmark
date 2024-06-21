@@ -2641,12 +2641,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.not.i, label %sw.default, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(7) @.str.16) #11
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(7) @.str.16) #11
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %sw.epilog, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then6.i
-  %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(10) @.str.17) #11
+  %call9.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(10) @.str.17) #11
   %cmp10.i = icmp eq i32 %call9.i, 0
   br i1 %cmp10.i, label %sw.epilog, label %sw.default
 

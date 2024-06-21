@@ -948,7 +948,7 @@ entry:
   br i1 %tobool.not.i, label %RSA_public_key_to_bytes.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb.i, ptr noundef %rsa)
+  %call1.i = call i32 @RSA_marshal_public_key(ptr noundef nonnull %cbb.i, ptr noundef readonly %rsa)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %RSA_public_key_to_bytes.exit.thread, label %lor.lhs.false3.i
 
@@ -1012,7 +1012,7 @@ entry:
   br i1 %tobool.not.i, label %RSA_private_key_to_bytes.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb.i, ptr noundef %rsa)
+  %call1.i = call i32 @RSA_marshal_private_key(ptr noundef nonnull %cbb.i, ptr noundef readonly %rsa)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %RSA_private_key_to_bytes.exit.thread, label %lor.lhs.false3.i
 

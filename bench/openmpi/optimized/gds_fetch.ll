@@ -608,7 +608,7 @@ define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr nocapture nounde
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread1, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit.thread1:                    ; preds = %.lr.ph.i.i, %8
-  %19 = tail call noalias ptr @strdup(ptr noundef %0) #12
+  %19 = tail call noalias ptr @strdup(ptr noundef readonly %0) #12
   %20 = getelementptr inbounds i8, ptr %3, i64 144
   store ptr %19, ptr %20, align 8
   %21 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
@@ -3293,7 +3293,7 @@ pmix_obj_run_destructors.exit428:                 ; preds = %.lr.ph.i438, %.lr.p
   %.06.i = phi i64 [ %297, %.preheader512 ], [ 0, %._crit_edge ]
   %293 = getelementptr inbounds [9 x ptr], ptr @__const.pmix_check_session_info.keys, i64 0, i64 %.06.i
   %294 = load ptr, ptr %293, align 8
-  %295 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %294, i64 noundef 511) #16
+  %295 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %294, i64 noundef 511) #16
   %296 = icmp eq i32 %295, 0
   %297 = add nuw nsw i64 %.06.i, 1
   %.not.not.i = icmp eq i64 %297, 8
@@ -3307,7 +3307,7 @@ pmix_check_session_info.exit:                     ; preds = %.preheader512
   %.06.i442 = phi i64 [ %302, %.preheader511 ], [ 0, %pmix_check_session_info.exit ]
   %298 = getelementptr inbounds [29 x ptr], ptr @__const.pmix_check_node_info.keys, i64 0, i64 %.06.i442
   %299 = load ptr, ptr %298, align 8
-  %300 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %299, i64 noundef 511) #16
+  %300 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %299, i64 noundef 511) #16
   %301 = icmp eq i32 %300, 0
   %302 = add nuw nsw i64 %.06.i442, 1
   %.not.not.i443 = icmp eq i64 %302, 28
@@ -3321,7 +3321,7 @@ pmix_check_node_info.exit:                        ; preds = %.preheader511
   %.06.i445 = phi i64 [ %307, %.preheader510 ], [ 0, %pmix_check_node_info.exit ]
   %303 = getelementptr inbounds [9 x ptr], ptr @__const.pmix_check_app_info.keys, i64 0, i64 %.06.i445
   %304 = load ptr, ptr %303, align 8
-  %305 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %304, i64 noundef 511) #16
+  %305 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %304, i64 noundef 511) #16
   %306 = icmp eq i32 %305, 0
   %307 = add nuw nsw i64 %.06.i445, 1
   %.not.not.i446 = icmp eq i64 %307, 8

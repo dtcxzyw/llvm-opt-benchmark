@@ -1434,7 +1434,7 @@ showdoh.exit:                                     ; preds = %.preheader.i, %.pre
   %407 = load ptr, ptr %43, align 8
   %408 = getelementptr inbounds i8, ptr %7, i64 1148
   %409 = load i32, ptr %408, align 4
-  %410 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %407) #9
+  %410 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %407) #9
   %411 = add i64 %410, 1
   %.not.i88 = icmp eq i32 %406, 0
   br i1 %.not.i88, label %doh2ai.exit, label %.preheader.i89
@@ -1470,7 +1470,7 @@ showdoh.exit:                                     ; preds = %.preheader.i, %.pre
   %425 = getelementptr inbounds i8, ptr %423, i64 %..i
   %426 = getelementptr inbounds i8, ptr %421, i64 24
   store ptr %425, ptr %426, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %425, ptr align 1 %407, i64 %411, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %425, ptr readonly align 1 %407, i64 %411, i1 false)
   %.not61.i = icmp eq ptr %.05669.i, null
   %spec.select.i = select i1 %.not61.i, ptr %421, ptr %.05669.i
   %.not62.i = icmp eq ptr %.05570.i, null
@@ -1502,7 +1502,7 @@ showdoh.exit:                                     ; preds = %.preheader.i, %.pre
 
 440:                                              ; preds = %429
   %441 = getelementptr inbounds i8, ptr %435, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %441, ptr noundef nonnull align 4 dereferenceable(16) %436, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %441, ptr noundef nonnull readonly align 4 dereferenceable(16) %436, i64 16, i1 false)
   br label %442
 
 442:                                              ; preds = %440, %437
@@ -1808,7 +1808,7 @@ define internal fastcc noundef i32 @rdata(ptr noundef %0, i64 noundef %1, i16 no
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   %32 = sext i32 %4 to i64
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 1 dereferenceable(16) %33, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull readonly align 1 dereferenceable(16) %33, i64 16, i1 false)
   %34 = load i32, ptr %24, align 8
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %24, align 8

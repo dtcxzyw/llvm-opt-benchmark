@@ -1511,7 +1511,7 @@ if.then.i.i:                                      ; preds = %_ZN11flatbuffers14S
 if.end5.i.i:                                      ; preds = %for.inc.i.i.i, %init.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %used_proto_ids.i.i.i), !noalias !27
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nonnull align 8 %used_proto_ids.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %vec.i139)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nonnull align 8 %used_proto_ids.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %vec.i139)
           to label %.noexc151 unwind label %lpad.loopexit319
 
 .noexc151:                                        ; preds = %if.end5.i.i
@@ -1844,7 +1844,7 @@ if.end23.i.i:                                     ; preds = %for.inc.i72.i.i, %i
 
 if.then24.i.i:                                    ; preds = %if.end23.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %used_proto_ids.i90.i.i), !noalias !27
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nonnull align 8 %used_proto_ids.i90.i.i, ptr noundef nonnull align 8 dereferenceable(24) %vec.i139)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nonnull align 8 %used_proto_ids.i90.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %vec.i139)
           to label %.noexc152 unwind label %lpad.loopexit319
 
 .noexc152:                                        ; preds = %if.then24.i.i

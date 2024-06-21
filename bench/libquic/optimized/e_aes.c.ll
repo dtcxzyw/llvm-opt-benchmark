@@ -1908,7 +1908,7 @@ aes_ctr_set_key.exit:                             ; preds = %if.end7.i, %if.then
   %inner_init_state = getelementptr inbounds i8, ptr %call, i64 264
   %add.ptr = getelementptr inbounds i8, ptr %key, i64 %sub
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %block.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %block.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %block.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, i8 54, i64 32, i1 false)
   br label %for.body.i
@@ -2007,7 +2007,7 @@ if.end14:                                         ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %counter.i)
   store i32 0, ptr %partial_block_offset.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %partial_block_buffer.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull align 1 dereferenceable(12) %nonce, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull readonly align 1 dereferenceable(12) %nonce, i64 12, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %counter.i, i64 12
   store i32 0, ptr %add.ptr.i, align 4
   %ctr.i = getelementptr inbounds i8, ptr %0, i64 248
@@ -2104,7 +2104,7 @@ if.end18:                                         ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %counter.i)
   store i32 0, ptr %partial_block_offset.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %partial_block_buffer.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull align 1 dereferenceable(12) %nonce, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull readonly align 1 dereferenceable(12) %nonce, i64 12, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %counter.i, i64 12
   store i32 0, ptr %add.ptr.i, align 4
   %ctr.i = getelementptr inbounds i8, ptr %0, i64 248

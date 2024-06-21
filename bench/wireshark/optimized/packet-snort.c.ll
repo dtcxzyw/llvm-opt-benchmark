@@ -449,7 +449,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
 
 80:                                               ; preds = %fill_alert_config.exit
   %81 = call noalias dereferenceable_or_null(584) ptr @g_malloc_n(i64 noundef 1, i64 noundef 584) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull readonly align 8 dereferenceable(72) %15, i64 72, i1 false)
   %82 = getelementptr inbounds i8, ptr %81, i64 576
   store i32 1, ptr %82, align 8
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
@@ -467,7 +467,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
   store i32 %89, ptr %85, align 8
   %90 = zext nneg i32 %86 to i64
   %91 = getelementptr [8 x %struct.Alert_t], ptr %78, i64 0, i64 %90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull readonly align 8 dereferenceable(72) %15, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit
 
 92:                                               ; preds = %4
@@ -684,7 +684,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %167
 
 196:                                              ; preds = %.lr.ph.i49
   %197 = call noalias dereferenceable_or_null(584) ptr @g_malloc_n(i64 noundef 1, i64 noundef 584) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %197, ptr noundef nonnull align 8 dereferenceable(72) %190, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %197, ptr noundef nonnull readonly align 8 dereferenceable(72) %190, i64 72, i1 false)
   %198 = getelementptr inbounds i8, ptr %197, i64 576
   store i32 1, ptr %198, align 8
   %199 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
@@ -702,7 +702,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %167
   store i32 %205, ptr %201, align 8
   %206 = zext nneg i32 %202 to i64
   %207 = getelementptr [8 x %struct.Alert_t], ptr %194, i64 0, i64 %206
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %207, ptr noundef nonnull align 8 dereferenceable(72) %190, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %207, ptr noundef nonnull readonly align 8 dereferenceable(72) %190, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit.i
 
 add_alert_to_session_tree.exit.i:                 ; preds = %204, %200, %196
@@ -719,7 +719,7 @@ get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_sessio
 211:                                              ; preds = %get_reassembled_in_frame.exit.thread.i
   %212 = getelementptr i8, ptr %153, i64 48
   %.val.i = load ptr, ptr %212, align 8
-  %213 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val.i, ptr noundef nonnull dereferenceable(5) @.str.144) #13
+  %213 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.i, ptr noundef nonnull dereferenceable(5) @.str.144) #13
   %.not.i.i.i = icmp eq i32 %213, 0
   br i1 %.not19.i.i.i, label %get_content_start_match.exit.i, label %214
 
@@ -751,7 +751,7 @@ get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_sessio
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 8
   %225 = load ptr, ptr %224, align 8
-  %226 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull dereferenceable(1) %.val.i) #13
+  %226 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull readonly dereferenceable(1) %.val.i) #13
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %219
 
@@ -1451,7 +1451,7 @@ get_content_match.exit.thread449.i:               ; preds = %522
 
 583:                                              ; preds = %563
   %584 = zext i32 %567 to i64
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %564, ptr %566, i64 %584)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr readonly %564, ptr readonly %566, i64 %584)
   %.not31.i18.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not31.i18.i.i, label %get_content_match.exit.thread442.i, label %content_compare_case_insensitive.exit.thread.i.i.i
 
@@ -2353,7 +2353,7 @@ define internal range(i32 0, 2) i32 @snort_fast_output(ptr noundef %0, i32 nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store i32 -1, ptr %13, align 8
-  %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.143, ptr noundef nonnull @.str.164, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
+  %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %.143, ptr noundef nonnull @.str.164, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %.not.i.i = icmp eq i32 %44, 7
   br i1 %.not.i.i, label %snort_parse_ts.exit.i, label %snort_parse_ts.exit.thread.i
 
@@ -2365,7 +2365,7 @@ snort_parse_ts.exit.thread.i:                     ; preds = %.lr.ph
 snort_parse_ts.exit.i:                            ; preds = %.lr.ph
   %45 = load i32, ptr %7, align 4
   store i32 %45, ptr %19, align 8
-  %46 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.143, i32 noundef 32) #13
+  %46 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %.143, i32 noundef 32) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not.i = icmp eq ptr %46, null
@@ -2487,7 +2487,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
 
 100:                                              ; preds = %fill_alert_config.exit
   %101 = call noalias dereferenceable_or_null(584) ptr @g_malloc_n(i64 noundef 1, i64 noundef 584) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %101, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %101, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false)
   %102 = getelementptr inbounds i8, ptr %101, i64 576
   store i32 1, ptr %102, align 8
   %103 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
@@ -2505,7 +2505,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
   store i32 %109, ptr %105, align 8
   %110 = zext nneg i32 %106 to i64
   %111 = getelementptr [8 x %struct.Alert_t], ptr %98, i64 0, i64 %110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %111, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %111, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit
 
 112:                                              ; preds = %snort_parse_ts.exit.i, %47, %50, %53, %55, %65, %77, %80, %snort_parse_ts.exit.thread.i

@@ -361,7 +361,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %.011.i.i = phi ptr [ %.0.i.i, %53 ], [ %.09.i.i, %45 ]
   %49 = getelementptr inbounds i8, ptr %.011.i.i, i64 144
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(13) @.str.35) #21
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(13) @.str.35) #21
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %pmix_cmd_line_is_taken.exit42.sink.split, label %53
 
@@ -375,7 +375,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %.011.i.i26 = phi ptr [ %.0.i.i27, %59 ], [ %.09.i.i, %53 ]
   %55 = getelementptr inbounds i8, ptr %.011.i.i26, i64 144
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(9) @.str.36) #21
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(9) @.str.36) #21
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %pmix_cmd_line_is_taken.exit42.sink.split, label %59
 
@@ -389,7 +389,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %.011.i.i36 = phi ptr [ %.0.i.i37, %65 ], [ %.09.i.i, %59 ]
   %61 = getelementptr inbounds i8, ptr %.011.i.i36, i64 144
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(10) @.str.37) #21
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(10) @.str.37) #21
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %pmix_cmd_line_is_taken.exit42.sink.split, label %65
 
@@ -411,7 +411,7 @@ pmix_cmd_line_is_taken.exit42:                    ; preds = %65, %pmix_cmd_line_
   %.011.i.i46 = phi ptr [ %.0.i.i47, %71 ], [ %.09.i.i, %pmix_cmd_line_is_taken.exit42 ]
   %67 = getelementptr inbounds i8, ptr %.011.i.i46, i64 144
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(14) @.str.38) #21
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(14) @.str.38) #21
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %73, label %71
 
@@ -432,7 +432,7 @@ pmix_cmd_line_is_taken.exit52:                    ; preds = %71, %73
   %.011.i.i56 = phi ptr [ %.0.i.i57, %78 ], [ %.09.i.i, %pmix_cmd_line_is_taken.exit52 ]
   %74 = getelementptr inbounds i8, ptr %.011.i.i56, i64 144
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(12) @.str.39) #21
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull readonly dereferenceable(12) @.str.39) #21
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %80, label %78
 
@@ -951,7 +951,7 @@ define dso_local void @pmix_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %97, label %escape_quotes.exit, label %98
 
 98:                                               ; preds = %.critedge.i
-  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #21
+  %99 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #21
   %100 = sext i32 %.02132.i to i64
   %101 = add nsw i64 %100, 1
   %102 = add i64 %101, %99
@@ -1025,7 +1025,7 @@ define dso_local void @pmix_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
   %.011.i = phi ptr [ %.0.i, %12 ], [ %.09.i, %1 ]
   %5 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.46) #21
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.46) #21
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %pmix_cmd_line_get_param.exit.preheader, label %12
 
@@ -1272,7 +1272,7 @@ define dso_local void @pmix_info_do_params(i1 noundef zeroext %0) local_unnamed_
   %.011.i = phi ptr [ %.0.i, %12 ], [ %.09.i, %1 ]
   %8 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.49) #21
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(6) @.str.49) #21
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %pmix_cmd_line_get_param.exit, label %12
 
@@ -1579,7 +1579,7 @@ define dso_local void @pmix_info_do_type() local_unnamed_addr #2 {
   %.011.i = phi ptr [ %.0.i, %12 ], [ %.09.i, %0 ]
   %8 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(5) @.str.26) #21
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(5) @.str.26) #21
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %pmix_cmd_line_get_param.exit, label %12
 

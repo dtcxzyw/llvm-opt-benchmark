@@ -64,7 +64,7 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef readonly %1, i64
 14:                                               ; preds = %3
   %15 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %16 = call i32 @stat(ptr noundef %15, ptr noundef nonnull %6) #15
+  %16 = call i32 @stat(ptr noundef readonly %15, ptr noundef nonnull %6) #15
   %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, 0
@@ -169,7 +169,7 @@ opal_gethostname.exit:                            ; preds = %58, %61
 66:                                               ; preds = %opal_gethostname.exit, %56, %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %67 = call noalias ptr @strdup(ptr noundef nonnull %.152) #15
+  %67 = call noalias ptr @strdup(ptr noundef nonnull readonly %.152) #15
   %68 = icmp eq ptr %67, null
   br i1 %68, label %enough_space.exit.thread, label %enough_space.exit
 

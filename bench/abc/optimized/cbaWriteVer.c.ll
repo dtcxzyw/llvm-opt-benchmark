@@ -1167,7 +1167,7 @@ Prs_ManWriteVerilogIos.exit.i:                    ; preds = %Prs_ObjGetName.exit
   %.val19.i.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %243 = getelementptr inbounds i8, ptr %.val19.i.i.i, i64 4
   %244 = load i32, ptr %243, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %244)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %244)
   %245 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %12)
   %.val20.i.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %246 = icmp sgt i32 %.val20.i.i.i, 3
@@ -1179,7 +1179,7 @@ Prs_ManWriteVerilogIos.exit.i:                    ; preds = %Prs_ObjGetName.exit
   %.val18.i.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %247 = getelementptr inbounds i32, ptr %.val18.i.i.i, i64 %indvars.iv.i.i.i
   %248 = load i32, ptr %247, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef %92, i32 noundef %248)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef readonly %92, i32 noundef %248)
   %249 = lshr exact i64 %indvars.iv22.i.i.i, 1
   %250 = and i64 %249, 2147483647
   %251 = getelementptr inbounds [4 x ptr], ptr @__const.Prs_ManWriteVerilogMux.pStrs, i64 0, i64 %250
@@ -1201,7 +1201,7 @@ Prs_ManWriteVerilogIos.exit.i:                    ; preds = %Prs_ObjGetName.exit
   %Prs_BoxSignals.V.val95.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %259 = getelementptr inbounds i8, ptr %Prs_BoxSignals.V.val95.i.i, i64 4
   %260 = load i32, ptr %259, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %260)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %260)
   %261 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %12)
   switch i32 %236, label %Cba_TypeIsUnary.exit.i.i [
     i32 57, label %Cba_TypeIsUnary.exit.thread.i.i
@@ -1234,7 +1234,7 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
   ]
 
 270:                                              ; preds = %267
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %269)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %269)
   %271 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 3, i64 1, ptr %12)
   %Prs_BoxSignals.V.val116.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %272 = icmp sgt i32 %Prs_BoxSignals.V.val116.i.i, 5
@@ -1253,7 +1253,7 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
   %Prs_BoxSignals.V.val92.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %277 = getelementptr inbounds i32, ptr %Prs_BoxSignals.V.val92.i.i, i64 %indvars.iv.i22.i
   %278 = load i32, ptr %277, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef %92, i32 noundef %278)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef readonly %92, i32 noundef %278)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 2
   %Prs_BoxSignals.V.val.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %279 = trunc nuw i64 %indvars.iv.next.i23.i to i32
@@ -1265,7 +1265,7 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
   br i1 %.not85.i.i, label %284, label %282
 
 282:                                              ; preds = %281
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %269)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %269)
   %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.26) #15
   %Prs_BoxSignals.V.val89.pre.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   br label %284
@@ -1274,12 +1274,12 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
   %Prs_BoxSignals.V.val89.i.i = phi ptr [ %Prs_BoxSignals.V.val89.pre.i.i, %282 ], [ %Prs_BoxSignals.V.val87.i.i, %281 ]
   %285 = getelementptr inbounds i8, ptr %Prs_BoxSignals.V.val89.i.i, i64 20
   %286 = load i32, ptr %285, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %286)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %286)
   %287 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.26) #15
   br label %.loopexit.sink.split.i.i
 
 288:                                              ; preds = %267
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %269)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %269)
   %289 = zext i32 %236 to i64
   %290 = getelementptr inbounds ptr, ptr %5, i64 %289
   %291 = load ptr, ptr %290, align 8
@@ -1291,7 +1291,7 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
   %Prs_BoxSignals.V.val86.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %293 = getelementptr inbounds i8, ptr %Prs_BoxSignals.V.val86.i.i, i64 %.sink.i.i
   %294 = load i32, ptr %293, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull %92, i32 noundef %294)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef nonnull readonly %92, i32 noundef %294)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %276, %.loopexit.sink.split.i.i, %270
@@ -1516,7 +1516,7 @@ Prs_ObjGetName.exit.i.i:                          ; preds = %383, %.loopexit.i.i
   %.0.i.i.i = phi ptr [ %388, %.loopexit.i.i.i ], [ null, %.lr.ph.i108.i.i ], [ %363, %365 ], [ %363, %374 ], [ %363, %383 ]
   %fputs.i110.i.i = tail call i32 @fputs(ptr %.0.i.i.i, ptr %12)
   %fputc18.i.i.i = tail call i32 @fputc(i32 40, ptr %12)
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef %92, i32 noundef %362)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %12, ptr noundef readonly %92, i32 noundef %362)
   %.val.i111.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %389 = add nsw i32 %.val.i111.i.i, -2
   %390 = zext i32 %389 to i64

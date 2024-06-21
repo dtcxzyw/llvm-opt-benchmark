@@ -1408,15 +1408,15 @@ thread-pre-split:                                 ; preds = %37
   ]
 
 25:                                               ; preds = %24
-  %26 = call fastcc i32 @parse_object(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction) #12
+  %26 = call fastcc i32 @parse_object(ptr noundef nonnull %3, ptr noundef nonnull readonly @nullSemAction) #12
   br label %31
 
 27:                                               ; preds = %24
-  %28 = call fastcc i32 @parse_array(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction) #12
+  %28 = call fastcc i32 @parse_array(ptr noundef nonnull %3, ptr noundef nonnull readonly @nullSemAction) #12
   br label %31
 
 29:                                               ; preds = %24
-  %30 = call fastcc i32 @parse_scalar(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction)
+  %30 = call fastcc i32 @parse_scalar(ptr noundef nonnull %3, ptr noundef nonnull readonly @nullSemAction)
   br label %31
 
 31:                                               ; preds = %29, %27, %25

@@ -1921,7 +1921,7 @@ define internal range(i32 0, 2) i32 @dissect_vgs_parameter(ptr noundef %0, ptr n
   %18 = sext i32 %17 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %18) #7
   %20 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %6, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %6, i64 %20, i1 false)
   %21 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10) #7
@@ -1972,7 +1972,7 @@ define internal range(i32 0, 2) i32 @dissect_vgm_parameter(ptr noundef %0, ptr n
   %18 = sext i32 %17 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %18) #7
   %20 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %6, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %6, i64 %20, i1 false)
   %21 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10) #7
@@ -2015,7 +2015,7 @@ define internal range(i32 0, 2) i32 @dissect_ckpd_parameter(ptr noundef %0, ptr 
   %16 = sext i32 %15 to i64
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #7
   %18 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %6, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %6, i64 %18, i1 false)
   %19 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1
   %20 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10) #7

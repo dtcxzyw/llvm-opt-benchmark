@@ -3304,7 +3304,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %for.inc.i.i.i406, %
   br label %invoke.cont203
 
 if.end6.i:                                        ; preds = %if.end.i400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %negated.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %negated.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second.i, i64 32, i1 false)
   br label %for.body.i.i.i.i402
 
 for.body.i.i.i.i402:                              ; preds = %for.body.i.i.i.i402, %if.end6.i
@@ -5927,7 +5927,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
   %0 = load i32, ptr %_M_storage.i.i.i.i.i, align 8
   store i32 %0, ptr %ref.tmp.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %second3.i.i.i.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %second3.i.i.i.i, i64 40, i1 false)
   %reports3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i.i.i.i.i.i.i.i.i.i.i)
@@ -6481,7 +6481,7 @@ call.i.i.noexc:                                   ; preds = %call.i231.noexc
   %inc.i.i.i253 = add i64 %36, 1
   store i64 %inc.i.i.i253, ptr %add.ptr.i42.i, align 8
   %37 = load i64, ptr %serial.i.i241, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull readonly align 8 dereferenceable(32) %second, i64 32, i1 false)
   invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.343") align 8 %ref.tmp18.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i42.i, ptr %u.sroa.0.0102.i, i64 %u.sroa.14.0103.i, ptr nonnull %call.i231264, i64 %37)
           to label %.noexc18 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -6802,7 +6802,7 @@ call.i54.i.noexc:                                 ; preds = %call.i146.noexc
   %inc.i.i.i159 = add i64 %70, 1
   store i64 %inc.i.i.i159, ptr %add.ptr.i42.i, align 8
   %71 = load i64, ptr %serial.i.i154, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull readonly align 8 dereferenceable(32) %second, i64 32, i1 false)
   %cmp.i.i56.not.i = icmp eq ptr %call.i231264, %u.sroa.0.1106.i
   br i1 %cmp.i.i56.not.i, label %if.end53.i, label %if.then49.i
 

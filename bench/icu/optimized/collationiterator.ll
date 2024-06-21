@@ -1186,7 +1186,7 @@ if.end62:                                         ; preds = %if.end52
   %38 = load i32, ptr %ceBuffer, align 8
   %dec.i = add nsw i32 %38, -1
   store i32 %dec.i, ptr %ceBuffer, align 8
-  call void @_ZN6icu_7517CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef %d.0, i32 noundef %37, i32 noundef %ce32.0, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  call void @_ZN6icu_7517CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef readonly %d.0, i32 noundef %37, i32 noundef %ce32.0, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %39 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp sgt i32 %39, 0
   br i1 %cmp.i.i, label %return, label %if.then.i32

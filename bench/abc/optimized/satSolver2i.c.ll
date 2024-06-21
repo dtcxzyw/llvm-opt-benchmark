@@ -29,7 +29,7 @@ define noalias noundef ptr @Int2_ManStart(ptr noundef %0, ptr nocapture noundef 
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #18
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %1, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr readonly align 4 %1, i64 %8, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %11, align 8
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)

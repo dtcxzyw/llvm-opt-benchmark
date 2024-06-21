@@ -5425,7 +5425,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1369:                                             ; preds = %1365
   %1370 = getelementptr inbounds i8, ptr %1361, i64 8
   %1371 = load ptr, ptr %1370, align 8
-  %1372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1304, ptr noundef nonnull dereferenceable(1) %1371) #16
+  %1372 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1304, ptr noundef nonnull dereferenceable(1) %1371) #16
   %1373 = icmp eq i32 %1372, 0
   br i1 %1373, label %1374, label %1377
 

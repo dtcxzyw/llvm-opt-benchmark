@@ -154,7 +154,7 @@ sub_1121:                                         ; preds = %sub_1, %sub_0120.th
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %58 ]
   %54 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.i.us
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %55) #10
+  %56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %55) #10
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.us, label %58
 
@@ -224,14 +224,14 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %47, %_ZN12_GLOB
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds ptr, ptr %.072, i64 %93
   %95 = load ptr, ptr %94, align 8
-  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #10
+  %96 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %95) #10
   %97 = add i64 %96, 1
   %98 = call noalias ptr @malloc(i64 noundef %97) #12
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.lr.ph, label %100
 
 100:                                              ; preds = %.thread114
-  %101 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %95) #11
+  %101 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull readonly dereferenceable(1) %95) #11
   %102 = load i8, ptr %98, align 1
   %.not14.i = icmp eq i8 %102, 0
   br i1 %.not14.i, label %.lr.ph, label %.lr.ph.i97
@@ -262,14 +262,14 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit:             ; preds = %.lr.ph.i97
   %.173127 = phi ptr [ %.072, %.lr.ph ], [ %.274, %139 ]
   %111 = getelementptr inbounds [12 x %"struct.(anonymous namespace)::functionMapEntry"], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 0, i64 %indvars.iv144
   %112 = load ptr, ptr %111, align 16
-  %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #10
+  %113 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %112) #10
   %114 = add i64 %113, 1
   %115 = call noalias ptr @malloc(i64 noundef %114) #12
   %116 = icmp eq ptr %115, null
   br i1 %116, label %_ZN12_GLOBAL__N_19lowercaseEPKc.exit102, label %117
 
 117:                                              ; preds = %110
-  %118 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %112) #11
+  %118 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull readonly dereferenceable(1) %112) #11
   %119 = load i8, ptr %115, align 1
   %.not14.i98 = icmp eq i8 %119, 0
   br i1 %.not14.i98, label %_ZN12_GLOBAL__N_19lowercaseEPKc.exit102, label %.lr.ph.i99

@@ -1548,7 +1548,7 @@ define void @Dss_NtkTransform(ptr nocapture noundef %0, ptr nocapture noundef wr
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv54.i
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 @Dss_ObjCompare(ptr noundef %18, ptr noundef %54, ptr noundef %56)
+  %57 = tail call i32 @Dss_ObjCompare(ptr noundef readonly %18, ptr noundef %54, ptr noundef %56)
   %58 = icmp eq i32 %57, 1
   %59 = trunc nuw nsw i64 %indvars.iv54.i to i32
   %spec.select.us.i = select i1 %58, i32 %59, i32 %.03537.us.i
@@ -3408,7 +3408,7 @@ Abc_Clock.exit62:                                 ; preds = %.critedge, %84
   %.val.i = load ptr, ptr %119, align 8
   %120 = getelementptr inbounds ptr, ptr %.val.i, i64 %108
   %121 = load ptr, ptr %120, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %121, ptr noundef null, ptr noundef nonnull %3)
+  call void @Dss_ManPrint_rec(ptr noundef %21, ptr noundef nonnull readonly %1, ptr noundef %121, ptr noundef null, ptr noundef nonnull %3)
   %fputc.i = call i32 @fputc(i32 10, ptr %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -4273,7 +4273,7 @@ Dss_ObjHashLookup.exit.thread:                    ; preds = %.critedge.i.i, %Dss
   %194 = getelementptr i8, ptr %.pre83, i64 4
   %.val.i = load i32, ptr %194, align 4
   store i32 %.val.i, ptr %.0.lcssa.i.ph, align 4
-  %195 = tail call ptr @Dss_ObjCreate(ptr noundef nonnull %0, i32 noundef %144, ptr noundef %145, ptr noundef null)
+  %195 = tail call ptr @Dss_ObjCreate(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef readonly %145, ptr noundef null)
   br label %Dss_ObjFindOrAdd.exit
 
 .split:                                           ; preds = %._crit_edge
@@ -4281,7 +4281,7 @@ Dss_ObjHashLookup.exit.thread:                    ; preds = %.critedge.i.i, %Dss
   %197 = and i32 %196, 63
   %198 = zext nneg i32 %197 to i64
   %199 = getelementptr inbounds i64, ptr %9, i64 %198
-  %200 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull %0, i32 noundef 6, ptr noundef %145, ptr noundef %199)
+  %200 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull readonly %0, i32 noundef 6, ptr noundef readonly %145, ptr noundef %199)
   %201 = load i32, ptr %200, align 4
   %.not.i47 = icmp eq i32 %201, 0
   %202 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4302,7 +4302,7 @@ Dss_ObjHashLookup.exit.thread:                    ; preds = %.critedge.i.i, %Dss
   store i32 %.val.i50, ptr %200, align 4
   %211 = getelementptr i8, ptr %145, i64 4
   %.val36.i = load i32, ptr %211, align 4
-  %212 = tail call ptr @Dss_ObjAlloc(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.val36.i, i32 noundef %.val36.i)
+  %212 = tail call ptr @Dss_ObjAlloc(ptr noundef nonnull readonly %0, i32 noundef 6, i32 noundef %.val36.i, i32 noundef %.val36.i)
   %213 = getelementptr inbounds i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4
   %215 = lshr i32 %214, 19
@@ -4602,7 +4602,7 @@ define i32 @Dss_ManOperation(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv44.i
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 @Dss_ObjCompare(ptr noundef %13, ptr noundef %98, ptr noundef %100)
+  %101 = tail call i32 @Dss_ObjCompare(ptr noundef readonly %13, ptr noundef %98, ptr noundef %100)
   %102 = icmp eq i32 %101, 1
   %103 = trunc nuw nsw i64 %indvars.iv44.i to i32
   %spec.select.i = select i1 %102, i32 %103, i32 %.03537.i
@@ -4823,7 +4823,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv54.i
   %193 = load ptr, ptr %192, align 8
-  %194 = tail call i32 @Dss_ObjCompare(ptr noundef %136, ptr noundef %191, ptr noundef %193)
+  %194 = tail call i32 @Dss_ObjCompare(ptr noundef readonly %136, ptr noundef %191, ptr noundef %193)
   %195 = icmp eq i32 %194, 1
   %196 = trunc nuw nsw i64 %indvars.iv54.i to i32
   %spec.select.us.i = select i1 %195, i32 %196, i32 %.03537.us.i
@@ -4979,7 +4979,7 @@ Dss_ObjSort.exit:                                 ; preds = %116, %._crit_edge27
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv54.i206
   %256 = load ptr, ptr %255, align 8
-  %257 = tail call i32 @Dss_ObjCompare(ptr noundef %204, ptr noundef %254, ptr noundef %256)
+  %257 = tail call i32 @Dss_ObjCompare(ptr noundef readonly %204, ptr noundef %254, ptr noundef %256)
   %258 = icmp eq i32 %257, 1
   %259 = trunc nuw nsw i64 %indvars.iv54.i206 to i32
   %spec.select.us.i208 = select i1 %258, i32 %259, i32 %.03537.us.i207
@@ -5185,7 +5185,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %358 = phi ptr [ %309, %Dss_ObjSort.exit197.thread ], [ %312, %Dss_ObjSort.exit197 ], [ %312, %Vec_IntPush.exit ]
   %.2150377 = phi i32 [ %.2150.ph, %Dss_ObjSort.exit197.thread ], [ %.2150, %Dss_ObjSort.exit197 ], [ %.2150, %Vec_IntPush.exit ]
   %359 = load ptr, ptr %358, align 8
-  %360 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %359, ptr noundef %5)
+  %360 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %359, ptr noundef %5)
   %361 = load i32, ptr %360, align 4
   %.not.i = icmp eq i32 %361, 0
   %362 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5204,7 +5204,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %370 = getelementptr i8, ptr %363, i64 4
   %.val.i = load i32, ptr %370, align 4
   store i32 %.val.i, ptr %360, align 4
-  %371 = tail call ptr @Dss_ObjCreate(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %359, ptr noundef %5)
+  %371 = tail call ptr @Dss_ObjCreate(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %359, ptr noundef %5)
   br label %Dss_ObjFindOrAdd.exit
 
 Dss_ObjFindOrAdd.exit:                            ; preds = %364, %369
@@ -5485,7 +5485,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i, %._crit_e
   br label %Dss_NtkRebuild.exit
 
 114:                                              ; preds = %92
-  %115 = call i32 @Dss_NtkRebuild_rec(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef %97)
+  %115 = call i32 @Dss_NtkRebuild_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %95, ptr noundef %97)
   br label %Dss_NtkRebuild.exit
 
 Dss_NtkRebuild.exit:                              ; preds = %104, %107, %114
@@ -5808,7 +5808,7 @@ Abc_Clock.exit127:                                ; preds = %57, %60
   %66 = getelementptr inbounds i8, ptr %2, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, %65
-  %69 = call i32 @Dss_ManOperation(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %69 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %70 = and i32 %69, 67108863
   %71 = shl i32 %68, 26
   %72 = or disjoint i32 %70, %71
@@ -5911,7 +5911,7 @@ Dss_ManCacheHashKey.exit.i:                       ; preds = %100, %Abc_Clock.exi
 
 124:                                              ; preds = %116
   %125 = getelementptr inbounds i8, ptr %117, i64 24
-  %bcmp.i = call i32 @bcmp(ptr nonnull %125, ptr nonnull getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 %115)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %125, ptr nonnull readonly getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 %115)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %Dss_ManCacheLookup.exit, label %126
 
@@ -5983,7 +5983,7 @@ Abc_Clock.exit133:                                ; preds = %Abc_Clock.exit131, 
   %159 = getelementptr inbounds i8, ptr %2, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = add nsw i32 %160, %158
-  %162 = call i32 @Dss_ManOperation(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %162 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %163 = and i32 %162, 67108863
   %164 = shl i32 %161, 26
   %165 = or disjoint i32 %163, %164
@@ -6372,7 +6372,7 @@ Dss_ManCacheHashKey.exit.i:                       ; preds = %59, %Abc_Clock.exit
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds i8, ptr %76, i64 24
-  %bcmp.i = call i32 @bcmp(ptr nonnull %84, ptr nonnull getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 24), i64 %74)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %84, ptr nonnull readonly getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 24), i64 %74)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %Dss_ManCacheLookup.exit, label %85
 
@@ -6442,7 +6442,7 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit48, %
 
 .thread:                                          ; preds = %115
   %117 = load i32, ptr %5, align 4
-  %118 = call i32 @Dss_ManOperation(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %118 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %119 = and i32 %118, 67108863
   %120 = shl i32 %117, 26
   %121 = or disjoint i32 %119, %120
@@ -6476,7 +6476,7 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit48, %
   %141 = load i64, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %142 = lshr i64 %141, 24
   %143 = and i64 %142, 248
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr nonnull align 16 @Dss_ManSharedMapDerive.Buffer, i64 %143, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr nonnull readonly align 16 @Dss_ManSharedMapDerive.Buffer, i64 %143, i1 false)
   %.val16.i = load i32, ptr %.04456, align 4
   %144 = lshr i32 %.val16.i, 26
   %145 = add nuw nsw i32 %144, 4
@@ -6486,7 +6486,7 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit48, %
   %148 = add nuw nsw i32 %147, %145
   %149 = and i32 %148, 248
   %150 = zext nneg i32 %149 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %140, ptr nonnull align 4 %.04456, i64 %150, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %140, ptr nonnull readonly align 4 %.04456, i64 %150, i1 false)
   store ptr %140, ptr %132, align 8
   %151 = getelementptr inbounds i8, ptr %132, i64 8
   store ptr null, ptr %151, align 8
@@ -6742,7 +6742,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i = load ptr, ptr %33, align 8
   %44 = getelementptr inbounds ptr, ptr %.val.i, i64 %34
   %45 = load ptr, ptr %44, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %27, ptr noundef %17, ptr noundef %45, ptr noundef null, ptr noundef nonnull %7)
+  call void @Dss_ManPrint_rec(ptr noundef %27, ptr noundef readonly %17, ptr noundef %45, ptr noundef null, ptr noundef nonnull %7)
   %fputc.i = call i32 @fputc(i32 10, ptr %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %46 = load ptr, ptr @stdout, align 8
@@ -6766,7 +6766,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i19 = load ptr, ptr %33, align 8
   %59 = getelementptr inbounds ptr, ptr %.val.i19, i64 %49
   %60 = load ptr, ptr %59, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %46, ptr noundef %17, ptr noundef %60, ptr noundef null, ptr noundef nonnull %6)
+  call void @Dss_ManPrint_rec(ptr noundef %46, ptr noundef readonly %17, ptr noundef %60, ptr noundef null, ptr noundef nonnull %6)
   %fputc.i20 = call i32 @fputc(i32 10, ptr %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %61 = load ptr, ptr @stdout, align 8
@@ -6790,7 +6790,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i24 = load ptr, ptr %33, align 8
   %74 = getelementptr inbounds ptr, ptr %.val.i24, i64 %64
   %75 = load ptr, ptr %74, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %61, ptr noundef %17, ptr noundef %75, ptr noundef null, ptr noundef nonnull %5)
+  call void @Dss_ManPrint_rec(ptr noundef %61, ptr noundef readonly %17, ptr noundef %75, ptr noundef null, ptr noundef nonnull %5)
   %fputc.i25 = call i32 @fputc(i32 10, ptr %61)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %76 = load ptr, ptr @stdout, align 8
@@ -6809,7 +6809,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i29 = load ptr, ptr %33, align 8
   %85 = getelementptr inbounds ptr, ptr %.val.i29, i64 %49
   %86 = load ptr, ptr %85, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %76, ptr noundef %17, ptr noundef %86, ptr noundef nonnull %12, ptr noundef nonnull %4)
+  call void @Dss_ManPrint_rec(ptr noundef %76, ptr noundef readonly %17, ptr noundef %86, ptr noundef nonnull %12, ptr noundef nonnull %4)
   %fputc.i30 = call i32 @fputc(i32 10, ptr %76)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %87 = load ptr, ptr @stdout, align 8
@@ -6830,7 +6830,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i34 = load ptr, ptr %97, align 8
   %98 = getelementptr inbounds ptr, ptr %.val.i34, i64 %64
   %99 = load ptr, ptr %98, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %87, ptr noundef %17, ptr noundef %99, ptr noundef nonnull %13, ptr noundef nonnull %3)
+  call void @Dss_ManPrint_rec(ptr noundef %87, ptr noundef readonly %17, ptr noundef %99, ptr noundef nonnull %13, ptr noundef nonnull %3)
   %fputc.i35 = call i32 @fputc(i32 10, ptr %87)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %100 = call i32 @Dss_ManMerge(ptr noundef %17, ptr noundef nonnull %24, ptr noundef nonnull %11, ptr noundef nonnull %14, i32 noundef 2, i32 noundef 6, ptr noundef nonnull %15, ptr poison)
@@ -6873,7 +6873,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i39 = load ptr, ptr %123, align 8
   %124 = getelementptr inbounds ptr, ptr %.val.i39, i64 %112
   %125 = load ptr, ptr %124, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %107, ptr noundef %17, ptr noundef %125, ptr noundef null, ptr noundef nonnull %2)
+  call void @Dss_ManPrint_rec(ptr noundef %107, ptr noundef readonly %17, ptr noundef %125, ptr noundef null, ptr noundef nonnull %2)
   %fputc.i40 = call i32 @fputc(i32 10, ptr %107)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %126 = load ptr, ptr @stdout, align 8
@@ -6896,7 +6896,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %.val.i44 = load ptr, ptr %138, align 8
   %139 = getelementptr inbounds ptr, ptr %.val.i44, i64 %112
   %140 = load ptr, ptr %139, align 8
-  call void @Dss_ManPrint_rec(ptr noundef %126, ptr noundef %17, ptr noundef %140, ptr noundef nonnull %16, ptr noundef nonnull %1)
+  call void @Dss_ManPrint_rec(ptr noundef %126, ptr noundef readonly %17, ptr noundef %140, ptr noundef nonnull %16, ptr noundef nonnull %1)
   %fputc.i45 = call i32 @fputc(i32 10, ptr %126)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @Dss_ManFree(ptr noundef %17)

@@ -3045,7 +3045,7 @@ invoke.cont34:                                    ; preds = %invoke.cont30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   store i32 0, ptr %call.i.i.i.i, align 8
   %renderFromLight3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %agg.tmp1.i.i, i64 128, i1 false)
   %mediumInterface4.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 136
   store i64 %13, ptr %mediumInterface4.i.i.i.i, align 8
   %outside.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 144
@@ -3805,7 +3805,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   store i32 1, ptr %call.i.i.i.i, align 8
   %renderFromLight3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(128) %finalRenderFromLight, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %finalRenderFromLight, i64 128, i1 false)
   %mediumInterface4.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 136
   %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9numLightsE)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface4.i.i.i.i, i8 0, i64 16, i1 false)
@@ -3905,7 +3905,7 @@ invoke.cont:
   %ref.tmp111 = alloca %"class.pbrt::PiecewiseConstant2D", align 8
   store i32 0, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 8 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %mediumInterface4.i, align 8
   %0 = load i64, ptr %mediumInterface, align 8
@@ -8580,7 +8580,7 @@ invoke.cont8:
   %ref.tmp31 = alloca %"class.pbrt::PiecewiseConstant2D", align 8
   store i32 0, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %mediumInterface4.i, align 8
   %0 = load i64, ptr %mediumInterface, align 8
@@ -12013,7 +12013,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
   %retval.0.i = phi i32 [ 2, %if.end.i ], [ 0, %land.lhs.true.i ]
   store i32 %retval.0.i, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %mediumInterface4.i, align 8
   %3 = load i64, ptr %mediumInterface, align 8
@@ -15825,7 +15825,7 @@ entry:
   %agg.tmp = alloca %"class.pbrt::Spectrum", align 8
   store i32 3, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9numLightsE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface4.i, i8 0, i64 16, i1 false)
@@ -16440,7 +16440,7 @@ invoke.cont8:
   %ref.tmp132 = alloca %"class.pbrt::PiecewiseConstant2D", align 8
   store i32 3, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 8 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9numLightsE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface4.i, i8 0, i64 16, i1 false)
@@ -18117,7 +18117,7 @@ entry:
   %agg.tmp306 = alloca %"class.pbrt::Array2D", align 8
   store i32 3, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9numLightsE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface4.i, i8 0, i64 16, i1 false)
@@ -21791,7 +21791,7 @@ entry:
   %vb = alloca float, align 4
   store i32 0, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
   %mediumInterface4.i = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %mediumInterface4.i, align 8
   %0 = load i64, ptr %mediumInterface, align 8
@@ -23165,7 +23165,7 @@ if.end:                                           ; preds = %invoke.cont78.if.en
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vb.i.i.i)
   store i32 0, ptr %call.i.i.i.i, align 8
   %renderFromLight3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(128) %finalRenderFromLight, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %finalRenderFromLight, i64 128, i1 false)
   %mediumInterface4.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 136
   store i64 %36, ptr %mediumInterface4.i.i.i.i, align 8
   %outside.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 144
@@ -23244,7 +23244,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 160
   %ptr.val19.i.i = load float, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %lambda, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %lambda, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, i8 0, i64 16, i1 false)
   %nStored.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.val.i.i, i64 32
@@ -23315,7 +23315,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 
 sw.bb2.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i30.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i30.i.i, ptr noundef nonnull align 8 dereferenceable(32) %lambda, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i30.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %lambda, i64 32, i1 false)
   %scale.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load float, ptr %scale.i.i.i.i, align 8
   %Lemit.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -23435,20 +23435,20 @@ sw.bb6.i.i:                                       ; preds = %entry
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb10.i.i:                                      ; preds = %entry
-  %call.i62.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16GoniometricLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
+  %call.i62.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16GoniometricLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb14.i.i:                                      ; preds = %entry
-  %call.i64.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
+  %call.i64.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(172) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb18.i.i:                                      ; preds = %entry
-  %call.i66.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16DiffuseAreaLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
+  %call.i66.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16DiffuseAreaLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(352) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb22.i.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i69.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i69.i.i, ptr noundef nonnull align 8 dereferenceable(32) %lambda, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i69.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %lambda, i64 32, i1 false)
   %sceneRadius.i.i70.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %22 = load float, ptr %sceneRadius.i.i70.i.i, align 8
   %scale.i.i71.i.i = getelementptr inbounds i8, ptr %0, i64 160
@@ -23526,11 +23526,11 @@ for.body.i.i.i.i96.i.i:                           ; preds = %for.body.i.i.i.i96.
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.bb26.i.i:                                      ; preds = %entry
-  %call.i109.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt18ImageInfiniteLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
+  %call.i109.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt18ImageInfiniteLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(592) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 sw.default.i.i:                                   ; preds = %entry
-  %call.i.i.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt24PortalImageInfiniteLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(516) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
+  %call.i.i.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt24PortalImageInfiniteLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(516) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
 
 "_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit": ; preds = %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i", %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.exit.i.i", %sw.bb6.i.i, %sw.bb10.i.i, %sw.bb14.i.i, %sw.bb18.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.exit.i.i", %sw.bb26.i.i, %sw.default.i.i
@@ -23828,7 +23828,7 @@ sw.bb5.i.i:                                       ; preds = %entry
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
-  tail call void @_ZNK4pbrt20UniformInfiniteLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(180) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
+  tail call void @_ZNK4pbrt20UniformInfiniteLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(180) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
 
 sw.bb7.i.i:                                       ; preds = %entry
@@ -25815,7 +25815,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   store i32 3, ptr %call.i.i.i, align 8
   %renderFromLight3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i, ptr noundef nonnull align 4 dereferenceable(128) %args, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %args, i64 128, i1 false)
   %mediumInterface4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 136
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9numLightsE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface4.i.i.i, i8 0, i64 16, i1 false)
@@ -25850,7 +25850,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   store i32 3, ptr %call.i.i.i, align 8
   %renderFromLight3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i, ptr noundef nonnull align 4 dereferenceable(128) %args, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %args, i64 128, i1 false)
   %mediumInterface4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 136
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9numLightsE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface4.i.i.i, i8 0, i64 16, i1 false)
@@ -53342,7 +53342,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -61008,7 +61008,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -61220,7 +61220,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

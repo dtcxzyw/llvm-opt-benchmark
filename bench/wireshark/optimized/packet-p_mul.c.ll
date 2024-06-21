@@ -1261,7 +1261,7 @@ proto_item_set_generated.exit634:                 ; preds = %388, %391, %394
 420:                                              ; preds = %417
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %421 = call fastcc ptr @register_p_mul_id(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 0, i8 noundef zeroext %13, i32 noundef %.4, i16 noundef zeroext %.1578, i32 noundef %.6572)
+  %421 = call fastcc ptr @register_p_mul_id(ptr noundef %1, ptr noundef nonnull readonly %7, i32 noundef 0, i8 noundef zeroext %13, i32 noundef %.4, i16 noundef zeroext %.1578, i32 noundef %.6572)
   %.not.i635 = icmp eq ptr %421, null
   br i1 %.not.i635, label %add_seq_analysis.exit, label %422
 

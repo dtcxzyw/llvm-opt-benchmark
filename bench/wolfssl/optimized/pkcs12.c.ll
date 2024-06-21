@@ -194,7 +194,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull %pkcs12, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %psw, i32 noundef %pswSz, ptr noundef nonnull %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly %pkcs12, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %psw, i32 noundef %pswSz, ptr noundef nonnull %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit, label %if.end10.i
 
@@ -1214,7 +1214,7 @@ if.end.i:                                         ; preds = %if.then16
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit.thread, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull %pkcs12, ptr noundef nonnull %9, i32 noundef %10, ptr noundef nonnull %psw, i32 noundef %conv, ptr noundef nonnull %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly %pkcs12, ptr noundef nonnull %9, i32 noundef %10, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef nonnull %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit.thread, label %wc_PKCS12_verify.exit
 
@@ -2088,7 +2088,7 @@ if.end12.i:                                       ; preds = %if.end11.i, %switch
 if.end20.i:                                       ; preds = %if.end12.i
   store i32 %certBufSz.1.i, ptr %sz.i, align 4
   %add.ptr.i61 = getelementptr inbounds i8, ptr %call14.i, i64 6
-  %call22.i = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %add.ptr.i61, ptr noundef nonnull %sz.i, ptr noundef %cert, i32 noundef %certSz)
+  %call22.i = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %add.ptr.i61, ptr noundef nonnull %sz.i, ptr noundef readonly %cert, i32 noundef %certSz)
   %cmp23.i = icmp slt i32 %call22.i, 0
   br i1 %cmp23.i, label %if.then26.sink.split, label %if.end28.i
 
@@ -2197,10 +2197,10 @@ if.end20.i76:                                     ; preds = %if.end8.i
   %idx.ext.i78 = zext i32 %call22.i77 to i64
   %add.ptr.i79 = getelementptr inbounds i8, ptr %call11.i, i64 %idx.ext.i78
   %conv24.i = zext nneg i32 %call86.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i79, ptr nonnull align 1 %call77.i, i64 %conv24.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i79, ptr nonnull readonly align 1 %call77.i, i64 %conv24.i, i1 false)
   %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 %conv24.i
   %conv29.i = zext nneg i32 %call50.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr nonnull align 1 %call41.i, i64 %conv29.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr nonnull readonly align 1 %call41.i, i64 %conv29.i, i1 false)
   %call30.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr noundef nonnull %call.i, ptr noundef nonnull %rng, ptr noundef nonnull %call4.i, ptr noundef nonnull %safeDataSz.i, ptr noundef nonnull %call11.i, i32 noundef %add2.i, i32 noundef 0, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
   call void @wolfSSL_Free(ptr noundef nonnull %call11.i) #9
   %cmp36.i = icmp slt i32 %call30.i, 0

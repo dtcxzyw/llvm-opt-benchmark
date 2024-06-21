@@ -8621,7 +8621,7 @@ call.i.noexc.i.i:                                 ; preds = %if.then.i.i35.i
 
 if.then6.i.i.i:                                   ; preds = %invoke.cont50.i.i
   %sin6_addr.i.i.i = getelementptr inbounds i8, ptr %source_addr.i.i, i64 16
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i.i.i, ptr noundef nonnull dereferenceable(16) @in6addr_loopback, i64 16)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i.i, ptr noundef nonnull dereferenceable(16) @in6addr_loopback, i64 16)
   %cmp8.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp8.i.i.i, label %if.then59.i.i, label %lor.lhs.false54.i.i
 
@@ -8637,7 +8637,7 @@ land.rhs.i.i.i:                                   ; preds = %lor.lhs.false54.i.i
   br i1 %cmp.i2.i.i.i.i, label %if.then59.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i36.i.i = call i32 @bcmp(ptr %50, ptr %24, i64 %23)
+  %bcmp.i36.i.i = call i32 @bcmp(ptr %50, ptr readonly %24, i64 %23)
   %cmp.i.i37.i.i = icmp eq i32 %bcmp.i36.i.i, 0
   br i1 %cmp.i.i37.i.i, label %if.then59.i.i, label %if.else.i.i
 

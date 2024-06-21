@@ -1975,7 +1975,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
   call void @llvm.experimental.noalias.scope.decl(metadata !492)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !495
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false), !noalias !465
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull readonly align 16 dereferenceable(32) %8, i64 32, i1 false), !noalias !465
   %118 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 16, !alias.scope !496, !noalias !465, !noundef !28
   %119 = shl i64 %118, 56
   %120 = load i64, ptr %63, align 8, !alias.scope !496, !noalias !465, !noundef !28
@@ -2062,7 +2062,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
 155:                                              ; preds = %.lr.ph.i.i.i.i
   %156 = getelementptr inbounds i8, ptr %153, i64 -48
   %.val3.i.i.i.i.i = load ptr, ptr %156, align 8, !noalias !524, !nonnull !28, !noundef !28
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.9.8.copyload18.i, ptr nonnull %.val3.i.i.i.i.i, i64 %117), !alias.scope !525, !noalias !529
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.9.8.copyload18.i, ptr nonnull readonly %.val3.i.i.i.i.i, i64 %117), !alias.scope !525, !noalias !529
   %157 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %157, label %197, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hdedda522bf904060E.exit.backedge.i.i.i.i"
 
@@ -2141,7 +2141,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %194 = sub nsw i64 0, %.sroa.4.0.ph.i.i
   %195 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %.val.i.i4.i, i64 %194
   %196 = getelementptr inbounds i8, ptr %195, i64 -48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !547
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !547
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5ac399dd5314dce4E.exit.i"
 

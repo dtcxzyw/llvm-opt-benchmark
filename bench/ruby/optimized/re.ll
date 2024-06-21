@@ -592,7 +592,7 @@ define internal fastcc noundef i64 @rb_memsearch_wchar(ptr nocapture noundef rea
 
 13:                                               ; preds = %10
   %14 = getelementptr i8, ptr %.021.i, i64 1
-  %bcmp.i = tail call i32 @bcmp(ptr %8, ptr %14, i64 %9)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %8, ptr %14, i64 %9)
   %15 = icmp eq i32 %bcmp.i, 0
   br i1 %15, label %16, label %20
 
@@ -634,7 +634,7 @@ define internal fastcc noundef i64 @rb_memsearch_qchar(ptr nocapture noundef rea
 
 13:                                               ; preds = %10
   %14 = getelementptr i8, ptr %.021.i, i64 1
-  %bcmp.i = tail call i32 @bcmp(ptr %8, ptr %14, i64 %9)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %8, ptr %14, i64 %9)
   %15 = icmp eq i32 %bcmp.i, 0
   br i1 %15, label %16, label %20
 
@@ -1221,7 +1221,7 @@ rb_reg_check.exit:                                ; preds = %23, %RREGEXP_SRC_PT
   br i1 %.not.i35, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %44
-  %46 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %30) #26
+  %46 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %30) #26
   %.not3.i37 = icmp eq i32 %46, 0
   br i1 %.not3.i37, label %47, label %rb_enc_asciicompat.exit.thread
 
@@ -1256,7 +1256,7 @@ rb_reg_fixed_encoding_p.exit:                     ; preds = %52
   br i1 %.not.i40, label %rb_enc_asciicompat.exit43, label %rb_enc_asciicompat.exit43.thread
 
 rb_enc_asciicompat.exit43:                        ; preds = %rb_reg_fixed_encoding_p.exit
-  %61 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %59) #26
+  %61 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %59) #26
   %.not3.i42 = icmp eq i32 %61, 0
   %or.cond.not = and i1 %36, %.not3.i42
   br i1 %or.cond.not, label %72, label %rb_enc_asciicompat.exit43.thread
@@ -1308,7 +1308,7 @@ define internal fastcc i64 @rb_reg_preprocess(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %6
-  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %2) #26
+  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %2) #26
   %.not3.i = icmp eq i32 %11, 0
   br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
 
@@ -3652,7 +3652,7 @@ RSTRING_PTR.exit114:                              ; preds = %RSTRING_PTR.exit110
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %44
 
 44:                                               ; preds = %RSTRING_PTR.exit114
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i109, ptr align 1 %.sroa.2.0.i113, i64 %43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i109, ptr readonly align 1 %.sroa.2.0.i113, i64 %43, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit114, %44
@@ -3904,7 +3904,7 @@ define dso_local i64 @rb_reg_regsub(i64 noundef %0, i64 noundef %1, ptr noundef 
   br i1 %.not.i, label %9, label %rb_enc_asciicompat.exit
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %6) #26
+  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %6) #26
   %.not3.i = icmp eq i32 %10, 0
   br label %rb_enc_asciicompat.exit
 
@@ -5941,7 +5941,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %._crit_edge
 
 52:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %53 = shl nuw nsw i64 %49, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %48, i64 %53, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %48, i64 %53, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %52
@@ -7782,7 +7782,7 @@ define internal fastcc i64 @rb_reg_desc(i64 noundef %0) unnamed_addr #1 {
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %.split20
 
 rb_enc_asciicompat.exit:                          ; preds = %13
-  %15 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %5) #26
+  %15 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %5) #26
   %.not3.i = icmp eq i32 %15, 0
   br i1 %.not3.i, label %.split, label %.split20
 
@@ -7930,7 +7930,7 @@ define internal fastcc void @rb_reg_expr_str(i64 noundef %0, ptr noundef %1, i64
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %6
-  %14 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %3) #26
+  %14 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %3) #26
   %.not3.i = icmp eq i32 %14, 0
   br i1 %.not3.i, label %15, label %rb_enc_asciicompat.exit.thread
 
@@ -9557,7 +9557,7 @@ rb_reg_new_str.exit:                              ; preds = %rb_reg_s_quote.exit
   br i1 %.not.i96, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %58
-  %61 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %59) #26
+  %61 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %59) #26
   %.not3.i = icmp eq i32 %61, 0
   br i1 %.not3.i, label %67, label %rb_enc_asciicompat.exit.thread
 
@@ -9633,7 +9633,7 @@ rb_reg_fixed_encoding_p.exit.thread:              ; preds = %72, %67, %rb_reg_fi
   br i1 %.not.i100, label %rb_enc_asciicompat.exit103, label %rb_enc_asciicompat.exit103.thread
 
 rb_enc_asciicompat.exit103:                       ; preds = %84
-  %89 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %87) #26
+  %89 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %87) #26
   %.not3.i102 = icmp eq i32 %89, 0
   br i1 %.not3.i102, label %95, label %rb_enc_asciicompat.exit103.thread
 
@@ -10105,7 +10105,7 @@ option_to_str.exit126:                            ; preds = %115, %116
   br i1 %.not.i127, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %119
-  %122 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %9) #26
+  %122 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %9) #26
   %.not3.i129 = icmp eq i32 %122, 0
   br i1 %.not3.i129, label %123, label %rb_enc_asciicompat.exit.thread
 
@@ -10146,7 +10146,7 @@ RSTRING_END.exit:                                 ; preds = %rb_enc_asciicompat.
   br i1 %.not.i135, label %ruby_nonempty_memcpy.exit, label %142
 
 142:                                              ; preds = %RSTRING_END.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %141, ptr align 1 %137, i64 %140, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %141, ptr readonly align 1 %137, i64 %140, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_END.exit, %142

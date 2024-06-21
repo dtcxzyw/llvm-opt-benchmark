@@ -4217,7 +4217,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i.i: ; preds = %Vec_MemHa
   %331 = mul nsw i32 %330, %301
   %332 = sext i32 %331 to i64
   %333 = getelementptr inbounds i64, ptr %329, i64 %332
-  %bcmp.i26.i.i = call i32 @bcmp(ptr %333, ptr nonnull %306, i64 %325)
+  %bcmp.i26.i.i = call i32 @bcmp(ptr %333, ptr nonnull readonly %306, i64 %325)
   %.not15.i1727.i.i = icmp eq i32 %bcmp.i26.i.i, 0
   %.pre40.i.i = load ptr, ptr %287, align 8
   br i1 %.not15.i1727.i.i, label %Vec_MemHashLookup.exit.i.i, label %.lr.ph.i.i121
@@ -4236,7 +4236,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i.i: ; preds = %Vec_MemHa
   %341 = mul nsw i32 %340, %301
   %342 = sext i32 %341 to i64
   %343 = getelementptr inbounds i64, ptr %339, i64 %342
-  %bcmp.i.i.i = call i32 @bcmp(ptr %343, ptr nonnull %306, i64 %325)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %343, ptr nonnull readonly %306, i64 %325)
   %.not15.i17.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not15.i17.i.i, label %Vec_MemHashLookup.exit.i.i.loopexit, label %344, !llvm.loop !53
 
@@ -4391,7 +4391,7 @@ Vec_MemHashKey.exit.i.i.Vec_MemHashLookup.exit.thread.i_crit_edge: ; preds = %Ve
   %416 = mul nsw i32 %415, %387
   %417 = sext i32 %416 to i64
   %418 = getelementptr inbounds i64, ptr %414, i64 %417
-  %bcmp.i48.i = call i32 @bcmp(ptr %418, ptr %130, i64 %410)
+  %bcmp.i48.i = call i32 @bcmp(ptr %418, ptr readonly %130, i64 %410)
   %.not15.i49.i = icmp eq i32 %bcmp.i48.i, 0
   br i1 %.not15.i49.i, label %Vec_MemHashInsert.exit, label %.lr.ph.i118
 
@@ -4411,7 +4411,7 @@ Vec_MemHashKey.exit.i.i.Vec_MemHashLookup.exit.thread.i_crit_edge: ; preds = %Ve
   %428 = mul nsw i32 %427, %387
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds i64, ptr %426, i64 %429
-  %bcmp.i.i = call i32 @bcmp(ptr %430, ptr %130, i64 %410)
+  %bcmp.i.i = call i32 @bcmp(ptr %430, ptr readonly %130, i64 %410)
   %.not15.i.i119 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i.i119, label %Vec_MemHashInsert.exit, label %431, !llvm.loop !53
 
@@ -4594,7 +4594,7 @@ Vec_MemPush.exit.i:                               ; preds = %._crit_edge.i.i.i, 
   %521 = getelementptr inbounds i64, ptr %514, i64 %520
   %522 = sext i32 %515 to i64
   %523 = shl nsw i64 %522, 3
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %521, ptr align 8 %130, i64 %523, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %521, ptr readonly align 8 %130, i64 %523, i1 false)
   %524 = load ptr, ptr %438, align 8
   %525 = getelementptr i8, ptr %524, i64 4
   %.val.i = load i32, ptr %525, align 4

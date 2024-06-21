@@ -106,7 +106,7 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   %51 = tail call ptr @palloc(i64 noundef %50) #9
   %52 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull %0, ptr noundef nonnull %12)
+  %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef nonnull %12)
   br i1 %53, label %.lr.ph61.i, label %._crit_edge62.i
 
 .lr.ph61.i:                                       ; preds = %44
@@ -777,7 +777,7 @@ collectMatchesForHeapRow.exit.i:                  ; preds = %387, %382
 
 .backedge.i:                                      ; preds = %._crit_edge.i, %409, %collectMatchesForHeapRow.exit.i
   %.158 = phi i64 [ %412, %._crit_edge.i ], [ %.057, %409 ], [ %.057, %collectMatchesForHeapRow.exit.i ]
-  %413 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef %0, ptr noundef nonnull %12)
+  %413 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef readonly %0, ptr noundef nonnull %12)
   br i1 %413, label %59, label %._crit_edge62.i, !llvm.loop !14
 
 ._crit_edge62.i:                                  ; preds = %.backedge.i, %44
@@ -1969,7 +1969,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   br i1 %.not190.i.i, label %1066, label %1063
 
 1063:                                             ; preds = %1052
-  call fastcc void @entryGetItem(ptr noundef nonnull %1007, ptr noundef nonnull %1048, i48 %.sroa.0.0.insert.insert.i)
+  call fastcc void @entryGetItem(ptr noundef nonnull readonly %1007, ptr noundef nonnull %1048, i48 %.sroa.0.0.insert.insert.i)
   %1064 = load i8, ptr %1049, align 2
   %1065 = trunc i8 %1064 to i1
   br i1 %1065, label %1076, label %._crit_edge231.i.i
@@ -2139,7 +2139,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   br i1 %.not189.i.i, label %1139, label %1136
 
 1136:                                             ; preds = %1125
-  call fastcc void @entryGetItem(ptr noundef nonnull %1007, ptr noundef nonnull %1121, i48 %.sroa.0174.0.insert.insert.i.i)
+  call fastcc void @entryGetItem(ptr noundef nonnull readonly %1007, ptr noundef nonnull %1121, i48 %.sroa.0174.0.insert.insert.i.i)
   %1137 = load i8, ptr %1122, align 2
   %1138 = trunc i8 %1137 to i1
   br i1 %1138, label %1149, label %._crit_edge235.i.i

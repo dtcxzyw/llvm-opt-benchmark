@@ -302,7 +302,7 @@ if.end7.i:                                        ; preds = %if.then6.i, %entry
 
 if.then9.i:                                       ; preds = %if.end7.i
   %log_guid10.i = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i, ptr noundef nonnull align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
@@ -343,7 +343,7 @@ if.end7.i21:                                      ; preds = %if.then6.i30, %if.e
 
 if.then9.i23:                                     ; preds = %if.end7.i21
   %log_guid10.i24 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i24, ptr noundef nonnull align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i24, ptr noundef nonnull readonly align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
   br label %if.end11.i25
 
 if.end11.i25:                                     ; preds = %if.then9.i23, %if.end7.i21
@@ -1771,7 +1771,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_visible_write.i, align 8
-  %call.i = call i32 @vhdx_update_headers(ptr noundef nonnull %bs, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null)
+  %call.i = call i32 @vhdx_update_headers(ptr noundef nonnull readonly %bs, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null)
   br label %vhdx_user_visible_write.exit
 
 vhdx_user_visible_write.exit:                     ; preds = %entry, %if.then.i

@@ -2972,7 +2972,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
 
 10:                                               ; preds = %1
   %11 = load i32, ptr @GC_stderr, align 4
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #46
+  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
   %.not.i.i = icmp eq i64 %12, 0
@@ -22372,13 +22372,13 @@ GC_clear_marks.exit:                              ; preds = %99, %41
 108:                                              ; preds = %104
   %109 = load ptr, ptr @GC_old_normal_bl, align 8
   %110 = load ptr, ptr @GC_incomplete_normal_bl, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %110, ptr noundef nonnull align 8 dereferenceable(32768) %109, i64 32768, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %110, ptr noundef nonnull readonly align 8 dereferenceable(32768) %109, i64 32768, i1 false)
   br label %GC_unpromote_black_lists.exit
 
 GC_unpromote_black_lists.exit:                    ; preds = %104, %108
   %111 = load ptr, ptr @GC_old_stack_bl, align 8
   %112 = load ptr, ptr @GC_incomplete_stack_bl, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %112, ptr noundef nonnull align 8 dereferenceable(32768) %111, i64 32768, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %112, ptr noundef nonnull readonly align 8 dereferenceable(32768) %111, i64 32768, i1 false)
   br label %.loopexit
 
 113:                                              ; preds = %GC_clear_marks.exit
@@ -23415,7 +23415,7 @@ define void @GC_ignore_warn_proc(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @GC_err_printf(ptr noundef %0, i64 noundef %1)
+  tail call void (ptr, ...) @GC_err_printf(ptr noundef readonly %0, i64 noundef %1)
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -26613,7 +26613,7 @@ GC_get_maps.exit:                                 ; preds = %227
   store i8 0, ptr %233, align 1
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.110)
   %234 = load i32, ptr @GC_stderr, align 4
-  %235 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %232) #46
+  %235 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %236 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #38
   %.not.i.i1 = icmp eq i64 %235, 0

@@ -310,7 +310,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h276650d116300b34E.exit6"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.val, ptr nonnull align 1 %20, i64 %23, i1 false), !alias.scope !32, !noalias !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.val, ptr nonnull readonly align 1 %20, i64 %23, i1 false), !alias.scope !32, !noalias !36
   store i8 0, ptr %5, align 1
   br label %8
 }
@@ -1081,7 +1081,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit": ; preds = %44
   %48 = getelementptr inbounds i8, ptr %2, i64 %.pre
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %38, i64 %spec.store.select, i1 false), !alias.scope !80, !noalias !84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %38, i64 %spec.store.select, i1 false), !alias.scope !80, !noalias !84
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.exit._crit_edge"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.exit._crit_edge": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit"
@@ -2151,7 +2151,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22Brot
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit": ; preds = %122
   %130 = extractvalue { ptr, i64 } %127, 0
   %131 = extractvalue { ptr, i64 } %124, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %131, ptr nonnull align 1 %130, i64 %125, i1 false), !alias.scope !173, !noalias !174
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %131, ptr nonnull readonly align 1 %130, i64 %125, i1 false), !alias.scope !173, !noalias !174
   %132 = load i32, ptr %51, align 4, !noundef !12
   %133 = zext i32 %132 to i64
   %134 = add nuw nsw i64 %.0.sroa.speculated.i, %133
@@ -2173,7 +2173,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22Brot
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit161": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit"
   %142 = extractvalue { ptr, i64 } %139, 0
   %143 = extractvalue { ptr, i64 } %135, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr nonnull align 1 %142, i64 %136, i1 false), !alias.scope !181, !noalias !182
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr nonnull readonly align 1 %142, i64 %136, i1 false), !alias.scope !181, !noalias !182
   br label %120
 
 .backedge205:                                     ; preds = %.backedge205.backedge, %63
@@ -6529,7 +6529,7 @@ thread-pre-split:                                 ; preds = %1172, %1187, %_ZN19
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit351": ; preds = %1245
   %1247 = getelementptr inbounds i8, ptr %.val171, i64 %1238
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1247, ptr nonnull align 1 %1236, i64 %1235, i1 false), !alias.scope !617, !noalias !621
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1247, ptr nonnull readonly align 1 %1236, i64 %1235, i1 false), !alias.scope !617, !noalias !621
   br label %1248
 
 1248:                                             ; preds = %._crit_edge, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit351"
@@ -7135,7 +7135,7 @@ define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24Brot
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.exit"
   %111 = getelementptr inbounds i8, ptr %.val, i64 %102
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %.pn41, i64 %.pn39, i1 false), !alias.scope !798, !noalias !799
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull readonly align 1 %.pn41, i64 %.pn39, i1 false), !alias.scope !798, !noalias !799
   br label %112
 
 112:                                              ; preds = %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9049230a0635774dE.exit"

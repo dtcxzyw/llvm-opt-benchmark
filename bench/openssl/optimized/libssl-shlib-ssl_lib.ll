@@ -5027,7 +5027,7 @@ SSL_set_session_id_context.exit:                  ; preds = %if.end.i
   %sid_ctx_length.i = getelementptr inbounds i8, ptr %cond1114.i, i64 2136
   store i64 %conv.i, ptr %sid_ctx_length.i, align 8
   %sid_ctx16.i = getelementptr inbounds i8, ptr %cond1114.i, i64 2144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %sid_ctx16.i, ptr nonnull align 1 %sid_ctx, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %sid_ctx16.i, ptr nonnull readonly align 1 %sid_ctx, i64 %conv.i, i1 false)
   br label %return
 
 return:                                           ; preds = %cond.end4, %SSL_set_session_id_context.exit, %if.then14.i, %cond.end10.i, %cond.false.i, %if.then24, %if.end, %cond.end15

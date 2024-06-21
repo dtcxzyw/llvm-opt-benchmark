@@ -704,7 +704,7 @@ define hidden { i32, i32 } @_ZN3nix24with_nix_path_allocating17h04bc6e56760ac8ba
   %10 = load ptr, ptr %9, align 8, !nonnull !18, !align !21, !noundef !18
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !18
-  %13 = tail call noundef i32 @stat(ptr noundef nonnull %10, ptr noundef nonnull %2)
+  %13 = tail call noundef i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   store i8 0, ptr %10, align 1
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17ha90bdab9fb8fe06dE.exit9", label %15
@@ -760,7 +760,7 @@ define hidden { i32, i32 } @_ZN3nix24with_nix_path_allocating17h26208635ac65619f
   %10 = load ptr, ptr %9, align 8, !nonnull !18, !align !21, !noundef !18
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !18
-  %13 = tail call noundef i32 @lstat(ptr noundef nonnull %10, ptr noundef nonnull %2)
+  %13 = tail call noundef i32 @lstat(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   store i8 0, ptr %10, align 1
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17ha90bdab9fb8fe06dE.exit9", label %15
@@ -841,7 +841,7 @@ define hidden { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$1
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !18, !align !21, !noundef !18
-  %18 = call noundef i32 @lstat(ptr noundef nonnull %17, ptr noundef nonnull %2)
+  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2)
   br label %19
 
 19:                                               ; preds = %7, %15
@@ -887,7 +887,7 @@ define hidden { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$1
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !18, !align !21, !noundef !18
-  %18 = call noundef i32 @stat(ptr noundef nonnull %17, ptr noundef nonnull %2)
+  %18 = call noundef i32 @stat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2)
   br label %19
 
 19:                                               ; preds = %7, %15
@@ -1384,7 +1384,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !390, !noalias !395, !nonnull !18, !noundef !18
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !390, !noalias !395, !noundef !18
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !390, !noalias !395

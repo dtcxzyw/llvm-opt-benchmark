@@ -6318,12 +6318,12 @@ if.then7:                                         ; preds = %if.end4
   br label %exit
 
 if.end8:                                          ; preds = %if.end4
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(7) @.str.49) #18
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(7) @.str.49) #18
   %cmp.i5 = icmp eq i32 %call.i, 0
   br i1 %cmp.i5, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end8
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(6) @.str.1) #18
+  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(6) @.str.1) #18
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.end5.i, label %if.else4.i
 

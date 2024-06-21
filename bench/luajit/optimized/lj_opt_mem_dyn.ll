@@ -3131,8 +3131,8 @@ land.lhs.true156:                                 ; preds = %land.lhs.true149
   br i1 %cmp166, label %if.end169, label %return
 
 if.end169:                                        ; preds = %land.lhs.true156, %if.end138
-  %call.i = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull %J, ptr noundef nonnull %basea.0)
-  %call1.i = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull %J, ptr noundef nonnull %baseb.1)
+  %call.i = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull readonly %J, ptr noundef nonnull %basea.0)
+  %call1.i = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull readonly %J, ptr noundef nonnull %baseb.1)
   %cmp.i = icmp eq ptr %call.i, %call1.i
   br i1 %cmp.i, label %return, label %if.end.i
 

@@ -817,7 +817,7 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
   %.val.i103 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i32, ptr %.val.i103, i64 %indvars.iv.i102
   %155 = load i32, ptr %154, align 4
-  tail call void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef %1, i32 noundef %155, ptr noundef %150)
+  tail call void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly %1, i32 noundef %155, ptr noundef readonly %150)
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
   %.val8.i = load i32, ptr %44, align 4
   %156 = sext i32 %.val8.i to i64

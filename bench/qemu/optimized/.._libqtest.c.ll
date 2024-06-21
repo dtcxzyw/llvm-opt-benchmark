@@ -621,7 +621,7 @@ entry:
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @getenv(ptr noundef nonnull %var) #20
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %var) #20
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %if.end3.i, label %qtest_qemu_binary.exit
 
@@ -3522,7 +3522,7 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
 define dso_local void @qtest_qmp_device_del(ptr noundef %qts, ptr noundef %id) local_unnamed_addr #1 {
 entry:
   tail call void @qtest_qmp_device_del_send(ptr noundef %qts, ptr noundef %id)
-  %call.i = tail call ptr @qtest_qmp_eventwait_ref(ptr noundef %qts, ptr noundef nonnull @.str.91)
+  %call.i = tail call ptr @qtest_qmp_eventwait_ref(ptr noundef %qts, ptr noundef nonnull readonly @.str.91)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %qtest_qmp_eventwait.exit, label %lor.lhs.false.i.i
 

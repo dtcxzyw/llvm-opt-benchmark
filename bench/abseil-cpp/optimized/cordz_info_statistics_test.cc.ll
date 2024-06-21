@@ -756,7 +756,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !7
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !7
   br label %for.body.i.i.i.i
@@ -772,7 +772,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !7
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -791,7 +791,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i8, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i8, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !10
   %update_tracker.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %agg.tmp.i8, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i9, i8 0, i64 200, i1 false), !noalias !10
   br label %for.body.i.i.i.i.i.i.i.i.i10
@@ -807,7 +807,7 @@ for.body.i.i.i.i.i.i.i.i.i10:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i15, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i10, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i8, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i8, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !10
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -1017,7 +1017,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i.i.i.i.i.i), !noalias !34
   %call.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #22, !noalias !35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %this, i64 136, i1 false), !noalias !35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %this, i64 136, i1 false), !noalias !35
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i, i64 136
   %update_tracker3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !noalias !35
@@ -1036,7 +1036,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEE10gmock_ImplIRKS3_EE, i64 16), ptr %call.i.i.i.i.i.i, align 8, !noalias !35
   %stats.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %stats.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i.i.i.i.i.i, i64 136, i1 false), !noalias !35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %stats.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i.i.i.i.i.i, i64 136, i1 false), !noalias !35
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !noalias !35
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -3498,7 +3498,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp12, i64 136, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp12, i64 136, i1 false), !noalias !45
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !45
   br label %for.body.i.i.i.i
@@ -3514,7 +3514,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !45
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -3533,7 +3533,7 @@ invoke.cont13:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i55)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i55, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i55, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !48
   %update_tracker.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.tmp.i55, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i56, i8 0, i64 200, i1 false), !noalias !48
   br label %for.body.i.i.i.i.i.i.i.i.i57
@@ -3549,7 +3549,7 @@ for.body.i.i.i.i.i.i.i.i.i57:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i62, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i57, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i55, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i55, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !48
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -3867,7 +3867,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !54
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !54
   br label %for.body.i.i.i.i
@@ -3883,7 +3883,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !54
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -3902,7 +3902,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i11, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i11, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !57
   %update_tracker.i.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i12, i8 0, i64 200, i1 false), !noalias !57
   br label %for.body.i.i.i.i.i.i.i.i.i13
@@ -3918,7 +3918,7 @@ for.body.i.i.i.i.i.i.i.i.i13:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i18, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i13, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i11, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i11, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !57
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -4246,7 +4246,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !63
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !63
   br label %for.body.i.i.i.i
@@ -4262,7 +4262,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !63
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -4281,7 +4281,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i46)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i46, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i46, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !66
   %update_tracker.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i47, i8 0, i64 200, i1 false), !noalias !66
   br label %for.body.i.i.i.i.i.i.i.i.i48
@@ -4297,7 +4297,7 @@ for.body.i.i.i.i.i.i.i.i.i48:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i53, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i48, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i46, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i46, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !66
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -4611,7 +4611,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp15, i64 136, i1 false), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp15, i64 136, i1 false), !noalias !72
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !72
   br label %for.body.i.i.i.i
@@ -4627,7 +4627,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !72
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -4646,7 +4646,7 @@ invoke.cont16:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i10, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i10, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !75
   %update_tracker.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %agg.tmp.i10, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i11, i8 0, i64 200, i1 false), !noalias !75
   br label %for.body.i.i.i.i.i.i.i.i.i12
@@ -4662,7 +4662,7 @@ for.body.i.i.i.i.i.i.i.i.i12:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i17, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i12, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i10, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i10, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !75
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -5189,7 +5189,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp22, i64 136, i1 false), !noalias !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp22, i64 136, i1 false), !noalias !82
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !82
   br label %for.body.i.i.i.i
@@ -5205,7 +5205,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !82
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -5224,7 +5224,7 @@ invoke.cont23:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i94)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i94, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i94, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp, i64 136, i1 false), !noalias !85
   %update_tracker.i.i.i.i.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp.i94, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i95, i8 0, i64 200, i1 false), !noalias !85
   br label %for.body.i.i.i.i.i.i.i.i.i96
@@ -5240,7 +5240,7 @@ for.body.i.i.i.i.i.i.i.i.i96:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i101, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i96, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i94, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i94, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !85
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -5904,7 +5904,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp67, i64 136, i1 false), !noalias !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp67, i64 136, i1 false), !noalias !92
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !92
   br label %for.body.i.i.i.i
@@ -5920,7 +5920,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp66, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp66, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !92
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -5939,7 +5939,7 @@ invoke.cont68:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i113)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i113, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp66, i64 136, i1 false), !noalias !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i113, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp66, i64 136, i1 false), !noalias !95
   %update_tracker.i.i.i.i.i.i.i114 = getelementptr inbounds i8, ptr %agg.tmp.i113, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i114, i8 0, i64 200, i1 false), !noalias !95
   br label %for.body.i.i.i.i.i.i.i.i.i115
@@ -5955,7 +5955,7 @@ for.body.i.i.i.i.i.i.i.i.i115:                    ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i120, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i115, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i113, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp65, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i113, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !95
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -7669,7 +7669,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp104, i64 136, i1 false), !noalias !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp104, i64 136, i1 false), !noalias !118
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !118
   br label %for.body.i.i.i.i
@@ -7685,7 +7685,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp103, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp103, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp103, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !118
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -7704,7 +7704,7 @@ invoke.cont105:                                   ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i269)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i269, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp103, i64 136, i1 false), !noalias !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i269, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp103, i64 136, i1 false), !noalias !121
   %update_tracker.i.i.i.i.i.i.i270 = getelementptr inbounds i8, ptr %agg.tmp.i269, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i270, i8 0, i64 200, i1 false), !noalias !121
   br label %for.body.i.i.i.i.i.i.i.i.i271
@@ -7720,7 +7720,7 @@ for.body.i.i.i.i.i.i.i.i.i271:                    ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i276, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i271, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i271
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i269, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp102, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i269, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp102, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !121
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -8127,7 +8127,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp17, i64 136, i1 false), !noalias !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp17, i64 136, i1 false), !noalias !127
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !127
   br label %for.body.i.i.i.i
@@ -8143,7 +8143,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp16, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp16, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !127
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -8162,7 +8162,7 @@ invoke.cont18:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i9, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp16, i64 136, i1 false), !noalias !130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i9, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp16, i64 136, i1 false), !noalias !130
   %update_tracker.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %agg.tmp.i9, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i10, i8 0, i64 200, i1 false), !noalias !130
   br label %for.body.i.i.i.i.i.i.i.i.i11
@@ -8178,7 +8178,7 @@ for.body.i.i.i.i.i.i.i.i.i11:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i16, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i11, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i9, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i9, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !130
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -8481,7 +8481,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %for.body.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp10, i64 136, i1 false), !noalias !136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp10, i64 136, i1 false), !noalias !136
   %update_tracker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i, i8 0, i64 200, i1 false), !noalias !136
   br label %for.body.i.i.i.i
@@ -8497,7 +8497,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp9, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !136
   br label %for.body.i.i.i.i.i.i.i.i.i
@@ -8516,7 +8516,7 @@ invoke.cont11:                                    ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %agg.tmp.i6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i6, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !139
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i6, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp9, i64 136, i1 false), !noalias !139
   %update_tracker.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp.i6, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i7, i8 0, i64 200, i1 false), !noalias !139
   br label %for.body.i.i.i.i.i.i.i.i.i8
@@ -8532,7 +8532,7 @@ for.body.i.i.i.i.i.i.i.i.i8:                      ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i13, label %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i8, !llvm.loop !5
 
 _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp.i6, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(136) %agg.tmp.i6, i64 136, i1 false)
   %update_tracker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker.i.i.i.i.i.i.i.i, i8 0, i64 200, i1 false), !alias.scope !139
   br label %for.body.i.i.i.i.i.i.i.i.i.i

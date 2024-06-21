@@ -855,10 +855,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr nocapture noundef %0, i
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %44
 
 44:                                               ; preds = %43
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #17
+  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %39) #17
   %46 = add i64 %45, 1
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #18
-  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %39) #16
+  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(1) %39) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %43, %44
@@ -2592,7 +2592,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr nocapture noundef %0,
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = sext i32 %.val to i64
   %36 = shl nsw i64 %35, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %34, ptr align 4 %.val61, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %34, ptr readonly align 4 %.val61, i64 %36, i1 false)
   store ptr %33, ptr %23, align 8
   %37 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %37, null

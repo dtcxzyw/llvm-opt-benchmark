@@ -131,7 +131,7 @@ if.end64:                                         ; preds = %if.end60
   %cmp.i = icmp eq i8 %14, 126
   %idx.ext.i = zext i1 %cmp.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call61, i64 %idx.ext.i
-  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i) #5
+  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %handle_cpu_env.exit, label %if.end.i
 
@@ -177,7 +177,7 @@ if.then67:                                        ; preds = %handle_cpu_env.exit
   %cmp.i33 = icmp eq i8 %22, 126
   %idx.ext.i34 = zext i1 %cmp.i33 to i64
   %add.ptr.i35 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i34
-  %call.i36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %add.ptr.i35, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i32) #5
+  %call.i36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %add.ptr.i35, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i32) #5
   %tobool.not.i37 = icmp eq i32 %call.i36, 0
   br i1 %tobool.not.i37, label %handle_cpu_env.exit47, label %if.end.i38
 

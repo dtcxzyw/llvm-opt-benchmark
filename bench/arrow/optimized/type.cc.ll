@@ -24063,7 +24063,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %mul.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %mul.i.i.i.i.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !787
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !787
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
@@ -24147,7 +24147,7 @@ for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %mul.i39.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 6
   %add.ptr.i40.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i.i, i64 %mul.i39.i.i.i.i
   %add.ptr1.i41.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i40.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !821
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !821
   %mul2.i42.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 3
   %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i42.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !822)
@@ -33149,7 +33149,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 sw.bb.i:                                          ; preds = %entry
-  call void @_ZNK5arrow9FieldPath8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  call void @_ZNK5arrow9FieldPath8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
   br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK5arrow8FieldRef8ToStringEvE7VisitorJRKSt7variantIJNSA_9FieldPathES8_St6vectorISB_SaISB_EEEEEEDcOT0_DpOT1_.exit
 
 sw.bb2.i:                                         ; preds = %entry

@@ -578,7 +578,7 @@ define dso_local i64 @range_out(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %.not8.i, label %41, label %43
 
 41:                                               ; preds = %37
-  %42 = call fastcc ptr @range_bound_escape(ptr noundef %.013)
+  %42 = call fastcc ptr @range_bound_escape(ptr noundef readonly %.013)
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %42) #14
   br label %43
 
@@ -589,7 +589,7 @@ define dso_local i64 @range_out(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %.not9.i, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call fastcc ptr @range_bound_escape(ptr noundef %.0)
+  %46 = call fastcc ptr @range_bound_escape(ptr noundef readonly %.0)
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %46) #14
   br label %47
 

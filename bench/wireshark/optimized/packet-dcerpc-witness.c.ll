@@ -560,9 +560,9 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %38 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %39 = load i32, ptr @hf_witness_witness_interfaceInfo_ipv4, align 4
-  %40 = call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.053, ptr noundef %4, i32 noundef %39)
+  %40 = call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %38, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %39)
   %41 = load i32, ptr @hf_witness_witness_interfaceInfo_ipv6, align 4
-  %42 = call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.053, ptr noundef %4, i32 noundef %41)
+  %42 = call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %40, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %41)
   %43 = load i32, ptr @hf_witness_witness_interfaceInfo_flags, align 4
   %44 = call i32 @witness_dissect_bitmap_interfaceInfo_flags(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 poison)
   %45 = sub i32 %44, %.0
@@ -818,9 +818,9 @@ define hidden noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32
   %16 = load i32, ptr @hf_witness_witness_IPaddrInfo_flags, align 4
   %17 = tail call i32 @witness_dissect_bitmap_IPaddrInfo_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 poison)
   %18 = load i32, ptr @hf_witness_witness_IPaddrInfo_ipv4, align 4
-  %19 = tail call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, i32 noundef %18)
+  %19 = tail call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %17, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %18)
   %20 = load i32, ptr @hf_witness_witness_IPaddrInfo_ipv6, align 4
-  %21 = tail call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, i32 noundef %20)
+  %21 = tail call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %19, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %20)
   %22 = sub i32 %21, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %22) #4
   store i32 %10, ptr %9, align 8

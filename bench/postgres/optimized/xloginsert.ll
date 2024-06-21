@@ -1234,7 +1234,7 @@ BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit
 XLogRegisterBlock.exit:                           ; preds = %36
   %41 = load ptr, ptr @registered_buffers, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull readonly align 4 dereferenceable(12) %4, i64 12, i1 false)
   %43 = getelementptr inbounds i8, ptr %41, i64 16
   store i32 %32, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 20
@@ -1288,7 +1288,7 @@ define dso_local range(i64 1, 0) i64 @log_newpage(ptr nocapture noundef readonly
 XLogRegisterBlock.exit:                           ; preds = %8
   %13 = load ptr, ptr @registered_buffers, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 %1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 20
@@ -1446,7 +1446,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %38, %41
 XLogRegisterBlock.exit:                           ; preds = %61
   %66 = getelementptr %struct.registered_buffer, ptr %48, i64 %indvars.iv
   %67 = getelementptr inbounds i8, ptr %66, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %68 = getelementptr inbounds i8, ptr %66, i64 16
   store i32 %1, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %66, i64 20

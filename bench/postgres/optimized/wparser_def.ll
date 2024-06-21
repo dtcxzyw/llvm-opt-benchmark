@@ -1858,7 +1858,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
   br i1 %.080.lcssa200, label %309, label %.preheader430.i
 
 .preheader430.i:                                  ; preds = %137
-  %138 = call fastcc zeroext i1 @hlCover(ptr noundef %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %138 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %138, label %.lr.ph491.i, label %.preheader.i
 
 .lr.ph491.i:                                      ; preds = %.preheader430.i
@@ -2317,7 +2317,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
   %.1364.i = phi i32 [ %.10353.i, %288 ], [ %.0363488.i, %282 ], [ %.0363488.i, %273 ], [ %.0363488.i, %263 ], [ %.0363488.i, %284 ]
   %.1362.i = phi i8 [ %255, %288 ], [ %.0361489.i, %282 ], [ %.0361489.i, %273 ], [ %.0361489.i, %263 ], [ %.0361489.i, %284 ]
   %.1335.i = phi i32 [ %.0354.i, %288 ], [ %.0334490.i, %282 ], [ %.0334490.i, %273 ], [ %.0334490.i, %263 ], [ %.0334490.i, %284 ]
-  %290 = call fastcc zeroext i1 @hlCover(ptr noundef %11, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %290 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %290, label %141, label %._crit_edge492.i, !llvm.loop !15
 
 ._crit_edge492.i:                                 ; preds = %289
@@ -2378,7 +2378,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
 mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %.preheader.i, %309, %.loopexit.loopexit.i
   %.2367.i = phi i32 [ %312, %309 ], [ %.1366.i, %._crit_edge492.i ], [ -1, %.preheader.i ], [ %313, %.loopexit.loopexit.i ]
   %.2336.i = phi i32 [ 0, %309 ], [ %.1335.i, %._crit_edge492.i ], [ 0, %.preheader.i ], [ 0, %.loopexit.loopexit.i ]
-  call fastcc void @mark_fragment(ptr noundef %11, i1 noundef zeroext %.080.lcssa200, i32 noundef %.2336.i, i32 noundef %.2367.i)
+  call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.080.lcssa200, i32 noundef %.2336.i, i32 noundef %.2367.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -2392,14 +2392,14 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %315 = call ptr @palloc(i64 noundef 640) #16
-  %316 = call fastcc zeroext i1 @hlCover(ptr noundef %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br i1 %316, label %.lr.ph.i103, label %.preheader.i93
 
 .loopexit.i:                                      ; preds = %487, %.lr.ph.i103
   %.1268.lcssa.i = phi i32 [ %.0267392.i, %.lr.ph.i103 ], [ %495, %487 ]
   %.1265.lcssa.i = phi i32 [ %.0264393.i, %.lr.ph.i103 ], [ %.2266.i, %487 ]
   %.1.lcssa.i = phi ptr [ %.0394.i, %.lr.ph.i103 ], [ %.2.i, %487 ]
-  %317 = call fastcc zeroext i1 @hlCover(ptr noundef %11, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %317 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br i1 %317, label %.lr.ph.i103, label %.preheader382.i, !llvm.loop !17
 
 .preheader382.i:                                  ; preds = %.loopexit.i
@@ -2755,7 +2755,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   store i32 %.1354.i.us, ptr %346, align 4
   store i32 %.1351.i.us, ptr %349, align 4
   store i32 %.14.i.us, ptr %351, align 4
-  call fastcc void @mark_fragment(ptr noundef %11, i1 noundef zeroext %.080.lcssa200, i32 noundef %.1354.i.us, i32 noundef %.1351.i.us)
+  call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.080.lcssa200, i32 noundef %.1354.i.us, i32 noundef %.1351.i.us)
   br label %.lr.ph450.i.us
 
 .lr.ph450.i.us:                                   ; preds = %442, %.critedge6.i.us
@@ -3018,7 +3018,7 @@ get_next_fragment.exit.i:                         ; preds = %480, %.lr.ph88.i.i,
 
 ._crit_edge461.i:                                 ; preds = %._crit_edge461.loopexit.i, %.preheader.i93
   %.2352.lcssa.i = phi i32 [ -1, %.preheader.i93 ], [ %515, %._crit_edge461.loopexit.i ]
-  call fastcc void @mark_fragment(ptr noundef nonnull %11, i1 noundef zeroext %.080.lcssa200, i32 noundef 0, i32 noundef %.2352.lcssa.i)
+  call fastcc void @mark_fragment(ptr noundef nonnull readonly %11, i1 noundef zeroext %.080.lcssa200, i32 noundef 0, i32 noundef %.2352.lcssa.i)
   br label %mark_hl_fragments.exit
 
 mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %._crit_edge461.i

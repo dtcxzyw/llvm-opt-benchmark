@@ -164,7 +164,7 @@ default.unreachable123:                           ; preds = %if.end90, %do.end17
 
 sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %conv5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -219,7 +219,7 @@ sw.bb24.i74:                                      ; preds = %do.end17.i73
 
 sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb20.i80, %sw.bb.i83
   %add.ptr.i78 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i78, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i78, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 do.body15:                                        ; preds = %if.end
@@ -304,7 +304,7 @@ sw.bb24.i103:                                     ; preds = %do.end17.i102
 
 sw.epilog.i106:                                   ; preds = %sw.bb24.i103, %sw.bb20.i109, %sw.bb.i112
   %add.ptr.i107 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i99
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i107, ptr align 1 %src, i64 %srcSize, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i107, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end73:                                         ; preds = %do.end29

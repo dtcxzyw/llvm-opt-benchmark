@@ -824,22 +824,22 @@ define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %or.cond7.i.i, label %56, label %111
 
 56:                                               ; preds = %48
-  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.105) #27
+  %57 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.105) #27
   %.not.i.i.i = icmp eq i32 %57, 0
   br i1 %.not.i.i.i, label %select.unfold.i.i, label %58
 
 58:                                               ; preds = %56
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.106) #27
+  %59 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.106) #27
   %.not4.i.i.i = icmp eq i32 %59, 0
   br i1 %.not4.i.i.i, label %select.unfold.i.i, label %60
 
 60:                                               ; preds = %58
-  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.107) #27
+  %61 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.107) #27
   %.not5.i.i.i = icmp eq i32 %61, 0
   br i1 %.not5.i.i.i, label %select.unfold.i.i, label %62
 
 62:                                               ; preds = %60
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.108) #27
+  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.108) #27
   %.not6.i.i.i = icmp eq i32 %63, 0
   br i1 %.not6.i.i.i, label %select.unfold.i.i, label %textrecordfield.exit.i.i
 

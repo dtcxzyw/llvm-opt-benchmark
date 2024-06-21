@@ -1589,7 +1589,7 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, -2
   %32 = zext i16 %31 to i32
-  call void @Amap_CreateCheckAsym_rec(ptr noundef %25, i32 noundef %32, ptr noundef nonnull %3)
+  call void @Amap_CreateCheckAsym_rec(ptr noundef readonly %25, i32 noundef %32, ptr noundef nonnull %3)
   %33 = getelementptr inbounds i8, ptr %0, i64 80
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 0
@@ -1609,7 +1609,7 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %43 = load i16, ptr %29, align 2
   %44 = and i16 %43, -2
   %45 = zext i16 %44 to i32
-  %46 = tail call ptr @Amap_CreateRulesFromDsd_rec(ptr noundef nonnull %0, ptr noundef nonnull %25, i32 noundef %45)
+  %46 = tail call ptr @Amap_CreateRulesFromDsd_rec(ptr noundef nonnull %0, ptr noundef nonnull readonly %25, i32 noundef %45)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %Amap_CreateRulesFromDsd.exit.thread, label %48
 

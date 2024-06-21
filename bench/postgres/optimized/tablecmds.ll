@@ -1380,7 +1380,7 @@ list_length.exit376.i:                            ; preds = %185, %184
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 8
   %379 = load ptr, ptr %378, align 8
-  %380 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %340, ptr noundef nonnull dereferenceable(1) %379) #15
+  %380 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %340, ptr noundef nonnull dereferenceable(1) %379) #15
   %381 = icmp eq i32 %380, 0
   br i1 %381, label %findAttrByName.exit.i, label %382
 
@@ -1958,7 +1958,7 @@ MergeCheckConstraint.exit.i:                      ; preds = %._crit_edge.i.i, %6
   %668 = load ptr, ptr %667, align 8
   %669 = getelementptr inbounds i8, ptr %668, i64 8
   %670 = load ptr, ptr %669, align 8
-  %671 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %660, ptr noundef nonnull dereferenceable(1) %670) #15
+  %671 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %660, ptr noundef nonnull dereferenceable(1) %670) #15
   %672 = icmp eq i32 %671, 0
   br i1 %672, label %findAttrByName.exit395.i, label %673
 
@@ -4714,7 +4714,7 @@ define internal fastcc zeroext i1 @set_attnotnull(ptr noundef %0, ptr nocapture 
   %41 = getelementptr inbounds i8, ptr %28, i64 24
   store i32 -1, ptr %41, align 8
   %42 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %28) #13
-  %43 = tail call fastcc zeroext i1 @ConstraintImpliedByRelConstraint(ptr noundef nonnull %1, ptr noundef %42, ptr noundef null)
+  %43 = tail call fastcc zeroext i1 @ConstraintImpliedByRelConstraint(ptr noundef nonnull readonly %1, ptr noundef %42, ptr noundef null)
   br i1 %43, label %44, label %NotNullImpliedByRelConstraints.exit
 
 44:                                               ; preds = %27
@@ -5510,7 +5510,7 @@ define dso_local void @ExecuteTruncate(ptr nocapture noundef readonly %0) local_
   unreachable
 
 truncate_check_activity.exit:                     ; preds = %16, %23
-  tail call void @CheckTableNotInUse(ptr noundef nonnull %17, ptr noundef nonnull @.str.88)
+  tail call void @CheckTableNotInUse(ptr noundef nonnull readonly %17, ptr noundef nonnull @.str.88)
   %31 = tail call ptr @lappend(ptr noundef %.0142227, ptr noundef nonnull %17) #13
   %32 = tail call ptr @lappend_oid(ptr noundef %.070141228, i32 noundef %14) #13
   %33 = load i32, ptr @wal_level, align 4
@@ -12182,7 +12182,7 @@ ATExecDropNotNull.exit:                           ; preds = %374, %376, %277
   unreachable
 
 400:                                              ; preds = %385
-  %401 = call fastcc zeroext i1 @set_attnotnull(ptr noundef nonnull %0, ptr noundef nonnull %143, i16 noundef signext %390, i1 noundef zeroext false, i32 noundef %1)
+  %401 = call fastcc zeroext i1 @set_attnotnull(ptr noundef nonnull %0, ptr noundef nonnull readonly %143, i16 noundef signext %390, i1 noundef zeroext false, i32 noundef %1)
   br i1 %401, label %402, label %ATExecSetAttNotNull.exit
 
 402:                                              ; preds = %400
@@ -13496,7 +13496,7 @@ ATExecAddIndexConstraint.exit:                    ; preds = %998, %1002
   br i1 %1115, label %1116, label %1120
 
 1116:                                             ; preds = %1110, %1103, %1096
-  %1117 = call fastcc zeroext i1 @ATExecAlterConstrRecurse(ptr noundef nonnull %.val392.i, ptr noundef %1022, ptr noundef %1023, ptr noundef nonnull %143, ptr noundef nonnull %1031, ptr noundef nonnull %12, i32 noundef %1)
+  %1117 = call fastcc zeroext i1 @ATExecAlterConstrRecurse(ptr noundef nonnull readonly %.val392.i, ptr noundef %1022, ptr noundef %1023, ptr noundef nonnull %143, ptr noundef nonnull %1031, ptr noundef nonnull %12, i32 noundef %1)
   br i1 %1117, label %1118, label %1120
 
 1118:                                             ; preds = %1116
@@ -14344,7 +14344,7 @@ ATExecClusterOn.exit:                             ; preds = %1526
 
 1547:                                             ; preds = %1542, %1542
   %1548 = load i32, ptr %135, align 4
-  %1549 = call zeroext i1 @CheckRelationTableSpaceMove(ptr noundef nonnull %143, i32 noundef %1548)
+  %1549 = call zeroext i1 @CheckRelationTableSpaceMove(ptr noundef nonnull readonly %143, i32 noundef %1548)
   br i1 %1549, label %1555, label %1550
 
 1550:                                             ; preds = %1547
@@ -15009,7 +15009,7 @@ ATExecSetRelOptions.exit.i:                       ; preds = %1705, %1585
   unreachable
 
 ATExecAddInherit.exit:                            ; preds = %1877
-  call fastcc void @CreateInheritance(ptr noundef nonnull %143, ptr noundef nonnull %1809, i1 noundef zeroext false)
+  call fastcc void @CreateInheritance(ptr noundef nonnull readonly %143, ptr noundef nonnull %1809, i1 noundef zeroext false)
   %1889 = load ptr, ptr %1810, align 8
   %1890 = getelementptr inbounds i8, ptr %1889, i64 112
   %1891 = load i8, ptr %1890, align 4
@@ -15080,7 +15080,7 @@ ATExecDropInherit.exit:                           ; preds = %1915
   %1925 = getelementptr inbounds i8, ptr %142, i64 32
   %1926 = load ptr, ptr %1925, align 8
   %1927 = call ptr @table_openrv(ptr noundef %1926, i32 noundef 1) #13
-  call fastcc void @RemoveInheritance(ptr noundef nonnull %143, ptr noundef %1927, i1 noundef zeroext false)
+  call fastcc void @RemoveInheritance(ptr noundef nonnull readonly %143, ptr noundef %1927, i1 noundef zeroext false)
   %1928 = getelementptr inbounds i8, ptr %1927, i64 56
   %1929 = load ptr, ptr %1928, align 8
   %1930 = getelementptr inbounds i8, ptr %1929, i64 112

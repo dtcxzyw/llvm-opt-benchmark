@@ -5049,7 +5049,7 @@ analyze_sbs.exit.thread:                          ; preds = %166, %66, %14
 338:                                              ; preds = %.split.us.i
   %339 = getelementptr i8, ptr %336, i64 -16
   %340 = load ptr, ptr %339, align 8
-  %341 = tail call i32 @strcmp(ptr noundef %340, ptr noundef %333) #31
+  %341 = tail call i32 @strcmp(ptr noundef %340, ptr noundef readonly %333) #31
   %342 = icmp eq i32 %341, 0
   br i1 %342, label %find_pers.exit.loopexit, label %.split.us.i, !llvm.loop !76
 
@@ -5068,7 +5068,7 @@ analyze_sbs.exit.thread:                          ; preds = %166, %66, %14
 
 351:                                              ; preds = %347
   %352 = load ptr, ptr %345, align 8
-  %353 = tail call i32 @strcmp(ptr noundef %352, ptr noundef %333) #31
+  %353 = tail call i32 @strcmp(ptr noundef %352, ptr noundef readonly %333) #31
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %find_pers.exit, label %.split.i, !llvm.loop !76
 

@@ -3332,7 +3332,7 @@ define internal i32 @find_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %or.cond.i, label %39, label %41
 
 39:                                               ; preds = %36, %34, %26
-  %40 = call i32 @dissect_iuup(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr poison)
+  %40 = call i32 @dissect_iuup(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr readnone poison)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   br label %44
 

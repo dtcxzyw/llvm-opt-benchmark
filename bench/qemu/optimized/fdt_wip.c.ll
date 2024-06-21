@@ -61,7 +61,7 @@ if.end.i:                                         ; preds = %if.end2
 
 if.end2.i:                                        ; preds = %if.end.i
   %conv.i = sext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %val, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %val, i64 %conv.i, i1 false)
   br label %fdt_setprop_inplace_namelen_partial.exit
 
 fdt_setprop_inplace_namelen_partial.exit:         ; preds = %if.end2, %if.end.i, %if.end2.i

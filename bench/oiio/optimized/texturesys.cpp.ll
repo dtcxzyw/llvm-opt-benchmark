@@ -2570,7 +2570,7 @@ entry:
   br i1 %cmp.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  invoke void @_ZNK18OpenImageIO_v2_6_03pvt17TextureSystemImpl8getstatsB5cxx11Eib(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %0, i1 noundef zeroext false)
+  invoke void @_ZNK18OpenImageIO_v2_6_03pvt17TextureSystemImpl8getstatsB5cxx11Eib(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %0, i1 noundef zeroext false)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.end.i
@@ -10321,7 +10321,7 @@ if.end.i424:                                      ; preds = %if.else.i423, %if.t
   %.sink30.i = phi i32 [ 1, %if.else.i423 ], [ 0, %if.then.i431 ]
   %pole.0.i = phi float [ %sub2.i, %if.else.i423 ], [ %sub.i432, %if.then.i431 ]
   %217 = load i32, ptr %subimage, align 4
-  %call5.i433 = call noundef ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl10pole_colorERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS2_9LevelInfoERNS_13intrusive_ptrINS0_14ImageCacheTileEEEiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr poison, ptr noundef nonnull align 8 dereferenceable(376) %add.ptr.i1.i.i, ptr noundef nonnull align 8 dereferenceable(8) %tile424, i32 noundef %217, i32 poison, i32 noundef %.sink30.i)
+  %call5.i433 = call noundef ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl10pole_colorERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS2_9LevelInfoERNS_13intrusive_ptrINS0_14ImageCacheTileEEEiii(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(360) %texturefile, ptr readonly poison, ptr noundef nonnull align 8 dereferenceable(376) %add.ptr.i1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %tile424, i32 noundef %217, i32 poison, i32 noundef %.sink30.i)
   %cmp.i.inv.i = fcmp oge float %pole.0.i, 0.000000e+00
   %val.i.0.i = select i1 %cmp.i.inv.i, float %pole.0.i, float 0.000000e+00
   %cmp1.i.i = fcmp ogt float %val.i.0.i, 1.000000e+00
@@ -11490,7 +11490,7 @@ if.end.i460:                                      ; preds = %if.else.i459, %if.t
   %.sink30.i = phi i32 [ 1, %if.else.i459 ], [ 0, %if.then.i467 ]
   %pole.0.i = phi float [ %sub2.i, %if.else.i459 ], [ %sub.i468, %if.then.i467 ]
   %169 = load i32, ptr %subimage, align 4
-  %call5.i469 = call noundef ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl10pole_colorERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS2_9LevelInfoERNS_13intrusive_ptrINS0_14ImageCacheTileEEEiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr poison, ptr noundef nonnull align 8 dereferenceable(376) %add.ptr.i1.i.i, ptr noundef nonnull align 8 dereferenceable(8) %tile466, i32 noundef %169, i32 poison, i32 noundef %.sink30.i)
+  %call5.i469 = call noundef ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl10pole_colorERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS2_9LevelInfoERNS_13intrusive_ptrINS0_14ImageCacheTileEEEiii(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(360) %texturefile, ptr readonly poison, ptr noundef nonnull align 8 dereferenceable(376) %add.ptr.i1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %tile466, i32 noundef %169, i32 poison, i32 noundef %.sink30.i)
   %cmp.i.inv.i = fcmp oge float %pole.0.i, 0.000000e+00
   %val.i.0.i = select i1 %cmp.i.inv.i, float %pole.0.i, float 0.000000e+00
   %cmp1.i.i = fcmp ogt float %val.i.0.i, 1.000000e+00

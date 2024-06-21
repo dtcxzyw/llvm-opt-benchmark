@@ -893,16 +893,16 @@ if.then.i.i:                                      ; preds = %lor.lhs.false37.i
   %sub.i.i = sub i64 16, %14
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %in_tmp.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bltmp.i, i64 16, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %in_tmp.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bltmp.i, i64 16, i1 false)
   %15 = load i64, ptr %keylen, align 8
   %cmp.not.i.i.i = icmp eq i64 %15, 16
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %in_tmp.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr3.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr3.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bltmp.i, i64 16, i1 false)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i.i
@@ -1197,9 +1197,9 @@ if.then5:                                         ; preds = %if.then2
   %add.ptr = getelementptr inbounds i8, ptr %bltmp, i64 %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %in, i64 %sub, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %in_tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %in_tmp.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
   %keylen.i = getelementptr inbounds i8, ptr %ctr, i64 40
   %1 = load i64, ptr %keylen.i, align 8
   %cmp.not.i = icmp eq i64 %1, 16
@@ -1207,7 +1207,7 @@ if.then5:                                         ; preds = %if.then2
 
 if.then.i:                                        ; preds = %if.then5
   %add.ptr3.i = getelementptr inbounds i8, ptr %in_tmp.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr3.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then5
@@ -1266,14 +1266,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inlen.addr.155 = phi i64 [ %inlen.addr.0, %for.body.lr.ph ], [ %sub23, %for.inc ]
   %in.addr.154 = phi ptr [ %in.addr.0, %for.body.lr.ph ], [ %add.ptr22, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %in_tmp.i27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i27, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.154, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i28, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.154, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i27, ptr noundef nonnull readonly align 1 dereferenceable(16) %in.addr.154, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i28, ptr noundef nonnull readonly align 1 dereferenceable(16) %in.addr.154, i64 16, i1 false)
   %6 = load i64, ptr %keylen.i29, align 8
   %cmp.not.i30 = icmp eq i64 %6, 16
   br i1 %cmp.not.i30, label %if.end.i33, label %if.then.i31
 
 if.then.i31:                                      ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr3.i32, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.154, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr3.i32, ptr noundef nonnull readonly align 1 dereferenceable(16) %in.addr.154, i64 16, i1 false)
   br label %if.end.i33
 
 if.end.i33:                                       ; preds = %if.then.i31, %for.body

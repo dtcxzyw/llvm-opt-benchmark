@@ -5974,7 +5974,7 @@ _ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   br label %.loopexit.split-lp98
 
 90:                                               ; preds = %_ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %._crit_edge113
-  %91 = call noundef ptr @getenv(ptr noundef nonnull @.str.470) #52
+  %91 = call noundef ptr @getenv(ptr noundef nonnull readonly @.str.470) #52
   %.not87 = icmp eq ptr %91, null
   br i1 %.not87, label %93, label %92
 
@@ -6593,7 +6593,7 @@ define dso_local void @_ZN5Catch6Config16readBazelEnvVarsEv(ptr noundef nonnull 
   %18 = alloca %"class.std::allocator.1", align 1
   %19 = alloca %"class.Catch::Optional.41", align 8
   %20 = alloca %"class.std::basic_ofstream", align 8
-  %21 = tail call noundef ptr @getenv(ptr noundef nonnull @.str.11) #52
+  %21 = tail call noundef ptr @getenv(ptr noundef nonnull readonly @.str.11) #52
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %83, label %22
 
@@ -6802,7 +6802,7 @@ _ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   br label %common.resume
 
 83:                                               ; preds = %_ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %1
-  %84 = call noundef ptr @getenv(ptr noundef nonnull @.str.13) #52
+  %84 = call noundef ptr @getenv(ptr noundef nonnull readonly @.str.13) #52
   %.not17 = icmp eq ptr %84, null
   br i1 %.not17, label %107, label %85
 
@@ -6895,9 +6895,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %108 = call noundef ptr @getenv(ptr noundef nonnull @.str.471) #52, !noalias !39
-  %109 = call noundef ptr @getenv(ptr noundef nonnull @.str.472) #52, !noalias !39
-  %110 = call noundef ptr @getenv(ptr noundef nonnull @.str.473) #52, !noalias !39
+  %108 = call noundef ptr @getenv(ptr noundef nonnull readonly @.str.471) #52, !noalias !39
+  %109 = call noundef ptr @getenv(ptr noundef nonnull readonly @.str.472) #52, !noalias !39
+  %110 = call noundef ptr @getenv(ptr noundef nonnull readonly @.str.473) #52, !noalias !39
   %111 = icmp ne ptr %108, null
   %112 = icmp ne ptr %109, null
   %113 = icmp ne ptr %110, null
@@ -8463,7 +8463,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i: ; preds = %_ZN5Catch20Reus
   %93 = getelementptr inbounds i8, ptr %89, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #52
   %94 = getelementptr inbounds i8, ptr %89, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   %95 = getelementptr inbounds i8, ptr %89, i64 64
   store i32 %92, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %89, i64 68
@@ -8578,7 +8578,7 @@ _ZNSt5stackIcSt5dequeIcSaIcEEEC2IS2_vEEv.exit._crit_edge: ; preds = %_ZNSt5stack
   %138 = getelementptr inbounds i8, ptr %133, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #52
   %139 = getelementptr inbounds i8, ptr %133, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   %140 = getelementptr inbounds i8, ptr %133, i64 64
   store i32 %137, ptr %140, align 8
   %141 = getelementptr inbounds i8, ptr %133, i64 68
@@ -10289,12 +10289,12 @@ _ZNK5Catch8TextFlow6Column5beginEv.exit:          ; preds = %._ZNK5Catch8TextFlo
 
 .lr.ph:                                           ; preds = %_ZNK5Catch8TextFlow6Column5beginEv.exit
   %17 = load i64, ptr %6, align 8, !noalias !111
-  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %3, i64 noundef %13, i64 noundef %17)
+  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %3, i64 noundef %13, i64 noundef %17)
   br label %22
 
 .critedge:                                        ; preds = %24
   %18 = load i64, ptr %6, align 8, !noalias !111
-  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %3, i64 noundef %26, i64 noundef %18)
+  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %3, i64 noundef %26, i64 noundef %18)
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 10)
           to label %22 unwind label %20
 
@@ -22477,7 +22477,7 @@ _ZN5Catch7TagInfoD2Ev.exit.i:                     ; preds = %114, %_ZNSt4pairIN5
   %172 = icmp ult i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i.i.i.i
   %..i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i, i64 %.sroa.2.0.copyload.i.i.i.i)
   %.8.i.i.i.i.i = zext i1 %172 to i32
-  %173 = call i32 @strncmp(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %..i.i.i.i.i) #55
+  %173 = call i32 @strncmp(ptr noundef %.sroa.0.0.copyload.i, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i, i64 noundef %..i.i.i.i.i) #55
   %174 = icmp slt i32 %173, %.8.i.i.i.i.i
   %.in.v.i.i.i = select i1 %174, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds i8, ptr %.02529.i.i.i, i64 %.in.v.i.i.i
@@ -22511,7 +22511,7 @@ _ZN5Catch7TagInfoD2Ev.exit.i:                     ; preds = %114, %_ZNSt4pairIN5
   %.024.lcssa34.i.i.i = phi ptr [ %.024.lcssa33.i.i.i, %178 ], [ %.02529.i.i.i, %._crit_edge.i.i.i ]
   %183 = icmp ult i64 %182, %.sroa.2.0.copyload.i
   %.8.i.i9.i.i.i = zext i1 %183 to i32
-  %184 = call i32 @strncmp(ptr noundef %181, ptr noundef %.sroa.0.0.copyload.i, i64 noundef %..i.i8.i.pre-phi.i.i) #55
+  %184 = call i32 @strncmp(ptr noundef %181, ptr noundef readonly %.sroa.0.0.copyload.i, i64 noundef %..i.i8.i.pre-phi.i.i) #55
   %185 = icmp slt i32 %184, %.8.i.i9.i.i.i
   br i1 %185, label %select.unfold.i.i, label %198
 
@@ -22528,7 +22528,7 @@ select.unfold.i.i:                                ; preds = %180, %._crit_edge.t
   %189 = icmp ult i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i.i8.i.i
   %..i.i.i9.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i, i64 %.sroa.2.0.copyload.i.i8.i.i)
   %.8.i.i.i10.i.i = zext i1 %189 to i32
-  %190 = call i32 @strncmp(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %.sroa.0.0.copyload.i.i6.i.i, i64 noundef %..i.i.i9.i.i) #55
+  %190 = call i32 @strncmp(ptr noundef %.sroa.0.0.copyload.i, ptr noundef readonly %.sroa.0.0.copyload.i.i6.i.i, i64 noundef %..i.i.i9.i.i) #55
   %191 = icmp slt i32 %190, %.8.i.i.i10.i.i
   br label %_ZNSt8_Rb_treeIN5Catch9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
@@ -24367,7 +24367,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit79: ; preds = %118
 127:                                              ; preds = %_ZNK5Catch9StringRef6substrEmm.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %128 = call fastcc noundef zeroext i8 @_ZN5Catch12_GLOBAL__N_115parseSpecialTagENS_9StringRefE(ptr %108, i64 %109)
+  %128 = call fastcc noundef zeroext i8 @_ZN5Catch12_GLOBAL__N_115parseSpecialTagENS_9StringRefE(ptr readonly %108, i64 %109)
   %.not127 = icmp eq i8 %128, 0
   br i1 %.not127, label %_ZN5Catch12_GLOBAL__N_113isReservedTagENS_9StringRefE.exit.i, label %149
 
@@ -24966,7 +24966,7 @@ define dso_local noundef zeroext i1 @_ZN5CatchltERKNS_12TestCaseInfoES2_(ptr nou
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %11, %.sroa.2.0.copyload
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %.sroa.2.0.copyload)
-  %13 = tail call i32 @strncmp(ptr noundef %9, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.speculated.i) #55
+  %13 = tail call i32 @strncmp(ptr noundef %9, ptr noundef readonly %.sroa.0.0.copyload, i64 noundef %.sroa.speculated.i) #55
   %.not.i = icmp eq i32 %13, 0
   %14 = icmp ult i64 %11, %.sroa.2.0.copyload
   %..i = zext i1 %12 to i32
@@ -32830,7 +32830,7 @@ _ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i ], [ %49, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0110.1168, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !420
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !420
   %51 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 16
   %52 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %51, %.sroa.10.1167
@@ -32943,7 +32943,7 @@ _ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt
 .lr.ph.i.i.i.i.i.i43:                             ; preds = %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i.i.i42, %.lr.ph.i.i.i.i.i.i43
   %.03.i.i.i.i.i.i44 = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i43 ], [ %74, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i.i.i42 ]
   %.092.i.i.i.i.i.i45 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i43 ], [ %.sroa.0110.4175, %_ZNSt12_Vector_baseIZNK5Catch5Clara6Parser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_6Detail11TokenStreamEE10ParserInfoSaISF_EE11_M_allocateEm.exit.i.i.i42 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i45, i64 16, i1 false), !alias.scope !425
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i44, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i45, i64 16, i1 false), !alias.scope !425
   %76 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i45, i64 16
   %77 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i44, i64 16
   %.not.i.i.i.i.i.i46 = icmp eq ptr %76, %.sroa.10.3174
@@ -39263,22 +39263,22 @@ _ZNK5Catch9StringRefeqES0_.exit28:                ; preds = %121
   ]
 
 _ZNK5Catch9StringRefeqES0_.exit.i:                ; preds = %135
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(7) @.str.215, i64 7), !noalias !556
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(7) @.str.215, i64 7), !noalias !556
   %136 = icmp eq i32 %bcmp.i.i, 0
   br i1 %136, label %_ZN5Catch8OptionalINS_10ColourModeEEaSEOS2_.exit, label %140
 
 _ZNK5Catch9StringRefeqES0_.exit2.i:               ; preds = %135
-  %bcmp.i1.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(4) @.str.216, i64 4), !noalias !556
+  %bcmp.i1.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(4) @.str.216, i64 4), !noalias !556
   %137 = icmp eq i32 %bcmp.i1.i, 0
   br i1 %137, label %_ZN5Catch8OptionalINS_10ColourModeEEaSEOS2_.exit, label %_ZNK5Catch9StringRefeqES0_.exit6.i
 
 _ZNK5Catch9StringRefeqES0_.exit4.i:               ; preds = %135
-  %bcmp.i3.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(5) @.str.217, i64 5), !noalias !556
+  %bcmp.i3.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(5) @.str.217, i64 5), !noalias !556
   %138 = icmp eq i32 %bcmp.i3.i, 0
   br i1 %138, label %_ZN5Catch8OptionalINS_10ColourModeEEaSEOS2_.exit, label %140
 
 _ZNK5Catch9StringRefeqES0_.exit6.i:               ; preds = %_ZNK5Catch9StringRefeqES0_.exit2.i
-  %bcmp.i5.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(4) @.str.218, i64 4), !noalias !556
+  %bcmp.i5.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i2.i, ptr noundef nonnull dereferenceable(4) @.str.218, i64 4), !noalias !556
   %139 = icmp eq i32 %bcmp.i5.i, 0
   br i1 %139, label %_ZN5Catch8OptionalINS_10ColourModeEEaSEOS2_.exit, label %140
 
@@ -40475,9 +40475,9 @@ define dso_local void @_ZN5Catch10RunContextD2Ev(ptr nocapture noundef nonnull a
   %16 = getelementptr inbounds i8, ptr %0, i64 200
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = zext i1 %15 to i8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull readonly align 8 dereferenceable(64) %16, i64 64, i1 false)
   %20 = getelementptr inbounds i8, ptr %2, i64 80
   store i8 %18, ptr %20, align 8
   %21 = load ptr, ptr %4, align 8
@@ -41056,7 +41056,7 @@ _ZNK5Catch6Totals5deltaERKS0_.exit:               ; preds = %65, %82, %83
   %165 = zext i1 %164 to i8
   store ptr %13, ptr %10, align 8
   %166 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull readonly align 8 dereferenceable(64) %0, i64 64, i1 false)
   %167 = getelementptr inbounds i8, ptr %10, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %4) #52
   %168 = getelementptr inbounds i8, ptr %10, i64 104
@@ -41449,7 +41449,7 @@ _ZNK5Catch9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exi
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #52
   %16 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
   %17 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #53
           to label %.noexc unwind label %51
 
@@ -42503,11 +42503,11 @@ _ZN5Catch16TestCaseTrackingeqERKNS0_15NameAndLocationERKNS0_18NameAndLocationRef
 _ZN5Catch16TestCaseTrackingeqERKNS0_15NameAndLocationERKNS0_18NameAndLocationRefE.exit.thread2.i: ; preds = %_ZN5Catch16TestCaseTrackingeqERKNS0_15NameAndLocationERKNS0_18NameAndLocationRefE.exit.i, %20
   %25 = getelementptr inbounds i8, ptr %.val, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = call noundef ptr @_ZN5Catch16TestCaseTracking8ITracker9findChildERKNS0_18NameAndLocationRefE(ptr noundef nonnull align 8 dereferenceable(92) %26, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %27 = call noundef ptr @_ZN5Catch16TestCaseTracking8ITracker9findChildERKNS0_18NameAndLocationRefE(ptr noundef nonnull align 8 dereferenceable(92) %26, ptr noundef nonnull readonly align 8 dereferenceable(32) %5)
   br label %29
 
 _ZN5Catch16TestCaseTrackingeqERKNS0_15NameAndLocationERKNS0_18NameAndLocationRefE.exit.thread.i: ; preds = %_ZN5Catch16TestCaseTrackingeqERKNS0_15NameAndLocationERKNS0_18NameAndLocationRefE.exit.i, %17, %_ZNK5Catch9StringRefeqES0_.exit.i.i, %11, %4
-  %28 = call noundef ptr @_ZN5Catch16TestCaseTracking8ITracker9findChildERKNS0_18NameAndLocationRefE(ptr noundef nonnull align 8 dereferenceable(92) %.val, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %28 = call noundef ptr @_ZN5Catch16TestCaseTracking8ITracker9findChildERKNS0_18NameAndLocationRefE(ptr noundef nonnull align 8 dereferenceable(92) %.val, ptr noundef nonnull readonly align 8 dereferenceable(32) %5)
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %_ZN5Catch10Generators12_GLOBAL__N_116GeneratorTracker7acquireERNS_16TestCaseTracking14TrackerContextERKNS3_18NameAndLocationRefE.exit, label %29
 
@@ -43434,7 +43434,7 @@ define dso_local void @_ZN5Catch10RunContext25handleFatalErrorConditionENS_9Stri
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #52
   %27 = getelementptr inbounds i8, ptr %0, i64 320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %27, i64 56, i1 false)
   %28 = getelementptr inbounds i8, ptr %7, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %5) #52
   %29 = getelementptr inbounds i8, ptr %7, i64 88
@@ -43554,9 +43554,9 @@ _ZN5Catch10RunContext24handleUnfinishedSectionsEv.exit: ; preds = %_ZSt8_Destroy
   store i64 %67, ptr %65, align 8
   %68 = load ptr, ptr %15, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %69, i64 16, i1 false)
   %70 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull align 8 dereferenceable(64) %64, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull readonly align 8 dereferenceable(64) %64, i64 64, i1 false)
   %71 = getelementptr inbounds i8, ptr %14, i64 80
   store i8 0, ptr %71, align 8
   %72 = load ptr, ptr %68, align 8
@@ -43823,7 +43823,7 @@ define dso_local void @_ZN5Catch10RunContext33handleUnexpectedInflightExceptionE
   %10 = getelementptr inbounds i8, ptr %5, i64 80
   store i32 273, ptr %10, align 8
   %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %5) #52
   %13 = getelementptr inbounds i8, ptr %6, i64 88
@@ -44034,7 +44034,7 @@ define dso_local void @_ZN5Catch10RunContext10reportExprERKNS_13AssertionInfoENS
   store i8 %9, ptr %.sroa.2.0..sroa_idx, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 %2, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = getelementptr inbounds i8, ptr %7, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6) #52
   %14 = getelementptr inbounds i8, ptr %7, i64 88
@@ -44124,7 +44124,7 @@ define dso_local void @_ZN5Catch10RunContext13handleMessageERKNS_13AssertionInfo
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull readonly align 8 dereferenceable(56) %11, i64 56, i1 false)
   %19 = getelementptr inbounds i8, ptr %10, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8) #52
   %20 = getelementptr inbounds i8, ptr %10, i64 88
@@ -44230,7 +44230,7 @@ define dso_local void @_ZN5Catch10RunContext13handleNonExprERKNS_13AssertionInfo
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 80
   store i32 %2, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %5) #52
   %12 = getelementptr inbounds i8, ptr %6, i64 88
@@ -44335,7 +44335,7 @@ define dso_local void @_ZN5Catch10RunContext16handleIncompleteERKNS_13AssertionI
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %15 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %4) #52
   %16 = getelementptr inbounds i8, ptr %6, i64 88
@@ -46474,7 +46474,7 @@ _ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12
   br i1 %.not27, label %_ZN5Catch12_GLOBAL__N_19matchTestERKNS_14TestCaseHandleERKNS_8TestSpecERKNS_7IConfigE.exit.thread, label %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE9push_backERKS1_.exit
 
 34:                                               ; preds = %23
-  %35 = invoke noundef zeroext i1 @_ZNK5Catch8TestSpec7matchesERKNS_12TestCaseInfoE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(121) %29)
+  %35 = invoke noundef zeroext i1 @_ZNK5Catch8TestSpec7matchesERKNS_12TestCaseInfoE(ptr noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(121) %29)
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %34
@@ -47046,7 +47046,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12Te
   %35 = load i64, ptr %24, align 8
   %36 = icmp ugt i64 %35, %.sroa.2.0.copyload.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %35, i64 %.sroa.2.0.copyload.i.i.i.i.i.i)
-  %37 = call i32 @strncmp(ptr noundef %34, ptr noundef %.sroa.0.0.copyload.i.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #55
+  %37 = call i32 @strncmp(ptr noundef %34, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #55
   %.not.i.i.i.i.i.i.i = icmp eq i32 %37, 0
   %38 = icmp ult i64 %35, %.sroa.2.0.copyload.i.i.i.i.i.i
   %..i.i.i.i.i.i.i = zext i1 %36 to i32
@@ -47224,7 +47224,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5Catch3TagES6_EEbT_T0_.exit40.thread4
   %101 = load i64, ptr %100, align 8
   %102 = icmp ugt i64 %101, %.sroa.2.0.copyload.i.i12.i.i.i.i
   %.sroa.speculated.i.i.i13.i.i.i.i = call i64 @llvm.umin.i64(i64 %101, i64 %.sroa.2.0.copyload.i.i12.i.i.i.i)
-  %103 = call i32 @strncmp(ptr noundef %99, ptr noundef %.sroa.0.0.copyload.i.i10.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i13.i.i.i.i) #55
+  %103 = call i32 @strncmp(ptr noundef %99, ptr noundef readonly %.sroa.0.0.copyload.i.i10.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i13.i.i.i.i) #55
   %.not.i.i.i14.i.i.i.i = icmp eq i32 %103, 0
   %104 = icmp ult i64 %101, %.sroa.2.0.copyload.i.i12.i.i.i.i
   %..i.i.i15.i.i.i.i = zext i1 %102 to i32
@@ -47282,7 +47282,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5Catch3TagES6_EEbT_T0_.exit40.thread4
   %129 = load i64, ptr %128, align 8
   %130 = icmp ugt i64 %129, %.sroa.2.0.copyload.i.i.i10.i.i.i
   %.sroa.speculated.i.i.i.i11.i.i.i = call i64 @llvm.umin.i64(i64 %129, i64 %.sroa.2.0.copyload.i.i.i10.i.i.i)
-  %131 = call i32 @strncmp(ptr noundef %127, ptr noundef %.sroa.0.0.copyload.i.i.i8.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i11.i.i.i) #55
+  %131 = call i32 @strncmp(ptr noundef %127, ptr noundef readonly %.sroa.0.0.copyload.i.i.i8.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i11.i.i.i) #55
   %.not.i.i.i.i12.i.i.i = icmp eq i32 %131, 0
   %132 = icmp ult i64 %129, %.sroa.2.0.copyload.i.i.i10.i.i.i
   %..i.i.i.i13.i.i.i = zext i1 %130 to i32
@@ -48970,7 +48970,7 @@ _ZSt4findISt16reverse_iteratorIPKcEcET_S4_S4_RKT0_.exit20.i: ; preds = %.lr.ph.i
           to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %109
-  invoke void @_ZN5Catch12TestCaseInfoC2ENS_9StringRefERKNS_11NameAndTagsERKNS_14SourceLineInfoE(ptr noundef nonnull align 8 dereferenceable(121) %110, ptr %.sroa.02.0.i, i64 %.sroa.3.0.i, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_ZN5Catch12TestCaseInfoC2ENS_9StringRefERKNS_11NameAndTagsERKNS_14SourceLineInfoE(ptr noundef nonnull align 8 dereferenceable(121) %110, ptr %.sroa.02.0.i, i64 %.sroa.3.0.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %113 unwind label %111, !noalias !740
 
 111:                                              ; preds = %.noexc
@@ -51683,7 +51683,7 @@ define dso_local void @_ZNK5Catch8TextFlow7Columns8iteratordeB5cxx11Ev(ptr dead_
   %27 = load i64, ptr %26, align 8, !noalias !809
   %28 = getelementptr inbounds i8, ptr %25, i64 16
   %29 = load i64, ptr %28, align 8, !noalias !809
-  invoke void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %25, i64 noundef %27, i64 noundef %29)
+  invoke void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %25, i64 noundef %27, i64 noundef %29)
           to label %_ZNK5Catch8TextFlow6Column14const_iteratordeB5cxx11Ev.exit unwind label %40
 
 _ZNK5Catch8TextFlow6Column14const_iteratordeB5cxx11Ev.exit: ; preds = %23
@@ -52589,7 +52589,7 @@ _ZN5Catch9XmlWriter15ensureTagClosedEv.exit:      ; preds = %25, %42, %40
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
   %48 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %48, align 8
-  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %47)
+  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %47)
   %49 = getelementptr inbounds i8, ptr %0, i64 1
   %50 = trunc i32 %3 to i8
   %51 = lshr i8 %50, 1
@@ -52622,7 +52622,7 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlW
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 1, ptr %16, align 8
-  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 34)
   br label %_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit
 
@@ -52650,7 +52650,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlW
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 1, ptr %15, align 8
-  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef signext 34)
   br label %17
 
@@ -52971,7 +52971,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlW
   store i64 %.sroa.3.0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %13, align 8
-  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext 34)
   br label %_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit
 
@@ -53001,7 +53001,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlW
   store i64 %6, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %15, align 8
-  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef signext 34)
   br label %_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit
 
@@ -60773,7 +60773,7 @@ _ZNK5Catch8TextFlow6Column5beginEv.exit:          ; preds = %._ZNK5Catch8TextFlo
   %45 = phi i64 [ %71, %69 ], [ %41, %_ZNK5Catch8TextFlow6Column5beginEv.exit ]
   %.0517 = phi i1 [ false, %69 ], [ true, %_ZNK5Catch8TextFlow6Column5beginEv.exit ]
   %46 = load i64, ptr %34, align 8, !noalias !907
-  invoke void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(33) %8, i64 noundef %45, i64 noundef %46)
+  invoke void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull readonly align 8 dereferenceable(33) %8, i64 noundef %45, i64 noundef %46)
           to label %_ZNK5Catch8TextFlow6Column14const_iteratordeB5cxx11Ev.exit unwind label %59
 
 _ZNK5Catch8TextFlow6Column14const_iteratordeB5cxx11Ev.exit: ; preds = %.lr.ph
@@ -62422,7 +62422,7 @@ _ZN5Catch10ColourImpl11ColourGuardD2Ev.exit79:    ; preds = %256, %224, %195, %1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5Catch15ConsoleReporter15testRunStartingERKNS_11TestRunInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -63625,22 +63625,22 @@ _ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEED2Ev.exit
 .lr.ph.i.i.i:                                     ; preds = %34, %56
   %.036.i.i.i = phi i64 [ %58, %56 ], [ %44, %34 ]
   %.sroa.025.035.i.i.i = phi ptr [ %57, %56 ], [ %38, %34 ]
-  %46 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.035.i.i.i)
+  %46 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr %.sroa.025.035.i.i.i)
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 8
-  %49 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %48)
+  %49 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nonnull %48)
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
-  %52 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %51)
+  %52 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nonnull %51)
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 24
-  %55 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %54)
+  %55 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nonnull %54)
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %53
@@ -63665,7 +63665,7 @@ _ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEED2Ev.exit
   ]
 
 61:                                               ; preds = %._crit_edge.i.i.i
-  %62 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.0.lcssa.i.i.i)
+  %62 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr %.sroa.025.0.lcssa.i.i.i)
   br i1 %62, label %.loopexit, label %63
 
 63:                                               ; preds = %61
@@ -63674,7 +63674,7 @@ _ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEED2Ev.exit
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i
   %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %64, %63 ]
-  %66 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.1.i.i.i)
+  %66 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr %.sroa.025.1.i.i.i)
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %65
@@ -63683,7 +63683,7 @@ _ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEED2Ev.exit
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i
   %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %68, %67 ]
-  %70 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.2.i.i.i)
+  %70 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN5Catch12_GLOBAL__N_113BySectionInfoEEclINS_17__normal_iteratorIPNS2_6Detail10unique_ptrINS2_22CumulativeReporterBase11SectionNodeEEESt6vectorISC_SaISC_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr %.sroa.025.2.i.i.i)
   %spec.select.i.i.i = select i1 %70, ptr %.sroa.025.2.i.i.i, ptr %40
   br label %.loopexit
 
@@ -65453,7 +65453,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %.sroa.234.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 1, ptr %54, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(8) %53)
           to label %.noexc88 unwind label %.loopexit.split-lp
 
 .noexc88:                                         ; preds = %.noexc87
@@ -65510,7 +65510,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 3, ptr %.sroa.2.0..sroa_idx.i.i91, align 8
   %80 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 1, ptr %80, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(8) %79)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(8) %79)
           to label %.noexc95 unwind label %.loopexit.split-lp
 
 .noexc95:                                         ; preds = %.noexc94
@@ -65608,7 +65608,7 @@ _ZN5Catch20ReusableStringStreamlsIdEERS0_RKT_.exit.i: ; preds = %_ZN5Catch20Reus
   store i64 %103, ptr %.sroa.2.0..sroa_idx.i.i110, align 8
   %110 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 1, ptr %110, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(8) %109)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(8) %109)
           to label %.noexc114 unwind label %113
 
 .noexc114:                                        ; preds = %.noexc113
@@ -65676,7 +65676,7 @@ _ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit105: ; preds = %89, %1
   store i64 %122, ptr %.sroa.2.0..sroa_idx.i.i120, align 8
   %129 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 1, ptr %129, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %128)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %128)
           to label %.noexc124 unwind label %200
 
 .noexc124:                                        ; preds = %.noexc123
@@ -65773,7 +65773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit139: ;
   store i64 11, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %150 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %150, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %149)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %149)
           to label %.noexc146 unwind label %206
 
 .noexc146:                                        ; preds = %.noexc145
@@ -65874,7 +65874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit153: ;
   store i64 7, ptr %.sroa.2.0..sroa_idx.i.i.i158, align 8
   %186 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %186, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %185)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %185)
           to label %.noexc162 unwind label %212
 
 .noexc162:                                        ; preds = %.noexc161
@@ -66269,7 +66269,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %22, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc8
@@ -66344,7 +66344,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %22, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc8
@@ -67038,7 +67038,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %98, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %106 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 1, ptr %106, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(8) %105)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(8) %105)
           to label %.noexc78 unwind label %.loopexit.split-lp201
 
 .noexc78:                                         ; preds = %.noexc77
@@ -67067,7 +67067,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 4, ptr %.sroa.2.0..sroa_idx.i.i81, align 8
   %114 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 1, ptr %114, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(8) %113)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(8) %113)
           to label %.noexc85 unwind label %.loopexit.split-lp201
 
 .noexc85:                                         ; preds = %.noexc84
@@ -67125,7 +67125,7 @@ _ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit87: ; preds = %.noexc8
   store i64 %120, ptr %.sroa.2.0..sroa_idx.i.i89, align 8
   %128 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 1, ptr %128, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(8) %127)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(8) %127)
           to label %.noexc93 unwind label %.loopexit.split-lp201
 
 .noexc93:                                         ; preds = %.noexc92
@@ -67160,7 +67160,7 @@ _ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit87: ; preds = %.noexc8
   store i64 %132, ptr %.sroa.2.0..sroa_idx.i.i97, align 8
   %140 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 1, ptr %140, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(8) %139)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(8) %139)
           to label %.noexc101 unwind label %.loopexit.split-lp201
 
 .noexc101:                                        ; preds = %.noexc100
@@ -67231,7 +67231,7 @@ _ZN5Catch20ReusableStringStreamlsIdEERS0_RKT_.exit.i: ; preds = %_ZN5Catch20Reus
   store i64 %154, ptr %.sroa.2.0..sroa_idx.i.i108, align 8
   %162 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %162, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(8) %161)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(8) %161)
           to label %.noexc112 unwind label %194
 
 .noexc112:                                        ; preds = %.noexc111
@@ -67261,7 +67261,7 @@ _ZN5Catch20ReusableStringStreamlsIdEERS0_RKT_.exit.i: ; preds = %_ZN5Catch20Reus
   store i64 3, ptr %.sroa.2.0..sroa_idx.i.i116, align 8
   %170 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 1, ptr %170, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %169)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %169)
           to label %.noexc120 unwind label %.loopexit.split-lp201
 
 .noexc120:                                        ; preds = %.noexc119
@@ -67327,7 +67327,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 30, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %187 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 1, ptr %187, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %186)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %186)
           to label %.noexc134 unwind label %198
 
 .noexc134:                                        ; preds = %.noexc133
@@ -67836,7 +67836,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %40, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %48, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %47)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %47)
           to label %.noexc36 unwind label %70
 
 .noexc36:                                         ; preds = %.noexc35
@@ -67873,7 +67873,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i39, align 8
   %58 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %58, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %57)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %57)
           to label %.noexc43 unwind label %68
 
 .noexc43:                                         ; preds = %.noexc42
@@ -69359,7 +69359,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %22, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc8
@@ -69441,7 +69441,7 @@ define dso_local void @_ZN5Catch17SonarQubeReporter8writeRunERKNS_22CumulativeRe
   %28 = load ptr, ptr %24, align 8
   %..i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %26, i64 %22)
   %.8.i.i.i.i.i.i = zext i1 %27 to i32
-  %29 = call i32 @strncmp(ptr noundef %28, ptr noundef %21, i64 noundef %..i.i.i.i.i.i) #55
+  %29 = call i32 @strncmp(ptr noundef %28, ptr noundef readonly %21, i64 noundef %..i.i.i.i.i.i) #55
   %30 = icmp slt i32 %29, %.8.i.i.i.i.i.i
   %.19.i.i.i.i = select i1 %30, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %30, i64 24, i64 16
@@ -69464,7 +69464,7 @@ _ZNSt3mapIN5Catch9StringRefESt6vectorIPKNS0_22CumulativeReporterBase4NodeINS0_13
   %33 = icmp ult i64 %22, %.sroa.2.0.copyload.i.i
   %..i.i.i = call i64 @llvm.umin.i64(i64 %22, i64 %.sroa.2.0.copyload.i.i)
   %.8.i.i.i = zext i1 %33 to i32
-  %34 = call i32 @strncmp(ptr noundef %21, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %..i.i.i) #55
+  %34 = call i32 @strncmp(ptr noundef %21, ptr noundef readonly %.sroa.0.0.copyload.i.i, i64 noundef %..i.i.i) #55
   %35 = icmp slt i32 %34, %.8.i.i.i
   br i1 %35, label %.critedge.i, label %37
 
@@ -69684,7 +69684,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %23, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %.noexc21 unwind label %.loopexit.split-lp
 
 .noexc21:                                         ; preds = %.noexc20
@@ -70079,7 +70079,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %75, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %83 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %83, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %82)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %82)
           to label %.noexc33 unwind label %.loopexit.split-lp45
 
 .noexc33:                                         ; preds = %.noexc32
@@ -70227,7 +70227,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %22, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc8
@@ -70427,7 +70427,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %49, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %57 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %57, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %56)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %56)
           to label %.noexc36 unwind label %73
 
 .noexc36:                                         ; preds = %.noexc35
@@ -72880,7 +72880,7 @@ define dso_local void @_ZN5Catch11XmlReporter15writeSourceInfoERKNS_14SourceLine
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %13, align 8
-  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext 34)
   br label %_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefEPKc.exit
 
@@ -72901,7 +72901,7 @@ define dso_local void @_ZN5Catch11XmlReporter15testRunStartingERKNS_11TestRunInf
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8
@@ -72994,7 +72994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %39, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %47 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %47, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %46)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %.noexc26 unwind label %86
 
 .noexc26:                                         ; preds = %.noexc25
@@ -73143,7 +73143,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %22, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc8
@@ -73217,7 +73217,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %21, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %.noexc9 unwind label %26
 
 .noexc9:                                          ; preds = %.noexc8
@@ -73367,7 +73367,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %38, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %47, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %46)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %.noexc15 unwind label %50
 
 .noexc15:                                         ; preds = %.noexc14
@@ -73524,7 +73524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %40, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %39)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %39)
           to label %.noexc18 unwind label %69
 
 .noexc18:                                         ; preds = %.noexc17
@@ -73563,7 +73563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %45, ptr %.sroa.2.0..sroa_idx.i.i21, align 8
   %53 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %53, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %52)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %52)
           to label %.noexc25 unwind label %71
 
 .noexc25:                                         ; preds = %.noexc24
@@ -73787,7 +73787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %45, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %53, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %52)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %52)
           to label %.noexc13 unwind label %73
 
 .noexc13:                                         ; preds = %.noexc12
@@ -74266,7 +74266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115: ;
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %154 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %154, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %153)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %153)
           to label %.noexc119 unwind label %208
 
 .noexc119:                                        ; preds = %.noexc118
@@ -74301,7 +74301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115: ;
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %163 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %163, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %162)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %162)
           to label %.noexc124 unwind label %208
 
 .noexc124:                                        ; preds = %.noexc123
@@ -74960,7 +74960,7 @@ _ZN5Catch9XmlWriter13ScopedElement14writeAttributeImvEERS1_NS_9StringRefERKT_.ex
   store i64 %.sroa.3.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %36, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %.noexc32 unwind label %52
 
 .noexc32:                                         ; preds = %.noexc31
@@ -75102,7 +75102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %.sroa.3.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %31, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %30)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %.noexc40 unwind label %55
 
 .noexc40:                                         ; preds = %.noexc39
@@ -75685,7 +75685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %20, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %.noexc12 unwind label %25
 
 .noexc12:                                         ; preds = %.noexc11
@@ -75777,7 +75777,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %22, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc8
@@ -76083,7 +76083,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %23, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %.noexc16 unwind label %33
 
 .noexc16:                                         ; preds = %.noexc15
@@ -77721,7 +77721,7 @@ _ZN5Catch9XmlWriter15ensureTagClosedEv.exit.i:    ; preds = %101, %88
   store ptr %.sroa.0.0.copyload, ptr %6, align 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i32 0, ptr %37, align 8
-  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %102)
+  invoke void @_ZNK5Catch9XmlEncode8encodeToERSo(ptr noundef nonnull readonly align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %102)
           to label %.noexc68 unwind label %.loopexit
 
 .noexc68:                                         ; preds = %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit.i
@@ -89928,7 +89928,7 @@ _ZNKSt6vectorIN5Catch11MessageInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %
   %29 = getelementptr inbounds i8, ptr %27, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #52
   %30 = getelementptr inbounds i8, ptr %27, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %27, i64 64
   store i32 %28, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %27, i64 68
@@ -90417,7 +90417,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerReporte
   %6 = load ptr, ptr %2, align 8
   store ptr %6, ptr %4, align 8
   store ptr null, ptr %2, align 8
-  invoke void @_ZN5Catch16ReporterRegistry16registerReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Detail10unique_ptrINS_16IReporterFactoryEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4)
+  invoke void @_ZN5Catch16ReporterRegistry16registerReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Detail10unique_ptrINS_16IReporterFactoryEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4)
           to label %7 unwind label %14
 
 7:                                                ; preds = %3
@@ -98487,22 +98487,22 @@ _ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.
   ]
 
 _ZNK5Catch9StringRefeqES0_.exit.i.i.i.i:          ; preds = %_ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %32, ptr noundef nonnull dereferenceable(7) @.str.215, i64 7), !noalias !1556
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %32, ptr noundef nonnull dereferenceable(7) @.str.215, i64 7), !noalias !1556
   %34 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %34, label %_ZNK5Catch9StringRefeqES0_.exit6.thread.sink.split.i.i.i.i, label %39
 
 _ZNK5Catch9StringRefeqES0_.exit2.i.i.i.i:         ; preds = %_ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
-  %bcmp.i1.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %32, ptr noundef nonnull dereferenceable(4) @.str.216, i64 4), !noalias !1556
+  %bcmp.i1.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %32, ptr noundef nonnull dereferenceable(4) @.str.216, i64 4), !noalias !1556
   %35 = icmp eq i32 %bcmp.i1.i.i.i.i, 0
   br i1 %35, label %_ZNK5Catch9StringRefeqES0_.exit6.thread.sink.split.i.i.i.i, label %_ZNK5Catch9StringRefeqES0_.exit6.i.i.i.i
 
 _ZNK5Catch9StringRefeqES0_.exit4.i.i.i.i:         ; preds = %_ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
-  %bcmp.i3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %32, ptr noundef nonnull dereferenceable(5) @.str.217, i64 5), !noalias !1556
+  %bcmp.i3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %32, ptr noundef nonnull dereferenceable(5) @.str.217, i64 5), !noalias !1556
   %36 = icmp eq i32 %bcmp.i3.i.i.i.i, 0
   br i1 %36, label %_ZNK5Catch9StringRefeqES0_.exit6.thread.sink.split.i.i.i.i, label %39
 
 _ZNK5Catch9StringRefeqES0_.exit6.i.i.i.i:         ; preds = %_ZNK5Catch9StringRefeqES0_.exit2.i.i.i.i
-  %bcmp.i5.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %32, ptr noundef nonnull dereferenceable(4) @.str.218, i64 4), !noalias !1556
+  %bcmp.i5.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %32, ptr noundef nonnull dereferenceable(4) @.str.218, i64 4), !noalias !1556
   %37 = icmp eq i32 %bcmp.i5.i.i.i.i, 0
   br i1 %37, label %_ZNK5Catch9StringRefeqES0_.exit6.thread.sink.split.i.i.i.i, label %39
 
@@ -100534,7 +100534,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5Catch9StringRefES1_S
   %10 = icmp ult i64 %6, %.sroa.2.0.copyload.i.i
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %.sroa.2.0.copyload.i.i)
   %.8.i.i.i = zext i1 %10 to i32
-  %11 = tail call i32 @strncmp(ptr noundef %7, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %..i.i.i) #55
+  %11 = tail call i32 @strncmp(ptr noundef %7, ptr noundef readonly %.sroa.0.0.copyload.i.i, i64 noundef %..i.i.i) #55
   %12 = icmp slt i32 %11, %.8.i.i.i
   %.in.v.i = select i1 %12, i64 16, i64 24
   %.in.i = getelementptr inbounds i8, ptr %.02529.i, i64 %.in.v.i
@@ -100574,7 +100574,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5Catch9StringRefES1_S
   %.sroa.010.0.i = phi ptr [ %17, %16 ], [ %.02529.i, %._crit_edge.i ]
   %21 = icmp ult i64 %20, %.sroa.2.0.copyload.i7.i
   %.8.i.i9.i = zext i1 %21 to i32
-  %22 = tail call i32 @strncmp(ptr noundef %19, ptr noundef %.sroa.0.0.copyload.i5.i, i64 noundef %..i.i8.i.pre-phi) #55
+  %22 = tail call i32 @strncmp(ptr noundef %19, ptr noundef readonly %.sroa.0.0.copyload.i5.i, i64 noundef %..i.i8.i.pre-phi) #55
   %23 = icmp slt i32 %22, %.8.i.i9.i
   br i1 %23, label %select.unfold, label %39
 
@@ -100594,7 +100594,7 @@ select.unfold:                                    ; preds = %18, %._crit_edge.th
   %30 = load ptr, ptr %1, align 8
   %..i.i.i9 = tail call i64 @llvm.umin.i64(i64 %28, i64 %.sroa.2.0.copyload.i.i8)
   %.8.i.i.i10 = zext i1 %29 to i32
-  %31 = tail call i32 @strncmp(ptr noundef %30, ptr noundef %.sroa.0.0.copyload.i.i6, i64 noundef %..i.i.i9) #55
+  %31 = tail call i32 @strncmp(ptr noundef %30, ptr noundef readonly %.sroa.0.0.copyload.i.i6, i64 noundef %..i.i.i9) #55
   %32 = icmp slt i32 %31, %.8.i.i.i10
   br label %_ZNSt8_Rb_treeIN5Catch9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit
 
@@ -104761,7 +104761,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %43 = load i64, ptr %42, align 8
   %44 = icmp ugt i64 %43, %.sroa.2.0.copyload.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %.sroa.2.0.copyload.i.i.i.i.i)
-  %45 = tail call i32 @strncmp(ptr noundef %41, ptr noundef %.sroa.0.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #55
+  %45 = tail call i32 @strncmp(ptr noundef %41, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #55
   %.not.i.i.i.i.i.i = icmp eq i32 %45, 0
   %46 = icmp ult i64 %43, %.sroa.2.0.copyload.i.i.i.i.i
   %..i.i.i.i.i.i = zext i1 %44 to i32
@@ -104808,7 +104808,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %67 = load i64, ptr %66, align 8
   %68 = icmp ugt i64 %67, %.sroa.2.0.copyload.i.i.i32.i.i
   %.sroa.speculated.i.i.i.i33.i.i = tail call i64 @llvm.umin.i64(i64 %67, i64 %.sroa.2.0.copyload.i.i.i32.i.i)
-  %69 = tail call i32 @strncmp(ptr noundef %65, ptr noundef %.sroa.0.0.copyload.i.i.i30.i.i, i64 noundef %.sroa.speculated.i.i.i.i33.i.i) #55
+  %69 = tail call i32 @strncmp(ptr noundef %65, ptr noundef readonly %.sroa.0.0.copyload.i.i.i30.i.i, i64 noundef %.sroa.speculated.i.i.i.i33.i.i) #55
   %.not.i.i.i.i34.i.i = icmp eq i32 %69, 0
   %70 = icmp ult i64 %67, %.sroa.2.0.copyload.i.i.i32.i.i
   %..i.i.i.i35.i.i = zext i1 %68 to i32
@@ -104863,7 +104863,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %92 = load i64, ptr %91, align 8
   %93 = icmp ugt i64 %92, %.sroa.2.0.copyload.i.i.i46.i.i
   %.sroa.speculated.i.i.i.i47.i.i = tail call i64 @llvm.umin.i64(i64 %92, i64 %.sroa.2.0.copyload.i.i.i46.i.i)
-  %94 = tail call i32 @strncmp(ptr noundef %90, ptr noundef %.sroa.0.0.copyload.i.i.i44.i.i, i64 noundef %.sroa.speculated.i.i.i.i47.i.i) #55
+  %94 = tail call i32 @strncmp(ptr noundef %90, ptr noundef readonly %.sroa.0.0.copyload.i.i.i44.i.i, i64 noundef %.sroa.speculated.i.i.i.i47.i.i) #55
   %.not.i.i.i.i48.i.i = icmp eq i32 %94, 0
   %95 = icmp ult i64 %92, %.sroa.2.0.copyload.i.i.i46.i.i
   %..i.i.i.i49.i.i = zext i1 %93 to i32
@@ -104926,7 +104926,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %118 = load i64, ptr %117, align 8
   %119 = icmp ugt i64 %118, %.sroa.2.0.copyload.i.i.i60.i.i
   %.sroa.speculated.i.i.i.i61.i.i = tail call i64 @llvm.umin.i64(i64 %118, i64 %.sroa.2.0.copyload.i.i.i60.i.i)
-  %120 = tail call i32 @strncmp(ptr noundef %116, ptr noundef %.sroa.0.0.copyload.i.i.i58.i.i, i64 noundef %.sroa.speculated.i.i.i.i61.i.i) #55
+  %120 = tail call i32 @strncmp(ptr noundef %116, ptr noundef readonly %.sroa.0.0.copyload.i.i.i58.i.i, i64 noundef %.sroa.speculated.i.i.i.i61.i.i) #55
   %.not.i.i.i.i62.i.i = icmp eq i32 %120, 0
   %121 = icmp ult i64 %118, %.sroa.2.0.copyload.i.i.i60.i.i
   %..i.i.i.i63.i.i = zext i1 %119 to i32
@@ -104981,7 +104981,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %143 = load i64, ptr %142, align 8
   %144 = icmp ugt i64 %143, %.sroa.2.0.copyload.i.i.i74.i.i
   %.sroa.speculated.i.i.i.i75.i.i = tail call i64 @llvm.umin.i64(i64 %143, i64 %.sroa.2.0.copyload.i.i.i74.i.i)
-  %145 = tail call i32 @strncmp(ptr noundef %141, ptr noundef %.sroa.0.0.copyload.i.i.i72.i.i, i64 noundef %.sroa.speculated.i.i.i.i75.i.i) #55
+  %145 = tail call i32 @strncmp(ptr noundef %141, ptr noundef readonly %.sroa.0.0.copyload.i.i.i72.i.i, i64 noundef %.sroa.speculated.i.i.i.i75.i.i) #55
   %.not.i.i.i.i76.i.i = icmp eq i32 %145, 0
   %146 = icmp ult i64 %143, %.sroa.2.0.copyload.i.i.i74.i.i
   %..i.i.i.i77.i.i = zext i1 %144 to i32
@@ -105053,7 +105053,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %169 = load i64, ptr %168, align 8
   %170 = icmp ugt i64 %169, %.sroa.2.0.copyload.i.i.i.i18.i
   %.sroa.speculated.i.i.i.i.i19.i = tail call i64 @llvm.umin.i64(i64 %169, i64 %.sroa.2.0.copyload.i.i.i.i18.i)
-  %171 = tail call i32 @strncmp(ptr noundef %167, ptr noundef %.sroa.0.0.copyload.i.i.i.i16.i, i64 noundef %.sroa.speculated.i.i.i.i.i19.i) #55
+  %171 = tail call i32 @strncmp(ptr noundef %167, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i16.i, i64 noundef %.sroa.speculated.i.i.i.i.i19.i) #55
   %.not.i.i.i.i.i20.i = icmp eq i32 %171, 0
   %172 = icmp ult i64 %169, %.sroa.2.0.copyload.i.i.i.i18.i
   %..i.i.i.i.i21.i = zext i1 %170 to i32
@@ -105211,7 +105211,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5Catch3TagES6_EEbT_T0_.exit40.thread4
   %232 = load i64, ptr %231, align 8
   %233 = icmp ugt i64 %232, %.sroa.2.0.copyload.i.i.i14.i.i
   %.sroa.speculated.i.i.i.i15.i.i = tail call i64 @llvm.umin.i64(i64 %232, i64 %.sroa.2.0.copyload.i.i.i14.i.i)
-  %234 = tail call i32 @strncmp(ptr noundef %230, ptr noundef %.sroa.0.0.copyload.i.i.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i15.i.i) #55
+  %234 = tail call i32 @strncmp(ptr noundef %230, ptr noundef readonly %.sroa.0.0.copyload.i.i.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i15.i.i) #55
   %.not.i.i.i.i16.i.i = icmp eq i32 %234, 0
   %235 = icmp ult i64 %232, %.sroa.2.0.copyload.i.i.i14.i.i
   %..i.i.i.i17.i.i = zext i1 %233 to i32
@@ -105401,7 +105401,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %22 = load i64, ptr %21, align 8
   %23 = icmp ugt i64 %22, %.sroa.2.0.copyload.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.sroa.2.0.copyload.i.i.i)
-  %24 = tail call i32 @strncmp(ptr noundef %20, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
+  %24 = tail call i32 @strncmp(ptr noundef %20, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
   %.not.i.i.i.i = icmp eq i32 %24, 0
   %25 = icmp ult i64 %22, %.sroa.2.0.copyload.i.i.i
   %..i.i.i.i = zext i1 %23 to i32
@@ -105490,7 +105490,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %66 = load i64, ptr %65, align 8
   %67 = icmp ugt i64 %66, %.sroa.2.0.copyload.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %66, i64 %.sroa.2.0.copyload.i.i.i.i)
-  %68 = tail call i32 @strncmp(ptr noundef %64, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #55
+  %68 = tail call i32 @strncmp(ptr noundef %64, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #55
   %.not.i.i.i.i.i = icmp eq i32 %68, 0
   %69 = icmp ult i64 %66, %.sroa.2.0.copyload.i.i.i.i
   %..i.i.i.i.i = zext i1 %67 to i32
@@ -105567,7 +105567,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %15, %.sroa.2.0.copyload.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %.sroa.2.0.copyload.i.i.i)
-  %17 = tail call i32 @strncmp(ptr noundef %13, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
+  %17 = tail call i32 @strncmp(ptr noundef %13, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
   %.not.i.i.i.i = icmp eq i32 %17, 0
   %18 = icmp ult i64 %15, %.sroa.2.0.copyload.i.i.i
   %..i.i.i.i = zext i1 %16 to i32
@@ -105649,7 +105649,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %13 = load i64, ptr %3, align 8
   %14 = icmp ugt i64 %13, %.sroa.2.0.copyload.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %.sroa.2.0.copyload.i.i.i)
-  %15 = tail call i32 @strncmp(ptr noundef %12, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
+  %15 = tail call i32 @strncmp(ptr noundef %12, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
   %.not.i.i.i.i = icmp eq i32 %15, 0
   %16 = icmp ult i64 %13, %.sroa.2.0.copyload.i.i.i
   %..i.i.i.i = zext i1 %14 to i32
@@ -105776,7 +105776,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %50 = load i64, ptr %49, align 8
   %51 = icmp ugt i64 %50, %.sroa.2.0.copyload.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %.sroa.2.0.copyload.i.i.i.i.i)
-  %52 = tail call i32 @strncmp(ptr noundef %48, ptr noundef %.sroa.0.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #55
+  %52 = tail call i32 @strncmp(ptr noundef %48, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #55
   %.not.i.i.i.i.i.i = icmp eq i32 %52, 0
   %53 = icmp ult i64 %50, %.sroa.2.0.copyload.i.i.i.i.i
   %..i.i.i.i.i.i = zext i1 %51 to i32
@@ -105834,7 +105834,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %79 = load i64, ptr %78, align 8
   %80 = icmp ugt i64 %79, %.sroa.2.0.copyload.i.i.i34.i.i
   %.sroa.speculated.i.i.i.i35.i.i = tail call i64 @llvm.umin.i64(i64 %79, i64 %.sroa.2.0.copyload.i.i.i34.i.i)
-  %81 = tail call i32 @strncmp(ptr noundef %77, ptr noundef %.sroa.0.0.copyload.i.i.i32.i.i, i64 noundef %.sroa.speculated.i.i.i.i35.i.i) #55
+  %81 = tail call i32 @strncmp(ptr noundef %77, ptr noundef readonly %.sroa.0.0.copyload.i.i.i32.i.i, i64 noundef %.sroa.speculated.i.i.i.i35.i.i) #55
   %.not.i.i.i.i36.i.i = icmp eq i32 %81, 0
   %82 = icmp ult i64 %79, %.sroa.2.0.copyload.i.i.i34.i.i
   %..i.i.i.i37.i.i = zext i1 %80 to i32
@@ -105903,7 +105903,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %110 = load i64, ptr %109, align 8
   %111 = icmp ugt i64 %110, %.sroa.2.0.copyload.i.i.i50.i.i
   %.sroa.speculated.i.i.i.i51.i.i = tail call i64 @llvm.umin.i64(i64 %110, i64 %.sroa.2.0.copyload.i.i.i50.i.i)
-  %112 = tail call i32 @strncmp(ptr noundef %108, ptr noundef %.sroa.0.0.copyload.i.i.i48.i.i, i64 noundef %.sroa.speculated.i.i.i.i51.i.i) #55
+  %112 = tail call i32 @strncmp(ptr noundef %108, ptr noundef readonly %.sroa.0.0.copyload.i.i.i48.i.i, i64 noundef %.sroa.speculated.i.i.i.i51.i.i) #55
   %.not.i.i.i.i52.i.i = icmp eq i32 %112, 0
   %113 = icmp ult i64 %110, %.sroa.2.0.copyload.i.i.i50.i.i
   %..i.i.i.i53.i.i = zext i1 %111 to i32
@@ -105985,7 +105985,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %145 = load i64, ptr %144, align 8
   %146 = icmp ugt i64 %145, %.sroa.2.0.copyload.i.i.i66.i.i
   %.sroa.speculated.i.i.i.i67.i.i = tail call i64 @llvm.umin.i64(i64 %145, i64 %.sroa.2.0.copyload.i.i.i66.i.i)
-  %147 = tail call i32 @strncmp(ptr noundef %143, ptr noundef %.sroa.0.0.copyload.i.i.i64.i.i, i64 noundef %.sroa.speculated.i.i.i.i67.i.i) #55
+  %147 = tail call i32 @strncmp(ptr noundef %143, ptr noundef readonly %.sroa.0.0.copyload.i.i.i64.i.i, i64 noundef %.sroa.speculated.i.i.i.i67.i.i) #55
   %.not.i.i.i.i68.i.i = icmp eq i32 %147, 0
   %148 = icmp ult i64 %145, %.sroa.2.0.copyload.i.i.i66.i.i
   %..i.i.i.i69.i.i = zext i1 %146 to i32
@@ -106054,7 +106054,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %176 = load i64, ptr %175, align 8
   %177 = icmp ugt i64 %176, %.sroa.2.0.copyload.i.i.i82.i.i
   %.sroa.speculated.i.i.i.i83.i.i = tail call i64 @llvm.umin.i64(i64 %176, i64 %.sroa.2.0.copyload.i.i.i82.i.i)
-  %178 = tail call i32 @strncmp(ptr noundef %174, ptr noundef %.sroa.0.0.copyload.i.i.i80.i.i, i64 noundef %.sroa.speculated.i.i.i.i83.i.i) #55
+  %178 = tail call i32 @strncmp(ptr noundef %174, ptr noundef readonly %.sroa.0.0.copyload.i.i.i80.i.i, i64 noundef %.sroa.speculated.i.i.i.i83.i.i) #55
   %.not.i.i.i.i84.i.i = icmp eq i32 %178, 0
   %179 = icmp ult i64 %176, %.sroa.2.0.copyload.i.i.i82.i.i
   %..i.i.i.i85.i.i = zext i1 %177 to i32
@@ -106145,7 +106145,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %211 = load i64, ptr %210, align 8
   %212 = icmp ugt i64 %211, %.sroa.2.0.copyload.i.i.i.i20.i
   %.sroa.speculated.i.i.i.i.i21.i = tail call i64 @llvm.umin.i64(i64 %211, i64 %.sroa.2.0.copyload.i.i.i.i20.i)
-  %213 = tail call i32 @strncmp(ptr noundef %209, ptr noundef %.sroa.0.0.copyload.i.i.i.i18.i, i64 noundef %.sroa.speculated.i.i.i.i.i21.i) #55
+  %213 = tail call i32 @strncmp(ptr noundef %209, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i18.i, i64 noundef %.sroa.speculated.i.i.i.i.i21.i) #55
   %.not.i.i.i.i.i22.i = icmp eq i32 %213, 0
   %214 = icmp ult i64 %211, %.sroa.2.0.copyload.i.i.i.i20.i
   %..i.i.i.i.i23.i = zext i1 %212 to i32
@@ -106315,7 +106315,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5Catch3TagES6_EEbT_T0_.exit40.thread4
   %280 = load i64, ptr %279, align 8
   %281 = icmp ugt i64 %280, %.sroa.2.0.copyload.i.i.i16.i.i
   %.sroa.speculated.i.i.i.i17.i.i = tail call i64 @llvm.umin.i64(i64 %280, i64 %.sroa.2.0.copyload.i.i.i16.i.i)
-  %282 = tail call i32 @strncmp(ptr noundef %278, ptr noundef %.sroa.0.0.copyload.i.i.i14.i.i, i64 noundef %.sroa.speculated.i.i.i.i17.i.i) #55
+  %282 = tail call i32 @strncmp(ptr noundef %278, ptr noundef readonly %.sroa.0.0.copyload.i.i.i14.i.i, i64 noundef %.sroa.speculated.i.i.i.i17.i.i) #55
   %.not.i.i.i.i18.i.i = icmp eq i32 %282, 0
   %283 = icmp ult i64 %280, %.sroa.2.0.copyload.i.i.i16.i.i
   %..i.i.i.i19.i.i = zext i1 %281 to i32
@@ -106521,7 +106521,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %25, %.sroa.2.0.copyload.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %.sroa.2.0.copyload.i.i.i)
-  %27 = tail call i32 @strncmp(ptr noundef %23, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
+  %27 = tail call i32 @strncmp(ptr noundef %23, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
   %.not.i.i.i.i = icmp eq i32 %27, 0
   %28 = icmp ult i64 %25, %.sroa.2.0.copyload.i.i.i
   %..i.i.i.i = zext i1 %26 to i32
@@ -106633,7 +106633,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %80 = load i64, ptr %79, align 8
   %81 = icmp ugt i64 %80, %.sroa.2.0.copyload.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %80, i64 %.sroa.2.0.copyload.i.i.i.i)
-  %82 = tail call i32 @strncmp(ptr noundef %78, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #55
+  %82 = tail call i32 @strncmp(ptr noundef %78, ptr noundef readonly %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #55
   %.not.i.i.i.i.i = icmp eq i32 %82, 0
   %83 = icmp ult i64 %80, %.sroa.2.0.copyload.i.i.i.i
   %..i.i.i.i.i = zext i1 %81 to i32
@@ -106727,7 +106727,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %.sroa.2.0.copyload.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %.sroa.2.0.copyload.i.i.i)
-  %20 = tail call i32 @strncmp(ptr noundef %16, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
+  %20 = tail call i32 @strncmp(ptr noundef %16, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
   %.not.i.i.i.i = icmp eq i32 %20, 0
   %21 = icmp ult i64 %18, %.sroa.2.0.copyload.i.i.i
   %..i.i.i.i = zext i1 %19 to i32
@@ -106842,7 +106842,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %16 = load i64, ptr %3, align 8
   %17 = icmp ugt i64 %16, %.sroa.2.0.copyload.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %.sroa.2.0.copyload.i.i.i)
-  %18 = tail call i32 @strncmp(ptr noundef %15, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
+  %18 = tail call i32 @strncmp(ptr noundef %15, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #55
   %.not.i.i.i.i = icmp eq i32 %18, 0
   %19 = icmp ult i64 %16, %.sroa.2.0.copyload.i.i.i
   %..i.i.i.i = zext i1 %17 to i32
@@ -134158,7 +134158,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN5Catch9StringRefESt4pairIKS1_
   %25 = load ptr, ptr %9, align 8
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 %.sroa.2.0.copyload.i.i.i)
   %.8.i.i.i.i = zext i1 %24 to i32
-  %26 = tail call i32 @strncmp(ptr noundef %25, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %..i.i.i.i) #55
+  %26 = tail call i32 @strncmp(ptr noundef %25, ptr noundef readonly %.sroa.0.0.copyload.i.i.i, i64 noundef %..i.i.i.i) #55
   %27 = icmp slt i32 %26, %.8.i.i.i.i
   br label %.thread
 
@@ -134220,7 +134220,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %16 = load ptr, ptr %12, align 8
   %..i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %.sroa.2.0.copyload.i)
   %.8.i.i = zext i1 %15 to i32
-  %17 = tail call i32 @strncmp(ptr noundef %16, ptr noundef %.sroa.0.0.copyload.i, i64 noundef %..i.i) #55
+  %17 = tail call i32 @strncmp(ptr noundef %16, ptr noundef readonly %.sroa.0.0.copyload.i, i64 noundef %..i.i) #55
   %18 = icmp slt i32 %17, %.8.i.i
   br i1 %18, label %_ZNSt8_Rb_treeIN5Catch9StringRefESt4pairIKS1_St6vectorIPKNS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS5_11SectionNodeEEESaISB_EEESt10_Select1stISE_ESt4lessIS1_ESaISE_EE24_M_get_insert_unique_posERS3_.exit, label %19
 
@@ -134245,7 +134245,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %26 = icmp ult i64 %22, %.sroa.2.0.copyload.i.i
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.sroa.2.0.copyload.i.i)
   %.8.i.i.i = zext i1 %26 to i32
-  %27 = tail call i32 @strncmp(ptr noundef %23, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %..i.i.i) #55
+  %27 = tail call i32 @strncmp(ptr noundef %23, ptr noundef readonly %.sroa.0.0.copyload.i.i, i64 noundef %..i.i.i) #55
   %28 = icmp slt i32 %27, %.8.i.i.i
   %.in.v.i = select i1 %28, i64 16, i64 24
   %.in.i = getelementptr inbounds i8, ptr %.02529.i, i64 %.in.v.i
@@ -134285,7 +134285,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %.sroa.010.0.i = phi ptr [ %33, %32 ], [ %.02529.i, %._crit_edge.i ]
   %37 = icmp ult i64 %36, %.sroa.2.0.copyload.i7.i
   %.8.i.i9.i = zext i1 %37 to i32
-  %38 = tail call i32 @strncmp(ptr noundef %35, ptr noundef %.sroa.0.0.copyload.i5.i, i64 noundef %..i.i8.i.pre-phi) #55
+  %38 = tail call i32 @strncmp(ptr noundef %35, ptr noundef readonly %.sroa.0.0.copyload.i5.i, i64 noundef %..i.i8.i.pre-phi) #55
   %39 = icmp slt i32 %38, %.8.i.i9.i
   %spec.select.i = select i1 %39, ptr null, ptr %.sroa.010.0.i
   %spec.select26.i = select i1 %39, ptr %.024.lcssa34.i, ptr null
@@ -134302,7 +134302,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %45 = load ptr, ptr %2, align 8
   %..i.i13 = tail call i64 @llvm.umin.i64(i64 %43, i64 %.sroa.2.0.copyload.i12)
   %.8.i.i14 = zext i1 %44 to i32
-  %46 = tail call i32 @strncmp(ptr noundef %45, ptr noundef %.sroa.0.0.copyload.i10, i64 noundef %..i.i13) #55
+  %46 = tail call i32 @strncmp(ptr noundef %45, ptr noundef readonly %.sroa.0.0.copyload.i10, i64 noundef %..i.i13) #55
   %47 = icmp slt i32 %46, %.8.i.i14
   br i1 %47, label %48, label %80
 
@@ -134321,7 +134321,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %58 = load ptr, ptr %54, align 8
   %..i.i18 = tail call i64 @llvm.umin.i64(i64 %56, i64 %43)
   %.8.i.i19 = zext i1 %57 to i32
-  %59 = tail call i32 @strncmp(ptr noundef %58, ptr noundef %45, i64 noundef %..i.i18) #55
+  %59 = tail call i32 @strncmp(ptr noundef %58, ptr noundef readonly %45, i64 noundef %..i.i18) #55
   %60 = icmp slt i32 %59, %.8.i.i19
   br i1 %60, label %61, label %65
 
@@ -134348,7 +134348,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %68 = icmp ult i64 %43, %.sroa.2.0.copyload.i.i26
   %..i.i.i27 = tail call i64 @llvm.umin.i64(i64 %43, i64 %.sroa.2.0.copyload.i.i26)
   %.8.i.i.i28 = zext i1 %68 to i32
-  %69 = tail call i32 @strncmp(ptr noundef %45, ptr noundef %.sroa.0.0.copyload.i.i24, i64 noundef %..i.i.i27) #55
+  %69 = tail call i32 @strncmp(ptr noundef %45, ptr noundef readonly %.sroa.0.0.copyload.i.i24, i64 noundef %..i.i.i27) #55
   %70 = icmp slt i32 %69, %.8.i.i.i28
   %.in.v.i29 = select i1 %70, i64 16, i64 24
   %.in.i30 = getelementptr inbounds i8, ptr %.02529.i23, i64 %.in.v.i29
@@ -134381,7 +134381,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %.sroa.010.0.i35 = phi ptr [ %73, %72 ], [ %.02529.i23, %._crit_edge.i33 ]
   %77 = icmp ult i64 %76, %43
   %.8.i.i9.i40 = zext i1 %77 to i32
-  %78 = tail call i32 @strncmp(ptr noundef %75, ptr noundef %45, i64 noundef %..i.i8.i39.pre-phi) #55
+  %78 = tail call i32 @strncmp(ptr noundef %75, ptr noundef readonly %45, i64 noundef %..i.i8.i39.pre-phi) #55
   %79 = icmp slt i32 %78, %.8.i.i9.i40
   %spec.select.i41 = select i1 %79, ptr null, ptr %.sroa.010.0.i35
   %spec.select26.i42 = select i1 %79, ptr %.024.lcssa34.i34, ptr null
@@ -134390,7 +134390,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
 80:                                               ; preds = %40
   %81 = icmp ult i64 %.sroa.2.0.copyload.i12, %43
   %.8.i.i54 = zext i1 %81 to i32
-  %82 = tail call i32 @strncmp(ptr noundef %.sroa.0.0.copyload.i10, ptr noundef %45, i64 noundef %..i.i13) #55
+  %82 = tail call i32 @strncmp(ptr noundef %.sroa.0.0.copyload.i10, ptr noundef readonly %45, i64 noundef %..i.i13) #55
   %83 = icmp slt i32 %82, %.8.i.i54
   br i1 %83, label %84, label %_ZNSt8_Rb_treeIN5Catch9StringRefESt4pairIKS1_St6vectorIPKNS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS5_11SectionNodeEEESaISB_EEESt10_Select1stISE_ESt4lessIS1_ESaISE_EE24_M_get_insert_unique_posERS3_.exit
 
@@ -134409,7 +134409,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %91 = icmp ult i64 %43, %.sroa.2.0.copyload.i57
   %..i.i58 = tail call i64 @llvm.umin.i64(i64 %43, i64 %.sroa.2.0.copyload.i57)
   %.8.i.i59 = zext i1 %91 to i32
-  %92 = tail call i32 @strncmp(ptr noundef %45, ptr noundef %.sroa.0.0.copyload.i55, i64 noundef %..i.i58) #55
+  %92 = tail call i32 @strncmp(ptr noundef %45, ptr noundef readonly %.sroa.0.0.copyload.i55, i64 noundef %..i.i58) #55
   %93 = icmp slt i32 %92, %.8.i.i59
   br i1 %93, label %94, label %98
 
@@ -134436,7 +134436,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %101 = icmp ult i64 %43, %.sroa.2.0.copyload.i.i66
   %..i.i.i67 = tail call i64 @llvm.umin.i64(i64 %43, i64 %.sroa.2.0.copyload.i.i66)
   %.8.i.i.i68 = zext i1 %101 to i32
-  %102 = tail call i32 @strncmp(ptr noundef %45, ptr noundef %.sroa.0.0.copyload.i.i64, i64 noundef %..i.i.i67) #55
+  %102 = tail call i32 @strncmp(ptr noundef %45, ptr noundef readonly %.sroa.0.0.copyload.i.i64, i64 noundef %..i.i.i67) #55
   %103 = icmp slt i32 %102, %.8.i.i.i68
   %.in.v.i69 = select i1 %103, i64 16, i64 24
   %.in.i70 = getelementptr inbounds i8, ptr %.02529.i63, i64 %.in.v.i69
@@ -134471,7 +134471,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN5Catch9StringRefESt4
   %.sroa.010.0.i75 = phi ptr [ %108, %107 ], [ %.02529.i63, %._crit_edge.i73 ]
   %112 = icmp ult i64 %111, %43
   %.8.i.i9.i80 = zext i1 %112 to i32
-  %113 = tail call i32 @strncmp(ptr noundef %110, ptr noundef %45, i64 noundef %..i.i8.i79.pre-phi) #55
+  %113 = tail call i32 @strncmp(ptr noundef %110, ptr noundef readonly %45, i64 noundef %..i.i8.i79.pre-phi) #55
   %114 = icmp slt i32 %113, %.8.i.i9.i80
   %spec.select.i81 = select i1 %114, ptr null, ptr %.sroa.010.0.i75
   %spec.select26.i82 = select i1 %114, ptr %.024.lcssa34.i74, ptr null

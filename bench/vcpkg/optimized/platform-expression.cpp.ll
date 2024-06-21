@@ -3644,7 +3644,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5vcpkg18PlatformExpression7com
   br i1 %.not.i.i, label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %7 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit
 
 _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit: ; preds = %2, %6
@@ -3654,7 +3654,7 @@ _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit: ; preds = %2, %6
   br i1 %.not.i.i18, label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20, label %9
 
 9:                                                ; preds = %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit
-  %10 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %10 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
   br label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20
 
 _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20: ; preds = %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit, %9

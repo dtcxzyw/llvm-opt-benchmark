@@ -86109,7 +86109,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmSt10multip
 
 25:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmSt10multipliesImEET0_T_SA_S9_T1_.exit.i.i.i
   %26 = load ptr, ptr %7, align 8, !noalias !2403
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %26, i64 32, i1 false), !noalias !2403
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull readonly align 16 dereferenceable(32) %26, i64 32, i1 false), !noalias !2403
   %27 = invoke ptr @_ZN8pybind116detail16type_caster_baseI12SimpleStructE4castEOS2_NS_19return_value_policyENS_6handleE(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 noundef zeroext 4, ptr null)
           to label %_ZN8pybind114castI12SimpleStructTnNSt9enable_ifIXntsr11is_pyobjectIT_EE5valueEiE4typeELi0EEENS_6objectEOS3_NS_19return_value_policyENS_6handleE.exit.i.i.i unwind label %28, !noalias !2403
 
@@ -86385,7 +86385,7 @@ _ZN8pybind116detail13any_containerIlED2Ev.exit.sink.split.i.i.i.i: ; preds = %81
 _ZN8pybind116detail20multi_array_iteratorILm1EEppEv.exit.us.i.i.i.i: ; preds = %_ZN8pybind116detail20multi_array_iteratorILm1EEppEv.exit.us.i.i.i.i, %.lr.ph.split.us.i.i.i.i
   %.02.us.i.i.i.i = phi i64 [ 0, %.lr.ph.split.us.i.i.i.i ], [ %114, %_ZN8pybind116detail20multi_array_iteratorILm1EEppEv.exit.us.i.i.i.i ]
   %113 = getelementptr inbounds %struct.SimpleStruct, ptr %102, i64 %.02.us.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %113, ptr noundef nonnull align 16 dereferenceable(32) %112, i64 32, i1 false), !noalias !2403
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %113, ptr noundef nonnull readonly align 16 dereferenceable(32) %112, i64 32, i1 false), !noalias !2403
   %114 = add nuw i64 %.02.us.i.i.i.i, 1
   %exitcond5.not.i.i.i.i = icmp eq i64 %114, %.0.lcssa.i.i.i.i
   br i1 %exitcond5.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %_ZN8pybind116detail20multi_array_iteratorILm1EEppEv.exit.us.i.i.i.i
@@ -86394,7 +86394,7 @@ _ZN8pybind116detail20multi_array_iteratorILm1EEppEv.exit.us.i.i.i.i: ; preds = %
   %.02.i.i.i.i = phi i64 [ %117, %_ZN8pybind116detail20multi_array_iteratorILm1EEppEv.exit.i.i.i.i ], [ 0, %.lr.ph.i31.i.i.i ]
   %115 = load ptr, ptr %105, align 8, !noalias !2403
   %116 = getelementptr inbounds %struct.SimpleStruct, ptr %102, i64 %.02.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, ptr noundef nonnull align 16 dereferenceable(32) %115, i64 32, i1 false), !noalias !2403
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, ptr noundef nonnull readonly align 16 dereferenceable(32) %115, i64 32, i1 false), !noalias !2403
   %117 = add nuw i64 %.02.i.i.i.i, 1
   %118 = load ptr, ptr %107, align 8, !noalias !2403
   %119 = load ptr, ptr %106, align 8, !noalias !2403
@@ -86496,7 +86496,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i:          ; preds = %144, %_ZNSt5arrayIN
   %.sroa.01.0.i.i.i = phi ptr [ %150, %149 ], [ %156, %.lr.ph.i36.i.i.i ]
   %.02.i37.i.i.i = phi i64 [ 0, %149 ], [ %157, %.lr.ph.i36.i.i.i ]
   %155 = getelementptr inbounds %struct.SimpleStruct, ptr %102, i64 %.02.i37.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %155, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.01.0.i.i.i, i64 32, i1 false), !noalias !2403
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %155, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sroa.01.0.i.i.i, i64 32, i1 false), !noalias !2403
   %156 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i.i, i64 %154
   %157 = add nuw i64 %.02.i37.i.i.i, 1
   %exitcond.not.i38.i.i.i = icmp eq i64 %157, %.0.lcssa.i.i.i.i

@@ -778,7 +778,7 @@ define internal fastcc noundef i64 @intern_str(i64 noundef %0, i32 noundef %1) u
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %sym_check_asciionly.exit.thread
 
 rb_enc_asciicompat.exit.i:                        ; preds = %2
-  %17 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %15) #20
+  %17 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %15) #20
   %.not3.i.i = icmp eq i32 %17, 0
   br i1 %.not3.i.i, label %18, label %sym_check_asciionly.exit.thread
 
@@ -908,7 +908,7 @@ define dso_local range(i32 -1, 16) i32 @rb_enc_symname_type(ptr noundef %0, i64 
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %enc_synmane_type_leading_chars.exit
 
 rb_enc_asciicompat.exit.i:                        ; preds = %4
-  %9 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %2) #20
+  %9 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %2) #20
   %.not3.i.i = icmp ne i32 %9, 0
   %.not.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %.not.i, %.not3.i.i
@@ -1664,7 +1664,7 @@ lookup_str_sym_with_lock.exit:                    ; preds = %10, %20
   br i1 %.not.i.i27, label %rb_enc_asciicompat.exit.i, label %sym_check_asciionly.exit.thread
 
 rb_enc_asciicompat.exit.i:                        ; preds = %25
-  %28 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %26) #20
+  %28 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %26) #20
   %.not3.i.i = icmp eq i32 %28, 0
   br i1 %.not3.i.i, label %29, label %sym_check_asciionly.exit.thread
 
@@ -1745,7 +1745,7 @@ define internal fastcc void @sym_check_asciionly(i64 noundef %0, i1 noundef zero
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %2
-  %5 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %3) #20
+  %5 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %3) #20
   %.not3.i = icmp eq i32 %5, 0
   br i1 %.not3.i, label %6, label %rb_enc_asciicompat.exit.thread
 
@@ -2358,7 +2358,7 @@ RB_DYNAMIC_SYM_P.exit:                            ; preds = %7
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %sym_check_asciionly.exit
 
 rb_enc_asciicompat.exit.i:                        ; preds = %27
-  %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %28) #20
+  %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %28) #20
   %.not3.i.i = icmp eq i32 %30, 0
   br i1 %.not3.i.i, label %31, label %sym_check_asciionly.exit
 
@@ -2579,7 +2579,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.ex
   br i1 %.not.i.i44, label %rb_enc_asciicompat.exit.i, label %sym_check_asciionly.exit
 
 rb_enc_asciicompat.exit.i:                        ; preds = %31
-  %34 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %32) #20
+  %34 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %32) #20
   %.not3.i.i = icmp eq i32 %34, 0
   br i1 %.not3.i.i, label %35, label %sym_check_asciionly.exit
 

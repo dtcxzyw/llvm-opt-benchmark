@@ -1119,7 +1119,7 @@ qemu_spin_lock.exit.i.i:                          ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %for.body.i.i, label %qht_map_lock_buckets.exit.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit.i.i, %entry
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull %iter, ptr noundef %userp)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull readonly %iter, ptr noundef %userp)
   %9 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i4.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
@@ -1192,7 +1192,7 @@ qemu_spin_lock.exit.i.i:                          ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %for.body.i.i, label %qht_map_lock_buckets.exit.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit.i.i, %entry
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull %iter, ptr noundef %userp)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull readonly %iter, ptr noundef %userp)
   %9 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i4.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i

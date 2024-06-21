@@ -3639,7 +3639,7 @@ pmix20_bfrop_copy_info.exit:                      ; preds = %.lr.ph.i.i, %22
   %30 = load ptr, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 520
   %32 = getelementptr inbounds i8, ptr %15, i64 520
-  %33 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %31, ptr noundef nonnull %32)
+  %33 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %31, ptr noundef nonnull readonly %32)
   %.not15 = icmp eq i32 %33, 0
   br i1 %.not15, label %36, label %34
 

@@ -1001,7 +1001,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h23707c8efcd312f4E.llvm.109208003105
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7bdd9871424e3c3cE.exit"
 
 92:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !alias.scope !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !alias.scope !163
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7bdd9871424e3c3cE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h7bdd9871424e3c3cE.exit": ; preds = %87, %92

@@ -224,7 +224,7 @@ if.then25:                                        ; preds = %if.then22
   br label %return
 
 if.end26:                                         ; preds = %if.then22
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i2.i.i39, i32 noundef 0, i64 noundef %or.i.i.i34) #11
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %add.ptr.i2.i.i39, i32 noundef 0, i64 noundef %or.i.i.i34) #11
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.end30, label %if.then29
 
@@ -386,7 +386,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   %add.ptr.i.i5.i = getelementptr i8, ptr %tmp.sroa.0.0.copyload.i, i64 %tmp.sroa.7.0.copyload.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 0, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef 0, i64 noundef %sub.i.i.i) #11
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %add.ptr.i.i.i, i32 noundef 0, i64 noundef %sub.i.i.i) #11
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -4411,7 +4411,7 @@ for.body.i:                                       ; preds = %if.end18, %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.06.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv.i16 = zext i8 %4 to i32
-  %call.i = tail call ptr @memchr(ptr noundef %2, i32 noundef %conv.i16, i64 noundef %3) #11
+  %call.i = tail call ptr @memchr(ptr noundef readonly %2, i32 noundef %conv.i16, i64 noundef %3) #11
   %cmp1.not.i = icmp eq ptr %call.i, null
   br i1 %cmp1.not.i, label %for.cond.i, label %if.then.i
 
@@ -4559,7 +4559,7 @@ for.body.i:                                       ; preds = %if.end12, %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %i.06.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv.i15 = zext i8 %4 to i32
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i15, i64 noundef %sub.i.i.i) #11
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %add.ptr.i.i.i, i32 noundef %conv.i15, i64 noundef %sub.i.i.i) #11
   %cmp1.not.i = icmp eq ptr %call.i, null
   br i1 %cmp1.not.i, label %for.cond.i, label %reconcile_cert_type.exit
 

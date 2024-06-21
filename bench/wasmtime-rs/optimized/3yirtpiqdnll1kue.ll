@@ -2029,7 +2029,7 @@ define hidden noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$6fini
   %26 = phi i64 [ %18, %.lr.ph.split.i ], [ %.pre.i.i.i.i.i, %22 ]
   %27 = load ptr, ptr %14, align 8, !alias.scope !259, !noalias !266, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds i8, ptr %27, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %17, i64 %16, i1 false), !noalias !276
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %17, i64 %16, i1 false), !noalias !276
   %29 = load i64, ptr %13, align 8, !alias.scope !259, !noalias !266, !noundef !4
   %30 = add i64 %29, %16
   store i64 %30, ptr %13, align 8, !alias.scope !259, !noalias !266
@@ -2229,7 +2229,7 @@ define hidden void @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$D$GT$$u2
   %33 = phi i64 [ %25, %.lr.ph.split.i ], [ %.pre.i.i.i.i.i, %29 ]
   %34 = load ptr, ptr %21, align 8, !alias.scope !304, !noalias !311, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %24, i64 %23, i1 false), !noalias !321
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %24, i64 %23, i1 false), !noalias !321
   %36 = load i64, ptr %20, align 8, !alias.scope !304, !noalias !311, !noundef !4
   %37 = add i64 %36, %23
   store i64 %37, ptr %20, align 8, !alias.scope !304, !noalias !311

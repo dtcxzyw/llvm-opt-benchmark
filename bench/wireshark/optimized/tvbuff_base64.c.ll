@@ -56,7 +56,7 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br label %g_base64uri_decode.exit
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #5
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #5
   %8 = lshr i64 %7, 2
   %9 = mul nuw i64 %8, 3
   %10 = add nuw i64 %9, 1

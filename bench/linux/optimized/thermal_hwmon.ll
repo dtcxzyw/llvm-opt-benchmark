@@ -54,7 +54,7 @@ thermal_hwmon_lookup_by_type.exit.thread:         ; preds = %5
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -56
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef %4) #9
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef readonly %4) #9
   %12 = call ptr @strreplace(ptr noundef nonnull %2, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
   %13 = call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = icmp eq i32 %13, 0
@@ -329,7 +329,7 @@ thermal_hwmon_lookup_by_type.exit.thread:         ; preds = %5
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -56
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef %4) #9
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef readonly %4) #9
   %12 = call ptr @strreplace(ptr noundef nonnull %2, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
   %13 = call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = icmp eq i32 %13, 0

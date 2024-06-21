@@ -1820,7 +1820,7 @@ lor.lhs.false.tail.i:                             ; preds = %sub_1.i, %sub_0.i
   br i1 %cmp23.not.i, label %lor.lhs.false24.i, label %if.then27.i.invoke
 
 lor.lhs.false24.i:                                ; preds = %lor.lhs.false.tail.i
-  %call.i49.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call17.i, ptr noundef nonnull dereferenceable(6) @.str.41) #26
+  %call.i49.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call17.i, ptr noundef nonnull dereferenceable(6) @.str.41) #26
   %cmp.i50.i = icmp eq i32 %call.i49.i, 0
   br i1 %cmp.i50.i, label %if.then.i.i42, label %if.else.i.i41
 
@@ -1829,7 +1829,7 @@ if.then.i.i42:                                    ; preds = %lor.lhs.false24.i
           to label %_ZL15evp_md_from_algPKc.exit.i unwind label %lpad15
 
 if.else.i.i41:                                    ; preds = %lor.lhs.false24.i
-  %call2.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call17.i, ptr noundef nonnull dereferenceable(6) @.str.42) #26
+  %call2.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call17.i, ptr noundef nonnull dereferenceable(6) @.str.42) #26
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else6.i.i
 
@@ -1838,7 +1838,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i41
           to label %_ZL15evp_md_from_algPKc.exit.i unwind label %lpad15
 
 if.else6.i.i:                                     ; preds = %if.else.i.i41
-  %call7.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call17.i, ptr noundef nonnull dereferenceable(6) @.str.43) #26
+  %call7.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call17.i, ptr noundef nonnull dereferenceable(6) @.str.43) #26
   %cmp8.i.i = icmp eq i32 %call7.i.i, 0
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.then27.i.invoke
 
@@ -2845,7 +2845,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %for.cond.preheader.i.i ]
   %arrayidx.i.i = getelementptr inbounds %struct.email_key_mapping, ptr %139, i64 %i.08.i.i
   %141 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i44.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i149, ptr noundef nonnull dereferenceable(1) %141) #26
+  %call.i44.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %retval.0.i.i149, ptr noundef nonnull dereferenceable(1) %141) #26
   %cmp4.i.i = icmp eq i32 %call.i44.i, 0
   br i1 %cmp4.i.i, label %if.end31.i, label %for.cond.i.i
 
@@ -3796,7 +3796,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %i.08.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr inbounds %struct.email_key_mapping, ptr %0, i64 %i.08.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %email_domain, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %email_domain, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp4.i = icmp eq i32 %call.i, 0
   br i1 %cmp4.i, label %_ZL20verifier_get_mappingP17grpc_jwt_verifierPKc.exit, label %for.cond.i
 
@@ -6232,7 +6232,7 @@ if.end9:                                          ; preds = %invoke.cont2
           to label %call.i.noexc94 unwind label %lpad.loopexit.split-lp
 
 call.i.noexc94:                                   ; preds = %if.end9
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.41) #26
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.41) #26
   %cmp.i.i86 = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i86, label %if.then.i.i93, label %if.else.i.i
 
@@ -6241,7 +6241,7 @@ if.then.i.i93:                                    ; preds = %call.i.noexc94
           to label %_ZL15evp_md_from_algPKc.exit.i unwind label %lpad.loopexit.split-lp
 
 if.else.i.i:                                      ; preds = %call.i.noexc94
-  %call2.i.i87 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.42) #26
+  %call2.i.i87 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.42) #26
   %cmp3.i.i = icmp eq i32 %call2.i.i87, 0
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else6.i.i
 
@@ -6250,7 +6250,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
           to label %_ZL15evp_md_from_algPKc.exit.i unwind label %lpad.loopexit.split-lp
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
-  %call7.i.i88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.43) #26
+  %call7.i.i88 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.43) #26
   %cmp8.i.i = icmp eq i32 %call7.i.i88, 0
   br i1 %cmp8.i.i, label %if.then9.i.i90, label %if.then.i.i17.invoke
 

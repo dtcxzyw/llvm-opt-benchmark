@@ -18776,7 +18776,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 32:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i18, %.lr.ph.i
   %33 = phi ptr [ %29, %.lr.ph.i ], [ %.pre.i.i.i19, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i18 ]
   store ptr %33, ptr %21, align 8
-  %34 = invoke fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_31cmProjectDirectoryListGeneratorEJEEEbOT_S9_OT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  %34 = invoke fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_31cmProjectDirectoryListGeneratorEJEEEbOT_S9_OT0_DpOT1_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %35 unwind label %36
 
 35:                                               ; preds = %32
@@ -19133,7 +19133,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 79:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i19, %.lr.ph.i
   %80 = phi ptr [ %76, %.lr.ph.i ], [ %.pre.i.i.i20, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i19 ]
   store ptr %80, ptr %41, align 8
-  %81 = invoke fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_31cmProjectDirectoryListGeneratorEJEEEbOT_S9_OT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  %81 = invoke fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_31cmProjectDirectoryListGeneratorEJEEEbOT_S9_OT0_DpOT1_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %82 unwind label %83
 
 82:                                               ; preds = %79

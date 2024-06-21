@@ -701,7 +701,7 @@ dissect_lorawan_beacon.exit:                      ; preds = %30, %58
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %111, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %113, ptr noundef nonnull dereferenceable(8) %105, i64 8)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %113, ptr noundef nonnull readonly dereferenceable(8) %105, i64 8)
   %114 = icmp eq i32 %bcmp.i.i, 0
   br i1 %114, label %get_root_key.exit.i, label %115
 

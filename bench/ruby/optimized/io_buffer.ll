@@ -1705,7 +1705,7 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
   br i1 %.not.i15.i, label %ruby_nonempty_memcpy.exit.i, label %72
 
 72:                                               ; preds = %io_buffer_initialize.exit.i.thread
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i50, ptr nonnull align 1 %69, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i50, ptr nonnull readonly align 1 %69, i64 %spec.select.i, i1 false)
   %.val.pre.i = load i64, ptr %70, align 8
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -5589,7 +5589,7 @@ io_buffer_validate_range.exit.i:                  ; preds = %io_buffer_validate.
 io_buffer_memcpy.exit:                            ; preds = %73
   %74 = getelementptr i8, ptr %1, i64 %.037
   %75 = getelementptr i8, ptr %63, i64 %.0182932
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %74, i64 %.017, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr readonly align 1 %74, i64 %.017, i1 false)
   %76 = icmp ult i64 %.017, 4611686018427387904
   br i1 %76, label %io_buffer_memcpy.exit.thread, label %79
 

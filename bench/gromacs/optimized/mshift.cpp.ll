@@ -2327,7 +2327,7 @@ _ZN14EdgesGeneratorC2Ei.exit.i:                   ; preds = %_ZNSt6vectorIS_IiSa
 31:                                               ; preds = %.preheader68.i
   %32 = getelementptr inbounds %struct.t_ilist, ptr %18, i64 %indvars.iv.i
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %34 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(24) %32, i32 noundef %2, ptr null, ptr null)
+  %34 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %32, i32 noundef %2, ptr null, ptr null)
           to label %35 unwind label %.loopexit.i, !noalias !24
 
 .loopexit.i:                                      ; preds = %31
@@ -2481,7 +2481,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc.i
 86:                                               ; preds = %82
   %87 = getelementptr inbounds %struct.t_ilist, ptr %18, i64 %indvars.iv79.i
   %88 = trunc nuw nsw i64 %indvars.iv79.i to i32
-  %89 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef %88, ptr noundef nonnull align 8 dereferenceable(24) %87, i32 noundef %2, ptr nonnull %39, ptr nonnull %81)
+  %89 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef %88, ptr noundef nonnull readonly align 8 dereferenceable(24) %87, i32 noundef %2, ptr nonnull %39, ptr nonnull %81)
           to label %90 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, !noalias !24
 
 90:                                               ; preds = %86
@@ -2519,7 +2519,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %98, %.split.us.i
 
 100:                                              ; preds = %22
   %101 = getelementptr inbounds i8, ptr %1, i64 1536
-  %102 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef 62, ptr noundef nonnull align 8 dereferenceable(24) %101, i32 noundef %2, ptr null, ptr null)
+  %102 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef 62, ptr noundef nonnull readonly align 8 dereferenceable(24) %101, i32 noundef %2, ptr null, ptr null)
           to label %103 unwind label %.loopexit.split-lp.i, !noalias !24
 
 103:                                              ; preds = %100
@@ -2527,7 +2527,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %98, %.split.us.i
 
 104:                                              ; preds = %103
   %105 = getelementptr inbounds i8, ptr %1, i64 1584
-  %106 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(24) %105, i32 noundef %2, ptr null, ptr null)
+  %106 = invoke fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGeneratoriRKT_iN3gmx8ArrayRefIKiEE(ptr noundef nonnull %6, i32 noundef 64, ptr noundef nonnull readonly align 8 dereferenceable(24) %105, i32 noundef %2, ptr null, ptr null)
           to label %107 unwind label %.loopexit.split-lp.i, !noalias !24
 
 107:                                              ; preds = %104, %103, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i, %_ZN14EdgesGeneratorC2Ei.exit.i

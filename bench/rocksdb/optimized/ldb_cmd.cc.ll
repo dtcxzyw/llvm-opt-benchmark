@@ -6743,14 +6743,14 @@ call.i.i.i4.i.noexc:                              ; preds = %lor.lhs.false.i
   br i1 %cmp.i.i5.not.i, label %lor.lhs.false3.i, label %invoke.cont88
 
 lor.lhs.false3.i:                                 ; preds = %call.i.i.i4.i.noexc
-  %call4.i158 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand7ARG_HEXB5cxx11E, i1 noundef zeroext false)
+  %call4.i158 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand7ARG_HEXB5cxx11E, i1 noundef zeroext false)
           to label %call4.i.noexc unwind label %lpad13
 
 call4.i.noexc:                                    ; preds = %lor.lhs.false3.i
   br i1 %call4.i158, label %invoke.cont88, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %call4.i.noexc
-  %call5.i159 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand11ARG_KEY_HEXB5cxx11E, i1 noundef zeroext false)
+  %call5.i159 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand11ARG_KEY_HEXB5cxx11E, i1 noundef zeroext false)
           to label %invoke.cont88 unwind label %lpad13
 
 invoke.cont88:                                    ; preds = %call4.i.noexc, %call.i.i.i4.i.noexc, %call.i.i.i.i155.noexc, %lor.rhs.i
@@ -6778,14 +6778,14 @@ call.i.i.i4.i.noexc168:                           ; preds = %lor.lhs.false.i163
   br i1 %cmp.i.i5.not.i164, label %lor.lhs.false3.i165, label %invoke.cont92
 
 lor.lhs.false3.i165:                              ; preds = %call.i.i.i4.i.noexc168
-  %call4.i171 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand7ARG_HEXB5cxx11E, i1 noundef zeroext false)
+  %call4.i171 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand7ARG_HEXB5cxx11E, i1 noundef zeroext false)
           to label %call4.i.noexc170 unwind label %lpad13
 
 call4.i.noexc170:                                 ; preds = %lor.lhs.false3.i165
   br i1 %call4.i171, label %invoke.cont92, label %lor.rhs.i166
 
 lor.rhs.i166:                                     ; preds = %call4.i.noexc170
-  %call5.i173 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand13ARG_VALUE_HEXB5cxx11E, i1 noundef zeroext false)
+  %call5.i173 = invoke noundef zeroext i1 @_ZN7rocksdb10LDBCommand18ParseBooleanOptionERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_b(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb10LDBCommand13ARG_VALUE_HEXB5cxx11E, i1 noundef zeroext false)
           to label %invoke.cont92 unwind label %lpad13
 
 invoke.cont92:                                    ; preds = %call4.i.noexc170, %call.i.i.i4.i.noexc168, %call.i.i.i.i161.noexc, %lor.rhs.i166

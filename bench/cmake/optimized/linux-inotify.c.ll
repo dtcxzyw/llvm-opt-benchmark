@@ -413,7 +413,7 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
   %36 = load ptr, ptr %25, align 8
   %37 = icmp eq ptr %36, %0
   %spec.select.i = select i1 %37, ptr %.064.i, ptr %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.064.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.064.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not79.i = icmp eq ptr %39, null
@@ -1514,7 +1514,7 @@ find_watcher.exit:                                ; preds = %28
 36:                                               ; preds = %find_watcher.exit
   %37 = getelementptr inbounds i8, ptr %.094.i.i, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 47) #11
+  %39 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %38, i32 noundef 47) #11
   %40 = icmp eq ptr %39, null
   %41 = getelementptr inbounds i8, ptr %39, i64 1
   %.0.i = select i1 %40, ptr %38, ptr %41

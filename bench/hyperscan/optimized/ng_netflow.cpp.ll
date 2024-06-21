@@ -1017,7 +1017,7 @@ invoke.cont59.i:                                  ; preds = %if.end.i.i.i.i.i.i.
   store ptr %predecessors.sroa.0.042.i, ptr %agg.tmp52.i, align 8
   %61 = getelementptr inbounds i8, ptr %agg.tmp52.i, i64 8
   store i64 64, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61.i, ptr noundef nonnull align 8 dereferenceable(16) %colors, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
   %data.i.i20 = getelementptr inbounds i8, ptr %agg.tmp61.i, i64 16
   %62 = load ptr, ptr %data.i.i, align 8
   store ptr %62, ptr %data.i.i20, align 8

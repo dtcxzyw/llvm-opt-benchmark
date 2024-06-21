@@ -540,7 +540,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   br label %113
 
 91:                                               ; preds = %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %85, ptr noundef nonnull align 8 dereferenceable(296) %.pre81, i64 296, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %85, ptr noundef nonnull readonly align 8 dereferenceable(296) %.pre81, i64 296, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %85, i8 0, i64 248, i1 false)
   %92 = getelementptr inbounds i8, ptr %84, i64 32
   %93 = load i64, ptr %92, align 8
@@ -1579,7 +1579,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %584 = load ptr, ptr %567, align 8
   %585 = getelementptr inbounds i8, ptr %584, i64 8
   %586 = load i64, ptr %585, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr align 1 %5, i64 %586, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr readonly align 1 %5, i64 %586, i1 false)
   %587 = icmp eq i32 %.0257, 2
   br i1 %587, label %H5B__insert_child.exit, label %588
 
@@ -1601,7 +1601,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %599 = load ptr, ptr %567, align 8
   %600 = getelementptr inbounds i8, ptr %599, i64 8
   %601 = load i64, ptr %600, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr align 1 %5, i64 %601, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr readonly align 1 %5, i64 %601, i1 false)
   %602 = icmp eq i32 %.0257, 2
   %spec.select.i288 = select i1 %602, i32 %572, i32 %.2263
   %603 = getelementptr inbounds i8, ptr %.0, i64 288

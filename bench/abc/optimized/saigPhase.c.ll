@@ -1248,7 +1248,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %.crite
 
 .lr.ph.i:                                         ; preds = %Saig_TsiStateHash.exit.i, %123
   %.01115.i = phi ptr [ %.011.i, %123 ], [ %.01113.i, %Saig_TsiStateHash.exit.i ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr %73, i64 %122)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr readonly %73, i64 %122)
   %.not12.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not12.i, label %Saig_TsiStateLookup.exit, label %123
 
@@ -1847,10 +1847,10 @@ define ptr @Saig_ManPerformAbstraction(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %17
 
 17:                                               ; preds = %3
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #22
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #22
   %19 = add i64 %18, 1
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #19
-  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %16) #20
+  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %16) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %17
@@ -1862,10 +1862,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %17
   br i1 %.not.i222, label %Abc_UtilStrsav.exit223, label %25
 
 25:                                               ; preds = %Abc_UtilStrsav.exit
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #22
+  %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #22
   %27 = add i64 %26, 1
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #19
-  %29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %24) #20
+  %29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %24) #20
   br label %Abc_UtilStrsav.exit223
 
 Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit, %25
@@ -2487,7 +2487,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
 
 33:                                               ; preds = %40, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %40 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %13, i64 %32)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %13, i64 %32)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %40
 
@@ -2593,7 +2593,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
 
 35:                                               ; preds = %42, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %42 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %15, i64 %34)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %15, i64 %34)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %42
 
@@ -2727,7 +2727,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
 
 38:                                               ; preds = %45, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %45 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %18, i64 %37)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %18, i64 %37)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %45
 
@@ -2929,7 +2929,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
 
 33:                                               ; preds = %40, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %40 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %13, i64 %32)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %13, i64 %32)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %40
 

@@ -187,7 +187,7 @@ define hidden void @knxip_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr n
 
 13:                                               ; preds = %12
   %14 = zext nneg i8 %7 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %6, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr readonly align 1 %6, i64 %14, i1 false)
   br label %build_b0.exit
 
 build_b0.exit:                                    ; preds = %12, %13
@@ -383,7 +383,7 @@ define hidden ptr @knxip_ccm_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef
 
 12:                                               ; preds = %11
   %13 = zext nneg i8 %6 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %5, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %5, i64 %13, i1 false)
   br label %build_ctr0.exit
 
 build_ctr0.exit:                                  ; preds = %11, %12
@@ -413,7 +413,7 @@ define hidden ptr @knxip_ccm_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef
 
 11:                                               ; preds = %10
   %12 = zext nneg i8 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %4, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr readonly align 1 %4, i64 %12, i1 false)
   br label %build_ctr0.exit
 
 build_ctr0.exit:                                  ; preds = %10, %11
@@ -820,7 +820,7 @@ sub_1:                                            ; preds = %40
 .lr.ph.i159:                                      ; preds = %159, %169
   %163 = phi ptr [ %170, %169 ], [ %162, %159 ]
   %164 = getelementptr inbounds i8, ptr %163, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %164, ptr noundef nonnull dereferenceable(4) %10, i64 4)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %164, ptr noundef nonnull readonly dereferenceable(4) %10, i64 4)
   %165 = icmp eq i32 %bcmp.i, 0
   br i1 %165, label %166, label %169
 
@@ -904,7 +904,7 @@ add_mca_key.exit:                                 ; preds = %166, %155, %184, %1
 
 204:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  %205 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.21, ptr noundef nonnull %6, ptr noundef nonnull %57, ptr noundef nonnull %58) #11
+  %205 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %12, ptr noundef nonnull @.str.21, ptr noundef nonnull %6, ptr noundef nonnull %57, ptr noundef nonnull %58) #11
   switch i32 %205, label %read_ga.exit [
     i32 1, label %206
     i32 2, label %208
@@ -973,7 +973,7 @@ read_ga.exit:                                     ; preds = %204, %206, %208, %2
 236:                                              ; preds = %.lr.ph251, %add_ga_sender.exit
   %.0249 = phi ptr [ %230, %.lr.ph251 ], [ %279, %add_ga_sender.exit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %237 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0249, ptr noundef nonnull @.str.24, ptr noundef nonnull %5, ptr noundef nonnull %55, ptr noundef nonnull %56) #11
+  %237 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0249, ptr noundef nonnull @.str.24, ptr noundef nonnull %5, ptr noundef nonnull %55, ptr noundef nonnull %56) #11
   switch i32 %237, label %read_ia.exit.i [
     i32 1, label %238
     i32 2, label %240
@@ -1072,7 +1072,7 @@ add_ga_sender.exit:                               ; preds = %260, %273, %276
 
 284:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %285 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.24, ptr noundef nonnull %4, ptr noundef nonnull %53, ptr noundef nonnull %54) #11
+  %285 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %12, ptr noundef nonnull @.str.24, ptr noundef nonnull %4, ptr noundef nonnull %53, ptr noundef nonnull %54) #11
   switch i32 %285, label %read_ia.exit [
     i32 1, label %286
     i32 2, label %288

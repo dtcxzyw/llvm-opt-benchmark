@@ -273,14 +273,14 @@ define range(i32 0, 7) i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #17
   %11 = icmp ugt i64 %10, 8
   br i1 %11, label %12, label %.thread.i
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 %10
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.76, ptr noundef nonnull dereferenceable(1) %14) #17
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.76, ptr noundef nonnull readonly dereferenceable(1) %14) #17
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_php_check_ignore.exit, label %17
 
@@ -290,7 +290,7 @@ define range(i32 0, 7) i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %13, i64 -18
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(19) @.str.77, ptr noundef nonnull dereferenceable(1) %20) #17
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(19) @.str.77, ptr noundef nonnull readonly dereferenceable(1) %20) #17
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_php_check_ignore.exit, label %.thread.i
 
@@ -2007,7 +2007,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1209) #17
-  %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0205) #17
+  %144 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0205) #17
   %145 = add i64 %138, 2
   %.not.i263 = icmp ult i64 %145, %.1207
   %146 = add i64 %143, 12
@@ -2121,7 +2121,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
   %.1536.i = phi i64 [ %.0535.i, %197 ], [ %195, %192 ]
   %201 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = getelementptr inbounds i8, ptr %201, i64 %199
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull align 1 %.0205, i64 %144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull readonly align 1 %.0205, i64 %144, i1 false)
   %203 = load ptr, ptr %10, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 16
   store i64 %.1536.i, ptr %204, align 8
@@ -5204,12 +5204,12 @@ define internal ptr @php_iconv_stream_filter_factory_create(ptr noundef %0, ptr 
   %31 = getelementptr inbounds i8, ptr %23, i64 40
   store i64 %17, ptr %31, align 8
   %32 = load ptr, ptr %26, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %18, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 1 %18, i64 %19, i1 false)
   %33 = load ptr, ptr %26, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %19
   store i8 0, ptr %34, align 1
   %35 = load ptr, ptr %30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %11, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull readonly align 1 %11, i64 %17, i1 false)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 %17
   store i8 0, ptr %37, align 1

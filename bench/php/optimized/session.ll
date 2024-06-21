@@ -3110,7 +3110,7 @@ define range(i32 -1, 1) i32 @php_session_start() local_unnamed_addr #0 {
 
 18:                                               ; preds = %.preheader
   %19 = load ptr, ptr %17, align 8
-  %20 = tail call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef %19) #26
+  %20 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %13, ptr noundef %19) #26
   %.not10.i = icmp eq i32 %20, 0
   br i1 %.not10.i, label %_php_find_ps_module.exit, label %21
 
@@ -3145,7 +3145,7 @@ _php_find_ps_module.exit:                         ; preds = %18
 .lr.ph.i:                                         ; preds = %30, %34
   %32 = phi ptr [ %36, %34 ], [ %31, %30 ]
   %.010.i = phi ptr [ %35, %34 ], [ @ps_serializers, %30 ]
-  %33 = tail call i32 @strcasecmp(ptr noundef nonnull %26, ptr noundef nonnull %32) #26
+  %33 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %26, ptr noundef nonnull %32) #26
   %.not8.i = icmp eq i32 %33, 0
   br i1 %.not8.i, label %_php_find_ps_serializer.exit, label %34
 
@@ -5586,7 +5586,7 @@ define hidden void @zif_session_module_name(ptr nocapture noundef readonly %0, p
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %61, align 8
-  %64 = call i32 @strcasecmp(ptr noundef nonnull %59, ptr noundef %63) #26
+  %64 = call i32 @strcasecmp(ptr noundef nonnull readonly %59, ptr noundef %63) #26
   %.not10.i = icmp eq i32 %64, 0
   br i1 %.not10.i, label %_php_find_ps_module.exit, label %65
 
@@ -8544,7 +8544,7 @@ define hidden void @zif_session_start(ptr nocapture noundef readonly %0, ptr noc
   %95 = phi ptr [ %.pre107.i, %92 ], [ %86, %84 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 24
   %97 = getelementptr inbounds i8, ptr %96, i64 %94
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull align 1 %89, i64 %90, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull readonly align 1 %89, i64 %90, i1 false)
   %98 = load ptr, ptr %3, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   store i64 %91, ptr %99, align 8
@@ -10791,7 +10791,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSaveHandler(ptr nocapture readnone
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %18, align 8
-  %21 = tail call i32 @strcasecmp(ptr noundef nonnull %16, ptr noundef %20) #26
+  %21 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef %20) #26
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %30, label %22
 
@@ -10904,7 +10904,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSerializer(ptr nocapture readnone 
 .lr.ph.i:                                         ; preds = %15, %20
   %18 = phi ptr [ %22, %20 ], [ %17, %15 ]
   %.010.i = phi ptr [ %21, %20 ], [ @ps_serializers, %15 ]
-  %19 = tail call i32 @strcasecmp(ptr noundef nonnull %16, ptr noundef nonnull %18) #26
+  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull %18) #26
   %.not8.i = icmp eq i32 %19, 0
   br i1 %.not8.i, label %_php_find_ps_serializer.exit.thread, label %20
 
@@ -11391,7 +11391,7 @@ define internal fastcc void @php_rinit_session(i1 noundef zeroext %0) unnamed_ad
 
 5:                                                ; preds = %.preheader
   %6 = load ptr, ptr %4, align 8
-  %7 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef %6) #26
+  %7 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef %6) #26
   %.not10.i = icmp eq i32 %7, 0
   br i1 %.not10.i, label %_php_find_ps_module.exit, label %8
 
@@ -11428,7 +11428,7 @@ _php_find_ps_module.exit:                         ; preds = %5, %8
 .lr.ph.i:                                         ; preds = %16, %20
   %18 = phi ptr [ %22, %20 ], [ %17, %16 ]
   %.010.i = phi ptr [ %21, %20 ], [ @ps_serializers, %16 ]
-  %19 = tail call i32 @strcasecmp(ptr noundef nonnull %15, ptr noundef nonnull %18) #26
+  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %15, ptr noundef nonnull %18) #26
   %.not8.i = icmp eq i32 %19, 0
   br i1 %.not8.i, label %_php_find_ps_serializer.exit, label %20
 

@@ -4048,10 +4048,10 @@ define dso_local void @do_text_output_multiline(ptr nocapture noundef readonly %
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %22 to i64
   %30 = shl nsw i64 %29, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %.sroa.016, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull readonly align 8 %.sroa.016, i64 %30, i1 false)
   %31 = getelementptr inbounds i8, ptr %19, i64 32
   %32 = load ptr, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %.sroa.0, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 1 %.sroa.0, i64 %29, i1 false)
   %33 = getelementptr inbounds i8, ptr %19, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = and i16 %34, -3

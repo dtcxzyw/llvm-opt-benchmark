@@ -3608,7 +3608,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull %info, i32 noundef %call, ptr noundef %vertices)
+  %call.i = tail call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull readonly %info, i32 noundef %call, ptr noundef %vertices)
   br label %stbtt_GetGlyphShape.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3617,7 +3617,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call, ptr noundef nonnull %count_ctx.i.i)
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call, ptr noundef nonnull %count_ctx.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -3630,7 +3630,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   store ptr %call1.i.i, ptr %vertices, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call, ptr noundef nonnull %output_ctx.i.i)
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call, ptr noundef nonnull %output_ctx.i.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -3674,7 +3674,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i, i8 0, i64 56, i1 false)
-  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i)
+  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end7.i, label %if.then.i
 
@@ -3687,7 +3687,7 @@ if.then.i:                                        ; preds = %if.else
   store ptr %call1.i, ptr %pvertices, align 8
   %pvertices2.i = getelementptr inbounds i8, ptr %output_ctx.i, i64 40
   store ptr %call1.i, ptr %pvertices2.i, align 8
-  %call3.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i)
+  %call3.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i
 
@@ -3846,7 +3846,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i, align 8
-  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
+  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
   %tobool.not.i = icmp eq ptr %x0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -4162,7 +4162,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i, align 8
-  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
+  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i)
   %tobool26.not.i = icmp eq i32 %call.i, 0
   %num_vertices.i = getelementptr inbounds i8, ptr %c.i, i64 48
   %1 = load i32, ptr %num_vertices.i, align 8
@@ -5208,7 +5208,7 @@ if.else.i372:                                     ; preds = %if.end371
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %add.i325, ptr noundef nonnull %count_ctx.i.i)
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %add.i325, ptr noundef nonnull %count_ctx.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -5219,7 +5219,7 @@ if.then.i.i:                                      ; preds = %if.else.i372
   %call1.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #33
   store ptr %call1.i.i, ptr %comp_verts, align 8
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %add.i325, ptr noundef nonnull %output_ctx.i.i)
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %add.i325, ptr noundef nonnull %output_ctx.i.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -6950,7 +6950,7 @@ if.end8.i:                                        ; preds = %stbtt__cff_index_co
   %idx.sroa.7.8.insert.shift.i = and i64 %agg.tmp.sroa.3.0, -4294967296
   %idx.sroa.3.8.insert.ext.i = zext i32 %idx.sroa.3.1.i to i64
   %idx.sroa.3.8.insert.insert.i = or disjoint i64 %idx.sroa.7.8.insert.shift.i, %idx.sroa.3.8.insert.ext.i
-  %call9.i = tail call { ptr, i64 } @stbtt__cff_index_get(ptr %agg.tmp.sroa.0.0, i64 %idx.sroa.3.8.insert.insert.i, i32 noundef %add.i281)
+  %call9.i = tail call { ptr, i64 } @stbtt__cff_index_get(ptr readonly %agg.tmp.sroa.0.0, i64 %idx.sroa.3.8.insert.insert.i, i32 noundef %add.i281)
   br label %stbtt__get_subr.exit
 
 stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_count.exit.i, %if.end8.i
@@ -9383,7 +9383,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %font, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %tobool1.not.i = icmp eq ptr %ix0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -9494,7 +9494,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %call, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %font, i32 noundef %call, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %tobool1.not.i = icmp eq ptr %ix0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -12866,7 +12866,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %vertices)
+  %call.i = call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %vertices)
   br label %stbtt_GetGlyphShape.exit
 
 if.else.i:                                        ; preds = %entry
@@ -12875,7 +12875,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i)
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -12888,7 +12888,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   store ptr %call1.i.i, ptr %vertices, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i)
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -12928,7 +12928,7 @@ if.end6:                                          ; preds = %stbtt_GetGlyphShape
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i18 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i18 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i19 = icmp eq i32 %call.i18, 0
   br i1 %tobool.not.i19, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %if.else.i20
 
@@ -13035,7 +13035,7 @@ if.then33:                                        ; preds = %if.then25
   store i32 0, ptr %winding_count.i, align 4
   store ptr null, ptr %winding_lengths.i, align 8
   %div.i = fdiv float 0x3FD6666660000000, %cond.i
-  %call.i22 = call ptr @stbtt_FlattenCurves(ptr noundef %.pre29, i32 noundef %retval.0.i, float noundef %div.i, ptr noundef nonnull %winding_lengths.i, ptr noundef nonnull %winding_count.i, ptr poison)
+  %call.i22 = call ptr @stbtt_FlattenCurves(ptr noundef readonly %.pre29, i32 noundef %retval.0.i, float noundef %div.i, ptr noundef nonnull %winding_lengths.i, ptr noundef nonnull %winding_count.i, ptr readnone poison)
   %tobool.not.i23 = icmp eq ptr %call.i22, null
   br i1 %tobool.not.i23, label %stbtt_Rasterize.exit, label %if.then.i24
 
@@ -13044,7 +13044,7 @@ if.then.i24:                                      ; preds = %if.then33
   %38 = load i32, ptr %winding_count.i, align 4
   %39 = extractelement <2 x i32> %25, i64 0
   %40 = extractelement <2 x i32> %25, i64 1
-  call void @stbtt__rasterize(ptr noundef nonnull %gbm, ptr noundef nonnull %call.i22, ptr noundef %37, i32 noundef %38, float noundef %scale_x.addr.0, float noundef %scale_y.mux, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr poison)
+  call void @stbtt__rasterize(ptr noundef nonnull readonly %gbm, ptr noundef nonnull %call.i22, ptr noundef %37, i32 noundef %38, float noundef %scale_x.addr.0, float noundef %scale_y.mux, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr readnone poison)
   call void @free(ptr noundef %37) #34
   call void @free(ptr noundef nonnull %call.i22) #34
   br label %stbtt_Rasterize.exit
@@ -13091,7 +13091,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %vertices)
+  %call.i = call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %vertices)
   br label %stbtt_GetGlyphShape.exit
 
 if.else.i:                                        ; preds = %entry
@@ -13100,7 +13100,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i)
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -13113,7 +13113,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   store ptr %call1.i.i, ptr %vertices, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i)
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -13139,7 +13139,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %if.then.i, %stbtt__
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
-  %call.i8 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i8 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i9 = icmp eq i32 %call.i8, 0
   br i1 %tobool.not.i9, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %if.else.i10
 
@@ -13186,7 +13186,7 @@ if.then:                                          ; preds = %stbtt_GetGlyphBitma
   store i32 0, ptr %winding_count.i, align 4
   store ptr null, ptr %winding_lengths.i, align 8
   %div.i = fdiv float 0x3FD6666660000000, %cond.i
-  %call.i12 = call ptr @stbtt_FlattenCurves(ptr noundef %.pre, i32 noundef %retval.0.i, float noundef %div.i, ptr noundef nonnull %winding_lengths.i, ptr noundef nonnull %winding_count.i, ptr poison)
+  %call.i12 = call ptr @stbtt_FlattenCurves(ptr noundef readonly %.pre, i32 noundef %retval.0.i, float noundef %div.i, ptr noundef nonnull %winding_lengths.i, ptr noundef nonnull %winding_count.i, ptr readnone poison)
   %tobool.not.i13 = icmp eq ptr %call.i12, null
   br i1 %tobool.not.i13, label %stbtt_Rasterize.exit, label %if.then.i14
 
@@ -13195,7 +13195,7 @@ if.then.i14:                                      ; preds = %if.then
   %17 = load i32, ptr %winding_count.i, align 4
   %18 = extractelement <2 x i32> %15, i64 0
   %19 = extractelement <2 x i32> %15, i64 1
-  call void @stbtt__rasterize(ptr noundef nonnull %gbm, ptr noundef nonnull %call.i12, ptr noundef %16, i32 noundef %17, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %18, i32 noundef %19, i32 noundef 1, ptr poison)
+  call void @stbtt__rasterize(ptr noundef nonnull readonly %gbm, ptr noundef nonnull %call.i12, ptr noundef %16, i32 noundef %17, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %18, i32 noundef %19, i32 noundef 1, ptr readnone poison)
   call void @free(ptr noundef %16) #34
   call void @free(ptr noundef nonnull %call.i12) #34
   br label %stbtt_Rasterize.exit
@@ -13233,7 +13233,7 @@ entry:
   %sub1.i = sub i32 %sub.neg.i, %oversample_x
   %sub2.neg.i = add i32 %out_h, 1
   %sub3.i = sub i32 %sub2.neg.i, %oversample_y
-  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %sub1.i, i32 noundef %sub3.i, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call)
+  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %info, ptr noundef %output, i32 noundef %sub1.i, i32 noundef %sub3.i, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call)
   %cmp.i = icmp sgt i32 %oversample_x, 1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -13347,16 +13347,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
 entry:
-  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
-  %call1.i = tail call noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
+  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
+  %call1.i = tail call noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
   ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind uwtable
 define void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint) local_unnamed_addr #10 {
 entry:
-  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
-  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i)
+  %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
+  tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i)
   ret void
 }
 
@@ -13457,7 +13457,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i.i)
   store i32 0, ptr %x0.i.i, align 4
   store i32 0, ptr %y0.i.i, align 4
-  %call.i.i = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %f, i32 noundef %call3, ptr noundef nonnull %x0.i.i, ptr noundef nonnull %y0.i.i, ptr noundef nonnull %x1.i.i, ptr noundef nonnull %y1.i.i)
+  %call.i.i = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %f, i32 noundef %call3, ptr noundef nonnull %x0.i.i, ptr noundef nonnull %y0.i.i, ptr noundef nonnull %x1.i.i, ptr noundef nonnull %y1.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %stbtt_GetGlyphBitmapBox.exit, label %if.else.i.i
 
@@ -13514,7 +13514,7 @@ if.end17:                                         ; preds = %stbtt_GetGlyphBitma
   %mul18 = mul nsw i32 %spec.select, %pw
   %idx.ext19 = sext i32 %mul18 to i64
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext19
-  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull %f, ptr noundef %add.ptr20, i32 noundef %sub, i32 noundef %sub4, i32 noundef %pw, float noundef %div.i, float noundef %div.i, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call3)
+  call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull readonly %f, ptr noundef %add.ptr20, i32 noundef %sub, i32 noundef %sub4, i32 noundef %pw, float noundef %div.i, float noundef %div.i, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call3)
   %conv21 = trunc i32 %spec.select46 to i16
   %arrayidx = getelementptr inbounds %struct.stbtt_bakedchar, ptr %chardata, i64 %indvars.iv
   store i16 %conv21, ptr %arrayidx, align 4
@@ -14451,7 +14451,7 @@ if.then.i56:                                      ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call31, ptr noundef nonnull %c.i.i)
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call31, ptr noundef nonnull %c.i.i)
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   %26 = load i32, ptr %min_x.i.i, align 8
   %cond.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %26
@@ -14899,7 +14899,7 @@ if.then.i193:                                     ; preds = %cond.end51
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i194 = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call53, ptr noundef nonnull %c.i.i)
+  %call.i.i194 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %call53, ptr noundef nonnull %c.i.i)
   %tobool1.not.i.i = icmp eq i32 %call.i.i194, 0
   %57 = load i32, ptr %min_x.i.i, align 8
   %cond.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %57
@@ -15782,7 +15782,7 @@ for.end34:                                        ; preds = %entry, %for.end34.l
 if.end:                                           ; preds = %for.end34
   %10 = load ptr, ptr %spc, align 8
   store ptr %10, ptr %info, align 8
-  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %fontdata, i32 noundef %font_index)
+  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef %font_index)
   %call.i35 = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i)
   %call40 = call i32 @stbtt_PackFontRangesGatherRects(ptr noundef nonnull %spc, ptr noundef nonnull %info, ptr noundef %ranges, i32 noundef %num_ranges, ptr noundef nonnull %call)
   %cmp35.i.i = icmp sgt i32 %call40, 0
@@ -15911,7 +15911,7 @@ entry:
 define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr nocapture noundef writeonly %ascent, ptr nocapture noundef writeonly %descent, ptr nocapture noundef writeonly %lineGap) local_unnamed_addr #3 {
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
-  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %fontdata, i32 noundef %index)
+  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef %index)
   %call.i6 = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i)
   %cmp = fcmp ogt float %size, 0.000000e+00
   br i1 %cmp, label %cond.true, label %cond.false
@@ -16678,7 +16678,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
@@ -16770,7 +16770,7 @@ if.end19:                                         ; preds = %if.then18, %if.end1
   br i1 %tobool.not.i356, label %if.then.i358, label %if.else.i357
 
 if.then.i358:                                     ; preds = %if.end19
-  %call.i359 = call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %verts)
+  %call.i359 = call i32 @stbtt__GetGlyphShapeTT(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %verts)
   %.pre.pre.pre = load ptr, ptr %verts, align 8
   br label %stbtt_GetGlyphShape.exit
 
@@ -16780,7 +16780,7 @@ if.else.i357:                                     ; preds = %if.end19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i)
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -16793,7 +16793,7 @@ if.then.i.i:                                      ; preds = %if.else.i357
   store ptr %call1.i.i, ptr %verts, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i)
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -18037,7 +18037,7 @@ if.then126:                                       ; preds = %land.lhs.true122
   %add.ptr128 = getelementptr inbounds i8, ptr %name, i64 %idx.ext127
   %sub = sub nsw i32 %nlen, %inc
   %add.ptr132 = getelementptr inbounds i8, ptr %add.ptr56, i64 %add.i122
-  %call.i = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull %add.ptr128, i32 noundef %sub, ptr noundef %add.ptr132, i32 noundef %conv107)
+  %call.i = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull readonly %add.ptr128, i32 noundef %sub, ptr noundef readonly %add.ptr132, i32 noundef %conv107)
   %cmp.i.not = icmp eq i32 %call.i, %sub
   br i1 %cmp.i.not, label %return, label %for.inc
 
@@ -18274,13 +18274,13 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #30
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @stbtt_FindMatchingFont_internal(ptr nocapture noundef readonly %font_collection, ptr nocapture noundef readonly %name_utf8, i32 noundef %flags) local_unnamed_addr #29 {
 entry:
-  %call.i6 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %font_collection, i32 noundef 0)
+  %call.i6 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %font_collection, i32 noundef 0)
   %cmp7 = icmp slt i32 %call.i6, 0
   br i1 %cmp7, label %return, label %if.end
 
 for.cond:                                         ; preds = %if.end
   %inc = add nuw nsw i32 %i.08, 1
-  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %font_collection, i32 noundef %inc)
+  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %font_collection, i32 noundef %inc)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -18306,7 +18306,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetNumberOfFonts(ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call i32 @stbtt__isfont(ptr noundef %data)
+  %call.i = tail call i32 @stbtt__isfont(ptr noundef readonly %data)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %stbtt_GetNumberOfFonts_internal.exit
 
@@ -18386,20 +18386,20 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %entry, %if.end.i, %
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %fontdata, ptr nocapture noundef readonly %name, i32 noundef %flags) local_unnamed_addr #29 {
 entry:
-  %call.i6.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %fontdata, i32 noundef 0)
+  %call.i6.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef 0)
   %cmp7.i = icmp slt i32 %call.i6.i, 0
   br i1 %cmp7.i, label %stbtt_FindMatchingFont_internal.exit, label %if.end.i
 
 for.cond.i:                                       ; preds = %if.end.i
   %inc.i = add nuw nsw i32 %i.08.i, 1
-  %call.i.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %fontdata, i32 noundef %inc.i)
+  %call.i.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef %inc.i)
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %stbtt_FindMatchingFont_internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %for.cond.i
   %call.i9.i = phi i32 [ %call.i.i, %for.cond.i ], [ %call.i6.i, %entry ]
   %i.08.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %call1.i = tail call i32 @stbtt__matches(ptr noundef %fontdata, i32 noundef %call.i9.i, ptr noundef %name, i32 noundef %flags)
+  %call1.i = tail call i32 @stbtt__matches(ptr noundef readonly %fontdata, i32 noundef %call.i9.i, ptr noundef readonly %name, i32 noundef %flags)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %for.cond.i, label %stbtt_FindMatchingFont_internal.exit
 
@@ -18411,7 +18411,7 @@ stbtt_FindMatchingFont_internal.exit:             ; preds = %for.cond.i, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) local_unnamed_addr #7 {
 entry:
-  %call.i = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %s1, i32 noundef %len1, ptr noundef %s2, i32 noundef %len2)
+  %call.i = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly %s1, i32 noundef %len1, ptr noundef readonly %s2, i32 noundef %len2)
   %cmp.i = icmp eq i32 %call.i, %len1
   %conv.i = zext i1 %cmp.i to i32
   ret i32 %conv.i

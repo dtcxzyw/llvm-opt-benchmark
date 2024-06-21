@@ -301,8 +301,8 @@ opal_obj_run_destructors.exit109.i:               ; preds = %.lr.ph.i106.i, %121
   br label %mca_topo_base_cart_allocate.exit.thread
 
 129:                                              ; preds = %108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr align 4 %3, i64 %100, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr align 4 %4, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr readonly align 4 %3, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr readonly align 4 %4, i64 %100, i1 false)
   br i1 %30, label %.lr.ph118.preheader.i, label %mca_topo_base_cart_allocate.exit
 
 .lr.ph118.preheader.i:                            ; preds = %129

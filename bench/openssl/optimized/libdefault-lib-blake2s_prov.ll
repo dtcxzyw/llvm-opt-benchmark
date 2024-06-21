@@ -135,7 +135,7 @@ if.then.i:                                        ; preds = %blake2s_init_param.
 if.end.i:                                         ; preds = %if.then.i
   %buf.i = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %block, i64 %sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %block, i64 %sub.i, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 64)
   store i64 0, ptr %buflen.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %block, i64 %sub.i

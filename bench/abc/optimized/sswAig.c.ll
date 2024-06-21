@@ -839,10 +839,10 @@ define ptr @Ssw_SpeculativeReduction(ptr nocapture noundef %0) local_unnamed_add
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %14
 
 14:                                               ; preds = %1
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #10
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #8
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #9
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %14

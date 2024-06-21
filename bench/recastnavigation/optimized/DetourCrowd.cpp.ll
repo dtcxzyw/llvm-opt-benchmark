@@ -494,7 +494,7 @@ _ZN7dtCrowd21updateAgentParametersEiPK18dtCrowdAgentParams.exit: ; preds = %10
   %16 = and i64 %indvars.iv, 4294967295
   %17 = getelementptr inbounds %struct.dtCrowdAgent, ptr %9, i64 %16
   %18 = getelementptr inbounds %struct.dtCrowdAgent, ptr %9, i64 %16, i32 14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i32 0, ptr %5, align 4
   %19 = getelementptr inbounds i8, ptr %4, i64 4
   %20 = load <2 x float>, ptr %1, align 4

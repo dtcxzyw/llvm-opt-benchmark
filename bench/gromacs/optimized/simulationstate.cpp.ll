@@ -7271,7 +7271,7 @@ define noundef nonnull align 8 dereferenceable(1104) ptr @_ZNK5nblib15Simulation
 define void @_ZNK5nblib15SimulationState3boxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.nblib::Box") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #15 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %4, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false)
   ret void
 }
 

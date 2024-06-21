@@ -1432,7 +1432,7 @@ sw.bb39:                                          ; preds = %while.body
 
 sw.bb40:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -2225,10 +2225,10 @@ sw.bb71:                                          ; preds = %land.rhs
 sw.bb73:                                          ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
   %call.i52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasName.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -7816,7 +7816,7 @@ if.end38:                                         ; preds = %invoke.cont35, %sw.
 
 sw.bb40:                                          ; preds = %invoke.cont17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.ensured.i)
-  invoke void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  invoke void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
           to label %.noexc27 unwind label %lpad2.loopexit.split-lp.loopexit
 
 .noexc27:                                         ; preds = %sw.bb40

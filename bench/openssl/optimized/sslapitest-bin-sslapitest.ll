@@ -20334,7 +20334,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %cookie, ptr noundef nonnull dereferenceable(12) @cookie_magic_value, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %cookie, ptr noundef nonnull dereferenceable(12) @cookie_magic_value, i64 12)
   %cmp3.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp3.i, label %verify_cookie_callback.exit, label %if.end.i
 

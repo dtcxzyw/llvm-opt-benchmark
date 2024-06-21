@@ -2420,10 +2420,10 @@ define noundef ptr @Wln_NtkDupDfs(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #20
   %12 = add i64 %11, 1
   %13 = tail call noalias noundef ptr @malloc(i64 noundef %12) #18
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #17
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #17
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %13, ptr %15, align 8
   br label %16

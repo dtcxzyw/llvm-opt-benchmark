@@ -747,7 +747,7 @@ _printXDot.exit:                                  ; preds = %7
 agxblen.exit.i:                                   ; preds = %1, %_printXDot.exit
   %.val.i5 = phi i8 [ %.val.i.pre, %_printXDot.exit ], [ 0, %1 ]
   %18 = zext i8 %.val.i5 to i64
-  %19 = call noalias ptr @strndup(ptr noundef nonnull %2, i64 noundef %18) #20
+  %19 = call noalias ptr @strndup(ptr noundef nonnull readonly %2, i64 noundef %18) #20
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %agxbdisown.exit
 
@@ -778,7 +778,7 @@ define internal noundef i32 @agxbprint(ptr nocapture noundef %0, ptr nocapture n
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #20
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -867,7 +867,7 @@ gv_calloc.exit.i.i:                               ; preds = %26
 
 agxbnext.exit.i:                                  ; preds = %37, %35
   %41 = phi ptr [ %36, %35 ], [ %40, %37 ]
-  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #20
+  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #20
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %vagxbprint.exit
 
@@ -3205,7 +3205,7 @@ printPolyline.exit114:                            ; preds = %702, %._crit_edge.i
 807:                                              ; preds = %37
   %fputc508 = call i32 @fputc(i32 99, ptr %0)
   %808 = getelementptr inbounds i8, ptr %41, i64 8
-  call fastcc void @toGradString(ptr noundef nonnull %12, ptr noundef nonnull %808)
+  call fastcc void @toGradString(ptr noundef nonnull %12, ptr noundef nonnull readonly %808)
   call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 0)
   %.val.i.i.i = load i8, ptr %23, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -3237,7 +3237,7 @@ agxbuse.exit.i:                                   ; preds = %809, %agxbclear.exi
 819:                                              ; preds = %37
   %fputc506 = call i32 @fputc(i32 67, ptr %0)
   %820 = getelementptr inbounds i8, ptr %41, i64 8
-  call fastcc void @toGradString(ptr noundef nonnull %12, ptr noundef nonnull %820)
+  call fastcc void @toGradString(ptr noundef nonnull %12, ptr noundef nonnull readonly %820)
   call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 0)
   %.val.i.i96.i = load i8, ptr %23, align 1
   %.not.i.i97.i = icmp eq i8 %.val.i.i96.i, -1
@@ -5981,7 +5981,7 @@ agxblen.exit.i:                                   ; preds = %15, %._crit_edge
   %.023.lcssa46 = phi i64 [ %36, %._crit_edge ], [ 0, %15 ]
   %.val.i44 = phi i8 [ %.val.i.pre, %._crit_edge ], [ 0, %15 ]
   %37 = zext i8 %.val.i44 to i64
-  %38 = call noalias ptr @strndup(ptr noundef nonnull %4, i64 noundef %37) #20
+  %38 = call noalias ptr @strndup(ptr noundef nonnull readonly %4, i64 noundef %37) #20
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %agxbdisown.exit
 

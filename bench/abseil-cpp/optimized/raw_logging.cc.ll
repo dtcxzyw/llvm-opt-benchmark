@@ -71,7 +71,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4absl16raw_log_internal12_GLOBAL__N_110VADoRawLogEPPcPiPKcP13__va_list_tag.exit.i: ; preds = %if.then.i
   %conv.i.i = zext nneg i32 %2 to i64
-  %call.i.i = call i32 @vsnprintf(ptr noundef %1, i64 noundef %conv.i.i, ptr noundef %format, ptr noundef nonnull %ap) #14
+  %call.i.i = call i32 @vsnprintf(ptr noundef %1, i64 noundef %conv.i.i, ptr noundef readonly %format, ptr noundef nonnull %ap) #14
   %cmp1.i.i = icmp sgt i32 %call.i.i, -1
   %.pre.i.i = load i32, ptr %size.i, align 4
   %cmp2.i.i = icmp sle i32 %call.i.i, %.pre.i.i

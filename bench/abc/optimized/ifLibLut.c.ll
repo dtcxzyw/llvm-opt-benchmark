@@ -56,10 +56,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3
   %8 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #19
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #19
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #21
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #21
   %.pr = load i8, ptr %12, align 1
   %.not165 = icmp eq i8 %.pr, 0
   br i1 %.not165, label %._crit_edge, label %.lr.ph
@@ -609,10 +609,10 @@ define noalias noundef ptr @If_LibLutRead(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #19
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #21
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %6, %7
@@ -871,10 +871,10 @@ define noalias noundef ptr @If_LibLutDup(ptr nocapture noundef readonly %0) loca
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #20
   %6 = add i64 %5, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #19
-  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %3) #21
+  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %3) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %4
@@ -1071,16 +1071,16 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.If_LibLutSetSimple, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noalias dereferenceable_or_null(4504) ptr @malloc(i64 noundef 4504) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4504) %4, ptr noundef nonnull align 8 dereferenceable(4504) %switch.load, i64 4504, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4504) %4, ptr noundef nonnull readonly align 8 dereferenceable(4504) %switch.load, i64 4504, i1 false)
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %If_LibLutDup.exit, label %6
 
 6:                                                ; preds = %switch.lookup
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #19
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #21
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #21
   br label %If_LibLutDup.exit
 
 If_LibLutDup.exit:                                ; preds = %switch.lookup, %6

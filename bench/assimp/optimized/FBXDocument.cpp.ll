@@ -6861,7 +6861,7 @@ entry:
   %arr = alloca [1 x ptr], align 8
   store ptr %classname, ptr %arr, align 8
   %src_connections.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %src, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %src_connections.i.i, ptr noundef nonnull %arr, i64 noundef 1)
+  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %src, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %src_connections.i.i, ptr noundef nonnull readonly %arr, i64 noundef 1)
   ret void
 }
 
@@ -6879,7 +6879,7 @@ entry:
   %arr = alloca [1 x ptr], align 8
   store ptr %classname, ptr %arr, align 8
   %dest_connections.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %dest, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %dest_connections.i.i, ptr noundef nonnull %arr, i64 noundef 1)
+  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %dest, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %dest_connections.i.i, ptr noundef nonnull readonly %arr, i64 noundef 1)
   ret void
 }
 

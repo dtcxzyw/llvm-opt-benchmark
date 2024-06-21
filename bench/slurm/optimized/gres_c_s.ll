@@ -695,7 +695,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
   br i1 %.not.i.i61, label %_compute_local_id.exit.i, label %304
 
 304:                                              ; preds = %298
-  %305 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %303) #9
+  %305 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %303) #9
   %306 = trunc i64 %305 to i32
   %.01620.i.i = add i32 %306, -1
   %307 = icmp sgt i32 %.01620.i.i, -1

@@ -91,7 +91,7 @@ skip_cbs:                                         ; preds = %entry, %if.end
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_cbs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(6) @.str) #15
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(6) @.str) #15
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %bind_helper.exit
 
@@ -804,7 +804,7 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   %__cmsg_data.i7.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 16, ptr %__cmsg_data.i7.i, align 4
   %iv2.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %iv2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %call13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %iv2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %call13, i64 16, i1 false)
   store ptr %in, ptr %iov.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %inl, ptr %iov_len.i, align 8

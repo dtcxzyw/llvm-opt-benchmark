@@ -165,7 +165,7 @@ if.end:                                           ; preds = %if.then
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %desc.06.i = phi ptr [ %desc.0.i, %for.inc.i ], [ %desc.04.i, %if.end ]
   %1 = load ptr, ptr %desc.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %value) #12
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end18, label %for.inc.i
 

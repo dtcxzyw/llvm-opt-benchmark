@@ -1393,7 +1393,7 @@ if.then45.i:                                      ; preds = %if.end38.i
   %sub47.i = sub nsw i64 127, %conv.i
   %spec.select.i = call i64 @llvm.umin.i64(i64 %sub47.i, i64 %funclen)
   %add.ptr57.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull align 1 %func, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull readonly align 1 %func, i64 %spec.select.i, i1 false)
   %13 = trunc i64 %spec.select.i to i32
   %conv60.i = add i32 %inc.i, %13
   br label %xdl_format_hunk_hdr.exit

@@ -779,9 +779,9 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %69 = tail call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef %68) #5
   %70 = tail call ptr @wmem_packet_scope() #5
   %71 = tail call noalias ptr @wmem_alloc(ptr noundef %70, i64 noundef %68) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull readonly align 1 dereferenceable(16) %63, i64 16, i1 false)
   %72 = getelementptr i8, ptr %63, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %72, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr readonly align 1 %72, i64 %68, i1 false)
   %73 = call i32 @gcry_cipher_encrypt(ptr noundef %65, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16) #5
   %74 = icmp ugt i16 %23, 16
   br i1 %74, label %.lr.ph.preheader.i, label %solaredge_decrypt.exit

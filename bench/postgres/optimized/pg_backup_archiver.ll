@@ -1048,17 +1048,17 @@ define internal fastcc range(i32 0, 5) i32 @_tocEntryRequired(ptr nocapture noun
   br i1 %.not, label %35, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.85) #24
+  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.85) #24
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(13) @.str.86) #24
+  %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(13) @.str.86) #24
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.critedge, label %_tocEntryIsACL.exit
 
 _tocEntryIsACL.exit:                              ; preds = %30
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(12) @.str.167) #24
+  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(12) @.str.167) #24
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.critedge, label %35
 
@@ -9924,17 +9924,17 @@ _getObjectDescription.exit:                       ; preds = %308, %315, %.crited
 387:                                              ; preds = %386, %239, %236, %235, %232, %.tail127, %216, %211
   %388 = getelementptr i8, ptr %1, i64 80
   %.val = load ptr, ptr %388, align 8
-  %389 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(4) @.str.85) #24
+  %389 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(4) @.str.85) #24
   %390 = icmp eq i32 %389, 0
   br i1 %390, label %_tocEntryIsACL.exit.thread, label %391
 
 391:                                              ; preds = %387
-  %392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(13) @.str.86) #24
+  %392 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(13) @.str.86) #24
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %_tocEntryIsACL.exit.thread, label %_tocEntryIsACL.exit
 
 _tocEntryIsACL.exit:                              ; preds = %391
-  %394 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(12) @.str.167) #24
+  %394 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(12) @.str.167) #24
   %395 = icmp eq i32 %394, 0
   br i1 %395, label %_tocEntryIsACL.exit.thread, label %398
 

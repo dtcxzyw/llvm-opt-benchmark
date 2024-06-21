@@ -82933,7 +82933,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i: ; p
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i ], [ %68, %_ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i ], [ %53, %_ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.092.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !667
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %.092.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !667
   %70 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 56
   %71 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i21 = icmp eq ptr %70, %48

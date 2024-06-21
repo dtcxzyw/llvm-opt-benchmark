@@ -476,7 +476,7 @@ if.end33.i:                                       ; preds = %if.then28.i, %while
   %result.1.i = phi i64 [ %inc31.i, %if.then28.i ], [ %inc24.i, %while.body.i ]
   %arrayidx34.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %result.1.i
   %arrayidx35.i = getelementptr inbounds i8, ptr %input_buffer, i64 %offset.037.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx34.i, ptr noundef nonnull align 1 dereferenceable(1) %arrayidx35.i, i64 %cond34.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx34.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %arrayidx35.i, i64 %cond34.i, i1 false)
   %add38.i = add i64 %result.1.i, %cond34.i
   %add40.i = add i64 %cond34.i, %offset.037.i
   %sub42.i = sub i64 %size.038.i, %cond34.i
@@ -1590,7 +1590,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 RingBufferInitBuffer.exit.i:                      ; preds = %for.body.i.i
   %146 = load ptr, ptr %buffer_.i34.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %146, ptr align 1 %136, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %146, ptr readonly align 1 %136, i64 %cond.i, i1 false)
   %.pre113.i = load i32, ptr %pos_.i.i, align 4
   br label %RingBufferWrite.exit.i
 
@@ -1682,7 +1682,7 @@ if.then.i71.i:                                    ; preds = %if.end20.i.i
   %arrayidx.i75.i = getelementptr inbounds i8, ptr %166, i64 %conv22.i.i
   %sub.i76.i = sub nsw i64 %conv1.i.i192, %conv22.i.i
   %cond.i.i80.i = tail call i64 @llvm.umin.i64(i64 %sub.i76.i, i64 %cond.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i75.i, ptr align 1 %136, i64 %cond.i.i80.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i75.i, ptr readonly align 1 %136, i64 %cond.i.i80.i, i1 false)
   %.pre = load i32, ptr %ringbuffer_1.i, align 8
   br label %RingBufferWriteTail.exit.i
 
@@ -1696,7 +1696,7 @@ RingBufferWriteTail.exit.i:                       ; preds = %if.then.i71.i, %if.
   br i1 %cmp25.i.not.i, label %if.else.i.i189, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %RingBufferWriteTail.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr align 1 %136, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr readonly align 1 %136, i64 %cond.i, i1 false)
   br label %if.end46.i.i
 
 if.else.i.i189:                                   ; preds = %RingBufferWriteTail.exit.i
@@ -1704,14 +1704,14 @@ if.else.i.i189:                                   ; preds = %RingBufferWriteTail
   %conv35.i.i = zext i32 %169 to i64
   %sub36.i.i = sub nsw i64 %conv35.i.i, %conv22.i.i
   %cond.i.i.i190 = tail call i64 @llvm.umin.i64(i64 %sub36.i.i, i64 %cond.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr align 1 %136, i64 %cond.i.i.i190, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr readonly align 1 %136, i64 %cond.i.i.i190, i1 false)
   %170 = load ptr, ptr %buffer_.i34.i, align 8
   %171 = load i32, ptr %ringbuffer_1.i, align 8
   %conv40.i.i = zext i32 %171 to i64
   %sub41.i.i = sub nsw i64 %conv40.i.i, %conv22.i.i
   %add.ptr.i.i191 = getelementptr inbounds i8, ptr %136, i64 %sub41.i.i
   %sub45.i.i = sub i64 %cond.i, %sub41.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr align 1 %add.ptr.i.i191, i64 %sub45.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr readonly align 1 %add.ptr.i.i191, i64 %sub45.i.i, i1 false)
   br label %if.end46.i.i
 
 if.end46.i.i:                                     ; preds = %if.else.i.i189, %if.then29.i.i
@@ -4646,7 +4646,7 @@ ShannonEntropy.exit.i.i.if.end3.i_crit_edge:      ; preds = %ShannonEntropy.exit
 
 if.then2.i:                                       ; preds = %ShannonEntropy.exit.i.i, %if.end.i1369
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %literal_histo.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull readonly align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
   %conv.i1381 = zext i32 %result.0.i.i1364 to i64
   call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv.i1381, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
   br label %WriteMetaBlockInternal.exit
@@ -4768,7 +4768,7 @@ if.end42.i:                                       ; preds = %if.end39.i, %if.the
   br i1 %cmp44.i, label %if.then46.i, label %WriteMetaBlockInternal.exit
 
 if.then46.i:                                      ; preds = %if.end42.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull readonly align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
   store i8 %311, ptr %284, align 1
   store i8 %312, ptr %arrayidx300, align 1
   %conv53.i = and i64 %313, 255

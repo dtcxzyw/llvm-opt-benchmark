@@ -3388,7 +3388,7 @@ invoke.cont78.i:                                  ; preds = %nrvo.unused70.i
 
 nrvo.unused86.i:                                  ; preds = %invoke.cont78.i
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %error) #18
-  invoke void @_ZN17grpc_event_engine12experimental18PosixSocketWrapper26TrySetSocketTcpUserTimeoutERKNS0_15PosixTcpOptionsEb(ptr noundef nonnull align 4 dereferenceable(4) %sock.i, ptr noundef nonnull align 8 dereferenceable(72) %options, i1 noundef zeroext true)
+  invoke void @_ZN17grpc_event_engine12experimental18PosixSocketWrapper26TrySetSocketTcpUserTimeoutERKNS0_15PosixTcpOptionsEb(ptr noundef nonnull align 4 dereferenceable(4) %sock.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %options, i1 noundef zeroext true)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit52.i unwind label %lpad.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit52.i:       ; preds = %nrvo.unused86.i, %invoke.cont41.i, %invoke.cont38.i

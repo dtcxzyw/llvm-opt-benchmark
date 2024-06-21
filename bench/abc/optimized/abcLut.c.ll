@@ -641,7 +641,7 @@ Abc_NodeLeavesRemove.exit.i:                      ; preds = %274, %Extra_TruthCo
 .preheader29.i.i.i:                               ; preds = %.lr.ph117.i
   %287 = zext nneg i32 %.val71116.i to i64
   %288 = shl nuw nsw i64 %287, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %.val205.i.i, i64 %288, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 8 %.val205.i.i, i64 %288, i1 false)
   %289 = icmp sgt i32 %281, 0
   br i1 %289, label %.preheader.us.preheader.i.i.i, label %Abc_NodeDecomposeSort.exit.i.i
 

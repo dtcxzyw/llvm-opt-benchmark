@@ -248,7 +248,7 @@ cond.true:                                        ; preds = %entry
   br i1 %or.cond.i, label %cond.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tag) #30
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %tag) #30
   %1 = trunc i64 %call4.i to i32
   %conv.i = add i32 %1, 1
   %cmp.i5.i = icmp slt i32 %conv.i, 0
@@ -297,7 +297,7 @@ _ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.i: ; preds = %if.then13.i.i, %if
   %idx.ext.i.i = sext i32 %2 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i
   %conv25.i.i = zext nneg i32 %conv.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %tag, i64 %conv25.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %tag, i64 %conv25.i.i, i1 false)
   %.pre.i = load i32, ptr %errorCode, align 4
   %cmp.i7.i = icmp sgt i32 %.pre.i, 0
   br i1 %cmp.i7.i, label %cond.end, label %if.then8.i
@@ -390,7 +390,7 @@ _ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit:  ; preds = %if.end8.do.body_cri
   %idx.ext.i = sext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i
   %conv25.i = zext nneg i32 %conv to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %tag, i64 %conv25.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 1 %tag, i64 %conv25.i, i1 false)
   %.pre = load i32, ptr %errorCode, align 4
   %cmp.i7 = icmp sgt i32 %.pre, 0
   br i1 %cmp.i7, label %return, label %if.then8

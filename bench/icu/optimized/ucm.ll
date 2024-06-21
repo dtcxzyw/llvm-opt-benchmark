@@ -191,7 +191,7 @@ cond.false5.i:                                    ; preds = %cond.end.i
 
 ucm_printMapping.exit:                            ; preds = %cond.true4.i, %cond.false5.i
   %cond10.i = phi ptr [ %b.i, %cond.true4.i ], [ %add.ptr8.i, %cond.false5.i ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %m.035, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %f)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %m.035, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %f)
   %incdec.ptr = getelementptr inbounds i8, ptr %m.035, i64 12
   %inc = add nuw nsw i32 %i.034, 1
   %exitcond.not = icmp eq i32 %inc, %1
@@ -248,7 +248,7 @@ cond.false5.i23:                                  ; preds = %cond.end.i19
 
 ucm_printMapping.exit31:                          ; preds = %cond.true4.i29, %cond.false5.i23
   %cond10.i28 = phi ptr [ %b.i30, %cond.true4.i29 ], [ %add.ptr8.i27, %cond.false5.i23 ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %add.ptr, ptr noundef %cond.i20, ptr noundef %cond10.i28, ptr noundef %f)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %add.ptr, ptr noundef %cond.i20, ptr noundef %cond10.i28, ptr noundef %f)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond40.not, label %if.end, label %for.body3, !llvm.loop !8
@@ -1134,7 +1134,7 @@ cond.false5.i:                                    ; preds = %cond.end.i
 
 ucm_printMapping.exit:                            ; preds = %cond.true4.i, %cond.false5.i
   %cond10.i = phi ptr [ %b.i, %cond.true4.i ], [ %add.ptr8.i, %cond.false5.i ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %m.012, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %5)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %m.012, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %ucm_printMapping.exit, %cond.end
@@ -1393,9 +1393,9 @@ if.else87.i:                                      ; preds = %if.then77.i
   %37 = load ptr, ptr @stderr, align 8
   %38 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 135, i64 1, ptr %37) #17
   %39 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %mb.116.i, ptr noundef %39)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %mb.116.i, ptr noundef %39)
   %40 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef nonnull %me.119.i, ptr noundef %40)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef nonnull %me.119.i, ptr noundef %40)
   %41 = or i8 %result.025.i, 2
   br label %if.end94.i
 
@@ -1471,9 +1471,9 @@ if.else156.i:                                     ; preds = %if.else146.i
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 170, i64 1, ptr %52) #17
   %54 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %mb.116.i, ptr noundef %54)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %mb.116.i, ptr noundef %54)
   %55 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef %me.119.i, ptr noundef %55)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef %me.119.i, ptr noundef %55)
   br label %if.end162.i
 
 if.end162.i:                                      ; preds = %if.else156.i, %if.then148.i, %if.then138.i
@@ -1744,9 +1744,9 @@ if.else94.i:                                      ; preds = %if.then84.i
   %94 = load ptr, ptr @stderr, align 8
   %95 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 135, i64 1, ptr %94) #17
   %96 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %.us-phi12.i, ptr noundef %96)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %.us-phi12.i, ptr noundef %96)
   %97 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef %add.ptr28.i, ptr noundef %97)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef %add.ptr28.i, ptr noundef %97)
   %98 = or i8 %result.022.i, 2
   br label %if.end101.i
 
@@ -1817,9 +1817,9 @@ if.else162.i:                                     ; preds = %if.else152.i
   %109 = load ptr, ptr @stderr, align 8
   %110 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 170, i64 1, ptr %109) #17
   %111 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %.us-phi12.i, ptr noundef %111)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %.us-phi12.i, ptr noundef %111)
   %112 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef %add.ptr28.i, ptr noundef %112)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef %add.ptr28.i, ptr noundef %112)
   br label %if.end168.i
 
 if.end168.i:                                      ; preds = %if.else162.i, %if.then154.i, %if.then144.i
@@ -2621,7 +2621,7 @@ cond.false5.i:                                    ; preds = %cond.end.i
 
 ucm_printMapping.exit:                            ; preds = %cond.end.i, %cond.false5.i
   %cond10.i = phi ptr [ %add.ptr8.i, %cond.false5.i ], [ %b, %cond.end.i ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %m.062, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %8)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %m.062, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %8)
   br label %for.inc.sink.split
 
 if.end:                                           ; preds = %for.body
@@ -3710,7 +3710,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %ucm_addMappingFromLine.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i
-  %call13.i = call signext i8 @ucm_addMappingAuto(ptr noundef %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef nonnull %m.i, ptr noundef nonnull %codePoints.i, ptr noundef nonnull %bytes.i)
+  %call13.i = call signext i8 @ucm_addMappingAuto(ptr noundef readonly %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef nonnull %m.i, ptr noundef nonnull %codePoints.i, ptr noundef nonnull %bytes.i)
   br label %ucm_addMappingFromLine.exit
 
 ucm_addMappingFromLine.exit:                      ; preds = %if.end24, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %if.end.i, %land.rhs.i

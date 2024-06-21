@@ -77,7 +77,7 @@ if.else.i:                                        ; preds = %if.end
 oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else.i
   %hashsz.0.in.i = phi ptr [ %rawsz2.i, %if.else.i ], [ %rawsz.i, %if.then.i ]
   %hashsz.0.i = load i64, ptr %hashsz.0.in.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %k, ptr nonnull align 4 %oid, i64 %hashsz.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %k, ptr nonnull readonly align 4 %oid, i64 %hashsz.0.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %k, i64 %hashsz.0.i
   %sub.i = sub i64 32, %hashsz.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
@@ -124,7 +124,7 @@ oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else
   %spec.select = phi i64 [ 36, %if.else.i ], [ 32, %if.then.i ]
   %hashsz.0.in.i = phi ptr [ %rawsz2.i, %if.else.i ], [ %rawsz.i, %if.then.i ]
   %hashsz.0.i = load i64, ptr %hashsz.0.in.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %k, ptr nonnull align 4 %oid, i64 %hashsz.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %k, ptr nonnull readonly align 4 %oid, i64 %hashsz.0.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %k, i64 %hashsz.0.i
   %sub.i = sub i64 32, %hashsz.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)

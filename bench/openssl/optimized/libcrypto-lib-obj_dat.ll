@@ -3362,7 +3362,7 @@ entry:
   %idxprom.i = zext i32 %b_.val to i64
   %ln1.i = getelementptr inbounds [1320 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %idxprom.i, i32 1
   %1 = load ptr, ptr %ln1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %1) #10
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %1) #10
   ret i32 %call.i
 }
 
@@ -3378,7 +3378,7 @@ entry:
   %idxprom.i = zext i32 %b_.val to i64
   %arrayidx.i = getelementptr inbounds [1320 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %0) #10
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %a_.val.val, ptr noundef nonnull dereferenceable(1) %0) #10
   ret i32 %call.i
 }
 

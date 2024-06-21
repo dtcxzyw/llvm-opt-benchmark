@@ -2731,7 +2731,7 @@ if.then1.i:                                       ; preds = %if.then.i
   %10 = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   store i64 %5, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i80) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next_table_min_key_parsed, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %next_table_min_key_parsed, i64 16, i1 false)
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
@@ -2780,7 +2780,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %13 = getelementptr inbounds i8, ptr %ts.i14.i, i64 8
   store i64 %call2.i.i82, ptr %13, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %next_table_min_key_parsed, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i15.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %next_table_min_key_parsed, i64 16, i1 false)
   %sequence.i.i16.i = getelementptr inbounds i8, ptr %ref.tmp.i15.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i16.i, align 8
   %type.i.i17.i = getelementptr inbounds i8, ptr %ref.tmp.i15.i, i64 24
@@ -2816,7 +2816,7 @@ ehcleanup.i:                                      ; preds = %lpad.i, %lpad.i18.i
 
 if.else10.i:                                      ; preds = %if.else61
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i22.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i22.i, ptr noundef nonnull align 8 dereferenceable(16) %next_table_min_key_parsed, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i22.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %next_table_min_key_parsed, i64 16, i1 false)
   %sequence.i.i23.i = getelementptr inbounds i8, ptr %ref.tmp.i22.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i23.i, align 8
   %type.i.i24.i = getelementptr inbounds i8, ptr %ref.tmp.i22.i, i64 24

@@ -2436,7 +2436,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
 
 .lr.ph48.preheader.i.i:                           ; preds = %._crit_edge.i.i
   %103 = shl nuw nsw i64 %101, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr nonnull align 4 %87, i64 %103, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr nonnull readonly align 4 %87, i64 %103, i1 false)
   br label %._crit_edge49.i.i
 
 ._crit_edge49.i.i:                                ; preds = %.lr.ph48.preheader.i.i, %._crit_edge.i.i

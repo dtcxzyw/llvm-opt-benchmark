@@ -2462,7 +2462,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %call3, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call3, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   br label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %entry, %dynamic_cast.notnull.i
@@ -2588,7 +2588,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %call3, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call3, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   br label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %entry, %dynamic_cast.notnull.i
@@ -4878,7 +4878,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   br label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %entry, %dynamic_cast.notnull.i
@@ -4996,7 +4996,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -5005,7 +5005,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.end
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %if.end
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %dynamic_cast.bad_cast.i5, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit6
 
@@ -5114,7 +5114,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -5289,7 +5289,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -6107,7 +6107,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10union_findI22union_find_default_ctxS0_E12mk_var_trailE, i64 16), ptr %m_mk_var_trail.i, align 8
   %m_owner.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %m_equalities, ptr %m_owner.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %invoke.cont10
 
@@ -6445,7 +6445,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -11165,7 +11165,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 256)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -11508,7 +11508,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
 
 general_fn:                                       ; preds = %for.body, %lor.lhs.false13, %if.end, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit26
   %call23 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %10 = tail call ptr @__dynamic_cast(ptr nonnull %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %10 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -11517,7 +11517,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %general_fn
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %general_fn
-  %12 = tail call ptr @__dynamic_cast(ptr nonnull %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %dynamic_cast.bad_cast.i27, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit28
 
@@ -11730,7 +11730,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 104)
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -11739,7 +11739,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.end
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %if.end
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %neg, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %neg, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %dynamic_cast.bad_cast.i5, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit6
 
@@ -12136,7 +12136,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 360)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -13295,7 +13295,7 @@ _ZN7datalog11udoc_plugin7join_fnD2Ev.exit:        ; preds = %_ZN7svectorIjjED2Ev
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog11udoc_plugin7join_fnclERKNS_13relation_baseES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r1, ptr noundef nonnull align 8 dereferenceable(28) %_r2) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -13304,7 +13304,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i5, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit6
 
@@ -13913,7 +13913,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog11udoc_plugin10project_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d2 = alloca %class.doc_ref, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -13933,7 +13933,7 @@ _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %call4, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call4, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   br label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit, %dynamic_cast.notnull.i
@@ -14579,7 +14579,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog11udoc_plugin9rename_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -14754,7 +14754,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog11udoc_plugin8union_fnclERNS_13relation_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r, ptr noundef nonnull align 8 dereferenceable(28) %_src, ptr noundef %_delta) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit
 
@@ -14763,7 +14763,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i12, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -14781,7 +14781,7 @@ _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit.thread: ; preds = %_ZN7da
   br label %if.end
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %dm.i = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %dm.i, align 8
   %tobool.not = icmp eq ptr %5, null
@@ -15043,7 +15043,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog11udoc_plugin19filter_identical_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit
 
@@ -15271,7 +15271,7 @@ _ZN7datalog11udoc_plugin15filter_equal_fnD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog11udoc_plugin15filter_equal_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit
 
@@ -15562,7 +15562,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog11udoc_plugin21filter_interpreted_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit
 
@@ -16302,7 +16302,7 @@ entry:
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(28) %t1)
   %tobool.not.i = icmp ne ptr %call, null
   tail call void @llvm.assume(i1 %tobool.not.i)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -16311,7 +16311,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %dm.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %dm.i, align 8
   %m_elems.i = getelementptr inbounds i8, ptr %3, i64 40
@@ -16588,7 +16588,7 @@ _ZN7datalog11udoc_plugin15join_project_fnD2Ev.exit: ; preds = %entry, %if.end.i.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog11udoc_plugin15join_project_fnclERKNS_13relation_baseES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %t1, ptr noundef nonnull align 8 dereferenceable(28) %t2) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -16597,7 +16597,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i1, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit2
 
@@ -16945,7 +16945,7 @@ invoke.cont11:                                    ; preds = %_ZN7datalog11udoc_p
 invoke.cont15:                                    ; preds = %invoke.cont11
   %tobool.not.i = icmp ne ptr %call16, null
   call void @llvm.assume(i1 %tobool.not.i)
-  %29 = call ptr @__dynamic_cast(ptr nonnull %call16, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %29 = call ptr @__dynamic_cast(ptr nonnull readonly %call16, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %m_elems.i64 = getelementptr inbounds i8, ptr %29, i64 40
   %dm.i65 = getelementptr inbounds i8, ptr %29, i64 32
   %30 = load ptr, ptr %dm.i65, align 8
@@ -17333,7 +17333,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog11udoc_plugin18negation_filter_fnclERNS_13relation_baseERKS2_(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb, ptr noundef nonnull align 8 dereferenceable(28) %negb) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit
 
@@ -17342,7 +17342,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog11udoc_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %negb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %negb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i13, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -17587,7 +17587,7 @@ entry:
   %dm.i = getelementptr inbounds i8, ptr %t, i64 32
   %0 = load ptr, ptr %dm.i, align 8
   %m_join_project = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit.i
 
@@ -17596,7 +17596,7 @@ dynamic_cast.bad_cast.i.i:                        ; preds = %entry
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit.i: ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %n, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %n, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i1.i, label %_ZN7datalog11udoc_plugin15join_project_fnclERKNS_13relation_baseES4_.exit
 
@@ -17610,7 +17610,7 @@ _ZN7datalog11udoc_plugin15join_project_fnclERKNS_13relation_baseES4_.exit: ; pre
   br i1 %tobool.not.i, label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog11udoc_plugin15join_project_fnclERKNS_13relation_baseES4_.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %call3.i, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call3.i, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   br label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog11udoc_plugin15join_project_fnclERKNS_13relation_baseES4_.exit, %dynamic_cast.notnull.i
@@ -17966,7 +17966,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog11udoc_plugin14filter_proj_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
@@ -18026,7 +18026,7 @@ _ZN10union_bvecI11doc_manager3docE5mergeERS0_RK7svectorIjjERK10union_findI22unio
   br i1 %tobool.not.i, label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN10union_bvecI11doc_manager3docE5mergeERS0_RK7svectorIjjERK10union_findI22union_find_default_ctxS9_ERK10bit_vector.exit
-  %10 = tail call ptr @__dynamic_cast(ptr nonnull %call12, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %10 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call12, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
   br label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN10union_bvecI11doc_manager3docE5mergeERS0_RK7svectorIjjERK10union_findI22union_find_default_ctxS9_ERK10bit_vector.exit, %dynamic_cast.notnull.i

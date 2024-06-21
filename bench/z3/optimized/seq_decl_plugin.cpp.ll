@@ -5187,7 +5187,7 @@ sw.bb344.invoke:                                  ; preds = %entry, %sw.bb332, %
   %105 = phi i32 [ 2, %sw.bb344 ], [ %k, %sw.bb332 ], [ %k, %entry ]
   %106 = phi i32 [ 53, %sw.bb344 ], [ %k, %sw.bb332 ], [ 53, %entry ]
   %107 = phi i1 [ true, %sw.bb344 ], [ false, %sw.bb332 ], [ true, %entry ]
-  %108 = invoke noundef ptr @_ZN15seq_decl_plugin12mk_assoc_funEijPKP4sortS1_iib(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %104, i32 noundef %arity, ptr noundef %domain, ptr noundef %range, i32 noundef %105, i32 noundef %106, i1 noundef zeroext %107)
+  %108 = invoke noundef ptr @_ZN15seq_decl_plugin12mk_assoc_funEijPKP4sortS1_iib(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %104, i32 noundef %arity, ptr noundef readonly %domain, ptr noundef %range, i32 noundef %105, i32 noundef %106, i1 noundef zeroext %107)
           to label %cleanup unwind label %lpad
 
 sw.bb347:                                         ; preds = %entry
@@ -9382,7 +9382,7 @@ invoke.cont:                                      ; preds = %land.rhs.i
   br i1 %5, label %lor.end, label %land.rhs.i2
 
 land.rhs.i2:                                      ; preds = %invoke.cont, %land.rhs.i
-  %call4.i4 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %s)
+  %call4.i4 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %s)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %land.rhs.i2
@@ -10456,7 +10456,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %m_decl.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load ptr, ptr %m_decl.i.i, align 8
-  %call4.i3 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(80) %z)
+  %call4.i3 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(80) %z)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.rhs.i
@@ -10673,7 +10673,7 @@ while.end:                                        ; preds = %land.rhs.i.i.i, %wh
 land.rhs.i:                                       ; preds = %while.end
   %m_decl.i.i = getelementptr inbounds i8, ptr %e.addr.0.lcssa40, i64 16
   %9 = load ptr, ptr %m_decl.i.i, align 8
-  %call4.i8 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(80) %s)
+  %call4.i8 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(80) %s)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %land.rhs.i
@@ -10994,7 +10994,7 @@ lpad:                                             ; preds = %land.rhs.i
   resume { ptr, i32 } %6
 
 land.rhs.i:                                       ; preds = %invoke.cont, %land.rhs.i.i
-  %call4.i6 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %this.0.val, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %st)
+  %call4.i6 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %this.0.val, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %st)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %land.rhs.i
@@ -11261,7 +11261,7 @@ _ZNK8seq_util3str9is_stringEPK4exprR7zstring.exit: ; preds = %land.rhs.i.i, %lan
   %27 = load ptr, ptr %26, align 8
   %m_decl.i.i = getelementptr inbounds i8, ptr %s1, i64 16
   %28 = load ptr, ptr %m_decl.i.i, align 8
-  %call4.i = tail call noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(80) %27)
+  %call4.i = tail call noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(80) %27)
   br i1 %call4.i, label %if.then13, label %return
 
 if.then13:                                        ; preds = %_ZNK8seq_util3str9is_stringEPK4exprR7zstring.exit
@@ -12219,7 +12219,7 @@ land.rhs.i:                                       ; preds = %if.end
   %str = getelementptr inbounds i8, ptr %10, i64 32
   %m_decl.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load ptr, ptr %m_decl.i.i, align 8
-  %call4.i4 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %str, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(80) %los)
+  %call4.i4 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %str, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(80) %los)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %land.rhs.i
@@ -12237,7 +12237,7 @@ land.rhs.i9:                                      ; preds = %if.end5
   %str7 = getelementptr inbounds i8, ptr %12, i64 32
   %m_decl.i.i10 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load ptr, ptr %m_decl.i.i10, align 8
-  %call4.i12 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %str7, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(80) %his)
+  %call4.i12 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %str7, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(80) %his)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %land.rhs.i9
@@ -13120,7 +13120,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 land.rhs.i:                                       ; preds = %invoke.cont7, %land.rhs.i.i
-  %call4.i38 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull align 8 dereferenceable(20) %str6, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(80) %z)
+  %call4.i38 = invoke noundef zeroext i1 @_ZNK8seq_util3str9is_stringEPK9func_declR7zstring(ptr noundef nonnull readonly align 8 dereferenceable(20) %str6, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(80) %z)
           to label %invoke.cont27 unwind label %lpad.loopexit.split-lp
 
 invoke.cont27:                                    ; preds = %land.rhs.i
@@ -15635,7 +15635,7 @@ entry:
   store ptr %r, ptr %ex3.i, align 8
   %html_encode.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 0, ptr %html_encode.i, align 8
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %r)
+  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull readonly align 8 dereferenceable(17) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %r)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -15666,7 +15666,7 @@ entry:
   store ptr %r, ptr %ex3.i, align 8
   %html_encode.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 1, ptr %html_encode.i, align 8
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %r)
+  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull readonly align 8 dereferenceable(17) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %r)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry

@@ -5730,7 +5730,7 @@ define hidden void @zflf_dirname_1(ptr nocapture noundef writeonly %0, ptr nound
   %34 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %28, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 1 %26, i64 %28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull readonly align 1 %26, i64 %28, i1 false)
   %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 %28
   store i8 0, ptr %36, align 1
   %37 = load i64, ptr %27, align 8
@@ -9656,7 +9656,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
   %.06568.i = phi ptr [ %85, %.lr.ph.i ], [ %.ptr, %68 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.069.i, ptr noundef align 1 %.06568.i, i64 noundef %41, i1 false) #28
   %83 = getelementptr inbounds i8, ptr %.069.i, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %83, ptr noundef nonnull align 1 %.2223, i64 noundef %.2182222, i1 false) #28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %83, ptr noundef nonnull readonly align 1 %.2223, i64 noundef %.2182222, i1 false) #28
   %84 = getelementptr inbounds i8, ptr %83, i64 %.2182222
   %85 = getelementptr inbounds i8, ptr %.06568.i, i64 %41
   %86 = icmp ult ptr %85, %.ptr234
@@ -9670,7 +9670,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
 87:                                               ; preds = %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.0.lcssa.i, ptr noundef align 1 %.065.lcssa.i, i64 noundef %.recomposed, i1 false) #28
   %88 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 %.recomposed
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %88, ptr noundef nonnull align 1 %.2223, i64 noundef %.2182222, i1 false) #28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %88, ptr noundef nonnull readonly align 1 %.2223, i64 noundef %.2182222, i1 false) #28
   %89 = getelementptr inbounds i8, ptr %88, i64 %.2182222
   br label %php_chunk_split.exit
 

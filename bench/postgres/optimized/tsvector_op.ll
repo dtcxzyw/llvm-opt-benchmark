@@ -171,7 +171,7 @@ define internal fastcc i32 @silly_cmp_tsvector(ptr nocapture noundef readonly %0
 46:                                               ; preds = %45
   %47 = tail call i32 @llvm.umin.i32(i32 %38, i32 %43)
   %48 = zext nneg i32 %47 to i64
-  %49 = tail call i32 @memcmp(ptr noundef %36, ptr noundef %41, i64 noundef %48) #15
+  %49 = tail call i32 @memcmp(ptr noundef readonly %36, ptr noundef readonly %41, i64 noundef %48) #15
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %tsCompareString.exit.thread
 
@@ -872,7 +872,7 @@ tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exi
   %72 = getelementptr i8, ptr %53, i64 %71
   %73 = call i32 @llvm.umin.i32(i32 %49, i32 %67)
   %74 = zext nneg i32 %73 to i64
-  %75 = call i32 @memcmp(ptr noundef nonnull %46, ptr noundef %72, i64 noundef %74) #15
+  %75 = call i32 @memcmp(ptr noundef nonnull readonly %46, ptr noundef readonly %72, i64 noundef %74) #15
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %tsCompareString.exit.i
 
@@ -1070,7 +1070,7 @@ define dso_local i64 @tsvector_delete_str(ptr nocapture noundef readonly %0) loc
   %55 = getelementptr i8, ptr %41, i64 %54
   %56 = tail call i32 @llvm.umin.i32(i32 %.fr47, i32 %50)
   %57 = zext nneg i32 %56 to i64
-  %58 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef %55, i64 noundef %57) #15
+  %58 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef readonly %55, i64 noundef %57) #15
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %61, label %tsCompareString.exit.i.us
 
@@ -1133,7 +1133,7 @@ tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exi
   %82 = getelementptr i8, ptr %41, i64 %81
   %83 = tail call i32 @llvm.umin.i32(i32 %.fr47, i32 %77)
   %84 = zext nneg i32 %83 to i64
-  %85 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef %82, i64 noundef %84) #15
+  %85 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef readonly %82, i64 noundef %84) #15
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %tsCompareString.exit.i
 
@@ -1464,7 +1464,7 @@ tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exi
   %58 = getelementptr i8, ptr %39, i64 %57
   %59 = call i32 @llvm.umin.i32(i32 %35, i32 %53)
   %60 = zext nneg i32 %59 to i64
-  %61 = call i32 @memcmp(ptr noundef nonnull %32, ptr noundef %58, i64 noundef %60) #15
+  %61 = call i32 @memcmp(ptr noundef nonnull readonly %32, ptr noundef readonly %58, i64 noundef %60) #15
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %tsCompareString.exit.i
 
@@ -2122,7 +2122,7 @@ define internal i32 @compare_text_lexemes(ptr nocapture noundef readonly %0, ptr
 66:                                               ; preds = %61
   %67 = tail call i32 @llvm.umin.i32(i32 %28, i32 %52)
   %68 = zext i32 %67 to i64
-  %69 = tail call i32 @memcmp(ptr noundef nonnull %56, ptr noundef nonnull %54, i64 noundef %68) #15
+  %69 = tail call i32 @memcmp(ptr noundef nonnull readonly %56, ptr noundef nonnull readonly %54, i64 noundef %68) #15
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %tsCompareString.exit
 
@@ -2567,7 +2567,7 @@ define dso_local noundef i64 @tsvector_concat(ptr nocapture noundef readonly %0)
 80:                                               ; preds = %78
   %81 = tail call i32 @llvm.umin.i32(i32 %67, i32 %73)
   %82 = zext nneg i32 %81 to i64
-  %83 = tail call i32 @memcmp(ptr noundef %65, ptr noundef %71, i64 noundef %82) #15
+  %83 = tail call i32 @memcmp(ptr noundef readonly %65, ptr noundef readonly %71, i64 noundef %82) #15
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %tsCompareString.exit
 
@@ -3885,7 +3885,7 @@ tsCompareString.exit.thread.us:                   ; preds = %tsCompareString.exi
   %41 = getelementptr i8, ptr %17, i64 %40
   %42 = tail call i32 @llvm.umin.i32(i32 %15, i32 %36)
   %43 = zext nneg i32 %42 to i64
-  %44 = tail call i32 @memcmp(ptr noundef %14, ptr noundef %41, i64 noundef %43) #15
+  %44 = tail call i32 @memcmp(ptr noundef readonly %14, ptr noundef readonly %41, i64 noundef %43) #15
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %tsCompareString.exit.thread
 
@@ -6167,7 +6167,7 @@ tsCompareString.exit.thread.us:                   ; preds = %.lr.ph.split.us.pre
   %83 = getelementptr inbounds i8, ptr %.06075, i64 28
   %84 = tail call i32 @llvm.umin.i32(i32 %80, i32 %61)
   %85 = zext nneg i32 %84 to i64
-  %86 = tail call i32 @memcmp(ptr noundef nonnull %83, ptr noundef %59, i64 noundef %85) #15
+  %86 = tail call i32 @memcmp(ptr noundef nonnull readonly %83, ptr noundef readonly %59, i64 noundef %85) #15
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %tsCompareString.exit.thread
 

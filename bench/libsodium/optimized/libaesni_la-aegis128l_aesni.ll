@@ -533,7 +533,7 @@ if.then36:                                        ; preds = %if.end31.thread333,
   %63 = sub nuw nsw i64 32, %rem32312356
   %64 = getelementptr i8, ptr %pad.i, i64 %rem32312356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr align 1 %add.ptr38, i64 %rem32312356, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32312356, i1 false)
   %65 = load <2 x i64>, ptr %pad.i, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %pad.i, i64 16
   %66 = load <2 x i64>, ptr %add.ptr.i, align 16
@@ -580,7 +580,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %81 = sub nuw nsw i64 32, %rem32312323
   %82 = getelementptr i8, ptr %pad.i81, i64 %rem32312323
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, i8 0, i64 %81, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i81, ptr align 1 %add.ptr43, i64 %rem32312323, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i81, ptr readonly align 1 %add.ptr43, i64 %rem32312323, i1 false)
   %83 = load <2 x i64>, ptr %pad.i81, align 16
   %add.ptr.i82 = getelementptr inbounds i8, ptr %pad.i81, i64 16
   %84 = load <2 x i64>, ptr %add.ptr.i82, align 16

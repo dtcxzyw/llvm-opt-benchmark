@@ -978,7 +978,7 @@ yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
   %.1.i = phi ptr [ %21, %yr_arena_allocate_memory.exit.thread.i ], [ %25, %22 ]
   %27 = add i64 %.sink25.i, %5
   store i64 %27, ptr %.sink24.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i, ptr align 1 %1, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i, ptr readonly align 1 %1, i64 %5, i1 false)
   %.not18.i = icmp eq ptr %2, null
   br i1 %.not18.i, label %yr_arena_write_data.exit, label %28
 

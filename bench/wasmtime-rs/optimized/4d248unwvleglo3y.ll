@@ -1013,7 +1013,7 @@ define void @"_ZN96_$LT$wasmtime_cli_flags..WasiNnGraph$u20$as$u20$wasmtime_cli_
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %23 = icmp eq i64 %20, -9223372036854775808
   br i1 %23, label %25, label %24
 
@@ -2861,7 +2861,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   %128 = phi i64 [ %119, %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h5ef98bab05aae808E.exit.i" ], [ %.pre.i.i18.i, %.noexc20.i ]
   %129 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !335, !noalias !340, !nonnull !14, !noundef !14
   %130 = getelementptr inbounds i8, ptr %129, i64 %128
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull align 1 %117, i64 %118, i1 false), !noalias !314
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull readonly align 1 %117, i64 %118, i1 false), !noalias !314
   %131 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !335, !noalias !340, !noundef !14
   %132 = add i64 %131, %118
   store i64 %132, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !335, !noalias !340
@@ -3267,7 +3267,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   %336 = getelementptr inbounds i8, ptr %81, i64 %.016.i
   %337 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !325, !noalias !330, !nonnull !14, !noundef !14
   %338 = getelementptr inbounds i8, ptr %337, i64 %335
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %338, ptr nonnull align 1 %336, i64 %109, i1 false), !noalias !314
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %338, ptr nonnull readonly align 1 %336, i64 %109, i1 false), !noalias !314
   %339 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !325, !noalias !330, !noundef !14
   %340 = add i64 %339, %109
   store i64 %340, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !325, !noalias !330
@@ -4086,7 +4086,7 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %.val29.i = load ptr, ptr %227, align 8, !alias.scope !373, !noalias !370, !nonnull !14, !noundef !14
   %228 = getelementptr inbounds i8, ptr %6, i64 32
   %.val.i = load ptr, ptr %228, align 8, !alias.scope !370, !noalias !373, !nonnull !14, !noundef !14
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull %.val.i, ptr nonnull %.val29.i, i64 %.val28.i), !alias.scope !375, !noalias !379
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val29.i, i64 %.val28.i), !alias.scope !375, !noalias !379
   %229 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %229, label %233, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
@@ -4245,7 +4245,7 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %.val21.i = load ptr, ptr %315, align 8, !alias.scope !383, !noalias !380, !nonnull !14, !noundef !14
   %316 = getelementptr inbounds i8, ptr %5, i64 8
   %.val.i30 = load ptr, ptr %316, align 8, !alias.scope !380, !noalias !383, !nonnull !14, !noundef !14
-  %bcmp.i.i.i31 = call i32 @bcmp(ptr nonnull %.val.i30, ptr nonnull %.val21.i, i64 %.val20.i), !alias.scope !385, !noalias !389
+  %bcmp.i.i.i31 = call i32 @bcmp(ptr nonnull readonly %.val.i30, ptr nonnull readonly %.val21.i, i64 %.val20.i), !alias.scope !385, !noalias !389
   %317 = icmp eq i32 %bcmp.i.i.i31, 0
   br i1 %317, label %318, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
@@ -7221,7 +7221,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 141:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %67), !noalias !736
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %67, ptr noundef nonnull align 8 dereferenceable(552) %95, i64 552, i1 false), !noalias !741
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %67, ptr noundef nonnull readonly align 8 dereferenceable(552) %95, i64 552, i1 false), !noalias !741
   call void @llvm.experimental.noalias.scope.decl(metadata !742)
   call void @llvm.experimental.noalias.scope.decl(metadata !745)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !736
@@ -7630,7 +7630,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 245:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %54), !noalias !861
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %54, ptr noundef nonnull align 8 dereferenceable(552) %90, i64 552, i1 false), !noalias !866
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %54, ptr noundef nonnull readonly align 8 dereferenceable(552) %90, i64 552, i1 false), !noalias !866
   call void @llvm.experimental.noalias.scope.decl(metadata !867)
   call void @llvm.experimental.noalias.scope.decl(metadata !870)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52), !noalias !861
@@ -8039,7 +8039,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 349:                                              ; preds = %346
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %41), !noalias !985
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %41, ptr noundef nonnull align 8 dereferenceable(552) %85, i64 552, i1 false), !noalias !990
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %41, ptr noundef nonnull readonly align 8 dereferenceable(552) %85, i64 552, i1 false), !noalias !990
   call void @llvm.experimental.noalias.scope.decl(metadata !991)
   call void @llvm.experimental.noalias.scope.decl(metadata !994)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !985
@@ -8448,7 +8448,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 453:                                              ; preds = %450
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %28), !noalias !1109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %28, ptr noundef nonnull align 8 dereferenceable(552) %80, i64 552, i1 false), !noalias !1114
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %28, ptr noundef nonnull readonly align 8 dereferenceable(552) %80, i64 552, i1 false), !noalias !1114
   call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   call void @llvm.experimental.noalias.scope.decl(metadata !1118)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !1109
@@ -8857,7 +8857,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 557:                                              ; preds = %554
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %15), !noalias !1233
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %15, ptr noundef nonnull align 8 dereferenceable(552) %74, i64 552, i1 false), !noalias !1238
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %15, ptr noundef nonnull readonly align 8 dereferenceable(552) %74, i64 552, i1 false), !noalias !1238
   call void @llvm.experimental.noalias.scope.decl(metadata !1239)
   call void @llvm.experimental.noalias.scope.decl(metadata !1242)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !1233
@@ -9590,7 +9590,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 141:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %67), !noalias !1383
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %67, ptr noundef nonnull align 8 dereferenceable(552) %95, i64 552, i1 false), !noalias !1388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %67, ptr noundef nonnull readonly align 8 dereferenceable(552) %95, i64 552, i1 false), !noalias !1388
   call void @llvm.experimental.noalias.scope.decl(metadata !1389)
   call void @llvm.experimental.noalias.scope.decl(metadata !1392)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !1383
@@ -10010,7 +10010,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 246:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %54), !noalias !1520
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %54, ptr noundef nonnull align 8 dereferenceable(552) %90, i64 552, i1 false), !noalias !1525
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %54, ptr noundef nonnull readonly align 8 dereferenceable(552) %90, i64 552, i1 false), !noalias !1525
   call void @llvm.experimental.noalias.scope.decl(metadata !1526)
   call void @llvm.experimental.noalias.scope.decl(metadata !1529)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52), !noalias !1520
@@ -10430,7 +10430,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 351:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %41), !noalias !1657
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %41, ptr noundef nonnull align 8 dereferenceable(552) %85, i64 552, i1 false), !noalias !1662
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %41, ptr noundef nonnull readonly align 8 dereferenceable(552) %85, i64 552, i1 false), !noalias !1662
   call void @llvm.experimental.noalias.scope.decl(metadata !1663)
   call void @llvm.experimental.noalias.scope.decl(metadata !1666)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !1657
@@ -10850,7 +10850,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 456:                                              ; preds = %453
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %28), !noalias !1794
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %28, ptr noundef nonnull align 8 dereferenceable(552) %80, i64 552, i1 false), !noalias !1799
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %28, ptr noundef nonnull readonly align 8 dereferenceable(552) %80, i64 552, i1 false), !noalias !1799
   call void @llvm.experimental.noalias.scope.decl(metadata !1800)
   call void @llvm.experimental.noalias.scope.decl(metadata !1803)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !1794
@@ -11270,7 +11270,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
 
 561:                                              ; preds = %558
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %15), !noalias !1931
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %15, ptr noundef nonnull align 8 dereferenceable(552) %74, i64 552, i1 false), !noalias !1936
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %15, ptr noundef nonnull readonly align 8 dereferenceable(552) %74, i64 552, i1 false), !noalias !1936
   call void @llvm.experimental.noalias.scope.decl(metadata !1937)
   call void @llvm.experimental.noalias.scope.decl(metadata !1940)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !1931

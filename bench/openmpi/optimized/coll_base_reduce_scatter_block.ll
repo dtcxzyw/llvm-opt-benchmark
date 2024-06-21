@@ -1335,11 +1335,11 @@ ompi_coll_base_sendrecv.exit.i:                   ; preds = %73, %70
   br i1 %76, label %78, label %79
 
 78:                                               ; preds = %75
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %77, ptr noundef %68, i64 noundef %61, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %77, ptr noundef %68, i64 noundef %61, ptr noundef %3)
   br label %80
 
 79:                                               ; preds = %75
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %68, ptr noundef %77, i64 noundef %61, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %68, ptr noundef %77, i64 noundef %61, ptr noundef %3)
   br label %80
 
 80:                                               ; preds = %79, %78

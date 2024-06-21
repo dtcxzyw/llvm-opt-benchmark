@@ -1378,7 +1378,7 @@ invoke.cont6:
 call.i.noexc:                                     ; preds = %.noexc
   %sext = shl i64 %sub.ptr.sub.i, 32
   %conv2.i = ashr exact i64 %sext, 32
-  %call.i.i4 = invoke noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef %encoded.coerce0, i64 noundef %conv2.i, ptr noundef nonnull %call.i3, i64 noundef %conv.i2, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
+  %call.i.i4 = invoke noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %encoded.coerce0, i64 noundef %conv2.i, ptr noundef nonnull %call.i3, i64 noundef %conv.i2, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call.i.noexc
@@ -1411,7 +1411,7 @@ entry:
   %2 = load i32, ptr %second, align 8
   %conv2 = sext i32 %2 to i64
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 0)
-  %call.i = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef %1, i64 noundef %conv2, ptr noundef nonnull %call, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
+  %call.i = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %1, i64 noundef %conv2, ptr noundef nonnull %call, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %call.i)
   ret void
 }
@@ -1437,7 +1437,7 @@ define void @_ZN8facebook5velox8encoding6Base646decodeEPKcmPc(ptr nocapture noun
 entry:
   %div2 = lshr i64 %size, 2
   %mul = mul nuw i64 %div2, 3
-  %call.i = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef %data, i64 noundef %size, ptr noundef %output, i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
+  %call.i = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %data, i64 noundef %size, ptr noundef %output, i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
   ret void
 }
 

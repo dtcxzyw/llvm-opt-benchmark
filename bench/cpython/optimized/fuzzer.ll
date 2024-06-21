@@ -1380,7 +1380,7 @@ if.end3.i341:                                     ; preds = %_run_fuzz.exit140
   %108 = load i32, ptr %arrayidx8.i, align 4
   %add.ptr.i343 = getelementptr i8, ptr %data, i64 2
   %sub.i344 = add nsw i64 %size, -2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @pycompile_scratch, ptr align 1 %add.ptr.i343, i64 %sub.i344, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @pycompile_scratch, ptr readonly align 1 %add.ptr.i343, i64 %sub.i344, i1 false)
   %arrayidx10.i = getelementptr [16384 x i8], ptr @pycompile_scratch, i64 0, i64 %sub.i344
   store i8 0, ptr %arrayidx10.i, align 1
   %call.i345 = tail call ptr @Py_CompileStringExFlags(ptr noundef nonnull @pycompile_scratch, ptr noundef nonnull @.str.50, i32 noundef %105, ptr noundef null, i32 noundef %108) #8

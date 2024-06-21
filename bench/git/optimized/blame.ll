@@ -1295,7 +1295,7 @@ for.body15.i:                                     ; preds = %land.rhs9.lr.ph.i, 
 lor.lhs.false.i:                                  ; preds = %for.body15.i
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i.i)
   %61 = load ptr, ptr %repo527, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i100, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i100, i64 32, i1 false)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end7.i.i, %lor.lhs.false.i
@@ -1316,7 +1316,7 @@ if.end3.i.i:                                      ; preds = %while.body.i.i
 
 if.end7.i.i:                                      ; preds = %if.end3.i.i
   %oid8.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull align 4 dereferenceable(32) %oid8.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid8.i.i, i64 32, i1 false)
   %algo.i8.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 36
   br label %while.body.i.i
 
@@ -1331,7 +1331,7 @@ if.then21.i:                                      ; preds = %for.body15.i, %peel
   unreachable
 
 if.end24.i:                                       ; preds = %while.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i100, ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i100, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
   %63 = load i32, ptr %algo3.i.i.i, align 4
   store i32 %63, ptr %algo.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i.i)
@@ -3310,7 +3310,7 @@ entry:
   %oid = alloca %struct.object_id, align 4
   %repo = getelementptr inbounds i8, ptr %cbdata, i64 48
   %0 = load ptr, ptr %repo, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %oid_ret, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid_ret, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid_ret, i64 32
   %algo3.i = getelementptr inbounds i8, ptr %oid, i64 32
   br label %while.body
@@ -3326,7 +3326,7 @@ while.body:                                       ; preds = %if.end7, %entry
   ]
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid_ret, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid_ret, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %1 = load i32, ptr %algo3.i, align 4
   store i32 %1, ptr %algo.i, align 4
   br label %return
@@ -3339,7 +3339,7 @@ if.end3:                                          ; preds = %while.body
 
 if.end7:                                          ; preds = %if.end3
   %oid8 = getelementptr inbounds i8, ptr %call5, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %oid8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid8, i64 32, i1 false)
   %algo.i8 = getelementptr inbounds i8, ptr %call5, i64 36
   br label %while.body
 

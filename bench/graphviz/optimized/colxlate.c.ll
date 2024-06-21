@@ -3723,13 +3723,13 @@ define ptr @setColorScheme(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %3, label %gv_strdup.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #19
+  %5 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #19
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_strdup.exit
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %10 = add i64 %9, 1
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.6, i64 noundef %10) #21
   tail call fastcc void @graphviz_exit() #22

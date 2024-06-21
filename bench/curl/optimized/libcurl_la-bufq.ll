@@ -330,7 +330,7 @@ chunk_append.exit:                                ; preds = %if.end3
   %x.i = getelementptr inbounds i8, ptr %call, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %2
   %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %len.addr.024)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf.addr.025, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf.addr.025, i64 %cond.i, i1 false)
   %4 = load i64, ptr %w_offset.i, align 8
   %add.i = add i64 %4, %cond.i
   store i64 %add.i, ptr %w_offset.i, align 8
@@ -1275,7 +1275,7 @@ chunk_append.exit.i:                              ; preds = %if.end3.i26
   %x.i.i = getelementptr inbounds i8, ptr %retval.0.i40, i64 32
   %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %x.i.i, i64 0, i64 %33
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %len.addr.024.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr align 1 %buf.addr.025.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr readonly align 1 %buf.addr.025.i, i64 %cond.i.i, i1 false)
   %34 = load i64, ptr %w_offset.i.i, align 8
   %add.i.i = add i64 %34, %cond.i.i
   store i64 %add.i.i, ptr %w_offset.i.i, align 8

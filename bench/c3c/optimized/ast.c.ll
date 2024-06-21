@@ -260,7 +260,7 @@ define dso_local ptr @decl_safe_name(ptr noundef readonly %0) local_unnamed_addr
   br i1 %.not7, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @decl_to_a_name(ptr noundef nonnull %0)
+  %5 = tail call ptr @decl_to_a_name(ptr noundef nonnull readonly %0)
   %6 = getelementptr inbounds i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 110

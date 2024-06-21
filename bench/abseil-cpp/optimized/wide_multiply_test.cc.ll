@@ -3727,7 +3727,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %call.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !134
   %v.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %this, i64 32, i1 false), !noalias !134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %this, i64 32, i1 false), !noalias !134
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113Eq256MatcherPIN4absl15random_internal4U256EE10gmock_ImplIRKS3_EE, i64 16), ptr %call.i.i.i.i.i.i, align 16, !noalias !134
   %vtable_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 16

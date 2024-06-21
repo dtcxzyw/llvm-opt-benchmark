@@ -2046,7 +2046,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_script(ptr nocapture noundef %0, 
   %.sroa.3 = alloca ptr, align 8
   %.sroa.9 = alloca ptr, align 8
   %.sroa.13 = alloca ptr, align 8
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
   %.094.sroa.gep189 = getelementptr inbounds i8, ptr %0, i64 8
   %.094.sroa.gep192 = getelementptr inbounds i8, ptr %0, i64 4
   %.094.sroa.gep201 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2080,7 +2080,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_script(ptr nocapture noundef %0, 
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
-  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr %1, i64 %4)
+  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr readonly %1, i64 %4)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %unicode_find_name.exit, label %16
 
@@ -3415,7 +3415,7 @@ define internal fastcc void @cr_sort_and_remove_overlap(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2, 1) i32 @unicode_general_category(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %18, %2
@@ -3445,7 +3445,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_general_category(ptr nocapture no
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr %1, i64 %3)
+  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr readonly %1, i64 %3)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %unicode_find_name.exit, label %15
 
@@ -3682,7 +3682,7 @@ cr_add_interval.exit:                             ; preds = %83, %.loopexit, %53
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2, 1) i32 @unicode_prop(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %18, %2
@@ -3712,7 +3712,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_prop(ptr nocapture noundef %0, pt
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr %1, i64 %3)
+  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr readonly %1, i64 %3)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %unicode_find_name.exit, label %15
 

@@ -614,7 +614,7 @@ RSTRING_PTR.exit:                                 ; preds = %32, %35
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %36
 
 36:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %.sroa.2.0.i, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr readonly align 1 %.sroa.2.0.i, i64 %2, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %36, %RSTRING_PTR.exit, %31

@@ -700,7 +700,7 @@ while.body.preheader.i:                           ; preds = %if.end
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -714,7 +714,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -723,7 +723,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -1315,7 +1315,7 @@ while.body.preheader.i:                           ; preds = %if.end
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %3, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %3, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -1371,7 +1371,7 @@ for.inc.us:                                       ; preds = %for.body.us
   br i1 %exitcond310.not, label %for.end, label %for.body.us, !llvm.loop !14
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -1380,7 +1380,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2046,7 +2046,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2060,7 +2060,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2069,7 +2069,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2160,7 +2160,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2174,7 +2174,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2183,7 +2183,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2333,7 +2333,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2347,7 +2347,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2356,7 +2356,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2654,7 +2654,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2668,7 +2668,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2677,7 +2677,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -3665,7 +3665,7 @@ if.end7:                                          ; preds = %for.body
   br i1 %cmp.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.27) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.27) #20
   unreachable
 
 if.end.i:                                         ; preds = %if.end7
@@ -3678,7 +3678,7 @@ if.end.i:                                         ; preds = %if.end7
 
 if.then4.i:                                       ; preds = %if.end.i
   %conv.i = fpext float %5 to double
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.28, double noundef %conv.i)
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.28, double noundef %conv.i)
   br label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera.exit
 
 _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera.exit: ; preds = %if.end.i, %if.then4.i

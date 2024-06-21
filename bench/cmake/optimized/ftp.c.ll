@@ -3558,7 +3558,7 @@ define internal fastcc i32 @ftp_state_mdtm_resp(ptr noundef %0, i32 noundef %1) 
   %11 = getelementptr inbounds i8, ptr %9, i64 920
   %12 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %11) #10
   %13 = getelementptr inbounds i8, ptr %12, i64 4
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #11
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #11
   %15 = icmp ult i64 %14, 14
   br i1 %15, label %ftp_213_date.exit.thread, label %16
 

@@ -11317,7 +11317,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %246 = load ptr, ptr %72, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 8
   %248 = getelementptr inbounds i8, ptr %246, i64 32
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %28, ptr noundef nonnull align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(24) %248, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.018.023.i, i64 noundef 3)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %28, ptr noundef nonnull align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(24) %248, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.018.023.i, i64 noundef 3)
           to label %249 unwind label %206
 
 249:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i
@@ -13158,7 +13158,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118BinaryConfigParser5parseEv(ptr n
   %325 = load ptr, ptr %127, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 88
   %327 = getelementptr inbounds i8, ptr %325, i64 112
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %326, ptr noundef nonnull align 8 dereferenceable(24) %327, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %326, ptr noundef nonnull align 8 dereferenceable(24) %327, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
           to label %328 unwind label %320
 
 328:                                              ; preds = %324
@@ -13380,7 +13380,7 @@ _ZNSt3setIN5vcpkg13StringLiteralESt4lessIS1_ESaIS1_EE6insertEOS1_.exit.i: ; pred
   %403 = load ptr, ptr %127, align 8
   %404 = getelementptr inbounds i8, ptr %403, i64 392
   %405 = getelementptr inbounds i8, ptr %403, i64 416
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(24) %405, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(24) %405, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
           to label %406 unwind label %398
 
 406:                                              ; preds = %402
@@ -13536,7 +13536,7 @@ _ZNSt3setIN5vcpkg13StringLiteralESt4lessIS1_ESaIS1_EE6insertEOS1_.exit279.i: ; p
   %454 = load ptr, ptr %127, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 344
   %456 = getelementptr inbounds i8, ptr %454, i64 368
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %455, ptr noundef nonnull align 8 dereferenceable(24) %456, ptr noundef nonnull align 8 dereferenceable(32) %446, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %455, ptr noundef nonnull align 8 dereferenceable(24) %456, ptr noundef nonnull align 8 dereferenceable(32) %446, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
           to label %.noexc15 unwind label %992
 
 .noexc15:                                         ; preds = %453
@@ -13782,7 +13782,7 @@ _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE5errorEv.exit: ; preds = %.
 .noexc26:                                         ; preds = %543
   %545 = getelementptr inbounds i8, ptr %544, i64 112
   %546 = getelementptr inbounds i8, ptr %544, i64 88
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %546, ptr noundef nonnull align 8 dereferenceable(24) %545, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %546, ptr noundef nonnull align 8 dereferenceable(24) %545, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 1)
           to label %547 unwind label %550
 
 547:                                              ; preds = %.noexc26
@@ -14042,7 +14042,7 @@ _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE5errorEv.exit: ; preds = %.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, i8 0, i64 24, i1 false)
   store i8 0, ptr %83, align 1
   store i8 0, ptr %84, align 1
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteERbS1_RKSt6vectorISt4pairIN5vcpkg9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %84, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 3)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteERbS1_RKSt6vectorISt4pairIN5vcpkg9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %84, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 3)
           to label %639 unwind label %645
 
 639:                                              ; preds = %638
@@ -14262,7 +14262,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assign
   %718 = load ptr, ptr %127, align 8
   %719 = getelementptr inbounds i8, ptr %718, i64 184
   %720 = getelementptr inbounds i8, ptr %718, i64 208
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %719, ptr noundef nonnull align 8 dereferenceable(24) %720, ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %719, ptr noundef nonnull align 8 dereferenceable(24) %720, ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
           to label %721 unwind label %715
 
 721:                                              ; preds = %717
@@ -14437,7 +14437,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assign
   %780 = load ptr, ptr %127, align 8
   %781 = getelementptr inbounds i8, ptr %780, i64 232
   %782 = getelementptr inbounds i8, ptr %780, i64 256
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %781, ptr noundef nonnull align 8 dereferenceable(24) %782, ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %781, ptr noundef nonnull align 8 dereferenceable(24) %782, ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
           to label %783 unwind label %777
 
 783:                                              ; preds = %779
@@ -14662,7 +14662,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assign
   %870 = load ptr, ptr %127, align 8
   %871 = getelementptr inbounds i8, ptr %870, i64 288
   %872 = getelementptr inbounds i8, ptr %870, i64 312
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %871, ptr noundef nonnull align 8 dereferenceable(24) %872, ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %871, ptr noundef nonnull align 8 dereferenceable(24) %872, ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 2)
           to label %873 unwind label %867
 
 873:                                              ; preds = %869
@@ -14719,7 +14719,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assign
   %898 = load ptr, ptr %127, align 8
   %899 = getelementptr inbounds i8, ptr %898, i64 337
   %900 = getelementptr inbounds i8, ptr %898, i64 336
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteERbS1_RKSt6vectorISt4pairIN5vcpkg9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 1 dereferenceable(1) %899, ptr noundef nonnull align 1 dereferenceable(1) %900, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteERbS1_RKSt6vectorISt4pairIN5vcpkg9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 1 dereferenceable(1) %899, ptr noundef nonnull align 1 dereferenceable(1) %900, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129, i64 noundef 1)
           to label %.noexc54 unwind label %992
 
 .noexc54:                                         ; preds = %897
@@ -14901,7 +14901,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assign
   %977 = load ptr, ptr %127, align 8
   %978 = getelementptr inbounds i8, ptr %977, i64 136
   %979 = getelementptr inbounds i8, ptr %977, i64 160
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %978, ptr noundef nonnull align 8 dereferenceable(24) %979, ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0124.0129)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %978, ptr noundef nonnull align 8 dereferenceable(24) %979, ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129)
           to label %980 unwind label %962
 
 980:                                              ; preds = %976

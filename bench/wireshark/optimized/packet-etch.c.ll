@@ -322,7 +322,7 @@ gbl_symbols_new.exit.i:                           ; preds = %37
   %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull %9, ptr noundef nonnull %46) #8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %50 = call noalias ptr @fopen(ptr noundef %49, ptr noundef nonnull @.str.80)
+  %50 = call noalias ptr @fopen(ptr noundef readonly %49, ptr noundef nonnull @.str.80)
   %.not.i18.i = icmp eq ptr %50, null
   br i1 %.not.i18.i, label %add_symbols_of_file.exit.i, label %.preheader22.i.i
 

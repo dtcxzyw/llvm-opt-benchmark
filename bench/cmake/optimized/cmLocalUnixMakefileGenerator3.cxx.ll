@@ -16664,7 +16664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
 .lr.ph.i.i.i.i.i212:                              ; preds = %278, %302
   %.036.i.i.i.i.i = phi i64 [ %304, %302 ], [ %290, %278 ]
   %.sroa.025.035.i.i.i.i.i = phi ptr [ %303, %302 ], [ %285, %278 ]
-  %292 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.035.i.i.i.i.i)
+  %292 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.035.i.i.i.i.i)
           to label %.noexc213 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit
 
 .noexc213:                                        ; preds = %.lr.ph.i.i.i.i.i212
@@ -16672,7 +16672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
 
 293:                                              ; preds = %.noexc213
   %294 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i, i64 32
-  %295 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %294)
+  %295 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %294)
           to label %.noexc214 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit
 
 .noexc214:                                        ; preds = %293
@@ -16680,7 +16680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
 
 296:                                              ; preds = %.noexc214
   %297 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i, i64 64
-  %298 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %297)
+  %298 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %297)
           to label %.noexc215 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit
 
 .noexc215:                                        ; preds = %296
@@ -16688,7 +16688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
 
 299:                                              ; preds = %.noexc215
   %300 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i, i64 96
-  %301 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %300)
+  %301 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %300)
           to label %.noexc216 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit
 
 .noexc216:                                        ; preds = %299
@@ -16720,7 +16720,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEN12_GLOBAL__N_115NotInProjectDirEET_SF_SF_T0_.exit.i
 
 307:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %308 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.0.lcssa.i.i.i.i.i)
+  %308 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.0.lcssa.i.i.i.i.i)
           to label %.noexc217 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit.split-lp
 
 .noexc217:                                        ; preds = %307
@@ -16732,7 +16732,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11ch
 
 311:                                              ; preds = %309, %._crit_edge.i.i.i.i.i
   %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %310, %309 ]
-  %312 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i.i)
+  %312 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i.i)
           to label %.noexc218 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit.split-lp
 
 .noexc218:                                        ; preds = %311
@@ -16744,7 +16744,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11ch
 
 315:                                              ; preds = %313, %._crit_edge.i.i.i.i.i
   %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %314, %313 ]
-  %316 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i.i)
+  %316 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i.i)
           to label %.noexc219 unwind label %.loopexit.split-lp364.loopexit.split-lp.loopexit.split-lp
 
 .noexc219:                                        ; preds = %315
@@ -16763,7 +16763,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11ch
 .lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_115NotInProjectDirEEEET_SI_SI_T0_.exit.i.i.i, %322
   %.sroa.06.021.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %322 ], [ %.sroa.06.018.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_115NotInProjectDirEEEET_SI_SI_T0_.exit.i.i.i ]
   %.sroa.012.020.i.i.i = phi ptr [ %.sroa.012.1.i.i.i, %322 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_115NotInProjectDirEEEET_SI_SI_T0_.exit.i.i.i ]
-  %318 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.021.i.i.i)
+  %318 = invoke fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.021.i.i.i)
           to label %.noexc220 unwind label %.loopexit.split-lp364.loopexit
 
 .noexc220:                                        ; preds = %.lr.ph.i.i.i
@@ -22139,7 +22139,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_115NotInProjectDirEE9_M_invokeERKSt9_Any_dataS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #3 align 2 {
   %.val = load ptr, ptr %0, align 8
-  %3 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.val, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115NotInProjectDirclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(32) %.val, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret i1 %3
 }
 
@@ -22164,7 +22164,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112ba
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 

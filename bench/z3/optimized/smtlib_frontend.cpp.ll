@@ -388,7 +388,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %_ZS
   %__next.08.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.07.i.i.i.i, i64 -8
   %__next.0.val9.i.i.i.i.i = load ptr, ptr %__next.08.i.i.i.i.i, align 8
   %__val.val.val10.i.i.i.i.i = load ptr, ptr %14, align 8
-  %call.i11.i.i.i.i.i16 = invoke fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__val.val.val10.i.i.i.i.i, ptr noundef %__next.0.val9.i.i.i.i.i)
+  %call.i11.i.i.i.i.i16 = invoke fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__val.val.val10.i.i.i.i.i, ptr noundef readonly %__next.0.val9.i.i.i.i.i)
           to label %call.i11.i.i.i.i.i.noexc unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i11.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
@@ -701,7 +701,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %_ZS
   %__next.08.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.07.i.i.i.i, i64 -8
   %__next.0.val9.i.i.i.i.i = load ptr, ptr %__next.08.i.i.i.i.i, align 8
   %__val.val.val10.i.i.i.i.i = load ptr, ptr %14, align 8
-  %call.i11.i.i.i.i.i16 = invoke fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__val.val.val10.i.i.i.i.i, ptr noundef %__next.0.val9.i.i.i.i.i)
+  %call.i11.i.i.i.i.i16 = invoke fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__val.val.val10.i.i.i.i.i, ptr noundef readonly %__next.0.val9.i.i.i.i.i)
           to label %call.i11.i.i.i.i.i.noexc unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i11.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
@@ -1574,7 +1574,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %_ZS
   %__next.08.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.07.i.i.i.i, i64 -8
   %__next.0.val9.i.i.i.i.i = load ptr, ptr %__next.08.i.i.i.i.i, align 8
   %__val.val.val10.i.i.i.i.i = load ptr, ptr %14, align 8
-  %call.i11.i.i.i.i.i16 = invoke fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__val.val.val10.i.i.i.i.i, ptr noundef %__next.0.val9.i.i.i.i.i)
+  %call.i11.i.i.i.i.i16 = invoke fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__val.val.val10.i.i.i.i.i, ptr noundef readonly %__next.0.val9.i.i.i.i.i)
           to label %call.i11.i.i.i.i.i.noexc unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i11.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
@@ -3076,7 +3076,7 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr2.val.i.i.i.i = load ptr, ptr %add.ptr2.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
-  %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef %add.ptr2.val.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef readonly %add.ptr2.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr3.i.i.i.i, align 8
@@ -3115,7 +3115,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.05.i.i.i.i.i
   %add.ptr.val.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %add.ptr.val.val.i.i.i.i.i, ptr noundef %0)
+  %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %add.ptr.val.val.i.i.i.i.i, ptr noundef readonly %0)
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
@@ -3441,14 +3441,14 @@ if.end:                                           ; preds = %while.body
   %__a.val24.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__b.val25.i.i = load ptr, ptr %add.ptr.i, align 8
   %__a.val24.val.i.i = load ptr, ptr %__a.val24.i.i, align 8
-  %call.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__a.val24.val.i.i, ptr noundef %__b.val25.i.i)
+  %call.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__a.val24.val.i.i, ptr noundef readonly %__b.val25.i.i)
   %__c.val23.i.i = load ptr, ptr %add.ptr2.i, align 8
   br i1 %call.i.i.i, label %if.then.i.i, label %if.else7.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %__b.val22.i.i = load ptr, ptr %add.ptr.i, align 8
   %__b.val22.val.i.i = load ptr, ptr %__b.val22.i.i, align 8
-  %call.i26.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__b.val22.val.i.i, ptr noundef %__c.val23.i.i)
+  %call.i26.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__b.val22.val.i.i, ptr noundef readonly %__c.val23.i.i)
   br i1 %call.i26.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -3462,7 +3462,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %__a.val20.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__c.val21.i.i = load ptr, ptr %add.ptr2.i, align 8
   %__a.val20.val.i.i = load ptr, ptr %__a.val20.i.i, align 8
-  %call.i27.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__a.val20.val.i.i, ptr noundef %__c.val21.i.i)
+  %call.i27.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__a.val20.val.i.i, ptr noundef readonly %__c.val21.i.i)
   %29 = load ptr, ptr %__first, align 8
   br i1 %call.i27.i.i, label %if.then4.i.i, label %if.else5.i.i
 
@@ -3481,7 +3481,7 @@ if.else5.i.i:                                     ; preds = %if.else.i.i
 if.else7.i.i:                                     ; preds = %if.end
   %__a.val.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__a.val.val.i.i = load ptr, ptr %__a.val.i.i, align 8
-  %call.i28.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__a.val.val.i.i, ptr noundef %__c.val23.i.i)
+  %call.i28.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__a.val.val.i.i, ptr noundef readonly %__c.val23.i.i)
   br i1 %call.i28.i.i, label %if.then9.i.i, label %if.else10.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
@@ -3494,7 +3494,7 @@ if.else10.i.i:                                    ; preds = %if.else7.i.i
   %__b.val.i.i = load ptr, ptr %add.ptr.i, align 8
   %__c.val.i.i = load ptr, ptr %add.ptr2.i, align 8
   %__b.val.val.i.i = load ptr, ptr %__b.val.i.i, align 8
-  %call.i29.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__b.val.val.i.i, ptr noundef %__c.val.i.i)
+  %call.i29.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__b.val.val.i.i, ptr noundef readonly %__c.val.i.i)
   %34 = load ptr, ptr %__first, align 8
   br i1 %call.i29.i.i, label %if.then12.i.i, label %if.else13.i.i
 
@@ -3698,7 +3698,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__i.0.val = load ptr, ptr %__i.018, align 8
   %__first.val = load ptr, ptr %__first, align 8
   %__i.0.val.val = load ptr, ptr %__i.0.val, align 8
-  %call.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__i.0.val.val, ptr noundef %__first.val)
+  %call.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__i.0.val.val, ptr noundef readonly %__first.val)
   %0 = load ptr, ptr %__i.018, align 8
   br i1 %call.i, label %if.then2, label %if.else
 
@@ -3715,7 +3715,7 @@ if.then2:                                         ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %__next.0.val9.i = load ptr, ptr %__first.pn17, align 8
   %__val.val.val10.i = load ptr, ptr %0, align 8
-  %call.i11.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__val.val.val10.i, ptr noundef %__next.0.val9.i)
+  %call.i11.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %__val.val.val10.i, ptr noundef readonly %__next.0.val9.i)
   br i1 %call.i11.i, label %while.body.i, label %for.inc
 
 while.body.i:                                     ; preds = %if.else, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit
@@ -3924,7 +3924,7 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr2.val.i.i.i.i = load ptr, ptr %add.ptr2.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
-  %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef %add.ptr2.val.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef readonly %add.ptr2.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr3.i.i.i.i, align 8
@@ -3963,7 +3963,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.05.i.i.i.i.i
   %add.ptr.val.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %add.ptr.val.val.i.i.i.i.i, ptr noundef %0)
+  %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %add.ptr.val.val.i.i.i.i.i, ptr noundef readonly %0)
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
@@ -4289,14 +4289,14 @@ if.end:                                           ; preds = %while.body
   %__a.val24.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__b.val25.i.i = load ptr, ptr %add.ptr.i, align 8
   %__a.val24.val.i.i = load ptr, ptr %__a.val24.i.i, align 8
-  %call.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__a.val24.val.i.i, ptr noundef %__b.val25.i.i)
+  %call.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__a.val24.val.i.i, ptr noundef readonly %__b.val25.i.i)
   %__c.val23.i.i = load ptr, ptr %add.ptr2.i, align 8
   br i1 %call.i.i.i, label %if.then.i.i, label %if.else7.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %__b.val22.i.i = load ptr, ptr %add.ptr.i, align 8
   %__b.val22.val.i.i = load ptr, ptr %__b.val22.i.i, align 8
-  %call.i26.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__b.val22.val.i.i, ptr noundef %__c.val23.i.i)
+  %call.i26.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__b.val22.val.i.i, ptr noundef readonly %__c.val23.i.i)
   br i1 %call.i26.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -4310,7 +4310,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %__a.val20.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__c.val21.i.i = load ptr, ptr %add.ptr2.i, align 8
   %__a.val20.val.i.i = load ptr, ptr %__a.val20.i.i, align 8
-  %call.i27.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__a.val20.val.i.i, ptr noundef %__c.val21.i.i)
+  %call.i27.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__a.val20.val.i.i, ptr noundef readonly %__c.val21.i.i)
   %29 = load ptr, ptr %__first, align 8
   br i1 %call.i27.i.i, label %if.then4.i.i, label %if.else5.i.i
 
@@ -4329,7 +4329,7 @@ if.else5.i.i:                                     ; preds = %if.else.i.i
 if.else7.i.i:                                     ; preds = %if.end
   %__a.val.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__a.val.val.i.i = load ptr, ptr %__a.val.i.i, align 8
-  %call.i28.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__a.val.val.i.i, ptr noundef %__c.val23.i.i)
+  %call.i28.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__a.val.val.i.i, ptr noundef readonly %__c.val23.i.i)
   br i1 %call.i28.i.i, label %if.then9.i.i, label %if.else10.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
@@ -4342,7 +4342,7 @@ if.else10.i.i:                                    ; preds = %if.else7.i.i
   %__b.val.i.i = load ptr, ptr %add.ptr.i, align 8
   %__c.val.i.i = load ptr, ptr %add.ptr2.i, align 8
   %__b.val.val.i.i = load ptr, ptr %__b.val.i.i, align 8
-  %call.i29.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__b.val.val.i.i, ptr noundef %__c.val.i.i)
+  %call.i29.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__b.val.val.i.i, ptr noundef readonly %__c.val.i.i)
   %34 = load ptr, ptr %__first, align 8
   br i1 %call.i29.i.i, label %if.then12.i.i, label %if.else13.i.i
 
@@ -4541,7 +4541,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__i.0.val = load ptr, ptr %__i.018, align 8
   %__first.val = load ptr, ptr %__first, align 8
   %__i.0.val.val = load ptr, ptr %__i.0.val, align 8
-  %call.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__i.0.val.val, ptr noundef %__first.val)
+  %call.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__i.0.val.val, ptr noundef readonly %__first.val)
   %0 = load ptr, ptr %__i.018, align 8
   br i1 %call.i, label %if.then2, label %if.else
 
@@ -4558,7 +4558,7 @@ if.then2:                                         ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %__next.0.val9.i = load ptr, ptr %__first.pn17, align 8
   %__val.val.val10.i = load ptr, ptr %0, align 8
-  %call.i11.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__val.val.val10.i, ptr noundef %__next.0.val9.i)
+  %call.i11.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %__val.val.val10.i, ptr noundef readonly %__next.0.val9.i)
   br i1 %call.i11.i, label %while.body.i, label %for.inc
 
 while.body.i:                                     ; preds = %if.else, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit
@@ -4767,7 +4767,7 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr2.val.i.i.i.i = load ptr, ptr %add.ptr2.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
-  %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef %add.ptr2.val.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef readonly %add.ptr2.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr3.i.i.i.i, align 8
@@ -4806,7 +4806,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.05.i.i.i.i.i
   %add.ptr.val.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %add.ptr.val.val.i.i.i.i.i, ptr noundef %0)
+  %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %add.ptr.val.val.i.i.i.i.i, ptr noundef readonly %0)
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
@@ -5132,14 +5132,14 @@ if.end:                                           ; preds = %while.body
   %__a.val24.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__b.val25.i.i = load ptr, ptr %add.ptr.i, align 8
   %__a.val24.val.i.i = load ptr, ptr %__a.val24.i.i, align 8
-  %call.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__a.val24.val.i.i, ptr noundef %__b.val25.i.i)
+  %call.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__a.val24.val.i.i, ptr noundef readonly %__b.val25.i.i)
   %__c.val23.i.i = load ptr, ptr %add.ptr2.i, align 8
   br i1 %call.i.i.i, label %if.then.i.i, label %if.else7.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %__b.val22.i.i = load ptr, ptr %add.ptr.i, align 8
   %__b.val22.val.i.i = load ptr, ptr %__b.val22.i.i, align 8
-  %call.i26.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__b.val22.val.i.i, ptr noundef %__c.val23.i.i)
+  %call.i26.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__b.val22.val.i.i, ptr noundef readonly %__c.val23.i.i)
   br i1 %call.i26.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -5153,7 +5153,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %__a.val20.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__c.val21.i.i = load ptr, ptr %add.ptr2.i, align 8
   %__a.val20.val.i.i = load ptr, ptr %__a.val20.i.i, align 8
-  %call.i27.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__a.val20.val.i.i, ptr noundef %__c.val21.i.i)
+  %call.i27.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__a.val20.val.i.i, ptr noundef readonly %__c.val21.i.i)
   %29 = load ptr, ptr %__first, align 8
   br i1 %call.i27.i.i, label %if.then4.i.i, label %if.else5.i.i
 
@@ -5172,7 +5172,7 @@ if.else5.i.i:                                     ; preds = %if.else.i.i
 if.else7.i.i:                                     ; preds = %if.end
   %__a.val.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__a.val.val.i.i = load ptr, ptr %__a.val.i.i, align 8
-  %call.i28.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__a.val.val.i.i, ptr noundef %__c.val23.i.i)
+  %call.i28.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__a.val.val.i.i, ptr noundef readonly %__c.val23.i.i)
   br i1 %call.i28.i.i, label %if.then9.i.i, label %if.else10.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
@@ -5185,7 +5185,7 @@ if.else10.i.i:                                    ; preds = %if.else7.i.i
   %__b.val.i.i = load ptr, ptr %add.ptr.i, align 8
   %__c.val.i.i = load ptr, ptr %add.ptr2.i, align 8
   %__b.val.val.i.i = load ptr, ptr %__b.val.i.i, align 8
-  %call.i29.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__b.val.val.i.i, ptr noundef %__c.val.i.i)
+  %call.i29.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__b.val.val.i.i, ptr noundef readonly %__c.val.i.i)
   %34 = load ptr, ptr %__first, align 8
   br i1 %call.i29.i.i, label %if.then12.i.i, label %if.else13.i.i
 
@@ -5384,7 +5384,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__i.0.val = load ptr, ptr %__i.018, align 8
   %__first.val = load ptr, ptr %__first, align 8
   %__i.0.val.val = load ptr, ptr %__i.0.val, align 8
-  %call.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__i.0.val.val, ptr noundef %__first.val)
+  %call.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__i.0.val.val, ptr noundef readonly %__first.val)
   %0 = load ptr, ptr %__i.018, align 8
   br i1 %call.i, label %if.then2, label %if.else
 
@@ -5401,7 +5401,7 @@ if.then2:                                         ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %__next.0.val9.i = load ptr, ptr %__first.pn17, align 8
   %__val.val.val10.i = load ptr, ptr %0, align 8
-  %call.i11.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__val.val.val10.i, ptr noundef %__next.0.val9.i)
+  %call.i11.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %__val.val.val10.i, ptr noundef readonly %__next.0.val9.i)
   br i1 %call.i11.i, label %while.body.i, label %for.inc
 
 while.body.i:                                     ; preds = %if.else, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit

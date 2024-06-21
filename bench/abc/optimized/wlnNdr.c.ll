@@ -641,7 +641,7 @@ Ndr_DataResize.exit.i:                            ; preds = %104, %100
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i32, ptr %119, i64 %121
   %123 = shl nsw i64 %118, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %122, ptr align 4 %7, i64 %123, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %122, ptr readonly align 4 %7, i64 %123, i1 false)
   %124 = load i32, ptr %0, align 8
   %125 = add nsw i32 %124, %6
   store i32 %125, ptr %0, align 8
@@ -687,7 +687,7 @@ Ndr_DataResize.exit.i39:                          ; preds = %130, %126
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i32, ptr %145, i64 %147
   %149 = shl nsw i64 %144, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %148, ptr align 4 %9, i64 %149, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %148, ptr readonly align 4 %9, i64 %149, i1 false)
   %150 = load i32, ptr %0, align 8
   %151 = add nsw i32 %150, %8
   store i32 %151, ptr %0, align 8
@@ -789,7 +789,7 @@ Ndr_DataResize.exit.i.i:                          ; preds = %190, %186
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %205, i64 %207
   %209 = shl nsw i64 %204, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr align 4 %185, i64 %209, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr readonly align 4 %185, i64 %209, i1 false)
   %210 = load i32, ptr %0, align 8
   %211 = add nsw i32 %210, %182
   store i32 %211, ptr %0, align 8
@@ -895,10 +895,10 @@ define void @Wln_NtkToNdrTest(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #22
+  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #22
   %13 = add i64 %12, 1
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #19
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %10) #21
+  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %10) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %11
@@ -1972,7 +1972,7 @@ Ndr_ObjReadOutName.exit469.i.i:                   ; preds = %Ndr_DataSize.exit.i
 
 509:                                              ; preds = %Ndr_ObjReadOutName.exit469.i.i
   %510 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 7, i64 1, ptr %20)
-  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef %2, i32 noundef %.4906.i.i, ptr noundef %20, i32 noundef 1)
+  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %2, i32 noundef %.4906.i.i, ptr noundef %20, i32 noundef 1)
   %.val14.i.i470.i.i = load ptr, ptr %22, align 8
   %511 = getelementptr inbounds i32, ptr %.val14.i.i470.i.i, i64 %434
   %512 = load i32, ptr %511, align 4
@@ -3347,7 +3347,7 @@ Ndr_ObjReadBody.exit719.thread.i.i:               ; preds = %Ndr_DataSize.exit.i
   %1235 = getelementptr inbounds ptr, ptr %7, i64 %1234
   %1236 = load ptr, ptr %1235, align 8
   %fputs.i.i = tail call i32 @fputs(ptr %1236, ptr %20)
-  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef %2, i32 noundef %.5919.i.i, ptr noundef %20, i32 noundef 0)
+  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %2, i32 noundef %.5919.i.i, ptr noundef %20, i32 noundef 0)
   %1237 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 2, i64 1, ptr %20)
   br label %Ndr_ObjIsType.exit485.thread.i.i
 
@@ -3518,7 +3518,7 @@ Ndr_ObjReadBody.exit.i:                           ; preds = %Ndr_DataSize.exit.i
   br label %Ndr_ObjIsType.exit485.thread.i.i
 
 1340:                                             ; preds = %1322
-  %1341 = tail call fastcc i32 @Ndr_ObjReadBody(ptr noundef %2, i32 noundef %.5919.i.i, i32 noundef 6)
+  %1341 = tail call fastcc i32 @Ndr_ObjReadBody(ptr noundef readonly %2, i32 noundef %.5919.i.i, i32 noundef 6)
   %1342 = tail call fastcc ptr @Abc_OperName(i32 noundef %1341)
   %1343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.73, ptr noundef %1342) #21
   br label %Ndr_ObjIsType.exit485.thread.i.i

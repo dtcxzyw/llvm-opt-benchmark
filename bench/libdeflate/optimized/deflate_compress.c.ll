@@ -325,10 +325,10 @@ for.body33.i:                                     ; preds = %for.body33.i, %for.
 deflate_init_static_codes.exit:                   ; preds = %for.body33.i
   %static_codes.i = getelementptr inbounds i8, ptr %call, i64 3008
   %lens.i.i = getelementptr inbounds i8, ptr %call, i64 4288
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %static_codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %static_codes.i)
   %offset7.i.i = getelementptr inbounds i8, ptr %call, i64 4576
   %offset10.i.i = getelementptr inbounds i8, ptr %call, i64 4160
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   br label %return
 
 return:                                           ; preds = %if.end16, %entry, %deflate_init_static_codes.exit
@@ -1008,8 +1008,8 @@ do.end39:                                         ; preds = %do.cond32, %do.body
   %45 = load i32, ptr %arrayidx.i326, align 8
   %inc.i327 = add i32 %45, 1
   store i32 %inc.i327, ptr %arrayidx.i326, align 8
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset4.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.0, i32 noundef %conv43, ptr noundef nonnull %sequences.ptr, i1 noundef zeroext %cmp47)
   br i1 %cmp47, label %do.end57, label %land.rhs52
 
@@ -1885,8 +1885,8 @@ do.end:                                           ; preds = %if.end.i354, %do.co
   %61 = load i32, ptr %arrayidx.i360, align 8
   %inc.i361 = add i32 %61, 1
   store i32 %inc.i361, ptr %arrayidx.i360, align 8
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset4.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.0, i32 noundef %conv34.pre-phi, ptr noundef nonnull %sequences.ptr, i1 noundef zeroext %cmp38)
   br i1 %cmp38, label %do.end46, label %land.rhs43
 
@@ -3482,8 +3482,8 @@ do.end.i:                                         ; preds = %if.end.i999, %do.co
   %112 = load i32, ptr %arrayidx.i1006, align 8
   %inc.i1007 = add i32 %112, 1
   store i32 %inc.i1007, ptr %arrayidx.i1006, align 8
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i270.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset4.i270.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.i.0, i32 noundef %conv145.i.pre-phi, ptr noundef nonnull %sequences.i.ptr, i1 noundef zeroext %cmp149.i)
   br i1 %cmp149.i, label %deflate_compress_lazy_generic.exit, label %land.rhs154.i
 
@@ -5561,8 +5561,8 @@ do.end.i:                                         ; preds = %if.end.i1009, %do.c
   %144 = load i32, ptr %arrayidx.i1015, align 8
   %inc.i1016 = add i32 %144, 1
   store i32 %inc.i1016, ptr %arrayidx.i1015, align 8
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i270.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset4.i270.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.i.0, i32 noundef %conv145.i.pre-phi, ptr noundef nonnull %sequences.i.ptr, i1 noundef zeroext %cmp149.i)
   br i1 %cmp149.i, label %deflate_compress_lazy_generic.exit, label %land.rhs154.i
 
@@ -8760,11 +8760,11 @@ deflate_choose_all_literals.exit:                 ; preds = %for.body.i, %entry
   store i32 1, ptr %arrayidx6.i, align 8
   %codes.i = getelementptr inbounds i8, ptr %c, i64 1408
   %lens.i.i = getelementptr inbounds i8, ptr %c, i64 2688
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
   %offset.i.i = getelementptr inbounds i8, ptr %c, i64 1192
   %offset7.i.i = getelementptr inbounds i8, ptr %c, i64 2976
   %offset10.i.i = getelementptr inbounds i8, ptr %c, i64 2560
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_precompute_huffman_header(ptr noundef nonnull %c)
   %o.i = getelementptr inbounds i8, ptr %c, i64 4608
   %num_litlen_syms.i = getelementptr inbounds i8, ptr %c, i64 6060
@@ -9662,8 +9662,8 @@ for.body.i199:                                    ; preds = %for.body.i199, %for
 
 deflate_choose_all_literals.exit213:              ; preds = %for.body.i199, %if.then48
   store i32 1, ptr %arrayidx6.i, align 8
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   br label %for.body.i215
 
 for.body.i215:                                    ; preds = %for.body.i215, %deflate_choose_all_literals.exit213
@@ -10021,10 +10021,10 @@ deflate_tally_item_list.exit:                     ; preds = %if.end.i
   store i32 %inc27.i, ptr %arrayidx26.i, align 8
   %codes = getelementptr inbounds i8, ptr %c, i64 1408
   %lens.i = getelementptr inbounds i8, ptr %c, i64 2688
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i, ptr noundef nonnull %lens.i, ptr noundef nonnull %codes)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %freqs.i, ptr noundef nonnull %lens.i, ptr noundef nonnull %codes)
   %offset7.i = getelementptr inbounds i8, ptr %c, i64 2976
   %offset10.i = getelementptr inbounds i8, ptr %c, i64 2560
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset15.i, ptr noundef nonnull %offset7.i, ptr noundef nonnull %offset10.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %offset15.i, ptr noundef nonnull %offset7.i, ptr noundef nonnull %offset10.i)
   ret void
 }
 

@@ -97,14 +97,14 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h96d6
 5:                                                ; preds = %2
   store i64 1, ptr %0, align 8, !alias.scope !7, !noalias !10
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !12
   br label %_ZN10actix_http4body5boxed7BoxBody3new17h3d227e6d07612406E.llvm.14700172292964297094.exit
 
 6:                                                ; preds = %2
   %.sroa.517.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull align 8 dereferenceable(76) %1, i64 76, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull readonly align 8 dereferenceable(76) %1, i64 76, i1 false), !noalias !7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.517.0..sroa_idx.i, i64 3, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.517.0..sroa_idx.i, i64 3, i1 false), !noalias !7
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 76
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !12
   %7 = getelementptr inbounds i8, ptr %3, i64 80
@@ -164,14 +164,14 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17had98
 5:                                                ; preds = %2
   store i64 1, ptr %0, align 8, !alias.scope !16, !noalias !19
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !21
   br label %_ZN10actix_http4body5boxed7BoxBody3new17h253baa451bc33951E.llvm.14700172292964297094.exit
 
 6:                                                ; preds = %2
   %.sroa.516.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %1, i64 68, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull readonly align 8 dereferenceable(68) %1, i64 68, i1 false), !noalias !16
   %.sroa.05.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.05.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.516.0..sroa_idx.i, i64 3, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.05.sroa.3.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.516.0..sroa_idx.i, i64 3, i1 false), !noalias !16
   %.sroa.05.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 68
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.05.sroa.2.0..sroa_idx.i, align 4, !noalias !21
   %7 = getelementptr inbounds i8, ptr %3, i64 72
@@ -239,7 +239,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17hded2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !33
   call void @"_ZN88_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h542b2bdc27ff418aE"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !31
   %.sroa.0.0.copyload12.i = load ptr, ptr %3, align 8, !noalias !37
@@ -3232,7 +3232,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map_into_boxed_body28_$u7b$$u7b$closure$u7d$$u7d$17h5ccc2396f3759768E.llvm.14700172292964297094"(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(88) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #8 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !alias.scope !532
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !alias.scope !532
   ret void
 }
 
@@ -3258,14 +3258,14 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 6:                                                ; preds = %3
   store i64 1, ptr %0, align 8, !alias.scope !553, !noalias !552
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !554
   br label %_ZN10actix_http4body12message_body11MessageBody5boxed17had98d3d1daf566a0E.llvm.14700172292964297094.exit
 
 7:                                                ; preds = %3
   %.sroa.516.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr noundef nonnull align 8 dereferenceable(68) %2, i64 68, i1 false), !noalias !553
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr noundef nonnull readonly align 8 dereferenceable(68) %2, i64 68, i1 false), !noalias !553
   %.sroa.05.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.05.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.516.0..sroa_idx.i.i, i64 3, i1 false), !noalias !553
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.05.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.516.0..sroa_idx.i.i, i64 3, i1 false), !noalias !553
   %.sroa.05.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 68
   store i8 %.sroa.4.0.copyload.i.i, ptr %.sroa.05.sroa.2.0..sroa_idx.i.i, align 4, !noalias !554
   %8 = getelementptr inbounds i8, ptr %4, i64 72
@@ -3322,7 +3322,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !564
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !566
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !568
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !568
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !569
   call void @"_ZN88_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h542b2bdc27ff418aE"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !566
   %.sroa.0.0.copyload12.i.i = load ptr, ptr %4, align 8, !noalias !573
@@ -3403,14 +3403,14 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 6:                                                ; preds = %3
   store i64 1, ptr %0, align 8, !alias.scope !590, !noalias !589
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !591
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !591
   br label %_ZN10actix_http4body12message_body11MessageBody5boxed17h96d65ea5bcd06b98E.llvm.14700172292964297094.exit
 
 7:                                                ; preds = %3
   %.sroa.517.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(76) %2, i64 76, i1 false), !noalias !590
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull readonly align 8 dereferenceable(76) %2, i64 76, i1 false), !noalias !590
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.517.0..sroa_idx.i.i, i64 3, i1 false), !noalias !590
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.517.0..sroa_idx.i.i, i64 3, i1 false), !noalias !590
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 76
   store i8 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !noalias !591
   %8 = getelementptr inbounds i8, ptr %4, i64 80

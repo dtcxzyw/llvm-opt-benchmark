@@ -3663,7 +3663,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %105 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv.i20
   %106 = load ptr, ptr %105, align 8
   %107 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %107, ptr noundef nonnull align 8 dereferenceable(136) %106, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %107, ptr noundef nonnull readonly align 8 dereferenceable(136) %106, i64 136, i1 false)
   %108 = getelementptr inbounds i8, ptr %107, i64 72
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 8
@@ -3803,7 +3803,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   store ptr %170, ptr %172, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %171) #14
   %173 = tail call ptr @calloc_arena(i64 noundef 24) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i8 0, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %46, i64 24
   %175 = load ptr, ptr %174, align 8

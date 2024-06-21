@@ -3125,7 +3125,7 @@ define noundef i32 @Gia_ManResubPrint(ptr nocapture noundef readonly %0, i32 nou
 
 30:                                               ; preds = %17
   %31 = sub nsw i32 %18, %1
-  tail call void @Gia_ManResubPrintNode(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %31, i32 noundef %20) #31
+  tail call void @Gia_ManResubPrintNode(ptr noundef nonnull readonly %0, i32 noundef %1, i32 noundef %31, i32 noundef %20) #31
   br label %Gia_ManResubPrintLit.exit
 
 Gia_ManResubPrintLit.exit:                        ; preds = %30, %27, %24, %15, %13, %5
@@ -10827,13 +10827,13 @@ Gia_ManSortUnates.exit.critedge:                  ; preds = %97
   %104 = load ptr, ptr %80, align 8
   %105 = load ptr, ptr %92, align 8
   %106 = load ptr, ptr %101, align 8
-  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %104, ptr noundef %99, i32 noundef %100, ptr noundef %105, ptr noundef %106, ptr noundef %103)
+  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %104, ptr noundef readonly %99, i32 noundef %100, ptr noundef %105, ptr noundef %106, ptr noundef %103)
   %107 = load ptr, ptr %79, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 56
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %0, i64 112
   %111 = load ptr, ptr %110, align 8
-  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %107, ptr noundef %99, i32 noundef %100, ptr noundef %109, ptr noundef %111, ptr noundef %103)
+  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %107, ptr noundef readonly %99, i32 noundef %100, ptr noundef %109, ptr noundef %111, ptr noundef %103)
   %112 = load ptr, ptr %4, align 8
   %113 = load i32, ptr %0, align 8
   %114 = load i32, ptr %7, align 8
@@ -10954,13 +10954,13 @@ Gia_ManSortPairs.exit.critedge:                   ; preds = %177
   %188 = load ptr, ptr %80, align 8
   %189 = load ptr, ptr %182, align 8
   %190 = load ptr, ptr %186, align 8
-  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %188, ptr noundef %184, i32 noundef %185, ptr noundef %189, ptr noundef %190, ptr noundef %187)
+  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %188, ptr noundef readonly %184, i32 noundef %185, ptr noundef %189, ptr noundef %190, ptr noundef %187)
   %191 = load ptr, ptr %79, align 8
   %192 = getelementptr inbounds i8, ptr %0, i64 88
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 128
   %195 = load ptr, ptr %194, align 8
-  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %191, ptr noundef %184, i32 noundef %185, ptr noundef %193, ptr noundef %195, ptr noundef %187)
+  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %191, ptr noundef readonly %184, i32 noundef %185, ptr noundef %193, ptr noundef %195, ptr noundef %187)
   %196 = load ptr, ptr %4, align 8
   %197 = load i32, ptr %0, align 8
   %198 = getelementptr inbounds i8, ptr %0, i64 160

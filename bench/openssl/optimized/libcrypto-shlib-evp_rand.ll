@@ -1372,7 +1372,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.end5.i, label %evp_rand_nonce_locked.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = call fastcc i32 @evp_rand_generate_locked(ptr noundef nonnull %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %retval.0.i.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
+  %call6.i = call fastcc i32 @evp_rand_generate_locked(ptr noundef nonnull readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %retval.0.i.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
   br label %evp_rand_nonce_locked.exit
 
 evp_rand_nonce_locked.exit:                       ; preds = %if.end, %if.end.i, %if.end5.i

@@ -251,7 +251,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %19
   %47 = getelementptr inbounds ptr, ptr %.val, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %49) #27
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %49) #27
   %.not.i21.us59 = icmp eq i32 %50, 0
   br i1 %.not.i21.us59, label %Abc_SclHashLookup.exit.loopexit.split.loop.exit30, label %.lr.ph61
 
@@ -260,7 +260,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %19
   %52 = getelementptr inbounds ptr, ptr %.val, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %54) #27
+  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %54) #27
   %.not.i21.us = icmp eq i32 %55, 0
   br i1 %.not.i21.us, label %Abc_SclHashLookup.exit.loopexit.split.loop.exit30, label %.lr.ph61
 
@@ -286,7 +286,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %19
   %68 = getelementptr inbounds ptr, ptr %.val, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %70) #27
+  %71 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %70) #27
   %.not.i21 = icmp eq i32 %71, 0
   br i1 %.not.i21, label %Abc_SclHashLookup.exit.loopexit.split.loop.exit30, label %Abc_SclHashLookup.exit
 
@@ -392,7 +392,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
   %31 = getelementptr inbounds ptr, ptr %.val.i.us, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %33) #27
+  %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %33) #27
   %.not.i.us = icmp eq i32 %34, 0
   br i1 %.not.i.us, label %Abc_SclHashLookup.exit.thread, label %35
 
@@ -418,7 +418,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
   %48 = getelementptr inbounds ptr, ptr %.val.i, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %50) #27
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %50) #27
   %.not.i = icmp eq i32 %51, 0
   %spec.select = select i1 %.not.i, i32 %44, i32 -1
   br label %Abc_SclHashLookup.exit.thread
@@ -530,7 +530,7 @@ Abc_SclFindLimit.exit.preheader:                  ; preds = %.preheader
   %29 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull %.01726, i64 noundef %27) #27
+  %32 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull %.01726, i64 noundef %27) #27
   %.not.i.not = icmp eq i32 %32, 0
   br i1 %.not.i.not, label %33, label %Abc_SclFindLimit.exit
 
@@ -638,10 +638,10 @@ Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_Sc
 
 29:                                               ; preds = %26, %28
   %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %10, i32 noundef %25, i32 noundef %24, i32 noundef %.071121) #29
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %31 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %32 = add i64 %31, 1
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #28
-  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %2) #29
+  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %33, ptr %.0122, align 8
   %35 = getelementptr inbounds i8, ptr %.0122, i64 64
   %36 = load i32, ptr %35, align 8
@@ -740,10 +740,10 @@ Abc_UtilStrsav.exit.i.i.i:                        ; preds = %66
   %char.i.i.i = add i8 %71, 97
   store i8 %char.i.i.i, ptr %2, align 16
   store i8 0, ptr %nul.i.i.i, align 1
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %72 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %73 = add i64 %72, 1
   %74 = tail call noalias ptr @malloc(i64 noundef %73) #28
-  %75 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %2) #29
+  %75 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %74, ptr %59, align 8
   %.pre.i.i.i = load i32, ptr %35, align 8
   br label %76
@@ -805,10 +805,10 @@ Abc_UtilStrsav.exit.i:                            ; preds = %91
   %char.i = add i8 %96, 97
   store i8 %char.i, ptr %2, align 16
   store i8 0, ptr %nul.i.i.i, align 1
-  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %97 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %98 = add i64 %97, 1
   %99 = tail call noalias ptr @malloc(i64 noundef %98) #28
-  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %2) #29
+  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %99, ptr %52, align 8
   %.pre57.i = load i32, ptr %35, align 8
   br label %101
@@ -899,7 +899,7 @@ Abc_SclFindLimit.exit.preheader.i.i:              ; preds = %.preheader.i.i
   %132 = getelementptr inbounds ptr, ptr %.val.i41.i, i64 %indvars.iv.i42.i
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 @strncmp(ptr noundef %134, ptr noundef nonnull %.01726.i.i, i64 noundef %130) #27
+  %135 = tail call i32 @strncmp(ptr noundef readonly %134, ptr noundef nonnull %.01726.i.i, i64 noundef %130) #27
   %.not.i.not.i.i = icmp eq i32 %135, 0
   br i1 %.not.i.not.i.i, label %136, label %Abc_SclFindLimit.exit.i.i
 
@@ -925,10 +925,10 @@ Abc_SclShortFormula.exit.i:                       ; preds = %.backedge.i.i, %.cr
   br label %Abc_SclPinUpdate.exit
 
 Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula.exit.i, %140
-  %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %141 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %142 = add i64 %141, 1
   %143 = tail call noalias ptr @malloc(i64 noundef %142) #28
-  %144 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(1) %2) #29
+  %144 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %143, ptr %108, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val88 = load i32, ptr %37, align 4
@@ -969,10 +969,10 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
   %char82 = add i8 %155, 97
   store i8 %char82, ptr %2, align 16
   store i8 0, ptr %nul.i.i.i, align 1
-  %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %156 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %157 = add i64 %156, 1
   %158 = tail call noalias ptr @malloc(i64 noundef %157) #28
-  %159 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) %2) #29
+  %159 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %158, ptr %152, align 8
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %160 = load i32, ptr %35, align 8
@@ -1002,10 +1002,10 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
   %char = add i8 %170, 122
   store i8 %char, ptr %2, align 16
   store i8 0, ptr %nul.i.i.i, align 1
-  %171 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %171 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %172 = add i64 %171, 1
   %173 = tail call noalias ptr @malloc(i64 noundef %172) #28
-  %174 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) %2) #29
+  %174 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %173, ptr %165, align 8
   %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
   %.val87 = load i32, ptr %37, align 4
@@ -1058,10 +1058,10 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
 193:                                              ; preds = %187, %192
   %.val90 = load i32, ptr %189, align 4
   %194 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.val90) #29
-  %195 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %195 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %196 = add i64 %195, 1
   %197 = tail call noalias ptr @malloc(i64 noundef %196) #28
-  %198 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull dereferenceable(1) %2) #29
+  %198 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   store ptr %197, ptr %0, align 8
   ret void
 }
@@ -2542,18 +2542,18 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
 
 42:                                               ; preds = %33, %33
   %43 = getelementptr inbounds i8, ptr %23, i64 24
-  %44 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %43, float noundef %2, float noundef 0.000000e+00)
+  %44 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %43, float noundef %2, float noundef 0.000000e+00)
   %45 = getelementptr inbounds i8, ptr %23, i64 200
-  %46 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %45, float noundef %2, float noundef 0.000000e+00)
+  %46 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %45, float noundef %2, float noundef 0.000000e+00)
   %47 = insertelement <2 x float> poison, float %46, i64 0
   %48 = insertelement <2 x float> %47, float %44, i64 1
   %49 = fadd <2 x float> %48, zeroinitializer
   %50 = fcmp olt <2 x float> %49, zeroinitializer
   %51 = select <2 x i1> %50, <2 x float> zeroinitializer, <2 x float> %49
   %52 = getelementptr inbounds i8, ptr %23, i64 376
-  %53 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %52, float noundef %2, float noundef 0.000000e+00)
+  %53 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %52, float noundef %2, float noundef 0.000000e+00)
   %54 = getelementptr inbounds i8, ptr %23, i64 552
-  %55 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %54, float noundef %2, float noundef 0.000000e+00)
+  %55 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %54, float noundef %2, float noundef 0.000000e+00)
   br label %56
 
 56:                                               ; preds = %42, %33
@@ -2564,18 +2564,18 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %23, i64 24
-  %61 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %60, float noundef %2, float noundef 0.000000e+00)
+  %61 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %60, float noundef %2, float noundef 0.000000e+00)
   %62 = getelementptr inbounds i8, ptr %23, i64 200
-  %63 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %62, float noundef %2, float noundef 0.000000e+00)
+  %63 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %62, float noundef %2, float noundef 0.000000e+00)
   %64 = insertelement <2 x float> poison, float %63, i64 0
   %65 = insertelement <2 x float> %64, float %61, i64 1
   %66 = fadd <2 x float> %65, zeroinitializer
   %67 = fcmp ogt <2 x float> %57, %65
   %68 = select <2 x i1> %67, <2 x float> %57, <2 x float> %66
   %69 = getelementptr inbounds i8, ptr %23, i64 376
-  %70 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %69, float noundef %2, float noundef 0.000000e+00)
+  %70 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %69, float noundef %2, float noundef 0.000000e+00)
   %71 = getelementptr inbounds i8, ptr %23, i64 552
-  %72 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %71, float noundef %2, float noundef 0.000000e+00)
+  %72 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %71, float noundef %2, float noundef 0.000000e+00)
   br label %Scl_LibPinArrival.exit27
 
 Scl_LibPinArrival.exit27:                         ; preds = %56, %59
@@ -2587,18 +2587,18 @@ Scl_LibPinArrival.exit27:                         ; preds = %56, %59
 
 74:                                               ; preds = %Scl_LibPinArrival.exit27, %Scl_LibPinArrival.exit27
   %75 = getelementptr inbounds i8, ptr %23, i64 24
-  %76 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %75, float noundef %2, float noundef %35)
+  %76 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %75, float noundef %2, float noundef %35)
   %77 = getelementptr inbounds i8, ptr %23, i64 200
-  %78 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %77, float noundef %2, float noundef %35)
+  %78 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %77, float noundef %2, float noundef %35)
   %79 = insertelement <2 x float> poison, float %78, i64 0
   %80 = insertelement <2 x float> %79, float %76, i64 1
   %81 = fadd <2 x float> %80, zeroinitializer
   %82 = fcmp olt <2 x float> %81, zeroinitializer
   %83 = select <2 x i1> %82, <2 x float> zeroinitializer, <2 x float> %81
   %84 = getelementptr inbounds i8, ptr %23, i64 376
-  %85 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %84, float noundef %2, float noundef %35)
+  %85 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %84, float noundef %2, float noundef %35)
   %86 = getelementptr inbounds i8, ptr %23, i64 552
-  %87 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %86, float noundef %2, float noundef %35)
+  %87 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %86, float noundef %2, float noundef %35)
   br label %88
 
 88:                                               ; preds = %74, %Scl_LibPinArrival.exit27
@@ -2607,18 +2607,18 @@ Scl_LibPinArrival.exit27:                         ; preds = %56, %59
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds i8, ptr %23, i64 24
-  %92 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %91, float noundef %2, float noundef %35)
+  %92 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %91, float noundef %2, float noundef %35)
   %93 = getelementptr inbounds i8, ptr %23, i64 200
-  %94 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %93, float noundef %2, float noundef %35)
+  %94 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %93, float noundef %2, float noundef %35)
   %95 = insertelement <2 x float> poison, float %94, i64 0
   %96 = insertelement <2 x float> %95, float %92, i64 1
   %97 = fadd <2 x float> %96, zeroinitializer
   %98 = fcmp ogt <2 x float> %89, %96
   %99 = select <2 x i1> %98, <2 x float> %89, <2 x float> %97
   %100 = getelementptr inbounds i8, ptr %23, i64 376
-  %101 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %100, float noundef %2, float noundef %35)
+  %101 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %100, float noundef %2, float noundef %35)
   %102 = getelementptr inbounds i8, ptr %23, i64 552
-  %103 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %102, float noundef %2, float noundef %35)
+  %103 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %102, float noundef %2, float noundef %35)
   br label %Scl_LibPinArrival.exit24
 
 Scl_LibPinArrival.exit24:                         ; preds = %88, %90
@@ -2630,18 +2630,18 @@ Scl_LibPinArrival.exit24:                         ; preds = %88, %90
 
 105:                                              ; preds = %Scl_LibPinArrival.exit24, %Scl_LibPinArrival.exit24
   %106 = getelementptr inbounds i8, ptr %23, i64 24
-  %107 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %106, float noundef %2, float noundef %39)
+  %107 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %106, float noundef %2, float noundef %39)
   %108 = getelementptr inbounds i8, ptr %23, i64 200
-  %109 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %108, float noundef %2, float noundef %39)
+  %109 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %108, float noundef %2, float noundef %39)
   %110 = insertelement <2 x float> poison, float %109, i64 0
   %111 = insertelement <2 x float> %110, float %107, i64 1
   %112 = fadd <2 x float> %111, zeroinitializer
   %113 = fcmp olt <2 x float> %112, zeroinitializer
   %114 = select <2 x i1> %113, <2 x float> zeroinitializer, <2 x float> %112
   %115 = getelementptr inbounds i8, ptr %23, i64 376
-  %116 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %115, float noundef %2, float noundef %39)
+  %116 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %115, float noundef %2, float noundef %39)
   %117 = getelementptr inbounds i8, ptr %23, i64 552
-  %118 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %117, float noundef %2, float noundef %39)
+  %118 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %117, float noundef %2, float noundef %39)
   br label %119
 
 119:                                              ; preds = %105, %Scl_LibPinArrival.exit24
@@ -2650,18 +2650,18 @@ Scl_LibPinArrival.exit24:                         ; preds = %88, %90
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds i8, ptr %23, i64 24
-  %123 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %122, float noundef %2, float noundef %39)
+  %123 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %122, float noundef %2, float noundef %39)
   %124 = getelementptr inbounds i8, ptr %23, i64 200
-  %125 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %124, float noundef %2, float noundef %39)
+  %125 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %124, float noundef %2, float noundef %39)
   %126 = insertelement <2 x float> poison, float %125, i64 0
   %127 = insertelement <2 x float> %126, float %123, i64 1
   %128 = fadd <2 x float> %127, zeroinitializer
   %129 = fcmp ogt <2 x float> %120, %127
   %130 = select <2 x i1> %129, <2 x float> %120, <2 x float> %128
   %131 = getelementptr inbounds i8, ptr %23, i64 376
-  %132 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %131, float noundef %2, float noundef %39)
+  %132 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %131, float noundef %2, float noundef %39)
   %133 = getelementptr inbounds i8, ptr %23, i64 552
-  %134 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %133, float noundef %2, float noundef %39)
+  %134 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %133, float noundef %2, float noundef %39)
   br label %Scl_LibPinArrival.exit
 
 Scl_LibPinArrival.exit:                           ; preds = %119, %121
@@ -2810,7 +2810,7 @@ define float @Abc_SclComputeDelayClassPin(ptr nocapture noundef readnone %0, ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store float 0.000000e+00, ptr %6, align 4
   store float 0.000000e+00, ptr %7, align 4
-  %13 = call i32 @Abc_SclComputeParametersPin(ptr poison, ptr noundef nonnull %.01819, i32 noundef %2, float noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %13 = call i32 @Abc_SclComputeParametersPin(ptr readnone poison, ptr noundef nonnull readonly %.01819, i32 noundef %2, float noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %14 = load float, ptr %6, align 4
   %15 = fpext float %14 to double
   %16 = fmul double %15, 1.000000e-02
@@ -5933,7 +5933,7 @@ Vec_StrPush.exit.i:                               ; preds = %46, %Vec_StrGrow.ex
 Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i
   %53 = load ptr, ptr %12, align 8
   %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %53) #29
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %56 = trunc i64 %55 to i32
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph.i53, label %.lr.ph.i66
@@ -6076,7 +6076,7 @@ Vec_StrPush.exit.i72:                             ; preds = %108, %Vec_StrGrow.e
   %115 = load float, ptr %19, align 8
   %116 = fpext float %115 to double
   %117 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.43, double noundef %116) #29
-  %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %118 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %119 = trunc i64 %118 to i32
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %.lr.ph.i79, label %.lr.ph.i92
@@ -6217,7 +6217,7 @@ Vec_StrPush.exit.i98:                             ; preds = %171, %Vec_StrGrow.e
   %177 = getelementptr inbounds i8, ptr %173, i64 %176
   store i8 32, ptr %177, align 1
   %178 = load ptr, ptr %22, align 8
-  %179 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #27
+  %179 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %178) #27
   %180 = trunc i64 %179 to i32
   %181 = icmp sgt i32 %180, 0
   br i1 %181, label %.lr.ph.i105, label %.lr.ph.i118
@@ -6361,7 +6361,7 @@ Vec_StrPush.exit.i124:                            ; preds = %232, %Vec_StrGrow.e
   %240 = load ptr, ptr %239, align 8
   %.not = icmp eq ptr %240, null
   %spec.select = select i1 %.not, ptr @.str.45, ptr %240
-  %241 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #27
+  %241 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select) #27
   %242 = trunc i64 %241 to i32
   %243 = icmp sgt i32 %242, 0
   br i1 %243, label %.lr.ph.i131, label %.lr.ph.i144.preheader
@@ -6595,7 +6595,7 @@ Vec_StrPush.exit.i163:                            ; preds = %330, %Vec_StrGrow.e
 Vec_StrPrintStr.exit169:                          ; preds = %Vec_StrPush.exit.i163
   %337 = load ptr, ptr %306, align 8
   %338 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %337) #29
-  %339 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %339 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %340 = trunc i64 %339 to i32
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %.lr.ph.i170, label %Vec_StrPrintStr.exit182
@@ -6675,7 +6675,7 @@ Vec_StrPush.exit.i176:                            ; preds = %365, %Vec_StrGrow.e
 
 Vec_StrPrintStr.exit182:                          ; preds = %Vec_StrPush.exit.i176, %Vec_StrPrintStr.exit169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %2, ptr noundef nonnull align 1 dereferenceable(42) @.str.49, i64 42, i1 false)
-  %372 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %372 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
   %373 = trunc i64 %372 to i32
   %374 = icmp sgt i32 %373, 0
   br i1 %374, label %.lr.ph.i183, label %Vec_StrPrintStr.exit195
@@ -8932,7 +8932,7 @@ Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i
   %1071 = fdiv float %.117.i, %1041
   %1072 = load ptr, ptr %69, align 8
   %1073 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %1072) #29
-  %1074 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
+  %1074 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #27
   %1075 = trunc i64 %1074 to i32
   %1076 = icmp sgt i32 %1075, 0
   br i1 %1076, label %.lr.ph.i96, label %Vec_StrPrintStr.exit108
@@ -9012,7 +9012,7 @@ Vec_StrPush.exit.i102:                            ; preds = %1100, %Vec_StrGrow.
 Vec_StrPrintStr.exit108:                          ; preds = %Vec_StrPush.exit.i102, %Vec_StrPrintStr.exit
   %1106 = fpext float %1071 to double
   %1107 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %1106, double noundef %1106) #29
-  %1108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
+  %1108 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #27
   %1109 = trunc i64 %1108 to i32
   %1110 = icmp sgt i32 %1109, 0
   br i1 %1110, label %.lr.ph.i109, label %Vec_StrPrintStr.exit121
@@ -11162,7 +11162,7 @@ Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i
   %1082 = fdiv float %.117.i, %1052
   %1083 = load ptr, ptr %80, align 8
   %1084 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %1083) #29
-  %1085 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %1085 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #27
   %1086 = trunc i64 %1085 to i32
   %1087 = icmp sgt i32 %1086, 0
   br i1 %1087, label %.lr.ph.i102, label %Vec_StrPrintStr.exit114
@@ -11242,7 +11242,7 @@ Vec_StrPush.exit.i108:                            ; preds = %1111, %Vec_StrGrow.
 Vec_StrPrintStr.exit114:                          ; preds = %Vec_StrPush.exit.i108, %Vec_StrPrintStr.exit
   %1117 = fpext float %1082 to double
   %1118 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %1117, double noundef %1117) #29
-  %1119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %1119 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #27
   %1120 = trunc i64 %1119 to i32
   %1121 = icmp sgt i32 %1120, 0
   br i1 %1121, label %.lr.ph.i115, label %Vec_StrPrintStr.exit127

@@ -1858,7 +1858,7 @@ define hidden void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef %1, p
 
 can_elide_return_type_check.exit:                 ; preds = %687
   %691 = load ptr, ptr %682, align 8
-  %692 = call fastcc zeroext i1 @can_elide_list_type(ptr noundef %673, ptr noundef nonnull %0, ptr noundef nonnull %676, ptr %691, i32 %684)
+  %692 = call fastcc zeroext i1 @can_elide_list_type(ptr noundef %673, ptr noundef nonnull %0, ptr noundef nonnull readonly %676, ptr %691, i32 %684)
   br i1 %692, label %can_elide_return_type_check.exit.thread, label %can_elide_return_type_check.exit.thread1584
 
 can_elide_return_type_check.exit.thread:          ; preds = %672, %can_elide_return_type_check.exit

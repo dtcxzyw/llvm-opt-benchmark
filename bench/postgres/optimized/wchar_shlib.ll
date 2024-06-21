@@ -1876,7 +1876,7 @@ pg_utf_mblen.exit.thread:                         ; preds = %39, %34, %.fold.spl
   br i1 %62, label %pg_utf8_verifychar.exit.thread, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %.355, i32 noundef %.0.i34)
+  %64 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull readonly %.355, i32 noundef %.0.i34)
   br i1 %64, label %pg_utf8_verifychar.exit, label %pg_utf8_verifychar.exit.thread
 
 pg_utf8_verifychar.exit:                          ; preds = %63, %49

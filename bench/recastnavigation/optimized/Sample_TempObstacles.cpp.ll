@@ -4261,7 +4261,7 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool11handleClickEPKf
   br i1 %.not.i, label %_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2)
+  %13 = tail call noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef nonnull %11, ptr noundef readonly %1, ptr noundef readonly %2)
   %14 = load ptr, ptr %10, align 8
   %15 = tail call noundef i32 @_ZN11dtTileCache14removeObstacleEj(ptr noundef nonnull align 8 dereferenceable(912) %14, i32 noundef %13)
   br label %_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit

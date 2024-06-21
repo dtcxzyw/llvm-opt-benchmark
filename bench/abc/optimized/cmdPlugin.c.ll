@@ -1445,7 +1445,7 @@ Vec_StrFree.exit143:                              ; preds = %Abc_Clock.exit141, 
 196:                                              ; preds = %189
   %197 = getelementptr i8, ptr %194, i64 8
   %.val.i144 = load ptr, ptr %197, align 8
-  %198 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.val.i144, ptr noundef nonnull dereferenceable(1) @.str.22) #13
+  %198 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.val.i144, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #13
   %.not.i145 = icmp eq ptr %198, null
   br i1 %.not.i145, label %202, label %199
 
@@ -1634,7 +1634,7 @@ Vec_IntFreeP.exit:                                ; preds = %250, %253
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_StrAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %Vec_StrPrintStr.exit

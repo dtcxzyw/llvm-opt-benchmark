@@ -5413,7 +5413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit80: ; 
           to label %.noexc81 unwind label %105
 
 .noexc81:                                         ; preds = %138
-  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %142 unwind label %140
 
 140:                                              ; preds = %.noexc81
@@ -5430,7 +5430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit80: ; 
           to label %.noexc84 unwind label %105
 
 .noexc84:                                         ; preds = %142
-  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %145 unwind label %143
 
 143:                                              ; preds = %.noexc84
@@ -5599,11 +5599,11 @@ define dso_local void @_ZN22cmNinjaTargetGenerator18WriteLanguageRulesERKNSt7__c
   br i1 %6, label %7, label %_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
 
 7:                                                ; preds = %3
-  tail call void @_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_12WithScanningE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1)
+  tail call void @_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_12WithScanningE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1)
   br label %_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
 
 _ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %3, %7
-  tail call void @_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_12WithScanningE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0)
+  tail call void @_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_12WithScanningE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0)
   ret void
 }
 
@@ -16324,7 +16324,7 @@ _ZNSt6vectorIN22cmNinjaTargetGenerator13ScanningFilesESaIS1_EE12emplace_backIJRS
           to label %.noexc673 unwind label %891
 
 .noexc673:                                        ; preds = %.critedge408
-  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %1176 unwind label %1174
 
 1174:                                             ; preds = %.noexc673
@@ -20011,7 +20011,7 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
           to label %.noexc405 unwind label %850
 
 .noexc405:                                        ; preds = %825
-  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %828 unwind label %826
 
 826:                                              ; preds = %.noexc405
@@ -22645,7 +22645,7 @@ _ZNSt6vectorIN22cmNinjaTargetGenerator13ScanningFilesESaIS1_EE12emplace_backIJRS
           to label %.noexc315 unwind label %552
 
 .noexc315:                                        ; preds = %_ZNSt6vectorIN22cmNinjaTargetGenerator13ScanningFilesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
-  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %645 unwind label %643
 
 643:                                              ; preds = %.noexc315
@@ -36282,7 +36282,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIP2BTINSt7__cxx1112basic_stringIcSt11char_tra
 define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_0E9_M_invokeERKSt9_Any_dataOS8_SA_"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #3 align 2 {
   %.val = load ptr, ptr %1, align 8
   %.val3 = load ptr, ptr %2, align 8
-  tail call void @_ZNK22cmNinjaTargetGenerator17GetObjectFilePathEPK12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %.val, ptr noundef %.val3, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  tail call void @_ZNK22cmNinjaTargetGenerator17GetObjectFilePathEPK12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(240) %.val, ptr noundef %.val3, ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
 }
 

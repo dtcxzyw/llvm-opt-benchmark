@@ -1692,7 +1692,7 @@ if.then:                                          ; preds = %_ZNK9parameter7get_
 _ZNK9parameter7get_astEv.exit11:                  ; preds = %_ZNK9parameter7get_astEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sorts.i)
   store ptr null, ptr %sorts.i, align 8
-  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
+  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZNK9parameter7get_astEv.exit11
@@ -2228,7 +2228,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sorts.i)
   store ptr null, ptr %sorts.i, align 8
-  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %s1, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
+  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly %s1, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end
@@ -3662,7 +3662,7 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sorts.i)
   store ptr null, ptr %sorts.i, align 8
-  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
+  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly %s, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4029,7 +4029,7 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sorts.i)
   store ptr null, ptr %sorts.i, align 8
-  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
+  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly %s, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4418,7 +4418,7 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sorts.i)
   store ptr null, ptr %sorts.i, align 8
-  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
+  %call.i = invoke noundef zeroext i1 @_ZN7datalog14dl_decl_plugin11is_rel_sortEP4sortR10ptr_vectorIS1_E(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly %s, ptr noundef nonnull align 8 dereferenceable(8) %sorts.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4554,20 +4554,20 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %call.i = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i61 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef -1, i32 noundef %arity)
+  %call.i = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i61 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef -1, i32 noundef %arity)
   %call3 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin15mk_store_selectEijPKP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %k, i32 noundef %arity, ptr noundef %domain)
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %call.i62 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i32 noundef %num_parameters)
-  %call.i63 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %arity)
+  %call.i62 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i32 noundef %num_parameters)
+  %call.i63 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %arity)
   %call10 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin8mk_emptyERK9parameter(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %parameters)
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %call.i64 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef -1, i32 noundef %num_parameters)
-  %call.i65 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
+  %call.i64 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef -1, i32 noundef %num_parameters)
+  %call.i65 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
   %0 = load ptr, ptr %domain, align 8
   %arrayidx18 = getelementptr inbounds i8, ptr %domain, i64 8
   %1 = load ptr, ptr %arrayidx18, align 8
@@ -4575,8 +4575,8 @@ sw.bb11:                                          ; preds = %entry
   br label %return
 
 sw.bb20:                                          ; preds = %entry, %entry
-  %call.i66 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i67 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
+  %call.i66 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i67 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
   %2 = load ptr, ptr %domain, align 8
   %arrayidx27 = getelementptr inbounds i8, ptr %domain, i64 8
   %3 = load ptr, ptr %arrayidx27, align 8
@@ -4584,43 +4584,43 @@ sw.bb20:                                          ; preds = %entry, %entry
   br label %return
 
 sw.bb29:                                          ; preds = %entry
-  %call.i68 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef -1, i32 noundef %num_parameters)
-  %call.i69 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i68 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef -1, i32 noundef %num_parameters)
+  %call.i69 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %4 = load ptr, ptr %domain, align 8
   %call36 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin10mk_projectEjPK9parameterP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %num_parameters, ptr noundef %parameters, ptr noundef %4)
   br label %return
 
 sw.bb37:                                          ; preds = %entry
-  %call.i70 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i32 noundef %num_parameters)
-  %call.i71 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i70 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i32 noundef %num_parameters)
+  %call.i71 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %5 = load ptr, ptr %domain, align 8
   %call45 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin9mk_filterERK9parameterP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %5)
   br label %return
 
 sw.bb46:                                          ; preds = %entry
-  %call.i72 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i73 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i72 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i73 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %6 = load ptr, ptr %domain, align 8
   %call53 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin11mk_is_emptyEP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %6)
   br label %return
 
 sw.bb54:                                          ; preds = %entry
-  %call.i74 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef -1, i32 noundef %num_parameters)
-  %call.i75 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i74 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef -1, i32 noundef %num_parameters)
+  %call.i75 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %7 = load ptr, ptr %domain, align 8
   %call61 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin9mk_renameEjPK9parameterP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %num_parameters, ptr noundef %parameters, ptr noundef %7)
   br label %return
 
 sw.bb62:                                          ; preds = %entry
-  %call.i76 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i77 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i76 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i77 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %8 = load ptr, ptr %domain, align 8
   %call69 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin13mk_complementEP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %8)
   br label %return
 
 sw.bb70:                                          ; preds = %entry
-  %call.i78 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef -1, i32 noundef %num_parameters)
-  %call.i79 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
+  %call.i78 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef -1, i32 noundef %num_parameters)
+  %call.i79 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
   %9 = load ptr, ptr %domain, align 8
   %arrayidx77 = getelementptr inbounds i8, ptr %domain, i64 8
   %10 = load ptr, ptr %arrayidx77, align 8
@@ -4628,28 +4628,28 @@ sw.bb70:                                          ; preds = %entry
   br label %return
 
 sw.bb79:                                          ; preds = %entry
-  %call.i80 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i81 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i80 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i81 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %11 = load ptr, ptr %domain, align 8
   %call86 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin8mk_cloneEP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %11)
   br label %return
 
 sw.bb87:                                          ; preds = %entry
-  %call.i82 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef 2, i32 noundef %num_parameters)
-  %call.i83 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %arity)
+  %call.i82 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef 2, i32 noundef %num_parameters)
+  %call.i83 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %arity)
   %call93 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin11mk_constantEPK9parameter(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %parameters)
   br label %return
 
 sw.bb94:                                          ; preds = %entry
-  %call.i84 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i85 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
+  %call.i84 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i85 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 2, i32 noundef 2, i32 noundef %arity)
   %m_lt_sym = getelementptr inbounds i8, ptr %this, i64 136
   %call100 = tail call noundef ptr @_ZN7datalog14dl_decl_plugin10mk_compareEiRK6symbolPKP4sort(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(8) %m_lt_sym, ptr noundef %domain)
   br label %return
 
 sw.bb101:                                         ; preds = %entry
-  %call.i86 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i87 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i86 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i87 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %m_family_id = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i32, ptr %m_family_id, align 8
   call void @_ZN14func_decl_infoC1EiijPK9parameter(ptr noundef nonnull align 8 dereferenceable(19) %info, i32 noundef %12, i32 noundef 15, i32 noundef 0, ptr noundef null)
@@ -4725,8 +4725,8 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br label %eh.resume
 
 sw.bb109:                                         ; preds = %entry
-  %call.i90 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
-  %call.i91 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
+  %call.i90 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef %num_parameters)
+  %call.i91 = tail call noundef zeroext i1 @_ZNK7datalog14dl_decl_plugin12check_boundsEPKcjjj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 1, i32 noundef %arity)
   %m_family_id116 = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load i32, ptr %m_family_id116, align 8
   call void @_ZN14func_decl_infoC1EiijPK9parameter(ptr noundef nonnull align 8 dereferenceable(19) %info115, i32 noundef %23, i32 noundef 16, i32 noundef 0, ptr noundef null)

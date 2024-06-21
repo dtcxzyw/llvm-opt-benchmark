@@ -3736,11 +3736,11 @@ define void @_ZThn16_N21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPai
   ]
 
 8:                                                ; preds = %4
-  tail call void @_ZN21EditReferencingPlugin16DecorateAbsoluteER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr poison, ptr noundef %3)
+  tail call void @_ZN21EditReferencingPlugin16DecorateAbsoluteER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr readnone poison, ptr noundef %3)
   br label %_ZN21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPainter.exit
 
 9:                                                ; preds = %4
-  tail call void @_ZN21EditReferencingPlugin13DecorateScaleER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr poison, ptr noundef %3)
+  tail call void @_ZN21EditReferencingPlugin13DecorateScaleER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr readnone poison, ptr noundef %3)
   br label %_ZN21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPainter.exit
 
 _ZN21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPainter.exit: ; preds = %4, %8, %9

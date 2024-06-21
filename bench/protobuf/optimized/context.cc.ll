@@ -1191,7 +1191,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.then.i
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i
   %sub.i.i.i.i = add i64 %name2.coerce0.tr.i, -5
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %name2.coerce1.tr.i, i64 %sub.i.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.9, i64 5)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.9, i64 5)
   %cmp9.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   %cmp.i.i.i = icmp eq i64 %sub.i.i.i.i, %name1.coerce0.tr.i
   %or.cond.i = select i1 %cmp9.i.i.i.i, i1 %cmp.i.i.i, i1 false
@@ -1202,7 +1202,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i2.i.i.i.i, label %if.then6.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr %name1.coerce1.tr.i, ptr %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
+  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then6.i, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i
 
@@ -1250,7 +1250,7 @@ lor.rhs.i.i.i22.i:                                ; preds = %lor.rhs.i.i.i.i
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i: ; preds = %lor.rhs.i.i.i22.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i.i
   %sub.i.i.i25.i = add i64 %name2.coerce0.tr.i, -4
   %add.ptr.i.i.i26.i = getelementptr inbounds i8, ptr %name2.coerce1.tr.i, i64 %sub.i.i.i25.i
-  %bcmp.i.i.i27.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i26.i, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
+  %bcmp.i.i.i27.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i26.i, ptr noundef nonnull readonly dereferenceable(4) @.str.15, i64 4)
   %cmp9.i.i.i28.i = icmp eq i32 %bcmp.i.i.i27.i, 0
   %cmp.i.i32.i = icmp eq i64 %sub.i.i.i25.i, %name1.coerce0.tr.i
   %or.cond86.i = select i1 %cmp9.i.i.i28.i, i1 %cmp.i.i32.i, i1 false
@@ -1261,7 +1261,7 @@ land.rhs.i.i33.i:                                 ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i2.i.i.i34.i, label %if.then19.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i: ; preds = %land.rhs.i.i33.i
-  %bcmp.i.i36.i = call i32 @bcmp(ptr %name1.coerce1.tr.i, ptr %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
+  %bcmp.i.i36.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
   %cmp.i.i.i37.i = icmp eq i32 %bcmp.i.i36.i, 0
   br i1 %cmp.i.i.i37.i, label %if.then19.i, label %invoke.cont63.thread
 

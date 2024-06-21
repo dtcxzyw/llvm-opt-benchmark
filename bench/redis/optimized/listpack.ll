@@ -2023,7 +2023,7 @@ lpEncodeString.exit:                              ; preds = %if.then.i141, %if.t
   %.sink.i = phi i64 [ 2, %if.then4.i139 ], [ 5, %if.else12.i136 ], [ 1, %if.then.i141 ]
   %add.ptr10.i = getelementptr inbounds i8, ptr %dst.1, i64 %.sink.i
   %conv11.i = zext i32 %size to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i, ptr nonnull align 1 %elestr, i64 %conv11.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i, ptr nonnull readonly align 1 %elestr, i64 %conv11.i, i1 false)
   br label %if.end180
 
 if.else174:                                       ; preds = %if.else171

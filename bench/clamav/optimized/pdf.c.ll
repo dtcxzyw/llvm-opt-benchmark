@@ -9461,7 +9461,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef 
 
 37:                                               ; preds = %33
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.316) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 16 dereferenceable(16) %14, i64 16, i1 false)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %44, %37

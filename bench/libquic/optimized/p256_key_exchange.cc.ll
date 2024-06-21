@@ -193,7 +193,7 @@ cleanup:                                          ; preds = %if.end19
   %private_key_.i = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call3, ptr %private_key_.i, align 8
   %public_key_.i = getelementptr inbounds i8, ptr %call21, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %public_key_.i, ptr noundef nonnull align 16 dereferenceable(65) %public_key, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %public_key_.i, ptr noundef nonnull readonly align 16 dereferenceable(65) %public_key, i64 65, i1 false)
   br label %return
 
 if.then.i:                                        ; preds = %invoke.cont16, %invoke.cont

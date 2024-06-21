@@ -3806,7 +3806,7 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 list_head.exit.i.i:                               ; preds = %.thread260.i
   %766 = getelementptr inbounds i8, ptr %.5502.i, i64 16
   %767 = load ptr, ptr %766, align 8
-  %768 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext %620, i1 noundef zeroext %741, ptr noundef %743, i32 noundef %745, ptr noundef null, ptr noundef nonnull %.5502.i, ptr noundef %767, ptr noundef null, ptr noundef null)
+  %768 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext %620, i1 noundef zeroext %741, ptr noundef %743, i32 noundef %745, ptr noundef null, ptr noundef nonnull readonly %.5502.i, ptr noundef %767, ptr noundef null, ptr noundef null)
   br label %get_steps_using_prefix.exit.i
 
 get_steps_using_prefix.exit.i:                    ; preds = %list_head.exit.i.i, %747, %628
@@ -3935,7 +3935,7 @@ list_head.exit.i236.i:                            ; preds = %.lr.ph309.i, %list_
   %831 = getelementptr inbounds i8, ptr %828, i64 24
   %832 = load i32, ptr %831, align 8
   %833 = load ptr, ptr %799, align 8
-  %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118506.lcssa1251, ptr noundef nonnull %793, ptr noundef %833, ptr noundef null, ptr noundef null)
+  %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118506.lcssa1251, ptr noundef nonnull readonly %793, ptr noundef %833, ptr noundef null, ptr noundef null)
   %835 = call ptr @list_concat(ptr noundef %.3307.i, ptr noundef %834) #6
   %indvars.iv.next479.i = add nuw nsw i64 %indvars.iv478.i, 1
   %836 = load i32, ptr %777, align 4

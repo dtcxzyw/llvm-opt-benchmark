@@ -18053,7 +18053,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17haf49b17ea07357a4E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !678
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !678
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17haf49b17ea07357a4E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17haf49b17ea07357a4E.exit": ; preds = %7, %11
@@ -18250,7 +18250,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3d81facc758bc04E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !689
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !689
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3d81facc758bc04E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3d81facc758bc04E.exit": ; preds = %7, %11
@@ -18447,7 +18447,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h94ec539e5a66bc9dE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !700
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h94ec539e5a66bc9dE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h94ec539e5a66bc9dE.exit": ; preds = %7, %11
@@ -18644,7 +18644,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5d7288022fc0ef0eE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !711
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !711
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5d7288022fc0ef0eE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h5d7288022fc0ef0eE.exit": ; preds = %7, %11
@@ -18841,7 +18841,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h64d624c4d1a44dceE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !722
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !722
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h64d624c4d1a44dceE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h64d624c4d1a44dceE.exit": ; preds = %7, %11
@@ -19038,7 +19038,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1747acefb821b290E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !733
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !733
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1747acefb821b290E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h1747acefb821b290E.exit": ; preds = %7, %11
@@ -19235,7 +19235,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h741cb129313574b5E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !744
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !744
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h741cb129313574b5E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h741cb129313574b5E.exit": ; preds = %7, %11
@@ -19432,7 +19432,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha67947b5007a5d5fE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !755
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !755
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha67947b5007a5d5fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17ha67947b5007a5d5fE.exit": ; preds = %7, %11
@@ -19629,7 +19629,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h64efc87065b314adE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !766
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !766
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h64efc87065b314adE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h64efc87065b314adE.exit": ; preds = %7, %11
@@ -19826,7 +19826,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hca806da8007636ccE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !777
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !777
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hca806da8007636ccE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hca806da8007636ccE.exit": ; preds = %7, %11

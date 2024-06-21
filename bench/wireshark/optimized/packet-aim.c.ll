@@ -1915,7 +1915,7 @@ define internal i32 @dissect_aim_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
   %.07.i.i = phi i32 [ %36, %.lr.ph.i.i ], [ 10, %31 ]
-  %36 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i.i, ptr noundef %.0, ptr noundef nonnull @aim_client_tlvs)
+  %36 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i.i, ptr noundef %.0, ptr noundef nonnull readonly @aim_client_tlvs)
   %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %36) #9
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.i.i, label %dissect_aim_tlv_sequence.exit.i, !llvm.loop !6
@@ -2167,7 +2167,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
 
 .lr.ph.i.i57:                                     ; preds = %157, %.lr.ph.i.i57
   %.07.i.i58 = phi i32 [ %161, %.lr.ph.i.i57 ], [ 6, %157 ]
-  %161 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i.i58, ptr noundef %.0, ptr noundef nonnull @aim_client_tlvs)
+  %161 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i.i58, ptr noundef %.0, ptr noundef nonnull readonly @aim_client_tlvs)
   %162 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %161) #9
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %.lr.ph.i.i57, label %dissect_aim_newconn.exit, !llvm.loop !6
@@ -2382,7 +2382,7 @@ define internal noundef i32 @dissect_aim_snac_error(ptr noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %13, %.lr.ph.i ], [ 2, %3 ]
-  %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13) #9
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -2414,7 +2414,7 @@ define internal i32 @dissect_aim_admin_accnt_info_repl(ptr noundef %0, ptr nound
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.016.i = phi i32 [ %9, %.lr.ph.i ], [ 4, %3 ]
   %.01415.i = phi i16 [ %10, %.lr.ph.i ], [ 0, %3 ]
-  %9 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %9 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %10 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %10, %6
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
@@ -2432,7 +2432,7 @@ define internal noundef i32 @dissect_aim_admin_info_change_req(ptr noundef %0, p
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -2452,7 +2452,7 @@ define internal noundef i32 @dissect_aim_admin_cfrm_repl(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %8, %.lr.ph.i ], [ 2, %3 ]
-  %8 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %8 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8) #9
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -2474,7 +2474,7 @@ define internal noundef i32 @dissect_aim_bos_rights(ptr noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_privacy_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_privacy_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -2550,7 +2550,7 @@ define internal noundef i32 @dissect_aim_buddylist_rights_repl(ptr noundef %0, p
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_buddylist_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_buddylist_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -2613,7 +2613,7 @@ define internal i32 @dissect_aim_buddylist_oncoming(ptr noundef %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.016.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %3 ]
   %.01415.i = phi i16 [ %24, %.lr.ph.i ], [ 0, %3 ]
-  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %24 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %24, %19
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
@@ -2652,7 +2652,7 @@ define internal i32 @dissect_aim_buddylist_offgoing(ptr noundef %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.016.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %3 ]
   %.01415.i = phi i16 [ %24, %.lr.ph.i ], [ 0, %3 ]
-  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %24 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %24, %19
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
@@ -2967,7 +2967,7 @@ define internal fastcc i32 @dissect_aim_userinfo(ptr noundef %0, ptr noundef %1,
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.016.i = phi i32 [ %13, %.lr.ph.i ], [ %12, %4 ]
   %.01415.i = phi i16 [ %14, %.lr.ph.i ], [ 0, %4 ]
-  %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %3, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %3, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %14 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %14, %9
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3270,7 +3270,7 @@ define internal noundef i32 @dissect_aim_generic_redirect(ptr noundef %0, ptr no
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3521,7 +3521,7 @@ define internal i32 @dissect_aim_generic_selfinfo_repl(ptr noundef %0, ptr nound
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.016.i = phi i32 [ %12, %.lr.ph.i ], [ %11, %3 ]
   %.01415.i = phi i16 [ %13, %.lr.ph.i ], [ 0, %3 ]
-  %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %13 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %13, %8
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3588,7 +3588,7 @@ define internal noundef i32 @dissect_aim_generic_migration_req(ptr noundef %0, p
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.07.i = phi i32 [ %17, %.lr.ph.i ], [ %.0.lcssa, %._crit_edge ]
-  %17 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %17 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %17) #9
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3608,7 +3608,7 @@ define internal noundef i32 @dissect_aim_generic_motd(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %8, %.lr.ph.i ], [ 2, %3 ]
-  %8 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_motd_tlvs)
+  %8 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_motd_tlvs)
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8) #9
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3684,7 +3684,7 @@ define internal noundef i32 @dissect_aim_generic_ext_status_req(ptr noundef %0, 
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3849,7 +3849,7 @@ define internal noundef i32 @dissect_aim_invitation_req(ptr noundef %0, ptr noun
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3867,7 +3867,7 @@ define internal noundef i32 @dissect_aim_location_rightsinfo(ptr noundef %0, ptr
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_location_rights_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_location_rights_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3885,7 +3885,7 @@ define internal noundef i32 @dissect_aim_location_setuserinfo(ptr noundef %0, pt
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_locate_tags_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_locate_tags_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -3931,7 +3931,7 @@ define internal noundef i32 @dissect_aim_snac_location_user_information(ptr noun
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.016.i = phi i32 [ %18, %.lr.ph.i ], [ %17, %3 ]
   %.01415.i = phi i16 [ %19, %.lr.ph.i ], [ 0, %3 ]
-  %18 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
+  %18 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
   %19 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %19, %14
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3944,7 +3944,7 @@ dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
 
 .lr.ph.i24:                                       ; preds = %dissect_aim_tlv_list.exit, %.lr.ph.i24
   %.07.i = phi i32 [ %22, %.lr.ph.i24 ], [ %.0.lcssa.i, %dissect_aim_tlv_list.exit ]
-  %22 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_locate_tags_tlvs)
+  %22 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_locate_tags_tlvs)
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %22) #9
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.i24, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4026,7 +4026,7 @@ define internal i32 @dissect_aim_msg_outgoing(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph.i:                                         ; preds = %.split29, %.lr.ph.i
   %.07.i = phi i32 [ %22, %.lr.ph.i ], [ %19, %.split29 ]
-  %22 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_messaging_incoming_ch1_tlvs)
+  %22 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_messaging_incoming_ch1_tlvs)
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %22) #9
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4038,7 +4038,7 @@ define internal i32 @dissect_aim_msg_outgoing(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph.i31:                                       ; preds = %.split, %.lr.ph.i31
   %.07.i32 = phi i32 [ %27, %.lr.ph.i31 ], [ %19, %.split ]
-  %27 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i32, ptr noundef %2, ptr noundef nonnull @aim_messaging_incoming_ch2_tlvs)
+  %27 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i32, ptr noundef %2, ptr noundef nonnull readonly @aim_messaging_incoming_ch2_tlvs)
   %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %27) #9
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph.i31, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4068,7 +4068,7 @@ define internal i32 @dissect_aim_msg_incoming(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph.i:                                         ; preds = %.split23, %.lr.ph.i
   %.07.i = phi i32 [ %12, %.lr.ph.i ], [ %9, %.split23 ]
-  %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_messaging_incoming_ch1_tlvs)
+  %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_messaging_incoming_ch1_tlvs)
   %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %12) #9
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4080,7 +4080,7 @@ define internal i32 @dissect_aim_msg_incoming(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph.i25:                                       ; preds = %.split, %.lr.ph.i25
   %.07.i26 = phi i32 [ %17, %.lr.ph.i25 ], [ %9, %.split ]
-  %17 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i26, ptr noundef %2, ptr noundef nonnull @aim_messaging_incoming_ch2_tlvs)
+  %17 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i26, ptr noundef %2, ptr noundef nonnull readonly @aim_messaging_incoming_ch2_tlvs)
   %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %17) #9
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph.i25, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4384,7 +4384,7 @@ define internal noundef i32 @dissect_aim_tlv_value_rendezvous(ptr noundef %0, i1
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.07.i = phi i32 [ %14, %.lr.ph.i ], [ %11, %4 ]
-  %14 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %2, ptr noundef %3, i32 noundef %.07.i, ptr noundef %6, ptr noundef nonnull @aim_rendezvous_tlvs)
+  %14 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %2, ptr noundef %3, i32 noundef %.07.i, ptr noundef %6, ptr noundef nonnull readonly @aim_rendezvous_tlvs)
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %14) #9
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4532,7 +4532,7 @@ define internal noundef i32 @dissect_aim_ssi_rightsinfo(ptr noundef %0, ptr noun
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_ssi_rightsinfo_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_ssi_rightsinfo_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
@@ -4870,7 +4870,7 @@ define internal noundef i32 @dissect_aim_userlookup_result(ptr noundef %0, ptr n
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.07.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %3 ]
-  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
+  %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6

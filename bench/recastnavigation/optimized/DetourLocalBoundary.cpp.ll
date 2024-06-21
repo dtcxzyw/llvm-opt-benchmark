@@ -307,7 +307,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   %.0.i = phi ptr [ %54, %52 ], [ %79, %78 ], [ %29, %41 ]
   %81 = getelementptr inbounds i8, ptr %.0.i, i64 24
   store float %39, ptr %81, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %37, i64 24, i1 false)
   %82 = load i32, ptr %25, align 4
   %83 = icmp slt i32 %82, 8
   br i1 %83, label %84, label %_ZN15dtLocalBoundary10addSegmentEfPKf.exit

@@ -143,7 +143,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
   br i1 %10, label %_hostlist_create.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #22
+  %12 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #22
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %15, label %.preheader.i.i
 
@@ -4205,7 +4205,7 @@ define internal fastcc ptr @hostname_create_dims(ptr noundef %0, i32 noundef %1)
   %16 = phi i1 [ %9, %6 ], [ %9, %11 ], [ %4, %.thread ]
   %.03041 = phi i32 [ %8, %6 ], [ 0, %11 ], [ %1, %.thread ]
   %.017.i = phi i32 [ %8, %6 ], [ %13, %11 ], [ %1, %.thread ]
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
   %18 = trunc i64 %17 to i32
   %19 = add i32 %18, -1
   %20 = icmp sgt i32 %.017.i, 1

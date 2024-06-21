@@ -21376,7 +21376,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %agg.tmp10.sroa.0.0.copyload.i.i.i = load i64, ptr %__begin3.085.i.i.i, align 8, !noalias !896
   %agg.tmp10.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin3.085.i.i.i, i64 8
   %agg.tmp10.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp10.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !896
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i, i64 %agg.tmp10.sroa.0.0.copyload.i.i.i, ptr %agg.tmp10.sroa.2.0.copyload.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %f_parser_.i, i64 %agg.tmp10.sroa.0.0.copyload.i.i.i, ptr %agg.tmp10.sroa.2.0.copyload.i.i.i)
           to label %invoke.cont13.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !896
 
 invoke.cont13.i.i.i:                              ; preds = %for.body.i.i.i
@@ -37448,7 +37448,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %device_type_8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 112
   %19 = load i8, ptr %device_type_8.i.i.i.i.i.i.i.i, align 8, !alias.scope !1540, !noalias !1537
   store i8 %19, ptr %device_type_.i.i.i.i.i.i.i.i, align 8, !alias.scope !1537, !noalias !1540
-  tail call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %__first.addr.02.i.i.i.i) #24, !noalias !1537
+  tail call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(113) %__first.addr.02.i.i.i.i) #24, !noalias !1537
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 120
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 120
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %this.val8.i
@@ -37687,7 +37687,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %device_type_8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 112
   %42 = load i8, ptr %device_type_8.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1554, !noalias !1551
   store i8 %42, ptr %device_type_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1551, !noalias !1554
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %__first.addr.02.i.i.i.i.i) #24, !noalias !1551
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(113) %__first.addr.02.i.i.i.i.i) #24, !noalias !1551
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 120
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 120
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %27
@@ -37952,7 +37952,7 @@ sw.bb.i:                                          ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp30.i.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp50.i.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp74.i.i), !noalias !1563
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i78, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1566
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i78, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1566
   call void @llvm.experimental.noalias.scope.decl(metadata !1569)
   %73 = load ptr, ptr %ref.tmp.i.i78, align 8, !noalias !1572
   store ptr %73, ptr %ref.tmp49, align 8, !alias.scope !1572
@@ -38186,7 +38186,7 @@ sw.bb26.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i.i), !noalias !1595
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i.i), !noalias !1595
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i.i), !noalias !1595
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1597)
   %98 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1600
   store ptr %98, ptr %ref.tmp49, align 8, !alias.scope !1600
@@ -38233,7 +38233,7 @@ cond.true.i.i.i.i.i:                              ; preds = %do.body47.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %cond.true.i.i.i.i.i, %do.body47.i.i.i
   %cond.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ 0, %do.body47.i.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i.i, i1 noundef zeroext true), !noalias !1617
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i.i, i1 noundef zeroext true), !noalias !1617
   call void @llvm.experimental.noalias.scope.decl(metadata !1618)
   %104 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1621
   store ptr %104, ptr %ref.tmp49.i.i.i, align 8, !alias.scope !1622, !noalias !1612
@@ -38285,7 +38285,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i.i:               ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i.i = add nsw i64 %112, %111
   %add3.i.i.i.i = shl i64 %add.i.i.i.i, 2
   %mul.i.i.i.i89 = add i64 %add3.i.i.i.i, 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i.i89, i1 noundef zeroext false), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i.i89, i1 noundef zeroext false), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1634)
   %113 = load ptr, ptr %ref.tmp69.i.i.i, align 8, !noalias !1637
   store ptr %113, ptr %ref.tmp49, align 8, !alias.scope !1637
@@ -38329,7 +38329,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i.i:               ; preds = %cond.true.i.i.i.i, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i.i
   %cond.i.i.i.i = phi i64 [ %conv.i.i.i.i, %cond.true.i.i.i.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i.i, i1 noundef zeroext false), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i.i, i1 noundef zeroext false), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1642)
   %123 = load ptr, ptr %ref.tmp89.i.i.i, align 8, !noalias !1645
   store ptr %123, ptr %ref.tmp49, align 8, !alias.scope !1645
@@ -38367,7 +38367,7 @@ sw.bb30.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i93.i), !noalias !1652
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i94.i), !noalias !1652
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i95.i), !noalias !1652
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i90.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i90.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1654)
   %124 = load ptr, ptr %ref.tmp.i.i90.i, align 8, !noalias !1657
   store ptr %124, ptr %ref.tmp49, align 8, !alias.scope !1657
@@ -38414,7 +38414,7 @@ cond.true.i.i.i.i147.i:                           ; preds = %do.body47.i.i101.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i103.i:             ; preds = %cond.true.i.i.i.i147.i, %do.body47.i.i101.i
   %cond.i.i.i.i104.i = phi i64 [ %add.i.i.i.i.i154.i, %cond.true.i.i.i.i147.i ], [ 0, %do.body47.i.i101.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i89.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i104.i, i1 noundef zeroext true), !noalias !1674
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i89.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i104.i, i1 noundef zeroext true), !noalias !1674
   call void @llvm.experimental.noalias.scope.decl(metadata !1675)
   %130 = load ptr, ptr %ref.tmp.i.i.i89.i, align 8, !noalias !1678
   store ptr %130, ptr %ref.tmp49.i.i93.i, align 8, !alias.scope !1679, !noalias !1669
@@ -38466,7 +38466,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i113.i:            ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i115.i = add nsw i64 %138, %137
   %add3.i.i.i116.i = shl i64 %add.i.i.i115.i, 2
   %mul.i.i.i117.i = add i64 %add3.i.i.i116.i, 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i94.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i117.i, i1 noundef zeroext false), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i94.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i117.i, i1 noundef zeroext false), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1691)
   %139 = load ptr, ptr %ref.tmp69.i.i94.i, align 8, !noalias !1694
   store ptr %139, ptr %ref.tmp49, align 8, !alias.scope !1694
@@ -38510,7 +38510,7 @@ cond.true.i.i.i137.i:                             ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i133.i:            ; preds = %cond.true.i.i.i137.i, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i130.i
   %cond.i.i.i134.i = phi i64 [ %conv.i.i.i139.i, %cond.true.i.i.i137.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i130.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i95.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i134.i, i1 noundef zeroext false), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i95.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i134.i, i1 noundef zeroext false), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   %149 = load ptr, ptr %ref.tmp89.i.i95.i, align 8, !noalias !1702
   store ptr %149, ptr %ref.tmp49, align 8, !alias.scope !1702
@@ -38548,7 +38548,7 @@ sw.bb34.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i159.i), !noalias !1709
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i160.i), !noalias !1709
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i161.i), !noalias !1709
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i156.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i156.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1711)
   %150 = load ptr, ptr %ref.tmp.i.i156.i, align 8, !noalias !1714
   store ptr %150, ptr %ref.tmp49, align 8, !alias.scope !1714
@@ -38595,7 +38595,7 @@ cond.true.i.i.i.i211.i:                           ; preds = %do.body47.i.i167.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i169.i:             ; preds = %cond.true.i.i.i.i211.i, %do.body47.i.i167.i
   %cond.i.i.i.i170.i = phi i64 [ %add.i.i.i.i.i218.i, %cond.true.i.i.i.i211.i ], [ 0, %do.body47.i.i167.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i155.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i170.i, i1 noundef zeroext true), !noalias !1731
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i155.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i170.i, i1 noundef zeroext true), !noalias !1731
   call void @llvm.experimental.noalias.scope.decl(metadata !1732)
   %156 = load ptr, ptr %ref.tmp.i.i.i155.i, align 8, !noalias !1735
   store ptr %156, ptr %ref.tmp49.i.i159.i, align 8, !alias.scope !1736, !noalias !1726
@@ -38647,7 +38647,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i179.i:            ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i181.i = add nsw i64 %164, %163
   %add3.i.i.i182.i = shl i64 %add.i.i.i181.i, 3
   %mul.i.i.i183.i = add i64 %add3.i.i.i182.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i160.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i183.i, i1 noundef zeroext false), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i160.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i183.i, i1 noundef zeroext false), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1748)
   %165 = load ptr, ptr %ref.tmp69.i.i160.i, align 8, !noalias !1751
   store ptr %165, ptr %ref.tmp49, align 8, !alias.scope !1751
@@ -38690,7 +38690,7 @@ cond.true.i.i.i202.i:                             ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i198.i:            ; preds = %cond.true.i.i.i202.i, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i.i
   %cond.i.i.i199.i = phi i64 [ %174, %cond.true.i.i.i202.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i161.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i199.i, i1 noundef zeroext false), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i161.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i199.i, i1 noundef zeroext false), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1756)
   %175 = load ptr, ptr %ref.tmp89.i.i161.i, align 8, !noalias !1759
   store ptr %175, ptr %ref.tmp49, align 8, !alias.scope !1759
@@ -38724,7 +38724,7 @@ sw.bb36.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i223.i), !noalias !1766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i224.i), !noalias !1766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i225.i), !noalias !1766
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i220.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i220.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1768)
   %176 = load ptr, ptr %ref.tmp.i.i220.i, align 8, !noalias !1771
   store ptr %176, ptr %ref.tmp49, align 8, !alias.scope !1771
@@ -38771,7 +38771,7 @@ cond.true.i.i.i.i276.i:                           ; preds = %do.body47.i.i231.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i233.i:             ; preds = %cond.true.i.i.i.i276.i, %do.body47.i.i231.i
   %cond.i.i.i.i234.i = phi i64 [ %add.i.i.i.i.i283.i, %cond.true.i.i.i.i276.i ], [ 0, %do.body47.i.i231.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i219.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i234.i, i1 noundef zeroext true), !noalias !1788
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i219.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i234.i, i1 noundef zeroext true), !noalias !1788
   call void @llvm.experimental.noalias.scope.decl(metadata !1789)
   %182 = load ptr, ptr %ref.tmp.i.i.i219.i, align 8, !noalias !1792
   store ptr %182, ptr %ref.tmp49.i.i223.i, align 8, !alias.scope !1793, !noalias !1783
@@ -38823,7 +38823,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i243.i:            ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i245.i = add nsw i64 %190, %189
   %add3.i.i.i246.i = shl i64 %add.i.i.i245.i, 3
   %mul.i.i.i247.i = add i64 %add3.i.i.i246.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i224.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i247.i, i1 noundef zeroext false), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i224.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i247.i, i1 noundef zeroext false), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   %191 = load ptr, ptr %ref.tmp69.i.i224.i, align 8, !noalias !1808
   store ptr %191, ptr %ref.tmp49, align 8, !alias.scope !1808
@@ -38866,7 +38866,7 @@ cond.true.i.i.i267.i:                             ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i263.i:            ; preds = %cond.true.i.i.i267.i, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i260.i
   %cond.i.i.i264.i = phi i64 [ %200, %cond.true.i.i.i267.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i260.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i225.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i264.i, i1 noundef zeroext false), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i225.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i264.i, i1 noundef zeroext false), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1813)
   %201 = load ptr, ptr %ref.tmp89.i.i225.i, align 8, !noalias !1816
   store ptr %201, ptr %ref.tmp49, align 8, !alias.scope !1816
@@ -38998,7 +38998,7 @@ cond.true.i.i.i.i311.i:                           ; preds = %do.body47.i.i291.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i293.i:             ; preds = %cond.true.i.i.i.i311.i, %do.body47.i.i291.i
   %cond.i.i.i.i294.i = phi i64 [ %add.i.i.i.i.i318.i, %cond.true.i.i.i.i311.i ], [ 0, %do.body47.i.i291.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i284.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i294.i, i1 noundef zeroext true), !noalias !1845
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i284.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i294.i, i1 noundef zeroext true), !noalias !1845
   call void @llvm.experimental.noalias.scope.decl(metadata !1846)
   %208 = load ptr, ptr %ref.tmp.i.i.i284.i, align 8, !noalias !1849
   store ptr %208, ptr %ref.tmp49.i.i288.i, align 8, !alias.scope !1850, !noalias !1840
@@ -39050,7 +39050,7 @@ _ZN5arrow6StatusD2Ev.exit300.i.i.i:               ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i303.i = add nsw i64 %216, %215
   %add3.i.i.i304.i = shl i64 %add.i.i.i303.i, 3
   %mul.i.i.i305.i = add i64 %add3.i.i.i304.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i289.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i305.i, i1 noundef zeroext false), !noalias !1824
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i289.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i305.i, i1 noundef zeroext false), !noalias !1824
   %217 = load ptr, ptr %ref.tmp69.i.i289.i, align 8, !noalias !1862
   br label %return.sink.split.i.i297.i
 
@@ -39123,7 +39123,7 @@ cond.true.i.i.i.i358.i:                           ; preds = %do.body47.i.i331.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i333.i:             ; preds = %cond.true.i.i.i.i358.i, %do.body47.i.i331.i
   %cond.i.i.i.i334.i = phi i64 [ %add.i.i.i.i.i365.i, %cond.true.i.i.i.i358.i ], [ 0, %do.body47.i.i331.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i319.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i334.i, i1 noundef zeroext true), !noalias !1893
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i319.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i334.i, i1 noundef zeroext true), !noalias !1893
   call void @llvm.experimental.noalias.scope.decl(metadata !1894)
   %224 = load ptr, ptr %ref.tmp.i.i.i319.i, align 8, !noalias !1897
   store ptr %224, ptr %ref.tmp49.i.i323.i, align 8, !alias.scope !1898, !noalias !1888
@@ -39174,7 +39174,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i343.i:            ; preds = %_ZN5arrow6StatusD2E
   %232 = load i64, ptr %offset.i.i.i344.i, align 8, !noalias !1909
   %add.i.i.i345.i = add nsw i64 %232, %231
   %mul.i.i.i346.i = shl i64 %add.i.i.i345.i, 2
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i324.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i346.i, i1 noundef zeroext false), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i324.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i346.i, i1 noundef zeroext false), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1910)
   %233 = load ptr, ptr %ref.tmp69.i.i324.i, align 8, !noalias !1913
   store ptr %233, ptr %ref.tmp49, align 8, !alias.scope !1913
@@ -39189,7 +39189,7 @@ _ZN5arrow6StatusD2Ev.exit378.i.i348.i:            ; preds = %_ZN5arrow6StatusD2E
   %236 = load i64, ptr %offset.i340.i.i.i, align 8, !noalias !1917
   %add.i341.i.i.i = add nsw i64 %236, %235
   %mul.i342.i.i.i = shl i64 %add.i341.i.i.i, 2
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i325.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i.i, i1 noundef zeroext false), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i325.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i.i, i1 noundef zeroext false), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1918)
   %237 = load ptr, ptr %ref.tmp89.i.i325.i, align 8, !noalias !1921
   store ptr %237, ptr %ref.tmp49, align 8, !alias.scope !1921
@@ -39270,7 +39270,7 @@ cond.true.i.i.i.i408.i:                           ; preds = %do.body47.i.i378.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i380.i:             ; preds = %cond.true.i.i.i.i408.i, %do.body47.i.i378.i
   %cond.i.i.i.i381.i = phi i64 [ %add.i.i.i.i.i415.i, %cond.true.i.i.i.i408.i ], [ 0, %do.body47.i.i378.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i366.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i381.i, i1 noundef zeroext true), !noalias !1950
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i366.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i381.i, i1 noundef zeroext true), !noalias !1950
   call void @llvm.experimental.noalias.scope.decl(metadata !1951)
   %244 = load ptr, ptr %ref.tmp.i.i.i366.i, align 8, !noalias !1954
   store ptr %244, ptr %ref.tmp49.i.i370.i, align 8, !alias.scope !1955, !noalias !1945
@@ -39321,7 +39321,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i390.i:            ; preds = %_ZN5arrow6StatusD2E
   %252 = load i64, ptr %offset.i.i.i391.i, align 8, !noalias !1966
   %add.i.i.i392.i = add nsw i64 %252, %251
   %mul.i.i.i393.i = shl i64 %add.i.i.i392.i, 3
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i371.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i393.i, i1 noundef zeroext false), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i371.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i393.i, i1 noundef zeroext false), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1967)
   %253 = load ptr, ptr %ref.tmp69.i.i371.i, align 8, !noalias !1970
   store ptr %253, ptr %ref.tmp49, align 8, !alias.scope !1970
@@ -39336,7 +39336,7 @@ _ZN5arrow6StatusD2Ev.exit378.i.i395.i:            ; preds = %_ZN5arrow6StatusD2E
   %256 = load i64, ptr %offset.i340.i.i396.i, align 8, !noalias !1974
   %add.i341.i.i397.i = add nsw i64 %256, %255
   %mul.i342.i.i398.i = shl i64 %add.i341.i.i397.i, 3
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i372.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i398.i, i1 noundef zeroext false), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i372.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i398.i, i1 noundef zeroext false), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1975)
   %257 = load ptr, ptr %ref.tmp89.i.i372.i, align 8, !noalias !1978
   store ptr %257, ptr %ref.tmp49, align 8, !alias.scope !1978
@@ -39418,7 +39418,7 @@ cond.true.i.i.i425.i:                             ; preds = %do.body47.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %cond.true.i.i.i425.i, %do.body47.i.i
   %cond.i.i.i424.i = phi i64 [ %add.i.i.i.i429.i, %cond.true.i.i.i425.i ], [ 0, %do.body47.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i416.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i424.i, i1 noundef zeroext true), !noalias !2002
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i416.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i424.i, i1 noundef zeroext true), !noalias !2002
   call void @llvm.experimental.noalias.scope.decl(metadata !2003)
   %264 = load ptr, ptr %ref.tmp.i.i416.i, align 8, !noalias !2006
   store ptr %264, ptr %ref.tmp49.i.i, align 8, !alias.scope !2007, !noalias !1997
@@ -39514,7 +39514,7 @@ cond.true.i.i.i449.i:                             ; preds = %do.body27.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i436.i:               ; preds = %cond.true.i.i.i449.i, %do.body27.i.i
   %cond.i.i.i437.i = phi i64 [ %add.i.i.i.i456.i, %cond.true.i.i.i449.i ], [ 0, %do.body27.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i430.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i437.i, i1 noundef zeroext true), !noalias !2032
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i430.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i437.i, i1 noundef zeroext true), !noalias !2032
   call void @llvm.experimental.noalias.scope.decl(metadata !2033)
   %275 = load ptr, ptr %ref.tmp.i.i430.i, align 8, !noalias !2036
   store ptr %275, ptr %ref.tmp29.i433.i, align 8, !alias.scope !2037, !noalias !2027
@@ -39645,7 +39645,7 @@ cond.true.i.i.i85:                                ; preds = %do.body28.i.i
 
 _ZN5arrow6StatusD2Ev.exit163.i.i:                 ; preds = %cond.true.i.i.i85, %do.body28.i.i
   %cond.i.i.i84 = phi i64 [ %add.i.i.i86, %cond.true.i.i.i85 ], [ 0, %do.body28.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp30.i460.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i.i84, i1 noundef zeroext false), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp30.i460.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i.i84, i1 noundef zeroext false), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2064)
   %291 = load ptr, ptr %ref.tmp30.i460.i, align 8, !noalias !2067
   store ptr %291, ptr %ref.tmp49, align 8, !alias.scope !2067
@@ -39684,7 +39684,7 @@ cond.true.i354.i.i:                               ; preds = %do.body88.i.i
 
 _ZN5arrow6StatusD2Ev.exit394.i.i:                 ; preds = %cond.true.i354.i.i, %do.body88.i.i
   %cond.i353.i.i = phi i64 [ %add.i356.i.i, %cond.true.i354.i.i ], [ 0, %do.body88.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp90.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i353.i.i, i1 noundef zeroext false), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp90.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i353.i.i, i1 noundef zeroext false), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2080)
   %297 = load ptr, ptr %ref.tmp90.i.i, align 8, !noalias !2083
   store ptr %297, ptr %ref.tmp49, align 8, !alias.scope !2083
@@ -39904,7 +39904,7 @@ cond.true.i.i542.i:                               ; preds = %do.body28.i540.i
 
 _ZN5arrow6StatusD2Ev.exit167.i.i:                 ; preds = %cond.true.i.i542.i, %do.body28.i540.i
   %cond.i.i541.i = phi i64 [ %add.i.i544.i, %cond.true.i.i542.i ], [ 0, %do.body28.i540.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp30.i515.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i541.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp30.i515.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i541.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2108)
   %325 = load ptr, ptr %ref.tmp30.i515.i, align 8, !noalias !2111
   store ptr %325, ptr %ref.tmp49, align 8, !alias.scope !2111
@@ -39927,7 +39927,7 @@ cond.true.i208.i.i:                               ; preds = %do.body48.i.i
 
 _ZN5arrow6StatusD2Ev.exit248.i.i:                 ; preds = %cond.true.i208.i.i, %do.body48.i.i
   %cond.i207.i.i = phi i64 [ %mul.i.i.i, %cond.true.i208.i.i ], [ 0, %do.body48.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp50.i516.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i207.i.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp50.i516.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i207.i.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2116)
   %329 = load ptr, ptr %ref.tmp50.i516.i, align 8, !noalias !2119
   store ptr %329, ptr %ref.tmp49, align 8, !alias.scope !2119
@@ -39965,7 +39965,7 @@ cond.true.i439.i.i:                               ; preds = %do.body108.i.i
 
 _ZN5arrow6StatusD2Ev.exit480.i.i:                 ; preds = %cond.true.i439.i.i, %do.body108.i.i
   %cond.i438.i.i = phi i64 [ %add.i441.i.i, %cond.true.i439.i.i ], [ 0, %do.body108.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp110.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i438.i.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp110.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i438.i.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2132)
   %335 = load ptr, ptr %ref.tmp110.i.i, align 8, !noalias !2135
   store ptr %335, ptr %ref.tmp49, align 8, !alias.scope !2135
@@ -39988,7 +39988,7 @@ cond.true.i521.i.i:                               ; preds = %do.body128.i.i
 
 _ZN5arrow6StatusD2Ev.exit562.i.i:                 ; preds = %cond.true.i521.i.i, %do.body128.i.i
   %cond.i520.i.i = phi i64 [ %mul.i524.i.i, %cond.true.i521.i.i ], [ 0, %do.body128.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp130.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i520.i.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp130.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i520.i.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2140)
   %339 = load ptr, ptr %ref.tmp130.i.i, align 8, !noalias !2143
   store ptr %339, ptr %ref.tmp49, align 8, !alias.scope !2143
@@ -40844,7 +40844,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp72.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp106.i)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2196)
   %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !2199
   store ptr %0, ptr %agg.result, align 8, !alias.scope !2199
@@ -40891,7 +40891,7 @@ cond.true.i.i.i:                                  ; preds = %do.body47.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %cond.true.i.i.i, %do.body47.i
   %cond.i.i.i = phi i64 [ %add.i.i.i.i, %cond.true.i.i.i ], [ 0, %do.body47.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2214
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2214
   call void @llvm.experimental.noalias.scope.decl(metadata !2215)
   %6 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2218
   store ptr %6, ptr %ref.tmp49.i, align 8, !alias.scope !2219, !noalias !2193
@@ -40967,7 +40967,7 @@ cond.true.i.i:                                    ; preds = %do.body70.i
 
 _ZN5arrow6StatusD2Ev.exit305.i:                   ; preds = %cond.true.i.i, %do.body70.i
   %cond.i.i = phi i64 [ %mul.i.i, %cond.true.i.i ], [ 0, %do.body70.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp72.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i, i1 noundef zeroext false), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp72.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i, i1 noundef zeroext false), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2230)
   %18 = load ptr, ptr %ref.tmp72.i, align 8, !noalias !2233
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2233
@@ -40994,7 +40994,7 @@ cond.true.i309.i:                                 ; preds = %do.body104.i
 
 _ZN5arrow6StatusD2Ev.exit349.i:                   ; preds = %cond.true.i309.i, %do.body104.i
   %cond.i308.i = phi i64 [ %add.i.i313.i, %cond.true.i309.i ], [ 0, %do.body104.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp106.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i308.i, i1 noundef zeroext false), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp106.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i308.i, i1 noundef zeroext false), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2237)
   %22 = load ptr, ptr %ref.tmp106.i, align 8, !noalias !2240
   store ptr %22, ptr %agg.result, align 8, !alias.scope !2240
@@ -41082,7 +41082,7 @@ cond.true.i.i.i:                                  ; preds = %do.body47.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %cond.true.i.i.i, %do.body47.i
   %cond.i.i.i = phi i64 [ %add.i.i.i.i, %cond.true.i.i.i ], [ 0, %do.body47.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2262
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2262
   call void @llvm.experimental.noalias.scope.decl(metadata !2263)
   %6 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2266
   store ptr %6, ptr %ref.tmp49.i, align 8, !alias.scope !2267, !noalias !2241
@@ -41136,7 +41136,7 @@ _ZN5arrow6StatusD2Ev.exit300.i:                   ; preds = %_ZN5arrow6StatusD2E
   %add.i.i = add nsw i64 %14, %13
   %add3.i.i = shl i64 %add.i.i, 2
   %mul.i.i = add i64 %add3.i.i, 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i, i1 noundef zeroext false), !noalias !2241
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i, i1 noundef zeroext false), !noalias !2241
   %15 = load ptr, ptr %ref.tmp69.i, align 8, !noalias !2278
   br label %return.sink.split.i
 
@@ -44235,7 +44235,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp35 = alloca %"class.arrow::Status", align 8
   %ref.tmp55 = alloca %"class.arrow::Status", align 8
   %ref.tmp82 = alloca %"class.arrow::Status", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !2342)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !2342
   store ptr %0, ptr %agg.result, align 8, !alias.scope !2342
@@ -44320,7 +44320,7 @@ cond.true.i.i:                                    ; preds = %do.body33
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %cond.true.i.i, %do.body33
   %cond.i.i = phi i64 [ %add.i.i.i, %cond.true.i.i ], [ 0, %do.body33 ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i, i1 noundef zeroext true), !noalias !2351
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i, i1 noundef zeroext true), !noalias !2351
   call void @llvm.experimental.noalias.scope.decl(metadata !2357)
   %13 = load ptr, ptr %ref.tmp.i, align 8, !noalias !2360
   store ptr %13, ptr %ref.tmp35, align 8, !alias.scope !2360
@@ -44382,7 +44382,7 @@ cond.true.i:                                      ; preds = %do.body53
 
 _ZN5arrow6StatusD2Ev.exit231:                     ; preds = %cond.true.i, %do.body53
   %cond.i = phi i64 [ %mul.i, %cond.true.i ], [ 0, %do.body53 ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i, i1 noundef zeroext false)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i, i1 noundef zeroext false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2371)
   %22 = load ptr, ptr %ref.tmp55, align 8, !noalias !2371
   store ptr %22, ptr %agg.result, align 8, !alias.scope !2371

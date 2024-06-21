@@ -1292,7 +1292,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 323:                                              ; preds = %319
   %324 = getelementptr inbounds i8, ptr %49, i64 %300
   %325 = zext nneg i32 %.0259.i to i64
-  %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull %324, i64 noundef %325) #10
+  %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly %324, i64 noundef %325) #10
   %327 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef nonnull %322, i64 noundef %325, ptr noundef null)
   %.not279.i = icmp eq ptr %327, null
   br i1 %.not279.i, label %328, label %337
@@ -1381,7 +1381,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 368:                                              ; preds = %364
   %369 = getelementptr inbounds i8, ptr %49, i64 %343
   %370 = zext nneg i32 %.0256.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull align 1 %369, i64 %370, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %369, i64 %370, i1 false)
   %371 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef nonnull %367, i64 noundef %370, ptr noundef nonnull @.str.88)
   %.not275.i = icmp eq ptr %371, null
   br i1 %.not275.i, label %372, label %381

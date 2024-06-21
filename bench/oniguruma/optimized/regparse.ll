@@ -3356,7 +3356,7 @@ get_next_code_point.exit.thread:                  ; preds = %39
 
 .loopexit.i:                                      ; preds = %32, %30
   store ptr %31, ptr %5, align 8
-  %41 = call fastcc i32 @scan_number_of_base(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %20, ptr noundef nonnull %6, i32 noundef %28)
+  %41 = call fastcc i32 @scan_number_of_base(ptr noundef nonnull %5, ptr noundef %2, ptr noundef readonly %20, ptr noundef nonnull %6, i32 noundef %28)
   %.not26.i = icmp eq i32 %41, 0
   br i1 %.not26.i, label %42, label %get_next_code_point.exit
 
@@ -7865,7 +7865,7 @@ thread-pre-split:                                 ; preds = %255
 
 286:                                              ; preds = %279, %271
   %287 = load i32, ptr %19, align 4
-  %288 = call fastcc ptr @node_new_backref(i32 noundef 1, ptr noundef nonnull %21, i32 noundef 0, i32 noundef %spec.select.i, i32 noundef %287, ptr noundef nonnull %5)
+  %288 = call fastcc ptr @node_new_backref(i32 noundef 1, ptr noundef nonnull readonly %21, i32 noundef 0, i32 noundef %spec.select.i, i32 noundef %287, ptr noundef nonnull %5)
   %289 = icmp eq ptr %288, null
   br i1 %289, label %node_new_backref_checker.exit435, label %node_new_backref_checker.exit435.sink.split
 
@@ -7913,7 +7913,7 @@ thread-pre-split:                                 ; preds = %255
 
 .loopexit497:                                     ; preds = %300, %294
   %312 = load i32, ptr %19, align 4
-  %313 = tail call fastcc ptr @node_new_backref(i32 noundef %292, ptr noundef %.pre, i32 noundef 1, i32 noundef %spec.select.i, i32 noundef %312, ptr noundef nonnull %5)
+  %313 = tail call fastcc ptr @node_new_backref(i32 noundef %292, ptr noundef readonly %.pre, i32 noundef 1, i32 noundef %spec.select.i, i32 noundef %312, ptr noundef nonnull %5)
   %314 = icmp eq ptr %313, null
   br i1 %314, label %node_new_backref_checker.exit435, label %node_new_backref_checker.exit435.sink.split
 
@@ -10011,7 +10011,7 @@ node_new_anchor_with_options.exit.i:              ; preds = %1226
   %1238 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i404, i64 4
   store i32 4194304, ptr %1238, align 4
   store ptr %calloc.i.i.i.i.i404, ptr %indvars.iv.i.sroa.gep450, align 8
-  %1239 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %8)
+  %1239 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %8)
   %1240 = icmp eq ptr %1239, null
   br i1 %1240, label %node_new_true_anychar.exit.i.preheader, label %1241
 
@@ -10045,7 +10045,7 @@ node_new_anchor_with_options.exit.i:              ; preds = %1226
   %1251 = getelementptr inbounds i8, ptr %calloc.i.i.i.i27.i, i64 4
   store i32 4194304, ptr %1251, align 4
   store ptr %calloc.i.i.i.i27.i, ptr %8, align 16
-  %1252 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %8)
+  %1252 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %8)
   %1253 = icmp eq ptr %1252, null
   br i1 %1253, label %node_new_true_anychar.exit.i.preheader, label %1254
 
@@ -11563,7 +11563,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
 214:                                              ; preds = %211
   %215 = getelementptr inbounds i8, ptr %.03948.i, i64 8
   %216 = load i32, ptr %215, align 8
-  %217 = call fastcc i32 @add_ctype_to_cc(ptr noundef %.0225.ph, i32 noundef %216, i32 noundef %.040.i, ptr noundef %4)
+  %217 = call fastcc i32 @add_ctype_to_cc(ptr noundef %.0225.ph, i32 noundef %216, i32 noundef %.040.i, ptr noundef readonly %4)
   %.not46.i = icmp eq i32 %217, 0
   br i1 %.not46.i, label %.thread328, label %prs_posix_bracket.exit
 
@@ -12046,14 +12046,14 @@ and_code_range_buf.exit.thread.thread73.i:        ; preds = %395
   br i1 %exitcond150.not.i.i, label %and_code_range_buf.exit.thread.i, label %.lr.ph121.us.i.i, !llvm.loop !80
 
 433:                                              ; preds = %394
-  %434 = call fastcc i32 @or_code_range_buf(ptr noundef nonnull %356, ptr noundef %363, i32 noundef %359, ptr noundef %370, i32 noundef %366, ptr noundef nonnull %6)
+  %434 = call fastcc i32 @or_code_range_buf(ptr noundef nonnull readonly %356, ptr noundef %363, i32 noundef %359, ptr noundef %370, i32 noundef %366, ptr noundef nonnull %6)
   %435 = icmp eq i32 %434, 0
   %or.cond3.i = and i1 %360, %435
   br i1 %or.cond3.i, label %436, label %and_code_range_buf.exit.i
 
 436:                                              ; preds = %433
   %437 = load ptr, ptr %6, align 8
-  %438 = call fastcc i32 @not_code_range_buf(ptr noundef nonnull %356, ptr noundef %437, ptr noundef nonnull %9)
+  %438 = call fastcc i32 @not_code_range_buf(ptr noundef nonnull readonly %356, ptr noundef %437, ptr noundef nonnull %9)
   %.not46.i307 = icmp eq i32 %438, 0
   %.not.i61.i = icmp eq ptr %437, null
   br i1 %.not46.i307, label %444, label %439
@@ -12641,7 +12641,7 @@ node_new_str.exit:                                ; preds = %129
 
 ._crit_edge123.thread:                            ; preds = %.preheader, %._crit_edge123
   %.094.lcssa141 = phi i32 [ %.1, %._crit_edge123 ], [ 0, %.preheader ]
-  %156 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef %.094.lcssa141, ptr noundef nonnull %6)
+  %156 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef %.094.lcssa141, ptr noundef nonnull readonly %6)
   br label %157
 
 157:                                              ; preds = %._crit_edge123.thread, %154
@@ -13474,7 +13474,7 @@ define internal fastcc noundef i32 @make_range_clear(ptr nocapture noundef write
 
 19:                                               ; preds = %14
   store i32 10, ptr %calloc.i.i32, align 8
-  %20 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %3)
+  %20 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %3)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %onig_node_free.exit, label %22
 
@@ -13495,7 +13495,7 @@ define internal fastcc noundef i32 @make_range_clear(ptr nocapture noundef write
   store i32 5, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %calloc.i.i34, i64 4
   store i32 16777216, ptr %28, align 4
-  %29 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull %3)
+  %29 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull readonly %3)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %onig_node_free.exit, label %31
 
@@ -13506,7 +13506,7 @@ define internal fastcc noundef i32 @make_range_clear(ptr nocapture noundef write
   store i32 %34, ptr %32, align 4
   store ptr %calloc.i.i, ptr %3, align 16
   store ptr %29, ptr %4, align 8
-  %35 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %3)
+  %35 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %3)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %onig_node_free.exit.thread, label %37
 
@@ -13716,7 +13716,7 @@ is_simple_one_char_repeat.exit:                   ; preds = %57, %onig_node_free
   store i32 2, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %calloc.i.i33.i, i64 20
   store i32 2, ptr %81, align 4
-  %82 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 3, ptr noundef nonnull %6)
+  %82 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 3, ptr noundef nonnull readonly %6)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %node_new_save_gimmick.exit.i, label %make_absent_tree_for_simple_one_char_repeat.exit.thread
 
@@ -13830,7 +13830,7 @@ is_simple_one_char_repeat.exit.thread:            ; preds = %40, %36, %._crit_ed
   br i1 %10, label %120, label %117
 
 117:                                              ; preds = %113
-  %118 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 4, ptr noundef nonnull %7)
+  %118 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 4, ptr noundef nonnull readonly %7)
   %119 = icmp eq ptr %118, null
   br i1 %119, label %onig_node_free.exit65, label %126
 
@@ -13841,7 +13841,7 @@ is_simple_one_char_repeat.exit.thread:            ; preds = %40, %36, %._crit_ed
   br i1 %.not59, label %123, label %onig_node_free.exit65
 
 123:                                              ; preds = %120
-  %124 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 7, ptr noundef nonnull %7)
+  %124 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 7, ptr noundef nonnull readonly %7)
   %125 = icmp eq ptr %124, null
   br i1 %125, label %onig_node_free.exit65, label %126
 
@@ -14921,7 +14921,7 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_engine(ptr nocapture no
 
 32:                                               ; preds = %30
   store i32 10, ptr %calloc.i.i64, align 8
-  %33 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 4, ptr noundef nonnull %10)
+  %33 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 4, ptr noundef nonnull readonly %10)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %node_new_save_gimmick.exit.preheader, label %35
 
@@ -14929,7 +14929,7 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_engine(ptr nocapture no
   store ptr %33, ptr %10, align 16
   store ptr %3, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %36 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull %10)
+  %36 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull readonly %10)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %node_new_save_gimmick.exit.preheader, label %38
 
@@ -14988,14 +14988,14 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_engine(ptr nocapture no
 
 57:                                               ; preds = %52
   store i32 10, ptr %calloc.i.i71, align 8
-  %58 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %12)
+  %58 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %12)
   %59 = icmp eq ptr %58, null
   br i1 %59, label %node_new_save_gimmick.exit.preheader, label %60
 
 60:                                               ; preds = %57
   store ptr %58, ptr %12, align 8
   store ptr null, ptr %22, align 16
-  %61 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull %10)
+  %61 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull readonly %10)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %node_new_save_gimmick.exit.preheader, label %63
 
@@ -15080,7 +15080,7 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_tail(ptr nocapture noun
 
 21:                                               ; preds = %16
   store i32 10, ptr %calloc.i.i31, align 8
-  %22 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %5)
+  %22 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %5)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %onig_node_free.exit, label %24
 
@@ -15099,7 +15099,7 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_tail(ptr nocapture noun
   store i32 2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %calloc.i.i33, i64 20
   store i32 2, ptr %29, align 4
-  %30 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull %5)
+  %30 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 8, i32 noundef 2, ptr noundef nonnull readonly %5)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %onig_node_free.exit, label %32
 
@@ -15887,7 +15887,7 @@ get_next_code_point.exit.thread:                  ; preds = %30
 
 .loopexit.i:                                      ; preds = %23, %21
   store ptr %22, ptr %6, align 8
-  %32 = call fastcc i32 @scan_number_of_base(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %12, ptr noundef nonnull %7, i32 noundef %19)
+  %32 = call fastcc i32 @scan_number_of_base(ptr noundef nonnull %6, ptr noundef %2, ptr noundef readonly %12, ptr noundef nonnull %7, i32 noundef %19)
   %.not26.i = icmp eq i32 %32, 0
   br i1 %.not26.i, label %33, label %get_next_code_point.exit
 

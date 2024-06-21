@@ -34459,7 +34459,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZNKSt17basic_strin
   br i1 %cmp.i2.i.i.i.i, label %_ZN12_GLOBAL__N_14SkipclESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %add.ptr15, ptr %8, i64 %.sroa.speculated.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %add.ptr15, ptr %8, i64 %.sroa.speculated.i)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_14SkipclESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %return
 

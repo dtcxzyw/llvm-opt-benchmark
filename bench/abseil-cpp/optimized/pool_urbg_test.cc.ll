@@ -2292,7 +2292,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_117PoolURBGTypedTestEN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i.i) #18
-  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_117PoolURBGTypedTestENS0_11TemplateSelINS2_36PoolURBGTypedTest_URBGInterface_TestEEENS0_5TypesIN4absl15random_internal8PoolURBGIjLm2EEEJNSA_ImLm2EEENSA_IjLm8EEENSA_ImLm8EEENSA_ImLm4EEENSA_IyLm4EEEEEEE8RegisterEPKcRKNS0_12CodeLocationESK_SK_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISU_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef nonnull align 8 dereferenceable(24) %type_names)
+  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_117PoolURBGTypedTestENS0_11TemplateSelINS2_36PoolURBGTypedTest_URBGInterface_TestEEENS0_5TypesIN4absl15random_internal8PoolURBGIjLm2EEEJNSA_ImLm2EEENSA_IjLm8EEENSA_ImLm8EEENSA_ImLm4EEENSA_IyLm4EEEEEEE8RegisterEPKcRKNS0_12CodeLocationESK_SK_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISU_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -4359,7 +4359,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_117PoolURBGTypedTestEN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i.i) #18
-  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_117PoolURBGTypedTestENS0_11TemplateSelINS2_38PoolURBGTypedTest_VerifySequences_TestEEENS0_5TypesIN4absl15random_internal8PoolURBGIjLm2EEEJNSA_ImLm2EEENSA_IjLm8EEENSA_ImLm8EEENSA_ImLm4EEENSA_IyLm4EEEEEEE8RegisterEPKcRKNS0_12CodeLocationESK_SK_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISU_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef nonnull align 8 dereferenceable(24) %type_names)
+  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_117PoolURBGTypedTestENS0_11TemplateSelINS2_38PoolURBGTypedTest_VerifySequences_TestEEENS0_5TypesIN4absl15random_internal8PoolURBGIjLm2EEEJNSA_ImLm2EEENSA_IjLm8EEENSA_ImLm8EEENSA_ImLm4EEENSA_IyLm4EEEEEEE8RegisterEPKcRKNS0_12CodeLocationESK_SK_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISU_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)

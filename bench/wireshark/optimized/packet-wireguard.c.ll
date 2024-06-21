@@ -1018,7 +1018,7 @@ wg_dissect_handshake_initiation.exit:             ; preds = %270, %271, %proto_i
 
 310:                                              ; preds = %296
   %311 = load i32, ptr %23, align 4
-  %312 = call fastcc ptr @wg_sessions_lookup_initiation(ptr noundef nonnull %1, i32 noundef %311)
+  %312 = call fastcc ptr @wg_sessions_lookup_initiation(ptr noundef nonnull readonly %1, i32 noundef %311)
   %.not57.i = icmp eq ptr %312, null
   br i1 %.not57.i, label %453, label %313
 
@@ -1597,7 +1597,7 @@ wg_dissect_handshake_response.exit:               ; preds = %522, %proto_item_se
 
 558:                                              ; preds = %545
   %559 = load i32, ptr %8, align 4
-  %560 = call fastcc ptr @wg_sessions_lookup_initiation(ptr noundef nonnull %1, i32 noundef %559)
+  %560 = call fastcc ptr @wg_sessions_lookup_initiation(ptr noundef nonnull readonly %1, i32 noundef %559)
   %.not29.i = icmp eq ptr %560, null
   br i1 %.not29.i, label %wg_dissect_handshake_cookie.exit, label %561
 
@@ -2086,12 +2086,12 @@ define internal noundef zeroext i1 @wg_key_uat_record_update_cb(ptr nocapture no
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %4)
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #16
   %.not.i = icmp eq i64 %7, 44
   br i1 %.not.i, label %8, label %11
 
 8:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %4, ptr noundef nonnull align 1 dereferenceable(45) %6, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %4, ptr noundef nonnull readonly align 1 dereferenceable(45) %6, i64 45, i1 false)
   %9 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %4, ptr noundef nonnull %3) #15
   %10 = load i64, ptr %3, align 8
   %.not3.i = icmp eq i64 %10, 32
@@ -2168,12 +2168,12 @@ wg_keylog_reset.exit:                             ; preds = %9, %11
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %2)
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
+  %18 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #16
   %.not.i7 = icmp eq i64 %18, 44
   br i1 %.not.i7, label %19, label %22
 
 19:                                               ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %2, ptr noundef nonnull align 1 dereferenceable(45) %17, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %2, ptr noundef nonnull readonly align 1 dereferenceable(45) %17, i64 45, i1 false)
   %20 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %2, ptr noundef nonnull %1) #15
   %21 = load i64, ptr %1, align 8
   %.not3.i = icmp eq i64 %21, 32
@@ -2357,12 +2357,12 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 58:                                               ; preds = %.critedge2.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %5)
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %59 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #16
   %.not.i = icmp eq i64 %59, 44
   br i1 %.not.i, label %60, label %decode_base64_key.exit.thread
 
 60:                                               ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %5, ptr noundef nonnull align 16 dereferenceable(45) %7, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %5, ptr noundef nonnull readonly align 16 dereferenceable(45) %7, i64 45, i1 false)
   %61 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %5, ptr noundef nonnull %4) #15
   %62 = load i64, ptr %4, align 8
   %.not3.i = icmp eq i64 %62, 32
@@ -2430,7 +2430,7 @@ priv_to_pub.exit.i:                               ; preds = %72
   %80 = call noalias ptr @wmem_alloc0(ptr noundef %79, i64 noundef 72) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 1 dereferenceable(32) %3, i64 32, i1 false)
   %81 = getelementptr inbounds i8, ptr %80, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %81, ptr noundef nonnull align 1 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %81, ptr noundef nonnull readonly align 1 dereferenceable(32) %8, i64 32, i1 false)
   %82 = getelementptr i8, ptr %80, i64 63
   %83 = load i8, ptr %82, align 1
   %84 = or i8 %83, 64
@@ -2456,7 +2456,7 @@ wg_add_ephemeral_privkey.exit:                    ; preds = %71, %priv_to_pub.ex
 91:                                               ; preds = %87
   %92 = call ptr @wmem_file_scope() #15
   %93 = call noalias ptr @wmem_alloc0(ptr noundef %92, i64 noundef 40) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 1 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull readonly align 1 dereferenceable(32) %8, i64 32, i1 false)
   %94 = getelementptr inbounds i8, ptr %89, i64 64
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %93, i64 32
@@ -2769,7 +2769,7 @@ wg_mac_verify.exit:                               ; preds = %26
   call void @gcry_md_write(ptr noundef %33, ptr noundef %14, i64 noundef %13) #15
   %34 = load ptr, ptr %3, align 8
   %35 = call ptr @gcry_md_read(ptr noundef %34, i32 noundef 0) #15
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %15, ptr noundef nonnull dereferenceable(16) %35, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %15, ptr noundef nonnull dereferenceable(16) %35, i64 16)
   %.not17 = icmp eq i32 %bcmp.i, 0
   %36 = load ptr, ptr %3, align 8
   call void @gcry_md_close(ptr noundef %36) #15
@@ -3302,7 +3302,7 @@ define internal fastcc void @wg_add_static_key(ptr noundef %0, i32 noundef %1) u
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %6, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, ptr noundef nonnull readonly align 1 dereferenceable(32) %0, i64 32, i1 false)
   %10 = getelementptr i8, ptr %6, i64 95
   %11 = load i8, ptr %10, align 1
   %12 = or i8 %11, 64

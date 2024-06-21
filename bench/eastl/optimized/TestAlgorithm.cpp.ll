@@ -16729,7 +16729,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i9036: ; preds = %_ZN5eastl6vectorIiN
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit9038:   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit9033, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9036
   %call.i.i.i.i.i4.i = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 28, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i4.i, ptr noundef nonnull align 4 dereferenceable(28) @constinit.310, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i4.i, ptr noundef nonnull readonly align 4 dereferenceable(28) @constinit.310, i64 28, i1 false)
   %call.i.i.i.i.i4.i9047 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 12, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont4779 unwind label %ehcleanup4819.thread
 
@@ -16854,7 +16854,7 @@ _ZN5eastl10VectorBaseIZ13TestAlgorithmvE5localNS_9allocatorEED2Ev.exit.i9096: ; 
   br label %ehcleanup4816
 
 invoke.cont4792:                                  ; preds = %invoke.cont4782
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call.i.i.i.i.i4.i9091, ptr noundef nonnull align 4 dereferenceable(20) @constinit.311, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call.i.i.i.i.i4.i9091, ptr noundef nonnull readonly align 4 dereferenceable(20) @constinit.311, i64 20, i1 false)
   %only_v14762.val401 = load ptr, ptr %only_v14762, align 8
   %1766 = getelementptr inbounds i8, ptr %only_v14762, i64 8
   %only_v14762.val402 = load ptr, ptr %1766, align 8
@@ -17170,7 +17170,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i9355: ; preds = %_ZN5eastl6vectorIiN
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit9357:   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit9352, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9355
   %call.i.i.i.i.i4.i9358 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 28, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i4.i9358, ptr noundef nonnull align 4 dereferenceable(28) @constinit.317, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i4.i9358, ptr noundef nonnull readonly align 4 dereferenceable(28) @constinit.317, i64 28, i1 false)
   %call.i.i.i.i.i4.i9368 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 12, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont4971 unwind label %ehcleanup5033.thread
 
@@ -17305,7 +17305,7 @@ _ZN5eastl10VectorBaseIZ13TestAlgorithmvE5local_0NS_9allocatorEED2Ev.exit.i9457: 
   br label %ehcleanup5029
 
 invoke.cont4986:                                  ; preds = %invoke.cont4974
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call.i.i.i.i.i4.i9452, ptr noundef nonnull align 4 dereferenceable(20) @constinit.318, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call.i.i.i.i.i4.i9452, ptr noundef nonnull readonly align 4 dereferenceable(20) @constinit.318, i64 20, i1 false)
   %only_v14947.val433 = load ptr, ptr %only_v14947, align 8
   %1799 = getelementptr inbounds i8, ptr %only_v14947, i64 8
   %only_v14947.val434 = load ptr, ptr %1799, align 8

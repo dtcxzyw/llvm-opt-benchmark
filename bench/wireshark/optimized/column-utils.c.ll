@@ -3863,7 +3863,7 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr nocapture noundef readon
   br label %col_set_fmt_time.exit
 
 48:                                               ; preds = %25
-  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 49:                                               ; preds = %25
@@ -3893,15 +3893,15 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr nocapture noundef readon
   br label %col_set_fmt_time.exit
 
 70:                                               ; preds = %25
-  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 71:                                               ; preds = %25
-  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 72:                                               ; preds = %25
-  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 73:                                               ; preds = %25
@@ -3992,7 +3992,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 129:                                              ; preds = %25
-  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 130:                                              ; preds = %25
@@ -4051,7 +4051,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 172:                                              ; preds = %24
-  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 173:                                              ; preds = %24
@@ -4080,15 +4080,15 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 193:                                              ; preds = %24
-  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 194:                                              ; preds = %24
-  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 195:                                              ; preds = %24
-  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 196:                                              ; preds = %24
@@ -4117,7 +4117,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 216:                                              ; preds = %24
-  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 217:                                              ; preds = %24

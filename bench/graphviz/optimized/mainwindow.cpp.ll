@@ -1135,11 +1135,11 @@ _ZN7QStringD2Ev.exit46:                           ; preds = %56, %_ZN17QArrayDat
           to label %86 unwind label %.loopexit.split-lp
 
 86:                                               ; preds = %84
-  invoke void @_ZN11CMainWindow14updateFileMenuEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
+  invoke void @_ZN11CMainWindow14updateFileMenuEv(ptr noundef nonnull readonly align 8 dereferenceable(288) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %86
-  invoke void @_ZN11CMainWindow16updateWindowMenuEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
+  invoke void @_ZN11CMainWindow16updateWindowMenuEv(ptr noundef nonnull readonly align 8 dereferenceable(288) %0)
           to label %_ZN11CMainWindow11updateMenusEv.exit unwind label %.loopexit.split-lp
 
 _ZN11CMainWindow11updateMenusEv.exit:             ; preds = %.noexc
@@ -8454,8 +8454,8 @@ declare void @_ZN11QTextCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11CMainWindow16slotRefreshMenusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0) local_unnamed_addr #0 align 2 {
-  tail call void @_ZN11CMainWindow14updateFileMenuEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
-  tail call void @_ZN11CMainWindow16updateWindowMenuEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
+  tail call void @_ZN11CMainWindow14updateFileMenuEv(ptr noundef nonnull readonly align 8 dereferenceable(288) %0)
+  tail call void @_ZN11CMainWindow16updateWindowMenuEv(ptr noundef nonnull readonly align 8 dereferenceable(288) %0)
   ret void
 }
 

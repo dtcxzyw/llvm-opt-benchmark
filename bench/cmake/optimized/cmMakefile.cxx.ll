@@ -14909,12 +14909,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not4.i, label %_ZL27mightExpandVariablesCMP0019PKc.exit.thread, label %41
 
 41:                                               ; preds = %39
-  %42 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.301) #34
+  %42 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.301) #34
   %.not5.i = icmp eq ptr %42, null
   br i1 %.not5.i, label %_ZL27mightExpandVariablesCMP0019PKc.exit.thread, label %_ZL27mightExpandVariablesCMP0019PKc.exit
 
 _ZL27mightExpandVariablesCMP0019PKc.exit:         ; preds = %41
-  %43 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 125) #34
+  %43 = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %38, i32 noundef 125) #34
   %.not159 = icmp eq ptr %43, null
   br i1 %.not159, label %_ZL27mightExpandVariablesCMP0019PKc.exit.thread, label %44
 
@@ -15136,12 +15136,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit83: ; 
   br i1 %.not4.i86, label %_ZL27mightExpandVariablesCMP0019PKc.exit88.thread, label %110
 
 110:                                              ; preds = %108
-  %111 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) @.str.301) #34
+  %111 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) @.str.301) #34
   %.not5.i87 = icmp eq ptr %111, null
   br i1 %.not5.i87, label %_ZL27mightExpandVariablesCMP0019PKc.exit88.thread, label %_ZL27mightExpandVariablesCMP0019PKc.exit88
 
 _ZL27mightExpandVariablesCMP0019PKc.exit88:       ; preds = %110
-  %112 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %107, i32 noundef 125) #34
+  %112 = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %107, i32 noundef 125) #34
   %.not170 = icmp eq ptr %112, null
   br i1 %.not170, label %_ZL27mightExpandVariablesCMP0019PKc.exit88.thread, label %113
 
@@ -15334,12 +15334,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit104: ;
   br i1 %.not4.i107, label %_ZL27mightExpandVariablesCMP0019PKc.exit109.thread, label %170
 
 170:                                              ; preds = %168
-  %171 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) @.str.301) #34
+  %171 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) @.str.301) #34
   %.not5.i108 = icmp eq ptr %171, null
   br i1 %.not5.i108, label %_ZL27mightExpandVariablesCMP0019PKc.exit109.thread, label %_ZL27mightExpandVariablesCMP0019PKc.exit109
 
 _ZL27mightExpandVariablesCMP0019PKc.exit109:      ; preds = %170
-  %172 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %167, i32 noundef 125) #34
+  %172 = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %167, i32 noundef 125) #34
   %.not163 = icmp eq ptr %172, null
   br i1 %.not163, label %_ZL27mightExpandVariablesCMP0019PKc.exit109.thread, label %173
 
@@ -15580,12 +15580,12 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br i1 %.not4.i126, label %_ZL27mightExpandVariablesCMP0019PKc.exit128.thread, label %252
 
 252:                                              ; preds = %250
-  %253 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %249, ptr noundef nonnull dereferenceable(1) @.str.301) #34
+  %253 = call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %249, ptr noundef nonnull dereferenceable(1) @.str.301) #34
   %.not5.i127 = icmp eq ptr %253, null
   br i1 %.not5.i127, label %_ZL27mightExpandVariablesCMP0019PKc.exit128.thread, label %_ZL27mightExpandVariablesCMP0019PKc.exit128
 
 _ZL27mightExpandVariablesCMP0019PKc.exit128:      ; preds = %252
-  %254 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %249, i32 noundef 125) #34
+  %254 = call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %249, i32 noundef 125) #34
   %.not167 = icmp eq ptr %254, null
   br i1 %.not167, label %_ZL27mightExpandVariablesCMP0019PKc.exit128.thread, label %255
 
@@ -16692,7 +16692,7 @@ _ZN10cmMakefile26GetOrCreateGeneratedSourceERKNSt7__cxx1112basic_stringIcSt11cha
 _ZN10cmMakefile22CreateGeneratedOutputsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit: ; preds = %27, %17
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %30, i64 24, i1 false)
   call void @_ZN15cmCustomCommand18RecordPolicyValuesERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(316) %29, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -17012,7 +17012,7 @@ _ZN10cmMakefile26GetOrCreateGeneratedSourceERKNSt7__cxx1112basic_stringIcSt11cha
 _ZN10cmMakefile22CreateGeneratedOutputsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit20: ; preds = %54, %_ZN10cmMakefile22CreateGeneratedOutputsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %57, i64 24, i1 false)
   call void @_ZN15cmCustomCommand18RecordPolicyValuesERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(316) %56, ptr noundef nonnull align 8 dereferenceable(24) %10)
   store ptr %0, ptr %11, align 8
   %58 = getelementptr inbounds i8, ptr %11, i64 8
@@ -18720,7 +18720,7 @@ _ZN10cmMakefile26GetOrCreateGeneratedSourceERKNSt7__cxx1112basic_stringIcSt11cha
 _ZN10cmMakefile22CreateGeneratedOutputsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit: ; preds = %37, %27
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %40, i64 24, i1 false)
   call void @_ZN15cmCustomCommand18RecordPolicyValuesERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(316) %39, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -28746,7 +28746,7 @@ _ZNSt6vectorIP8cmTargetSaIS1_EE9push_backEOS1_.exit: ; preds = %25, %_ZNSt6vecto
   %52 = load ptr, ptr %51, align 8
   call void @_ZN17cmGlobalGenerator11IndexTargetEP8cmTarget(ptr noundef nonnull align 8 dereferenceable(1778) %52, ptr noundef nonnull %20)
   %53 = getelementptr inbounds i8, ptr %0, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @_ZNK15cmStateSnapshot12GetDirectoryEv(ptr dead_on_unwind nonnull writable sret(%class.cmStateDirectory) align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @_ZN16cmStateDirectory19AddNormalTargetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %54
@@ -29223,7 +29223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %29 unwind label %18
 
 29:                                               ; preds = %22
-  %30 = invoke noundef ptr @_ZNK10cmMakefile14GetSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %30 = invoke noundef ptr @_ZNK10cmMakefile14GetSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %.noexc11 unwind label %40
 
 .noexc11:                                         ; preds = %29
@@ -29231,11 +29231,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %31, label %32, label %_ZN10cmMakefile22GetOrCreateSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit
 
 32:                                               ; preds = %.noexc11
-  invoke void @_ZN10cmMakefile14AddSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPKc(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null)
+  invoke void @_ZN10cmMakefile14AddSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPKc(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noundef null)
           to label %.noexc12 unwind label %40
 
 .noexc12:                                         ; preds = %32
-  %33 = invoke noundef ptr @_ZNK10cmMakefile14GetSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %33 = invoke noundef ptr @_ZNK10cmMakefile14GetSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN10cmMakefile22GetOrCreateSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit unwind label %40
 
 _ZN10cmMakefile22GetOrCreateSourceGroupERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit: ; preds = %.noexc11, %.noexc12
@@ -40455,7 +40455,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTar
 
 16:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEixERSD_.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %17, i64 24, i1 false)
   invoke void @_ZNK15cmStateSnapshot12GetDirectoryEv(ptr dead_on_unwind nonnull writable sret(%class.cmStateDirectory) align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %18 unwind label %53
 
@@ -47690,7 +47690,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN10cmMakefile24AddCustomCommandToTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmCustomCommandTypeSt10unique_ptrI15cmCustomCommandSt14default_deleteISC_EEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
@@ -49362,7 +49362,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
   br label %"_ZNSt14_Function_base13_Base_managerIZN10cmMakefile17AddUtilityCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrI15cmCustomCommandSt14default_deleteISB_EEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN10cmMakefile17AddUtilityCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrI15cmCustomCommandSt14default_deleteISB_EEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN10cmMakefile17AddUtilityCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrI15cmCustomCommandSt14default_deleteISB_EEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

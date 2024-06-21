@@ -3058,7 +3058,7 @@ thread-pre-split:                                 ; preds = %17
   br label %68
 
 52:                                               ; preds = %39, %36
-  %53 = call ptr @getenv(ptr noundef nonnull %.1.ph) #18
+  %53 = call ptr @getenv(ptr noundef nonnull readonly %.1.ph) #18
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %php_getenv.exit.thread, label %php_getenv.exit
 
@@ -3584,7 +3584,7 @@ select.unfold490:                                 ; preds = %56, %46
   %119 = sext i32 %79 to i64
   %120 = getelementptr inbounds ptr, ptr %82, i64 %119
   store ptr null, ptr %120, align 8
-  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ph) #19
+  %121 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.ph) #19
   %122 = and i64 %121, 4294967295
   %.not.i = icmp eq i64 %122, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -5999,7 +5999,7 @@ fci_addref.exit:                                  ; preds = %20, %23
 append_user_shutdown_function.exit:               ; preds = %40, %38
   %42 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %42, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %42, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %42, ptr noundef nonnull readonly align 8 dereferenceable(104) %4, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %43
 
@@ -7371,32 +7371,32 @@ define hidden void @zif_ini_set(ptr noundef %0, ptr nocapture noundef %1) #0 {
   ]
 
 php_ini_check_path.exit:                          ; preds = %67
-  %71 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(10) @.str.34, i64 noundef 9) #19
+  %71 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(10) @.str.34, i64 noundef 9) #19
   %.not5.i.not = icmp eq i32 %71, 0
   br i1 %.not5.i.not, label %77, label %php_ini_check_path.exit251
 
 php_ini_check_path.exit247:                       ; preds = %67
-  %72 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(16) @.str.35, i64 noundef 15) #19
+  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(16) @.str.35, i64 noundef 15) #19
   %.not5.i246.not = icmp eq i32 %72, 0
   br i1 %.not5.i246.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit251:                       ; preds = %php_ini_check_path.exit
-  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(10) @.str.36, i64 noundef 9) #19
+  %73 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(10) @.str.36, i64 noundef 9) #19
   %.not5.i250.not = icmp eq i32 %73, 0
   br i1 %.not5.i250.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit255:                       ; preds = %67
-  %74 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(9) @.str.37, i64 noundef 8) #19
+  %74 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(9) @.str.37, i64 noundef 8) #19
   %.not5.i254.not = icmp eq i32 %74, 0
   br i1 %.not5.i254.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit259:                       ; preds = %67
-  %75 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(18) @.str.38, i64 noundef 17) #19
+  %75 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(18) @.str.38, i64 noundef 17) #19
   %.not5.i258.not = icmp eq i32 %75, 0
   br i1 %.not5.i258.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit263:                       ; preds = %67
-  %76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(19) @.str.39, i64 noundef 18) #19
+  %76 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(19) @.str.39, i64 noundef 18) #19
   %.not5.i262.not = icmp eq i32 %76, 0
   br i1 %.not5.i262.not, label %77, label %php_ini_check_path.exit263.thread
 

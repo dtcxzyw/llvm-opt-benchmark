@@ -311,10 +311,10 @@ define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr nocapture noundef %0, i
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #13
+  %43 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %41) #13
   %44 = add i64 %43, 1
   %45 = tail call noalias ptr @malloc(i64 noundef %44) #14
-  %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %41) #12
+  %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull readonly dereferenceable(1) %41) #12
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %39, %42

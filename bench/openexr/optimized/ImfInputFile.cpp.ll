@@ -835,7 +835,7 @@ invoke.cont:                                      ; preds = %entry
   %14 = load ptr, ptr %_data, align 8
   %part9.i = getelementptr inbounds i8, ptr %14, i64 224
   store ptr %call6, ptr %part9.i, align 8
-  tail call void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  tail call void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this)
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1791,7 +1791,7 @@ call.i.noexc:                                     ; preds = %invoke.cont3
   %6 = load ptr, ptr %_data, align 8
   %part9.i = getelementptr inbounds i8, ptr %6, i64 224
   store ptr %part, ptr %part9.i, align 8
-  invoke void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  invoke void @_ZN7Imf_3_29InputFile10initializeEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this)
           to label %try.cont unwind label %lpad5
 
 lpad:                                             ; preds = %entry

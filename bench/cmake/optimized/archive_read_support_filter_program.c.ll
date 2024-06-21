@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_program(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call range(i32 -30, 1) i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0)
+  %3 = tail call range(i32 -30, 1) i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i64 noundef 0)
   ret i32 %3
 }
 
@@ -414,7 +414,7 @@ child_read.exit.thread:                           ; preds = %62, %38, %24
   br label %78
 
 child_read.exit:                                  ; preds = %28, %24
-  %71 = call fastcc i32 @child_stop(ptr noundef %0, ptr noundef nonnull %17)
+  %71 = call fastcc i32 @child_stop(ptr noundef readonly %0, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %78, label %.critedge

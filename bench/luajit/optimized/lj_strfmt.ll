@@ -919,7 +919,7 @@ lj_buf_more.exit.i:                               ; preds = %if.then.i.i, %entry
 
 if.then8.i:                                       ; preds = %lj_buf_more.exit.i
   %conv.i22.i = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0.i, ptr nonnull align 1 %add.ptr, i64 %conv.i22.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0.i, ptr nonnull readonly align 1 %add.ptr, i64 %conv.i22.i, i1 false)
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 %conv.i22.i
   br label %if.end10.i
 
@@ -943,7 +943,7 @@ while.end.i:                                      ; preds = %while.body.preheade
 
 if.then14.i:                                      ; preds = %while.end.i
   %conv.i18.i = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %w.1.lcssa.i, ptr nonnull align 1 %add.ptr, i64 %conv.i18.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %w.1.lcssa.i, ptr nonnull readonly align 1 %add.ptr, i64 %conv.i18.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %w.1.lcssa.i, i64 %conv.i18.i
   br label %strfmt_putfstrlen.exit
 
@@ -1794,7 +1794,7 @@ lj_buf_more.exit.i:                               ; preds = %if.then.i.i, %if.el
 
 if.then8.i97:                                     ; preds = %lj_buf_more.exit.i
   %conv.i22.i = zext i32 %spec.select.i95 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0.i, ptr align 1 %s.0, i64 %conv.i22.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0.i, ptr readonly align 1 %s.0, i64 %conv.i22.i, i1 false)
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 %conv.i22.i
   br label %if.end10.i
 
@@ -1818,7 +1818,7 @@ while.end.i:                                      ; preds = %while.body.preheade
 
 if.then14.i:                                      ; preds = %while.end.i
   %conv.i18.i = zext i32 %spec.select.i95 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %w.1.lcssa.i, ptr align 1 %s.0, i64 %conv.i18.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %w.1.lcssa.i, ptr readonly align 1 %s.0, i64 %conv.i18.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %w.1.lcssa.i, i64 %conv.i18.i
   br label %strfmt_putfstrlen.exit
 

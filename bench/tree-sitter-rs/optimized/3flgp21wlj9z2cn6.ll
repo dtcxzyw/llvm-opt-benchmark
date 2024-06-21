@@ -271,7 +271,7 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit.i.us.i: 
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i": ; preds = %110
   %.sroa.0.0.i.i.i = select i1 %.not21.i.i.i, ptr @anon.73f9390e3f2328e3b8d6ca913046e37e.3, ptr %.fca.0.extract20.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.sroa.0.0.i.i.i, ptr nonnull %45, i64 %47)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i.i.i, ptr nonnull readonly %45, i64 %47)
   %112 = icmp eq i32 %bcmp.i.i.i, 0
   %.not.not.i.i = xor i1 %112, %50
   %brmerge.not.i.i = select i1 %.not.not.i.i, i1 %53, i1 false
@@ -380,7 +380,7 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit.i.us.i: 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit99.i.i": ; preds = %140
   %.sroa.0.0.i95.i.i = select i1 %.not21.i93.i.i, ptr @anon.73f9390e3f2328e3b8d6ca913046e37e.3, ptr %.fca.0.extract2.i.i
   %.sroa.0.0.i92.i.i = select i1 %.not21.i90.i.i, ptr @anon.73f9390e3f2328e3b8d6ca913046e37e.3, ptr %.fca.0.extract.i.i
-  %bcmp.i98.i.i = tail call i32 @bcmp(ptr nonnull %.sroa.0.0.i92.i.i, ptr nonnull %.sroa.0.0.i95.i.i, i64 %.sroa.4.0.i91.i.i)
+  %bcmp.i98.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i92.i.i, ptr nonnull readonly %.sroa.0.0.i95.i.i, i64 %.sroa.4.0.i91.i.i)
   %143 = icmp eq i32 %bcmp.i98.i.i, 0
   %.not256.not.i.i = xor i1 %143, %63
   %brmerge258.not.i.i = select i1 %.not256.not.i.i, i1 %66, i1 false
@@ -584,7 +584,7 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit122.i.i: 
 
 177:                                              ; preds = %.lr.ph.i134.i.i
   %.val3.i.i.i = load ptr, ptr %174, align 8, !noalias !116, !nonnull !4, !align !18, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.sroa.0.0.i131.i.i, ptr nonnull %.val3.i.i.i, i64 %.sroa.4.0.i130.i.i), !alias.scope !120, !noalias !124
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i131.i.i, ptr nonnull readonly %.val3.i.i.i, i64 %.sroa.4.0.i130.i.i), !alias.scope !120, !noalias !124
   %178 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %178, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h18f8cab505c630deE.exit.i.i", label %"_ZN11tree_sitter10QueryMatch25satisfies_text_predicates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0a2a1ceba7f64f79E.exit.backedge.i.i.i"
 

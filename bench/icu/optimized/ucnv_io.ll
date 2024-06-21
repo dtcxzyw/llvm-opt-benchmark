@@ -951,7 +951,7 @@ for.body.i17:                                     ; preds = %for.inc.i20, %for.b
 land.lhs.true.i:                                  ; preds = %for.body.i17
   %idx.ext8.i = zext i16 %22 to i64
   %add.ptr9.i = getelementptr inbounds i16, ptr %19, i64 %idx.ext8.i
-  %call.i19 = tail call i32 @ucnv_compareNames_75(ptr noundef %alias, ptr noundef nonnull %add.ptr9.i)
+  %call.i19 = tail call i32 @ucnv_compareNames_75(ptr noundef readonly %alias, ptr noundef nonnull %add.ptr9.i)
   %cmp10.i = icmp eq i32 %call.i19, 0
   br i1 %cmp10.i, label %if.then22, label %for.inc.i20
 
@@ -1101,7 +1101,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %land.lhs.true.i
   br i1 %cmp1.i.not.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
-  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef %pErrorCode)
+  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 72), align 8
   %cmp.i = icmp ult i32 %call3.i, %1
   br i1 %cmp.i, label %if.then4.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit
@@ -1151,7 +1151,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %land.lhs.true.i
   br i1 %cmp1.i.not.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
-  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef %pErrorCode)
+  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 72), align 8
   %cmp.i = icmp ult i32 %call3.i, %1
   br i1 %cmp.i, label %if.then4.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit
@@ -1216,7 +1216,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %land.lhs.true.i
   br i1 %cmp1.i.not.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
-  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef %pErrorCode)
+  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 72), align 8
   %cmp.i = icmp ult i32 %call3.i, %1
   br i1 %cmp.i, label %if.then4.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit
@@ -1333,7 +1333,7 @@ return.loopexit.split.loop.exit8.i.i:             ; preds = %for.body.i.i
 
 _ZL12getTagNumberPKc.exit.i:                      ; preds = %for.inc.i.i, %return.loopexit.split.loop.exit8.i.i, %if.then
   %retval.0.i.i = phi i32 [ -1, %if.then ], [ %8, %return.loopexit.split.loop.exit8.i.i ], [ -1, %for.inc.i.i ]
-  %call1.i = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef nonnull %myErr.i)
+  %call1.i = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef nonnull %myErr.i)
   %9 = load i32, ptr %myErr.i, align 4
   %cmp.not.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i, label %if.end.i6, label %if.then.i5
@@ -1387,7 +1387,7 @@ for.body.i17.i:                                   ; preds = %for.inc.i20.i, %for
 land.lhs.true.i.i:                                ; preds = %for.body.i17.i
   %idx.ext8.i.i = zext i16 %17 to i64
   %add.ptr9.i.i = getelementptr inbounds i16, ptr %16, i64 %idx.ext8.i.i
-  %call.i19.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr9.i.i)
+  %call.i19.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull readonly %alias, ptr noundef nonnull %add.ptr9.i.i)
   %cmp10.i.i = icmp eq i32 %call.i19.i, 0
   br i1 %cmp10.i.i, label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit, label %for.inc.i20.i
 
@@ -1442,7 +1442,7 @@ for.body.i29.i:                                   ; preds = %for.inc.i38.i, %for
 land.lhs.true.i33.i:                              ; preds = %for.body.i29.i
   %idx.ext8.i34.i = zext i16 %23 to i64
   %add.ptr9.i35.i = getelementptr inbounds i16, ptr %19, i64 %idx.ext8.i34.i
-  %call.i36.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr9.i35.i)
+  %call.i36.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull readonly %alias, ptr noundef nonnull %add.ptr9.i35.i)
   %cmp10.i37.i = icmp eq i32 %call.i36.i, 0
   br i1 %cmp10.i37.i, label %if.then23.i, label %for.inc.i38.i
 

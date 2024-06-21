@@ -528,7 +528,7 @@ define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zer
   %34 = select i1 %32, i64 0, i64 %33
   %35 = getelementptr i8, ptr %30, i64 %31
   call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %34, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %3, i64 %31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %3, i64 %31, i1 false)
   %36 = and i64 %8, 7
   %.not.i = icmp eq i64 %36, 0
   br i1 %.not.i, label %lowpan_pfxcpy.exit, label %37
@@ -696,7 +696,7 @@ define internal i32 @dissect_6lowpan(ptr noundef %0, ptr noundef %1, ptr noundef
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %1, i64 120
   %25 = load ptr, ptr %24, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %25, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %25, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %48, label %26
 
@@ -816,7 +816,7 @@ lowpan_dlsrc_to_ifcid.exit:                       ; preds = %17, %26, %46, %48, 
 89:                                               ; preds = %lowpan_dlsrc_to_ifcid.exit
   %90 = getelementptr inbounds i8, ptr %1, i64 144
   %91 = load ptr, ptr %90, align 8
-  %bcmp.i.i88 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %91, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
+  %bcmp.i.i88 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %91, ptr noundef nonnull dereferenceable(6) @lowpan_addr48_to_ifcid.unknown_addr, i64 6)
   %.not.i.i89 = icmp eq i32 %bcmp.i.i88, 0
   br i1 %.not.i.i89, label %114, label %92
 
@@ -1207,7 +1207,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %232, %267
   br i1 %.not.i96, label %322, label %324
 
 322:                                              ; preds = %300
-  %323 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %321, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %317, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %323 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %321, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %317, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
   br label %324
 
 324:                                              ; preds = %322, %300
@@ -1346,7 +1346,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %364
   %400 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %400, ptr noundef %.2, i32 noundef 4) #10
   %401 = call ptr @tvb_new_subset_length(ptr noundef %.2, i32 noundef 4, i32 noundef %394) #10
-  %402 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %401, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %395, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %402 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %401, ptr noundef nonnull %1, ptr noundef %150, ptr noundef %395, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
   %403 = icmp eq ptr %402, null
   br i1 %403, label %dissect_6lowpan_frag_first.exit, label %404
 
@@ -2481,7 +2481,7 @@ default.unreachable:                              ; preds = %324, %255, %176, %1
   %194 = load i8, ptr %193, align 4
   %195 = zext i8 %194 to i64
   %196 = lshr i64 %195, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %174, ptr nonnull align 1 %192, i64 %196, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %174, ptr nonnull readonly align 1 %192, i64 %196, i1 false)
   %197 = and i64 %195, 7
   %.not.i401 = icmp eq i64 %197, 0
   br i1 %.not.i401, label %lowpan_pfxcpy.exit, label %198
@@ -2761,7 +2761,7 @@ proto_item_set_generated.exit410:                 ; preds = %248, %245, %242, %p
   %342 = load i8, ptr %341, align 4
   %343 = zext i8 %342 to i64
   %344 = lshr i64 %343, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %253, ptr nonnull align 1 %340, i64 %344, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %253, ptr nonnull readonly align 1 %340, i64 %344, i1 false)
   %345 = and i64 %343, 7
   %.not.i411 = icmp eq i64 %345, 0
   br i1 %.not.i411, label %361, label %346

@@ -746,7 +746,7 @@ if.then16:                                        ; preds = %lor.lhs.false14, %i
 
 if.end17:                                         ; preds = %lor.lhs.false14
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %linebuf.i)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #7
   %conv.i = trunc i64 %call.i to i32
   %call1.i = call ptr @OPENSSL_sk_new_null() #6
   %cmp.i = icmp eq ptr %call1.i, null
@@ -780,7 +780,7 @@ while.body.i:                                     ; preds = %if.end72.i, %while.
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %while.body.i
-  %call4.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
+  %call4.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #7
   %conv5.i.i = trunc i64 %call4.i.i to i32
   br label %if.end6.i.i
 
@@ -798,7 +798,7 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %whil
 
 cond.true.i.i:                                    ; preds = %if.end6.i.i
   %conv14.i.i = sext i32 %blen.addr.0.i.i to i64
-  %call15.i.i = call i32 @strncmp(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %3, i64 noundef %conv14.i.i) #7
+  %call15.i.i = call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i.i, ptr noundef nonnull readonly %3, i64 noundef %conv14.i.i) #7
   %cmp16.i.i = icmp eq i32 %call15.i.i, 0
   br i1 %cmp16.i.i, label %if.then18.i.i, label %if.else23.i
 

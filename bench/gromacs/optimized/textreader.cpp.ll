@@ -134,7 +134,7 @@ define void @_ZN3gmx10TextReader16readFileToStringERKNSt10filesystem7__cxx114pat
   br label %5
 
 5:                                                ; preds = %8, %2
-  %6 = invoke noundef zeroext i1 @_ZN3gmx10TextReader8readLineEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %3)
+  %6 = invoke noundef zeroext i1 @_ZN3gmx10TextReader8readLineEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef nonnull %3)
           to label %7 unwind label %10
 
 7:                                                ; preds = %5

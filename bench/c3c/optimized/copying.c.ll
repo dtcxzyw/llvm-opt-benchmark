@@ -73,7 +73,7 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
 
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16777200
   br label %6
 
@@ -86,7 +86,7 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
 
 7:                                                ; preds = %6
   %8 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %.0338, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %.0338, i64 48, i1 false)
   %9 = load ptr, ptr @ast_arena, align 8
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -1742,7 +1742,7 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef r
 
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false)
   %5 = load i16, ptr %1, align 8
   %6 = and i16 %5, 7
   %7 = icmp eq i16 %6, 2
@@ -1935,7 +1935,7 @@ define internal fastcc noundef ptr @copy_expr(ptr noundef %0, ptr noundef readon
 
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %trunc = trunc i16 %6 to i8
@@ -3837,7 +3837,7 @@ define internal fastcc noundef ptr @copy_decl(ptr noundef %0, ptr noundef %1) un
 
 decl_is_resolved_static_var.exit.thread:          ; preds = %11, %7, %3
   %15 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 16777200
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8

@@ -580,7 +580,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   store i32 %23, ptr %11, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
   store i64 64, ptr %5, align 16
-  %24 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %3)
+  %24 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %20, ptr noundef nonnull readonly %21, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
   %25 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv

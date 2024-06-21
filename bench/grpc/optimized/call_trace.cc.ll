@@ -290,7 +290,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::unique_ptr", align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E)
   %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8
-  tail call void @llvm.prefetch.p0(ptr %.val.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %.val.i, i32 0, i32 1, i32 1)
   %0 = ptrtoint ptr %filter to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %0, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -455,7 +455,7 @@ invoke.cont13:                                    ; preds = %_ZN4absl12lts_20230
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp17.i.i), !noalias !9
   store ptr %call.i11, ptr %ref.tmp12, align 8, !alias.scope !9
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8, !noalias !12
-  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !12
+  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !12
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 24), align 8, !noalias !25
   %17 = ptrtoint ptr %this.val6.i.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %17, 12

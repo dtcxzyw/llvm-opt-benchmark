@@ -4506,7 +4506,7 @@ if.end:                                           ; preds = %_ZN7obj_refI4expr11
   %u2.i.i = getelementptr inbounds i8, ptr %is_i.i, i64 8
   store ptr %11, ptr %u2.i.i, align 8
   %12 = load ptr, ptr %d.i, align 8
-  invoke void @_ZN6recfun3def13compute_casesERNS_4utilERNS_7replaceERNS_17is_immediate_predEbjPKP3varP4expr(ptr noundef nonnull align 8 dereferenceable(109) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %subst, ptr noundef nonnull align 8 dereferenceable(8) %is_i.i, i1 noundef zeroext %is_macro, i32 noundef %n_vars, ptr noundef %vars, ptr noundef %9)
+  invoke void @_ZN6recfun3def13compute_casesERNS_4utilERNS_7replaceERNS_17is_immediate_predEbjPKP3varP4expr(ptr noundef nonnull align 8 dereferenceable(109) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %subst, ptr noundef nonnull align 8 dereferenceable(8) %is_i.i, i1 noundef zeroext %is_macro, i32 noundef %n_vars, ptr noundef readonly %vars, ptr noundef %9)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end
@@ -6656,7 +6656,7 @@ entry:
   %6 = or i8 %4, %5
   store i8 %6, ptr %m_has_rec_defs.i, align 8
   %call.i2 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6recfun4decl6plugin1uEv(ptr noundef nonnull align 8 dereferenceable(81) %this)
-  call void @_ZN6recfun4util14set_definitionERNS_7replaceERNS_11promise_defEbjPKP3varP4expr(ptr noundef nonnull align 8 dereferenceable(24) %call.i2, ptr noundef nonnull align 8 dereferenceable(8) %subst, ptr noundef nonnull align 8 dereferenceable(16) %d, i1 noundef zeroext %is_macro, i32 noundef %n_vars, ptr noundef %vars, ptr noundef %rhs) #25
+  call void @_ZN6recfun4util14set_definitionERNS_7replaceERNS_11promise_defEbjPKP3varP4expr(ptr noundef nonnull align 8 dereferenceable(24) %call.i2, ptr noundef nonnull align 8 dereferenceable(8) %subst, ptr noundef nonnull readonly align 8 dereferenceable(16) %d, i1 noundef zeroext %is_macro, i32 noundef %n_vars, ptr noundef readonly %vars, ptr noundef %rhs) #25
   %m_cases.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   %7 = load ptr, ptr %m_cases.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %7, null

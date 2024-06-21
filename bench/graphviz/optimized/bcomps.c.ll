@@ -82,7 +82,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %14, ptr @suffix, align 8
-  %15 = tail call noalias ptr @strndup(ptr noundef %8, i64 noundef %13) #17
+  %15 = tail call noalias ptr @strndup(ptr noundef readonly %8, i64 noundef %13) #17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %split.exit.i
 
@@ -679,7 +679,7 @@ define internal fastcc void @gwrite(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %or.cond.i, label %15, label %32
 
 15:                                               ; preds = %13
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #18
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %agxbput.exit.i, label %agxblen.exit.i.i.i
 
@@ -699,7 +699,7 @@ agxblen.exit.i.i.i:                               ; preds = %15
   %.val.i25.i.i15.i = phi i8 [ %.val.i25.pre.i.i.i, %21 ], [ 0, %agxblen.exit.i.i.i ]
   %22 = zext i8 %.val.i25.i.i15.i to i64
   %23 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %7, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %7, i64 %16, i1 false)
   %24 = trunc i64 %16 to i8
   %25 = load i8, ptr %18, align 1
   %26 = add i8 %25, %24
@@ -710,7 +710,7 @@ agxblen.exit.i.i.i:                               ; preds = %15
   %28 = load i64, ptr %19, align 8
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %7, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull readonly align 1 %7, i64 %16, i1 false)
   %31 = add i64 %28, %16
   store i64 %31, ptr %19, align 8
   br label %agxbput.exit.i
@@ -752,7 +752,7 @@ agxbput.exit.i:                                   ; preds = %41, %40, %38, %37, 
 
 agxblen.exit.i.i:                                 ; preds = %agxbput.exit.i
   %43 = zext i8 %.val.i.i to i64
-  %44 = call noalias ptr @strndup(ptr noundef nonnull %4, i64 noundef %43) #17
+  %44 = call noalias ptr @strndup(ptr noundef nonnull readonly %4, i64 noundef %43) #17
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %getName.exit
 
@@ -908,7 +908,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #17
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #17
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -968,7 +968,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #17
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #17
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

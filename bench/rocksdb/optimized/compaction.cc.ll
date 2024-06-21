@@ -1433,7 +1433,7 @@ _ZN7rocksdb10Compaction17IsBottommostLevelEiPNS_18VersionStorageInfoERKSt6vector
   store ptr @.str.11, ptr %largest_key.i, align 8
   %size_.i7.i = getelementptr inbounds i8, ptr %largest_key.i, i64 8
   store i64 0, ptr %size_.i7.i, align 8
-  call void @_ZN7rocksdb10Compaction15GetBoundaryKeysEPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EEPNS_5SliceESA_i(ptr noundef %vstorage, ptr noundef nonnull align 8 dereferenceable(24) %inputs, ptr noundef nonnull %smallest_key.i, ptr noundef nonnull %largest_key.i, i32 noundef -1)
+  call void @_ZN7rocksdb10Compaction15GetBoundaryKeysEPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EEPNS_5SliceESA_i(ptr noundef %vstorage, ptr noundef nonnull readonly align 8 dereferenceable(24) %inputs, ptr noundef nonnull %smallest_key.i, ptr noundef nonnull %largest_key.i, i32 noundef -1)
   %call12.i = call noundef zeroext i1 @_ZN7rocksdb18VersionStorageInfo29RangeMightExistAfterSortedRunERKNS_5SliceES3_ii(ptr noundef nonnull align 16 dereferenceable(4112) %vstorage, ptr noundef nonnull align 8 dereferenceable(16) %smallest_key.i, ptr noundef nonnull align 8 dereferenceable(16) %largest_key.i, i32 noundef %output_level, i32 noundef %output_l0_idx.1.i)
   %lnot.i = xor i1 %call12.i, true
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %smallest_key.i)
@@ -2316,7 +2316,7 @@ if.end11.i:                                       ; preds = %if.end.i, %for.body
   store ptr @.str.11, ptr %largest_key.i, align 8
   %size_.i7.i = getelementptr inbounds i8, ptr %largest_key.i, i64 8
   store i64 0, ptr %size_.i7.i, align 8
-  invoke void @_ZN7rocksdb10Compaction15GetBoundaryKeysEPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EEPNS_5SliceESA_i(ptr noundef %vstorage, ptr noundef nonnull align 8 dereferenceable(24) %inputs_, ptr noundef nonnull %smallest_key.i, ptr noundef nonnull %largest_key.i, i32 noundef -1)
+  invoke void @_ZN7rocksdb10Compaction15GetBoundaryKeysEPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EEPNS_5SliceESA_i(ptr noundef %vstorage, ptr noundef nonnull readonly align 8 dereferenceable(24) %inputs_, ptr noundef nonnull %smallest_key.i, ptr noundef nonnull %largest_key.i, i32 noundef -1)
           to label %.noexc unwind label %lpad20
 
 .noexc:                                           ; preds = %if.end11.i

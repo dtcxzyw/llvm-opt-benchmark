@@ -1058,7 +1058,7 @@ typesequiv.exit.i:                                ; preds = %484
   %495 = load i32, ptr %460, align 4
   %496 = sext i32 %495 to i64
   %497 = getelementptr [512 x i8], ptr %43, i64 0, i64 %496
-  %498 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %494, ptr noundef nonnull dereferenceable(1) %497) #22
+  %498 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %494, ptr noundef nonnull readonly dereferenceable(1) %497) #22
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %500, label %typesequiv.exit.thread.i
 
@@ -1152,7 +1152,7 @@ typesequiv.exit494.i:                             ; preds = %544
   %555 = load i32, ptr %554, align 4
   %556 = sext i32 %555 to i64
   %557 = getelementptr [512 x i8], ptr %43, i64 0, i64 %556
-  %558 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %553, ptr noundef nonnull dereferenceable(1) %557) #22
+  %558 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %553, ptr noundef nonnull readonly dereferenceable(1) %557) #22
   %559 = icmp eq i32 %558, 0
   br i1 %559, label %560, label %typesequiv.exit494.thread.i
 
@@ -2482,7 +2482,7 @@ define internal fastcc ptr @localsub(ptr noundef %0, ptr nocapture noundef reado
 
 gmtload.exit.i:                                   ; preds = %15, %13, %7
   %17 = load ptr, ptr @gmtsub.gmtptr, align 8
-  %18 = tail call fastcc ptr @timesub(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %17)
+  %18 = tail call fastcc ptr @timesub(ptr noundef nonnull readonly %1, i32 noundef 0, ptr noundef %17)
   %19 = load ptr, ptr @gmtsub.gmtptr, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 22120
   store ptr %20, ptr getelementptr inbounds (i8, ptr @tm, i64 48), align 8
@@ -2695,7 +2695,7 @@ define dso_local noundef ptr @pg_gmtime(ptr nocapture noundef readonly %0) local
 
 gmtload.exit.i:                                   ; preds = %9, %7, %1
   %11 = load ptr, ptr @gmtsub.gmtptr, align 8
-  %12 = tail call fastcc ptr @timesub(ptr noundef %0, i32 noundef 0, ptr noundef %11)
+  %12 = tail call fastcc ptr @timesub(ptr noundef readonly %0, i32 noundef 0, ptr noundef %11)
   %13 = load ptr, ptr @gmtsub.gmtptr, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 22120
   store ptr %14, ptr getelementptr inbounds (i8, ptr @tm, i64 48), align 8
@@ -3155,7 +3155,7 @@ define dso_local zeroext i1 @pg_tz_acceptable(ptr noundef %0) local_unnamed_addr
   %2 = alloca i64, align 8
   store i64 946684800, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
-  %4 = call fastcc ptr @localsub(ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %4 = call fastcc ptr @localsub(ptr noundef nonnull %3, ptr noundef nonnull readonly %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 

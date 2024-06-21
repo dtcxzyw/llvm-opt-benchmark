@@ -2934,7 +2934,7 @@ psqlscan_extract_substring.exit:                  ; preds = %1381, %1365, %1367
   br i1 %.not9.i, label %1397, label %1394
 
 1394:                                             ; preds = %.lr.ph.i1143
-  %1395 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1393, ptr noundef nonnull dereferenceable(1) %1362) #28
+  %1395 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1393, ptr noundef nonnull readonly dereferenceable(1) %1362) #28
   %1396 = icmp eq i32 %1395, 0
   br i1 %1396, label %psqlscan_var_is_current_source.exit, label %1397
 

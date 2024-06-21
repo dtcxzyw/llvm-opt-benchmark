@@ -709,7 +709,7 @@ cond.false13.i:                                   ; preds = %cond.end.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %cond.true10.i
   %cond16.i = phi i64 [ %conv12.i, %cond.true10.i ], [ %9, %cond.false13.i ]
-  %call23.i = tail call i32 @strcoll(ptr noundef nonnull %contents.i, ptr noundef nonnull %contents4.i) #15
+  %call23.i = tail call i32 @strcoll(ptr noundef nonnull readonly %contents.i, ptr noundef nonnull readonly %contents4.i) #15
   %cmp17.not24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp17.not24.i, label %if.else.i, label %l_strcmp.exit
 
@@ -916,7 +916,7 @@ cond.false13.i:                                   ; preds = %cond.end.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %cond.true10.i
   %cond16.i = phi i64 [ %conv12.i, %cond.true10.i ], [ %9, %cond.false13.i ]
-  %call23.i = tail call i32 @strcoll(ptr noundef nonnull %contents.i, ptr noundef nonnull %contents4.i) #15
+  %call23.i = tail call i32 @strcoll(ptr noundef nonnull readonly %contents.i, ptr noundef nonnull readonly %contents4.i) #15
   %cmp17.not24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp17.not24.i, label %if.else.i, label %l_strcmp.exit
 
@@ -6621,7 +6621,7 @@ cond.false13.i.i:                                 ; preds = %cond.end.i.i
 
 cond.end15.i.i:                                   ; preds = %cond.false13.i.i, %cond.true10.i.i
   %cond16.i.i = phi i64 [ %conv12.i.i, %cond.true10.i.i ], [ %562, %cond.false13.i.i ]
-  %call23.i.i = call i32 @strcoll(ptr noundef nonnull %contents.i.i, ptr noundef nonnull %contents4.i.i) #15
+  %call23.i.i = call i32 @strcoll(ptr noundef nonnull readonly %contents.i.i, ptr noundef nonnull readonly %contents4.i.i) #15
   %cmp17.not24.i.i = icmp eq i32 %call23.i.i, 0
   br i1 %cmp17.not24.i.i, label %if.else.i.i2321, label %l_strcmp.exit.i
 
@@ -6873,7 +6873,7 @@ cond.false13.i.i2415:                             ; preds = %cond.end.i.i2382
 
 cond.end15.i.i2389:                               ; preds = %cond.false13.i.i2415, %cond.true10.i.i2387
   %cond16.i.i2390 = phi i64 [ %conv12.i.i2388, %cond.true10.i.i2387 ], [ %592, %cond.false13.i.i2415 ]
-  %call23.i.i2391 = call i32 @strcoll(ptr noundef nonnull %contents.i.i2377, ptr noundef nonnull %contents4.i.i2384) #15
+  %call23.i.i2391 = call i32 @strcoll(ptr noundef nonnull readonly %contents.i.i2377, ptr noundef nonnull readonly %contents4.i.i2384) #15
   %cmp17.not24.i.i2392 = icmp eq i32 %call23.i.i2391, 0
   br i1 %cmp17.not24.i.i2392, label %if.else.i.i2396, label %l_strcmp.exit.i2393
 

@@ -25439,7 +25439,7 @@ if.end:                                           ; preds = %entry
   %call5 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #35
   store atomic i32 0, ptr %call5 seq_cst, align 4
   %m_id.i = getelementptr inbounds i8, ptr %call5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_id.i, ptr noundef nonnull align 8 dereferenceable(40) %id, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_id.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %id, i64 40, i1 false)
   %m_pixels.i = getelementptr inbounds i8, ptr %call5, i64 48
   %m_valid.i = getelementptr inbounds i8, ptr %call5, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_pixels.i, i8 0, i64 28, i1 false)

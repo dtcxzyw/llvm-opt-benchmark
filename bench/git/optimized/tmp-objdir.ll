@@ -402,7 +402,7 @@ entry:
   store i8 1, ptr %2, align 8
   %buf = getelementptr inbounds i8, ptr %src, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %call.i = tail call ptr @opendir(ptr noundef %3)
+  %call.i = tail call ptr @opendir(ptr noundef readonly %3)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %while.cond.preheader.i
 
@@ -733,21 +733,21 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #17
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #17
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.end8, label %ends_with.exit
 
 ends_with.exit:                                   ; preds = %if.end
   %0 = getelementptr i8, ptr %name, i64 %call.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 -5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.13, i64 5)
   %tobool.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i.not, label %return, label %ends_with.exit14
 
 ends_with.exit14:                                 ; preds = %ends_with.exit
   %1 = getelementptr i8, ptr %name, i64 %call.i.i
   %add.ptr.i.i.i10 = getelementptr i8, ptr %1, i64 -5
-  %bcmp.i.i.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i10, ptr noundef nonnull dereferenceable(5) @.str.14, i64 5)
+  %bcmp.i.i.i11 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i10, ptr noundef nonnull readonly dereferenceable(5) @.str.14, i64 5)
   %tobool.not.i.i.i12.not = icmp eq i32 %bcmp.i.i.i11, 0
   br i1 %tobool.not.i.i.i12.not, label %return, label %ends_with.exit24
 
@@ -758,14 +758,14 @@ if.end8:                                          ; preds = %if.end
 ends_with.exit24:                                 ; preds = %ends_with.exit14, %if.end8
   %2 = getelementptr i8, ptr %name, i64 %call.i.i
   %add.ptr.i.i.i20 = getelementptr i8, ptr %2, i64 -4
-  %bcmp.i.i.i21 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i20, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
+  %bcmp.i.i.i21 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i20, ptr noundef nonnull readonly dereferenceable(4) @.str.15, i64 4)
   %tobool.not.i.i.i22.not = icmp eq i32 %bcmp.i.i.i21, 0
   br i1 %tobool.not.i.i.i22.not, label %return, label %ends_with.exit34
 
 ends_with.exit34:                                 ; preds = %ends_with.exit24
   %3 = getelementptr i8, ptr %name, i64 %call.i.i
   %add.ptr.i.i.i30 = getelementptr i8, ptr %3, i64 -4
-  %bcmp.i.i.i31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i30, ptr noundef nonnull dereferenceable(4) @.str.16, i64 4)
+  %bcmp.i.i.i31 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i30, ptr noundef nonnull readonly dereferenceable(4) @.str.16, i64 4)
   %bcmp.i.i.i31.fr = freeze i32 %bcmp.i.i.i31
   %tobool.not.i.i.i32.not = icmp eq i32 %bcmp.i.i.i31.fr, 0
   br i1 %tobool.not.i.i.i32.not, label %return, label %ends_with.exit34.thread

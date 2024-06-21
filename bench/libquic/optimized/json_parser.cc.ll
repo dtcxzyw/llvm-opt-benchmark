@@ -2270,7 +2270,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kTrueLiteral, i64 noundef 4) #19
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kTrueLiteral, i64 noundef 4) #19
   %cmp.i1 = icmp eq i32 %call.i, 0
   br i1 %cmp.i1, label %if.end, label %if.then
 
@@ -2325,7 +2325,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp.i10.not, label %if.then11, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %sw.bb5
-  %call.i11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kFalseLiteral, i64 noundef 5) #19
+  %call.i11 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kFalseLiteral, i64 noundef 5) #19
   %cmp.i12 = icmp eq i32 %call.i11, 0
   br i1 %cmp.i12, label %if.end12, label %if.then11
 
@@ -2374,7 +2374,7 @@ sw.bb15:                                          ; preds = %entry
   br i1 %cmp.i37.not, label %if.then21, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %sw.bb15
-  %call.i38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kNullLiteral, i64 noundef 4) #19
+  %call.i38 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kNullLiteral, i64 noundef 4) #19
   %cmp.i39 = icmp eq i32 %call.i38, 0
   br i1 %cmp.i39, label %if.end22, label %if.then21
 

@@ -2889,7 +2889,7 @@ if.then8:                                         ; preds = %if.end5
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %if.then8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i72, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i72, ptr readonly align 1 %1, i64 %2, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i72, i64 %2
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %call.i72, ptr %peer_info, align 8
@@ -2964,7 +2964,7 @@ if.then14:                                        ; preds = %if.else
           to label %invoke.cont19 unwind label %lpad.loopexit
 
 invoke.cont19:                                    ; preds = %if.then14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i84, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i84, ptr readonly align 1 %3, i64 %4, i1 false)
   %arrayidx.i83 = getelementptr inbounds i8, ptr %call.i84, i64 %4
   store i8 0, ptr %arrayidx.i83, align 1
   store ptr %call.i84, ptr %peer_cert113532, align 8
@@ -2985,7 +2985,7 @@ if.then26:                                        ; preds = %if.else22
           to label %invoke.cont31 unwind label %lpad.loopexit
 
 invoke.cont31:                                    ; preds = %if.then26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i88, ptr align 1 %5, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i88, ptr readonly align 1 %5, i64 %6, i1 false)
   %arrayidx.i87 = getelementptr inbounds i8, ptr %call.i88, i64 %6
   store i8 0, ptr %arrayidx.i87, align 1
   store ptr %call.i88, ptr %peer_cert_full_chain, align 8
@@ -3006,7 +3006,7 @@ if.then38:                                        ; preds = %if.else34
           to label %invoke.cont43 unwind label %lpad.loopexit
 
 invoke.cont43:                                    ; preds = %if.then38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i92, ptr align 1 %7, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i92, ptr readonly align 1 %7, i64 %8, i1 false)
   %arrayidx.i91 = getelementptr inbounds i8, ptr %call.i92, i64 %8
   store i8 0, ptr %arrayidx.i91, align 1
   %cmp.not.i = icmp eq ptr %uri_names.sroa.8.0375, %uri_names.sroa.14.0374
@@ -3086,7 +3086,7 @@ if.then51:                                        ; preds = %if.else47
           to label %invoke.cont56 unwind label %lpad.loopexit
 
 invoke.cont56:                                    ; preds = %if.then51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i99, ptr align 1 %10, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i99, ptr readonly align 1 %10, i64 %11, i1 false)
   %arrayidx.i98 = getelementptr inbounds i8, ptr %call.i99, i64 %11
   store i8 0, ptr %arrayidx.i98, align 1
   %cmp.not.i103 = icmp eq ptr %dns_names.sroa.8.0365, %dns_names.sroa.14.0366
@@ -3159,7 +3159,7 @@ if.then64:                                        ; preds = %if.else60
           to label %invoke.cont69 unwind label %lpad.loopexit
 
 invoke.cont69:                                    ; preds = %if.then64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i139, ptr align 1 %13, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i139, ptr readonly align 1 %13, i64 %14, i1 false)
   %arrayidx.i138 = getelementptr inbounds i8, ptr %call.i139, i64 %14
   store i8 0, ptr %arrayidx.i138, align 1
   %cmp.not.i143 = icmp eq ptr %email_names.sroa.8.0368, %email_names.sroa.14.0369
@@ -3232,7 +3232,7 @@ if.then77:                                        ; preds = %if.else73
           to label %invoke.cont82 unwind label %lpad.loopexit
 
 invoke.cont82:                                    ; preds = %if.then77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i179, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i179, ptr readonly align 1 %16, i64 %17, i1 false)
   %arrayidx.i178 = getelementptr inbounds i8, ptr %call.i179, i64 %17
   store i8 0, ptr %arrayidx.i178, align 1
   %cmp.not.i183 = icmp eq ptr %ip_names.sroa.8.0371, %ip_names.sroa.14.0372
@@ -3305,7 +3305,7 @@ if.then90:                                        ; preds = %if.else86
           to label %invoke.cont95 unwind label %lpad.loopexit
 
 invoke.cont95:                                    ; preds = %if.then90
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i219, ptr align 1 %19, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i219, ptr readonly align 1 %19, i64 %20, i1 false)
   %arrayidx.i218 = getelementptr inbounds i8, ptr %call.i219, i64 %20
   store i8 0, ptr %arrayidx.i218, align 1
   store ptr %call.i219, ptr %verified_root_cert_subject, align 8

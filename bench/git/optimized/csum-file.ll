@@ -95,7 +95,7 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %check_buffer.i, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %buf, ptr %4, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %buf, ptr %4, i64 %conv.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.then11.i
 
@@ -215,7 +215,7 @@ if.then3:                                         ; preds = %if.end
   %18 = load ptr, ptr %hash_algo.i25, align 8
   %rawsz.i26 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load i64, ptr %rawsz.i26, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %result, ptr align 1 %16, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %result, ptr readonly align 1 %16, i64 %19, i1 false)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
@@ -706,11 +706,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %got, ptr noundef nonnull dereferenceable(32) %add.ptr, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %got, ptr noundef nonnull readonly dereferenceable(32) %add.ptr, i64 32)
   br label %hasheq.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %got, ptr noundef nonnull dereferenceable(20) %add.ptr, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %got, ptr noundef nonnull readonly dereferenceable(20) %add.ptr, i64 20)
   br label %hasheq.exit
 
 hasheq.exit:                                      ; preds = %if.then.i.i, %if.end.i.i

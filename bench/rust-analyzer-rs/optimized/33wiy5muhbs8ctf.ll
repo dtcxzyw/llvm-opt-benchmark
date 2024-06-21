@@ -2116,7 +2116,7 @@ define hidden void @_ZN6parser6output6Output5error17ha9ef9eb6c6dc120cE(ptr noali
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !894, !noalias !897, !nonnull !11, !noundef !11
   %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %17, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %19 = load i64, ptr %4, align 8, !alias.scope !894, !noalias !897, !noundef !11
   %20 = add i64 %19, 1
   store i64 %20, ptr %4, align 8, !alias.scope !894, !noalias !897

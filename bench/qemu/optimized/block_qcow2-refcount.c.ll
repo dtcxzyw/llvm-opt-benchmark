@@ -3679,7 +3679,7 @@ if.then10.i:                                      ; preds = %for.end.i, %for.end
   %conv.i61 = ashr exact i64 %sext78, 32
   %add.i62 = sub nsw i64 %conv.i61, %contiguous_free_clusters.0.lcssa17.i
   %sub.i63 = add i64 %add.i62, %cluster.0.lcssa16.i
-  %call12.i = tail call fastcc i32 @realloc_refcount_array(ptr noundef %bs.val, ptr noundef %refcount_table, ptr noundef nonnull %nb_clusters, i64 noundef %sub.i63)
+  %call12.i = tail call fastcc i32 @realloc_refcount_array(ptr noundef readonly %bs.val, ptr noundef %refcount_table, ptr noundef nonnull %nb_clusters, i64 noundef %sub.i63)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then9, label %if.end18.i
 
@@ -7387,7 +7387,7 @@ if.then10.i:                                      ; preds = %if.else, %for.end.l
   %cluster.0.lcssa16.i = phi i64 [ %inc8.i, %for.end.loopexit.i ], [ %spec.select70, %if.else ]
   %reass.sub = sub i64 %cluster.0.lcssa16.i, %contiguous_free_clusters.0.lcssa17.i
   %sub.i = add i64 %reass.sub, 1
-  %call12.i = call fastcc i32 @realloc_refcount_array(ptr noundef %bs.val, ptr noundef nonnull %refcount_table, ptr noundef nonnull %nb_clusters, i64 noundef %sub.i)
+  %call12.i = call fastcc i32 @realloc_refcount_array(ptr noundef readonly %bs.val, ptr noundef nonnull %refcount_table, ptr noundef nonnull %nb_clusters, i64 noundef %sub.i)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then15, label %if.end18.i
 

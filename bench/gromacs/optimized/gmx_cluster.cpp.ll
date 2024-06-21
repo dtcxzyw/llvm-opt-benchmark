@@ -1109,8 +1109,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %356, %359
   %.0285 = phi i1 [ true, %.thread913 ], [ true, %396 ], [ false, %400 ]
   %403 = load ptr, ptr @stderr, align 8
   %404 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.147, ptr noundef nonnull %73) #17
-  %fputs.i.i = call i32 @fputs(ptr nonnull %72, ptr %403) #20
-  %fputs4.i.i = call i32 @fputs(ptr nonnull %72, ptr %355)
+  %fputs.i.i = call i32 @fputs(ptr nonnull readonly %72, ptr %403) #20
+  %fputs4.i.i = call i32 @fputs(ptr nonnull readonly %72, ptr %355)
   br label %419
 
 405:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
@@ -2377,8 +2377,8 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZL13gmx_snew_implI
   %919 = fpext float %916 to double
   %920 = fpext float %918 to double
   %921 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.170, double noundef %919, double noundef %920) #17
-  %fputs.i.i409 = call i32 @fputs(ptr nonnull %72, ptr %914) #20
-  %fputs4.i.i410 = call i32 @fputs(ptr nonnull %72, ptr %355)
+  %fputs.i.i409 = call i32 @fputs(ptr nonnull readonly %72, ptr %914) #20
+  %fputs4.i.i410 = call i32 @fputs(ptr nonnull readonly %72, ptr %355)
   %922 = load ptr, ptr @stderr, align 8
   %923 = getelementptr inbounds i8, ptr %.0299, i64 28
   %924 = load float, ptr %923, align 4
@@ -2387,22 +2387,22 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZL13gmx_snew_implI
   %927 = sitofp i32 %926 to float
   %928 = fdiv float %925, %927
   %929 = fpext float %928 to double
-  %930 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.171, double noundef %929) #17
-  %fputs.i.i411 = call i32 @fputs(ptr nonnull %72, ptr %922) #20
-  %fputs4.i.i412 = call i32 @fputs(ptr nonnull %72, ptr %355)
+  %930 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) @.str.171, double noundef %929) #17
+  %fputs.i.i411 = call i32 @fputs(ptr nonnull readonly %72, ptr %922) #20
+  %fputs4.i.i412 = call i32 @fputs(ptr nonnull readonly %72, ptr %355)
   %931 = load ptr, ptr @stderr, align 8
-  %932 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %.1) #17
-  %fputs.i.i413 = call i32 @fputs(ptr nonnull %72, ptr %931) #20
-  %fputs4.i.i414 = call i32 @fputs(ptr nonnull %72, ptr %355)
+  %932 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) @.str.172, i32 noundef %.1) #17
+  %fputs.i.i413 = call i32 @fputs(ptr nonnull readonly %72, ptr %931) #20
+  %fputs4.i.i414 = call i32 @fputs(ptr nonnull readonly %72, ptr %355)
   %933 = load ptr, ptr @stderr, align 8
   %934 = invoke noundef float @_Z10mat_energyP5t_mat(ptr noundef nonnull %.0299)
           to label %935 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 935:                                              ; preds = %913
   %936 = fpext float %934 to double
-  %937 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.173, double noundef %936) #17
-  %fputs.i.i415 = call i32 @fputs(ptr nonnull %72, ptr %933) #20
-  %fputs4.i.i416 = call i32 @fputs(ptr nonnull %72, ptr %355)
+  %937 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) @.str.173, double noundef %936) #17
+  %fputs.i.i415 = call i32 @fputs(ptr nonnull readonly %72, ptr %933) #20
+  %fputs4.i.i416 = call i32 @fputs(ptr nonnull readonly %72, ptr %355)
   br i1 %.1286654660, label %938, label %949
 
 938:                                              ; preds = %935
@@ -3043,9 +3043,9 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit452:    ; preds = %1132
   store ptr %1192, ptr %35, align 8
   %1202 = load ptr, ptr @stderr, align 8
   %1203 = load i32, ptr %62, align 8
-  %1204 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.211, i32 noundef %1203) #17
-  %fputs.i.i.i = call i32 @fputs(ptr nonnull %36, ptr %1202) #20
-  %fputs4.i.i.i = call i32 @fputs(ptr nonnull %36, ptr %355)
+  %1204 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) @.str.211, i32 noundef %1203) #17
+  %fputs.i.i.i = call i32 @fputs(ptr nonnull readonly %36, ptr %1202) #20
+  %fputs4.i.i.i = call i32 @fputs(ptr nonnull readonly %36, ptr %355)
   %.not.i454 = icmp eq ptr %1183, null
   br i1 %.not.i454, label %.noexc477, label %1205
 
@@ -3139,8 +3139,8 @@ _ZL14parse_filenamePKci.exit.i:                   ; preds = %1213
   %1235 = load ptr, ptr @stderr, align 8
   %1236 = select i1 %1195, ptr @.str.214, ptr @.str.215
   %1237 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.213, ptr noundef nonnull %1236, ptr noundef %1234) #17
-  %fputs.i.i305.i = call i32 @fputs(ptr nonnull %36, ptr %1235) #20
-  %fputs4.i.i306.i = call i32 @fputs(ptr nonnull %36, ptr %355)
+  %fputs.i.i305.i = call i32 @fputs(ptr nonnull readonly %36, ptr %1235) #20
+  %fputs4.i.i306.i = call i32 @fputs(ptr nonnull readonly %36, ptr %355)
   br i1 %.not271.i, label %1254, label %1238
 
 1238:                                             ; preds = %1233
@@ -3183,8 +3183,8 @@ _ZL14parse_filenamePKci.exit.i:                   ; preds = %1213
 1251:                                             ; preds = %1249, %1247, %.thread.i
   %1252 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.221, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef %.0263.i) #17
   %1253 = load ptr, ptr @stderr, align 8
-  %fputs.i.i307.i = call i32 @fputs(ptr nonnull %36, ptr %1253) #20
-  %fputs4.i.i308.i = call i32 @fputs(ptr nonnull %36, ptr %355)
+  %fputs.i.i307.i = call i32 @fputs(ptr nonnull readonly %36, ptr %1253) #20
+  %fputs4.i.i308.i = call i32 @fputs(ptr nonnull readonly %36, ptr %355)
   br label %1254
 
 1254:                                             ; preds = %1251, %1233
@@ -3385,8 +3385,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i457:     ; preds = %1260, %1257
   %.038.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.139.i.i, %1336 ]
   %1341 = load ptr, ptr @stderr, align 8
   %1342 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.255, i32 noundef %.040.lcssa.i.i, i32 noundef %.038.lcssa.i.i) #17
-  %fputs.i.i.i.i = call i32 @fputs(ptr nonnull %14, ptr %1341) #20
-  %fputs4.i.i.i.i = call i32 @fputs(ptr nonnull %14, ptr %355)
+  %fputs.i.i.i.i = call i32 @fputs(ptr nonnull readonly %14, ptr %1341) #20
+  %fputs4.i.i.i.i = call i32 @fputs(ptr nonnull readonly %14, ptr %355)
   %1343 = load ptr, ptr %11, align 8
   %.not.i309.i = icmp eq ptr %1343, null
   br i1 %.not.i309.i, label %.noexc483, label %1344

@@ -177,7 +177,7 @@ do.body4.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node4quic11TokenSecretaSEPKh.exit:            ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, ptr noundef nonnull align 1 dereferenceable(16) %secret, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, ptr noundef nonnull readonly align 1 dereferenceable(16) %secret, i64 16, i1 false)
   ret void
 }
 

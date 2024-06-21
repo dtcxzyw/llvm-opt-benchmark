@@ -2284,7 +2284,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
 _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149: ; preds = %lor.lhs.false10.i.i457, %land.lhs.true11.i.i459, %lor.lhs.false.i140, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486
   %sub20.i146 = fsub float %22, %135
   %sub23.i147 = fsub float %103, %136
-  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
+  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
   br i1 %call24.i148, label %lor.end, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %land.lhs.true34, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %lor.lhs.false
@@ -2418,13 +2418,13 @@ lor.lhs.false.i176:                               ; preds = %lor.lhs.false10.i.i
   %sub13.i178 = fsub float %186, %24
   %187 = extractelement <2 x float> %155, i64 1
   %sub16.i179 = fsub float %187, %156
-  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
+  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
   br i1 %call17.i180, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185
 
 _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185: ; preds = %lor.lhs.false.i176
   %sub20.i182 = fsub float %22, %186
   %sub23.i183 = fsub float %154, %187
-  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
+  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
   br i1 %call24.i184, label %lor.end, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %land.lhs.true44, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %lor.lhs.false40
@@ -2559,13 +2559,13 @@ lor.lhs.false.i212:                               ; preds = %lor.lhs.false10.i.i
   %sub13.i214 = fsub float %221, %24
   %222 = extractelement <2 x float> %190, i64 1
   %sub16.i215 = fsub float %222, %191
-  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
+  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
   br i1 %call17.i216, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221
 
 _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221: ; preds = %lor.lhs.false.i212
   %sub20.i218 = fsub float %22, %221
   %sub23.i219 = fsub float %189, %222
-  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
+  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
   br i1 %call24.i220, label %lor.end, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %land.lhs.true53, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %lor.lhs.false49
@@ -3456,7 +3456,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
 _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149: ; preds = %lor.lhs.false10.i.i457, %land.lhs.true11.i.i459, %lor.lhs.false.i140, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486
   %sub20.i146 = fsub float %22, %135
   %sub23.i147 = fsub float %103, %136
-  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
+  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
   br i1 %call24.i148, label %lor.end, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %land.lhs.true34, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %lor.lhs.false
@@ -3590,13 +3590,13 @@ lor.lhs.false.i176:                               ; preds = %lor.lhs.false10.i.i
   %sub13.i178 = fsub float %186, %24
   %187 = extractelement <2 x float> %155, i64 1
   %sub16.i179 = fsub float %187, %156
-  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
+  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
   br i1 %call17.i180, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185
 
 _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185: ; preds = %lor.lhs.false.i176
   %sub20.i182 = fsub float %22, %186
   %sub23.i183 = fsub float %154, %187
-  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
+  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
   br i1 %call24.i184, label %lor.end, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %land.lhs.true44, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %lor.lhs.false40
@@ -3731,13 +3731,13 @@ lor.lhs.false.i212:                               ; preds = %lor.lhs.false10.i.i
   %sub13.i214 = fsub float %221, %24
   %222 = extractelement <2 x float> %190, i64 1
   %sub16.i215 = fsub float %222, %191
-  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
+  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
   br i1 %call17.i216, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221
 
 _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221: ; preds = %lor.lhs.false.i212
   %sub20.i218 = fsub float %22, %221
   %sub23.i219 = fsub float %189, %222
-  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
+  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
   br i1 %call24.i220, label %lor.end, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %land.lhs.true53, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %lor.lhs.false49
@@ -4474,7 +4474,7 @@ lor.rhs.i:                                        ; preds = %call17.i.noexc.lor.
   %164 = phi float [ %.pre538, %call17.i.noexc.lor.rhs.i_crit_edge ], [ %.pre539, %lor.lhs.false.i ]
   %sub20.i = fsub float %164, %163
   %sub23.i = fsub float %162, %161
-  %call24.i131 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i127, float noundef %sub20.i, float noundef %sub23.i)
+  %call24.i131 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i127, float noundef %sub20.i, float noundef %sub23.i)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %lor.rhs.i
@@ -4646,7 +4646,7 @@ lor.lhs.false.i161:                               ; preds = %call10.i.noexc168.l
   %208 = load float, ptr %arrayidx61, align 4
   %sub13.i163 = fsub float %208, %207
   %sub16.i164 = fsub float %206, %205
-  %call17.i171 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i137, float noundef %sub13.i163, float noundef %sub16.i164)
+  %call17.i171 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i137, float noundef %sub13.i163, float noundef %sub16.i164)
           to label %call17.i.noexc170 unwind label %lpad
 
 call17.i.noexc170:                                ; preds = %lor.lhs.false.i161
@@ -4659,7 +4659,7 @@ lor.rhs.i165:                                     ; preds = %call17.i.noexc170
   %211 = load float, ptr %add.ptr.i137, align 4
   %212 = load float, ptr %arrayidx2.i145, align 4
   %sub23.i167 = fsub float %211, %212
-  %call24.i173 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i137, float noundef %sub20.i166, float noundef %sub23.i167)
+  %call24.i173 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i137, float noundef %sub20.i166, float noundef %sub23.i167)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %lor.rhs.i165
@@ -4720,7 +4720,7 @@ land.rhs.i200:                                    ; preds = %invoke.cont96
   %232 = load float, ptr %add.ptr.i114, align 4
   %sub6.i202 = fsub float %231, %232
   %sub9.i203 = fsub float %218, %216
-  %call10.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i180, float noundef %sub6.i202, float noundef %sub9.i203)
+  %call10.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i180, float noundef %sub6.i202, float noundef %sub9.i203)
           to label %call10.i.noexc211 unwind label %lpad
 
 call10.i.noexc211:                                ; preds = %land.rhs.i200
@@ -4733,7 +4733,7 @@ lor.lhs.false.i204:                               ; preds = %call10.i.noexc211
   %235 = load float, ptr %arrayidx2.i188, align 4
   %236 = load float, ptr %arrayidx1.i187, align 4
   %sub16.i207 = fsub float %235, %236
-  %call17.i214 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i180, float noundef %sub13.i206, float noundef %sub16.i207)
+  %call17.i214 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i180, float noundef %sub13.i206, float noundef %sub16.i207)
           to label %call17.i.noexc213 unwind label %lpad
 
 call17.i.noexc213:                                ; preds = %lor.lhs.false.i204
@@ -4746,7 +4746,7 @@ lor.rhs.i208:                                     ; preds = %call17.i.noexc213
   %239 = load float, ptr %add.ptr.i180, align 4
   %240 = load float, ptr %arrayidx2.i188, align 4
   %sub23.i210 = fsub float %239, %240
-  %call24.i216 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i180, float noundef %sub20.i209, float noundef %sub23.i210)
+  %call24.i216 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i180, float noundef %sub20.i209, float noundef %sub23.i210)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %lor.rhs.i208
@@ -4807,7 +4807,7 @@ land.rhs.i243:                                    ; preds = %invoke.cont110
   %260 = load float, ptr %add.ptr.i114, align 4
   %sub6.i245 = fsub float %259, %260
   %sub9.i246 = fsub float %246, %244
-  %call10.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i223, float noundef %sub6.i245, float noundef %sub9.i246)
+  %call10.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i223, float noundef %sub6.i245, float noundef %sub9.i246)
           to label %call10.i.noexc254 unwind label %lpad
 
 call10.i.noexc254:                                ; preds = %land.rhs.i243
@@ -4820,7 +4820,7 @@ lor.lhs.false.i247:                               ; preds = %call10.i.noexc254
   %263 = load float, ptr %arrayidx2.i231, align 4
   %264 = load float, ptr %arrayidx1.i230, align 4
   %sub16.i250 = fsub float %263, %264
-  %call17.i257 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i223, float noundef %sub13.i249, float noundef %sub16.i250)
+  %call17.i257 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i223, float noundef %sub13.i249, float noundef %sub16.i250)
           to label %call17.i.noexc256 unwind label %lpad
 
 call17.i.noexc256:                                ; preds = %lor.lhs.false.i247
@@ -4833,7 +4833,7 @@ lor.rhs.i251:                                     ; preds = %call17.i.noexc256
   %267 = load float, ptr %add.ptr.i223, align 4
   %268 = load float, ptr %arrayidx2.i231, align 4
   %sub23.i253 = fsub float %267, %268
-  %call24.i259 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i223, float noundef %sub20.i252, float noundef %sub23.i253)
+  %call24.i259 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i223, float noundef %sub20.i252, float noundef %sub23.i253)
           to label %invoke.cont111 unwind label %lpad
 
 invoke.cont111:                                   ; preds = %lor.rhs.i251
@@ -5749,7 +5749,7 @@ lor.rhs.i:                                        ; preds = %call17.i.noexc.lor.
   %164 = phi float [ %.pre538, %call17.i.noexc.lor.rhs.i_crit_edge ], [ %.pre539, %lor.lhs.false.i ]
   %sub20.i = fsub float %164, %163
   %sub23.i = fsub float %162, %161
-  %call24.i131 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i127, float noundef %sub20.i, float noundef %sub23.i)
+  %call24.i131 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i127, float noundef %sub20.i, float noundef %sub23.i)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %lor.rhs.i
@@ -5921,7 +5921,7 @@ lor.lhs.false.i161:                               ; preds = %call10.i.noexc168.l
   %208 = load float, ptr %arrayidx61, align 4
   %sub13.i163 = fsub float %208, %207
   %sub16.i164 = fsub float %206, %205
-  %call17.i171 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i137, float noundef %sub13.i163, float noundef %sub16.i164)
+  %call17.i171 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i137, float noundef %sub13.i163, float noundef %sub16.i164)
           to label %call17.i.noexc170 unwind label %lpad
 
 call17.i.noexc170:                                ; preds = %lor.lhs.false.i161
@@ -5934,7 +5934,7 @@ lor.rhs.i165:                                     ; preds = %call17.i.noexc170
   %211 = load float, ptr %add.ptr.i137, align 4
   %212 = load float, ptr %arrayidx2.i145, align 4
   %sub23.i167 = fsub float %211, %212
-  %call24.i173 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i137, float noundef %sub20.i166, float noundef %sub23.i167)
+  %call24.i173 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i153, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i137, float noundef %sub20.i166, float noundef %sub23.i167)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %lor.rhs.i165
@@ -5995,7 +5995,7 @@ land.rhs.i200:                                    ; preds = %invoke.cont96
   %232 = load float, ptr %add.ptr.i114, align 4
   %sub6.i202 = fsub float %231, %232
   %sub9.i203 = fsub float %218, %216
-  %call10.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i180, float noundef %sub6.i202, float noundef %sub9.i203)
+  %call10.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i180, float noundef %sub6.i202, float noundef %sub9.i203)
           to label %call10.i.noexc211 unwind label %lpad
 
 call10.i.noexc211:                                ; preds = %land.rhs.i200
@@ -6008,7 +6008,7 @@ lor.lhs.false.i204:                               ; preds = %call10.i.noexc211
   %235 = load float, ptr %arrayidx2.i188, align 4
   %236 = load float, ptr %arrayidx1.i187, align 4
   %sub16.i207 = fsub float %235, %236
-  %call17.i214 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i180, float noundef %sub13.i206, float noundef %sub16.i207)
+  %call17.i214 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i180, float noundef %sub13.i206, float noundef %sub16.i207)
           to label %call17.i.noexc213 unwind label %lpad
 
 call17.i.noexc213:                                ; preds = %lor.lhs.false.i204
@@ -6021,7 +6021,7 @@ lor.rhs.i208:                                     ; preds = %call17.i.noexc213
   %239 = load float, ptr %add.ptr.i180, align 4
   %240 = load float, ptr %arrayidx2.i188, align 4
   %sub23.i210 = fsub float %239, %240
-  %call24.i216 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i180, float noundef %sub20.i209, float noundef %sub23.i210)
+  %call24.i216 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i196, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i180, float noundef %sub20.i209, float noundef %sub23.i210)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %lor.rhs.i208
@@ -6082,7 +6082,7 @@ land.rhs.i243:                                    ; preds = %invoke.cont110
   %260 = load float, ptr %add.ptr.i114, align 4
   %sub6.i245 = fsub float %259, %260
   %sub9.i246 = fsub float %246, %244
-  %call10.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i223, float noundef %sub6.i245, float noundef %sub9.i246)
+  %call10.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i223, float noundef %sub6.i245, float noundef %sub9.i246)
           to label %call10.i.noexc254 unwind label %lpad
 
 call10.i.noexc254:                                ; preds = %land.rhs.i243
@@ -6095,7 +6095,7 @@ lor.lhs.false.i247:                               ; preds = %call10.i.noexc254
   %263 = load float, ptr %arrayidx2.i231, align 4
   %264 = load float, ptr %arrayidx1.i230, align 4
   %sub16.i250 = fsub float %263, %264
-  %call17.i257 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i223, float noundef %sub13.i249, float noundef %sub16.i250)
+  %call17.i257 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i223, float noundef %sub13.i249, float noundef %sub16.i250)
           to label %call17.i.noexc256 unwind label %lpad
 
 call17.i.noexc256:                                ; preds = %lor.lhs.false.i247
@@ -6108,7 +6108,7 @@ lor.rhs.i251:                                     ; preds = %call17.i.noexc256
   %267 = load float, ptr %add.ptr.i223, align 4
   %268 = load float, ptr %arrayidx2.i231, align 4
   %sub23.i253 = fsub float %267, %268
-  %call24.i259 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull %add.ptr.i114, ptr noundef nonnull %add.ptr.i223, float noundef %sub20.i252, float noundef %sub23.i253)
+  %call24.i259 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i239, ptr noundef nonnull readonly %add.ptr.i114, ptr noundef nonnull readonly %add.ptr.i223, float noundef %sub20.i252, float noundef %sub23.i253)
           to label %invoke.cont111 unwind label %lpad
 
 invoke.cont111:                                   ; preds = %lor.rhs.i251
@@ -6971,7 +6971,7 @@ lor.rhs.i:                                        ; preds = %call17.i.noexc.lor.
   %159 = phi float [ %.pre526, %call17.i.noexc.lor.rhs.i_crit_edge ], [ %.pre527, %lor.lhs.false.i ]
   %sub20.i = fsub float %159, %158
   %sub23.i = fsub float %157, %156
-  %call24.i127 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i123, float noundef %sub20.i, float noundef %sub23.i)
+  %call24.i127 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i123, float noundef %sub20.i, float noundef %sub23.i)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %lor.rhs.i
@@ -7143,7 +7143,7 @@ lor.lhs.false.i157:                               ; preds = %call10.i.noexc164.l
   %203 = load float, ptr %arrayidx61, align 4
   %sub13.i159 = fsub float %203, %202
   %sub16.i160 = fsub float %201, %200
-  %call17.i167 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i133, float noundef %sub13.i159, float noundef %sub16.i160)
+  %call17.i167 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i133, float noundef %sub13.i159, float noundef %sub16.i160)
           to label %call17.i.noexc166 unwind label %lpad
 
 call17.i.noexc166:                                ; preds = %lor.lhs.false.i157
@@ -7156,7 +7156,7 @@ lor.rhs.i161:                                     ; preds = %call17.i.noexc166
   %206 = load float, ptr %add.ptr.i133, align 4
   %207 = load float, ptr %arrayidx2.i141, align 4
   %sub23.i163 = fsub float %206, %207
-  %call24.i169 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i133, float noundef %sub20.i162, float noundef %sub23.i163)
+  %call24.i169 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i133, float noundef %sub20.i162, float noundef %sub23.i163)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %lor.rhs.i161
@@ -7217,7 +7217,7 @@ land.rhs.i196:                                    ; preds = %invoke.cont96
   %227 = load float, ptr %add.ptr.i110, align 4
   %sub6.i198 = fsub float %226, %227
   %sub9.i199 = fsub float %213, %211
-  %call10.i208 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i176, float noundef %sub6.i198, float noundef %sub9.i199)
+  %call10.i208 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i176, float noundef %sub6.i198, float noundef %sub9.i199)
           to label %call10.i.noexc207 unwind label %lpad
 
 call10.i.noexc207:                                ; preds = %land.rhs.i196
@@ -7230,7 +7230,7 @@ lor.lhs.false.i200:                               ; preds = %call10.i.noexc207
   %230 = load float, ptr %arrayidx2.i184, align 4
   %231 = load float, ptr %arrayidx1.i183, align 4
   %sub16.i203 = fsub float %230, %231
-  %call17.i210 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i176, float noundef %sub13.i202, float noundef %sub16.i203)
+  %call17.i210 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i176, float noundef %sub13.i202, float noundef %sub16.i203)
           to label %call17.i.noexc209 unwind label %lpad
 
 call17.i.noexc209:                                ; preds = %lor.lhs.false.i200
@@ -7243,7 +7243,7 @@ lor.rhs.i204:                                     ; preds = %call17.i.noexc209
   %234 = load float, ptr %add.ptr.i176, align 4
   %235 = load float, ptr %arrayidx2.i184, align 4
   %sub23.i206 = fsub float %234, %235
-  %call24.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i176, float noundef %sub20.i205, float noundef %sub23.i206)
+  %call24.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i176, float noundef %sub20.i205, float noundef %sub23.i206)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %lor.rhs.i204
@@ -7304,7 +7304,7 @@ land.rhs.i239:                                    ; preds = %invoke.cont110
   %255 = load float, ptr %add.ptr.i110, align 4
   %sub6.i241 = fsub float %254, %255
   %sub9.i242 = fsub float %241, %239
-  %call10.i251 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i219, float noundef %sub6.i241, float noundef %sub9.i242)
+  %call10.i251 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i219, float noundef %sub6.i241, float noundef %sub9.i242)
           to label %call10.i.noexc250 unwind label %lpad
 
 call10.i.noexc250:                                ; preds = %land.rhs.i239
@@ -7317,7 +7317,7 @@ lor.lhs.false.i243:                               ; preds = %call10.i.noexc250
   %258 = load float, ptr %arrayidx2.i227, align 4
   %259 = load float, ptr %arrayidx1.i226, align 4
   %sub16.i246 = fsub float %258, %259
-  %call17.i253 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i219, float noundef %sub13.i245, float noundef %sub16.i246)
+  %call17.i253 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i219, float noundef %sub13.i245, float noundef %sub16.i246)
           to label %call17.i.noexc252 unwind label %lpad
 
 call17.i.noexc252:                                ; preds = %lor.lhs.false.i243
@@ -7330,7 +7330,7 @@ lor.rhs.i247:                                     ; preds = %call17.i.noexc252
   %262 = load float, ptr %add.ptr.i219, align 4
   %263 = load float, ptr %arrayidx2.i227, align 4
   %sub23.i249 = fsub float %262, %263
-  %call24.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i219, float noundef %sub20.i248, float noundef %sub23.i249)
+  %call24.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i219, float noundef %sub20.i248, float noundef %sub23.i249)
           to label %invoke.cont111 unwind label %lpad
 
 invoke.cont111:                                   ; preds = %lor.rhs.i247
@@ -8318,7 +8318,7 @@ lor.rhs.i:                                        ; preds = %call17.i.noexc.lor.
   %159 = phi float [ %.pre526, %call17.i.noexc.lor.rhs.i_crit_edge ], [ %.pre527, %lor.lhs.false.i ]
   %sub20.i = fsub float %159, %158
   %sub23.i = fsub float %157, %156
-  %call24.i127 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i123, float noundef %sub20.i, float noundef %sub23.i)
+  %call24.i127 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp68, float noundef %cond.i8.i, float noundef %cond.i8.i.i, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i123, float noundef %sub20.i, float noundef %sub23.i)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %lor.rhs.i
@@ -8490,7 +8490,7 @@ lor.lhs.false.i157:                               ; preds = %call10.i.noexc164.l
   %203 = load float, ptr %arrayidx61, align 4
   %sub13.i159 = fsub float %203, %202
   %sub16.i160 = fsub float %201, %200
-  %call17.i167 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i133, float noundef %sub13.i159, float noundef %sub16.i160)
+  %call17.i167 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i133, float noundef %sub13.i159, float noundef %sub16.i160)
           to label %call17.i.noexc166 unwind label %lpad
 
 call17.i.noexc166:                                ; preds = %lor.lhs.false.i157
@@ -8503,7 +8503,7 @@ lor.rhs.i161:                                     ; preds = %call17.i.noexc166
   %206 = load float, ptr %add.ptr.i133, align 4
   %207 = load float, ptr %arrayidx2.i141, align 4
   %sub23.i163 = fsub float %206, %207
-  %call24.i169 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i133, float noundef %sub20.i162, float noundef %sub23.i163)
+  %call24.i169 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, float noundef %cond.i8.i, float noundef %cond.i8.i.i149, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i133, float noundef %sub20.i162, float noundef %sub23.i163)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %lor.rhs.i161
@@ -8564,7 +8564,7 @@ land.rhs.i196:                                    ; preds = %invoke.cont96
   %227 = load float, ptr %add.ptr.i110, align 4
   %sub6.i198 = fsub float %226, %227
   %sub9.i199 = fsub float %213, %211
-  %call10.i208 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i176, float noundef %sub6.i198, float noundef %sub9.i199)
+  %call10.i208 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i176, float noundef %sub6.i198, float noundef %sub9.i199)
           to label %call10.i.noexc207 unwind label %lpad
 
 call10.i.noexc207:                                ; preds = %land.rhs.i196
@@ -8577,7 +8577,7 @@ lor.lhs.false.i200:                               ; preds = %call10.i.noexc207
   %230 = load float, ptr %arrayidx2.i184, align 4
   %231 = load float, ptr %arrayidx1.i183, align 4
   %sub16.i203 = fsub float %230, %231
-  %call17.i210 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i176, float noundef %sub13.i202, float noundef %sub16.i203)
+  %call17.i210 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i176, float noundef %sub13.i202, float noundef %sub16.i203)
           to label %call17.i.noexc209 unwind label %lpad
 
 call17.i.noexc209:                                ; preds = %lor.lhs.false.i200
@@ -8590,7 +8590,7 @@ lor.rhs.i204:                                     ; preds = %call17.i.noexc209
   %234 = load float, ptr %add.ptr.i176, align 4
   %235 = load float, ptr %arrayidx2.i184, align 4
   %sub23.i206 = fsub float %234, %235
-  %call24.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i176, float noundef %sub20.i205, float noundef %sub23.i206)
+  %call24.i212 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp93, float noundef %cond.i8.i, float noundef %cond.i8.i.i192, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i176, float noundef %sub20.i205, float noundef %sub23.i206)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %lor.rhs.i204
@@ -8651,7 +8651,7 @@ land.rhs.i239:                                    ; preds = %invoke.cont110
   %255 = load float, ptr %add.ptr.i110, align 4
   %sub6.i241 = fsub float %254, %255
   %sub9.i242 = fsub float %241, %239
-  %call10.i251 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i219, float noundef %sub6.i241, float noundef %sub9.i242)
+  %call10.i251 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i219, float noundef %sub6.i241, float noundef %sub9.i242)
           to label %call10.i.noexc250 unwind label %lpad
 
 call10.i.noexc250:                                ; preds = %land.rhs.i239
@@ -8664,7 +8664,7 @@ lor.lhs.false.i243:                               ; preds = %call10.i.noexc250
   %258 = load float, ptr %arrayidx2.i227, align 4
   %259 = load float, ptr %arrayidx1.i226, align 4
   %sub16.i246 = fsub float %258, %259
-  %call17.i253 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i219, float noundef %sub13.i245, float noundef %sub16.i246)
+  %call17.i253 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i219, float noundef %sub13.i245, float noundef %sub16.i246)
           to label %call17.i.noexc252 unwind label %lpad
 
 call17.i.noexc252:                                ; preds = %lor.lhs.false.i243
@@ -8677,7 +8677,7 @@ lor.rhs.i247:                                     ; preds = %call17.i.noexc252
   %262 = load float, ptr %add.ptr.i219, align 4
   %263 = load float, ptr %arrayidx2.i227, align 4
   %sub23.i249 = fsub float %262, %263
-  %call24.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull %add.ptr.i110, ptr noundef nonnull %add.ptr.i219, float noundef %sub20.i248, float noundef %sub23.i249)
+  %call24.i255 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp107, float noundef %cond.i8.i, float noundef %cond.i8.i.i235, ptr noundef nonnull readonly %add.ptr.i110, ptr noundef nonnull readonly %add.ptr.i219, float noundef %sub20.i248, float noundef %sub23.i249)
           to label %invoke.cont111 unwind label %lpad
 
 invoke.cont111:                                   ; preds = %lor.rhs.i247

@@ -1621,7 +1621,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %290, %.lr.ph.i.i.i.i.i.i.i.i ], [ %287, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i.i.i ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %289, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !21
   %289 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 32
   %290 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %289, %.val63.i
@@ -2699,7 +2699,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.
 .lr.ph.i.i.i.i.i.i.i145.i:                        ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i.i144.i, %.lr.ph.i.i.i.i.i.i.i145.i
   %.03.i.i.i.i.i.i.i146.i = phi ptr [ %767, %.lr.ph.i.i.i.i.i.i.i145.i ], [ %764, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i.i144.i ]
   %.092.i.i.i.i.i.i.i147.i = phi ptr [ %766, %.lr.ph.i.i.i.i.i.i.i145.i ], [ %.val66.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i.i144.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i146.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i147.i, i64 32, i1 false), !alias.scope !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i146.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i147.i, i64 32, i1 false), !alias.scope !44
   %766 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i147.i, i64 32
   %767 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i146.i, i64 32
   %.not.i.i.i.i.i.i.i148.i = icmp eq ptr %766, %.val67.i
@@ -6478,7 +6478,7 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit: ; preds = %216, %_ZNSt6vect
   br i1 %.not.i203, label %340, label %337
 
 337:                                              ; preds = %326
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %335, ptr noundef nonnull align 8 dereferenceable(32) %334, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %335, ptr noundef nonnull readonly align 8 dereferenceable(32) %334, i64 32, i1 false)
   %338 = load ptr, ptr %318, align 8
   %339 = getelementptr inbounds i8, ptr %338, i64 32
   store ptr %339, ptr %318, align 8
@@ -6511,13 +6511,13 @@ _ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %351, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %354 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %353, %351 ]
   %355 = getelementptr inbounds %"struct.(anonymous namespace)::QwpWorker::Node", ptr %354, i64 %345
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull align 8 dereferenceable(32) %334, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull readonly align 8 dereferenceable(32) %334, i64 32, i1 false)
   br i1 %346, label %_ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %357, %.lr.ph.i.i.i.i.i.i ], [ %354, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %356, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !86
   %356 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 32
   %357 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %356, %335
@@ -6590,7 +6590,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE9push_backERKS2_.exit: ; pre
   br i1 %.not.i206, label %382, label %379
 
 379:                                              ; preds = %368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull align 8 dereferenceable(32) %376, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull readonly align 8 dereferenceable(32) %376, i64 32, i1 false)
   %380 = load ptr, ptr %316, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 32
   store ptr %381, ptr %316, align 8
@@ -6623,13 +6623,13 @@ _ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i211: ; preds = %393, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i208
   %396 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i208 ], [ %395, %393 ]
   %397 = getelementptr inbounds %"struct.(anonymous namespace)::QwpWorker::Node", ptr %396, i64 %387
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %397, ptr noundef nonnull align 8 dereferenceable(32) %376, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %397, ptr noundef nonnull readonly align 8 dereferenceable(32) %376, i64 32, i1 false)
   br i1 %388, label %_ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i216, label %.lr.ph.i.i.i.i.i.i212
 
 .lr.ph.i.i.i.i.i.i212:                            ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i211, %.lr.ph.i.i.i.i.i.i212
   %.03.i.i.i.i.i.i213 = phi ptr [ %399, %.lr.ph.i.i.i.i.i.i212 ], [ %396, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i211 ]
   %.092.i.i.i.i.i.i214 = phi ptr [ %398, %.lr.ph.i.i.i.i.i.i212 ], [ %.val.i.i207, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i211 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i213, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i214, i64 32, i1 false), !alias.scope !90
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i213, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i214, i64 32, i1 false), !alias.scope !90
   %398 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i214, i64 32
   %399 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i213, i64 32
   %.not.i.i.i.i.i.i215 = icmp eq ptr %398, %377
@@ -7118,7 +7118,7 @@ _ZNK5Yosys7hashlib4dictIiiNS0_8hash_opsIiEEE5countERKi.exit250.thread444: ; pred
   br i1 %.not.i251, label %700, label %697
 
 697:                                              ; preds = %691
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %695, ptr noundef nonnull align 8 dereferenceable(32) %694, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %695, ptr noundef nonnull readonly align 8 dereferenceable(32) %694, i64 32, i1 false)
   %698 = load ptr, ptr %431, align 8
   %699 = getelementptr inbounds i8, ptr %698, i64 32
   store ptr %699, ptr %431, align 8
@@ -7151,13 +7151,13 @@ _ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i256: ; preds = %711, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i253
   %714 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i253 ], [ %713, %711 ]
   %715 = getelementptr inbounds %"struct.(anonymous namespace)::QwpWorker::Node", ptr %714, i64 %705
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %715, ptr noundef nonnull align 8 dereferenceable(32) %694, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %715, ptr noundef nonnull readonly align 8 dereferenceable(32) %694, i64 32, i1 false)
   br i1 %706, label %_ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i261, label %.lr.ph.i.i.i.i.i.i257
 
 .lr.ph.i.i.i.i.i.i257:                            ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i256, %.lr.ph.i.i.i.i.i.i257
   %.03.i.i.i.i.i.i258 = phi ptr [ %717, %.lr.ph.i.i.i.i.i.i257 ], [ %714, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i256 ]
   %.092.i.i.i.i.i.i259 = phi ptr [ %716, %.lr.ph.i.i.i.i.i.i257 ], [ %.val.i.i252, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i256 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i258, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i259, i64 32, i1 false), !alias.scope !96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i258, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i259, i64 32, i1 false), !alias.scope !96
   %716 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i259, i64 32
   %717 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i258, i64 32
   %.not.i.i.i.i.i.i260 = icmp eq ptr %716, %695
@@ -7216,7 +7216,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EE
   br i1 %.not.i269, label %745, label %742
 
 742:                                              ; preds = %736
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %740, ptr noundef nonnull align 8 dereferenceable(32) %739, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %740, ptr noundef nonnull readonly align 8 dereferenceable(32) %739, i64 32, i1 false)
   %743 = load ptr, ptr %431, align 8
   %744 = getelementptr inbounds i8, ptr %743, i64 32
   store ptr %744, ptr %431, align 8
@@ -7249,13 +7249,13 @@ _ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i274: ; preds = %756, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i271
   %759 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i271 ], [ %758, %756 ]
   %760 = getelementptr inbounds %"struct.(anonymous namespace)::QwpWorker::Node", ptr %759, i64 %750
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %760, ptr noundef nonnull align 8 dereferenceable(32) %739, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %760, ptr noundef nonnull readonly align 8 dereferenceable(32) %739, i64 32, i1 false)
   br i1 %751, label %_ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i279, label %.lr.ph.i.i.i.i.i.i275
 
 .lr.ph.i.i.i.i.i.i275:                            ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i274, %.lr.ph.i.i.i.i.i.i275
   %.03.i.i.i.i.i.i276 = phi ptr [ %762, %.lr.ph.i.i.i.i.i.i275 ], [ %759, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i274 ]
   %.092.i.i.i.i.i.i277 = phi ptr [ %761, %.lr.ph.i.i.i.i.i.i275 ], [ %.val.i.i270, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i274 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i276, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i277, i64 32, i1 false), !alias.scope !100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i276, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i277, i64 32, i1 false), !alias.scope !100
   %761 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i277, i64 32
   %762 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i276, i64 32
   %.not.i.i.i.i.i.i278 = icmp eq ptr %761, %740
@@ -7345,7 +7345,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EE
   br i1 %.not.i287, label %805, label %802
 
 802:                                              ; preds = %796
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %800, ptr noundef nonnull align 8 dereferenceable(32) %799, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %800, ptr noundef nonnull readonly align 8 dereferenceable(32) %799, i64 32, i1 false)
   %803 = load ptr, ptr %433, align 8
   %804 = getelementptr inbounds i8, ptr %803, i64 32
   store ptr %804, ptr %433, align 8
@@ -7378,13 +7378,13 @@ _ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i292: ; preds = %816, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i289
   %819 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i289 ], [ %818, %816 ]
   %820 = getelementptr inbounds %"struct.(anonymous namespace)::QwpWorker::Node", ptr %819, i64 %810
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %820, ptr noundef nonnull align 8 dereferenceable(32) %799, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %820, ptr noundef nonnull readonly align 8 dereferenceable(32) %799, i64 32, i1 false)
   br i1 %811, label %_ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i297, label %.lr.ph.i.i.i.i.i.i293
 
 .lr.ph.i.i.i.i.i.i293:                            ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i292, %.lr.ph.i.i.i.i.i.i293
   %.03.i.i.i.i.i.i294 = phi ptr [ %822, %.lr.ph.i.i.i.i.i.i293 ], [ %819, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i292 ]
   %.092.i.i.i.i.i.i295 = phi ptr [ %821, %.lr.ph.i.i.i.i.i.i293 ], [ %.val.i.i288, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i292 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i294, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i295, i64 32, i1 false), !alias.scope !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i294, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i295, i64 32, i1 false), !alias.scope !104
   %821 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i295, i64 32
   %822 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i294, i64 32
   %.not.i.i.i.i.i.i296 = icmp eq ptr %821, %800
@@ -7443,7 +7443,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EE
   br i1 %.not.i305, label %850, label %847
 
 847:                                              ; preds = %841
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %845, ptr noundef nonnull align 8 dereferenceable(32) %844, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %845, ptr noundef nonnull readonly align 8 dereferenceable(32) %844, i64 32, i1 false)
   %848 = load ptr, ptr %433, align 8
   %849 = getelementptr inbounds i8, ptr %848, i64 32
   store ptr %849, ptr %433, align 8
@@ -7483,13 +7483,13 @@ _ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i310: ; preds = %861, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i307
   %864 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i307 ], [ %863, %861 ]
   %865 = getelementptr inbounds %"struct.(anonymous namespace)::QwpWorker::Node", ptr %864, i64 %855
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %865, ptr noundef nonnull align 8 dereferenceable(32) %844, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %865, ptr noundef nonnull readonly align 8 dereferenceable(32) %844, i64 32, i1 false)
   br i1 %856, label %_ZNSt6vectorIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i315, label %.lr.ph.i.i.i.i.i.i311
 
 .lr.ph.i.i.i.i.i.i311:                            ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i310, %.lr.ph.i.i.i.i.i.i311
   %.03.i.i.i.i.i.i312 = phi ptr [ %867, %.lr.ph.i.i.i.i.i.i311 ], [ %864, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i310 ]
   %.092.i.i.i.i.i.i313 = phi ptr [ %866, %.lr.ph.i.i.i.i.i.i311 ], [ %.val.i.i306, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19QwpWorker4NodeESaIS2_EE11_M_allocateEm.exit.i.i310 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i312, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i313, i64 32, i1 false), !alias.scope !108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i312, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i313, i64 32, i1 false), !alias.scope !108
   %866 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i313, i64 32
   %867 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i312, i64 32
   %.not.i.i.i.i.i.i314 = icmp eq ptr %866, %845

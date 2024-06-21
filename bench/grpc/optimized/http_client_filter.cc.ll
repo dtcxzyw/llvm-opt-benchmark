@@ -3685,7 +3685,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 _ZNK9grpc_core5Slice3RefEv.exit.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i, %entry
   %ref.tmp10.sroa.0.0.copyload.i.i.i.i = phi ptr [ %8, %entry ], [ %ref.tmp10.sroa.0.0.copyload.pre.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i.i.i.i, i64 24, i1 false), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i.i.i.i, i64 24, i1 false), !noalias !72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 136
   %10 = load i16, ptr %2, align 2, !noalias !72
@@ -5465,7 +5465,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i, %entry
   %ref.tmp10.sroa.0.0.copyload.i = phi ptr [ %5, %entry ], [ %ref.tmp10.sroa.0.0.copyload.pre.i, %if.then.i.i.i ]
   %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load i16, ptr %0, align 2

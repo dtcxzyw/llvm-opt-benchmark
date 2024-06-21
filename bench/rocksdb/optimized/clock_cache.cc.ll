@@ -1223,7 +1223,7 @@ do.body.i.i:                                      ; preds = %if.end8.i.i, %if.en
 
 if.then.i.i.i:                                    ; preds = %do.body.i.i
   %hashed_key.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %if.then3.i.i.i, label %if.end.sink.split.i.i
 
@@ -2262,7 +2262,7 @@ do.body.i.i.i:                                    ; preds = %if.end8.i.i.i, %if.
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i
   %hashed_key.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.sink.split.i.i.i
 
@@ -2992,7 +2992,7 @@ if.end61:                                         ; preds = %if.end51
 
 if.end2.i:                                        ; preds = %if.end61
   %hashed_key4.i = getelementptr inbounds i8, ptr %arrayidx63, i64 16
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key4.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key4.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
   %and7.i = and i64 %16, 2305843009213693952
   %tobool8.not.i = icmp eq i64 %and7.i, 0
@@ -4259,7 +4259,7 @@ if.end3.i.i.i.i:                                  ; preds = %do.body.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.end3.i.i.i.i
   %hashed_key.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %if.then11.i.i.i.i, label %if.end8.i.sink.split
 
@@ -4279,7 +4279,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i.i.i, label %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i", label %if.end8.i
 
 "_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i": ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %.neg = sext i1 %keep_ref to i64
   %sub.i.i.i.i = add i64 %.neg, %initial_countdown
   %shl1.i.i.i.i = shl i64 %sub.i.i.i.i, 30
@@ -5722,7 +5722,7 @@ if.end3.i.i:                                      ; preds = %entry
 
 if.then8.i.i:                                     ; preds = %if.end3.i.i
   %hashed_key.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then11.i.i, label %if.else7.sink.split
 
@@ -5742,7 +5742,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit, label %if.else7
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit: ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i = shl i64 %initial_countdown, 30
   %shl1.i.i = add i64 %sub.i.i, 2305843008139952128
   %or.i.i = or i64 %shl1.i.i, %initial_countdown
@@ -5780,7 +5780,7 @@ if.end3.i.i81:                                    ; preds = %land.lhs.true
 
 if.then8.i.i84:                                   ; preds = %if.end3.i.i81
   %hashed_key.i.i85 = getelementptr inbounds i8, ptr %arrayidx9, i64 16
-  %bcmp.i.i.i.i.i.i.i87 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i85, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i87 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i85, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i88 = icmp eq i32 %bcmp.i.i.i.i.i.i.i87, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i88, label %if.then11.i.i90, label %if.else16.i.i89
 
@@ -5808,7 +5808,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i74, label %if.then11, label %for.body.preheader
 
 if.then11:                                        ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx9, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx9, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i77 = shl i64 %initial_countdown, 30
   %shl1.i.i78 = add i64 %sub.i.i77, 2305843008139952128
   %or.i.i79 = or i64 %shl1.i.i78, %initial_countdown
@@ -5840,7 +5840,7 @@ if.end3.i.i107:                                   ; preds = %for.body
 
 if.then8.i.i110:                                  ; preds = %if.end3.i.i107
   %hashed_key.i.i111 = getelementptr inbounds i8, ptr %arrayidx17, i64 16
-  %bcmp.i.i.i.i.i.i.i113 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i111, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i113 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i111, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i114 = icmp eq i32 %bcmp.i.i.i.i.i.i.i113, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i114, label %if.then11.i.i116, label %for.inc.sink.split
 
@@ -5860,7 +5860,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i100, label %for.end.thread, label %for.inc
 
 for.end.thread:                                   ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx17, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx17, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i103 = shl i64 %initial_countdown, 30
   %shl1.i.i104 = add i64 %sub.i.i103, 2305843008139952128
   %or.i.i105 = or i64 %shl1.i.i104, %initial_countdown
@@ -5950,7 +5950,7 @@ if.end3.i.i139:                                   ; preds = %if.end56
 
 if.then8.i.i142:                                  ; preds = %if.end3.i.i139
   %hashed_key.i.i143 = getelementptr inbounds i8, ptr %arrayidx57, i64 16
-  %bcmp.i.i.i.i.i.i.i145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i143, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i143, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i146 = icmp eq i32 %bcmp.i.i.i.i.i.i.i145, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i146, label %if.then11.i.i148, label %for.inc64.sink.split
 
@@ -5970,7 +5970,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i132, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154, label %for.inc64
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154: ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx57, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx57, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i135 = shl i64 %initial_countdown, 30
   %shl1.i.i136 = add i64 %sub.i.i135, 2305843008139952128
   %or.i.i137 = or i64 %shl1.i.i136, %initial_countdown
@@ -8687,7 +8687,7 @@ do.body.i.i.i.i:                                  ; preds = %if.end8.i.i.i.i, %i
 
 if.then.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i
   %hashed_key.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i.i, ptr noundef nonnull dereferenceable(16) %hash, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hash, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end.sink.split.i.i.i.i
 
@@ -11842,7 +11842,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb
@@ -12661,7 +12661,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val4, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

@@ -95,7 +95,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   %18 = getelementptr inbounds i8, ptr %16, i64 33
   %19 = getelementptr inbounds i8, ptr %7, i64 24
   %20 = load i64, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 8 %19, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 8 %19, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %21, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #17
@@ -1042,7 +1042,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %1
   %16 = getelementptr inbounds i8, ptr %14, i64 33
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = load i64, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 8 %17, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 8 %17, i64 %18, i1 false)
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %19, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %20 = call i32 (ptr, i32, ...) @open(ptr noundef %12, i32 noundef 0) #19
@@ -2137,7 +2137,7 @@ zend_file_cache_get_bin_file_path.exit:
   %11 = getelementptr inbounds i8, ptr %9, i64 33
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 8 %12, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 8 %12, i64 %13, i1 false)
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %15 = tail call i32 @unlink(ptr noundef %7) #19

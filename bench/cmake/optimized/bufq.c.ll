@@ -318,7 +318,7 @@ chunk_append.exit:                                ; preds = %12
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = getelementptr inbounds [1 x i8], ptr %18, i64 0, i64 %14
   %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 %.02435)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %.02336, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %.02336, i64 %20, i1 false)
   %21 = load i64, ptr %13, align 8
   %22 = add i64 %21, %20
   store i64 %22, ptr %13, align 8
@@ -1256,7 +1256,7 @@ chunk_append.exit.i:                              ; preds = %get_non_full_tail.e
   %97 = getelementptr inbounds i8, ptr %.0.i40, i64 32
   %98 = getelementptr inbounds [1 x i8], ptr %97, i64 0, i64 %94
   %99 = tail call i64 @llvm.umin.i64(i64 %96, i64 %.02435.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %.02336.i, i64 %99, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.02336.i, i64 %99, i1 false)
   %100 = load i64, ptr %95, align 8
   %101 = add i64 %100, %99
   store i64 %101, ptr %95, align 8

@@ -199,7 +199,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %this.val.i.i = load ptr, ptr %1, align 8
-  tail call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
   %2 = ptrtoint ptr %0 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %2, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -513,7 +513,7 @@ init.end:                                         ; preds = %invoke.cont3, %init
   %3 = getelementptr inbounds i8, ptr %info, i64 8
   %arg.val2.i.i.i.i.i = load i32, ptr %3, align 8, !noalias !10
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !21
-  tail call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !21
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !21
   %4 = ptrtoint ptr %arg.val.i.i.i.i.i to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %4, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -724,7 +724,7 @@ if.end:                                           ; preds = %while.end.i.i.i.i.i
   store i8 %conv.i.i.i.i.i.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !21
   %.val2.i.i.i.i.i.i = load ptr, ptr %8, align 8, !noalias !21
   %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %.val2.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i3.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %info, i64 48, i1 false), !noalias !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i3.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %info, i64 48, i1 false), !noalias !21
   ret void
 }
 
@@ -877,7 +877,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %conv6.i.i.i.i = zext nneg i32 %7 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.025.i.i, i64 16
   %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %conv6.i.i.i.i, i32 0, i32 1
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i)
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i.i)
           to label %.noexc unwind label %terminate.lpad.loopexit
 
 .noexc:                                           ; preds = %for.body.i.i
@@ -948,7 +948,7 @@ if.end.i:                                         ; preds = %if.then
 for.body.i5.i:                                    ; preds = %if.end.i, %.noexc2
   %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %.noexc2 ], [ %this.val1, %if.end.i ]
   %second.i6.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull align 8 dereferenceable(24) %second.i6.i)
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i6.i)
           to label %.noexc2 unwind label %terminate.lpad.loopexit.split-lp
 
 .noexc2:                                          ; preds = %for.body.i5.i
@@ -1198,7 +1198,7 @@ return:                                           ; preds = %entry, %_ZNK6google
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7HasLazyEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #12 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %land.end, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
 
@@ -1209,7 +1209,10 @@ _ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit: ; preds = %entry
   br i1 %bf.cast.i, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
-  %0 = and i8 %bf.load.i, 16
+  %call2 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %is_lazy = getelementptr inbounds i8, ptr %call2, i64 10
+  %bf.load = load i8, ptr %is_lazy, align 2
+  %0 = and i8 %bf.load, 16
   %bf.cast = icmp ne i8 %0, 0
   br label %land.end
 
@@ -1457,7 +1460,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal12ExtensionSet14ClearExtensionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1812,7 +1815,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedInt32Eiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, i32 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -2061,7 +2064,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedInt64Eiil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, i64 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -2310,7 +2313,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedUInt32Eiij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, i32 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -2559,7 +2562,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedUInt64Eiim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, i64 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -2808,7 +2811,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedFloatEiif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, float noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -3057,7 +3060,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedDoubleEiid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, double noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -3309,7 +3312,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet15SetRepeatedBoolEiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, i1 noundef zeroext %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -3674,7 +3677,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
@@ -3835,7 +3838,7 @@ while.end16:                                      ; preds = %entry
 define void @_ZN6google8protobuf8internal12ExtensionSet15SetRepeatedEnumEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index, i32 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -4059,7 +4062,7 @@ while.end16:                                      ; preds = %entry
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet21MutableRepeatedStringB5cxx11Eii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -4232,7 +4235,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -4383,7 +4386,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -4464,7 +4467,7 @@ return:                                           ; preds = %if.end.i, %if.then,
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14ReleaseMessageEiRKNS0_11MessageLiteE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull align 8 dereferenceable(16) %prototype) local_unnamed_addr #5 align 2 {
 entry:
   %key.addr.i = alloca i32, align 4
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %while.end7
 
@@ -4662,7 +4665,7 @@ if.end9:                                          ; preds = %_ZSt4copyIPN6google
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet25UnsafeArenaReleaseMessageEiRKNS0_11MessageLiteE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull align 8 dereferenceable(16) %prototype) local_unnamed_addr #5 align 2 {
 entry:
   %key.addr.i = alloca i32, align 4
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %while.end7
 
@@ -4816,7 +4819,7 @@ while.end16:                                      ; preds = %entry
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet22MutableRepeatedMessageEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %while.end16
 
@@ -4950,7 +4953,7 @@ if.end19:                                         ; preds = %if.then16, %_ZN6goo
 define void @_ZN6google8protobuf8internal12ExtensionSet10RemoveLastEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
@@ -5095,7 +5098,7 @@ sw.epilog:                                        ; preds = %sw.bb19, %sw.bb18, 
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet11ReleaseLastEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
@@ -5200,7 +5203,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEE11ReleaseLastEv.exit: ;
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet22UnsafeArenaReleaseLastEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
@@ -5293,7 +5296,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEE22UnsafeArenaReleaseLas
 define void @_ZN6google8protobuf8internal12ExtensionSet12SwapElementsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, i32 noundef %index1, i32 noundef %index2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
@@ -5974,7 +5977,7 @@ for.body.i.i:                                     ; preds = %if.then.i48, %_ZN4a
   %61 = load i32, ptr %arrayidx.i.i.i.i.i.i52, align 8, !noalias !50
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i52, i64 8
   %62 = load ptr, ptr %other, align 8, !noalias !50
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i, ptr noundef %62), !noalias !50
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, i32 noundef %61, ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i.i, ptr noundef %62), !noalias !50
   %arrayidx.i.i.i.i.i53 = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 11
   %63 = load i8, ptr %arrayidx.i.i.i.i.i53, align 1, !noalias !50
   %cmp.i.not.i.i.i.i = icmp eq i8 %63, 0
@@ -6044,7 +6047,7 @@ for.body.i8.i:                                    ; preds = %if.end.i, %for.body
   %73 = load i32, ptr %it.05.i.i, align 8, !noalias !54
   %second.i9.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 8
   %74 = load ptr, ptr %other, align 8, !noalias !54
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, i32 noundef %73, ptr noundef nonnull align 8 dereferenceable(24) %second.i9.i, ptr noundef %74), !noalias !54
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, i32 noundef %73, ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i9.i, ptr noundef %74), !noalias !54
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit", label %for.body.i8.i, !llvm.loop !57
@@ -7509,8 +7512,8 @@ if.then4:                                         ; preds = %if.end
   br label %if.end31
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %call.i39 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %other, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i39 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %other, i32 noundef %number)
   %cmp7 = icmp eq ptr %call.i, %call.i39
   br i1 %cmp7, label %if.end31, label %if.end9
 
@@ -7532,7 +7535,7 @@ if.then12:                                        ; preds = %if.end9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then12
-  %call.i40 = call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %temp, i32 noundef %number)
+  %call.i40 = call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %temp, i32 noundef %number)
   invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %call.i39)
           to label %invoke.cont15 unwind label %lpad
 
@@ -7731,8 +7734,8 @@ entry:
   br i1 %cmp, label %if.end19, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %call.i16 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %other, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i16 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %other, i32 noundef %number)
   %cmp3 = icmp eq ptr %call.i, %call.i16
   br i1 %cmp3, label %if.end19, label %while.end
 
@@ -13730,7 +13733,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %conv6.i.i.i.i
   %8 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !142
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  %call.i.i.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEPKNS0_11MessageLiteEPKS2_iPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i, ptr noundef %extendee, ptr nonnull poison, i32 noundef %8, ptr noundef %6, ptr noundef %stream), !noalias !142
+  %call.i.i.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEPKNS0_11MessageLiteEPKS2_iPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i.i, ptr noundef %extendee, ptr nonnull poison, i32 noundef %8, ptr noundef %6, ptr noundef %stream), !noalias !142
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 11
   %9 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !142
   %cmp.i.not.i.i.i.i = icmp eq i8 %9, 0
@@ -13800,7 +13803,7 @@ for.body.i9.i:                                    ; preds = %if.end.i, %for.body
   %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i9.i ], [ %this.val1, %if.end.i ]
   %20 = load i32, ptr %it.05.i.i, align 8, !noalias !146
   %second.i10.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 8
-  %call.i.i11.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEPKNS0_11MessageLiteEPKS2_iPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %second.i10.i, ptr noundef %extendee, ptr nonnull poison, i32 noundef %20, ptr noundef %19, ptr noundef %stream), !noalias !146
+  %call.i.i11.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEPKNS0_11MessageLiteEPKS2_iPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i10.i, ptr noundef %extendee, ptr nonnull poison, i32 noundef %20, ptr noundef %19, ptr noundef %stream), !noalias !146
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit", label %for.body.i9.i, !llvm.loop !149
@@ -15950,7 +15953,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %this.val.i.i = load ptr, ptr %0, align 8
-  tail call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
   %1 = ptrtoint ptr %extendee to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %1, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i128

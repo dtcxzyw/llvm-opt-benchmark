@@ -27,7 +27,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
   %8 = alloca { { { { i64, [2 x i64] } } } }, align 8
   %9 = alloca { { { { i64, [2 x i64] } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !4
   %10 = load i64, ptr %0, align 8, !noundef !8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %17, label %14
@@ -290,7 +290,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
   %8 = alloca { { { { i64, [2 x i64] } } } }, align 8
   %9 = alloca { { { { i64, [2 x i64] } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !50
   %10 = load i64, ptr %0, align 8, !noundef !8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %17, label %14
@@ -552,7 +552,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17hf5
   %8 = alloca { { { { i64, [4 x i64] } } } }, align 8
   %9 = alloca { { { { i64, [4 x i64] } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !94
   %10 = load i64, ptr %0, align 8, !noundef !8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %17, label %14

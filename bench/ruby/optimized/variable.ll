@@ -576,7 +576,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %9
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RSTRING_PTR.exit
-  %12 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %4) #26
+  %12 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %4) #26
   %.not3.i = icmp eq i32 %12, 0
   br i1 %.not3.i, label %14, label %rb_enc_asciicompat.exit.thread
 
@@ -1305,7 +1305,7 @@ define internal fastcc i64 @global_id(ptr noundef %0) unnamed_addr #0 {
 18:                                               ; preds = %.thread, %15
   %19 = phi ptr [ %14, %.thread ], [ %17, %15 ]
   %20 = phi ptr [ %13, %.thread ], [ %16, %15 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %0, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %15, %18
@@ -1849,7 +1849,7 @@ define internal fastcc i64 @find_global_id(ptr noundef %0) unnamed_addr #0 {
 18:                                               ; preds = %.thread, %15
   %19 = phi ptr [ %14, %.thread ], [ %17, %15 ]
   %20 = phi ptr [ %13, %.thread ], [ %16, %15 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %0, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %0, i64 %3, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %15, %18
@@ -3173,7 +3173,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %3
 10:                                               ; preds = %ROBJECT_IVPTR.exit
   %11 = zext i32 %1 to i64
   %12 = shl nuw nsw i64 %11, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %7, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %7, i64 %12, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit, %10
@@ -3430,7 +3430,7 @@ ROBJECT_IVPTR.exit.i.i:                           ; preds = %31
 38:                                               ; preds = %ROBJECT_IVPTR.exit.i.i
   %39 = zext i32 %30 to i64
   %40 = shl nuw nsw i64 %39, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %35, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %35, i64 %40, i1 false)
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %38, %ROBJECT_IVPTR.exit.i.i

@@ -2851,7 +2851,7 @@ pmix_obj_new_tma.exit92.thread96.i:               ; preds = %.lr.ph.i.i89.i, %83
   br i1 %.not84.i, label %97, label %94
 
 94:                                               ; preds = %pmix_obj_new_tma.exit92.thread96.i
-  %95 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #13
+  %95 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %2) #13
   %96 = getelementptr inbounds i8, ptr %78, i64 288
   store ptr %95, ptr %96, align 8
   br label %97

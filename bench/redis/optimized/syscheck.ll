@@ -50,7 +50,7 @@ define dso_local range(i32 -1, 2) i32 @checkXenClocksource(ptr nocapture noundef
 entry:
   %buf.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
-  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull readonly @.str, ptr noundef nonnull @.str.4)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %read_sysfs_line.exit.thread, label %if.end.i
 
@@ -245,7 +245,7 @@ if.end22:                                         ; preds = %while.end
 
 if.then49:                                        ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
-  %call.i = call noalias ptr @fopen64(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.4)
+  %call.i = call noalias ptr @fopen64(ptr noundef nonnull readonly @.str.19, ptr noundef nonnull @.str.4)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %read_sysfs_line.exit, label %if.end.i
 
@@ -264,7 +264,7 @@ read_sysfs_line.exit:                             ; preds = %if.then49, %if.end.
   %retval.0.i = phi ptr [ %call9.i, %if.end5.i ], [ null, %if.then49 ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i6)
-  %call.i7 = call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  %call.i7 = call noalias ptr @fopen64(ptr noundef nonnull readonly @.str, ptr noundef nonnull @.str.4)
   %tobool.not.i8 = icmp eq ptr %call.i7, null
   br i1 %tobool.not.i8, label %read_sysfs_line.exit17, label %if.end.i9
 

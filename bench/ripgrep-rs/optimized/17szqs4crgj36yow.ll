@@ -122,7 +122,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %21, 
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !11, !noalias !16, !nonnull !7, !noundef !7
   %68 = getelementptr inbounds i8, ptr %67, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %55, i1 false)
   %69 = load i64, ptr %56, align 8, !alias.scope !11, !noalias !16, !noundef !7
   %70 = add i64 %69, %55
   store i64 %70, ptr %56, align 8, !alias.scope !11, !noalias !16

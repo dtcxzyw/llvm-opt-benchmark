@@ -370,7 +370,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %44, %
   %63 = load ptr, ptr %8, align 8
   %64 = load i64, ptr %9, align 8
   call void @llvm.va_start.p0(ptr nonnull %10)
-  %65 = call i32 @vsnprintf(ptr noundef %63, i64 noundef %64, ptr noundef %3, ptr noundef nonnull %10) #15
+  %65 = call i32 @vsnprintf(ptr noundef %63, i64 noundef %64, ptr noundef readonly %3, ptr noundef nonnull %10) #15
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %77, label %67
 

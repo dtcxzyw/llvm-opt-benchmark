@@ -1379,7 +1379,7 @@ define void @Emb_ManTransformRefs(ptr noundef %0, ptr nocapture noundef writeonl
   store i32 0, ptr %87, align 4
   %100 = and i64 %.val122, -3221225473
   store i64 %100, ptr %93, align 4
-  tail call void @Emb_ManCollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef nonnull %82, ptr noundef nonnull %86)
+  tail call void @Emb_ManCollectSuper_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %93, ptr noundef nonnull %82, ptr noundef nonnull %86)
   %101 = load i64, ptr %93, align 4
   %102 = or i64 %101, 1073741824
   store i64 %102, ptr %93, align 4
@@ -1898,7 +1898,7 @@ Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %
   store i32 0, ptr %142, align 4
   %156 = and i64 %.val227, -3221225473
   store i64 %156, ptr %149, align 4
-  tail call void @Emb_ManCollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %149, ptr noundef nonnull %137, ptr noundef nonnull %141)
+  tail call void @Emb_ManCollectSuper_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %149, ptr noundef nonnull %137, ptr noundef nonnull %141)
   %157 = load i64, ptr %149, align 4
   %158 = or i64 %157, 1073741824
   store i64 %158, ptr %149, align 4

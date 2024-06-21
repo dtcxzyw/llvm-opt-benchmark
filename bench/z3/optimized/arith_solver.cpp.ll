@@ -20440,7 +20440,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %for.body.i.i.i.i.i.
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %coeffs, i64 16
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
-  invoke void @_ZN5arith6solver11term2coeffsERKN2lp8lar_termER5u_mapI8rationalERKS6_(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 dereferenceable(24) %coeffs, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE)
+  invoke void @_ZN5arith6solver11term2coeffsERKN2lp8lar_termER5u_mapI8rationalERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(1144) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 dereferenceable(24) %coeffs, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5u_mapI8rationalEC2Ev.exit
@@ -22026,7 +22026,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %for.body.i.i.i.i.i.
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %coeffs, i64 16
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
-  invoke void @_ZN5arith6solver11term2coeffsERKN2lp8lar_termER5u_mapI8rationalERKS6_(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 dereferenceable(24) %coeffs, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE)
+  invoke void @_ZN5arith6solver11term2coeffsERKN2lp8lar_termER5u_mapI8rationalERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(1144) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 dereferenceable(24) %coeffs, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %_ZN5u_mapI8rationalEC2Ev.exit
@@ -23749,7 +23749,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %for.body.i.i.i.i.i.
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %coeffs, i64 16
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
-  invoke void @_ZN5arith6solver11term2coeffsERKN2lp8lar_termER5u_mapI8rationalERKS6_(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 dereferenceable(24) %coeffs, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE)
+  invoke void @_ZN5arith6solver11term2coeffsERKN2lp8lar_termER5u_mapI8rationalERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(1144) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 dereferenceable(24) %coeffs, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5u_mapI8rationalEC2Ev.exit

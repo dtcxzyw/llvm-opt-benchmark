@@ -510,7 +510,7 @@ entry:
 
 delete.notnull.i:                                 ; preds = %entry
   %handlers_while_forking_.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  tail call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handlers_while_forking_.i.i) #14
+  tail call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(24) %handlers_while_forking_.i.i) #14
   %handlers_.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %handlers_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 48

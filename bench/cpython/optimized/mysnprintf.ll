@@ -14,7 +14,7 @@ entry:
   br i1 %cmp.i, label %if.then2.i, label %Done.i
 
 Done.i:                                           ; preds = %entry
-  %call.i = call i32 @vsnprintf(ptr noundef %str, i64 noundef %size, ptr noundef %format, ptr noundef nonnull %va) #3
+  %call.i = call i32 @vsnprintf(ptr noundef %str, i64 noundef %size, ptr noundef readonly %format, ptr noundef nonnull %va) #3
   %cmp1.not.i = icmp eq i64 %size, 0
   br i1 %cmp1.not.i, label %PyOS_vsnprintf.exit, label %if.then2.i
 

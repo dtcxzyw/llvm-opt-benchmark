@@ -756,7 +756,7 @@ define internal noundef i32 @mempacket_test_puts(ptr noundef %bio, ptr nocapture
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
   %conv = trunc i64 %call to i32
-  %call.i = tail call noundef i32 @mempacket_test_inject(ptr noundef %bio, ptr noundef %str, i32 noundef %conv, i32 noundef -1, i32 noundef 0)
+  %call.i = tail call noundef i32 @mempacket_test_inject(ptr noundef %bio, ptr noundef readonly %str, i32 noundef %conv, i32 noundef -1, i32 noundef 0)
   ret i32 %call.i
 }
 

@@ -1030,8 +1030,8 @@ add_obj.exit:                                     ; preds = %._crit_edge.i, %21
   store i64 %29, ptr %16, align 8
   %30 = getelementptr inbounds i8, ptr %14, i64 24
   %31 = getelementptr inbounds %struct.obj_t, ptr %27, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 1 dereferenceable(16) %15, i64 16, i1 false)
-  %32 = tail call noalias ptr @strdup(ptr noundef %0) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull readonly align 1 dereferenceable(16) %15, i64 16, i1 false)
+  %32 = tail call noalias ptr @strdup(ptr noundef readonly %0) #23
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr inbounds %struct.obj_t, ptr %33, i64 %28, i32 1
   store ptr %32, ptr %34, align 8
@@ -1081,8 +1081,8 @@ add_obj.exit36:                                   ; preds = %._crit_edge.i32, %5
   store i64 %58, ptr %45, align 8
   %59 = getelementptr inbounds i8, ptr %43, i64 24
   %60 = getelementptr inbounds %struct.obj_t, ptr %56, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 1 dereferenceable(16) %44, i64 16, i1 false)
-  %61 = tail call noalias ptr @strdup(ptr noundef %0) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull readonly align 1 dereferenceable(16) %44, i64 16, i1 false)
+  %61 = tail call noalias ptr @strdup(ptr noundef readonly %0) #23
   %62 = load ptr, ptr %59, align 8
   %63 = getelementptr inbounds %struct.obj_t, ptr %62, i64 %57, i32 1
   store ptr %61, ptr %63, align 8
@@ -1239,8 +1239,8 @@ add_obj.exit47:                                   ; preds = %._crit_edge.i43, %1
   store i64 %141, ptr %109, align 8
   %142 = getelementptr inbounds i8, ptr %107, i64 24
   %143 = getelementptr inbounds %struct.obj_t, ptr %139, i64 %140
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 1 dereferenceable(16) %108, i64 16, i1 false)
-  %144 = call noalias ptr @strdup(ptr noundef %0) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull readonly align 1 dereferenceable(16) %108, i64 16, i1 false)
+  %144 = call noalias ptr @strdup(ptr noundef readonly %0) #23
   %145 = load ptr, ptr %142, align 8
   %146 = getelementptr inbounds %struct.obj_t, ptr %145, i64 %140, i32 1
   store ptr %144, ptr %146, align 8

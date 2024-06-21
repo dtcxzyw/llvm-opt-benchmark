@@ -6508,7 +6508,7 @@ create_udp_session_data.exit:                     ; preds = %71, %73
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %50, i64 8
   %77 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %77, i64 16, i1 false)
   %78 = getelementptr inbounds i8, ptr %50, i64 24
   store i32 0, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %50, i64 28
@@ -9927,7 +9927,7 @@ validate_c2.exit.i:                               ; preds = %614, %read_c2.exit.
   %653 = getelementptr inbounds i8, ptr %5, i64 1
   %.mask.i = and i32 %643, 255
   %654 = zext nneg i32 %.mask.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %653, ptr align 1 %645, i64 %654, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %653, ptr readonly align 1 %645, i64 %654, i1 false)
   %655 = load ptr, ptr @sid_buffer_to_sid_id, align 8
   %656 = call i32 @g_hash_table_lookup_extended(ptr noundef %655, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
   %.not50.i.i = icmp eq i32 %656, 0
@@ -11740,7 +11740,7 @@ define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef readon
   %79 = or i8 %78, 67
   store i8 %79, ptr %10, align 16
   %80 = getelementptr inbounds i8, ptr %10, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %80, ptr noundef nonnull align 1 dereferenceable(11) %2, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %80, ptr noundef nonnull readonly align 1 dereferenceable(11) %2, i64 11, i1 false)
   %81 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %81, align 4
   %82 = lshr i32 %76, 8

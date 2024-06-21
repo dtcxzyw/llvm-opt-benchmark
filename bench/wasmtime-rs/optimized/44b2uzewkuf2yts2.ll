@@ -4330,7 +4330,7 @@ _ZN16wasmtime_runtime8instance8Instance10set_memory17h73018f49c6468f88E.llvm.362
   %101 = zext i32 %96 to i64
   %102 = getelementptr inbounds i8, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8, !noalias !578, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %77
 
 104:                                              ; preds = %69

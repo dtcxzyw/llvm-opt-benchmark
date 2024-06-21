@@ -511,7 +511,7 @@ return:                                           ; preds = %err, %if.then16, %i
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef null)
+  %call.i = tail call fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr noundef readonly %key, ptr noundef null)
   ret i32 %call.i
 }
 

@@ -1912,7 +1912,7 @@ dissect_block_primary.exit:                       ; preds = %81, %215, %233, %23
 
 bp_bundle_ident_new.exit:                         ; preds = %265, %274
   %280 = getelementptr inbounds i8, ptr %266, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull align 8 dereferenceable(32) %261, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull readonly align 8 dereferenceable(32) %261, i64 32, i1 false)
   %281 = getelementptr inbounds i8, ptr %266, i64 56
   store <2 x ptr> %263, ptr %281, align 8
   store ptr %266, ptr %62, align 8
@@ -3572,7 +3572,7 @@ define internal i32 @dissect_block_payload(ptr noundef %0, ptr noundef %1, ptr n
 
 bp_bundle_ident_new.exit:                         ; preds = %32, %41
   %47 = getelementptr inbounds i8, ptr %33, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull readonly align 8 dereferenceable(32) %30, i64 32, i1 false)
   %48 = getelementptr inbounds i8, ptr %33, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %49 = load ptr, ptr %10, align 8
@@ -3886,7 +3886,7 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
 
 bp_bundle_ident_new.exit:                         ; preds = %46, %72
   %78 = getelementptr inbounds i8, ptr %65, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
   %79 = getelementptr inbounds i8, ptr %65, i64 56
   %80 = getelementptr inbounds i8, ptr %65, i64 64
   %81 = getelementptr inbounds i8, ptr %27, i64 48

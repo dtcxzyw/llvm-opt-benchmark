@@ -1340,7 +1340,7 @@ tcpcl_frame_loc_equal.exit.thread:                ; preds = %120, %tcpcl_frame_l
   %133 = getelementptr inbounds i8, ptr %10, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call noalias noundef ptr @wmem_alloc(ptr noundef %132, i64 noundef 12) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %135, ptr noundef nonnull align 4 dereferenceable(12) %134, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %135, ptr noundef nonnull readonly align 4 dereferenceable(12) %134, i64 12, i1 false)
   store ptr %135, ptr %116, align 8
   br label %136
 
@@ -1525,7 +1525,7 @@ get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i: ; preds 
 232:                                              ; preds = %228
   %233 = call ptr @wmem_file_scope() #10
   %234 = call noalias noundef ptr @wmem_alloc(ptr noundef %233, i64 noundef 12) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %234, ptr noundef nonnull align 4 dereferenceable(12) %214, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %234, ptr noundef nonnull readonly align 4 dereferenceable(12) %214, i64 12, i1 false)
   %235 = call ptr @wmem_file_scope() #10
   %236 = call noalias ptr @wmem_alloc(ptr noundef %235, i64 noundef 8) #10
   store i64 %229, ptr %236, align 8
@@ -1634,7 +1634,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
 293:                                              ; preds = %284
   %294 = call ptr @wmem_file_scope() #10
   %295 = call noalias noundef ptr @wmem_alloc(ptr noundef %294, i64 noundef 12) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %295, ptr noundef nonnull align 4 dereferenceable(12) %282, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %295, ptr noundef nonnull readonly align 4 dereferenceable(12) %282, i64 12, i1 false)
   %296 = call ptr @wmem_file_scope() #10
   %297 = call noalias ptr @wmem_alloc(ptr noundef %296, i64 noundef 8) #10
   store i64 %290, ptr %297, align 8
@@ -1743,7 +1743,7 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
 357:                                              ; preds = %348
   %358 = tail call ptr @wmem_file_scope() #10
   %359 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %358, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %359, ptr noundef nonnull align 4 dereferenceable(12) %346, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %359, ptr noundef nonnull readonly align 4 dereferenceable(12) %346, i64 12, i1 false)
   %360 = tail call ptr @wmem_file_scope() #10
   %361 = tail call noalias ptr @wmem_alloc(ptr noundef %360, i64 noundef 8) #10
   store i64 %354, ptr %361, align 8
@@ -1969,7 +1969,7 @@ tcpcl_frame_loc_equal.exit.thread.i:              ; preds = %tcpcl_frame_loc_equ
   %485 = getelementptr inbounds i8, ptr %10, i64 8
   %486 = load ptr, ptr %485, align 8
   %487 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %484, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %487, ptr noundef nonnull align 4 dereferenceable(12) %486, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %487, ptr noundef nonnull readonly align 4 dereferenceable(12) %486, i64 12, i1 false)
   store ptr %487, ptr %468, align 8
   %488 = getelementptr inbounds i8, ptr %39, i64 56
   store i16 %394, ptr %488, align 8
@@ -2023,7 +2023,7 @@ tcpcl_frame_loc_equal.exit509.thread.i:           ; preds = %tcpcl_frame_loc_equ
   %517 = getelementptr inbounds i8, ptr %10, i64 8
   %518 = load ptr, ptr %517, align 8
   %519 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %516, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %519, ptr noundef nonnull align 4 dereferenceable(12) %518, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %519, ptr noundef nonnull readonly align 4 dereferenceable(12) %518, i64 12, i1 false)
   store ptr %519, ptr %500, align 8
   %520 = getelementptr inbounds i8, ptr %39, i64 88
   store i8 %496, ptr %520, align 8
@@ -2220,7 +2220,7 @@ tcpcl_frame_loc_new.exit.i:                       ; preds = %tcpcl_frame_loc_ini
 630:                                              ; preds = %tcpcl_frame_loc_new.exit.i
   %631 = tail call ptr @wmem_file_scope() #10
   %632 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %631, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %632, ptr noundef nonnull align 4 dereferenceable(12) %611, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %632, ptr noundef nonnull readonly align 4 dereferenceable(12) %611, i64 12, i1 false)
   %633 = tail call ptr @wmem_file_scope() #10
   %634 = tail call noalias ptr @wmem_alloc(ptr noundef %633, i64 noundef 8) #10
   store i64 %561, ptr %634, align 8
@@ -2853,7 +2853,7 @@ define internal i32 @chdr_missing_tls(ptr noundef %0, ptr noundef %1, i32 nounde
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %23, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %26, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %26, ptr noundef nonnull readonly align 4 dereferenceable(12) %25, i64 12, i1 false)
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   store ptr %26, ptr %28, align 8
@@ -3005,7 +3005,7 @@ define internal fastcc void @try_negotiate(ptr nocapture noundef readonly %0, pt
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %33, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull readonly align 4 dereferenceable(12) %35, i64 12, i1 false)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   store ptr %36, ptr %38, align 8
@@ -3121,10 +3121,10 @@ define internal fastcc void @transfer_add_segment(ptr nocapture noundef readonly
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @wmem_file_scope() #10
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 64) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull readonly align 4 dereferenceable(12) %18, i64 12, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %22, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %20, i64 32
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 40
@@ -3432,10 +3432,10 @@ define internal fastcc void @transfer_add_ack(ptr nocapture noundef readonly %0,
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @wmem_file_scope() #10
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 64) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull readonly align 4 dereferenceable(12) %18, i64 12, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %22, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %20, i64 32
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 40

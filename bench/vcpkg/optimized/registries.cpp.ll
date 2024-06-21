@@ -1704,7 +1704,7 @@ define dso_local void @_ZNK5vcpkg11RegistrySet17baseline_for_portENS_10StringVie
   %7 = alloca %"class.std::vector.29", align 8
   %8 = alloca %"struct.vcpkg::LocalizedString", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @_ZNK5vcpkg11RegistrySet19registries_for_portENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.29") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3)
+  call void @_ZNK5vcpkg11RegistrySet19registries_for_portENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.29") align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr %2, i64 %3)
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8

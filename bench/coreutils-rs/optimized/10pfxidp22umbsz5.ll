@@ -128,7 +128,7 @@ define hidden void @_ZN3std2fs8metadata17haf51da1fd1aa09d3E(ptr noalias nocaptur
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !11
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbefb556f1228e3a2E.llvm.6495244519870129094.exit"
 
 8:                                                ; preds = %3

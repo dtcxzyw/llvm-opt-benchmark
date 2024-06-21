@@ -6234,7 +6234,7 @@ call1.i.i.noexc:                                  ; preds = %if.then.i85
 
 if.then4.i73:                                     ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i3.i)
-  %52 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorISt10shared_ptrIvEEE, i64 0) #32
+  %52 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorISt10shared_ptrIvEEE, i64 0) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %value_.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 192
@@ -6350,7 +6350,7 @@ _ZN8facebook5velox12_GLOBAL__N_119writeScalarConstantILNS0_8TypeKindE35EEEvRKNS0
 
 sw.bb.i.i:                                        ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.i.i.i)
-  %70 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIbEE, i64 0) #32
+  %70 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIbEE, i64 0) #32
   %value_.i.i.i.i.i = getelementptr inbounds i8, ptr %70, i64 144
   %71 = load i8, ptr %value_.i.i.i.i.i, align 16
   %frombool.i.i.i = and i8 %71, 1
@@ -6364,7 +6364,7 @@ call2.i.i.i.noexc:                                ; preds = %sw.bb.i.i
 
 sw.bb2.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i1.i.i)
-  %72 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIiEE, i64 0) #32
+  %72 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIiEE, i64 0) #32
   %value_.i.i.i2.i.i = getelementptr inbounds i8, ptr %72, i64 160
   %73 = load i32, ptr %value_.i.i.i2.i.i, align 32
   store i32 %73, ptr %value.i1.i.i, align 4
@@ -6377,7 +6377,7 @@ call2.i3.i.i.noexc:                               ; preds = %sw.bb2.i.i
 
 sw.bb3.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.i4.i.i)
-  %74 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIaEE, i64 0) #32
+  %74 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIaEE, i64 0) #32
   %value_.i.i.i5.i.i = getelementptr inbounds i8, ptr %74, i64 144
   %75 = load i8, ptr %value_.i.i.i5.i.i, align 16
   store i8 %75, ptr %value.i4.i.i, align 1
@@ -6390,7 +6390,7 @@ call2.i6.i.i.noexc:                               ; preds = %sw.bb3.i.i
 
 sw.bb4.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.i7.i.i)
-  %76 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIsEE, i64 0) #32
+  %76 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIsEE, i64 0) #32
   %value_.i.i.i8.i.i = getelementptr inbounds i8, ptr %76, i64 152
   %77 = load i16, ptr %value_.i.i.i8.i.i, align 8
   store i16 %77, ptr %value.i7.i.i, align 2
@@ -6403,7 +6403,7 @@ call2.i9.i.i.noexc:                               ; preds = %sw.bb4.i.i
 
 sw.bb5.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i10.i.i)
-  %78 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIlEE, i64 0) #32
+  %78 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIlEE, i64 0) #32
   %value_.i.i.i11.i.i = getelementptr inbounds i8, ptr %78, i64 176
   %79 = load i64, ptr %value_.i.i.i11.i.i, align 16
   store i64 %79, ptr %value.i10.i.i, align 8
@@ -6416,7 +6416,7 @@ call2.i12.i.i.noexc:                              ; preds = %sw.bb5.i.i
 
 sw.bb6.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i13.i.i)
-  %80 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorInEE, i64 0) #32
+  %80 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorInEE, i64 0) #32
   %value_.i.i.i14.i.i = getelementptr inbounds i8, ptr %80, i64 208
   %81 = load i128, ptr %value_.i.i.i14.i.i, align 16
   store i128 %81, ptr %value.i13.i.i, align 16
@@ -6429,7 +6429,7 @@ call2.i15.i.i.noexc:                              ; preds = %sw.bb6.i.i
 
 sw.bb7.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i16.i.i)
-  %82 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIfEE, i64 0) #32
+  %82 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIfEE, i64 0) #32
   %value_.i.i.i17.i.i = getelementptr inbounds i8, ptr %82, i64 160
   %83 = load float, ptr %value_.i.i.i17.i.i, align 8
   store float %83, ptr %value.i16.i.i, align 4
@@ -6442,7 +6442,7 @@ call2.i18.i.i.noexc:                              ; preds = %sw.bb7.i.i
 
 sw.bb8.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i19.i.i)
-  %84 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIdEE, i64 0) #32
+  %84 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorIdEE, i64 0) #32
   %value_.i.i.i20.i.i = getelementptr inbounds i8, ptr %84, i64 176
   %85 = load double, ptr %value_.i.i.i20.i.i, align 8
   store double %85, ptr %value.i19.i.i, align 8
@@ -6456,7 +6456,7 @@ call2.i21.i.i.noexc:                              ; preds = %sw.bb8.i.i
 sw.bb9.i.i:                                       ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i22.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i.i70)
-  %86 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorINS0_10StringViewEEE, i64 0) #32
+  %86 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorINS0_10StringViewEEE, i64 0) #32
   %value_.i.i.i23.i.i = getelementptr inbounds i8, ptr %86, i64 240
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %value_.i.i.i23.i.i, align 8
   %retval.sroa.2.0.value_.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 248
@@ -6495,7 +6495,7 @@ _ZN8facebook5velox12_GLOBAL__N_119writeScalarConstantILNS0_8TypeKindE7EEEvRKNS0_
 sw.bb10.i.i:                                      ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i25.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i26.i.i)
-  %91 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorINS0_10StringViewEEE, i64 0) #32
+  %91 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorINS0_10StringViewEEE, i64 0) #32
   %value_.i.i.i27.i.i = getelementptr inbounds i8, ptr %91, i64 240
   %retval.sroa.0.0.copyload.i.i.i28.i.i = load i64, ptr %value_.i.i.i27.i.i, align 8
   %retval.sroa.2.0.value_.sroa_idx.i.i.i29.i.i = getelementptr inbounds i8, ptr %91, i64 248
@@ -6533,7 +6533,7 @@ _ZN8facebook5velox12_GLOBAL__N_119writeScalarConstantILNS0_8TypeKindE8EEEvRKNS0_
 
 sw.bb11.i.i:                                      ; preds = %if.else.i25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i40.i.i)
-  %96 = call noundef ptr @__dynamic_cast(ptr nonnull %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorINS0_9TimestampEEE, i64 0) #32
+  %96 = call noundef ptr @__dynamic_cast(ptr nonnull readonly %vector, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox14ConstantVectorINS0_9TimestampEEE, i64 0) #32
   %value_.i.i.i41.i.i = getelementptr inbounds i8, ptr %96, i64 192
   %97 = load <2 x i64>, ptr %value_.i.i.i41.i.i, align 8
   store <2 x i64> %97, ptr %value.i40.i.i, align 16

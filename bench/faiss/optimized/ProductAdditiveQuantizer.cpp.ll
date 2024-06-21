@@ -1252,7 +1252,7 @@ define void @_ZN5faiss24ProductAdditiveQuantizerC2Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 0)
+  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef 0)
           to label %_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev.exit unwind label %3
 
 3:                                                ; preds = %.noexc
@@ -2758,7 +2758,7 @@ define void @_ZN5faiss27ProductLocalSearchQuantizerC2EmmmmNS_17AdditiveQuantizer
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0)
+  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef 0)
           to label %_ZN5faiss24ProductAdditiveQuantizerC2Ev.exit unwind label %11
 
 11:                                               ; preds = %6
@@ -3121,7 +3121,7 @@ define void @_ZN5faiss24ProductResidualQuantizerC2EmmmmNS_17AdditiveQuantizer13S
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0)
+  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef 0)
           to label %_ZN5faiss24ProductAdditiveQuantizerC2Ev.exit unwind label %11
 
 11:                                               ; preds = %6

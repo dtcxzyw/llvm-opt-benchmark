@@ -14,9 +14,9 @@ define i32 @hwloc_set_cpubind(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br label %hwloc_fix_cpubind.exit.thread
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef %0) #13
-  %8 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef %0) #13
-  %9 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #13
+  %7 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef readonly %0) #13
+  %8 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef readonly %0) #13
+  %9 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %1) #13
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %12, label %10
 
@@ -26,7 +26,7 @@ define i32 @hwloc_set_cpubind(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br label %hwloc_fix_cpubind.exit.thread
 
 12:                                               ; preds = %6
-  %13 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %8) #13
+  %13 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %1, ptr noundef %8) #13
   %.not11.i = icmp eq i32 %13, 0
   br i1 %.not11.i, label %14, label %hwloc_fix_cpubind.exit
 
@@ -36,7 +36,7 @@ define i32 @hwloc_set_cpubind(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br label %hwloc_fix_cpubind.exit.thread
 
 hwloc_fix_cpubind.exit:                           ; preds = %12
-  %16 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %7, ptr noundef %1) #13
+  %16 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %7, ptr noundef readonly %1) #13
   %.not12.i = icmp eq i32 %16, 0
   %spec.select.i = select i1 %.not12.i, ptr %1, ptr %8
   %.not33 = icmp eq ptr %spec.select.i, null
@@ -200,9 +200,9 @@ define i32 @hwloc_set_proc_cpubind(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %hwloc_fix_cpubind.exit.thread
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef %0) #13
-  %9 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef %0) #13
-  %10 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %2) #13
+  %8 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef readonly %0) #13
+  %9 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef readonly %0) #13
+  %10 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %2) #13
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -212,7 +212,7 @@ define i32 @hwloc_set_proc_cpubind(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %hwloc_fix_cpubind.exit.thread
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %2, ptr noundef %9) #13
+  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %2, ptr noundef %9) #13
   %.not11.i = icmp eq i32 %14, 0
   br i1 %.not11.i, label %15, label %hwloc_fix_cpubind.exit
 
@@ -222,7 +222,7 @@ define i32 @hwloc_set_proc_cpubind(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %hwloc_fix_cpubind.exit.thread
 
 hwloc_fix_cpubind.exit:                           ; preds = %13
-  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %8, ptr noundef %2) #13
+  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %8, ptr noundef readonly %2) #13
   %.not12.i = icmp eq i32 %17, 0
   %spec.select.i = select i1 %.not12.i, ptr %2, ptr %9
   %.not12 = icmp eq ptr %spec.select.i, null
@@ -289,9 +289,9 @@ define i32 @hwloc_set_thread_cpubind(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %hwloc_fix_cpubind.exit.thread
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef %0) #13
-  %9 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef %0) #13
-  %10 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %2) #13
+  %8 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef readonly %0) #13
+  %9 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef readonly %0) #13
+  %10 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %2) #13
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -301,7 +301,7 @@ define i32 @hwloc_set_thread_cpubind(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %hwloc_fix_cpubind.exit.thread
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %2, ptr noundef %9) #13
+  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %2, ptr noundef %9) #13
   %.not11.i = icmp eq i32 %14, 0
   br i1 %.not11.i, label %15, label %hwloc_fix_cpubind.exit
 
@@ -311,7 +311,7 @@ define i32 @hwloc_set_thread_cpubind(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %hwloc_fix_cpubind.exit.thread
 
 hwloc_fix_cpubind.exit:                           ; preds = %13
-  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %8, ptr noundef %2) #13
+  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %8, ptr noundef readonly %2) #13
   %.not12.i = icmp eq i32 %17, 0
   %spec.select.i = select i1 %.not12.i, ptr %2, ptr %9
   %.not12 = icmp eq ptr %spec.select.i, null
@@ -517,9 +517,9 @@ define internal fastcc i32 @hwloc_set_membind_by_nodeset(ptr noundef %0, ptr nou
   br label %hwloc_fix_membind.exit.thread
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef %0) #13
-  %9 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
-  %10 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #13
+  %8 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef readonly %0) #13
+  %9 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef readonly %0) #13
+  %10 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %1) #13
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -529,7 +529,7 @@ define internal fastcc i32 @hwloc_set_membind_by_nodeset(ptr noundef %0, ptr nou
   br label %hwloc_fix_membind.exit.thread
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %9) #13
+  %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %1, ptr noundef %9) #13
   %.not10.i = icmp eq i32 %14, 0
   br i1 %.not10.i, label %15, label %hwloc_fix_membind.exit
 
@@ -539,7 +539,7 @@ define internal fastcc i32 @hwloc_set_membind_by_nodeset(ptr noundef %0, ptr nou
   br label %hwloc_fix_membind.exit.thread
 
 hwloc_fix_membind.exit:                           ; preds = %13
-  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %8, ptr noundef %1) #13
+  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %8, ptr noundef readonly %1) #13
   %.not11.i = icmp eq i32 %17, 0
   %..i46 = select i1 %.not11.i, ptr %1, ptr %9
   %.not38 = icmp eq ptr %..i46, null
@@ -658,7 +658,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_fix_membind_cpuset(ptr nounde
   br i1 %.not.i.i.i, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %19, i32 noundef 0) #13
+  %22 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %19, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i.i
 
 23:                                               ; preds = %20
@@ -681,7 +681,7 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %26, %21
   %.015.i.i = phi ptr [ %34, %32 ], [ %.0.i.i.i, %hwloc_get_next_obj_by_depth.exit.i.i ]
   %29 = getelementptr inbounds i8, ptr %.015.i.i, i64 184
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %2, ptr noundef %30) #13
+  %31 = tail call i32 @hwloc_bitmap_intersects(ptr noundef readonly %2, ptr noundef %30) #13
   %.not12.i.i = icmp eq i32 %31, 0
   br i1 %.not12.i.i, label %32, label %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i
 
@@ -732,7 +732,7 @@ define i32 @hwloc_get_membind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %.not.i.i, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %12, i32 noundef 0) #13
+  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %12, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 16:                                               ; preds = %13
@@ -754,7 +754,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %19, %14
 22:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 @hwloc_bitmap_isset(ptr noundef %9, i32 noundef %24) #13
+  %25 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %9, i32 noundef %24) #13
   %.not12.i = icmp eq i32 %25, 0
   br i1 %.not12.i, label %.backedge, label %26
 
@@ -897,9 +897,9 @@ define internal fastcc i32 @hwloc_set_proc_membind_by_nodeset(ptr noundef %0, i3
   br label %hwloc_fix_membind.exit.thread
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef %0) #13
-  %10 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
-  %11 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %2) #13
+  %9 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef readonly %0) #13
+  %10 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef readonly %0) #13
+  %11 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %2) #13
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -909,7 +909,7 @@ define internal fastcc i32 @hwloc_set_proc_membind_by_nodeset(ptr noundef %0, i3
   br label %hwloc_fix_membind.exit.thread
 
 14:                                               ; preds = %8
-  %15 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %2, ptr noundef %10) #13
+  %15 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %2, ptr noundef %10) #13
   %.not10.i = icmp eq i32 %15, 0
   br i1 %.not10.i, label %16, label %hwloc_fix_membind.exit
 
@@ -919,7 +919,7 @@ define internal fastcc i32 @hwloc_set_proc_membind_by_nodeset(ptr noundef %0, i3
   br label %hwloc_fix_membind.exit.thread
 
 hwloc_fix_membind.exit:                           ; preds = %14
-  %18 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %9, ptr noundef %2) #13
+  %18 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %9, ptr noundef readonly %2) #13
   %.not11.i = icmp eq i32 %18, 0
   %..i16 = select i1 %.not11.i, ptr %2, ptr %10
   %.not14 = icmp eq ptr %..i16, null
@@ -1002,7 +1002,7 @@ hwloc_get_proc_membind_by_nodeset.exit20:         ; preds = %19
   br i1 %.not.i.i, label %26, label %28
 
 26:                                               ; preds = %25
-  %27 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %24, i32 noundef 0) #13
+  %27 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %24, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 28:                                               ; preds = %25
@@ -1024,7 +1024,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %31, %26
 34:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %35 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = tail call i32 @hwloc_bitmap_isset(ptr noundef %18, i32 noundef %36) #13
+  %37 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %18, i32 noundef %36) #13
   %.not12.i = icmp eq i32 %37, 0
   br i1 %.not12.i, label %.backedge, label %38
 
@@ -1101,9 +1101,9 @@ define internal fastcc i32 @hwloc_set_area_membind_by_nodeset(ptr noundef %0, pt
   br i1 %.not17, label %hwloc_fix_membind.exit.thread, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef %0) #13
-  %12 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
-  %13 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %3) #13
+  %11 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef readonly %0) #13
+  %12 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef readonly %0) #13
+  %13 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %3) #13
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %16, label %14
 
@@ -1113,7 +1113,7 @@ define internal fastcc i32 @hwloc_set_area_membind_by_nodeset(ptr noundef %0, pt
   br label %hwloc_fix_membind.exit.thread
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %3, ptr noundef %12) #13
+  %17 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %3, ptr noundef %12) #13
   %.not10.i = icmp eq i32 %17, 0
   br i1 %.not10.i, label %18, label %hwloc_fix_membind.exit
 
@@ -1123,7 +1123,7 @@ define internal fastcc i32 @hwloc_set_area_membind_by_nodeset(ptr noundef %0, pt
   br label %hwloc_fix_membind.exit.thread
 
 hwloc_fix_membind.exit:                           ; preds = %16
-  %20 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %11, ptr noundef %3) #13
+  %20 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %11, ptr noundef readonly %3) #13
   %.not11.i = icmp eq i32 %20, 0
   %..i20 = select i1 %.not11.i, ptr %3, ptr %12
   %.not18 = icmp eq ptr %..i20, null
@@ -1217,7 +1217,7 @@ hwloc_get_area_membind_by_nodeset.exit23:         ; preds = %23
   br i1 %.not.i.i, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %28, i32 noundef 0) #13
+  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %28, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 32:                                               ; preds = %29
@@ -1239,7 +1239,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %35, %30
 38:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = tail call i32 @hwloc_bitmap_isset(ptr noundef %22, i32 noundef %40) #13
+  %41 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %22, i32 noundef %40) #13
   %.not12.i26 = icmp eq i32 %41, 0
   br i1 %.not12.i26, label %.backedge, label %42
 
@@ -1334,7 +1334,7 @@ hwloc_get_area_memlocation_by_nodeset.exit21.thread28: ; preds = %20, %hwloc_get
   br i1 %.not.i.i, label %27, label %29
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %25, i32 noundef 0) #13
+  %28 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %25, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 29:                                               ; preds = %26
@@ -1356,7 +1356,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %32, %27
 35:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = tail call i32 @hwloc_bitmap_isset(ptr noundef %19, i32 noundef %37) #13
+  %38 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %19, i32 noundef %37) #13
   %.not12.i24 = icmp eq i32 %38, 0
   br i1 %.not12.i24, label %.backedge, label %39
 
@@ -1547,19 +1547,19 @@ define internal fastcc ptr @hwloc_alloc_membind_by_nodeset(ptr noundef %0, i64 n
   br label %hwloc_alloc.exit49
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef %0) #13
-  %12 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
-  %13 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %2) #13
+  %11 = tail call ptr @hwloc_topology_get_topology_nodeset(ptr noundef readonly %0) #13
+  %12 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef readonly %0) #13
+  %13 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %2) #13
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %hwloc_fix_membind.exit.thread.sink.split
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %2, ptr noundef %12) #13
+  %15 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %2, ptr noundef %12) #13
   %.not10.i = icmp eq i32 %15, 0
   br i1 %.not10.i, label %hwloc_fix_membind.exit.thread.sink.split, label %hwloc_fix_membind.exit
 
 hwloc_fix_membind.exit:                           ; preds = %14
-  %16 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %11, ptr noundef %2) #13
+  %16 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %11, ptr noundef readonly %2) #13
   %.not11.i = icmp eq i32 %16, 0
   %..i42 = select i1 %.not11.i, ptr %2, ptr %12
   %.not34 = icmp eq ptr %..i42, null

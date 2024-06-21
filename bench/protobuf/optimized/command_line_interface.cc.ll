@@ -5094,7 +5094,7 @@ for.body.i.i:                                     ; preds = %.noexc106, %for.bod
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc106 ]
   %78 = load ptr, ptr %message_types_.i.i.i, align 8
   %add.ptr.i.i.i104 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %78, i64 %indvars.iv.i.i
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_0EEE5VisitIJEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i.i104)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_0EEE5VisitIJEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i.i104)
           to label %.noexc106 unwind label %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit
 
 .noexc106:                                        ; preds = %for.body.i.i
@@ -5112,7 +5112,7 @@ for.body16.i.i:                                   ; preds = %.noexc107, %for.bod
   %indvars.iv30.i.i = phi i64 [ 0, %for.body16.lr.ph.i.i ], [ %indvars.iv.next31.i.i, %.noexc107 ]
   %81 = load ptr, ptr %extensions_.i.i.i, align 8
   %add.ptr.i22.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %81, i64 %indvars.iv30.i.i
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_0EEE5VisitIJEEEvRKNS0_15FieldDescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i22.i.i)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_0EEE5VisitIJEEEvRKNS0_15FieldDescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i22.i.i)
           to label %.noexc107 unwind label %lpad.loopexit.split-lp430.loopexit
 
 .noexc107:                                        ; preds = %for.body16.i.i
@@ -5220,7 +5220,7 @@ for.body.i.i121:                                  ; preds = %.noexc126, %for.bod
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i122
   %retval.0.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %message_type_.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i
   %100 = load ptr, ptr %retval.0.i.i.i.i.i.i.i, align 8
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_15DescriptorProtoEEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i113, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i25.i.i, ptr noundef nonnull align 8 dereferenceable(232) %100)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_15DescriptorProtoEEEEvRKNS0_10DescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i113, ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i25.i.i, ptr noundef nonnull align 8 dereferenceable(232) %100)
           to label %.noexc126 unwind label %lpad139.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc126:                                        ; preds = %for.body.i.i121
@@ -5254,7 +5254,7 @@ for.body8.i.i:                                    ; preds = %.noexc127, %for.bod
   %arrayidx.i.i.i.i.i33.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i31.i.i, i64 0, i64 %indvars.iv69.i.i
   %retval.0.i.i.i.i.i34.i.i = select i1 %cmp.i.i.i.i.i.i29.i.i, ptr %enum_type_.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i33.i.i
   %109 = load ptr, ptr %retval.0.i.i.i.i.i34.i.i, align 8
-  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_19EnumDescriptorProtoEEEEvRKNS0_14EnumDescriptorEDpRT_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i113, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i27.i.i, ptr noundef nonnull align 8 dereferenceable(112) %109)
+  invoke fastcc void @"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_19EnumDescriptorProtoEEEEvRKNS0_14EnumDescriptorEDpRT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i113, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i27.i.i, ptr noundef nonnull align 8 dereferenceable(112) %109)
           to label %.noexc127 unwind label %lpad139.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc127:                                        ; preds = %for.body8.i.i
@@ -7568,7 +7568,7 @@ for.end:                                          ; preds = %for.body, %_ZN6goog
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i7, %for.body.i ], [ %32, %for.end ]
-  %call6.i = call noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface26MakeProtoProtoPathRelativeEPNS1_14DiskSourceTreeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18DescriptorDatabaseE(ptr nonnull align 8 poison, ptr noundef %source_tree, ptr noundef nonnull %__begin2.sroa.0.05.i, ptr noundef %fallback_database)
+  %call6.i = call noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface26MakeProtoProtoPathRelativeEPNS1_14DiskSourceTreeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18DescriptorDatabaseE(ptr nonnull readonly align 8 poison, ptr noundef %source_tree, ptr noundef nonnull %__begin2.sroa.0.05.i, ptr noundef %fallback_database)
   %incdec.ptr.i.i7 = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 32
   %cmp.i.not.i = icmp ne ptr %incdec.ptr.i.i7, %33
   %or.cond.not = select i1 %call6.i, i1 %cmp.i.not.i, i1 false

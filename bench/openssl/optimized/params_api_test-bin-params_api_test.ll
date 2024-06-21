@@ -790,7 +790,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool9.not, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %bnbuf, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull readonly align 16 %bnbuf, i64 %0, i1 false)
   %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 439, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, ptr noundef nonnull %value, i64 noundef %0, ptr noundef nonnull %buf, i64 noundef %0) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %if.end22
@@ -866,7 +866,7 @@ if.end18:                                         ; preds = %if.end
   br i1 %tobool23.not, label %err, label %if.end25
 
 if.end25:                                         ; preds = %if.end18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %bnbuf, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull readonly align 16 %bnbuf, i64 %0, i1 false)
   %call33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 473, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, ptr noundef nonnull %value, i64 noundef %0, ptr noundef nonnull %buf, i64 noundef %0) #4
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %if.end36

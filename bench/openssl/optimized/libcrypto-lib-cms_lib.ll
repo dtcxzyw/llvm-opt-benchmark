@@ -1337,7 +1337,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @CMS_add0_RevocationInfoChoice(ptr noundef %cms)
+  %call.i = tail call ptr @CMS_add0_RevocationInfoChoice(ptr noundef readonly %cms)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.end4, label %CMS_add0_crl.exit
 

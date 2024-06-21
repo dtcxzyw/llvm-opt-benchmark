@@ -6720,7 +6720,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
 941:                                              ; preds = %936
   %942 = call ptr @wmem_file_scope() #18
   %943 = call noalias ptr @wmem_alloc(ptr noundef %942, i64 noundef 24) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %943, ptr noundef nonnull align 8 dereferenceable(24) %937, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %943, ptr noundef nonnull readonly align 8 dereferenceable(24) %937, i64 24, i1 false)
   %944 = call ptr @wmem_file_scope() #18
   %945 = load i32, ptr @proto_epl, align 4
   call void @p_add_proto_data(ptr noundef %944, ptr noundef %2, i32 noundef %945, i32 noundef %930, ptr noundef %943) #18

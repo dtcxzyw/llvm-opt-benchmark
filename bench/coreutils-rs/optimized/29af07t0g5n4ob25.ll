@@ -433,7 +433,7 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
   %.val172 = load i64, ptr %61, align 8, !noundef !5
   %112 = sub i64 %.val170, %.val172
   %..i.i = call i64 @llvm.umin.i64(i64 %.val170, i64 %.val172)
-  %113 = call i32 @memcmp(ptr nonnull %.val169, ptr nonnull %.val171, i64 %..i.i), !alias.scope !47
+  %113 = call i32 @memcmp(ptr nonnull readonly %.val169, ptr nonnull readonly %.val171, i64 %..i.i), !alias.scope !47
   %114 = sext i32 %113 to i64
   %115 = icmp eq i32 %113, 0
   %spec.store.select.i.i = select i1 %115, i64 %112, i64 %114

@@ -10777,7 +10777,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry3getEv.exit: ; preds = %entry, %init.check.i, %init.i
   %typeIndex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull align 8 dereferenceable(8) %typeIndex_)
+  %call.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull readonly align 8 dereferenceable(8) %typeIndex_)
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -10896,7 +10896,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry3getEv.exit: ; preds = %entry, %init.check.i, %init.i
   %typeIndex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull align 8 dereferenceable(8) %typeIndex_)
+  %call.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull readonly align 8 dereferenceable(8) %typeIndex_)
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.then, label %land.rhs
 
@@ -10977,7 +10977,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry3getEv.exit: ; preds = %entry, %init.check.i, %init.i
   %typeIndex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull align 8 dereferenceable(8) %typeIndex_)
+  %call.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull readonly align 8 dereferenceable(8) %typeIndex_)
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.then, label %land.rhs
 
@@ -11071,7 +11071,7 @@ init.i:                                           ; preds = %init.check.i
 _ZN8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry3getEv.exit: ; preds = %entry, %init.check.i, %init.i
   %3 = load ptr, ptr %type, align 8
   %typeIndex_ = getelementptr inbounds i8, ptr %3, i64 24
-  %call.i.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull align 8 dereferenceable(8) %typeIndex_)
+  %call.i.i = tail call fastcc ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull readonly align 8 dereferenceable(8) %typeIndex_)
   %tobool.not.i.i.not = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i.not, label %if.end, label %if.then
 
@@ -11185,7 +11185,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %invoke.cont14
 _ZNKSt8__detail15_Hash_code_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS3_.exit.i.i: ; preds = %invoke.cont14
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry3getEvE8instance, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %call4.i.i.i.i.i.i, %21
-  %call3.i.i = call fastcc noundef ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m(i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %typeIndex_17)
+  %call3.i.i = call fastcc noundef ptr @_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS2_m(i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %typeIndex_17)
   %tobool.not.i.i31 = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i.i31, label %if.end.i.i, label %invoke.cont19
 
@@ -35317,7 +35317,7 @@ _ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GL
   %cmp.i.i.i.i.i = icmp eq i8 %4, 42
   %cond.idx.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i64
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.val.val, i64 %cond.idx.i.i.i.i.i
-  %call6.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %__k.val.val, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i.i) #37
+  %call6.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %__k.val.val, ptr noundef nonnull readonly dereferenceable(1) %cond.i.i.i.i.i) #37
   %cmp7.i.i.i.i = icmp eq i32 %call6.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %return, label %for.inc
 
@@ -35388,7 +35388,7 @@ _ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GL
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %5, 42
   %cond.idx.i.i.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i.i.i to i64
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.val.val.i, i64 %cond.idx.i.i.i.i.i.i.i
-  %call6.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %__k.val.val.i, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i.i.i.i) #37
+  %call6.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %__k.val.val.i, ptr noundef nonnull readonly dereferenceable(1) %cond.i.i.i.i.i.i.i) #37
   %cmp7.i.i.i.i.i.i = icmp eq i32 %call6.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i, label %return, label %if.end3.i
 

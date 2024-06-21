@@ -434,7 +434,7 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h57f
   %73 = phi i64 [ %68, %63 ], [ %.pre.i.i, %.noexc ]
   %74 = load ptr, ptr %53, align 8, !alias.scope !18, !noalias !23, !nonnull !4, !noundef !4
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %65, i64 %67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull readonly align 1 %65, i64 %67, i1 false)
   %76 = load i64, ptr %54, align 8, !alias.scope !18, !noalias !23, !noundef !4
   %77 = add i64 %76, %67
   store i64 %77, ptr %54, align 8, !alias.scope !18, !noalias !23
@@ -527,7 +527,7 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h57f
   %114 = phi i64 [ %108, %103 ], [ %.pre.i.i25, %.noexc26 ]
   %115 = load ptr, ptr %53, align 8, !alias.scope !33, !noalias !38, !nonnull !4, !noundef !4
   %116 = getelementptr inbounds i8, ptr %115, i64 %114
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull align 1 %105, i64 %107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull readonly align 1 %105, i64 %107, i1 false)
   %117 = load i64, ptr %54, align 8, !alias.scope !33, !noalias !38, !noundef !4
   %118 = add i64 %117, %107
   store i64 %118, ptr %54, align 8, !alias.scope !33, !noalias !38
@@ -1789,7 +1789,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler13c_zero_or_one17hc34873bf5520
   %310 = load i64, ptr %309, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   %311 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %308, i64 %310
-  %312 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb6a79fc1efd2512E.llvm.8347807780687254574"(ptr noundef nonnull %308, ptr noundef nonnull %311, i64 noundef 0), !noalias !218
+  %312 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb6a79fc1efd2512E.llvm.8347807780687254574"(ptr noundef nonnull readonly %308, ptr noundef nonnull readonly %311, i64 noundef 0), !noalias !218
   %313 = icmp ult i64 %312, 2
   %314 = icmp ult i64 %312, %310
   %or.cond.i13 = or i1 %313, %314
@@ -4417,7 +4417,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler35c_unicode_class_reverse_with
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
   store i64 0, ptr %.sroa.0.i.i.i, align 8, !noalias !774
   %1197 = shl nuw nsw i64 %1187, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i.i, ptr nonnull align 1 %1186, i64 %1197, i1 false), !alias.scope !778, !noalias !782
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i.i, ptr nonnull readonly align 1 %1186, i64 %1197, i1 false), !alias.scope !778, !noalias !782
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i = load i64, ptr %.sroa.0.i.i.i, align 8, !noalias !774
   %1198 = trunc nuw nsw i64 %1187 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
@@ -4578,7 +4578,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i.i.i)
   store i64 0, ptr %.sroa.0.i.i.i.i, align 8, !noalias !817
   %1256 = shl nuw nsw i64 %1228, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i.i.i, ptr nonnull align 2 %.sroa.61031.i.i, i64 %1256, i1 false), !alias.scope !823, !noalias !827
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i.i.i, ptr nonnull readonly align 2 %.sroa.61031.i.i, i64 %1256, i1 false), !alias.scope !823, !noalias !827
   %.sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i, align 8, !noalias !817
   %1257 = trunc nuw nsw i64 %1228 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i.i.i)
@@ -4851,7 +4851,7 @@ _ZN14regex_automata3nfa8thompson10range_trie5Split3new17h46493f859ac3d2a1E.exit.
 _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E.exit.i102.i.i: ; preds = %1331
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i101.i.i)
   store i64 0, ptr %.sroa.0.i.i101.i.i, align 8, !noalias !843
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i101.i.i, ptr nonnull align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !849, !noalias !853
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i101.i.i, ptr nonnull readonly align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !849, !noalias !853
   %.sroa.0.i.i101.i.i.0..sroa.0.i.i101.i.i.0..sroa.0.i.i101.i.i.0..sroa.0.i.i101.i.0..sroa.0.i.i101.i.0..sroa.0.i.i101.0..sroa.0.i.i101.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i103.i.i = load i64, ptr %.sroa.0.i.i101.i.i, align 8, !noalias !843
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i101.i.i)
   %1333 = load i64, ptr %1103, align 8, !alias.scope !855, !noalias !858, !noundef !4
@@ -4989,7 +4989,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 1367:                                             ; preds = %1365
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i123.i.i)
   store i64 0, ptr %.sroa.0.i123.i.i, align 8, !noalias !865
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i123.i.i, ptr nonnull align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !869, !noalias !873
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i123.i.i, ptr nonnull readonly align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !869, !noalias !873
   %.sroa.0.i123.i.i.0..sroa.0.i123.i.i.0..sroa.0.i123.i.i.0..sroa.0.i123.i.0..sroa.0.i123.i.0..sroa.0.i123.0..sroa.0.i123.0..sroa.0.0..sroa.0.0..i124.i.i = load i64, ptr %.sroa.0.i123.i.i, align 8, !noalias !865
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i123.i.i)
   %1368 = load i64, ptr %1103, align 8, !alias.scope !875, !noalias !878, !noundef !4
@@ -5467,7 +5467,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17set_transition_at17h899e
 _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E.exit.i156.i.i: ; preds = %1535
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i155.i.i)
   store i64 0, ptr %.sroa.0.i.i155.i.i, align 8, !noalias !935
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i155.i.i, ptr nonnull align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !941, !noalias !945
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i.i155.i.i, ptr nonnull readonly align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !941, !noalias !945
   %.sroa.0.i.i155.i.i.0..sroa.0.i.i155.i.i.0..sroa.0.i.i155.i.i.0..sroa.0.i.i155.i.0..sroa.0.i.i155.i.0..sroa.0.i.i155.0..sroa.0.i.i155.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i157.i.i = load i64, ptr %.sroa.0.i.i155.i.i, align 8, !noalias !935
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i155.i.i)
   %1537 = load i64, ptr %1103, align 8, !alias.scope !947, !noalias !950, !noundef !4
@@ -5603,7 +5603,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17set_transition_at17h899e
 1584:                                             ; preds = %1494
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i191.i.i)
   store i64 0, ptr %.sroa.0.i191.i.i, align 8, !noalias !956
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i191.i.i, ptr nonnull align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !960, !noalias !964
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i191.i.i, ptr nonnull readonly align 2 %.sroa.61031.i.i, i64 %1250, i1 false), !alias.scope !960, !noalias !964
   %.sroa.0.i191.i.i.0..sroa.0.i191.i.i.0..sroa.0.i191.i.i.0..sroa.0.i191.i.0..sroa.0.i191.i.0..sroa.0.i191.0..sroa.0.i191.0..sroa.0.0..sroa.0.0..i192.i.i = load i64, ptr %.sroa.0.i191.i.i, align 8, !noalias !956
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i191.i.i)
   %1585 = load i64, ptr %1103, align 8, !alias.scope !966, !noalias !969, !noundef !4
@@ -6303,7 +6303,7 @@ define void @_ZN14regex_automata3nfa8thompson8compiler8Compiler5c_cap17h7471b87a
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !1055
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = getelementptr inbounds i8, ptr %28, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %3, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %30 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %30)
   %31 = extractvalue { ptr, i64 } %27, 1
@@ -9422,7 +9422,7 @@ define internal fastcc void @_ZN14regex_automata3nfa8thompson8compiler12Utf8Comp
   %67 = icmp ne ptr %66, null
   tail call void @llvm.assume(i1 %67)
   %68 = shl i64 %53, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr nonnull align 4 %54, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr nonnull readonly align 4 %54, i64 %68, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1695
   %69 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %65, ptr %69, align 8, !noalias !1700

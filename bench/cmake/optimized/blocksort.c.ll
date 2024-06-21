@@ -504,7 +504,7 @@ split.i:                                          ; preds = %208, %192
   %271 = getelementptr inbounds i32, ptr %11, i64 %270
   %272 = load i32, ptr %271, align 4
   %273 = add i32 %272, %247
-  %274 = call fastcc zeroext i8 @mainGtU(i32 noundef %273, i32 noundef %266, ptr noundef nonnull %13, ptr noundef nonnull %26, i32 noundef %17, ptr noundef nonnull %9)
+  %274 = call fastcc zeroext i8 @mainGtU(i32 noundef %273, i32 noundef %266, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef nonnull %9)
   %.not112.i.i.i = icmp eq i8 %274, 0
   %.pre.i.i.i = sext i32 %.0100.i.i.i to i64
   br i1 %.not112.i.i.i, label %split135.i.i.i, label %275
@@ -537,7 +537,7 @@ split135.i.i.i:                                   ; preds = %275, %268
   %287 = getelementptr inbounds i32, ptr %11, i64 %286
   %288 = load i32, ptr %287, align 4
   %289 = add i32 %288, %247
-  %290 = call fastcc zeroext i8 @mainGtU(i32 noundef %289, i32 noundef %282, ptr noundef nonnull %13, ptr noundef nonnull %26, i32 noundef %17, ptr noundef nonnull %9)
+  %290 = call fastcc zeroext i8 @mainGtU(i32 noundef %289, i32 noundef %282, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef nonnull %9)
   %.not115.i.i.i = icmp eq i8 %290, 0
   %.pre136.i.i.i = sext i32 %.2.i.i.i to i64
   br i1 %.not115.i.i.i, label %split133.i.i.i, label %291
@@ -570,7 +570,7 @@ split133.i.i.i:                                   ; preds = %291, %284
   %304 = getelementptr inbounds i32, ptr %11, i64 %303
   %305 = load i32, ptr %304, align 4
   %306 = add i32 %305, %247
-  %307 = call fastcc zeroext i8 @mainGtU(i32 noundef %306, i32 noundef %299, ptr noundef nonnull %13, ptr noundef nonnull %26, i32 noundef %17, ptr noundef nonnull %9)
+  %307 = call fastcc zeroext i8 @mainGtU(i32 noundef %306, i32 noundef %299, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef nonnull %9)
   %.not117.i.i.i = icmp eq i8 %307, 0
   %.pre138.i.i.i = sext i32 %.4.i.i.i to i64
   br i1 %.not117.i.i.i, label %split.i.i.i, label %308

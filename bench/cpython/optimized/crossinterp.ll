@@ -2285,7 +2285,7 @@ Py_DECREF.exit71.i:                               ; preds = %if.then1.i69.i, %if
   br i1 %cmp22.i, label %error.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %Py_DECREF.exit71.i
-  %call25.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull %uncaught)
+  %call25.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull readonly %uncaught)
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %error.i, label %if.end28.i
 
@@ -2440,7 +2440,7 @@ if.then3.i27:                                     ; preds = %if.then.i17
 
 if.end4.i:                                        ; preds = %if.then3.i27, %if.then.i17, %if.then14
   %tbexc.0.i = phi ptr [ null, %if.then3.i27 ], [ %call.i18, %if.then.i17 ], [ null, %if.then14 ]
-  %call5.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull %uncaught9)
+  %call5.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull readonly %uncaught9)
   tail call void @PyErr_SetObject(ptr noundef %40, ptr noundef %call5.i) #13
   %42 = load i64, ptr %call5.i, align 8
   %43 = and i64 %42, 2147483648

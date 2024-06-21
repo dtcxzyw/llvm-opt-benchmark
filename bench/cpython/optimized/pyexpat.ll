@@ -7288,7 +7288,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %14 = load ptr, ptr %itself.i.i, align 8
   %call2.i.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %14) #8
   %self.val.i.i = load ptr, ptr %itself.i.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
+  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
   br label %pyexpat_xmlparser_Parse_impl.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -7404,7 +7404,7 @@ if.end.i14.i:                                     ; preds = %Py_XDECREF.exit.i
   %9 = load ptr, ptr %itself.i, align 8
   %call2.i.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %9) #8
   %self.val.i.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
+  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
   br label %pyexpat_xmlparser_ParseFile_impl.exit
 
 if.end9.i:                                        ; preds = %for.cond.i
@@ -7592,7 +7592,7 @@ if.then1.i48.i:                                   ; preds = %if.end.i45.i
   %33 = load ptr, ptr %itself.i, align 8
   %call2.i50.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %33) #8
   %self.val.i51.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i51.i, i32 noundef %call2.i50.i)
+  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i51.i, i32 noundef %call2.i50.i)
   br label %pyexpat_xmlparser_ParseFile_impl.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i45.i

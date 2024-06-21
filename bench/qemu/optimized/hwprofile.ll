@@ -533,7 +533,7 @@ if.then10:                                        ; preds = %if.end
 if.then14:                                        ; preds = %if.then10
   %call.i22 = tail call ptr @g_string_new(ptr noundef nonnull @.str.16) #6
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i22, ptr noundef nonnull @.str.17, i64 noundef %call3) #6
-  tail call fastcc void @fmt_dev_record(ptr noundef %call.i22, ptr noundef nonnull %counts.0)
+  tail call fastcc void @fmt_dev_record(ptr noundef %call.i22, ptr noundef nonnull readonly %counts.0)
   %6 = load ptr, ptr %call.i22, align 8
   tail call void @qemu_plugin_outs(ptr noundef %6) #6
   %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call.i22, i32 noundef 1) #6

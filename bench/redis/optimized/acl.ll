@@ -2604,7 +2604,7 @@ entry:
 
 for.body.i.preheader:                             ; preds = %entry
   %2 = load ptr, ptr %0, align 8
-  %call.i8 = tail call i32 @strcasecmp(ptr noundef nonnull %add.ptr, ptr noundef %2) #27
+  %call.i8 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %add.ptr, ptr noundef %2) #27
   %tobool.not.i9 = icmp eq i32 %call.i8, 0
   br i1 %tobool.not.i9, label %if.end, label %for.cond.i
 
@@ -2619,7 +2619,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx7.i = getelementptr inbounds %struct.ACLCategoryItem, ptr %0, i64 %indvars.iv.next.i
   %4 = load ptr, ptr %arrayidx7.i, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %add.ptr, ptr noundef %4) #27
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %add.ptr, ptr noundef %4) #27
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i, !llvm.loop !12
 
@@ -2714,7 +2714,7 @@ entry:
 
 for.body.i.preheader:                             ; preds = %entry
   %2 = load ptr, ptr %0, align 8
-  %call.i7 = tail call i32 @strcasecmp(ptr noundef %category, ptr noundef %2) #27
+  %call.i7 = tail call i32 @strcasecmp(ptr noundef readonly %category, ptr noundef %2) #27
   %tobool.not.i8 = icmp eq i32 %call.i7, 0
   br i1 %tobool.not.i8, label %if.end, label %for.cond.i
 
@@ -2729,7 +2729,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx7.i = getelementptr inbounds %struct.ACLCategoryItem, ptr %0, i64 %indvars.iv.next.i
   %4 = load ptr, ptr %arrayidx7.i, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef %category, ptr noundef %4) #27
+  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %category, ptr noundef %4) #27
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i, !llvm.loop !12
 
@@ -9056,7 +9056,7 @@ if.then284:                                       ; preds = %land.lhs.true256
 
 for.body.i339.preheader:                          ; preds = %if.then284
   %117 = load ptr, ptr %115, align 8
-  %call.i340413 = tail call i32 @strcasecmp(ptr noundef %114, ptr noundef %117) #27
+  %call.i340413 = tail call i32 @strcasecmp(ptr noundef readonly %114, ptr noundef %117) #27
   %tobool.not.i341414 = icmp eq i32 %call.i340413, 0
   br i1 %tobool.not.i341414, label %if.end295, label %for.cond.i342
 
@@ -9071,7 +9071,7 @@ for.cond.i342:                                    ; preds = %for.body.i339.prehe
 for.body.i339:                                    ; preds = %for.cond.i342
   %arrayidx7.i = getelementptr inbounds %struct.ACLCategoryItem, ptr %115, i64 %indvars.iv.next.i
   %119 = load ptr, ptr %arrayidx7.i, align 8
-  %call.i340 = tail call i32 @strcasecmp(ptr noundef %114, ptr noundef %119) #27
+  %call.i340 = tail call i32 @strcasecmp(ptr noundef readonly %114, ptr noundef %119) #27
   %tobool.not.i341 = icmp eq i32 %call.i340, 0
   br i1 %tobool.not.i341, label %if.end295, label %for.cond.i342, !llvm.loop !12
 

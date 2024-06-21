@@ -529,14 +529,14 @@ Vec_IntUniqueHashKey.exit.i:                      ; preds = %91
 .lr.ph.i49.preheader.i:                           ; preds = %Vec_IntUniqueHashKey.exit.i
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i32, ptr %.val47.i, i64 %117
-  %bcmp.i6.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %90, ptr noundef nonnull dereferenceable(4) %118, i64 4)
+  %bcmp.i6.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %90, ptr noundef nonnull readonly dereferenceable(4) %118, i64 4)
   %.not14.i7.i = icmp eq i32 %bcmp.i6.i, 0
   br i1 %.not14.i7.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i22
 
 .lr.ph.i49.i:                                     ; preds = %.lr.ph.i22
   %119 = sext i32 %123 to i64
   %120 = getelementptr inbounds i32, ptr %.val47.i, i64 %119
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %90, ptr noundef nonnull dereferenceable(4) %120, i64 4)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %90, ptr noundef nonnull readonly dereferenceable(4) %120, i64 4)
   %.not14.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not14.i.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i22, !llvm.loop !11
 

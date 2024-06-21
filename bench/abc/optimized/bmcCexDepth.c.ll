@@ -33,10 +33,10 @@ define ptr @Bmc_CexTargetEnlarge(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #17
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #18
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #16
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %6
@@ -48,10 +48,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %6
   br i1 %.not.i136, label %Abc_UtilStrsav.exit137, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #17
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #17
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #18
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #16
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #16
   br label %Abc_UtilStrsav.exit137
 
 Abc_UtilStrsav.exit137:                           ; preds = %Abc_UtilStrsav.exit, %14
@@ -801,7 +801,7 @@ declare void @Gia_AigerWrite(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 define ptr @Bmc_CexBuildNetwork2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Gia_ManStart(i32 noundef 1000) #16
   %5 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.2, i64 6, i1 false) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.2, i64 6, i1 false) #16
   store ptr %5, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 32
   %.val154 = load ptr, ptr %6, align 8
@@ -1279,7 +1279,7 @@ declare i32 @Gia_ManHashOr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 define ptr @Bmc_CexBuildNetwork2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Gia_ManStart(i32 noundef 1000) #16
   %5 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.2, i64 6, i1 false) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.2, i64 6, i1 false) #16
   store ptr %5, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 32
   %.val125 = load ptr, ptr %6, align 8

@@ -5656,7 +5656,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exi
 
 .loopexit691:                                     ; preds = %.noexc378, %_ZN12_GLOBAL__N_115HierarchyWorkerC2EPN5Yosys5RTLIL6DesignE.exit
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call fastcc void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS7_EENS0_8hash_opsIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %1559) #20
+  call fastcc void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS7_EENS0_8hash_opsIS4_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(49) %1559) #20
   %1691 = load ptr, ptr %1589, align 8
   %.not.i.i.i.i.i379 = icmp eq ptr %1691, null
   br i1 %.not.i.i.i.i.i379, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPNS0_5RTLIL6ModuleENS1_8hash_opsIS5_EEE7entry_tESaIS9_EED2Ev.exit.i.i, label %1692
@@ -89637,7 +89637,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_112ReplacedPortES2_SaIS1
   store i32 %2306, ptr %.015.i.i.i.i.i.i.i, align 4
   %2314 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 4
   %2315 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %2314, ptr noundef nonnull align 4 dereferenceable(5) %2315, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %2314, ptr noundef nonnull readonly align 4 dereferenceable(5) %2315, i64 5, i1 false)
   %2316 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i, i64 12
   %2317 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i301 = icmp eq ptr %2316, %2281

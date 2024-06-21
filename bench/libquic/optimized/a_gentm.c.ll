@@ -378,7 +378,7 @@ entry:
   store i32 %conv, ptr %t, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
-  %call.i = call range(i32 0, 2) i32 @asn1_generalizedtime_to_tm(ptr noundef null, ptr noundef nonnull %t)
+  %call.i = call range(i32 0, 2) i32 @asn1_generalizedtime_to_tm(ptr noundef null, ptr noundef nonnull readonly %t)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.then
 

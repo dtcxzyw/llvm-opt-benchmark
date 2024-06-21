@@ -3299,7 +3299,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %cls.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %3, align 8
-  %call1.i = call fastcc ptr @zoneinfo_new_instance(ptr noundef %cls.val.val, ptr noundef %type, ptr noundef %1)
+  %call1.i = call fastcc ptr @zoneinfo_new_instance(ptr noundef readonly %cls.val.val, ptr noundef %type, ptr noundef %1)
   %cmp.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i, label %exit, label %if.then.i
 
@@ -6145,12 +6145,12 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @build_tzrule(ptr nocapture noundef readonly %state, ptr noundef %std_abbr, ptr noundef %dst_abbr, i64 noundef %std_offset, i64 noundef %dst_offset, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
 entry:
-  %call.i = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %std_offset)
+  %call.i = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %std_offset)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call4.i = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef 0)
+  %call4.i = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef 0)
   %cmp7.i = icmp eq ptr %call4.i, null
   br i1 %cmp7.i, label %if.then.i.i, label %if.end9.i
 
@@ -6171,14 +6171,14 @@ if.end:                                           ; preds = %if.end.i.i.i, %if.e
 if.then3:                                         ; preds = %if.end
   %sub = sub i64 %dst_offset, %std_offset
   %conv = trunc i64 %sub to i32
-  %call.i7 = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %dst_offset)
+  %call.i7 = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %dst_offset)
   %cmp.i8 = icmp eq ptr %call.i7, null
   br i1 %cmp.i8, label %if.then.i.i, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then3
   %sext = shl i64 %sub, 32
   %conv5 = ashr exact i64 %sext, 32
-  %call4.i11 = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %conv5)
+  %call4.i11 = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %conv5)
   %cmp7.i12 = icmp eq ptr %call4.i11, null
   br i1 %cmp7.i12, label %if.then.i.i, label %if.end9.i13
 

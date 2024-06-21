@@ -816,7 +816,7 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
   %235 = sext i32 %225 to i64
   %236 = getelementptr i8, ptr %234, i64 %235
   %237 = sext i32 %224 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %236, ptr align 1 %223, i64 %237, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %236, ptr readonly align 1 %223, i64 %237, i1 false)
   store i32 %226, ptr @literallen, align 4
   %238 = sext i32 %226 to i64
   %239 = getelementptr i8, ptr %234, i64 %238
@@ -4011,9 +4011,9 @@ define internal fastcc noundef zeroext i1 @isdefine() unnamed_addr #0 {
   store ptr %12, ptr %11, align 8
   %28 = getelementptr inbounds i8, ptr %.01220, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #30
+  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %29) #30
   %31 = trunc i64 %30 to i32
-  %32 = tail call noundef ptr @base_yy_scan_bytes(ptr noundef %29, i32 noundef %31)
+  %32 = tail call noundef ptr @base_yy_scan_bytes(ptr noundef readonly %29, i32 noundef %31)
   br label %.loopexit
 
 33:                                               ; preds = %2, %6
@@ -4078,9 +4078,9 @@ define internal fastcc noundef zeroext i1 @isinformixdefine() unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %23, ptr %24, align 8
   store ptr %9, ptr @yy_buffer, align 8
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0816) #30
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0816) #30
   %26 = trunc i64 %25 to i32
-  %27 = tail call noundef ptr @base_yy_scan_bytes(ptr noundef nonnull %.0816, i32 noundef %26)
+  %27 = tail call noundef ptr @base_yy_scan_bytes(ptr noundef nonnull readonly %.0816, i32 noundef %26)
   br label %28
 
 28:                                               ; preds = %7, %15

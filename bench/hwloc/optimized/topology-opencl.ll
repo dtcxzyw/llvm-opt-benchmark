@@ -372,7 +372,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %.not105, label %178, label %180
 
 178:                                              ; preds = %.thread144, %176
-  %179 = call ptr @hwloc_get_obj_by_depth(ptr noundef %17, i32 noundef 0, i32 noundef 0) #12
+  %179 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %17, i32 noundef 0, i32 noundef 0) #12
   br label %180
 
 180:                                              ; preds = %178, %176

@@ -2343,7 +2343,7 @@ common.resume:                                    ; preds = %40, %19
   %56 = extractvalue { ptr, i64 } %53, 1
   %57 = icmp ne ptr %55, null
   tail call void @llvm.assume(i1 %57)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %50, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %50, i64 %52, i1 false)
   store ptr %55, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %56, ptr %.sroa.48.0..sroa_idx, align 8
@@ -2499,7 +2499,7 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
   %50 = extractvalue { ptr, i64 } %47, 1
   %51 = icmp ne ptr %49, null
   tail call void @llvm.assume(i1 %51)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %45, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull readonly align 1 %45, i64 %46, i1 false)
   %52 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %49, ptr %10, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
@@ -3340,7 +3340,7 @@ define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_
   %51 = extractvalue { ptr, i64 } %46, 1
   %52 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %52)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %44, i64 %45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %44, i64 %45, i1 false)
   %53 = getelementptr inbounds i8, ptr %18, i64 32
   store ptr %50, ptr %11, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
@@ -4079,7 +4079,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %57 = extractvalue { ptr, i64 } %53, 1
   %58 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %58)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %.val13, i64 %.val14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.val13, i64 %.val14, i1 false)
   %59 = atomicrmw sub ptr %14, i32 1 release, align 4, !noalias !706
   %60 = add i32 %59, -1
   %61 = and i32 %60, -1073741825
@@ -4726,7 +4726,7 @@ common.ret:                                       ; preds = %52, %19
   %82 = extractvalue { ptr, i64 } %79, 1
   %83 = icmp ne ptr %81, null
   call void @llvm.assume(i1 %83)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %81, ptr noundef nonnull align 1 dereferenceable(32) %75, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %81, ptr noundef nonnull readonly align 1 dereferenceable(32) %75, i64 32, i1 false)
   invoke void @"_ZN76_$LT$x25519_dalek..x25519..SharedSecret$u20$as$u20$core..ops..drop..Drop$GT$4drop17h25d907ca86cad7ebE"(ptr noalias noundef nonnull align 1 dereferenceable(32) %7)
           to label %"_ZN4core3ptr55drop_in_place$LT$x25519_dalek..x25519..SharedSecret$GT$17hd33fb94dbdc5d7b8E.exit.i" unwind label %72, !noalias !759
 
@@ -8249,7 +8249,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9153531805506995525.exit.th
   %152 = extractvalue { ptr, i64 } %146, 1
   %153 = icmp ne ptr %151, null
   call void @llvm.assume(i1 %153)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %151, ptr nonnull align 1 %.val59, i64 %.val60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %151, ptr nonnull readonly align 1 %.val59, i64 %.val60, i1 false)
   store ptr %151, ptr %18, align 8, !alias.scope !1235
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %152, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1235

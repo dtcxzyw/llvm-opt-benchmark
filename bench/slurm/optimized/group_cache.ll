@@ -367,7 +367,7 @@ _init_or_reinit_entry.exit.i:                     ; preds = %115, %109
   %149 = shl i32 %143, 2
   %150 = sext i32 %149 to i64
   %151 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %150, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.copy_gids) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %151, ptr nonnull align 4 %145, i64 %150, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %151, ptr nonnull readonly align 4 %145, i64 %150, i1 false)
   br label %copy_gids.exit.i
 
 copy_gids.exit.i:                                 ; preds = %148, %.loopexit.i

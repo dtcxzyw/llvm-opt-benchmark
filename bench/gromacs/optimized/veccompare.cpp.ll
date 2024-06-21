@@ -215,7 +215,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr nocapture noundef %0, pt
   %43 = getelementptr inbounds [3 x float], ptr %3, i64 %indvars.iv53.i
   %44 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv53.i
   %45 = trunc nuw nsw i64 %indvars.iv53.i to i32
-  tail call void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef %0, ptr noundef %1, i32 noundef %45, ptr noundef %43, ptr noundef %44, float noundef 0.000000e+00, float noundef %.038.i)
+  tail call void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef %0, ptr noundef %1, i32 noundef %45, ptr noundef readonly %43, ptr noundef readonly %44, float noundef 0.000000e+00, float noundef %.038.i)
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
   br i1 %exitcond57.not.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, label %.lr.ph.i, !llvm.loop !10

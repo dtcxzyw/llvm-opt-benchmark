@@ -1017,7 +1017,7 @@ select.unfold:                                    ; preds = %69
   %101 = icmp ne ptr %100, null
   call void @llvm.assume(i1 %101)
   %102 = shl i64 %97, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %100, ptr nonnull align 8 %96, i64 %102, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %100, ptr nonnull readonly align 8 %96, i64 %102, i1 false)
   %103 = load i64, ptr %51, align 8, !alias.scope !297, !noalias !294, !noundef !28
   store i64 %99, ptr %17, align 8, !alias.scope !294, !noalias !297
   store ptr %100, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297

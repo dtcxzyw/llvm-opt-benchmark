@@ -165,7 +165,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 _ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit: ; preds = %for.body.i, %cond.end
   %call25 = call i32 @rand() #19
   %this.val.i = load ptr, ptr %allocated, align 8
-  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i.i = zext i32 %call25 to i64
   %add.i.i.i.i = add i64 %conv.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
@@ -281,7 +281,7 @@ invoke.cont37:                                    ; preds = %for.cond.i, %invoke
           to label %for.inc.sink.split.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else:                                          ; preds = %invoke.cont31
-  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1), !noalias !10
+  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1), !noalias !10
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end36.i.i.i.i, %if.else

@@ -669,7 +669,7 @@ define internal fastcc i32 @Smt_PrsBuildConstant(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond, label %13, label %262
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #18
   %15 = trunc i64 %14 to i32
   %16 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %17 = add i32 %15, -1
@@ -5451,7 +5451,7 @@ Vec_IntGrow.exit.i:                               ; preds = %Smt_GetTypeName.exi
   br i1 %.not, label %68, label %67
 
 67:                                               ; preds = %66
-  tail call void @Smt_PrsPrintParser_rec(ptr noundef nonnull %41, i32 noundef 0, i32 noundef 0)
+  tail call void @Smt_PrsPrintParser_rec(ptr noundef nonnull readonly %41, i32 noundef 0, i32 noundef 0)
   br label %68
 
 68:                                               ; preds = %67, %66
@@ -5587,7 +5587,7 @@ Smt_PrsAlloc.exit:                                ; preds = %37, %.thread.i, %Sm
 
 ; Function Attrs: nounwind uwtable
 define ptr @Wlc_ReadSmt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.75)
+  %4 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.75)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %Smt_PrsLoadFile.exit.thread, label %6
 

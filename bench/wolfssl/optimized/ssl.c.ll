@@ -4529,7 +4529,7 @@ while.cond.i:                                     ; preds = %while.body.i
 while.body.i:                                     ; preds = %if.end5.i, %while.cond.i
   %signers.012.i = phi ptr [ %signers.0.i, %while.cond.i ], [ %signers.010.i, %if.end5.i ]
   %subjectKeyIdHash.i = getelementptr inbounds i8, ptr %signers.012.i, i64 76
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %extSubjKeyId, ptr noundef nonnull dereferenceable(20) %subjectKeyIdHash.i, i64 20)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %extSubjKeyId, ptr noundef nonnull dereferenceable(20) %subjectKeyIdHash.i, i64 20)
   %cmp7.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp7.i, label %AlreadySigner.exit, label %while.cond.i
 

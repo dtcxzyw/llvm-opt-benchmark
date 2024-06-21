@@ -505,7 +505,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5.i, i64 24, i1 false)
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
-  call fastcc void @copyQueueItems(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
+  call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
   store i32 %18, ptr %cur1.i, align 8
   %call3 = call signext i8 @nfaReportCurrentMatches(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q1) #6
   br label %return
@@ -627,7 +627,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5.i, i64 24, i1 false)
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
-  call fastcc void @copyQueueItems(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
+  call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
   store i32 %18, ptr %cur1.i, align 8
   %call3 = call signext i8 @nfaInAcceptState(ptr noundef nonnull %add.ptr.i, i32 noundef %report, ptr noundef nonnull %q1) #6
   br label %return
@@ -749,7 +749,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5.i, i64 24, i1 false)
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
-  call fastcc void @copyQueueItems(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
+  call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
   store i32 %18, ptr %cur1.i, align 8
   %call3 = call signext i8 @nfaInAnyAcceptState(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q1) #6
   br label %return
@@ -1085,7 +1085,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5.i, i64 24, i1 false)
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
-  call fastcc void @copyQueueItems(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
+  call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
   store i32 %18, ptr %cur1.i, align 8
   %call3 = call i32 @nfaGetZombieStatus(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q1, i64 noundef %loc) #6
   br label %return

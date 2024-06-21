@@ -3409,7 +3409,7 @@ do.body.i:                                        ; preds = %if.end14.i, %if.end
 
 if.then6.i:                                       ; preds = %do.body.i
   %7 = load ptr, ptr %v_key.i, align 8
-  %call7.i = call fastcc i32 @hamt_find(ptr noundef %w, ptr noundef %7, ptr noundef nonnull %w_val.i)
+  %call7.i = call fastcc i32 @hamt_find(ptr noundef readonly %w, ptr noundef %7, ptr noundef nonnull %w_val.i)
   switch i32 %call7.i, label %default.unreachable [
     i32 0, label %_PyHamt_Eq.exit
     i32 1, label %if.end8
@@ -4986,7 +4986,7 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #3
 define internal range(i32 -1, 2) i32 @hamt_tp_contains(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
 entry:
   %val = alloca ptr, align 8
-  %call.i = call fastcc i32 @hamt_find(ptr noundef %self, ptr noundef %key, ptr noundef nonnull %val)
+  %call.i = call fastcc i32 @hamt_find(ptr noundef readonly %self, ptr noundef %key, ptr noundef nonnull %val)
   %switch.offset = add nsw i32 %call.i, -1
   ret i32 %switch.offset
 }

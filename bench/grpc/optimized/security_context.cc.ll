@@ -1218,7 +1218,7 @@ _ZN17grpc_auth_context15ensure_capacityEv.exit.i: ; preds = %if.then.i.i, %entry
   br i1 %cmp.not.i, label %_ZN17grpc_auth_context12add_propertyEPKcS1_m.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN17grpc_auth_context15ensure_capacityEv.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i, ptr nonnull align 1 %value, i64 %value_length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i, ptr nonnull readonly align 1 %value, i64 %value_length, i1 false)
   %.pre10.i = load ptr, ptr %value5.i, align 8
   br label %_ZN17grpc_auth_context12add_propertyEPKcS1_m.exit
 

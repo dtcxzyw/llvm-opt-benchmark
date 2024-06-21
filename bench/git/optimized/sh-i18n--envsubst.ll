@@ -340,7 +340,7 @@ while.body.i.i:                                   ; preds = %if.end9.i.i, %while
   %add.i.i = add i64 %shr.i.i, %j1.05.i.i
   %arrayidx.i.i4 = getelementptr inbounds ptr, ptr %43, i64 %add.i.i
   %44 = load ptr, ptr %arrayidx.i.i4, align 8
-  %call.i63.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %41) #12
+  %call.i63.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %41) #12
   %cmp3.i.i5 = icmp sgt i32 %call.i63.i, 0
   br i1 %cmp3.i.i5, label %if.end9.i.i, label %if.else.i.i
 
@@ -368,7 +368,7 @@ if.then11.i.i:                                    ; preds = %while.end.i.i, %if.
   %j1.0.lcssa11.i.i = phi i64 [ %j1.1.i.i, %while.end.i.i ], [ 0, %if.end55.if.then11.i_crit_edge.i ]
   %arrayidx13.i.i = getelementptr inbounds ptr, ptr %45, i64 %j1.0.lcssa11.i.i
   %46 = load ptr, ptr %arrayidx13.i.i, align 8
-  %call14.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %41) #12
+  %call14.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %41) #12
   %cmp15.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %cmp15.i.i, label %if.then65.critedge.i, label %if.else71.i
 

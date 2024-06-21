@@ -1356,7 +1356,7 @@ if.end:                                           ; preds = %entry
   %hexstr.val = load ptr, ptr %hexstr, align 8
   %0 = getelementptr inbounds i8, ptr %hexstr, i64 16
   %hexstr.val1 = load i64, ptr %0, align 8
-  %call.i = call fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr %hexstr.val, i64 %hexstr.val1)
+  %call.i = call fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr readonly %hexstr.val, i64 %hexstr.val1)
   br label %exit
 
 exit:                                             ; preds = %entry, %if.end
@@ -1918,7 +1918,7 @@ skip_optional_pos:                                ; preds = %if.end43, %if.end38
   %data.val = load ptr, ptr %data, align 8
   %8 = getelementptr inbounds i8, ptr %data, i64 16
   %data.val24 = load i64, ptr %8, align 8
-  %call.i = call ptr @memchr(ptr noundef %data.val, i32 noundef 10, i64 noundef %data.val24) #6
+  %call.i = call ptr @memchr(ptr noundef readonly %data.val, i32 noundef 10, i64 noundef %data.val24) #6
   %cmp1.i = icmp ugt ptr %call.i, %data.val
   br i1 %cmp1.i, label %land.lhs.true2.i, label %if.end.i
 

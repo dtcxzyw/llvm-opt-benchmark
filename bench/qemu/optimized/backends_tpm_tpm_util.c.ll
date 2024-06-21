@@ -178,7 +178,7 @@ entry:
   %ordinal7 = getelementptr inbounds i8, ptr %test_req_tpm2, i64 6
   store i32 -2130640896, ptr %ordinal7, align 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i)
-  %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %test_req_tpm2, i64 noundef 10, ptr noundef nonnull %buf.i, i64 noundef 1024)
+  %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull readonly %test_req_tpm2, i64 noundef 10, ptr noundef nonnull %buf.i, i64 noundef 1024)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %tpm_util_test.exit.thread, label %tpm_util_test.exit
 
@@ -194,7 +194,7 @@ tpm_util_test.exit:                               ; preds = %entry
 
 if.end:                                           ; preds = %tpm_util_test.exit.thread, %tpm_util_test.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i6)
-  %call.i7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %test_req, i64 noundef 10, ptr noundef nonnull %buf.i6, i64 noundef 1024)
+  %call.i7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull readonly %test_req, i64 noundef 10, ptr noundef nonnull %buf.i6, i64 noundef 1024)
   %cmp.i8 = icmp slt i32 %call.i7, 0
   br i1 %cmp.i8, label %tpm_util_test.exit12.thread, label %tpm_util_test.exit12
 

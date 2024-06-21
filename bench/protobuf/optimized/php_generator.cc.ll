@@ -721,7 +721,7 @@ if.end.i:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %aggregate_metadata_prefixes.i, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %call6.i2 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112GenerateFileEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef %generator_context, ptr noundef %error)
+  %call6.i2 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112GenerateFileEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %file, ptr noundef nonnull readonly align 8 dereferenceable(40) %ref.tmp, ptr noundef %generator_context, ptr noundef %error)
           to label %_ZN6google8protobuf8compiler3php7OptionsD2Ev.exit unwind label %lpad
 
 _ZN6google8protobuf8compiler3php7OptionsD2Ev.exit: ; preds = %if.end.i
@@ -950,7 +950,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fullname.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %filename.i, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %filename.i, ptr noundef %file, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
   %vtable.i = load ptr, ptr %generator_context, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
@@ -2866,7 +2866,7 @@ if.end.i.i:                                       ; preds = %land.rhs.i.i.i, %ca
           to label %call29.i.noexc.i unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call29.i.noexc.i:                                 ; preds = %if.end.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %dependency_filename.i.i, ptr noundef %call29.i17.i, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %dependency_filename.i.i, ptr noundef %call29.i17.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc18.i unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc18.i:                                       ; preds = %call29.i.noexc.i
@@ -5067,7 +5067,7 @@ call16.i.noexc.i:                                 ; preds = %invoke.cont11.i.i
           to label %.noexc279 unwind label %lpad.i38.i.i
 
 .noexc279:                                        ; preds = %call16.i.noexc.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i265, ptr noundef %call16.i85.i, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i265, ptr noundef %call16.i85.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i.i.i)
           to label %invoke.cont.i272 unwind label %lpad.i269, !noalias !106
 
 invoke.cont.i272:                                 ; preds = %.noexc279
@@ -5400,7 +5400,7 @@ call28.i.noexc.i:                                 ; preds = %invoke.cont21.i.i
           to label %.noexc201 unwind label %lpad.i46.i.i
 
 .noexc201:                                        ; preds = %call28.i.noexc.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i187, ptr noundef %call28.i86.i, ptr noundef nonnull align 8 dereferenceable(40) %options.i41.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i187, ptr noundef %call28.i86.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i41.i.i)
           to label %invoke.cont.i194 unwind label %lpad.i191, !noalias !137
 
 invoke.cont.i194:                                 ; preds = %.noexc201
@@ -5850,7 +5850,7 @@ invoke.cont.i94.i:                                ; preds = %.noexc100.i
           to label %.noexc unwind label %lpad.i.i99.i
 
 .noexc:                                           ; preds = %invoke.cont.i94.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef %call4.i.i, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i87.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef %call4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i.i87.i)
           to label %invoke.cont.i132 unwind label %lpad.i129, !noalias !171
 
 invoke.cont.i132:                                 ; preds = %.noexc
@@ -10045,7 +10045,7 @@ if.then.i122:                                     ; preds = %land.rhs.i.i.i, %la
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 if.end.i120:                                      ; preds = %land.rhs.i.i.i, %for.body102
-  %call6.i125 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112GenerateFileEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %394, ptr noundef nonnull align 8 dereferenceable(40) %options, ptr noundef %generator_context, ptr noundef %error)
+  %call6.i125 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112GenerateFileEPKNS0_14FileDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %394, ptr noundef nonnull readonly align 8 dereferenceable(40) %options, ptr noundef %generator_context, ptr noundef %error)
           to label %invoke.cont104 unwind label %lpad.loopexit
 
 invoke.cont104:                                   ; preds = %if.end.i120
@@ -10297,7 +10297,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull %message, ptr noundef nonnull align 8 dereferenceable(40) %options), !noalias !375
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options), !noalias !375
   %call6.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #24, !noalias !375
   %cmp7.not.i = icmp eq i64 %call6.i, 0
   br i1 %cmp7.not.i, label %invoke.cont10.i, label %for.body.i
@@ -10643,7 +10643,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit25.i, %_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_10DescriptorEEEvPNS0_2io7PrinterEPKT_.exit.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp5.i, ptr noundef nonnull %message, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp5.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc unwind label %lpad15
 
 .noexc:                                           ; preds = %if.end.i
@@ -10886,7 +10886,7 @@ if.end14.i:                                       ; preds = %_ZNK6google8protobu
   br i1 %cmp.i.i, label %if.then16.i, label %if.else.i99
 
 if.then16.i:                                      ; preds = %if.end14.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_123GenerateFieldDocCommentEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKNS2_7OptionsEi(ptr noundef %printer, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %options, i32 noundef 3)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_123GenerateFieldDocCommentEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKNS2_7OptionsEi(ptr noundef %printer, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options, i32 noundef 3)
           to label %.noexc111 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc111:                                        ; preds = %if.then16.i
@@ -10976,7 +10976,7 @@ cleanup.action.i:                                 ; preds = %invoke.cont.i361
   br label %cleanup.done.i
 
 cleanup.done.i:                                   ; preds = %cond.false.i, %cleanup.action.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_123GenerateFieldDocCommentEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKNS2_7OptionsEi(ptr noundef %printer, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %options, i32 noundef 3)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_123GenerateFieldDocCommentEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKNS2_7OptionsEi(ptr noundef %printer, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options, i32 noundef 3)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %cleanup.done.i
@@ -11317,7 +11317,7 @@ for.body.i140:                                    ; preds = %_ZN6google8protobuf
   %indvars.iv.i141 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i147, %_ZN6google8protobuf14SourceLocationD2Ev.exit.i ]
   %126 = load ptr, ptr %fields_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %126, i64 %indvars.iv.i141
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp.i125, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp.i125, ptr noundef %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc152 unwind label %lpad30.loopexit
 
 .noexc152:                                        ; preds = %for.body.i140
@@ -11853,7 +11853,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_10D
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !384
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i), !noalias !384
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !384
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef nonnull %message, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %invoke.cont.i278 unwind label %lpad.i277, !noalias !384
 
 invoke.cont.i278:                                 ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i
@@ -11994,7 +11994,7 @@ invoke.cont149:                                   ; preds = %invoke.cont146
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %filename.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %printer.i)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %fullname.i, ptr noundef nonnull %message, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %fullname.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc341 unwind label %lpad141.loopexit.split-lp.loopexit.split-lp
 
 .noexc341:                                        ; preds = %invoke.cont149
@@ -12482,7 +12482,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull %en, ptr noundef nonnull align 8 dereferenceable(40) %options), !noalias !398
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options), !noalias !398
   %call6.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #24, !noalias !398
   %cmp7.not.i = icmp eq i64 %call6.i, 0
   br i1 %cmp7.not.i, label %invoke.cont10.i, label %for.body.i
@@ -14017,7 +14017,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_14E
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !407
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i), !noalias !407
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !407
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef nonnull %en, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %invoke.cont.i530 unwind label %lpad.i529, !noalias !407
 
 invoke.cont.i530:                                 ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i
@@ -14158,7 +14158,7 @@ invoke.cont183:                                   ; preds = %invoke.cont180
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %filename.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %printer.i)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %fullname.i, ptr noundef nonnull %en, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %fullname.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc585 unwind label %lpad175
 
 .noexc585:                                        ; preds = %invoke.cont183

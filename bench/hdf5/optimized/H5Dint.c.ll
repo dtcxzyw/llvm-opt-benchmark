@@ -877,7 +877,7 @@ H5D__init_type.exit:                              ; preds = %123, %104
   br label %167
 
 140:                                              ; preds = %H5D__init_type.exit
-  %141 = call fastcc i32 @H5D__cache_dataspace_info(ptr noundef nonnull %28)
+  %141 = call fastcc i32 @H5D__cache_dataspace_info(ptr noundef nonnull readonly %28)
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %147
 

@@ -989,7 +989,7 @@ define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr nocapture noun
   br i1 %14, label %psa_export_key_buffer_internal.exit, label %15
 
 15:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
   %16 = getelementptr inbounds i8, ptr %3, i64 %2
   %17 = sub i64 %4, %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %17, i1 false)
@@ -1074,7 +1074,7 @@ define hidden i32 @psa_export_public_key_internal(ptr noundef %0, ptr noundef %1
   br i1 %17, label %psa_export_key_buffer_internal.exit, label %18
 
 18:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
   %19 = getelementptr inbounds i8, ptr %3, i64 %2
   %20 = sub i64 %4, %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %19, i8 0, i64 %20, i1 false)
@@ -1664,7 +1664,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
 psa_copy_key_material_into_slot.exit:             ; preds = %77
   %80 = getelementptr inbounds i8, ptr %.pr.pre53, i64 48
   store i64 %74, ptr %80, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %72, i64 %74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %72, i64 %74, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %62, %psa_copy_key_material_into_slot.exit
@@ -6486,7 +6486,7 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   %195 = trunc nuw i64 %4 to i8
   %196 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
   store i8 %195, ptr %194, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr readonly align 1 %3, i64 %4, i1 false)
   %197 = getelementptr inbounds i8, ptr %196, i64 %4
   %198 = ptrtoint ptr %197 to i64
   %199 = ptrtoint ptr %171 to i64
@@ -6507,7 +6507,7 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   br i1 %205, label %psa_tls12_prf_set_key.exit.i.i, label %206
 
 206:                                              ; preds = %202
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr nonnull align 1 %171, i64 %200, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr nonnull readonly align 1 %171, i64 %200, i1 false)
   %207 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %200, ptr %207, align 8
   br label %208
@@ -6540,7 +6540,7 @@ psa_tls12_prf_set_key.exit.i.i:                   ; preds = %208, %202, %192
   br i1 %216, label %psa_tls12_prf_psk_to_ms_input.exit.thread, label %217
 
 217:                                              ; preds = %213
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %214, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %214, ptr readonly align 1 %3, i64 %4, i1 false)
   br label %psa_tls12_prf_psk_to_ms_input.exit.thread41
 
 psa_tls12_prf_psk_to_ms_input.exit.thread41:      ; preds = %212, %217
@@ -6551,7 +6551,7 @@ psa_tls12_prf_psk_to_ms_input.exit.thread41:      ; preds = %212, %217
 
 219:                                              ; preds = %154
   %220 = getelementptr inbounds i8, ptr %0, i64 16
-  %221 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %220, i16 noundef zeroext %1, ptr noundef %3, i64 noundef %4)
+  %221 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %220, i16 noundef zeroext %1, ptr noundef readonly %3, i64 noundef %4)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
 psa_tls12_prf_psk_to_ms_input.exit:               ; preds = %219, %psa_tls12_prf_set_key.exit.i.i, %psa_hkdf_input.exit, %151
@@ -6656,7 +6656,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %14
   %21 = load i32, ptr %0, align 8
   %22 = and i32 %21, -151060480
   %23 = or disjoint i32 %22, 150994944
-  %24 = call fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %23, ptr noundef nonnull %15, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 66, ptr noundef nonnull %7)
+  %24 = call fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %23, ptr noundef nonnull readonly %15, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 66, ptr noundef nonnull %7)
   %.not.i18 = icmp eq i32 %24, 0
   %25 = load i64, ptr %7, align 8
   br i1 %.not.i18, label %psa_key_agreement_internal.exit, label %psa_key_agreement_internal.exit.thread
@@ -8465,7 +8465,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
   br i1 %12, label %psa_tls12_prf_set_seed.exit, label %13
 
 13:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr readonly align 1 %2, i64 %3, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %3, ptr %14, align 8
   br label %15
@@ -8493,7 +8493,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
   br i1 %23, label %psa_tls12_prf_set_seed.exit, label %24
 
 24:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr readonly align 1 %2, i64 %3, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %3, ptr %25, align 8
   br label %26
@@ -8520,7 +8520,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
   br i1 %34, label %psa_tls12_prf_set_seed.exit, label %35
 
 35:                                               ; preds = %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr readonly align 1 %2, i64 %3, i1 false)
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %3, ptr %36, align 8
   br label %37

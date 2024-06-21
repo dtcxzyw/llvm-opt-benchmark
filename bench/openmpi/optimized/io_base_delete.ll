@@ -187,7 +187,7 @@ query.exit.thread21.i.i:                          ; preds = %51, %46
   %69 = load i32, ptr %4, align 4
   %70 = getelementptr inbounds i8, ptr %56, i64 44
   %71 = getelementptr inbounds i8, ptr %56, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %71, ptr noundef nonnull align 8 dereferenceable(320) %35, i64 320, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %71, ptr noundef nonnull readonly align 8 dereferenceable(320) %35, i64 320, i1 false)
   %72 = load ptr, ptr %5, align 8
   %73 = getelementptr inbounds i8, ptr %56, i64 368
   store ptr %72, ptr %73, align 8

@@ -8901,7 +8901,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.
 .lr.ph.i.i.i.i.i.i.i515:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i515
   %.03.i.i.i.i.i.i.i = phi ptr [ %2875, %.lr.ph.i.i.i.i.i.i.i515 ], [ %2872, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   %.092.i.i.i.i.i.i.i = phi ptr [ %2874, %.lr.ph.i.i.i.i.i.i.i515 ], [ %.val16.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !74
   %2874 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 32
   %2875 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i516 = icmp eq ptr %2874, %2852
@@ -9140,7 +9140,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.
 .lr.ph.i.i.i.i.i.i71.i:                           ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i70.i, %.lr.ph.i.i.i.i.i.i71.i
   %.03.i.i.i.i.i.i72.i = phi ptr [ %2967, %.lr.ph.i.i.i.i.i.i71.i ], [ %2964, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i70.i ]
   %.092.i.i.i.i.i.i73.i = phi ptr [ %2966, %.lr.ph.i.i.i.i.i.i71.i ], [ %.val16.i.i66.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i70.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i72.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i73.i, i64 32, i1 false), !alias.scope !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i72.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i73.i, i64 32, i1 false), !alias.scope !80
   %2966 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i73.i, i64 32
   %2967 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i72.i, i64 32
   %.not.i.i.i.i.i.i74.i = icmp eq ptr %2966, %2944
@@ -10331,7 +10331,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.
 .lr.ph.i.i.i.i.i.i124.i:                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i.i620, %.lr.ph.i.i.i.i.i.i124.i
   %.03.i.i.i.i.i.i.i621 = phi ptr [ %3385, %.lr.ph.i.i.i.i.i.i124.i ], [ %3382, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i.i620 ]
   %.092.i.i.i.i.i.i.i622 = phi ptr [ %3384, %.lr.ph.i.i.i.i.i.i124.i ], [ %.sroa.0220.1406.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_M_allocateEm.exit.i.i.i620 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i621, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i622, i64 32, i1 false), !alias.scope !90
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i621, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i622, i64 32, i1 false), !alias.scope !90
   %3384 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i622, i64 32
   %3385 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i621, i64 32
   %.not.i.i.i.i.i.i125.i = icmp eq ptr %3384, %.sroa.16.1405.i
@@ -10982,7 +10982,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_111equiv_bit_tEEE8allocateERS2_m.exit.i
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc144.i
   %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %3640, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %3635, %.noexc144.i ]
   %.sroa.06.08.i.i.i.i.i.i.i.i.i = phi ptr [ %3639, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0220.1.lcssa509515.i, %.noexc144.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.08.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.06.08.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   %3639 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i, i64 32
   %3640 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i616 = icmp eq ptr %3639, %.sroa.16.4.i
@@ -11406,7 +11406,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destroy
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %3763 = load ptr, ptr %3753, align 8
   %3764 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %3763, i64 %indvars.iv.next.i.i, i32 0, i32 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3764)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3764)
           to label %.noexc707 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc707:                                        ; preds = %.lr.ph.i.i700
@@ -11442,7 +11442,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_.exi
   %3776 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %3775, i64 %indvars.iv.next57.i, i32 0, i32 1
   %3777 = load ptr, ptr %3776, align 8
   %3778 = getelementptr inbounds i8, ptr %3777, i64 72
-  invoke fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %3778, ptr noundef nonnull align 8 dereferenceable(16) %111)
+  invoke fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %3778, ptr noundef nonnull readonly align 8 dereferenceable(16) %111)
           to label %.noexc708 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc708:                                        ; preds = %.lr.ph48.i
@@ -11457,7 +11457,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_.exi
   %.sroa.06.010.i.i = phi ptr [ %3799, %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_.exit.i.i ], [ %3780, %.noexc708 ]
   %3783 = load ptr, ptr %.sroa.06.010.i.i, align 8
   %3784 = getelementptr inbounds i8, ptr %3783, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3784)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3784)
           to label %.noexc709 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc709:                                        ; preds = %.lr.ph.i21.i
@@ -11470,12 +11470,12 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_.exi
 
 .lr.ph.i.i.i704:                                  ; preds = %.noexc709, %.noexc711
   %.sroa.020.025.i.i.i = phi ptr [ %3790, %.noexc711 ], [ %3786, %.noexc709 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.020.025.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.020.025.i.i.i)
           to label %.noexc710 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc710:                                        ; preds = %.lr.ph.i.i.i704
   %3789 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i.i, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3789)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3789)
           to label %.noexc711 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc711:                                        ; preds = %.noexc710
@@ -11494,17 +11494,17 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_.exi
 .lr.ph29.i.i.i:                                   ; preds = %._crit_edge.i.i.i706, %.noexc714
   %.sroa.016.027.i.i.i = phi ptr [ %3798, %.noexc714 ], [ %3792, %._crit_edge.i.i.i706 ]
   %3795 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3795)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3795)
           to label %.noexc712 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit
 
 .noexc712:                                        ; preds = %.lr.ph29.i.i.i
   %3796 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3796)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3796)
           to label %.noexc713 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit
 
 .noexc713:                                        ; preds = %.noexc712
   %3797 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3797)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3797)
           to label %.noexc714 unwind label %.loopexit.split-lp1816.loopexit.split-lp.loopexit
 
 .noexc714:                                        ; preds = %.noexc713
@@ -11531,12 +11531,12 @@ _ZN5Yosys5RTLIL7Process16rewrite_sigspecsIN12_GLOBAL__N_113CountBitUsageEEEvRT_.
 
 .lr.ph53.i:                                       ; preds = %._crit_edge49.i, %.noexc716
   %.sroa.026.051.i = phi ptr [ %3805, %.noexc716 ], [ %3801, %._crit_edge49.i ]
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.026.051.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.026.051.i)
           to label %.noexc715 unwind label %.loopexit.split-lp1816.loopexit
 
 .noexc715:                                        ; preds = %.lr.ph53.i
   %3804 = getelementptr inbounds i8, ptr %.sroa.026.051.i, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3804)
+  invoke fastcc void @_ZN12_GLOBAL__N_113CountBitUsageclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(64) %3804)
           to label %.noexc716 unwind label %.loopexit.split-lp1816.loopexit
 
 .noexc716:                                        ; preds = %.noexc715

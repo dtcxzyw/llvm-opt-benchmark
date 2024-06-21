@@ -6363,7 +6363,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   %264 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1, ptr noundef nonnull @ei_thrift_protocol_exception) #7
   %265 = load i32, ptr @hf_thrift_exception, align 4
   %266 = load i32, ptr @ett_thrift_exception, align 4
-  %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull @thrift_exception, ptr noundef null)
+  %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull readonly @thrift_exception, ptr noundef null)
   br label %268
 
 268:                                              ; preds = %257, %261, %263

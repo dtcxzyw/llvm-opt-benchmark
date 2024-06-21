@@ -577,7 +577,7 @@ Gia_ManEraStateHash.exit.i:                       ; preds = %.lr.ph.i.i, %.lr.ph
 54:                                               ; preds = %58, %.lr.ph.i43
   %.02236.i = phi ptr [ %51, %.lr.ph.i43 ], [ %61, %58 ]
   %55 = getelementptr inbounds i8, ptr %.02236.i, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr nonnull %55, i64 %53)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %32, ptr nonnull %55, i64 %53)
   %.not29.i = icmp ne i32 %bcmp.i, 0
   tail call void @llvm.assume(i1 %.not29.i)
   %56 = getelementptr inbounds i8, ptr %.02236.i, i64 12
@@ -1415,7 +1415,7 @@ Gia_ManEraStateHash.exit.i:                       ; preds = %.lr.ph.i.i, %.crite
 148:                                              ; preds = %153, %.lr.ph.i124
   %.02236.i = phi ptr [ %145, %.lr.ph.i124 ], [ %156, %153 ]
   %149 = getelementptr inbounds i8, ptr %.02236.i, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %126, ptr nonnull %149, i64 %147)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %126, ptr nonnull %149, i64 %147)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %Gia_ManEraHashFind.exit.thread, label %150
 

@@ -53,10 +53,10 @@ define ptr @Bmc_EcoMiter(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %24
 
 24:                                               ; preds = %3
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #13
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #13
   %26 = add i64 %25, 1
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #14
-  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %23) #12
+  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %23) #12
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %24

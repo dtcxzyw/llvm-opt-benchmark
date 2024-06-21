@@ -805,10 +805,10 @@ define ptr @Acec_CommonStart(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #22
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #22
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #19
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #20
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %15) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %12, %16
@@ -820,10 +820,10 @@ Abc_UtilStrsav.exit:                              ; preds = %12, %16
   br i1 %.not.i59, label %Abc_UtilStrsav.exit60, label %24
 
 24:                                               ; preds = %Abc_UtilStrsav.exit
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #22
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #22
   %26 = add i64 %25, 1
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #19
-  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %23) #20
+  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %23) #20
   br label %Abc_UtilStrsav.exit60
 
 Abc_UtilStrsav.exit60:                            ; preds = %Abc_UtilStrsav.exit, %24

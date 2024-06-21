@@ -162,7 +162,7 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %0, 
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.pre48.i, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %1, i64 %2, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   br label %34
 
@@ -252,7 +252,7 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %0, p
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.pre48.i, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %1, i64 %3, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   br label %34
 

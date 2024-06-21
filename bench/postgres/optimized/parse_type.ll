@@ -196,7 +196,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
 96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @initStringInfo(ptr noundef nonnull %7) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull %1, ptr noundef nonnull %7)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %1, ptr noundef nonnull %7)
   %97 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %98 = call ptr @format_type_be(i32 noundef %94) #7
@@ -297,7 +297,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %146)
   %147 = call i32 @errcode(i32 noundef 16801924) #7
-  %148 = call ptr @TypeNameToString(ptr noundef nonnull %1)
+  %148 = call ptr @TypeNameToString(ptr noundef nonnull readonly %1)
   %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %148) #7
   %150 = getelementptr inbounds i8, ptr %1, i64 48
   %151 = load i32, ptr %150, align 8
@@ -315,7 +315,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   %158 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %158)
   %159 = call i32 @errcode(i32 noundef 16801924) #7
-  %160 = call ptr @TypeNameToString(ptr noundef nonnull %1)
+  %160 = call ptr @TypeNameToString(ptr noundef nonnull readonly %1)
   %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %160) #7
   %162 = getelementptr inbounds i8, ptr %1, i64 48
   %163 = load i32, ptr %162, align 8
@@ -517,7 +517,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @LookupTypeNameOid(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef %1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %2)
+  %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %15
 
@@ -556,7 +556,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @typenameType(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
+  %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %14
 
@@ -1121,7 +1121,7 @@ define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr nocaptu
 
 13:                                               ; preds = %10, %9
   %14 = phi i1 [ false, %9 ], [ %12, %10 ]
-  %15 = tail call ptr @LookupTypeNameExtended(ptr noundef null, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext %14)
+  %15 = tail call ptr @LookupTypeNameExtended(ptr noundef null, ptr noundef nonnull readonly %7, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext %14)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %23
 
@@ -1133,7 +1133,7 @@ define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr nocaptu
   %20 = tail call i32 @errcode(i32 noundef 67137668) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @initStringInfo(ptr noundef nonnull %6) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull %7, ptr noundef nonnull %6)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %7, ptr noundef nonnull %6)
   %21 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %21) #7
@@ -1161,7 +1161,7 @@ define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr nocaptu
   %36 = tail call i32 @errcode(i32 noundef 67137668) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @initStringInfo(ptr noundef nonnull %5) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %7, ptr noundef nonnull %5)
   %37 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %37) #7

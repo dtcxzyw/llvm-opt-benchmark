@@ -47,10 +47,10 @@ Vec_PtrStart.exit:                                ; preds = %8, %16
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %29
 
 29:                                               ; preds = %Vec_PtrStart.exit
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #9
+  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #9
   %31 = add i64 %30, 1
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #7
-  %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %28) #8
+  %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %28) #8
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, %29

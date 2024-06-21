@@ -1151,14 +1151,14 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   ret void
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.23, i64 %62), !alias.scope !96
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.23, i64 %62), !alias.scope !96
   %69 = icmp eq i32 %bcmp.i, 0
   %.not60 = icmp eq ptr %.sroa.05.1129, null
   %or.cond = select i1 %69, i1 %.not60, i1 false
   br i1 %or.cond, label %75, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit69": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i68 = tail call i32 @bcmp(ptr nonnull %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.24, i64 %62), !alias.scope !100
+  %bcmp.i68 = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.24, i64 %62), !alias.scope !100
   %70 = icmp eq i32 %bcmp.i68, 0
   %.not59 = icmp eq ptr %.sroa.05.1129, null
   %or.cond98 = select i1 %70, i1 %.not59, i1 false
@@ -1167,12 +1167,12 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit73": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i72 = tail call i32 @bcmp(ptr nonnull %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.25, i64 %62), !alias.scope !104
+  %bcmp.i72 = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.25, i64 %62), !alias.scope !104
   %71 = icmp eq i32 %bcmp.i72, 0
   br i1 %71, label %73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i76 = tail call i32 @bcmp(ptr nonnull %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.26, i64 %62), !alias.scope !108
+  %bcmp.i76 = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.26, i64 %62), !alias.scope !108
   %bcmp.i76.fr = freeze i32 %bcmp.i76
   %72 = icmp eq i32 %bcmp.i76.fr, 0
   %spec.select = select i1 %72, i8 1, i8 %.0131

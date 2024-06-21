@@ -923,7 +923,7 @@ uv__close_nocheckstdio.exit:                      ; preds = %1, %7
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @uv__open_file(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 524288) #22
+  %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %0, i32 noundef 524288) #22
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %uv__open_cloexec.exit
 
@@ -1727,7 +1727,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv__slurp(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 524288) #22
+  %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %0, i32 noundef 524288) #22
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %uv__open_cloexec.exit
 
@@ -1841,7 +1841,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_homedir(ptr noun
   br i1 %8, label %uv_os_getenv.exit.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #22
+  %10 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %uv_os_getenv.exit, label %12
 

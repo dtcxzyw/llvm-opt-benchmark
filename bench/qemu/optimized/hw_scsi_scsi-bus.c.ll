@@ -645,7 +645,7 @@ sw.bb67.i:                                        ; preds = %sw.bb
   br label %if.end13
 
 sw.default76.i:                                   ; preds = %sw.bb
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.bb5:                                           ; preds = %if.end
@@ -683,7 +683,7 @@ sw.bb1.i23:                                       ; preds = %sw.bb5
   br label %if.end13
 
 sw.default.i:                                     ; preds = %sw.bb5
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.bb7:                                           ; preds = %if.end
@@ -729,7 +729,7 @@ sw.bb5.i:                                         ; preds = %sw.bb7, %sw.bb7, %s
   br label %if.end13
 
 sw.default.i47:                                   ; preds = %sw.bb7
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.default:                                       ; preds = %if.end

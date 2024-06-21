@@ -839,7 +839,7 @@ _ZN4test5fopenEPKcS1_.exit.thread:                ; preds = %if.then.i
   br label %land.rhs
 
 _ZN4test5fopenEPKcS1_.exit:                       ; preds = %do.body, %if.then.i
-  %call4.i = tail call noalias ptr @fopen(ptr noundef %filename.coerce, ptr noundef %mode.coerce)
+  %call4.i = tail call noalias ptr @fopen(ptr noundef readonly %filename.coerce, ptr noundef readonly %mode.coerce)
   store ptr %call4.i, ptr %this, align 8
   %cmp = icmp eq ptr %call4.i, null
   br i1 %cmp, label %_ZN4test5fopenEPKcS1_.exit.land.rhs_crit_edge, label %if.end
@@ -1077,7 +1077,7 @@ _ZN4test4openEPKcii.exit.thread:                  ; preds = %if.then.i
   br label %land.rhs
 
 _ZN4test4openEPKcii.exit:                         ; preds = %do.body, %if.then.i
-  %call4.i = tail call i32 (ptr, i32, ...) @open(ptr noundef %path.coerce, i32 noundef %oflag, i32 noundef 438)
+  %call4.i = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %path.coerce, i32 noundef %oflag, i32 noundef 438)
   store i32 %call4.i, ptr %this, align 4
   %cmp = icmp eq i32 %call4.i, -1
   br i1 %cmp, label %_ZN4test4openEPKcii.exit.land.rhs_crit_edge, label %if.end
@@ -1440,7 +1440,7 @@ _ZN4test5writeEiPKvm.exit.thread:                 ; preds = %if.then.i
   br label %land.rhs
 
 _ZN4test5writeEiPKvm.exit:                        ; preds = %do.body, %if.then.i
-  %call4.i = tail call i64 @write(i32 noundef %0, ptr noundef %buffer, i64 noundef %count)
+  %call4.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %buffer, i64 noundef %count)
   %cmp = icmp eq i64 %call4.i, -1
   br i1 %cmp, label %_ZN4test5writeEiPKvm.exit.land.rhs_crit_edge, label %do.end
 
@@ -1873,7 +1873,7 @@ _ZN4test6fdopenEiPKc.exit.thread:                 ; preds = %if.then.i
   br label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file6fdopenEPKcENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit"
 
 _ZN4test6fdopenEiPKc.exit:                        ; preds = %entry, %if.then.i
-  %call4.i = tail call noalias ptr @fdopen(i32 noundef %0, ptr noundef %mode) #23
+  %call4.i = tail call noalias ptr @fdopen(i32 noundef %0, ptr noundef readonly %mode) #23
   %tobool.not = icmp eq ptr %call4.i, null
   br i1 %tobool.not, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file6fdopenEPKcENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit", label %if.end
 

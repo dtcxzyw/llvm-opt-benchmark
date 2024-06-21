@@ -3138,18 +3138,18 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %or.cond1.not.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %if.end
-  %call4.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
+  %call4.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef readonly %self)
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %exit, label %if.end15.i
 
 if.end.thread.i:                                  ; preds = %if.end
-  %call.i = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef %self)
+  %call.i = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef readonly %self)
   %cmp514.i = icmp eq ptr %call.i, null
   br i1 %cmp514.i, label %if.then7.i, label %if.end15.i
 
 if.then7.i:                                       ; preds = %if.end.thread.i
   %call8.i = tail call ptr @PyErr_GetRaisedException() #6
-  %call9.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
+  %call9.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef readonly %self)
   %cmp10.i = icmp eq ptr %call9.i, null
   br i1 %cmp10.i, label %if.then11.i, label %if.else12.i
 
@@ -3959,7 +3959,7 @@ land.lhs.true:                                    ; preds = %entry
 
 exit.sink.split:                                  ; preds = %land.lhs.true, %entry
   %call.sink = phi i32 [ %call, %entry ], [ -1, %land.lhs.true ]
-  %call.i = tail call fastcc ptr @setlimit_impl(ptr noundef %self, i32 noundef %call.sink, i32 noundef -1)
+  %call.i = tail call fastcc ptr @setlimit_impl(ptr noundef readonly %self, i32 noundef %call.sink, i32 noundef -1)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true

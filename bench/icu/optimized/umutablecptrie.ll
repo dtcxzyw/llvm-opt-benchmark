@@ -272,7 +272,7 @@ _ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEEC2EPS2_R10UErr
   %flags.i = getelementptr inbounds i8, ptr %call3, i64 64
   %flags27.i = getelementptr inbounds i8, ptr %other, i64 64
   %conv29.i = sext i32 %shr.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %flags.i, ptr nonnull align 8 %flags27.i, i64 %conv29.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %flags.i, ptr nonnull readonly align 8 %flags27.i, i64 %conv29.i, i1 false)
   %14 = load ptr, ptr %other, align 8
   %mul33.i = shl nsw i32 %shr.i, 2
   %conv34.i = sext i32 %mul33.i to i64

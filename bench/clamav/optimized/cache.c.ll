@@ -740,7 +740,7 @@ define void @clean_cache_remove(ptr noundef readonly %0, i64 noundef %1, ptr nou
 
 26:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 1 dereferenceable(16) %0, i64 16, i1 false)
   %27 = call fastcc i32 @splay(ptr noundef nonnull %4, i64 noundef %1, ptr noundef nonnull %22)
   %.not.not.i = icmp eq i32 %27, 0
   br i1 %.not.not.i, label %28, label %29
@@ -986,7 +986,7 @@ define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly %0, i64 nound
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 1 dereferenceable(16) %0, i64 16, i1 false)
   %37 = call fastcc i32 @splay(ptr noundef nonnull %4, i64 noundef %1, ptr noundef nonnull %32)
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %56, label %38

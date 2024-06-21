@@ -197,7 +197,7 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i
 _ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %lor.rhs.i.i
   %sub.i.i = sub i64 %4, %type_name.coerce0
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %5, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i1.i, ptr %type_name.coerce1, i64 %type_name.coerce0)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i1.i, ptr readonly %type_name.coerce1, i64 %type_name.coerce0)
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp9.i.i, label %if.end, label %return
 

@@ -1563,7 +1563,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then5
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name1) #11
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name1) #11
   %add.i = add i64 %call.i, 1
   br label %cond.end.i
 
@@ -1573,7 +1573,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.th
   br i1 %tobool1.not.i, label %cond.end6.i, label %cond.true2.i
 
 cond.true2.i:                                     ; preds = %cond.end.i
-  %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name2) #11
+  %call3.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name2) #11
   %4 = trunc i64 %call3.i to i32
   %5 = add i32 %4, 1
   br label %cond.end6.i
@@ -1583,14 +1583,14 @@ cond.end6.i:                                      ; preds = %cond.true2.i, %cond
   br i1 %tobool9.not.i, label %cond.end14.i, label %cond.true10.i
 
 cond.true10.i:                                    ; preds = %cond.end6.i
-  %call11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ancestor_name) #11
+  %call11.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %ancestor_name) #11
   %6 = trunc i64 %call11.i to i32
   %7 = add i32 %6, 1
   br label %cond.end14.i
 
 cond.end14.i:                                     ; preds = %cond.true10.i, %cond.end6.i
   %cond15.i = phi i32 [ %7, %cond.true10.i ], [ 0, %cond.end6.i ]
-  %call17.i = tail call fastcc i32 @is_cr_needed(ptr noundef %xe1, ptr noundef %xe2, ptr noundef nonnull %m.addr.0151)
+  %call17.i = tail call fastcc i32 @is_cr_needed(ptr noundef readonly %xe1, ptr noundef readonly %xe2, ptr noundef nonnull readonly %m.addr.0151)
   %i1.i = getelementptr inbounds i8, ptr %m.addr.0151, i64 16
   %8 = load i64, ptr %i1.i, align 8
   %9 = trunc i64 %8 to i32
@@ -1670,7 +1670,7 @@ if.then39.i:                                      ; preds = %if.else.i
   %sub43.i = shl i64 %cond.i, 32
   %sext.i = add i64 %sub43.i, -4294967296
   %conv44.i = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr42.i, ptr align 1 %name1, i64 %conv44.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr42.i, ptr readonly align 1 %name1, i64 %conv44.i, i1 false)
   %add45.i = add nsw i32 %add37.i, %conv.i
   br label %if.end46.i
 
@@ -1831,7 +1831,7 @@ if.then85.i:                                      ; preds = %if.else79.i
   %add.ptr90.i = getelementptr inbounds i8, ptr %arrayidx87.i, i64 1
   %sub91.i = add nsw i32 %cond15.i, -1
   %conv92.i = sext i32 %sub91.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr90.i, ptr align 1 %ancestor_name, i64 %conv92.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr90.i, ptr readonly align 1 %ancestor_name, i64 %conv92.i, i1 false)
   %add93.i = add nsw i32 %add83.i, %cond15.i
   br label %if.end94.i
 
@@ -2136,7 +2136,7 @@ if.then160.i:                                     ; preds = %if.else154.i
   %add.ptr165.i = getelementptr inbounds i8, ptr %arrayidx162.i, i64 1
   %sub166.i = add nsw i32 %cond7.i, -1
   %conv167.i = sext i32 %sub166.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr165.i, ptr align 1 %name2, i64 %conv167.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr165.i, ptr readonly align 1 %name2, i64 %conv167.i, i1 false)
   %add168.i = add nsw i32 %add158.i, %cond7.i
   br label %if.end169.i
 

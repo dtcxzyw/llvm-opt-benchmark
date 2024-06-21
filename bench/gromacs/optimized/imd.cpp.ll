@@ -4088,7 +4088,7 @@ define void @_ZN3gmx10ImdSession24sendPositionsAndEnergiesEv(ptr nocapture nound
   %15 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %12, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %16, ptr noundef nonnull align 4 dereferenceable(40) %10, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %16, ptr noundef nonnull readonly align 4 dereferenceable(40) %10, i64 40, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %8

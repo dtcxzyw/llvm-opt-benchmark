@@ -2668,7 +2668,7 @@ default.unreachable103:                           ; preds = %146
   %268 = extractvalue { i64, ptr } %259, 1
   %269 = icmp ne ptr %268, null
   call void @llvm.assume(i1 %269), !noalias !437
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %268, ptr nonnull align 1 %257, i64 %258, i1 false), !noalias !437
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %268, ptr nonnull readonly align 1 %257, i64 %258, i1 false), !noalias !437
   %270 = getelementptr inbounds i8, ptr %.sroa.13.0, i64 24
   store i64 %267, ptr %35, align 8, !noalias !452
   store ptr %268, ptr %.sroa.425.0..sroa_idx, align 8, !noalias !452
@@ -2923,7 +2923,7 @@ _ZN12typst_render12render_group17h1189fe8a8ad27cdcE.exit: ; preds = %282, %289
 
 351:                                              ; preds = %341
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !601
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %349, i64 40, i1 false), !noalias !599
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %349, i64 40, i1 false), !noalias !599
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !601
   call void @_ZN10ttf_parser6tables4sbix5Table11best_strike17h4d55bfd727d0576cE(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i16 noundef %348), !noalias !602
   %352 = load ptr, ptr %9, align 8, !noalias !601, !noundef !128
@@ -2952,7 +2952,7 @@ _ZN12typst_render12render_group17h1189fe8a8ad27cdcE.exit: ; preds = %282, %289
 
 358:                                              ; preds = %353
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !601
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %354, i64 32, i1 false), !noalias !599
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %354, i64 32, i1 false), !noalias !599
   call void @_ZN10ttf_parser6tables4cbdt5Table3get17hc0cbd2fd0250a58eE(ptr noalias nocapture noundef nonnull sret({ [26 x i8], i8, [5 x i8] }) align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i16 noundef %319, i16 noundef %348), !noalias !603
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !601
   br label %_ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i
@@ -2965,7 +2965,7 @@ _ZN12typst_render12render_group17h1189fe8a8ad27cdcE.exit: ; preds = %282, %289
 
 362:                                              ; preds = %359
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !601
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %360, i64 32, i1 false), !noalias !599
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %360, i64 32, i1 false), !noalias !599
   call void @_ZN10ttf_parser6tables4cbdt5Table3get17hc0cbd2fd0250a58eE(ptr noalias nocapture noundef nonnull sret({ [26 x i8], i8, [5 x i8] }) align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i16 noundef %319, i16 noundef %348), !noalias !603
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !601
   br label %_ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i
@@ -2978,7 +2978,7 @@ _ZN12typst_render12render_group17h1189fe8a8ad27cdcE.exit: ; preds = %282, %289
 
 366:                                              ; preds = %363
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !601
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %364, i64 32, i1 false), !noalias !599
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %364, i64 32, i1 false), !noalias !599
   call void @_ZN10ttf_parser6tables4cbdt5Table3get17hc0cbd2fd0250a58eE(ptr noalias nocapture noundef nonnull sret({ [26 x i8], i8, [5 x i8] }) align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i16 noundef %319, i16 noundef %348), !noalias !603
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !601
   br label %_ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i
@@ -3388,7 +3388,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit: ; pr
   br label %.body
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he39be35e0fa3f187E.exit": ; preds = %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.d826bc7b5104a02f59040d00c4e2e6a7.30, ptr noundef nonnull dereferenceable(2) %80, i64 2), !alias.scope !676
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.d826bc7b5104a02f59040d00c4e2e6a7.30, ptr noundef nonnull readonly dereferenceable(2) %80, i64 2), !alias.scope !676
   %85 = icmp eq i32 %bcmp.i.i, 0
   br i1 %85, label %86, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he39be35e0fa3f187E.exit.thread"
 
@@ -4620,7 +4620,7 @@ default.unreachable161:                           ; preds = %71
 222:                                              ; preds = %220
   %.sroa.5.0..sroa_idx.i115 = getelementptr inbounds i8, ptr %64, i64 8
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx2.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i115, i64 32, i1 false), !noalias !849
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx2.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i115, i64 32, i1 false), !noalias !849
   store i64 %219, ptr %12, align 8, !noalias !855
   %223 = getelementptr inbounds i8, ptr %64, i64 2448
   %224 = load i8, ptr %223, align 8, !alias.scope !852, !noalias !849, !noundef !128
@@ -4778,7 +4778,7 @@ default.unreachable161:                           ; preds = %71
   %301 = getelementptr inbounds i8, ptr %300, i64 %.sroa.014.0.i.i.i.i
   %302 = sub nuw nsw i64 %.sroa.416.0.i.i.i.i, %.sroa.014.0.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %8), !noalias !860
-  invoke fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef nonnull align 2 dereferenceable(10) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 1 %300, i64 noundef %282, ptr noalias noundef nonnull readonly align 1 %301, i64 noundef %302, i8 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
+  invoke fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef nonnull align 2 dereferenceable(10) %8, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 1 %300, i64 noundef %282, ptr noalias noundef nonnull readonly align 1 %301, i64 noundef %302, i8 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
           to label %.noexc120 unwind label %451
 
 .noexc120:                                        ; preds = %298
@@ -6572,7 +6572,7 @@ default.unreachable60:                            ; preds = %9
   %97 = tail call <2 x i32> @llvm.umax.v2i32(<2 x i32> %94, <2 x i32> %96)
   store <2 x i32> %97, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1046
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !1050
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !1050
   %98 = invoke noundef nonnull ptr @_ZN6comemo5cache8memoized17h7dbd3d7a875918ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %11, ptr noalias noundef nonnull readonly align 1 %10, ptr noundef nonnull align 8 @_ZN12typst_render11to_sk_paint6cached7__CACHE17h8947a3a65ecd3cb4E)
           to label %99 unwind label %53
 

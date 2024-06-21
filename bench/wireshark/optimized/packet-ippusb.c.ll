@@ -206,7 +206,7 @@ get_ippusb_conversation_data.exit:                ; preds = %24, %27
   br i1 %43, label %44, label %is_http_header.exit.thread
 
 44:                                               ; preds = %42
-  %45 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #6
+  %45 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #6
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %is_http_header.exit, label %47
 
@@ -215,7 +215,7 @@ get_ippusb_conversation_data.exit:                ; preds = %24, %27
   br i1 %48, label %49, label %is_http_header.exit.thread
 
 49:                                               ; preds = %47
-  %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #6
+  %50 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #6
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %is_http_header.exit, label %52
 
@@ -224,7 +224,7 @@ get_ippusb_conversation_data.exit:                ; preds = %24, %27
   br i1 %53, label %54, label %is_http_header.exit.thread
 
 54:                                               ; preds = %52
-  %55 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #6
+  %55 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #6
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %is_http_header.exit, label %is_http_header.exit.thread
 
@@ -288,7 +288,7 @@ is_http_header.exit:                              ; preds = %44, %49, %54
   br i1 %43, label %90, label %is_http_header.exit266
 
 90:                                               ; preds = %87
-  %91 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #6
+  %91 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #6
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %103, label %93
 
@@ -297,7 +297,7 @@ is_http_header.exit:                              ; preds = %44, %49, %54
   br i1 %94, label %95, label %is_http_header.exit266
 
 95:                                               ; preds = %93
-  %96 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #6
+  %96 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #6
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %103, label %98
 
@@ -306,7 +306,7 @@ is_http_header.exit:                              ; preds = %44, %49, %54
   br i1 %99, label %100, label %is_http_header.exit266
 
 100:                                              ; preds = %98
-  %101 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #6
+  %101 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #6
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %is_http_header.exit266
 

@@ -1186,14 +1186,14 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   %stdID9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %12 = load ptr, ptr %stdID9.i, align 8
-  %call.i26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %7) #32
+  %call.i26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %7) #32
   %cmp10.i = icmp eq i32 %call.i26, 0
   br i1 %cmp10.i, label %land.lhs.true11.i, label %for.inc.i
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true6.i
   %dstID14.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %13 = load ptr, ptr %dstID14.i, align 16
-  %call15.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %8) #32
+  %call15.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %8) #32
   %cmp16.i = icmp eq i32 %call15.i, 0
   br i1 %cmp16.i, label %_ZL18remapShortTimeZonePKcS0_ii.exit, label %for.inc.i
 
@@ -1529,7 +1529,7 @@ if.then.i:                                        ; preds = %if.else
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else
-  %call2.i = call noalias ptr @fopen(ptr noundef %27, ptr noundef nonnull @.str.23)
+  %call2.i = call noalias ptr @fopen(ptr noundef readonly %27, ptr noundef nonnull @.str.23)
   store i32 0, ptr %defaultTZPosition.i, align 4
   %cmp3.not.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.not.i, label %invoke.cont59.thread, label %land.lhs.true.i
@@ -1843,7 +1843,7 @@ if.end.i2:                                        ; preds = %if.then2.i
   br i1 %cmp1.i.i, label %if.end11.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i2
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select.i) #32
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #32
   %add.i.i = shl i64 %call.i.i, 32
   %sext.i.i = add i64 %add.i.i, 8589934592
   %conv3.i.i = ashr exact i64 %sext.i.i, 32
@@ -1852,7 +1852,7 @@ if.else.i.i:                                      ; preds = %if.end.i2
   br i1 %cmp5.i.i, label %_ZL19dataDirectoryInitFnv.exit, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.else.i.i
-  %call7.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call4.i.i, ptr noundef nonnull dereferenceable(1) %spec.store.select.i) #29
+  %call7.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call4.i.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #29
   %.pre.i = load ptr, ptr @_ZL14gDataDirectory, align 8
   %tobool.not.i.i = icmp eq ptr %.pre.i, null
   br i1 %tobool.not.i.i, label %if.end11.i.i, label %land.lhs.true.i.i

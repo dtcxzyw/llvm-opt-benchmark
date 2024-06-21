@@ -4637,7 +4637,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %207 = add nsw i32 %.lcssa.i.i, 1
   store i32 %207, ptr %15, align 4
   %208 = getelementptr inbounds [32 x [8 x i8]], ptr %16, i64 0, i64 %.pre-phi.i118.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %208, ptr nonnull dereferenceable(1) %6)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %208, ptr nonnull readonly dereferenceable(1) %6)
   %209 = load i32, ptr %15, align 4
   %210 = add nsw i32 %209, -1
   store i32 %210, ptr %30, align 4
@@ -5215,7 +5215,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %274 = add nsw i32 %.lcssa.i.i, 1
   store i32 %274, ptr %18, align 4
   %275 = getelementptr inbounds [32 x [8 x i8]], ptr %19, i64 0, i64 %.pre-phi.i.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %275, ptr nonnull dereferenceable(1) %6)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %275, ptr nonnull readonly dereferenceable(1) %6)
   %276 = load i32, ptr %18, align 4
   %277 = add nsw i32 %276, -1
   store i32 %277, ptr %43, align 4
@@ -8897,7 +8897,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %913 = add nsw i32 %.lcssa.i.i, 1
   store i32 %913, ptr %25, align 4
   %914 = getelementptr inbounds [32 x [8 x i8]], ptr %26, i64 0, i64 %.pre-phi.i.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %914, ptr nonnull dereferenceable(1) %6)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %914, ptr nonnull readonly dereferenceable(1) %6)
   %915 = load i32, ptr %25, align 4
   %916 = add nsw i32 %915, -1
   store i32 %916, ptr %48, align 4
@@ -10717,7 +10717,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %788 = add nsw i32 %.lcssa.i.i, 1
   store i32 %788, ptr %23, align 4
   %789 = getelementptr inbounds [32 x [8 x i8]], ptr %24, i64 0, i64 %.pre-phi.i.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %789, ptr nonnull dereferenceable(1) %8)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %789, ptr nonnull readonly dereferenceable(1) %8)
   %790 = load i32, ptr %23, align 4
   %791 = add nsw i32 %790, -1
   store i32 %791, ptr %49, align 4

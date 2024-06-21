@@ -3718,7 +3718,7 @@ ractor_alloc.exit:                                ; preds = %6, %16
   br i1 %.not.i.i13, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %40
-  %45 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %43) #38
+  %45 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %43) #38
   %.not3.i.i = icmp eq i32 %45, 0
   br i1 %.not3.i.i, label %48, label %rb_enc_asciicompat.exit.thread.i
 
@@ -5354,7 +5354,7 @@ ractor_queue_enq.exit.i:                          ; preds = %._crit_edge.i.i, %6
   %99 = srem i32 %98, %93
   %100 = sext i32 %99 to i64
   %101 = getelementptr %struct.rb_ractor_basket, ptr %95, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false)
   %102 = icmp eq ptr %.054.i, null
   %spec.select.i = select i1 %102, ptr %63, ptr %.054.i
   %103 = load ptr, ptr %2, align 8
@@ -5449,7 +5449,7 @@ ractor_queue_enq.exit38.i:                        ; preds = %._crit_edge.i31.i, 
   %155 = srem i32 %154, %149
   %156 = sext i32 %155 to i64
   %157 = getelementptr %struct.rb_ractor_basket, ptr %151, i64 %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false)
   br label %158
 
 ractor_deq_take_basket.exit.thread:               ; preds = %112, %ractor_queue_deq.exit.i, %108, %.lr.ph.i, %7

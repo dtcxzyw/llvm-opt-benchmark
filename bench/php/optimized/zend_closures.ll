@@ -1355,7 +1355,7 @@ define internal ptr @zend_closure_get_method(ptr noundef %0, ptr noundef %1, ptr
   %11 = load ptr, ptr %0, align 8
   %12 = tail call noalias ptr @_emalloc_256() #13
   %13 = getelementptr inbounds i8, ptr %11, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(80) %13, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull readonly align 8 dereferenceable(80) %13, i64 80, i1 false)
   store i8 1, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 60
   %15 = load i32, ptr %14, align 4

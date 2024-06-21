@@ -428,7 +428,7 @@ if.then90.i.i:                                    ; preds = %if.end84.i.i
 
 if.then93.i.i:                                    ; preds = %if.then90.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 4
-  %call.i.i.i = call i64 @strspn(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
+  %call.i.i.i = call i64 @strspn(ptr noundef nonnull readonly %add.ptr.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
   %sext.i.i.i = shl i64 %call.i.i.i, 32
   %idxprom.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idxprom.i.i.i
@@ -440,8 +440,8 @@ if.then.i65.i.i:                                  ; preds = %if.then93.i.i
   %sext22.i.i.i = add i64 %sext.i.i.i, 4294967296
   %idx.ext.i.i.i = ashr exact i64 %sext22.i.i.i, 32
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.i
-  %call4.i.i.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr3.i.i.i) #10
-  %call5.i.i.i = call i64 @strspn(ptr noundef nonnull %add.ptr3.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
+  %call4.i.i.i = call i32 @atoi(ptr nocapture noundef nonnull readonly %add.ptr3.i.i.i) #10
+  %call5.i.i.i = call i64 @strspn(ptr noundef nonnull readonly %add.ptr3.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i65.i.i, %if.then93.i.i
@@ -608,7 +608,7 @@ if.then.i5.i:                                     ; preds = %get_one_patchid.exi
   br label %flush_current_id.exit.i
 
 flush_current_id.exit.i:                          ; preds = %if.then.i5.i, %get_one_patchid.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i, ptr noundef nonnull align 4 dereferenceable(32) %n.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %n.i, i64 32, i1 false)
   %51 = load i32, ptr %algo.i75.i.i, align 4
   store i32 %51, ptr %algo.i.i, align 4
   %52 = load ptr, ptr @stdin, align 8

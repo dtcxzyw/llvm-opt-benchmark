@@ -3773,13 +3773,13 @@ call113.i.noexc:                                  ; preds = %if.else.i
 
 call.i.noexc.i:                                   ; preds = %call113.i.noexc
   store ptr %call.i197.i, ptr %call113.i109, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i197.i, ptr align 1 %35, i64 %conv.i.i96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i197.i, ptr readonly align 1 %35, i64 %conv.i.i96, i1 false)
   %call9.i198.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv3.i.i) #22
           to label %invoke.cont117.i unwind label %lpad116.i
 
 invoke.cont117.i:                                 ; preds = %call.i.noexc.i
   store ptr %call9.i198.i, ptr %sampleCountTableData.i196.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call9.i198.i, ptr align 1 %38, i64 %conv3.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call9.i198.i, ptr readonly align 1 %38, i64 %conv3.i.i, i1 false)
   br i1 %cmp.not3.i.i.i.i, label %if.then.i.i97, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %invoke.cont117.i, %if.end.i.i.i.i.i
@@ -4627,7 +4627,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_219DeepTiledOutputFile9writeTileEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_219DeepTiledOutputFile10writeTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dx, i32 noundef %dy, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
+  tail call void @_ZN7Imf_3_219DeepTiledOutputFile10writeTilesEiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dx, i32 noundef %dy, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
   ret void
 }
 

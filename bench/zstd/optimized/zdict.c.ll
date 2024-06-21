@@ -1614,7 +1614,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %for.inc361.i.i.i, %
   br i1 %cmp119.i.i, label %for.cond105.backedge.i.i, label %if.end123.i.i
 
 if.end123.i.i:                                    ; preds = %ZDICT_analyzePos.exit.i.i
-  %call.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i, i32 %retval.sroa.7.0.i.i.i, i32 noundef 0, ptr noundef nonnull %call1)
+  %call.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i, i32 %retval.sroa.7.0.i.i.i, i32 noundef 0, ptr noundef nonnull readonly %call1)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end5.i.i.i, label %while.body.i.preheader.i.i
 
@@ -1624,7 +1624,7 @@ while.body.i.preheader.i.i:                       ; preds = %if.end123.i.i
   %arrayidx.coerce.sroa.0.0.copyload.i86.i.i = load i64, ptr %arrayidx.i6685.i.i, align 4
   %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i87.i.i = getelementptr inbounds i8, ptr %arrayidx.i6685.i.i, i64 8
   %arrayidx.coerce.sroa.2.0.copyload.i88.i.i = load i32, ptr %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i87.i.i, align 4
-  %call2.i89.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i86.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i88.i.i, i32 noundef %call.i.i.i, ptr noundef nonnull %call1)
+  %call2.i89.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i86.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i88.i.i, i32 noundef %call.i.i.i, ptr noundef nonnull readonly %call1)
   %tobool3.not.i90.i.i = icmp eq i32 %call2.i89.i.i, 0
   br i1 %tobool3.not.i90.i.i, label %ZDICT_insertDictItem.exit.i.i, label %for.cond.preheader.i.i.i.i
 
@@ -1663,7 +1663,7 @@ if.end.i.i.i:                                     ; preds = %for.end.loopexit.i.
   %arrayidx.coerce.sroa.0.0.copyload.i.i.i = load i64, ptr %arrayidx.i66.i.i, align 4
   %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i66.i.i, i64 8
   %arrayidx.coerce.sroa.2.0.copyload.i.i.i = load i32, ptr %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i.i.i, align 4
-  %call2.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i.i.i, i32 noundef %call2.i93.i.i, ptr noundef nonnull %call1)
+  %call2.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i.i.i, i32 noundef %call2.i93.i.i, ptr noundef nonnull readonly %call1)
   %tobool3.not.i.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool3.not.i.i.i, label %ZDICT_insertDictItem.exit.i.i, label %for.cond.preheader.i.i.i.i, !llvm.loop !39
 
@@ -2006,7 +2006,7 @@ for.end278.i:                                     ; preds = %if.end269.i, %for.e
   store i32 %params13.sroa.4.0.copyload, ptr %byval-temp.i, align 8
   %params13.sroa.5.4.byval-temp.i.sroa_idx = getelementptr inbounds i8, ptr %byval-temp.i, i64 4
   store <2 x i32> %1, ptr %params13.sroa.5.4.byval-temp.i.sroa_idx, align 4
-  %call281.i = tail call fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr noundef %dictBuffer, i64 noundef %conv279.i, i64 noundef %dictBufferCapacity, ptr noundef nonnull %call1, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %byval-temp.i)
+  %call281.i = tail call fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr noundef %dictBuffer, i64 noundef %conv279.i, i64 noundef %dictBufferCapacity, ptr noundef nonnull %call1, ptr noundef readonly %samplesSizes, i32 noundef %nbSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %byval-temp.i)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %for.body.i19, %for.body260.i, %for.end278.i, %if.then125.critedge.i, %ZDICT_dictSize.exit154.i, %if.end120.i, %if.end34.i, %if.end.i

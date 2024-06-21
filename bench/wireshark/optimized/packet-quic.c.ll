@@ -1155,7 +1155,7 @@ define hidden void @quic_add_stateless_reset_token(ptr noundef %0, ptr noundef %
 
 quic_connection_equal.exit:                       ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.134, i64 9
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %21, ptr nonnull %15, i64 %16)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %21, ptr nonnull readonly %15, i64 %16)
   %.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i.not, label %.loopexit.sink.split, label %quic_connection_equal.exit.thread
 
@@ -1733,7 +1733,7 @@ quic_connection_create.exit.i:                    ; preds = %174, %169
 
 184:                                              ; preds = %quic_connection_create.exit.i
   %185 = getelementptr inbounds i8, ptr %140, i64 440
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %185, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %185, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
   %186 = load ptr, ptr @quic_client_connections, align 8
   %187 = call ptr @wmem_map_remove(ptr noundef %186, ptr noundef nonnull %185) #15
   %188 = call ptr @wmem_map_insert(ptr noundef %186, ptr noundef nonnull %185, ptr noundef nonnull %140) #15
@@ -1753,7 +1753,7 @@ quic_connection_create.exit.i:                    ; preds = %174, %169
 
 197:                                              ; preds = %195
   %198 = getelementptr inbounds i8, ptr %140, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %198, ptr noundef nonnull align 8 dereferenceable(56) %43, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %198, ptr noundef nonnull readonly align 8 dereferenceable(56) %43, i64 56, i1 false)
   %199 = load ptr, ptr @quic_initial_connections, align 8
   %200 = call ptr @wmem_map_insert(ptr noundef %199, ptr noundef nonnull %198, ptr noundef nonnull %140) #15
   %201 = getelementptr inbounds i8, ptr %140, i64 34
@@ -1773,7 +1773,7 @@ quic_connection_create.exit.i:                    ; preds = %174, %169
   br i1 %or.cond219, label %quic_connection_create_or_update.exit, label %209
 
 209:                                              ; preds = %204
-  call fastcc void @quic_connection_update_initial(ptr noundef nonnull %.0194.ph, ptr noundef nonnull %44, ptr noundef nonnull %43)
+  call fastcc void @quic_connection_update_initial(ptr noundef nonnull %.0194.ph, ptr noundef nonnull readonly %44, ptr noundef nonnull readonly %43)
   %210 = load ptr, ptr @quic_server_connections, align 8
   %211 = getelementptr inbounds i8, ptr %.0194.ph, i64 496
   %212 = getelementptr inbounds i8, ptr %.0194.ph, i64 504
@@ -1825,7 +1825,7 @@ quic_connection_create.exit.i:                    ; preds = %174, %169
   br i1 %or.cond220, label %quic_connection_create_or_update.exit, label %229
 
 229:                                              ; preds = %.thread35.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %225, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %225, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
   %230 = load ptr, ptr @quic_server_connections, align 8
   %231 = call ptr @wmem_map_remove(ptr noundef %230, ptr noundef nonnull %225) #15
   %232 = call ptr @wmem_map_insert(ptr noundef %230, ptr noundef nonnull %225, ptr noundef nonnull %.0194.ph313) #15
@@ -2071,7 +2071,7 @@ check_dcid_on_coalesced_packet.exit.thread208:    ; preds = %339, %327
 
 check_dcid_on_coalesced_packet.exit:              ; preds = %347
   %351 = zext i8 %348 to i64
-  %bcmp.i.i150 = call i32 @bcmp(ptr nonnull %270, ptr nonnull %272, i64 %351)
+  %bcmp.i.i150 = call i32 @bcmp(ptr nonnull readonly %270, ptr nonnull readonly %272, i64 %351)
   %.not.i.i151.not = icmp eq i32 %bcmp.i.i150, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38)
   br i1 %.not.i.i151.not, label %353, label %.loopexit
@@ -2286,7 +2286,7 @@ quic_get_long_packet_type.exit:                   ; preds = %434
   call void @col_set_str(ptr noundef %444, i32 noundef 25, ptr noundef nonnull @.str.479) #15
   %445 = load i32, ptr @hf_quic_vn_unused, align 4
   %446 = call ptr @proto_tree_add_item(ptr noundef %.1109, i32 noundef %445, ptr noundef %.0.i154, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
-  %447 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i154, ptr noundef %1, ptr noundef %.1109, ptr noundef nonnull %34, ptr noundef nonnull %35)
+  %447 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i154, ptr noundef readonly %1, ptr noundef %.1109, ptr noundef nonnull %34, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35)
   %448 = add i32 %447, %.0111
@@ -2311,7 +2311,7 @@ quic_get_long_packet_type.exit:                   ; preds = %434
   call void @col_set_str(ptr noundef %455, i32 noundef 25, ptr noundef nonnull @.str) #15
   %456 = load i32, ptr @hf_quic_vn_unused, align 4
   %457 = call ptr @proto_tree_add_item(ptr noundef %.1109, i32 noundef %456, ptr noundef %.0.i154, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
-  %458 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i154, ptr noundef %1, ptr noundef %.1109, ptr noundef nonnull %32, ptr noundef nonnull %33)
+  %458 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i154, ptr noundef readonly %1, ptr noundef %.1109, ptr noundef nonnull %32, ptr noundef nonnull %33)
   %459 = call i32 @tvb_reported_length_remaining(ptr noundef %.0.i154, i32 noundef %458) #15
   %460 = icmp sgt i32 %459, 0
   br i1 %460, label %.lr.ph.i159, label %dissect_quic_version_negotiation.exit
@@ -2812,7 +2812,7 @@ dissect_quic_retry_packet.exit:                   ; preds = %508, %is_quic_draft
 quic_connection_equal.exit.i:                     ; preds = %637
   %642 = getelementptr inbounds i8, ptr %601, i64 561
   %643 = zext i8 %639 to i64
-  %bcmp.i.i173 = call i32 @bcmp(ptr nonnull %273, ptr nonnull %642, i64 %643)
+  %bcmp.i.i173 = call i32 @bcmp(ptr nonnull readonly %273, ptr nonnull readonly %642, i64 %643)
   %.not.i.not.i = icmp eq i32 %bcmp.i.i173, 0
   br i1 %.not.i.not.i, label %644, label %quic_connection_equal.exit.thread.i
 
@@ -4595,7 +4595,7 @@ quic_connection_equal.exit:                       ; preds = %29
   %33 = getelementptr inbounds i8, ptr %2, i64 1
   %34 = getelementptr inbounds i8, ptr %.0, i64 561
   %35 = zext i8 %28 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %33, ptr nonnull %34, i64 %35)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %33, ptr nonnull readonly %34, i64 %35)
   %.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i.not, label %.thread97, label %quic_connection_equal.exit.thread
 
@@ -5608,7 +5608,7 @@ quic_is_pp_cipher_initialized.exit:               ; preds = %21
   %57 = add i32 %50, %4
   %58 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %57, i64 noundef 16) #15
   %59 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %59, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %12, ptr noundef nonnull readonly align 8 dereferenceable(12) %59, i64 12, i1 false)
   %60 = getelementptr inbounds i8, ptr %12, i64 4
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64

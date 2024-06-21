@@ -561,7 +561,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 .lr.ph.i27:                                       ; preds = %61, %65
   %.037.i = phi ptr [ %.0.i, %65 ], [ %.035.i, %61 ]
   %63 = load ptr, ptr %.037.i, align 8
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %1) #20
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) %1) #20
   %.not32.i = icmp eq i32 %64, 0
   br i1 %.not32.i, label %onas_ht_get.exit, label %65
 
@@ -901,7 +901,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 .lr.ph.i37:                                       ; preds = %57, %61
   %.037.i = phi ptr [ %.0.i, %61 ], [ %.035.i, %57 ]
   %59 = load ptr, ptr %.037.i, align 8
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %1) #20
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %1) #20
   %.not32.i = icmp eq i32 %60, 0
   br i1 %.not32.i, label %onas_ht_get.exit, label %61
 
@@ -1023,7 +1023,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 .lr.ph.i36:                                       ; preds = %57, %61
   %.037.i = phi ptr [ %.0.i, %61 ], [ %.035.i, %57 ]
   %59 = load ptr, ptr %.037.i, align 8
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %1) #20
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %1) #20
   %.not32.i = icmp eq i32 %60, 0
   br i1 %.not32.i, label %onas_ht_get.exit, label %61
 
@@ -1047,8 +1047,8 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i36
   br i1 %.not.i39, label %onas_add_hashnode_child.exit, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #20
-  %70 = tail call noalias ptr @strndup(ptr noundef nonnull %66, i64 noundef %69) #19
+  %69 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %66) #20
+  %70 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %66, i64 noundef %69) #19
   store ptr %70, ptr %calloc.i.i, align 8
   %71 = getelementptr inbounds i8, ptr %64, i64 40
   %72 = load ptr, ptr %71, align 8
@@ -1109,7 +1109,7 @@ define dso_local noundef i32 @onas_ht_add_hierarchy(ptr noundef %0, ptr noundef 
   %.0.lcssa.i = phi i32 [ %11, %9 ], [ %.019.i, %.lr.ph.i ], [ -1, %16 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.0.lcssa.i, i32 1)
   %19 = sext i32 %spec.select.i to i64
-  %20 = tail call noalias ptr @strndup(ptr noundef nonnull %1, i64 noundef %19) #19
+  %20 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %1, i64 noundef %19) #19
   %.not18.i = icmp eq ptr %20, null
   br i1 %.not18.i, label %21, label %onas_get_parent.exit
 
@@ -1245,7 +1245,7 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   %.0.lcssa.i73 = phi i32 [ -1, %64 ], [ %.019.i78, %.lr.ph.i77 ]
   %spec.select.i74 = call i32 @llvm.umax.i32(i32 %.0.lcssa.i73, i32 1)
   %67 = sext i32 %spec.select.i74 to i64
-  %68 = call noalias ptr @strndup(ptr noundef nonnull %55, i64 noundef %67) #19
+  %68 = call noalias ptr @strndup(ptr noundef nonnull readonly %55, i64 noundef %67) #19
   %.not18.i75 = icmp eq ptr %68, null
   br i1 %.not18.i75, label %69, label %71
 
@@ -1289,8 +1289,8 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
 
 85:                                               ; preds = %84
   %86 = getelementptr inbounds i8, ptr %.050, i64 112
-  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #20
-  %88 = call noalias ptr @strndup(ptr noundef nonnull %86, i64 noundef %87) #19
+  %87 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %86) #20
+  %88 = call noalias ptr @strndup(ptr noundef nonnull readonly %86, i64 noundef %87) #19
   store ptr %88, ptr %calloc.i.i83, align 8
   %89 = load ptr, ptr %37, align 8
   %.not13.i85 = icmp eq ptr %89, null
@@ -1475,7 +1475,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %38, %42
   %.037.i = phi ptr [ %.0.i, %42 ], [ %.035.i, %38 ]
   %40 = load ptr, ptr %.037.i, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #20
   %.not32.i = icmp eq i32 %41, 0
   br i1 %.not32.i, label %onas_ht_get.exit, label %42
 
@@ -1520,7 +1520,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i
   %.0.lcssa.i = phi i32 [ %53, %51 ], [ %.019.i, %.lr.ph.i57 ], [ -1, %58 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.0.lcssa.i, i32 1)
   %61 = sext i32 %spec.select.i to i64
-  %62 = tail call noalias ptr @strndup(ptr noundef nonnull %1, i64 noundef %61) #19
+  %62 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %1, i64 noundef %61) #19
   %.not18.i = icmp eq ptr %62, null
   br i1 %.not18.i, label %63, label %onas_get_parent.exit
 

@@ -850,7 +850,7 @@ declare void @mbedtls_pem_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_dhm_parse_dhmfile(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.6)
+  %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.6)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %load_file.exit.thread, label %5
 

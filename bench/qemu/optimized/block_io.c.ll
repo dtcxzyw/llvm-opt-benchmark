@@ -1837,7 +1837,7 @@ entry:
   %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %bytes, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #14
-  %call.i.i = call i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i64 noundef 0, i32 noundef %flags)
+  %call.i.i = call i32 @bdrv_co_pwritev_part(ptr noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i64 noundef 0, i32 noundef %flags)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %return, label %if.end
@@ -1869,7 +1869,7 @@ entry:
   %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #14
-  %call.i = call i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %flags)
+  %call.i = call i32 @bdrv_co_pwritev_part(ptr noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %flags)
   ret i32 %call.i
 }
 
@@ -3874,7 +3874,7 @@ trace_bdrv_co_pwrite_zeroes.exit:                 ; preds = %entry, %land.lhs.tr
   %and2 = and i32 %flags, -7
   %spec.select = select i1 %tobool.not, i32 %and2, i32 %flags
   %or = or i32 %spec.select, 2
-  %call.i = tail call i32 @bdrv_co_pwritev_part(ptr noundef nonnull %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, i32 noundef %or)
+  %call.i = tail call i32 @bdrv_co_pwritev_part(ptr noundef nonnull readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, i32 noundef %or)
   ret i32 %call.i
 }
 

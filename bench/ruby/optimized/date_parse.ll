@@ -416,7 +416,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %16
   br i1 %.not22.i, label %str_end_with_word.exit.thread.thread, label %28
 
 28:                                               ; preds = %17
-  %29 = tail call i32 @strncasecmp(ptr noundef %21, ptr noundef nonnull @.str, i64 noundef 4) #12
+  %29 = tail call i32 @strncasecmp(ptr noundef readonly %21, ptr noundef nonnull readonly @.str, i64 noundef 4) #12
   %.not23.i = icmp eq i32 %29, 0
   br i1 %.not23.i, label %.preheader.i, label %str_end_with_word.exit.thread.thread
 
@@ -467,7 +467,7 @@ str_end_with_word.exit:                           ; preds = %31, %32
   br i1 %.not22.i146, label %str_end_with_word.exit159.thread.thread, label %52
 
 52:                                               ; preds = %43
-  %53 = tail call i32 @strncasecmp(ptr noundef %45, ptr noundef nonnull @.str.1, i64 noundef 8) #12
+  %53 = tail call i32 @strncasecmp(ptr noundef readonly %45, ptr noundef nonnull readonly @.str.1, i64 noundef 8) #12
   %.not23.i147 = icmp eq i32 %53, 0
   br i1 %.not23.i147, label %.preheader.i148, label %str_end_with_word.exit159.thread.thread
 
@@ -520,7 +520,7 @@ str_end_with_word.exit159.thread.thread:          ; preds = %43, %52, %str_end_w
   br i1 %.not22.i163, label %str_end_with_word.exit176.thread, label %75
 
 75:                                               ; preds = %str_end_with_word.exit159.thread.thread
-  %76 = tail call i32 @strncasecmp(ptr noundef %68, ptr noundef nonnull @.str.2, i64 noundef 8) #12
+  %76 = tail call i32 @strncasecmp(ptr noundef readonly %68, ptr noundef nonnull readonly @.str.2, i64 noundef 8) #12
   %.not23.i164 = icmp eq i32 %76, 0
   br i1 %.not23.i164, label %.preheader.i165, label %str_end_with_word.exit176.thread
 
@@ -576,7 +576,7 @@ str_end_with_word.exit.thread.thread:             ; preds = %17, %28, %str_end_w
   br i1 %.not22.i180, label %.lr.ph.i, label %100
 
 100:                                              ; preds = %str_end_with_word.exit.thread.thread
-  %101 = tail call i32 @strncasecmp(ptr noundef %93, ptr noundef nonnull @.str.3, i64 noundef 3) #12
+  %101 = tail call i32 @strncasecmp(ptr noundef readonly %93, ptr noundef nonnull readonly @.str.3, i64 noundef 3) #12
   %.not23.i181 = icmp eq i32 %101, 0
   br i1 %.not23.i181, label %.preheader.i182, label %.lr.ph.i
 

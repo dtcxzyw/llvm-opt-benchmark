@@ -7299,7 +7299,7 @@ if.end172.i.i:                                    ; preds = %if.else166.i.i, %in
   store i32 %.sink.i.i, ptr %maxBound.i175.i, align 4
   %rose_top.i.i = getelementptr inbounds i8, ptr %401, i64 72
   store i32 0, ptr %rose_top.i.i, align 8
-  %call178.i.i = invoke fastcc noundef i32 @_ZN3ue2L13selectHistoryERKNS_13RoseBuildImplERKNS_13RoseBuildDataERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEERKNS7_INS8_INS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(65) %bd, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i289, ptr noundef nonnull align 8 dereferenceable(16) %e.i.i)
+  %call178.i.i = invoke fastcc noundef i32 @_ZN3ue2L13selectHistoryERKNS_13RoseBuildImplERKNS_13RoseBuildDataERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEERKNS7_INS8_INS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(65) %bd, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i289, ptr noundef nonnull align 8 dereferenceable(16) %e.i.i)
           to label %invoke.cont177.i.i unwind label %lpad8.loopexit.i.i
 
 invoke.cont177.i.i:                               ; preds = %if.end172.i.i
@@ -7553,7 +7553,7 @@ invoke.cont219.i.i:                               ; preds = %for.body204.i.i
   %441 = load i32, ptr %maxBound226.i.i, align 4
   %maxBound230.i.i = getelementptr inbounds i8, ptr %438, i64 68
   store i32 %441, ptr %maxBound230.i.i, align 4
-  %call233.i.i = invoke fastcc noundef i32 @_ZN3ue2L13selectHistoryERKNS_13RoseBuildImplERKNS_13RoseBuildDataERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEERKNS7_INS8_INS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(65) %bd, ptr noundef nonnull align 8 dereferenceable(16) %second210.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e213.i.i)
+  %call233.i.i = invoke fastcc noundef i32 @_ZN3ue2L13selectHistoryERKNS_13RoseBuildImplERKNS_13RoseBuildDataERKNS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEERKNS7_INS8_INS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(65) %bd, ptr noundef nonnull align 8 dereferenceable(16) %second210.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e213.i.i)
           to label %invoke.cont232.i.i unwind label %lpad.loopexit.split-lp.loopexit.i185.i
 
 invoke.cont232.i.i:                               ; preds = %invoke.cont219.i.i
@@ -18537,7 +18537,7 @@ if.then:                                          ; preds = %lor.rhs, %entry, %_
   %__y.addr.0.lcssa.i.i.i25 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIN3ue212_GLOBAL__N_111created_keyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEE11lower_boundERSE_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_111created_keyEEclERKS2_S5_.exit ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %lor.rhs ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %_M_storage.i.i.i.i.i10 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %__k, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i10, ptr noundef nonnull readonly align 8 dereferenceable(16) %__k, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %call.val.i = load ptr, ptr %_M_storage.i.i.i.i.i10, align 8

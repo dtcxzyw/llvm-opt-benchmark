@@ -218,7 +218,7 @@ if.else.i.i:                                      ; preds = %entry
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %conv12.i)
   %3 = getelementptr i8, ptr %call.i.i, i64 %conv12.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr align 8 %bigVal.coerce0, i64 %conv12.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr readonly align 8 %bigVal.coerce0, i64 %conv12.i, i1 false)
   %sub5.i.i = add nuw nsw i64 %div1.i.i.i, 4294967295
   %idxprom.i.i = and i64 %sub5.i.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds i64, ptr %call.i.i, i64 %idxprom.i.i
@@ -265,7 +265,7 @@ if.else.i.i:                                      ; preds = %entry
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %conv12.i)
   %3 = getelementptr i8, ptr %call.i.i, i64 %conv12.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr align 8 %bigVal, i64 %conv12.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr readonly align 8 %bigVal, i64 %conv12.i, i1 false)
   %sub5.i.i = add nuw nsw i64 %div1.i.i.i, 4294967295
   %idxprom.i.i = and i64 %sub5.i.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds i64, ptr %call.i.i, i64 %idxprom.i.i
@@ -1229,7 +1229,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %8 = load i64, ptr %arrayidx2.i, align 8
   %9 = trunc nuw i64 %indvars.iv.i to i32
   %sub.i = sub i32 %conv1.i.i, %9
-  %call.i12 = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i, ptr noundef %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i, i32 noundef %sub.i, i1 noundef zeroext true)
+  %call.i12 = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i, ptr noundef readonly %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i, i32 noundef %sub.i, i1 noundef zeroext true)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %div1.i.i
   br i1 %exitcond.not.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit, label %for.body.i, !llvm.loop !12
@@ -1593,7 +1593,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %8 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !16
   %9 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub i32 %conv1.i.i.i, %9
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !16
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -2690,7 +2690,7 @@ if.else.i.i.i:                                    ; preds = %if.then11
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 %conv12.i.i)
   %15 = getelementptr i8, ptr %call.i.i.i51, i64 %conv12.i.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %14, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i51, ptr align 8 %add.ptr, i64 %conv12.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i51, ptr readonly align 8 %add.ptr, i64 %conv12.i.i, i1 false)
   %sub5.i.i.i52 = add nuw nsw i64 %div1.i.i.i.i, 4294967295
   %idxprom.i.i.i53 = and i64 %sub5.i.i.i52, 4294967295
   %arrayidx.i.i.i54 = getelementptr inbounds i64, ptr %call.i.i.i51, i64 %idxprom.i.i.i53
@@ -8798,7 +8798,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %86 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !120
   %87 = trunc nuw i64 %indvars.iv.i.i258 to i32
   %sub.i.i259 = sub i32 %conv1.i.i.i, %87
-  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %77, i64 noundef %86, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i259, i1 noundef zeroext true), !noalias !120
+  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %77, i64 noundef %86, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i259, i1 noundef zeroext true), !noalias !120
   %indvars.iv.next.i.i260 = add nuw nsw i64 %indvars.iv.i.i258, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i260, %div1.i.i.i.i237
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -8913,7 +8913,7 @@ for.body.i.i367:                                  ; preds = %for.body.i.i367, %i
   %102 = load i64, ptr %arrayidx2.i.i370, align 8, !noalias !129
   %103 = trunc nuw i64 %indvars.iv.i.i368 to i32
   %sub.i.i371 = sub i32 %conv1.i.i.i363, %103
-  %call.i12.i372 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i369, ptr noundef nonnull %call.i.i.i278, i64 noundef %102, i64 noundef 0, i32 noundef %conv1.i.i.i363, i32 noundef %sub.i.i371, i1 noundef zeroext true), !noalias !129
+  %call.i12.i372 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i369, ptr noundef nonnull readonly %call.i.i.i278, i64 noundef %102, i64 noundef 0, i32 noundef %conv1.i.i.i363, i32 noundef %sub.i.i371, i1 noundef zeroext true), !noalias !129
   %indvars.iv.next.i.i373 = add nuw nsw i64 %indvars.iv.i.i368, 1
   %exitcond.not.i.i374 = icmp eq i64 %indvars.iv.next.i.i373, %div1.i.i.i362
   br i1 %exitcond.not.i.i374, label %_ZNK4llvh5APIntmlERKS0_.exit394, label %for.body.i.i367, !llvm.loop !12
@@ -11246,7 +11246,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %68 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !160
   %69 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i186 = sub i32 %conv1.i.i.i, %69
-  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i185, ptr noundef %65, i64 noundef %68, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i186, i1 noundef zeroext true), !noalias !160
+  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i185, ptr noundef readonly %65, i64 noundef %68, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i186, i1 noundef zeroext true), !noalias !160
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i184
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -11395,7 +11395,7 @@ for.body.i.i285:                                  ; preds = %for.body.i.i285, %i
   %85 = load i64, ptr %arrayidx2.i.i288, align 8, !noalias !166
   %86 = trunc nuw i64 %indvars.iv.i.i286 to i32
   %sub.i.i289 = sub i32 %conv1.i.i.i281, %86
-  %call.i12.i290 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i287, ptr noundef %82, i64 noundef %85, i64 noundef 0, i32 noundef %conv1.i.i.i281, i32 noundef %sub.i.i289, i1 noundef zeroext true), !noalias !166
+  %call.i12.i290 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i287, ptr noundef readonly %82, i64 noundef %85, i64 noundef 0, i32 noundef %conv1.i.i.i281, i32 noundef %sub.i.i289, i1 noundef zeroext true), !noalias !166
   %indvars.iv.next.i.i291 = add nuw nsw i64 %indvars.iv.i.i286, 1
   %exitcond.not.i.i292 = icmp eq i64 %indvars.iv.next.i.i291, %div1.i.i.i280
   br i1 %exitcond.not.i.i292, label %_ZNK4llvh5APIntmlERKS0_.exit312, label %for.body.i.i285, !llvm.loop !12
@@ -13256,7 +13256,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %67 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !241
   %68 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i167 = sub i32 %conv1.i.i.i, %68
-  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i166, ptr noundef %64, i64 noundef %67, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i167, i1 noundef zeroext true), !noalias !241
+  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i166, ptr noundef readonly %64, i64 noundef %67, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i167, i1 noundef zeroext true), !noalias !241
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i165
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -13413,7 +13413,7 @@ for.body.i.i266:                                  ; preds = %for.body.i.i266, %i
   %92 = load i64, ptr %arrayidx2.i.i269, align 8, !noalias !247
   %93 = trunc nuw i64 %indvars.iv.i.i267 to i32
   %sub.i.i270 = sub i32 %conv1.i.i.i262, %93
-  %call.i12.i271 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i268, ptr noundef %88, i64 noundef %92, i64 noundef 0, i32 noundef %conv1.i.i.i262, i32 noundef %sub.i.i270, i1 noundef zeroext true), !noalias !247
+  %call.i12.i271 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i268, ptr noundef readonly %88, i64 noundef %92, i64 noundef 0, i32 noundef %conv1.i.i.i262, i32 noundef %sub.i.i270, i1 noundef zeroext true), !noalias !247
   %indvars.iv.next.i.i272 = add nuw nsw i64 %indvars.iv.i.i267, 1
   %exitcond.not.i.i273 = icmp eq i64 %indvars.iv.next.i.i272, %div1.i.i.i261
   br i1 %exitcond.not.i.i273, label %_ZNK4llvh5APIntmlERKS0_.exit293, label %for.body.i.i266, !llvm.loop !12
@@ -19656,7 +19656,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %9 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !412
   %10 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub i32 %conv1.i.i.i, %10
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !412
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !412
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -19908,7 +19908,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %9 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !415
   %10 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub i32 %conv1.i.i.i, %10
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !415
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !415
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -23170,7 +23170,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %47 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !467
   %48 = trunc nuw i64 %indvars.iv.i.i85 to i32
   %sub.i.i87 = sub i32 %conv1.i.i.i, %48
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i86, ptr noundef %43, i64 noundef %47, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i87, i1 noundef zeroext true), !noalias !467
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i86, ptr noundef readonly %43, i64 noundef %47, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i87, i1 noundef zeroext true), !noalias !467
   %indvars.iv.next.i.i88 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i88, %div1.i.i.i84
   br i1 %exitcond.not.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i89, label %for.body.i.i, !llvm.loop !12
@@ -24136,7 +24136,7 @@ for.body.i.i412:                                  ; preds = %for.body.i.i412, %i
   %160 = load i64, ptr %arrayidx2.i.i415, align 8, !noalias !485
   %161 = trunc nuw i64 %indvars.iv.i.i413 to i32
   %sub.i.i416 = sub i32 %conv1.i.i.i408, %161
-  %call.i12.i417 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i414, ptr noundef %156, i64 noundef %160, i64 noundef 0, i32 noundef %conv1.i.i.i408, i32 noundef %sub.i.i416, i1 noundef zeroext true), !noalias !485
+  %call.i12.i417 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i414, ptr noundef readonly %156, i64 noundef %160, i64 noundef 0, i32 noundef %conv1.i.i.i408, i32 noundef %sub.i.i416, i1 noundef zeroext true), !noalias !485
   %indvars.iv.next.i.i418 = add nuw nsw i64 %indvars.iv.i.i413, 1
   %exitcond.not.i.i419 = icmp eq i64 %indvars.iv.next.i.i418, %div1.i.i.i407
   br i1 %exitcond.not.i.i419, label %_ZNK4llvh5APIntmlERKS0_.exit439, label %for.body.i.i412, !llvm.loop !12
@@ -24274,7 +24274,7 @@ for.body.i.i513:                                  ; preds = %for.body.i.i513, %i
   %178 = load i64, ptr %arrayidx2.i.i516, align 8, !noalias !491
   %179 = trunc nuw i64 %indvars.iv.i.i514 to i32
   %sub.i.i517 = sub i32 %conv1.i.i.i509, %179
-  %call.i12.i518 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i515, ptr noundef %175, i64 noundef %178, i64 noundef 0, i32 noundef %conv1.i.i.i509, i32 noundef %sub.i.i517, i1 noundef zeroext true), !noalias !491
+  %call.i12.i518 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i515, ptr noundef readonly %175, i64 noundef %178, i64 noundef 0, i32 noundef %conv1.i.i.i509, i32 noundef %sub.i.i517, i1 noundef zeroext true), !noalias !491
   %indvars.iv.next.i.i519 = add nuw nsw i64 %indvars.iv.i.i514, 1
   %exitcond.not.i.i520 = icmp eq i64 %indvars.iv.next.i.i519, %div1.i.i.i508
   br i1 %exitcond.not.i.i520, label %_ZNK4llvh5APIntmlERKS0_.exit540, label %for.body.i.i513, !llvm.loop !12
@@ -24885,7 +24885,7 @@ for.body.i.i884:                                  ; preds = %for.body.i.i884, %i
   %257 = load i64, ptr %arrayidx2.i.i887, align 8, !noalias !509
   %258 = trunc nuw i64 %indvars.iv.i.i885 to i32
   %sub.i.i888 = sub i32 %conv1.i.i.i880, %258
-  %call.i12.i889 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i886, ptr noundef %252, i64 noundef %257, i64 noundef 0, i32 noundef %conv1.i.i.i880, i32 noundef %sub.i.i888, i1 noundef zeroext true), !noalias !509
+  %call.i12.i889 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i886, ptr noundef readonly %252, i64 noundef %257, i64 noundef 0, i32 noundef %conv1.i.i.i880, i32 noundef %sub.i.i888, i1 noundef zeroext true), !noalias !509
   %indvars.iv.next.i.i890 = add nuw nsw i64 %indvars.iv.i.i885, 1
   %exitcond.not.i.i891 = icmp eq i64 %indvars.iv.next.i.i890, %div1.i.i.i879
   br i1 %exitcond.not.i.i891, label %_ZNK4llvh5APIntmlERKS0_.exit911, label %for.body.i.i884, !llvm.loop !12
@@ -24964,7 +24964,7 @@ for.body.i.i964:                                  ; preds = %for.body.i.i964, %i
   %269 = load i64, ptr %arrayidx2.i.i967, align 8, !noalias !518
   %270 = trunc nuw i64 %indvars.iv.i.i965 to i32
   %sub.i.i968 = sub i32 %conv1.i.i.i960, %270
-  %call.i12.i969 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i966, ptr noundef nonnull %call.i.i881, i64 noundef %269, i64 noundef 0, i32 noundef %conv1.i.i.i960, i32 noundef %sub.i.i968, i1 noundef zeroext true), !noalias !518
+  %call.i12.i969 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i966, ptr noundef nonnull readonly %call.i.i881, i64 noundef %269, i64 noundef 0, i32 noundef %conv1.i.i.i960, i32 noundef %sub.i.i968, i1 noundef zeroext true), !noalias !518
   %indvars.iv.next.i.i970 = add nuw nsw i64 %indvars.iv.i.i965, 1
   %exitcond.not.i.i971 = icmp eq i64 %indvars.iv.next.i.i970, %div1.i.i.i959
   br i1 %exitcond.not.i.i971, label %_ZNK4llvh5APIntmlERKS0_.exit991, label %for.body.i.i964, !llvm.loop !12
@@ -25050,7 +25050,7 @@ for.body.i.i1065:                                 ; preds = %for.body.i.i1065, %
   %285 = load i64, ptr %arrayidx2.i.i1068, align 8, !noalias !521
   %286 = trunc nuw i64 %indvars.iv.i.i1066 to i32
   %sub.i.i1069 = sub i32 %conv1.i.i.i1061, %286
-  %call.i12.i1070 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i1067, ptr noundef %281, i64 noundef %285, i64 noundef 0, i32 noundef %conv1.i.i.i1061, i32 noundef %sub.i.i1069, i1 noundef zeroext true), !noalias !521
+  %call.i12.i1070 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i1067, ptr noundef readonly %281, i64 noundef %285, i64 noundef 0, i32 noundef %conv1.i.i.i1061, i32 noundef %sub.i.i1069, i1 noundef zeroext true), !noalias !521
   %indvars.iv.next.i.i1071 = add nuw nsw i64 %indvars.iv.i.i1066, 1
   %exitcond.not.i.i1072 = icmp eq i64 %indvars.iv.next.i.i1071, %div1.i.i.i1060
   br i1 %exitcond.not.i.i1072, label %_ZNK4llvh5APIntmlERKS0_.exit1092, label %for.body.i.i1065, !llvm.loop !12

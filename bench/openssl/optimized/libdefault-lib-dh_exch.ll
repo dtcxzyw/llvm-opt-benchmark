@@ -158,7 +158,7 @@ if.end6.i:                                        ; preds = %lor.lhs.false.i.i
   br i1 %cmp8.i, label %dh_X9_42_kdf_derive.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %call11.i = call fastcc i32 @dh_plain_derive(ptr noundef nonnull %vpdhctx, ptr noundef nonnull %call7.i, ptr noundef nonnull %stmplen.i, i64 noundef %conv.i.i, i32 noundef 1)
+  %call11.i = call fastcc i32 @dh_plain_derive(ptr noundef nonnull readonly %vpdhctx, ptr noundef nonnull %call7.i, ptr noundef nonnull %stmplen.i, i64 noundef %conv.i.i, i32 noundef 1)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %err.i, label %if.end14.i
 

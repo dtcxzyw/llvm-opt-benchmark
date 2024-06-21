@@ -889,7 +889,7 @@ define i32 @ompi_coll_base_bcast_intra_split_bintree(ptr noundef %0, i32 noundef
 
 ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   %.0.i = phi i32 [ %1, %92 ], [ %1, %89 ], [ %spec.select.i, %96 ]
-  %104 = tail call i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %.0.i, ptr noundef %90)
+  %104 = tail call i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull readonly %5, i32 noundef %.0.i, ptr noundef %90)
   br label %319
 
 105:                                              ; preds = %64
@@ -1525,7 +1525,7 @@ thread-pre-split:                                 ; preds = %21, %8
 
 ompi_coll_base_bcast_intra_binomial.exit:         ; preds = %39, %43, %47
   %.0.i = phi i32 [ %1, %43 ], [ %1, %39 ], [ %spec.select.i, %47 ]
-  %55 = tail call i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %.0.i, ptr noundef %40)
+  %55 = tail call i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull readonly %5, i32 noundef %.0.i, ptr noundef %40)
   br label %73
 
 thread-pre-split.thread:                          ; preds = %17, %thread-pre-split

@@ -92,32 +92,32 @@ if.then3:                                         ; preds = %if.then
   ]
 
 sw.bb.i:                                          ; preds = %if.then3
-  %call.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i7) #13
+  %call.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull readonly %call.i, ptr noundef nonnull readonly %call.i7) #13
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8RationalEEEbNS0_4kind6Kind_tERKT_SB_.exit
 
 sw.bb1.i:                                         ; preds = %if.then3
-  %call.i.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull %call.i7, ptr noundef nonnull %call.i) #13
+  %call.i.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull readonly %call.i7, ptr noundef nonnull readonly %call.i) #13
   %cmp.i.i.i.i.i = icmp sgt i32 %call.i.i.i.i.i, -1
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8RationalEEEbNS0_4kind6Kind_tERKT_SB_.exit
 
 sw.bb3.i:                                         ; preds = %if.then3
-  %call.i.i.i11.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i7) #13
+  %call.i.i.i11.i = tail call i32 @__gmpq_equal(ptr noundef nonnull readonly %call.i, ptr noundef nonnull readonly %call.i7) #13
   %cmp.i.i.i12.i = icmp ne i32 %call.i.i.i11.i, 0
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8RationalEEEbNS0_4kind6Kind_tERKT_SB_.exit
 
 sw.bb5.i:                                         ; preds = %if.then3
-  %call.i.i.i13.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i7) #13
+  %call.i.i.i13.i = tail call i32 @__gmpq_equal(ptr noundef nonnull readonly %call.i, ptr noundef nonnull readonly %call.i7) #13
   %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i13.i, 0
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8RationalEEEbNS0_4kind6Kind_tERKT_SB_.exit
 
 sw.bb7.i:                                         ; preds = %if.then3
-  %call.i.i.i14.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i7) #13
+  %call.i.i.i14.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull readonly %call.i, ptr noundef nonnull readonly %call.i7) #13
   %cmp.i.i.i15.i = icmp sgt i32 %call.i.i.i14.i, -1
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8RationalEEEbNS0_4kind6Kind_tERKT_SB_.exit
 
 sw.bb9.i:                                         ; preds = %if.then3
-  %call.i.i.i.i16.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull %call.i7, ptr noundef nonnull %call.i) #13
+  %call.i.i.i.i16.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull readonly %call.i7, ptr noundef nonnull readonly %call.i) #13
   %cmp.i.i.i.i17.i = icmp slt i32 %call.i.i.i.i16.i, 0
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8RationalEEEbNS0_4kind6Kind_tERKT_SB_.exit
 

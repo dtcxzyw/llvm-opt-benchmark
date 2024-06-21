@@ -5868,7 +5868,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd31f044a7d76b9E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd31f044a7d76b9E.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %0, i64 %3), !alias.scope !584
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !584
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -6256,7 +6256,7 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   %28 = phi i64 [ %18, %.lr.ph ], [ %.pre.i.i, %.noexc11 ]
   %29 = load ptr, ptr %14, align 8, !alias.scope !621, !noalias !619, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds i8, ptr %29, i64 %28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.val, i64 %.val9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %.val, i64 %.val9, i1 false)
   %31 = load i64, ptr %15, align 8, !alias.scope !621, !noalias !619, !noundef !4
   %32 = add i64 %31, %.val9
   store i64 %32, ptr %15, align 8
@@ -6785,7 +6785,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %17 = phi i64 [ %10, %8 ], [ %.pre.i, %15 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !663, !noalias !666, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %11, i64 %.0.sroa.speculated.i.i.i.i.i7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %11, i64 %.0.sroa.speculated.i.i.i.i.i7, i1 false)
   %20 = load i64, ptr %7, align 8, !alias.scope !663, !noalias !666, !noundef !4
   %21 = load i64, ptr %6, align 8, !alias.scope !663, !noalias !666, !noundef !4
   %22 = sub i64 %20, %21
@@ -6889,7 +6889,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %31 = phi i64 [ %25, %23 ], [ %.pre.i, %.noexc ]
   %32 = load ptr, ptr %0, align 8, !alias.scope !684, !noalias !687, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %26, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %26, i64 %27, i1 false)
   %34 = load i64, ptr %10, align 8, !alias.scope !684, !noalias !687, !noundef !4
   %35 = load i64, ptr %9, align 8, !alias.scope !684, !noalias !687, !noundef !4
   %36 = sub i64 %34, %35
@@ -6983,7 +6983,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %11 = phi i64 [ %6, %.lr.ph.split.us ], [ %.pre.i.us, %9 ]
   %12 = load ptr, ptr %0, align 8, !alias.scope !707, !noalias !710, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %12, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %5, align 8, !alias.scope !707, !noalias !710, !noundef !4
   %15 = load i64, ptr %4, align 8, !alias.scope !707, !noalias !710, !noundef !4
   %16 = sub i64 %14, %15
@@ -7047,7 +7047,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %18 = phi i64 [ %11, %9 ], [ %.pre.i, %16 ]
   %19 = load ptr, ptr %0, align 8, !alias.scope !712, !noalias !715, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %12, i64 %.0.sroa.speculated.i.i.i12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %12, i64 %.0.sroa.speculated.i.i.i12, i1 false)
   %21 = load i64, ptr %8, align 8, !alias.scope !712, !noalias !715, !noundef !4
   %22 = load i64, ptr %7, align 8, !alias.scope !712, !noalias !715, !noundef !4
   %23 = sub i64 %21, %22

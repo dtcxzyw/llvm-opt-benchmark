@@ -599,11 +599,11 @@ define hidden void @_ZN10ockam_core5error5inner9ErrorData3new17h0277680a646a8bea
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2) #34
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2) #34
   resume { ptr, i32 } %10
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h0cfe18fe1fe33e85E.llvm.9869116895621829908.exit": ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   tail call void @_ZN10ockam_core5error5inner9ErrorData9new_inner17h4c69759be750ce49E(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 }, i64 } }, i32, i32 }, { ptr, ptr }, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, { i32, i8, i8, [2 x i8] } }) align 8 dereferenceable(104) %0, i64 %1, ptr noundef nonnull align 1 %6, ptr nonnull @anon.5241c23f8b0cbaa9bf87a561e7c65f37.24.llvm.9869116895621829908, ptr noalias noundef nonnull readonly align 1 @anon.5241c23f8b0cbaa9bf87a561e7c65f37.19.llvm.9869116895621829908, i64 28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   ret void
 }
@@ -4269,11 +4269,11 @@ define hidden { ptr, ptr } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #34
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0) #34
   resume { ptr, i32 } %7
 
 "_ZN146_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$u20$as$u20$core..convert..From$LT$E$GT$$GT$4from17h9afc39ce73cce7a6E.llvm.9869116895621829908.exit": ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %9 = insertvalue { ptr, ptr } %8, ptr @anon.5241c23f8b0cbaa9bf87a561e7c65f37.24.llvm.9869116895621829908, 1
   ret { ptr, ptr } %9

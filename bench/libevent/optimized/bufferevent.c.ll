@@ -1817,7 +1817,7 @@ do.end3.i:                                        ; preds = %if.then.i, %if.end5
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.end3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read6.i, ptr noundef nonnull align 8 dereferenceable(16) %ptv_read.0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read6.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ptv_read.0, i64 16, i1 false)
   br label %if.end8.i
 
 if.else.i:                                        ; preds = %do.end3.i
@@ -1830,7 +1830,7 @@ if.end8.i:                                        ; preds = %if.else.i, %if.then
   br i1 %tobool9.not.i, label %if.else11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write12.i, ptr noundef nonnull align 8 dereferenceable(16) %ptv_write.0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write12.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ptv_write.0, i64 16, i1 false)
   br label %if.end16.i
 
 if.else11.i:                                      ; preds = %if.end8.i

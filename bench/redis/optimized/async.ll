@@ -1862,7 +1862,7 @@ while.body.i:                                     ; preds = %if.then3.i.i81, %if
   br i1 %cmp.i59.i, label %__redisPushCallback.exit.i, label %if.end.i60.i
 
 if.end.i60.i:                                     ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cb94.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb94.i, i64 32, i1 false)
   store ptr null, ptr %call.i.i.i, align 8
   %124 = load ptr, ptr %replies20, align 8
   %cmp4.i.i = icmp eq ptr %124, null
@@ -3768,7 +3768,7 @@ if.then120:                                       ; preds = %if.else116
   br i1 %cmp.i131, label %oom.thread, label %if.end.i132
 
 if.end.i132:                                      ; preds = %if.then120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i130, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i130, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb, i64 32, i1 false)
   store ptr null, ptr %call.i.i130, align 8
   %145 = load ptr, ptr %replies, align 8
   %cmp4.i = icmp eq ptr %145, null
@@ -3805,7 +3805,7 @@ if.then132:                                       ; preds = %if.else128
   br i1 %cmp.i147, label %oom.thread, label %if.end.i136
 
 if.end.i136:                                      ; preds = %if.then132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb, i64 32, i1 false)
   store ptr null, ptr %call.i.i146, align 8
   %148 = load ptr, ptr %sub133, align 8
   %cmp4.i137 = icmp eq ptr %148, null
@@ -3834,7 +3834,7 @@ if.else140:                                       ; preds = %if.else128
   br i1 %cmp.i147, label %oom.thread, label %if.end.i148
 
 if.end.i148:                                      ; preds = %if.else140
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb, i64 32, i1 false)
   store ptr null, ptr %call.i.i146, align 8
   %150 = load ptr, ptr %replies141, align 8
   %cmp4.i149 = icmp eq ptr %150, null

@@ -144,7 +144,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__file_remove_file(ptr nocapture no
 entry:
   %stats.i = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stats.i)
-  %call.i = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats.i) #9
+  %call.i = call i32 @stat64(ptr noundef readonly %filename, ptr noundef nonnull %stats.i) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %grabbag__file_change_stats.exit, label %grabbag__file_change_stats.exit.thread
 
@@ -156,7 +156,7 @@ grabbag__file_change_stats.exit:                  ; preds = %entry
   %st_mode6.i = getelementptr inbounds i8, ptr %stats.i, i64 24
   %0 = load i32, ptr %st_mode6.i, align 8
   %or.i = or i32 %0, 128
-  %call8.i = tail call i32 @chmod(ptr noundef %filename, i32 noundef %or.i) #9
+  %call8.i = tail call i32 @chmod(ptr noundef readonly %filename, i32 noundef %or.i) #9
   %cmp9.not.i.not = icmp eq i32 %call8.i, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stats.i)
   br i1 %cmp9.not.i.not, label %land.rhs, label %land.end

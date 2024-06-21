@@ -8859,7 +8859,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -8911,7 +8911,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -8949,7 +8949,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -8994,7 +8994,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -9007,7 +9007,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -9043,7 +9043,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIbEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -14212,7 +14212,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -14264,7 +14264,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -14302,7 +14302,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -14347,7 +14347,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -14360,7 +14360,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -14396,7 +14396,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIiEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -17515,7 +17515,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -17567,7 +17567,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -17605,7 +17605,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -17650,7 +17650,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -17663,7 +17663,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -17699,7 +17699,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIaEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -20798,7 +20798,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -20850,7 +20850,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -20888,7 +20888,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -20933,7 +20933,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -20946,7 +20946,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -20982,7 +20982,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIsEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -24088,7 +24088,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -24140,7 +24140,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -24178,7 +24178,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -24223,7 +24223,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -24236,7 +24236,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -24272,7 +24272,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIlEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -27378,7 +27378,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -27430,7 +27430,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -27468,7 +27468,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -27513,7 +27513,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -27526,7 +27526,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -27562,7 +27562,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullInEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -30665,7 +30665,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -30717,7 +30717,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -30755,7 +30755,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -30800,7 +30800,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -30813,7 +30813,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -30849,7 +30849,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIfEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -33825,7 +33825,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -33877,7 +33877,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -33915,7 +33915,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -33960,7 +33960,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -33973,7 +33973,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -34009,7 +34009,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_RKNS2_11SetWithNullIdEEE_clIiEEDaSO_SS_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -36974,7 +36974,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -37026,7 +37026,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -37064,7 +37064,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -37109,7 +37109,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -37122,7 +37122,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -37158,7 +37158,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i
@@ -40350,7 +40350,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %row.012.i = phi i32 [ %inc.i, %.noexc ], [ %56, %if.then.i ]
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc unwind label %lpad6.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -40402,7 +40402,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %65 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i26.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc55 unwind label %lpad6.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %while.body.i.i.i.i.i
@@ -40440,7 +40440,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc56, %while.bo
   %67 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %67 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %while.body.i42.i.i.i.i
@@ -40485,7 +40485,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
 for.body.i.i.i.i.i:                               ; preds = %.noexc57, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc57 ]
   %conv7.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %conv7.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc57 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i.i.i.i.i
@@ -40498,7 +40498,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc58, %while.bo
   %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add10.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc58 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %while.body.i59.i.i.i.i
@@ -40534,7 +40534,7 @@ while.body.i75.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %71 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %71 to i32
   %add.i78.i.i.i.i = or disjoint i32 %63, %cast.i77.i.i.i.i
-  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %constantSet_)
+  invoke fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_RKNS2_11SetWithNullIS4_EEE_clIiEEDaSP_ST_(ptr noundef nonnull readonly align 8 dereferenceable(32) %processRow, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(33) %constantSet_)
           to label %.noexc59 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %while.body.i75.i.i.i.i

@@ -966,7 +966,7 @@ define hidden { ptr, ptr } @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$
   %13 = extractvalue { i64, ptr } %11, 1
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   br label %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he73c893d11ab6ebeE.exit.i.i.i"
 
 "_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he73c893d11ab6ebeE.exit.i.i.i": ; preds = %10, %1
@@ -995,7 +995,7 @@ define hidden { ptr, ptr } @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$
   %27 = extractvalue { i64, ptr } %25, 1
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %21, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %21, i64 %23, i1 false)
   br label %"_ZN143_$LT$actix_service..fn_service..FnServiceFactory$LT$F$C$Fut$C$Req$C$Res$C$Err$C$Cfg$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service17h2eb3034bae3182b3E.exit"
 
 29:                                               ; preds = %24
@@ -8916,7 +8916,7 @@ define hidden void @_ZN9actix_web4rmap11ResourceMap7url_for17h6c4811693d6770a5E(
 79:                                               ; preds = %.lr.ph.i.i.i
   %80 = getelementptr i8, ptr %77, i64 -24
   %.val5.i.i.i.i = load ptr, ptr %80, align 8, !noalias !1433, !nonnull !9, !noundef !9
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %3, ptr nonnull %.val5.i.i.i.i, i64 %4), !alias.scope !1434, !noalias !1441
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %.val5.i.i.i.i, i64 %4), !alias.scope !1434, !noalias !1441
   %81 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %81, label %.loopexit152, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf5e9018353ff34bbE.exit.backedge.i.i.i"
 
@@ -9914,7 +9914,7 @@ define hidden void @_ZN9actix_web4rmap11ResourceMap13_root_rmap_fn17h4335b106797
   %85 = getelementptr inbounds i8, ptr %6, i64 8
   %86 = load ptr, ptr %85, align 8, !alias.scope !1643, !noalias !1648, !nonnull !9, !noundef !9
   %87 = getelementptr inbounds i8, ptr %86, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %65, i64 %66, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull readonly align 1 %65, i64 %66, i1 false)
   %88 = load i64, ptr %69, align 8, !alias.scope !1643, !noalias !1648, !noundef !9
   %89 = add i64 %88, %66
   store i64 %89, ptr %69, align 8, !alias.scope !1643, !noalias !1648

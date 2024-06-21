@@ -132,7 +132,7 @@ entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i)
-  %call.i = call i32 @stat(ptr noundef %name, ptr noundef nonnull %file_info.i) #16
+  %call.i = call i32 @stat(ptr noundef readonly %name, ptr noundef nonnull %file_info.i) #16
   %cmp.not.i = icmp eq i32 %call.i, 0
   %st_mode.i = getelementptr inbounds i8, ptr %file_info.i, i64 24
   %0 = load i32, ptr %st_mode.i, align 8

@@ -328,7 +328,7 @@ Abc_Clock.exit160.i:                              ; preds = %160, %.thread.i
   %164 = sext i16 %163 to i32
   %.val153.i = load i32, ptr %100, align 8
   %165 = shl i32 %.val153.i, 8
-  %166 = call i32 @Ivy_CutGetTruth_rec(ptr noundef %0, i32 noundef %165, ptr noundef nonnull %140, i32 noundef %164)
+  %166 = call i32 @Ivy_CutGetTruth_rec(ptr noundef readonly %0, i32 noundef %165, ptr noundef nonnull readonly %140, i32 noundef %164)
   %167 = and i32 %166, 65535
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #18

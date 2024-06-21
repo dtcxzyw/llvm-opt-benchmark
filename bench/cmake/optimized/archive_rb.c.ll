@@ -436,7 +436,7 @@ define dso_local void @__archive_rb_tree_remove_node(ptr nocapture noundef reado
   br i1 %.not, label %__archive_rb_tree_prune_node.exit, label %26
 
 26:                                               ; preds = %.split23
-  tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef %21)
+  tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef nonnull readonly %0, ptr noundef nonnull %23, i32 noundef %21)
   br label %__archive_rb_tree_prune_node.exit
 
 27:                                               ; preds = %2
@@ -602,7 +602,7 @@ __archive_rb_tree_iterate.exit:                   ; preds = %68, %67, %.lr.ph.i,
   br i1 %.not67.i, label %__archive_rb_tree_prune_node.exit, label %121
 
 121:                                              ; preds = %.thread71.i
-  tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef %0, ptr noundef nonnull %.059.i, i32 noundef %74)
+  tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef readonly %0, ptr noundef nonnull %.059.i, i32 noundef %74)
   br label %__archive_rb_tree_prune_node.exit
 
 __archive_rb_tree_prune_node.exit:                ; preds = %121, %.thread71.i, %26, %.split23, %.split, %.thread

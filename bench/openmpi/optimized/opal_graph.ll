@@ -1066,7 +1066,7 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   %30 = load i64, ptr %19, align 8
   %31 = mul i64 %30, %25
   %32 = getelementptr inbounds i8, ptr %29, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 8 %4, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 8 %4, i64 %30, i1 false)
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %20, %28
@@ -1419,7 +1419,7 @@ opal_graph_adjacent.exit:                         ; preds = %58, %37, %41, %44, 
   %74 = load i64, ptr %31, align 8
   %75 = mul i64 %74, %68
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 1 %72, i64 %74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull readonly align 1 %72, i64 %74, i1 false)
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %67, %71

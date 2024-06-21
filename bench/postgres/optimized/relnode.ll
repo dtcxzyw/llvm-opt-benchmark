@@ -1728,12 +1728,12 @@ have_partkey_equi_join.exit.thread:               ; preds = %._crit_edge.i
 117:                                              ; preds = %114, %110, %99
   %.2.i = phi ptr [ %.163.i, %114 ], [ %.163.i, %110 ], [ %.062.i, %99 ]
   %.1.i = phi ptr [ %116, %114 ], [ %.061.i, %110 ], [ %.061.i, %99 ]
-  %118 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.2.i, ptr noundef nonnull %2, i1 noundef zeroext %102)
+  %118 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.2.i, ptr noundef nonnull readonly %2, i1 noundef zeroext %102)
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %144, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.1.i, ptr noundef nonnull %3, i1 noundef zeroext %102)
+  %121 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.1.i, ptr noundef nonnull readonly %3, i1 noundef zeroext %102)
   %.not73.i = icmp eq i32 %118, %121
   br i1 %.not73.i, label %122, label %144
 

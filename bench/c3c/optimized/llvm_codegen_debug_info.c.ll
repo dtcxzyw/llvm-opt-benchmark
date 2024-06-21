@@ -150,7 +150,7 @@ define dso_local void @llvm_emit_debug_global_var(ptr noundef %0, ptr noundef %1
   %12 = tail call i32 @llvm.umax.i32(i32 %.sroa.1.0.copyload, i32 1)
   %13 = getelementptr inbounds i8, ptr %1, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %14, ptr noundef %6)
+  %15 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef readonly %0, ptr noundef %14, ptr noundef %6)
   %16 = tail call zeroext i1 @decl_is_local(ptr noundef nonnull %1) #8
   %17 = zext i1 %16 to i32
   %18 = load ptr, ptr %3, align 8
@@ -210,7 +210,7 @@ define dso_local void @llvm_emit_debug_function(ptr nocapture noundef %0, ptr no
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 328
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %12, ptr noundef %14)
+  %15 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef readonly %0, ptr noundef %12, ptr noundef %14)
   %16 = getelementptr inbounds i8, ptr %0, i64 304
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %13, align 8
@@ -351,7 +351,7 @@ llvm_debug_current_scope.exit:                    ; preds = %51, %.critedge.i
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %1, i64 72
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %59)
+  %62 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull readonly %0, ptr noundef %61, ptr noundef %59)
   %63 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
   %64 = icmp ne i32 %63, 0
   %65 = zext i1 %64 to i32
@@ -468,7 +468,7 @@ define dso_local void @llvm_emit_debug_parameter(ptr nocapture noundef readonly 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %18, ptr noundef %16)
+  %19 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef readonly %0, ptr noundef %18, ptr noundef %16)
   %20 = tail call ptr @LLVMDIBuilderCreateParameterVariable(ptr noundef %10, ptr noundef %12, ptr noundef nonnull %spec.select, i64 noundef %13, i32 noundef %14, ptr noundef %16, i32 noundef %spec.store.select, ptr noundef %19, i32 noundef 0, i32 noundef 0) #8
   %21 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %20, ptr %21, align 8

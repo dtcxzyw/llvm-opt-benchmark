@@ -2212,7 +2212,7 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br i1 %.not.i582, label %642, label %641
 
 641:                                              ; preds = %638
-  call fastcc void @_fname_format(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef nonnull %0, ptr noundef nonnull %640)
+  call fastcc void @_fname_format(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef nonnull readonly %0, ptr noundef nonnull %640)
   br label %647
 
 642:                                              ; preds = %638

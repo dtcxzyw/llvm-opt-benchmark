@@ -61222,7 +61222,7 @@ _ZN8pybind116detail15argument_loaderIJN5Eigen3RefINS2_6MatrixIdLin1ELin1ELi0ELin
 
 46:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !2202
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2205
   %47 = getelementptr inbounds i8, ptr %11, i64 24
   %48 = getelementptr inbounds i8, ptr %.val19.i, i64 24
   %49 = load i64, ptr %48, align 8, !noalias !2205
@@ -61261,7 +61261,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2211)
   call void @llvm.experimental.noalias.scope.decl(metadata !2214)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !2211
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val19.i, i64 24, i1 false), !noalias !2217
   %58 = getelementptr inbounds i8, ptr %6, i64 24
   %59 = getelementptr inbounds i8, ptr %.val19.i, i64 24
   %60 = load i64, ptr %59, align 8, !noalias !2217
@@ -78088,7 +78088,7 @@ _ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(104) %0)
   br i1 %16, label %17, label %_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5BlockINS3_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesterJiiiiEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPSA_iiiiE_S7_JSO_iiiiEJSB_SC_SD_EEEvOSF_PFSE_SH_ESN_ENKUlRNS_6detail13function_callEE_clESV_.exit
 
 17:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEEC2Ev.exit.i
@@ -78492,7 +78492,7 @@ _ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %16 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(104) %0)
   br i1 %16, label %17, label %_ZZN8pybind1112cpp_function10initializeIZNS0_C1IN5Eigen5BlockINS3_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesterJiiiiEJNS_4nameENS_9is_methodENS_7siblingENS_19return_value_policyEEEEMT0_FT_DpT1_EDpRKT2_EUlPSA_iiiiE_S7_JSP_iiiiEJSB_SC_SD_SE_EEEvOSG_PFSF_SI_ESO_ENKUlRNS_6detail13function_callEE_clESW_.exit
 
 17:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJPZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesteriiiiEEC2Ev.exit.i
@@ -83057,7 +83057,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %12
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_33N5Eigen6MatrixIfLi5ELi6ELi1ELi5ELi6EEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
 19:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, ptr noundef nonnull align 4 dereferenceable(120) %2, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, ptr noundef nonnull readonly align 4 dereferenceable(120) %2, i64 120, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8
   %21 = call ptr @_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLi5ELi6ELi1ELi5ELi6EEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %3, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload.i)
@@ -83433,7 +83433,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %12
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_34N5Eigen6MatrixIfLi5ELi6ELi0ELi5ELi6EEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
 19:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, ptr noundef nonnull align 4 dereferenceable(120) %2, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, ptr noundef nonnull readonly align 4 dereferenceable(120) %2, i64 120, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8
   %21 = call ptr @_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLi5ELi6ELi0ELi5ELi6EEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %3, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload.i)

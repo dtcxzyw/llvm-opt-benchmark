@@ -262,7 +262,7 @@ declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unn
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z7SetNamePwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = tail call i64 @wcslen(ptr noundef %0) #18
+  %4 = tail call i64 @wcslen(ptr noundef readonly %0) #18
   %5 = and i64 %4, 4294967295
   br label %6
 
@@ -306,7 +306,7 @@ define void @_Z6SetExtPwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %7, label %26, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @wcslen(ptr noundef nonnull %0) #18
+  %9 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %10 = and i64 %9, 4294967295
   br label %11
 
@@ -357,7 +357,7 @@ define noundef ptr @_Z6GetExtPKw(ptr noundef readonly %0) local_unnamed_addr #5 
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @wcslen(ptr noundef nonnull %0) #18
+  %4 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %5 = and i64 %4, 4294967295
   br label %6
 
@@ -402,7 +402,7 @@ define void @_Z9SetSFXExtPwm(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br i1 %6, label %23, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @wcslen(ptr noundef nonnull %0) #18
+  %8 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %9 = and i64 %8, 4294967295
   br label %10
 
@@ -452,7 +452,7 @@ define noundef zeroext i1 @_Z6CmpExtPKwS0_(ptr noundef %0, ptr noundef %1) local
   br i1 %3, label %_Z6GetExtPKw.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @wcslen(ptr noundef nonnull %0) #18
+  %5 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %6 = and i64 %5, 4294967295
   br label %7
 
@@ -596,7 +596,7 @@ define void @_Z11GetFilePathPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 5:                                                ; preds = %3
   %6 = add i64 %2, -1
-  %7 = tail call i64 @wcslen(ptr noundef %0) #18
+  %7 = tail call i64 @wcslen(ptr noundef readonly %0) #18
   %8 = and i64 %7, 4294967295
   br label %9
 
@@ -668,7 +668,7 @@ declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z18RemoveNameFromPathPw(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  %2 = tail call i64 @wcslen(ptr noundef %0) #18
+  %2 = tail call i64 @wcslen(ptr noundef readonly %0) #18
   %3 = and i64 %2, 4294967295
   br label %4
 
@@ -852,7 +852,7 @@ declare noundef zeroext i1 @_Z13WildFileExistPKw(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z13GetVolNumPartPKw(ptr noundef readonly %0) local_unnamed_addr #3 {
-  %2 = tail call i64 @wcslen(ptr noundef %0) #18
+  %2 = tail call i64 @wcslen(ptr noundef readonly %0) #18
   %3 = and i64 %2, 4294967295
   br label %4
 
@@ -950,7 +950,7 @@ _Z6GetExtPKw.exit54.thread57:                     ; preds = %3
   br label %61
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @wcslen(ptr noundef nonnull %0) #18
+  %7 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %8 = and i64 %7, 4294967295
   br label %9
 
@@ -981,7 +981,7 @@ _Z6GetExtPKw.exit:                                ; preds = %9, %17
 22:                                               ; preds = %_Z6GetExtPKw.exit
   %23 = zext i32 %1 to i64
   tail call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i64 noundef %23)
-  %24 = tail call i64 @wcslen(ptr noundef nonnull %0) #18
+  %24 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %25 = and i64 %24, 4294967295
   br label %26
 
@@ -1616,7 +1616,7 @@ define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1
   br i1 %28, label %_Z6SetExtPwPKwm.exit.thread40, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i64 @wcslen(ptr noundef nonnull %1) #18
+  %30 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #18
   %31 = and i64 %30, 4294967295
   br label %32
 
@@ -1654,7 +1654,7 @@ _Z6SetExtPwPKwm.exit:                             ; preds = %_Z6GetExtPKw.exit.i
   br label %_Z6SetExtPwPKwm.exit.thread40
 
 _Z6SetExtPwPKwm.exit.thread40:                    ; preds = %_Z6SetExtPwPKwm.exit, %26
-  %45 = tail call i64 @wcslen(ptr noundef nonnull %1) #18
+  %45 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #18
   %46 = and i64 %45, 4294967295
   br label %47
 
@@ -1693,7 +1693,7 @@ _Z6GetExtPKw.exit:                                ; preds = %21, %11, %24, %_Z11
   br i1 %62, label %_Z6SetExtPwPKwm.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = call i64 @wcslen(ptr noundef nonnull %5) #18
+  %64 = call i64 @wcslen(ptr noundef nonnull readonly %5) #18
   %65 = and i64 %64, 4294967295
   br label %66
 
@@ -2010,7 +2010,7 @@ _Z6GetExtPKw.exit.thread:                         ; preds = %66
   br label %84
 
 68:                                               ; preds = %66
-  %69 = call i64 @wcslen(ptr noundef nonnull %0) #18
+  %69 = call i64 @wcslen(ptr noundef nonnull readonly %0) #18
   %70 = and i64 %69, 4294967295
   br label %71
 
@@ -2040,7 +2040,7 @@ _Z6GetExtPKw.exit:                                ; preds = %71, %79
   br i1 %83, label %84, label %101
 
 84:                                               ; preds = %_Z6GetExtPKw.exit.thread, %_Z6GetExtPKw.exit
-  %85 = call i64 @wcslen(ptr noundef %0) #18
+  %85 = call i64 @wcslen(ptr noundef readonly %0) #18
   %86 = and i64 %85, 4294967295
   br label %87
 
@@ -2297,7 +2297,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   br i1 %14, label %240, label %296
 
 240:                                              ; preds = %._crit_edge
-  %241 = call i64 @wcslen(ptr noundef %0) #18
+  %241 = call i64 @wcslen(ptr noundef readonly %0) #18
   %242 = and i64 %241, 4294967295
   br label %243
 
@@ -2381,7 +2381,7 @@ _Z11GetFilePathPKwPwm.exit:                       ; preds = %_Z11PointToNamePKw.
 
 _Z11AddEndSlashPwm.exit:                          ; preds = %_Z11GetFilePathPKwPwm.exit, %274, %278, %281
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef 2048)
-  %283 = call i64 @wcslen(ptr noundef %0) #18
+  %283 = call i64 @wcslen(ptr noundef readonly %0) #18
   %284 = and i64 %283, 4294967295
   br label %285
 

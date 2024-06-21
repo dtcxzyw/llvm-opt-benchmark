@@ -58309,7 +58309,7 @@ _ZN12_GLOBAL__N_110BufferViewIfEEN3ozz4spanIKT_EERKN8tinygltf5ModelERKNS6_8Acces
   br label %_ZN12_GLOBAL__N_119SampleLinearChannelISt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS2_12StdAllocatorIS6_EEEEEbRKN8tinygltf5ModelERKNSA_8AccessorERKNS2_4spanIKfEEPT_.exit.thread.i
 
 120:                                              ; preds = %109
-  %121 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val.i, ptr %.val37.i, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %121 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val.i, ptr readonly %.val37.i, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %122 = extractvalue { ptr, i64 } %121, 0
   %123 = extractvalue { ptr, i64 } %121, 1
   %124 = mul i64 %123, 12
@@ -58415,7 +58415,7 @@ _ZN12_GLOBAL__N_119SampleLinearChannelISt6vectorIN3ozz9animation7offline12RawAni
   br label %_ZN12_GLOBAL__N_117SampleStepChannelISt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS2_12StdAllocatorIS6_EEEEEbRKN8tinygltf5ModelERKNSA_8AccessorERKNS2_4spanIKfEEPT_.exit.thread.i
 
 165:                                              ; preds = %154
-  %166 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val38.i, ptr %.val39.i, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %166 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val38.i, ptr readonly %.val39.i, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %167 = extractvalue { ptr, i64 } %166, 0
   %168 = extractvalue { ptr, i64 } %166, 1
   %169 = mul i64 %168, 12
@@ -58576,7 +58576,7 @@ _ZN12_GLOBAL__N_117SampleStepChannelISt6vectorIN3ozz9animation7offline12RawAnima
 
 244:                                              ; preds = %233
   %245 = udiv i64 %237, 3
-  %246 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val40.i, ptr %.val41.i, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %246 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val40.i, ptr readonly %.val41.i, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %247 = extractvalue { ptr, i64 } %246, 0
   %248 = extractvalue { ptr, i64 } %246, 1
   %249 = mul i64 %248, 12
@@ -58958,7 +58958,7 @@ _ZN12_GLOBAL__N_113SampleChannelISt6vectorIN3ozz9animation7offline12RawAnimation
   br label %_ZN12_GLOBAL__N_119SampleLinearChannelISt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS2_12StdAllocatorIS6_EEEEEbRKN8tinygltf5ModelERKNSA_8AccessorERKNS2_4spanIKfEEPT_.exit.thread.i
 
 436:                                              ; preds = %425
-  %437 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math10QuaternionEEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val.i123, ptr %.val37.i124, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %437 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math10QuaternionEEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val.i123, ptr readonly %.val37.i124, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %438 = extractvalue { ptr, i64 } %437, 0
   %439 = extractvalue { ptr, i64 } %437, 1
   %440 = and i64 %439, 1152921504606846975
@@ -59063,7 +59063,7 @@ _ZN12_GLOBAL__N_119SampleLinearChannelISt6vectorIN3ozz9animation7offline12RawAni
   br label %_ZN12_GLOBAL__N_117SampleStepChannelISt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS2_12StdAllocatorIS6_EEEEEbRKN8tinygltf5ModelERKNSA_8AccessorERKNS2_4spanIKfEEPT_.exit.thread.i
 
 480:                                              ; preds = %469
-  %481 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math10QuaternionEEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val38.i109, ptr %.val39.i110, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %481 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math10QuaternionEEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val38.i109, ptr readonly %.val39.i110, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %482 = extractvalue { ptr, i64 } %481, 0
   %483 = extractvalue { ptr, i64 } %481, 1
   %484 = and i64 %483, 1152921504606846975
@@ -59223,7 +59223,7 @@ _ZN12_GLOBAL__N_117SampleStepChannelISt6vectorIN3ozz9animation7offline12RawAnima
 
 558:                                              ; preds = %547
   %559 = udiv i64 %551, 3
-  %560 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math10QuaternionEEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val40.i72, ptr %.val41.i73, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %560 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math10QuaternionEEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val40.i72, ptr readonly %.val41.i73, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %561 = extractvalue { ptr, i64 } %560, 0
   %562 = extractvalue { ptr, i64 } %560, 1
   %563 = shl i64 %562, 4
@@ -59648,7 +59648,7 @@ _ZN12_GLOBAL__N_113SampleChannelISt6vectorIN3ozz9animation7offline12RawAnimation
   br label %_ZN12_GLOBAL__N_119SampleLinearChannelISt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS2_12StdAllocatorIS6_EEEEEbRKN8tinygltf5ModelERKNSA_8AccessorERKNS2_4spanIKfEEPT_.exit.thread.i
 
 769:                                              ; preds = %758
-  %770 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val.i201, ptr %.val37.i202, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %770 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val.i201, ptr readonly %.val37.i202, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %771 = extractvalue { ptr, i64 } %770, 0
   %772 = extractvalue { ptr, i64 } %770, 1
   %773 = mul i64 %772, 12
@@ -59754,7 +59754,7 @@ _ZN12_GLOBAL__N_119SampleLinearChannelISt6vectorIN3ozz9animation7offline12RawAni
   br label %_ZN12_GLOBAL__N_117SampleStepChannelISt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS2_12StdAllocatorIS6_EEEEEbRKN8tinygltf5ModelERKNSA_8AccessorERKNS2_4spanIKfEEPT_.exit.thread.i
 
 814:                                              ; preds = %803
-  %815 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val38.i187, ptr %.val39.i188, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %815 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val38.i187, ptr readonly %.val39.i188, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %816 = extractvalue { ptr, i64 } %815, 0
   %817 = extractvalue { ptr, i64 } %815, 1
   %818 = mul i64 %817, 12
@@ -59915,7 +59915,7 @@ _ZN12_GLOBAL__N_117SampleStepChannelISt6vectorIN3ozz9animation7offline12RawAnima
 
 893:                                              ; preds = %882
   %894 = udiv i64 %886, 3
-  %895 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr %.val40.i140, ptr %.val41.i141, ptr noundef nonnull align 8 dereferenceable(300) %61)
+  %895 = tail call fastcc { ptr, i64 } @_ZN12_GLOBAL__N_110BufferViewIN3ozz4math6Float3EEENS1_4spanIKT_EERKN8tinygltf5ModelERKNS8_8AccessorE(ptr readonly %.val40.i140, ptr readonly %.val41.i141, ptr noundef nonnull readonly align 8 dereferenceable(300) %61)
   %896 = extractvalue { ptr, i64 } %895, 0
   %897 = extractvalue { ptr, i64 } %895, 1
   %898 = mul i64 %897, 12

@@ -4218,7 +4218,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_10DoubleTypeEEENSt9enab
 sw.bb26.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1080)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1080, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !143
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1080, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   %315 = load ptr, ptr %ref.tmp.i1080, align 8, !noalias !149
   store ptr %315, ptr %ref.tmp, align 8, !alias.scope !149
@@ -4362,7 +4362,7 @@ sw.bb28.i:                                        ; preds = %entry
 sw.bb30.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1025)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1025, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !153
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1025, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !153
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %338 = load ptr, ptr %ref.tmp.i1025, align 8, !noalias !159
   store ptr %338, ptr %ref.tmp, align 8, !alias.scope !159
@@ -4506,7 +4506,7 @@ sw.bb32.i:                                        ; preds = %entry
 sw.bb34.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i970)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i970, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !163
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i970, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %361 = load ptr, ptr %ref.tmp.i970, align 8, !noalias !169
   store ptr %361, ptr %ref.tmp, align 8, !alias.scope !169
@@ -4646,7 +4646,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_15LargeStringTypeEEENSt
 sw.bb36.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i950)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i950, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !173
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i950, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !173
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %384 = load ptr, ptr %ref.tmp.i950, align 8, !noalias !179
   store ptr %384, ptr %ref.tmp, align 8, !alias.scope !179
@@ -6852,14 +6852,14 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_14Decimal256TypeE.exi
 
 sw.bb62.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i214)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i214, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !292
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i214, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !292
   %775 = load ptr, ptr %ref.tmp.i214, align 8, !noalias !295
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i214)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb64.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i212)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i212, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !298
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i212, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !298
   %776 = load ptr, ptr %ref.tmp.i212, align 8, !noalias !301
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i212)
   br label %_ZN5arrow6StatusD2Ev.exit
@@ -6868,7 +6868,7 @@ sw.bb66.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i207)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i208)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i207, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !304
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i207, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !304
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %777 = load ptr, ptr %ref.tmp.i207, align 8, !noalias !310
   store ptr %777, ptr %ref.tmp, align 8, !alias.scope !310
@@ -6876,7 +6876,7 @@ sw.bb66.i:                                        ; preds = %entry
   br i1 %cmp.i.i209, label %_ZN5arrow6StatusD2Ev.exit74.i210, label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_12ListViewTypeE.exit
 
 _ZN5arrow6StatusD2Ev.exit74.i210:                 ; preds = %sw.bb66.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i208, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !304
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i208, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !304
   %778 = load ptr, ptr %ref.tmp9.i208, align 8, !noalias !311
   store ptr %778, ptr %ref.tmp, align 8, !alias.scope !304
   br label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_12ListViewTypeE.exit
@@ -6890,7 +6890,7 @@ sw.bb68.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i204)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i204, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !314
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i204, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !314
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
   %779 = load ptr, ptr %ref.tmp.i204, align 8, !noalias !320
   store ptr %779, ptr %ref.tmp, align 8, !alias.scope !320
@@ -6898,7 +6898,7 @@ sw.bb68.i:                                        ; preds = %entry
   br i1 %cmp.i.i205, label %_ZN5arrow6StatusD2Ev.exit74.i, label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_17LargeListViewTypeE.exit
 
 _ZN5arrow6StatusD2Ev.exit74.i:                    ; preds = %sw.bb68.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !314
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !314
   %780 = load ptr, ptr %ref.tmp9.i, align 8, !noalias !321
   store ptr %780, ptr %ref.tmp, align 8, !alias.scope !314
   br label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_17LargeListViewTypeE.exit
@@ -6910,7 +6910,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_17LargeListViewTypeE.
 
 sw.bb70.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i202)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i202, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !324
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i202, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !324
   %781 = load ptr, ptr %ref.tmp.i202, align 8, !noalias !327
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i202)
   br label %_ZN5arrow6StatusD2Ev.exit

@@ -142,7 +142,7 @@ if.then46:                                        ; preds = %if.else42
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then46
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call47, ptr noundef nonnull dereferenceable(6) @.str.1) #6
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call47, ptr noundef nonnull dereferenceable(6) @.str.1) #6
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %reinitialize, label %if.end.i
 
@@ -293,7 +293,7 @@ if.then143:                                       ; preds = %if.then139
   br i1 %cmp.not.i145, label %if.end.i149, label %land.lhs.true.i146
 
 land.lhs.true.i146:                               ; preds = %if.then143
-  %call.i147 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call144, ptr noundef nonnull dereferenceable(6) @.str.1) #6
+  %call.i147 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call144, ptr noundef nonnull dereferenceable(6) @.str.1) #6
   %cmp1.i148 = icmp eq i32 %call.i147, 0
   br i1 %cmp1.i148, label %if.end186, label %if.end.i149
 

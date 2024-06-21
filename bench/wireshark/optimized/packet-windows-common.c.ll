@@ -7699,7 +7699,7 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
 
 50:                                               ; preds = %49
   %51 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32) #7
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.6929, ptr noundef nonnull dereferenceable(1) %51) #8
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.6929, ptr noundef nonnull readonly dereferenceable(1) %51) #8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %match_wkwn_sids.exit.thread, label %.lr.ph
 
@@ -7712,7 +7712,7 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
 
 55:                                               ; preds = %.lr.ph
   %56 = load ptr, ptr %54, align 16
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %51) #8
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(1) %51) #8
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %match_wkwn_sids.exit, label %.lr.ph, !llvm.loop !6
 
@@ -7782,7 +7782,7 @@ match_wkwn_sids.exit.thread:                      ; preds = %50, %49, %match_wkw
 
 81:                                               ; preds = %80
   %82 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32) #7
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.6929, ptr noundef nonnull dereferenceable(1) %82) #8
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.6929, ptr noundef nonnull readonly dereferenceable(1) %82) #8
   %84 = icmp eq i32 %83, 0
   br i1 %45, label %85, label %95
 
@@ -7798,7 +7798,7 @@ match_wkwn_sids.exit.thread:                      ; preds = %50, %49, %match_wkw
 
 87:                                               ; preds = %.lr.ph319
   %88 = load ptr, ptr %86, align 16
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %82) #8
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull readonly dereferenceable(1) %82) #8
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %match_wkwn_sids.exit285, label %.lr.ph319, !llvm.loop !6
 
@@ -7830,7 +7830,7 @@ match_wkwn_sids.exit285.thread:                   ; preds = %85, %match_wkwn_sid
 
 97:                                               ; preds = %.lr.ph314
   %98 = load ptr, ptr %96, align 16
-  %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %82) #8
+  %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull readonly dereferenceable(1) %82) #8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %match_wkwn_sids.exit290, label %.lr.ph314, !llvm.loop !6
 
@@ -7885,7 +7885,7 @@ match_wkwn_sids.exit290.thread:                   ; preds = %95, %match_wkwn_sid
 
 123:                                              ; preds = %120
   %124 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32) #7
-  %125 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.6929, ptr noundef nonnull dereferenceable(1) %124) #8
+  %125 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.6929, ptr noundef nonnull readonly dereferenceable(1) %124) #8
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %match_wkwn_sids.exit295.thread, label %.lr.ph309
 
@@ -7898,7 +7898,7 @@ match_wkwn_sids.exit290.thread:                   ; preds = %95, %match_wkwn_sid
 
 128:                                              ; preds = %.lr.ph309
   %129 = load ptr, ptr %127, align 16
-  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %124) #8
+  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull readonly dereferenceable(1) %124) #8
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %match_wkwn_sids.exit295, label %.lr.ph309, !llvm.loop !6
 

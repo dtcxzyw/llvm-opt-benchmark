@@ -1212,7 +1212,7 @@ common.ret57:                                     ; preds = %if.end17, %if.then5
 if.end9:                                          ; preds = %if.then5
   store <4 x i8> <i8 0, i8 0, i8 1, i8 -48>, ptr %call6, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %call6, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %serverinfo, i64 %serverinfo_length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %call10 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull %call6, i64 noundef %add.i)
   tail call void @CRYPTO_free(ptr noundef nonnull %call6, ptr noundef nonnull @.str, i32 noundef 793) #6
   br label %common.ret57
@@ -1567,7 +1567,7 @@ if.then.i:                                        ; preds = %if.end79
 extension_append.exit:                            ; preds = %if.end79, %if.then.i
   %cond.i.i = phi i64 [ 4, %if.then.i ], [ 0, %if.end79 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %cond.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %10, i64 %11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %10, i64 %11, i1 false)
   %12 = load ptr, ptr %name, align 8
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 925) #6
   store ptr null, ptr %name, align 8

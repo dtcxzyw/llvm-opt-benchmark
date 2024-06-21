@@ -1846,9 +1846,9 @@ _ZL14yyinitGLRStackP10yyGLRStackl.exit:           ; preds = %18
   %33 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %24, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   %35 = getelementptr inbounds i8, ptr %24, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
   %36 = load ptr, ptr %14, align 8
   store ptr %24, ptr %36, align 8
   %37 = load i64, ptr %8, align 8
@@ -2012,9 +2012,9 @@ _ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit:   ; preds = %89, %94
   %116 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr %115, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %107, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   %118 = getelementptr inbounds i8, ptr %107, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
   %119 = load ptr, ptr %14, align 8
   store ptr %107, ptr %119, align 8
   %120 = load i64, ptr %8, align 8
@@ -2148,7 +2148,7 @@ _ZL15yyremoveDeletesP10yyGLRStack.exit:           ; preds = %167, %.preheader179
   br i1 %174, label %_ZL19yyundeleteLastStackP10yyGLRStack.exit, label %175
 
 _ZL19yyundeleteLastStackP10yyGLRStack.exit:       ; preds = %172
-  call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %6, ptr poison, ptr noundef %1, ptr noundef nonnull @.str)
+  call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %6, ptr readnone poison, ptr noundef %1, ptr noundef nonnull @.str)
   unreachable
 
 175:                                              ; preds = %172
@@ -2277,9 +2277,9 @@ _ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139: ; preds = %195, %214, %219
   %233 = getelementptr inbounds i8, ptr %223, i64 8
   store ptr %232, ptr %233, align 8
   %234 = getelementptr inbounds i8, ptr %223, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   %235 = getelementptr inbounds i8, ptr %223, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
   %236 = load ptr, ptr %14, align 8
   %237 = getelementptr inbounds ptr, ptr %236, i64 %.2109206
   store ptr %223, ptr %237, align 8
@@ -2889,7 +2889,7 @@ _ZL25yy_syntax_error_argumentsPK10yyGLRStackP15yysymbol_kind_ti.exit.thread71: ;
   br label %.preheader.split.us.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %72, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #42
+  %77 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %67) #42
   br label %_ZL9yytnamerrPcPKc.exit
 
 _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.loopexit.i
@@ -2974,7 +2974,7 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit65
 
 .loopexit.thread.i:                               ; preds = %100, %.preheader.split.i, %.preheader.split.i, %88
-  %107 = tail call ptr @stpcpy(ptr noundef nonnull %.040, ptr noundef nonnull %95) #35
+  %107 = tail call ptr @stpcpy(ptr noundef nonnull %.040, ptr noundef nonnull readonly %95) #35
   %108 = ptrtoint ptr %107 to i64
   %109 = ptrtoint ptr %.040 to i64
   %110 = sub i64 %108, %109
@@ -3160,9 +3160,9 @@ _ZL13yyLRgotoStatei15yysymbol_kind_t.exit:        ; preds = %74, %78
   %94 = getelementptr inbounds i8, ptr %83, i64 8
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %83, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
   %96 = getelementptr inbounds i8, ptr %83, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false)
   %97 = load ptr, ptr %9, align 8
   %98 = getelementptr inbounds ptr, ptr %97, i64 %1
   store ptr %83, ptr %98, align 8
@@ -25642,7 +25642,7 @@ _ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit: ; preds = %81, %32, %.loopexi
 
 _ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit: ; preds = %26, %.lr.ph.i22
   tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %0, i32 noundef 1)
-  tail call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %22, ptr poison, ptr noundef %4, ptr noundef nonnull @.str.126)
+  tail call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %22, ptr readnone poison, ptr noundef %4, ptr noundef nonnull @.str.126)
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, %19

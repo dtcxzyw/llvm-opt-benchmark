@@ -1103,7 +1103,7 @@ define internal noundef i32 @cf_socket_cntrl(ptr nocapture noundef readonly %0, 
   %.val19.i = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %.val19.i, i64 256
   %33 = getelementptr inbounds i8, ptr %.val.i, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %32, ptr noundef nonnull align 8 dereferenceable(46) %33, i64 46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %32, ptr noundef nonnull readonly align 8 dereferenceable(46) %33, i64 46, i1 false)
   %.val20.i = load ptr, ptr %6, align 8
   tail call fastcc void @set_local_ip(ptr %.val20.i, ptr noundef %1)
   %34 = load ptr, ptr %11, align 8

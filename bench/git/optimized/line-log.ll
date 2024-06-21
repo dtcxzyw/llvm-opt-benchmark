@@ -456,7 +456,7 @@ while.body.us.i.i:                                ; preds = %fill_blob_sha1.exit
   %p.010.us.i.i = phi ptr [ %30, %if.end5.us.i.i ], [ %ranges.063.i43, %fill_blob_sha1.exit.i ]
   %path2.us.i.i = getelementptr inbounds i8, ptr %p.010.us.i.i, i64 8
   %29 = load ptr, ptr %path2.us.i.i, align 8
-  %call.us.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %call14.i) #18
+  %call.us.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %call14.i) #18
   %tobool3.not.us.i.i = icmp eq i32 %call.us.i.i, 0
   br i1 %tobool3.not.us.i.i, label %land.lhs.true.i, label %if.end5.us.i.i
 
@@ -542,7 +542,7 @@ while.body.i.i.i:                                 ; preds = %if.end56.i, %if.end
   %p.010.i.i.i = phi ptr [ %41, %if.end5.i.i.i ], [ %ranges.063.i43, %if.end56.i ]
   %path2.i.i.i = getelementptr inbounds i8, ptr %p.010.i.i.i, i64 8
   %40 = load ptr, ptr %path2.i.i.i, align 8
-  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %call14.i) #18
+  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %call14.i) #18
   %tobool3.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool3.not.i.i.i, label %if.then.i36.i, label %if.end5.i.i.i
 
@@ -897,7 +897,7 @@ if.then.i.i.i:                                    ; preds = %range_set_init.exit
   %ranges1.i.i = getelementptr inbounds i8, ptr %src.0.i, i64 24
   %12 = load ptr, ptr %ranges1.i.i, align 8
   %mul.i.i.i.i = shl nuw nsw i64 %conv3.i.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %12, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr readonly align 1 %12, i64 %mul.i.i.i.i, i1 false)
   %.pre.i.i = load i32, ptr %nr.i.i, align 4
   br label %range_set_copy.exit.i
 
@@ -1752,7 +1752,7 @@ if.then.i.i.i:                                    ; preds = %range_set_init.exit
   %ranges1.i.i = getelementptr inbounds i8, ptr %r, i64 24
   %4 = load ptr, ptr %ranges1.i.i, align 8
   %mul.i.i.i.i = shl nuw nsw i64 %conv3.i.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %4, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr readonly align 1 %4, i64 %mul.i.i.i.i, i1 false)
   %.pre.i.i = load i32, ptr %nr.i.i, align 4
   br label %line_log_data_copy_one.exit
 
@@ -1802,7 +1802,7 @@ if.then.i.i.i17:                                  ; preds = %range_set_init.exit
   %ranges1.i.i19 = getelementptr inbounds i8, ptr %r.addr.030, i64 24
   %11 = load ptr, ptr %ranges1.i.i19, align 8
   %mul.i.i.i.i20 = shl nuw nsw i64 %conv3.i.i18, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %11, i64 %mul.i.i.i.i20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %11, i64 %mul.i.i.i.i20, i1 false)
   %.pre.i.i21 = load i32, ptr %nr.i.i8, align 4
   br label %line_log_data_copy_one.exit26
 

@@ -9131,8 +9131,8 @@ _ZNK4Type9is_signedEv.exit9.i:                    ; preds = %17
   br i1 %.0.i.i, label %20, label %_ZNK4Type13is_equivalentEPKS_.exit
 
 20:                                               ; preds = %_ZNK4Type9is_signedEv.exit9.i, %_ZNK4Type9is_signedEv.exit9.thr_comm.i
-  %21 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %.0.i)
-  %22 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %.0.i2)
+  %21 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %.0.i)
+  %22 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %.0.i2)
   %23 = icmp ne i64 %21, %22
   br label %_ZNK4Type13is_equivalentEPKS_.exit
 

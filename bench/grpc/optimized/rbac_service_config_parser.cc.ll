@@ -8767,7 +8767,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   br i1 %cmp14, label %cleanup, label %if.end17
 
 if.end17:                                         ; preds = %invoke.cont12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(16) %result, i64 16, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6, %if.end17

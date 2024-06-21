@@ -3193,7 +3193,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd41f20085
   %scevgep8.i.i.i = getelementptr i8, ptr %16, i64 %18
   %19 = sub i64 %15, %.promoted.i.i.i
   %20 = shl i64 %19, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i.i.i, ptr align 4 %scevgep8.i.i.i, i64 %20, i1 false), !noalias !660
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i.i.i, ptr readonly align 4 %scevgep8.i.i.i, i64 %20, i1 false), !noalias !660
   %21 = add i64 %19, %11
   br label %22
 
@@ -3457,7 +3457,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %5, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %5, i64 %6, i1 false)
   store i64 %8, ptr %0, align 8, !alias.scope !710, !noalias !715
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !710, !noalias !715
@@ -3479,7 +3479,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   %11 = shl i64 %6, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %5, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull readonly align 8 %5, i64 %11, i1 false)
   store i64 %8, ptr %0, align 8, !alias.scope !716, !noalias !721
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !716, !noalias !721
@@ -5290,7 +5290,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %16 = shl i64 %.val.i, 2
   %scevgep8.i.i.i.i = getelementptr i8, ptr %14, i64 %16
   %17 = shl i64 %4, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i.i.i.i, ptr align 4 %scevgep8.i.i.i.i, i64 %17, i1 false), !noalias !921
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i.i.i.i, ptr readonly align 4 %scevgep8.i.i.i.i, i64 %17, i1 false), !noalias !921
   %18 = add i64 %11, %4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd41f2008561d8330E.llvm.7091670428431571743.exit"
 

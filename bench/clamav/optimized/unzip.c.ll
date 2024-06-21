@@ -2284,7 +2284,7 @@ define i32 @cli_unzip_single(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 
 18:                                               ; preds = %15
   %19 = trunc i64 %1 to i32
-  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
+  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull readonly @cli_magic_scan_desc, ptr noundef null)
   %21 = load i32, ptr %3, align 4
   br label %unzip_single_internal.exit
 

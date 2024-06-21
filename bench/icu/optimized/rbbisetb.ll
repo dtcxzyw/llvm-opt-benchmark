@@ -463,7 +463,7 @@ if.else:                                          ; preds = %for.inc.i, %if.then
 for.body.i83:                                     ; preds = %if.else, %for.body.i83
   %ix.05.i = phi i32 [ %inc.i84, %for.body.i83 ], [ 0, %if.else ]
   %call2.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %52, i32 noundef %ix.05.i)
-  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %call2.i, i32 noundef %add109)
+  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull readonly align 8 dereferenceable(53) %this, ptr noundef %call2.i, i32 noundef %add109)
   %inc.i84 = add nuw nsw i32 %ix.05.i, 1
   %54 = load i32, ptr %count.i.i82, align 8
   %cmp.i85 = icmp slt i32 %inc.i84, %54
@@ -516,7 +516,7 @@ if.then132:                                       ; preds = %if.then126
 for.body.i88:                                     ; preds = %if.then132, %for.body.i88
   %ix.05.i89 = phi i32 [ %inc.i91, %for.body.i88 ], [ 0, %if.then132 ]
   %call2.i90 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 noundef %ix.05.i89)
-  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %call2.i90, i32 noundef %add129)
+  tail call void @_ZN6icu_7514RBBISetBuilder11addValToSetEPNS_8RBBINodeEj(ptr noundef nonnull readonly align 8 dereferenceable(53) %this, ptr noundef %call2.i90, i32 noundef %add129)
   %inc.i91 = add nuw nsw i32 %ix.05.i89, 1
   %62 = load i32, ptr %count.i.i86, align 8
   %cmp.i92 = icmp slt i32 %inc.i91, %62

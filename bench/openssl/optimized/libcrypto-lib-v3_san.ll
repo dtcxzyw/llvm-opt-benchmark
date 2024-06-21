@@ -167,7 +167,7 @@ if.then29:                                        ; preds = %land.lhs.true25
   br i1 %tobool31.not, label %err, label %for.inc
 
 if.else34:                                        ; preds = %land.lhs.true25, %land.lhs.true22, %if.else
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef nonnull %call7, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef nonnull readonly %call7, i32 noundef 0)
   %cmp36 = icmp eq ptr %call.i, null
   br i1 %cmp36, label %err, label %if.end38
 
@@ -227,7 +227,7 @@ land.lhs.true10.us:                               ; preds = %land.lhs.true.us
   br i1 %cmp13.us, label %err.sink.split, label %if.else.us
 
 if.else.us:                                       ; preds = %land.lhs.true10.us, %land.lhs.true.us, %for.body.us
-  %call.i15.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef null, ptr noundef nonnull %call7.us, i32 noundef 0)
+  %call.i15.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef null, ptr noundef nonnull readonly %call7.us, i32 noundef 0)
   %cmp20.us = icmp eq ptr %call.i15.us, null
   br i1 %cmp20.us, label %err, label %if.end22.us
 
@@ -314,7 +314,7 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true10, %land.lhs.true, %for.body
-  %call.i15 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef nonnull %ctx, ptr noundef nonnull %call7, i32 noundef 0)
+  %call.i15 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef nonnull %ctx, ptr noundef nonnull readonly %call7, i32 noundef 0)
   %cmp20 = icmp eq ptr %call.i15, null
   br i1 %cmp20, label %err, label %if.end22
 
@@ -853,7 +853,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end11
   %i.010 = phi i32 [ %inc, %if.end11 ], [ 0, %for.cond.preheader ]
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.010) #3
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef %call7, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef readonly %call7, i32 noundef 0)
   %cmp9 = icmp eq ptr %call.i, null
   br i1 %cmp9, label %err, label %if.end11
 

@@ -9709,7 +9709,7 @@ default.unreachable70:                            ; preds = %445, %401, %5
 186:                                              ; preds = %182
   %187 = extractvalue { ptr, i64 } %185, 0
   %188 = extractvalue { ptr, i64 } %185, 1
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %145)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %145)
           to label %189 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 189:                                              ; preds = %186
@@ -10234,11 +10234,11 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   br label %308
 
 311:                                              ; preds = %304
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %305)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %305)
           to label %313 unwind label %309
 
 312:                                              ; preds = %304
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %305)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %305)
           to label %324 unwind label %309
 
 313:                                              ; preds = %311
@@ -10734,7 +10734,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator13type_resource17h8eafbee72f01e351E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84)
-  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %490)
+  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %490)
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %84, ptr align 1 %1, i64 %2)
   store ptr %84, ptr %82, align 8
   %491 = getelementptr inbounds i8, ptr %82, i64 8
@@ -10804,7 +10804,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_handle17h91ff0b535e64a727E.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
-  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %507)
+  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %507)
   call void @_ZN20wasmtime_wit_bindgen4rust24to_rust_upper_camel_case17heaed1fbe1db4a0e0E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %81, ptr align 1 %1, i64 %2)
   invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %0, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.327, i64 29)
           to label %509 unwind label %.loopexit.split-lp.i6
@@ -11039,7 +11039,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.ex
 583:                                              ; preds = %578
   %584 = extractvalue { ptr, i64 } %581, 0
   %585 = extractvalue { ptr, i64 } %581, 1
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %556)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %556)
           to label %586 unwind label %.loopexit.split-lp.i12
 
 586:                                              ; preds = %583
@@ -11168,7 +11168,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.ex
   %618 = getelementptr inbounds i8, ptr %617, i64 448
   %619 = tail call i40 @_ZN20wasmtime_wit_bindgen5types5Types3get17hfd41f81f583b5e20E(ptr nonnull align 8 %618, i64 %3, i32 %4)
   call void @_ZN20wasmtime_wit_bindgen4rust24to_rust_upper_camel_case17heaed1fbe1db4a0e0E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %61, ptr align 1 %1, i64 %2)
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %615)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %615)
           to label %620 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i18
 
 .loopexit.split-lp.i20:                           ; preds = %739, %729, %721, %698, %628, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i18, %.loopexit.split-lp.loopexit.split-lp.loopexit.i25, %.loopexit.split-lp.loopexit.i30, %.loopexit.i34
@@ -11721,7 +11721,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum17h83440cbbf27ef863E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   %764 = load ptr, ptr %749, align 8, !align !30, !noundef !4
   %765 = load i64, ptr %750, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %744)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %744)
           to label %769 unwind label %767
 
 766:                                              ; preds = %778, %767
@@ -11867,7 +11867,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %811 = load ptr, ptr %795, align 8, !align !30, !noundef !4
   %812 = load i64, ptr %796, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %790)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %790)
           to label %816 unwind label %814
 
 813:                                              ; preds = %825, %814
@@ -12042,7 +12042,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.e
 868:                                              ; preds = %861
   %869 = extractvalue { ptr, i64 } %864, 0
   %870 = extractvalue { ptr, i64 } %864, 1
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %842)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %842)
           to label %871 unwind label %866
 
 871:                                              ; preds = %868
@@ -12181,7 +12181,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %910 = load ptr, ptr %895, align 8, !align !30, !noundef !4
   %911 = load i64, ptr %896, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %890)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %890)
           to label %913 unwind label %.loopexit.split-lp.i53
 
 912:                                              ; preds = %918, %.loopexit.split-lp.i53, %.loopexit1.i61

@@ -400,7 +400,7 @@ exec_eval_cleanup.exit:                           ; preds = %58, %80, %78, %61, 
   %98 = sext i32 %97 to i64
   %99 = getelementptr ptr, ptr %95, i64 %98
   %100 = load ptr, ptr %99, align 8
-  call fastcc void @assign_simple_var(ptr noundef nonnull %7, ptr noundef %100, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %7, ptr noundef %100, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   %101 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %102 = load ptr, ptr %101, align 8
   %.not = icmp eq ptr %102, null
@@ -2287,7 +2287,7 @@ default.unreachable:                              ; preds = %37
   %83 = sext i32 %82 to i64
   %84 = getelementptr ptr, ptr %80, i64 %83
   %85 = load ptr, ptr %84, align 8
-  call fastcc void @assign_simple_var(ptr noundef nonnull %3, ptr noundef %85, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %3, ptr noundef %85, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   %86 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %87 = load ptr, ptr %86, align 8
   %.not72 = icmp eq ptr %87, null
@@ -3440,12 +3440,12 @@ exception_matches_conditions.exit:                ; preds = %153, %161, %141
   %175 = call ptr @unpack_sql_state(i32 noundef %.fr) #11
   %176 = call ptr @cstring_to_text(ptr noundef %175) #11
   %177 = ptrtoint ptr %176 to i64
-  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %169, i64 noundef %177, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %169, i64 noundef %177, i1 noundef zeroext false, i1 noundef zeroext true)
   %178 = getelementptr inbounds i8, ptr %126, i64 56
   %179 = load ptr, ptr %178, align 8
   %180 = call ptr @cstring_to_text(ptr noundef %179) #11
   %181 = ptrtoint ptr %180 to i64
-  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %174, i64 noundef %181, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %174, i64 noundef %181, i1 noundef zeroext false, i1 noundef zeroext true)
   store ptr %126, ptr %87, align 8
   store ptr null, ptr %7, align 8
   %182 = getelementptr inbounds i8, ptr %143, i64 16
@@ -4178,7 +4178,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef readonly %1) 
   %167 = getelementptr ptr, ptr %164, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = zext i1 %163 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %168, i64 noundef %169, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %168, i64 noundef %169, i1 noundef zeroext false, i1 noundef zeroext false)
   %170 = load ptr, ptr %83, align 8
   %.not.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i, label %172, label %171
@@ -4382,7 +4382,7 @@ list_length.exit59.thread.i.i:                    ; preds = %list_length.exit59.
   %267 = getelementptr inbounds i8, ptr %263, i64 8
   %268 = load i32, ptr %267, align 4
   %269 = add i32 %268, -1
-  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %269)
+  call fastcc void @exec_check_assignable(ptr noundef nonnull readonly %0, i32 noundef %269)
   %270 = load ptr, ptr %246, align 8
   %271 = add i32 %.06.i.i, 1
   %272 = getelementptr i32, ptr %270, i64 %261
@@ -4648,7 +4648,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %394 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i.i) #11
   store ptr %393, ptr @CurrentMemoryContext, align 8
   %395 = ptrtoint ptr %394 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %395, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %395, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 396:                                              ; preds = %.lr.ph554
@@ -4665,7 +4665,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %404 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i57.i) #11
   store ptr %403, ptr @CurrentMemoryContext, align 8
   %405 = ptrtoint ptr %404 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %405, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %405, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 406:                                              ; preds = %.lr.ph554
@@ -4682,7 +4682,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %414 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i59.i) #11
   store ptr %413, ptr @CurrentMemoryContext, align 8
   %415 = ptrtoint ptr %414 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %415, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %415, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 416:                                              ; preds = %.lr.ph554
@@ -4700,7 +4700,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %425 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i61.i) #11
   store ptr %424, ptr @CurrentMemoryContext, align 8
   %426 = ptrtoint ptr %425 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %426, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %426, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 427:                                              ; preds = %.lr.ph554
@@ -4717,7 +4717,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %435 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i63.i) #11
   store ptr %434, ptr @CurrentMemoryContext, align 8
   %436 = ptrtoint ptr %435 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %436, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %436, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 437:                                              ; preds = %.lr.ph554
@@ -4734,7 +4734,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %445 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i65.i) #11
   store ptr %444, ptr @CurrentMemoryContext, align 8
   %446 = ptrtoint ptr %445 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %446, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %446, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 447:                                              ; preds = %.lr.ph554
@@ -4751,7 +4751,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %455 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i67.i) #11
   store ptr %454, ptr @CurrentMemoryContext, align 8
   %456 = ptrtoint ptr %455 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %456, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %456, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 457:                                              ; preds = %.lr.ph554
@@ -4768,7 +4768,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %465 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i69.i) #11
   store ptr %464, ptr @CurrentMemoryContext, align 8
   %466 = ptrtoint ptr %465 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %466, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %466, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 467:                                              ; preds = %.lr.ph554
@@ -4785,7 +4785,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %475 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i71.i) #11
   store ptr %474, ptr @CurrentMemoryContext, align 8
   %476 = ptrtoint ptr %475 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %476, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %476, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 477:                                              ; preds = %.lr.ph554
@@ -4802,7 +4802,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %485 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i73.i) #11
   store ptr %484, ptr @CurrentMemoryContext, align 8
   %486 = ptrtoint ptr %485 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %486, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %486, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 487:                                              ; preds = %.lr.ph554
@@ -4821,7 +4821,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %496 = call ptr @cstring_to_text(ptr noundef nonnull %.str.55..i75.i) #11
   store ptr %491, ptr @CurrentMemoryContext, align 8
   %497 = ptrtoint ptr %496 to i64
-  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef %377, i64 noundef %497, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
+  call void @exec_assign_value(ptr noundef nonnull readonly %0, ptr noundef %377, i64 noundef %497, i1 noundef zeroext false, i32 noundef 25, i32 noundef -1)
   br label %502
 
 498:                                              ; preds = %.lr.ph554
@@ -5685,7 +5685,7 @@ exec_stmt_fori.exit:                              ; preds = %866, %868, %870, %8
   %905 = getelementptr ptr, ptr %902, i64 %904
   %906 = load ptr, ptr %905, align 8
   %907 = zext nneg i8 %.163.i to i64
-  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %906, i64 noundef %907, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %906, i64 noundef %907, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64)
@@ -5855,7 +5855,7 @@ setup_param_list.exit:                            ; preds = %975, %979
   %998 = load ptr, ptr %987, align 8
   %999 = call ptr @cstring_to_text(ptr noundef %998) #11
   %1000 = ptrtoint ptr %999 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %921, i64 noundef %1000, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %921, i64 noundef %1000, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %1001
 
 1001:                                             ; preds = %996, %994
@@ -6194,7 +6194,7 @@ exec_stmt_foreach_a.exit:                         ; preds = %1151, %1149, %1134,
   %1161 = sext i32 %1160 to i64
   %1162 = getelementptr ptr, ptr %1159, i64 %1161
   %1163 = load ptr, ptr %1162, align 8
-  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %1163, i64 noundef %.1.i121, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %1163, i64 noundef %.1.i121, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
@@ -6979,7 +6979,7 @@ exec_stmt_return_query.exit:                      ; preds = %1535, %1537
   %1547 = getelementptr ptr, ptr %1544, i64 %1546
   %1548 = load ptr, ptr %1547, align 8
   %1549 = zext i1 %1543 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %1548, i64 noundef %1549, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %1548, i64 noundef %1549, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
@@ -8041,7 +8041,7 @@ get_stmt_mcontext.exit.i173:                      ; preds = %1968, %1965
   %2004 = load ptr, ptr %2000, align 8
   %2005 = call ptr @cstring_to_text(ptr noundef %2004) #11
   %2006 = ptrtoint ptr %2005 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1961, i64 noundef %2006, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1961, i64 noundef %2006, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %exec_stmt_open.exit
 
 2007:                                             ; preds = %1992
@@ -8151,7 +8151,7 @@ setup_param_list.exit.i178:                       ; preds = %2044, %2040
   %2064 = load ptr, ptr %2053, align 8
   %2065 = call ptr @cstring_to_text(ptr noundef %2064) #11
   %2066 = ptrtoint ptr %2065 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1961, i64 noundef %2066, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1961, i64 noundef %2066, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %2067
 
 2067:                                             ; preds = %2062, %2060
@@ -8358,7 +8358,7 @@ exec_stmt_fetch.exit:                             ; preds = %exec_eval_cleanup.e
   %2168 = getelementptr ptr, ptr %2165, i64 %2167
   %2169 = load ptr, ptr %2168, align 8
   %2170 = zext i1 %2164 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %2169, i64 noundef %2170, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %2169, i64 noundef %2170, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   br label %exec_stmt_perform.exit
 
@@ -9540,7 +9540,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %68 = getelementptr ptr, ptr %64, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = zext i1 %62 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %69, i64 noundef %70, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %69, i64 noundef %70, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %103
 
 71:                                               ; preds = %54, %54, %54, %54, %54, %54, %54
@@ -9554,7 +9554,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %79 = getelementptr ptr, ptr %75, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = zext i1 %73 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %80, i64 noundef %81, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %80, i64 noundef %81, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %103
 
 82:                                               ; preds = %54
@@ -9565,7 +9565,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %87 = sext i32 %86 to i64
   %88 = getelementptr ptr, ptr %84, i64 %87
   %89 = load ptr, ptr %88, align 8
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %89, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %89, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %103
 
 90:                                               ; preds = %54
@@ -10172,7 +10172,7 @@ exec_eval_cleanup.exit93:                         ; preds = %127, %129
   %161 = getelementptr ptr, ptr %157, i64 %160
   %162 = load ptr, ptr %161, align 8
   %163 = zext i1 %20 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %162, i64 noundef %163, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %162, i64 noundef %163, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %.374
 }
 
@@ -10319,13 +10319,13 @@ default.unreachable:                              ; preds = %68, %33
 55:                                               ; preds = %51
   %56 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.78) #11
   %57 = ptrtoint ptr %56 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %57, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %57, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %225
 
 58:                                               ; preds = %51
   %59 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.79) #11
   %60 = ptrtoint ptr %59 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %60, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %60, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %225
 
 61:                                               ; preds = %8
@@ -10588,7 +10588,7 @@ assign_simple_var.exit:                           ; preds = %166, %189, %190
   %205 = load ptr, ptr %204, align 8
   %206 = tail call ptr @cstring_to_text(ptr noundef %205) #11
   %207 = ptrtoint ptr %206 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %207, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %207, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %225
 
 208:                                              ; preds = %8
@@ -10610,7 +10610,7 @@ assign_simple_var.exit:                           ; preds = %166, %189, %190
   %218 = tail call ptr @GetCommandTagName(i32 noundef %217) #11
   %219 = tail call ptr @cstring_to_text(ptr noundef %218) #11
   %220 = ptrtoint ptr %219 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %220, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %220, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %225
 
 221:                                              ; preds = %8

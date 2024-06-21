@@ -1046,7 +1046,7 @@ if.end37:                                         ; preds = %if.then36, %if.end3
 
 if.then39:                                        ; preds = %if.end37
   %oid40 = getelementptr inbounds i8, ptr %call30, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %out_oid, ptr noundef nonnull align 4 dereferenceable(32) %oid40, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %out_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid40, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %call30, i64 36
   %5 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %out_oid, i64 32

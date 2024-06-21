@@ -2692,13 +2692,13 @@ _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE9push_backERKS2_.exit: ; p
   %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %72, i1 true)
   %74 = shl nuw nsw i64 %73, 1
   %75 = xor i64 %74, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_T0_T1_"(ptr %65, ptr %67, i64 noundef %75, ptr nonnull %0)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_T0_T1_"(ptr %65, ptr %67, i64 noundef %75, ptr nonnull readonly %0)
   %76 = icmp sgt i64 %71, 256
   br i1 %76, label %77, label %148
 
 77:                                               ; preds = %68
   %78 = getelementptr inbounds i8, ptr %65, i64 256
-  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_T0_"(ptr %65, ptr nonnull %78, ptr nonnull %0)
+  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_T0_"(ptr %65, ptr nonnull %78, ptr nonnull readonly %0)
   %.not24.i.i.i.i = icmp eq ptr %78, %67
   br i1 %.not24.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEEZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EvT_SC_T0_.exit", label %.lr.ph.i.i.i.i
 
@@ -2883,7 +2883,7 @@ _ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE.exit.i.i.i
   br i1 %.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEEZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EvT_SC_T0_.exit", label %81, !llvm.loop !48
 
 148:                                              ; preds = %68
-  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_T0_"(ptr %65, ptr %67, ptr nonnull %0)
+  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_T0_"(ptr %65, ptr %67, ptr nonnull readonly %0)
   br label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEEZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EvT_SC_T0_.exit"
 
 "_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEEZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EvT_SC_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_.exit.i.i.i.i", %._crit_edge, %77, %148
@@ -9565,7 +9565,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.sroa.03.0.copyload.i.i.i = load ptr, ptr %phi.call.i.i.i, align 8
   %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 8
   %.sroa.24.0.copyload.i.i.i = load i64, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa181, ptr %.sroa.03.0.copyload.i.i.i, i64 %.sroa.24.0.copyload.i.i.i, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa181, ptr %.sroa.03.0.copyload.i.i.i, i64 %.sroa.24.0.copyload.i.i.i, ptr readonly %3)
   %36 = icmp eq i64 %.0.i.i.i, 0
   %37 = add nsw i64 %.0.i.i.i, -1
   br i1 %36, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %.split11.i.i.i, !llvm.loop !109
@@ -9584,7 +9584,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %40, %16
   %42 = ashr exact i64 %41, 4
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %42, ptr %.sroa.03.0.copyload.i.i10.i, i64 %.sroa.24.0.copyload.i.i12.i, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %42, ptr %.sroa.03.0.copyload.i.i10.i, i64 %.sroa.24.0.copyload.i.i12.i, ptr readonly %3)
   %43 = icmp sgt i64 %41, 16
   br i1 %43, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !110
 

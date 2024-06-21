@@ -1346,7 +1346,7 @@ _ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup16referenceDensity
   %100 = load ptr, ptr %.val4, align 8, !noalias !20
   %101 = getelementptr inbounds i8, ptr %.val4, i64 32
   %102 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull readonly align 8 dereferenceable(32) %101, i64 32, i1 false)
   %103 = getelementptr inbounds i8, ptr %22, i64 40
   store ptr %100, ptr %103, align 8, !alias.scope !20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)

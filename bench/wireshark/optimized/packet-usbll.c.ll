@@ -2603,7 +2603,7 @@ switch.lookup195:                                 ; preds = %876
   store i8 %893, ptr %894, align 2
   %895 = getelementptr inbounds i8, ptr %5, i64 8
   store i16 0, ptr %895, align 4
-  %896 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef nonnull %.0132136147159173185)
+  %896 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef nonnull readonly %.0132136147159173185)
   %897 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %896, ptr %897, align 4
   %898 = call ptr @proto_tree_get_parent_tree(ptr noundef %11) #13

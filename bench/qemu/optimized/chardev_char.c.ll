@@ -398,7 +398,7 @@ retry.preheader.i:                                ; preds = %if.then19, %if.end7
   %add.ptr.i = getelementptr i8, ptr %buf, i64 %done.014.i
   %sub.i = sub i64 %conv, %done.014.i
   %15 = load i32, ptr %logfd.i, align 8
-  %call11.i = call i64 @write(i32 noundef %15, ptr noundef %add.ptr.i, i64 noundef %sub.i) #13
+  %call11.i = call i64 @write(i32 noundef %15, ptr noundef readonly %add.ptr.i, i64 noundef %sub.i) #13
   %cmp312.i = icmp eq i64 %call11.i, -1
   br i1 %cmp312.i, label %land.lhs.true.lr.ph.i, label %if.end7.i
 
@@ -414,7 +414,7 @@ land.lhs.true.i:                                  ; preds = %if.then6.i, %land.l
 if.then6.i:                                       ; preds = %land.lhs.true.i
   call void @g_usleep(i64 noundef 100) #13
   %17 = load i32, ptr %logfd.i, align 8
-  %call.i21 = call i64 @write(i32 noundef %17, ptr noundef %add.ptr.i, i64 noundef %sub.i) #13
+  %call.i21 = call i64 @write(i32 noundef %17, ptr noundef readonly %add.ptr.i, i64 noundef %sub.i) #13
   %cmp3.i = icmp eq i64 %call.i21, -1
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end7.i
 
@@ -444,7 +444,7 @@ retry.preheader.i26:                              ; preds = %if.then23, %if.end7
   %add.ptr.i28 = getelementptr i8, ptr %buf, i64 %done.014.i27
   %sub.i29 = sub i64 %conv24, %done.014.i27
   %19 = load i32, ptr %logfd.i22, align 8
-  %call11.i30 = call i64 @write(i32 noundef %19, ptr noundef %add.ptr.i28, i64 noundef %sub.i29) #13
+  %call11.i30 = call i64 @write(i32 noundef %19, ptr noundef readonly %add.ptr.i28, i64 noundef %sub.i29) #13
   %cmp312.i31 = icmp eq i64 %call11.i30, -1
   br i1 %cmp312.i31, label %land.lhs.true.lr.ph.i38, label %if.end7.i32
 
@@ -460,7 +460,7 @@ land.lhs.true.i40:                                ; preds = %if.then6.i42, %land
 if.then6.i42:                                     ; preds = %land.lhs.true.i40
   call void @g_usleep(i64 noundef 100) #13
   %21 = load i32, ptr %logfd.i22, align 8
-  %call.i43 = call i64 @write(i32 noundef %21, ptr noundef %add.ptr.i28, i64 noundef %sub.i29) #13
+  %call.i43 = call i64 @write(i32 noundef %21, ptr noundef readonly %add.ptr.i28, i64 noundef %sub.i29) #13
   %cmp3.i44 = icmp eq i64 %call.i43, -1
   br i1 %cmp3.i44, label %land.lhs.true.i40, label %if.end7.i32
 
@@ -1164,7 +1164,7 @@ entry.tail.i:                                     ; preds = %land.lhs.true
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.111) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.111) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 

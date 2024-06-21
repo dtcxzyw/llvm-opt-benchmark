@@ -19628,7 +19628,7 @@ invoke.cont:                                      ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47.i6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i2)
-  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_Test8TestBodyEvENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
+  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_Test8TestBodyEvENK3$_1clEv"(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp2)
           to label %if.then.i44 unwind label %lpad.i.i7
 
 lpad.i.i7:                                        ; preds = %invoke.cont
@@ -19748,7 +19748,7 @@ invoke.cont.i92:                                  ; preds = %if.then.i44
   br i1 %call1.i45, label %if.then2.i95, label %if.then38.critedge.i93
 
 if.then2.i95:                                     ; preds = %invoke.cont.i92
-  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_Test8TestBodyEvENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
+  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_Test8TestBodyEvENK3$_1clEv"(ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp2)
           to label %if.then38.critedge.i93 unwind label %lpad.i46
 
 lpad.i46:                                         ; preds = %if.then2.i95, %if.then.i44
@@ -45760,7 +45760,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i.i, i8 0, i64 16, i1 false), !noalias !715
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEENS1_4$_12EE9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i3.i.i.i, align 8, !noalias !715
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEENS1_4$_12EE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i2.i.i.i, align 8, !noalias !715
-  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %contracts_.i.i)
+  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %contracts_.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !715
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -45966,7 +45966,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !721
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEZNS1_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i3.i.i, align 8, !noalias !721
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEZNS1_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i2.i.i, align 8, !noalias !721
-  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %contracts_.i.i)
+  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %contracts_.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !721
 
 invoke.cont.i.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit

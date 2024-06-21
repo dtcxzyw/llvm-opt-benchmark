@@ -1425,7 +1425,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %5, i64 %offset.addr.030.i.i
   %add.ptr10.i.i = getelementptr i8, ptr %buf, i64 %done.029.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
   %add.i.i = add i64 %cond.i.i, %done.029.i.i
   br label %for.inc.i.i
 

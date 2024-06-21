@@ -214,7 +214,7 @@ if.end.i.i27.i:                                   ; preds = %if.end14.i
 _Py_NewRef.exit28.i:                              ; preds = %if.end.i.i27.i, %if.end14.i
   %heap.val20.i = phi ptr [ %14, %if.end14.i ], [ %heap.val20.pre.i, %if.end.i.i27.i ]
   store ptr %4, ptr %heap.val20.i, align 8
-  %call18.i = tail call i32 @siftup(ptr noundef nonnull %0, i64 noundef 0)
+  %call18.i = tail call i32 @siftup(ptr noundef nonnull readonly %0, i64 noundef 0)
   %tobool.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i, label %exit, label %if.then19.i
 
@@ -318,7 +318,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
   %heap.val7.i.i = phi ptr [ %7, %if.end.i.i ], [ %heap.val7.pre.i.i, %if.end.i.i.i.i ]
   store ptr %4, ptr %heap.val7.i.i, align 8
-  %call2.i.i = tail call i32 @siftup(ptr noundef nonnull %0, i64 noundef 0) #2, !callees !4
+  %call2.i.i = tail call i32 @siftup(ptr noundef nonnull readonly %0, i64 noundef 0) #2, !callees !4
   %tobool.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool.not.i.i, label %exit, label %if.then3.i.i
 
@@ -470,7 +470,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
   %heap.val7.i.i = phi ptr [ %7, %if.end.i.i ], [ %heap.val7.pre.i.i, %if.end.i.i.i.i ]
   store ptr %4, ptr %heap.val7.i.i, align 8
-  %call2.i.i = tail call i32 @siftup_max(ptr noundef nonnull %0, i64 noundef 0) #2, !callees !4
+  %call2.i.i = tail call i32 @siftup_max(ptr noundef nonnull readonly %0, i64 noundef 0) #2, !callees !4
   %tobool.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool.not.i.i, label %exit, label %if.then3.i.i
 

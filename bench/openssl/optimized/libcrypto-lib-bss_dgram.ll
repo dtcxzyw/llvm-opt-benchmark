@@ -1233,7 +1233,7 @@ if.then12.i:                                      ; preds = %if.then18
   store i32 50, ptr %cmsg_type17.i, align 4
   %__cmsg_data18.i = getelementptr inbounds i8, ptr %arrayidx13, i64 16
   %sin6_addr.i = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data18.i, ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data18.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %sin6_addr.i, i64 16, i1 false)
   %ipi6_ifindex.i = getelementptr inbounds i8, ptr %arrayidx13, i64 32
   store i32 0, ptr %ipi6_ifindex.i, align 8
   %sin6_port.i = getelementptr inbounds i8, ptr %11, i64 2

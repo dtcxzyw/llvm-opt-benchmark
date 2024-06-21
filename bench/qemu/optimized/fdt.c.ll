@@ -1083,7 +1083,7 @@ land.rhs.i:                                       ; preds = %fdt_offset_ptr.exit
   br i1 %cmp.not.i, label %sw.epilog.i.loopexit, label %do.body.i5, !llvm.loop !5
 
 sw.bb13.i4:                                       ; preds = %if.end.i
-  %call14.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %fdt, i32 noundef %add.i, i32 noundef 4)
+  %call14.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %fdt, i32 noundef %add.i, i32 noundef 4)
   %tobool17.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool17.not.i, label %return, label %if.end19.i
 
@@ -1111,7 +1111,7 @@ sw.epilog.i.loopexit:                             ; preds = %land.rhs.i
 sw.epilog.i:                                      ; preds = %sw.epilog.i.loopexit, %land.lhs.true35.i, %if.end19.i, %if.end.i, %if.end.i, %if.end.i
   %offset.1.i = phi i32 [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add24.i, %if.end19.i ], [ %spec.select.i, %land.lhs.true35.i ], [ %30, %sw.epilog.i.loopexit ]
   %sub43.i = sub i32 %offset.1.i, %11
-  %call44.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %fdt, i32 noundef %11, i32 noundef %sub43.i)
+  %call44.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %fdt, i32 noundef %11, i32 noundef %sub43.i)
   %tobool45.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool45.not.i, label %return, label %fdt_next_tag.exit
 

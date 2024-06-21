@@ -805,7 +805,7 @@ sub_2:                                            ; preds = %sub_146
   ]
 
 .preheader:                                       ; preds = %45
-  %48 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.75, ptr noundef nonnull dereferenceable(1) %17, i64 noundef 11) #13
+  %48 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.75, ptr noundef nonnull readonly dereferenceable(1) %17, i64 noundef 11) #13
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.backedge, label %.lr.ph
 
@@ -827,7 +827,7 @@ sub_2:                                            ; preds = %sub_146
   %spec.select.i = add i64 %53, %58
   %sext.i = shl i64 %spec.select.i, 32
   %59 = ashr exact i64 %sext.i, 32
-  %60 = call i32 @strncmp(ptr noundef nonnull %51, ptr noundef nonnull %17, i64 noundef %59) #13
+  %60 = call i32 @strncmp(ptr noundef nonnull %51, ptr noundef nonnull readonly %17, i64 noundef %59) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %skipfile.exit, label %.lr.ph, !llvm.loop !13
 

@@ -300,7 +300,7 @@ _ZN3gmx12_GLOBAL__N_116TreeAssignHelperC2EPNS_7OptionsEPNS_25IKeyValueTreeErrorH
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %_ZN3gmx12_GLOBAL__N_116TreeAssignHelperC2EPNS_7OptionsEPNS_25IKeyValueTreeErrorHandlerE.exit
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116TreeAssignHelper13assignSubTreeERKNS_18KeyValueTreeObjectE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116TreeAssignHelper13assignSubTreeERKNS_18KeyValueTreeObjectE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %.noexc4 unwind label %19
 
 .noexc4:                                          ; preds = %.noexc

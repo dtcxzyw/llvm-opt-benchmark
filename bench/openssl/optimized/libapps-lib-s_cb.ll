@@ -1873,7 +1873,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.end.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %bcmp.i = call i32 @bcmp(ptr nonnull %result.i, ptr %cookie, i64 %conv)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %result.i, ptr readonly %cookie, i64 %conv)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %verify_stateless_cookie_callback.exit, label %if.end.i
 

@@ -3176,7 +3176,7 @@ for.end:                                          ; preds = %for.body
   %parse_flags_.i = getelementptr inbounds i8, ptr %this, i64 2
   %14 = load i16, ptr %parse_flags_.i, align 2
   %conv.i = zext i16 %14 to i32
-  %call.i = tail call noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef 5, ptr noundef nonnull %add.ptr, i32 noundef %sub, i32 noundef %conv.i, i1 noundef zeroext false)
+  %call.i = tail call noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef 5, ptr noundef nonnull readonly %add.ptr, i32 noundef %sub, i32 noundef %conv.i, i1 noundef zeroext false)
   br label %if.end45
 
 if.else:                                          ; preds = %if.end23

@@ -3263,7 +3263,7 @@ if.then13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
 
 for.inc.i:                                        ; preds = %if.then13.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i2060
   store ptr %add.ptr.i1.i720, ptr %_M_finish.i.i723, align 8
-  %call.i725726 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager18updateNodeInternalEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %123, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp176, i1 noundef zeroext true)
+  %call.i725726 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager18updateNodeInternalEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EEb(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %123, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp176, i1 noundef zeroext true)
           to label %invoke.cont196 unwind label %lpad195
 
 lpad.i2056:                                       ; preds = %if.then13.i.i.i.i
@@ -4057,7 +4057,7 @@ lpad320:                                          ; preds = %invoke.cont330, %if
 
 if.else336:                                       ; preds = %invoke.cont325
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp338, i8 0, i64 24, i1 false)
-  %call.i11421143 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager18updateNodeInternalEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %232, i32 noundef 68, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp338, i1 noundef zeroext true)
+  %call.i11421143 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager18updateNodeInternalEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EEb(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %232, i32 noundef 68, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp338, i1 noundef zeroext true)
           to label %invoke.cont340 unwind label %lpad339
 
 invoke.cont340:                                   ; preds = %if.else336
@@ -4184,7 +4184,7 @@ if.then13.i.i.i.i2075:                            ; preds = %if.else.i.i.i.i2069
 
 for.inc.i2071:                                    ; preds = %if.then13.i.i.i.i2075, %if.else.i.i.i.i2069, %if.then.i.i.i.i2083
   store ptr %add.ptr.i1.i1191, ptr %_M_finish.i.i1195, align 8
-  %call.i11981199 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager18updateNodeInternalEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %247, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp346, i1 noundef zeroext true)
+  %call.i11981199 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager18updateNodeInternalEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EEb(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %247, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp346, i1 noundef zeroext true)
           to label %invoke.cont367 unwind label %lpad366
 
 lpad.i2077:                                       ; preds = %if.then13.i.i.i.i2075

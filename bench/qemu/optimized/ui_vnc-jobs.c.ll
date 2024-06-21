@@ -539,7 +539,7 @@ if.end29.i:                                       ; preds = %if.then25.i, %if.en
   %22 = load ptr, ptr %write_pixels.i.i, align 8
   store ptr %22, ptr %write_pixels5.i.i, align 8
   %client_pf6.i.i = getelementptr inbounds i8, ptr %17, i64 49416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %client_pf.i.i, ptr noundef nonnull align 8 dereferenceable(32) %client_pf6.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %client_pf.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %client_pf6.i.i, i64 32, i1 false)
   %client_be.i.i = getelementptr inbounds i8, ptr %17, i64 49452
   %23 = load i8, ptr %client_be.i.i, align 4
   %frombool.i.i = and i8 %23, 1
@@ -548,7 +548,7 @@ if.end29.i:                                       ; preds = %if.then25.i, %if.en
   %24 = load ptr, ptr %tight.i.i, align 8
   store ptr %24, ptr %tight8.i.i, align 8
   %zlib9.i.i = getelementptr inbounds i8, ptr %17, i64 49608
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %zlib.i.i, ptr noundef nonnull align 8 dereferenceable(200) %zlib9.i.i, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %zlib.i.i, ptr noundef nonnull readonly align 8 dereferenceable(200) %zlib9.i.i, i64 200, i1 false)
   %hextile10.i.i = getelementptr inbounds i8, ptr %17, i64 49808
   %25 = load i64, ptr %hextile10.i.i, align 8
   store i64 %25, ptr %hextile.i.i, align 8

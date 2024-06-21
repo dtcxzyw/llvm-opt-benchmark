@@ -8442,7 +8442,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
 75:                                               ; preds = %72
   store i32 %68, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %71, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %59, i64 16, i1 false)
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8

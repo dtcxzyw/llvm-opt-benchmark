@@ -235,7 +235,7 @@ if.end83:                                         ; preds = %land.lhs.true78, %l
   %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 %conv
   %call84 = call fastcc ptr @internal_prefix_pathspec(ptr noundef %prefix, ptr noundef %add.ptr, i32 noundef 1, i32 noundef %flags.0)
   %4 = load ptr, ptr %call84, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #13
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %add_slash.exit, label %land.lhs.true.i
 
@@ -257,7 +257,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 st_add.exit.i:                                    ; preds = %if.then.i
   %add.i.i = add nuw i64 %call.i, 2
   %call3.i = call ptr @xmalloc(i64 noundef %add.i.i) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr nonnull align 1 %4, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr nonnull readonly align 1 %4, i64 %call.i, i1 false)
   %arrayidx4.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i
   store i8 47, ptr %arrayidx4.i, align 1
   %arrayidx5.i = getelementptr i8, ptr %arrayidx4.i, i64 1
@@ -383,7 +383,7 @@ if.then149:                                       ; preds = %if.end143
   br i1 %cmp152, label %if.then154, label %if.end172
 
 if.then154:                                       ; preds = %if.then149
-  %call.i214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
+  %call.i214 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #13
   %tobool.not.i215 = icmp eq i64 %call.i214, 0
   br i1 %tobool.not.i215, label %add_slash.exit228, label %land.lhs.true.i216
 
@@ -405,7 +405,7 @@ if.then.i.i227:                                   ; preds = %if.then.i219
 st_add.exit.i221:                                 ; preds = %if.then.i219
   %add.i.i222 = add nuw i64 %call.i214, 2
   %call3.i223 = call ptr @xmalloc(i64 noundef %add.i.i222) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i223, ptr nonnull align 1 %13, i64 %call.i214, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i223, ptr nonnull readonly align 1 %13, i64 %call.i214, i1 false)
   %arrayidx4.i224 = getelementptr inbounds i8, ptr %call3.i223, i64 %call.i214
   store i8 47, ptr %arrayidx4.i224, align 1
   %arrayidx5.i225 = getelementptr i8, ptr %arrayidx4.i224, i64 1
@@ -657,7 +657,7 @@ st_mult.exit278:                                  ; preds = %do.end
   %mul.i282 = shl nuw nsw i64 %conv273, 2
   %call281 = call ptr @xrealloc(ptr noundef nonnull %modes.0527, i64 noundef %mul.i282) #11
   %call284 = call ptr @xrealloc(ptr noundef %submodule_gitfile.0531, i64 noundef %mul.i270) #11
-  %call.i291 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #13
+  %call.i291 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #13
   %tobool.not.i292 = icmp eq i64 %call.i291, 0
   br i1 %tobool.not.i292, label %add_slash.exit305, label %land.lhs.true.i293
 
@@ -679,7 +679,7 @@ if.then.i.i304:                                   ; preds = %if.then.i296
 st_add.exit.i298:                                 ; preds = %if.then.i296
   %add.i.i299 = add nuw i64 %call.i291, 2
   %call3.i300 = call ptr @xmalloc(i64 noundef %add.i.i299) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i300, ptr nonnull align 1 %14, i64 %call.i291, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i300, ptr nonnull readonly align 1 %14, i64 %call.i291, i1 false)
   %arrayidx4.i301 = getelementptr inbounds i8, ptr %call3.i300, i64 %call.i291
   store i8 47, ptr %arrayidx4.i301, align 1
   %arrayidx5.i302 = getelementptr i8, ptr %arrayidx4.i301, i64 1
@@ -978,16 +978,16 @@ if.then.i.i364:                                   ; preds = %if.then.i362
 
 if.then.i366:                                     ; preds = %if.then.i362
   %mul.i.i = shl nuw nsw i64 %conv438, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx136, ptr nonnull align 1 %add.ptr437, i64 %mul.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx136, ptr nonnull readonly align 1 %add.ptr437, i64 %mul.i.i, i1 false)
   %add.ptr443 = getelementptr inbounds i8, ptr %arrayidx138, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx138, ptr nonnull align 1 %add.ptr443, i64 %mul.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx138, ptr nonnull readonly align 1 %add.ptr443, i64 %mul.i.i, i1 false)
   %add.ptr446 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %add.ptr449 = getelementptr inbounds i8, ptr %add.ptr446, i64 4
   %mul.i.i379 = shl nuw nsw i64 %conv438, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr446, ptr nonnull align 1 %add.ptr449, i64 %mul.i.i379, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr446, ptr nonnull readonly align 1 %add.ptr449, i64 %mul.i.i379, i1 false)
   %add.ptr452 = getelementptr inbounds ptr, ptr %submodule_gitfile.0531, i64 %idxprom
   %add.ptr455 = getelementptr inbounds i8, ptr %add.ptr452, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr452, ptr nonnull align 1 %add.ptr455, i64 %mul.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr452, ptr nonnull readonly align 1 %add.ptr455, i64 %mul.i.i, i1 false)
   br label %move_array.exit391
 
 move_array.exit391:                               ; preds = %if.then430, %if.then.i366
@@ -1526,7 +1526,7 @@ declare i32 @path_in_sparse_checkout(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @empty_dir_has_sparse_contents(ptr noundef %name) unnamed_addr #0 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #13
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #13
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %add_slash.exit, label %land.lhs.true.i
 
@@ -1548,7 +1548,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 st_add.exit.i:                                    ; preds = %if.then.i
   %add.i.i = add nuw i64 %call.i, 2
   %call3.i = tail call ptr @xmalloc(i64 noundef %add.i.i) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr nonnull align 1 %name, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr nonnull readonly align 1 %name, i64 %call.i, i1 false)
   %arrayidx4.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i
   store i8 47, ptr %arrayidx4.i, align 1
   %arrayidx5.i = getelementptr i8, ptr %arrayidx4.i, i64 1
@@ -1622,7 +1622,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @index_range_of_same_dir(ptr noundef %src, i32 noundef %length, ptr nocapture noundef writeonly %first_p, ptr nocapture noundef writeonly %last_p) unnamed_addr #0 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #13
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %src) #13
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %add_slash.exit, label %land.lhs.true.i
 
@@ -1644,7 +1644,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 st_add.exit.i:                                    ; preds = %if.then.i
   %add.i.i = add nuw i64 %call.i, 2
   %call3.i = tail call ptr @xmalloc(i64 noundef %add.i.i) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr nonnull align 1 %src, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr nonnull readonly align 1 %src, i64 %call.i, i1 false)
   %arrayidx4.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i
   store i8 47, ptr %arrayidx4.i, align 1
   %arrayidx5.i = getelementptr i8, ptr %arrayidx4.i, i64 1

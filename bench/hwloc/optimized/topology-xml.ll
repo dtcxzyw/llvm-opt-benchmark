@@ -1014,7 +1014,7 @@ define void @hwloc__xml_export_topology(ptr noundef %0, ptr noundef %1, i64 noun
   %12 = alloca [255 x i8], align 16
   %13 = alloca %struct.hwloc__xml_export_state_s, align 8
   %14 = alloca [11 x i8], align 1
-  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef 0, i32 noundef 0) #22
+  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef 0, i32 noundef 0) #22
   tail call fastcc void @hwloc__xml_v2export_object(ptr noundef %0, ptr noundef %1, ptr noundef %15, i64 noundef %2)
   %16 = getelementptr inbounds i8, ptr %1, i64 728
   %.015.i = load ptr, ptr %16, align 8
@@ -2421,7 +2421,7 @@ hwloc__xml_export_memattrs.exit:                  ; preds = %737, %641
   %771 = load ptr, ptr %770, align 8
   %772 = getelementptr inbounds i8, ptr %770, i64 8
   %773 = load ptr, ptr %772, align 8
-  %774 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %771) #22
+  %774 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %771) #22
   %775 = add i64 %774, 1
   %776 = call noalias ptr @malloc(i64 noundef %775) #24
   %.not.i.i.i = icmp eq ptr %776, null
@@ -2465,7 +2465,7 @@ hwloc__xml_export_memattrs.exit:                  ; preds = %737, %641
   br label %hwloc__xml_export_safestrdup.exit.i.i
 
 hwloc__xml_export_safestrdup.exit.i.i:            ; preds = %._crit_edge.i.i.i, %768
-  %786 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %773) #22
+  %786 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %773) #22
   %787 = add i64 %786, 1
   %788 = call noalias ptr @malloc(i64 noundef %787) #24
   %.not.i11.i.i = icmp eq ptr %788, null
@@ -2698,7 +2698,7 @@ define internal fastcc void @hwloc__xml_v2export_object(ptr noundef %0, ptr noun
   br i1 %.not205.i, label %hwloc__xml_export_safestrdup.exit.thread.i, label %78
 
 78:                                               ; preds = %75
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #22
+  %79 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %77) #22
   %80 = add i64 %79, 1
   %81 = call noalias ptr @malloc(i64 noundef %80) #24
   %.not.i.i = icmp eq ptr %81, null
@@ -2751,7 +2751,7 @@ hwloc__xml_export_safestrdup.exit.thread.i:       ; preds = %hwloc__xml_export_s
   br i1 %.not207.i, label %hwloc__xml_export_safestrdup.exit245.thread.i, label %94
 
 94:                                               ; preds = %hwloc__xml_export_safestrdup.exit.thread.i
-  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #22
+  %95 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %93) #22
   %96 = add i64 %95, 1
   %97 = call noalias ptr @malloc(i64 noundef %96) #24
   %.not.i234.i = icmp eq ptr %97, null
@@ -3224,7 +3224,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %346 ]
   %348 = getelementptr inbounds %struct.hwloc_info_s, ptr %345, i64 %indvars.iv.i.i.i
   %349 = load ptr, ptr %348, align 8
-  %350 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(8) @.str.69) #22
+  %350 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull readonly dereferenceable(8) @.str.69) #22
   %.not.i.i.i = icmp eq i32 %350, 0
   br i1 %.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.i, label %346
 
@@ -4367,7 +4367,7 @@ declare i32 @hwloc_bitmap_asprintf(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hwloc__xml_export_info_attr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
   %4 = alloca %struct.hwloc__xml_export_state_s, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
   %6 = add i64 %5, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #24
   %.not.i = icmp eq ptr %7, null
@@ -4411,7 +4411,7 @@ define internal fastcc void @hwloc__xml_export_info_attr(ptr noundef %0, ptr noc
   br label %hwloc__xml_export_safestrdup.exit
 
 hwloc__xml_export_safestrdup.exit:                ; preds = %3, %._crit_edge.i
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #22
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #24
   %.not.i11 = icmp eq ptr %19, null
@@ -4498,7 +4498,7 @@ define internal fastcc ptr @hwloc_obj_get_info_by_name(ptr nocapture noundef rea
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %9 = getelementptr inbounds %struct.hwloc_info_s, ptr %6, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #22
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %1) #22
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %7
 
@@ -8655,7 +8655,7 @@ hwloc__xml_verbose.exit320:                       ; preds = %911, %916
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i321 ], [ %indvars.iv.next.i.i, %959 ]
   %961 = getelementptr inbounds %struct.hwloc_info_s, ptr %958, i64 %indvars.iv.i.i
   %962 = load ptr, ptr %961, align 8
-  %963 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %962, ptr noundef nonnull dereferenceable(8) @.str.69) #22
+  %963 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %962, ptr noundef nonnull readonly dereferenceable(8) @.str.69) #22
   %.not.i.i322 = icmp eq i32 %963, 0
   br i1 %.not.i.i322, label %hwloc_obj_get_info_by_name.exit, label %959
 
@@ -10696,7 +10696,7 @@ define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0,
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
   %21 = getelementptr inbounds %struct.hwloc_info_s, ptr %18, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(13) @.str.211) #22
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(13) @.str.211) #22
   %.not.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i, label %24, label %19
 
@@ -10718,7 +10718,7 @@ define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0,
   %indvars.iv.i.i29 = phi i64 [ 0, %.lr.ph.i.i27 ], [ %indvars.iv.next.i.i31, %27 ]
   %29 = getelementptr inbounds %struct.hwloc_info_s, ptr %18, i64 %indvars.iv.i.i29
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(12) @.str.212) #22
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(12) @.str.212) #22
   %.not.i.i30 = icmp eq i32 %31, 0
   br i1 %.not.i.i30, label %32, label %27
 

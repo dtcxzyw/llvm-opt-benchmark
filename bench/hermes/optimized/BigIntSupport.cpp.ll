@@ -290,7 +290,7 @@ if.end.i6:                                        ; preds = %_ZN6hermes6bigint17
   br i1 %cmp3.i, label %_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr nonnull align 1 %retval.0.i, i64 %retval.sroa.3.0.copyload3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr nonnull readonly align 1 %retval.0.i, i64 %retval.sroa.3.0.copyload3.i, i1 false)
   %9 = trunc i64 %retval.sroa.3.0.copyload3.i to i32
   %conv9.i = sub i32 %mul.i, %9
   %10 = getelementptr i8, ptr %dst.coerce0, i64 %retval.sroa.3.0.copyload3.i
@@ -416,7 +416,7 @@ if.then3:                                         ; preds = %_ZN6hermes6bigint10
   store ptr %add.ptr.i, ptr %data_.i, align 8
   %mul.i.i = shl i32 %src.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr nonnull align 8 %src.coerce0, i64 %conv.i.i, i1 false), !noalias !6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr nonnull readonly align 8 %src.coerce0, i64 %conv.i.i, i1 false), !noalias !6
   call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %3, i32 noundef %src.coerce1) #17, !noalias !6
   %cmp.i.i.i.i = icmp eq i32 %mul.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.end13, label %if.end.i.i.i40
@@ -3309,7 +3309,7 @@ if.end.i:                                         ; preds = %_ZN6hermes6bigint10
   br i1 %cmp3.i, label %if.end9, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %bytes.coerce0, i64 %bytes.coerce1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr readonly align 1 %bytes.coerce0, i64 %bytes.coerce1, i1 false)
   %conv9.i = sub nsw i32 %mul.i, %conv
   %3 = getelementptr i8, ptr %2, i64 %bytes.coerce1
   %arrayidx.i = getelementptr i8, ptr %3, i64 -1
@@ -3605,7 +3605,7 @@ if.end.i.i:                                       ; preds = %if.then6
   br i1 %cmp3.i.i, label %return.sink.split, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr align 1 %src.coerce0, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr readonly align 1 %src.coerce0, i64 %conv.i, i1 false)
   %conv9.i.i = sub i32 %mul.i.i, %mul.i
   %1 = getelementptr i8, ptr %dst.coerce0, i64 %conv.i
   %arrayidx.i.i = getelementptr i8, ptr %1, i64 -1
@@ -4059,7 +4059,7 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 if.end.i.i:                                       ; preds = %if.end9.i
   %mul.i.i = shl i32 %rhs.coerce1.lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
   %2 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %2, %rhs.coerce1.lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
@@ -4176,7 +4176,7 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 if.end.i.i:                                       ; preds = %if.end9.i
   %mul.i.i = shl i32 %rhs.coerce1.lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
   %2 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %2, %rhs.coerce1.lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
@@ -4287,7 +4287,7 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 if.end.i.i:                                       ; preds = %if.end9.i
   %mul.i.i = shl i32 %rhs.coerce1.lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
   %2 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %2, %rhs.coerce1.lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
@@ -4399,7 +4399,7 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 if.end.i.i:                                       ; preds = %if.end9.i
   %mul.i.i = shl i32 %rhs.coerce1.lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
   %2 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %2, %rhs.coerce1.lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
@@ -4623,7 +4623,7 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 if.end.i.i:                                       ; preds = %if.end9.i
   %mul.i.i = shl i32 %rhs.coerce1.lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %rhs.coerce0.lhs.coerce0, i64 %conv.i.i, i1 false)
   %3 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %3, %rhs.coerce1.lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
@@ -4915,7 +4915,7 @@ if.then:                                          ; preds = %_ZN6hermes6bigint10
 if.end.i.i:                                       ; preds = %if.then
   %mul.i.i = shl i32 %lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %lhs.coerce0, i64 %conv.i.i, i1 false), !noalias !50
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr readonly align 8 %lhs.coerce0, i64 %conv.i.i, i1 false), !noalias !50
   %sub.i.i = sub i32 %cond114, %lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
   br i1 %cmp.not.i, label %if.end.i, label %cond.false.i.i.i
@@ -4993,7 +4993,7 @@ if.then23:                                        ; preds = %if.end21
 if.end.i.i37:                                     ; preds = %if.then23
   %mul.i.i38 = shl i32 %rhs.coerce1, 3
   %conv.i.i39 = zext i32 %mul.i.i38 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %rhs.coerce0, i64 %conv.i.i39, i1 false), !noalias !53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr readonly align 8 %rhs.coerce0, i64 %conv.i.i39, i1 false), !noalias !53
   %sub.i.i40 = sub i32 %5, %rhs.coerce1
   %mul5.i.i41 = shl i32 %sub.i.i40, 3
   br i1 %cmp.not.i22, label %if.end.i48, label %cond.false.i.i.i43
@@ -6243,7 +6243,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp3.i, label %_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr align 1 %src.coerce0, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr readonly align 1 %src.coerce0, i64 %conv, i1 false)
   %conv9.i = sub i32 %mul.i, %mul
   %1 = getelementptr i8, ptr %dst.coerce0, i64 %conv
   %arrayidx.i = getelementptr i8, ptr %1, i64 -1
@@ -6353,7 +6353,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp3.i.i, label %if.end, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre.i.i, ptr align 1 %lhs.coerce0, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre.i.i, ptr readonly align 1 %lhs.coerce0, i64 %conv.i, i1 false)
   %conv9.i.i = sub nuw nsw i32 8192, %mul.i
   %2 = getelementptr i8, ptr %.pre.i.i, i64 %conv.i
   %arrayidx.i.i = getelementptr i8, ptr %2, i64 -1
@@ -6416,7 +6416,7 @@ if.end.i.i60:                                     ; preds = %if.else
   br i1 %cmp3.i.i, label %if.end22, label %if.end6.i.i62
 
 if.end6.i.i62:                                    ; preds = %if.end.i.i60
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr align 1 %lhs.coerce0, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr readonly align 1 %lhs.coerce0, i64 %conv.i, i1 false)
   %conv9.i.i63 = sub i32 %mul.i.i58, %mul.i
   %12 = getelementptr i8, ptr %dst.coerce0, i64 %conv.i
   %arrayidx.i.i64 = getelementptr i8, ptr %12, i64 -1
@@ -6605,7 +6605,7 @@ if.end.i.i119:                                    ; preds = %if.then43
   br i1 %cmp3.i.i120, label %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit149, label %if.end6.i.i121
 
 if.end6.i.i121:                                   ; preds = %if.end.i.i119
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %agg.tmp44.sroa.0.0.copyload, ptr align 1 %runningSquare.val30.val, i64 %conv.i116, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %agg.tmp44.sroa.0.0.copyload, ptr readonly align 1 %runningSquare.val30.val, i64 %conv.i116, i1 false)
   %conv9.i.i122 = sub i32 %mul.i.i117, %mul.i115
   %39 = getelementptr i8, ptr %agg.tmp44.sroa.0.0.copyload, i64 %conv.i116
   %arrayidx.i.i123 = getelementptr i8, ptr %39, i64 -1
@@ -7061,7 +7061,7 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %mul.i.i = shl i32 %lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %lhs.coerce0, i64 %conv.i.i, i1 false)
   %4 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %4, %lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
@@ -7162,7 +7162,7 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %mul.i.i = shl i32 %lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr align 8 %lhs.coerce0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst.coerce0, ptr readonly align 8 %lhs.coerce0, i64 %conv.i.i, i1 false)
   %4 = load i32, ptr %dst.coerce1, align 4
   %sub.i.i = sub i32 %4, %lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3

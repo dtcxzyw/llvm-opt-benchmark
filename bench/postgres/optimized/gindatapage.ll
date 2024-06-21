@@ -2923,7 +2923,7 @@ BufferGetPage.exit.i.i:                           ; preds = %603, %602
   %631 = mul nsw i64 %630, 10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 2 %627, i64 %631, i1 false)
   %632 = getelementptr [820 x %struct.PostingItem], ptr %10, i64 0, i64 %630
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %632, ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %632, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   %633 = zext i16 %606 to i64
   %634 = getelementptr [820 x %struct.PostingItem], ptr %10, i64 0, i64 %633
   %635 = getelementptr i8, ptr %627, i64 %631
@@ -3239,7 +3239,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
 GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
   %.pre-phi.i.i = phi i64 [ %.pre-phi, %116 ], [ %.pre19.i.i, %123 ], [ %.pre-phi, %112 ]
   %.0.i.i13 = phi ptr [ %120, %116 ], [ %120, %123 ], [ %115, %112 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i13, ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i13, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   %128 = add i16 %108, 1
   %129 = getelementptr i8, ptr %.0.i.i.i, i64 %.pre-phi.i.i
   %130 = getelementptr inbounds i8, ptr %129, i64 4
@@ -3283,7 +3283,7 @@ GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
 
 156:                                              ; preds = %152
   store i16 %96, ptr @dataExecPlaceToPageInternal.data, align 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @dataExecPlaceToPageInternal.data, i64 2), ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @dataExecPlaceToPageInternal.data, i64 2), ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #12
   tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @dataExecPlaceToPageInternal.data, i32 noundef 12) #12
   br label %dataExecPlaceToPageLeaf.exit

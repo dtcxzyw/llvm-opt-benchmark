@@ -413,7 +413,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i: ; preds = %2
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit.i.i.i": ; preds = %29
   %35 = add i64 %31, -3
   %36 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %35
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %36, ptr noundef nonnull dereferenceable(3) %14, i64 3), !alias.scope !76, !noalias !80
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %36, ptr noundef nonnull readonly dereferenceable(3) %14, i64 3), !alias.scope !76, !noalias !80
   %37 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %37, label %39, label %33
 
@@ -685,7 +685,7 @@ define void @_ZN8grep_cli7pattern19patterns_from_stdin17h722a3dc9acb7d9dbE(ptr n
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !alias.scope !130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false), !alias.scope !130
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9046ad1e82369a6bE.exit"
 
 16:                                               ; preds = %1

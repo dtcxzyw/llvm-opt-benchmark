@@ -3770,7 +3770,7 @@ _ZNK6icu_7513DecimalFormat16fastFormatDoubleEdRNS_13UnicodeStringE.exit: ; preds
   %conv.i = fptosi double %number to i32
   %4 = bitcast double %number to i64
   %5 = icmp slt i64 %4, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end5:                                          ; preds = %lor.lhs.false.i, %land.lhs.true, %if.end
@@ -4030,7 +4030,7 @@ _ZNK6icu_7513DecimalFormat16fastFormatDoubleEdRNS_13UnicodeStringE.exit: ; preds
   %conv.i16 = fptosi double %number to i32
   %5 = bitcast double %number to i64
   %6 = icmp slt i64 %5, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false.i, %land.lhs.true, %if.end3
@@ -4202,7 +4202,7 @@ _ZNK6icu_7513DecimalFormat16fastFormatDoubleEdRNS_13UnicodeStringE.exit: ; preds
   %conv.i16 = fptosi double %number to i32
   %4 = bitcast double %number to i64
   %5 = icmp slt i64 %4, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false.i, %land.lhs.true, %if.end3
@@ -4420,7 +4420,7 @@ land.lhs.true:                                    ; preds = %if.end
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
   %conv.i = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
@@ -4611,7 +4611,7 @@ land.lhs.true:                                    ; preds = %if.end3
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
   %conv.i15 = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true, %if.end3
@@ -4774,7 +4774,7 @@ land.lhs.true:                                    ; preds = %if.end3
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
   %conv.i15 = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end3

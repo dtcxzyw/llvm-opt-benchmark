@@ -847,7 +847,7 @@ define hidden { ptr, ptr } @_ZN18tracing_subscriber4util17SubscriberInitExt8try_
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 1, ptr %7, align 8, !noalias !112
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2352) %8, ptr noundef nonnull align 8 dereferenceable(2352) %0, i64 2352, i1 false), !noalias !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2352) %8, ptr noundef nonnull readonly align 8 dereferenceable(2352) %0, i64 2352, i1 false), !noalias !115
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !116
   %10 = tail call noundef align 8 dereferenceable_or_null(2368) ptr @__rust_alloc(i64 noundef 2368, i64 noundef 8) #31, !noalias !116
   %11 = icmp eq ptr %10, null

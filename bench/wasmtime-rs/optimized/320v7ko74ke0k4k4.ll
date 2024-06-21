@@ -449,7 +449,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   br i1 %9, label %.thread6.i, label %11
 
 .thread6.i:                                       ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !alias.scope !57, !noalias !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %7, i64 64, i1 false), !alias.scope !57, !noalias !51
   br label %"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f4e4c6f96a73599E.llvm.10002545943538650143.exit"
 
 11:                                               ; preds = %10
@@ -458,7 +458,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   br i1 %12, label %"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f4e4c6f96a73599E.llvm.10002545943538650143.exit", label %13
 
 13:                                               ; preds = %11
-  call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !56
+  call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7), !noalias !56
   br label %"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f4e4c6f96a73599E.llvm.10002545943538650143.exit"
 
 "_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit4.i": ; preds = %17, %14
@@ -471,7 +471,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   br i1 %16, label %"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit4.i", label %17
 
 17:                                               ; preds = %14
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
           to label %"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit4.i" unwind label %18, !noalias !56
 
 18:                                               ; preds = %17
@@ -25031,7 +25031,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17h0bd2536b6b1564b0E.exit.i.i: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !3873
   call void @llvm.experimental.noalias.scope.decl(metadata !3876)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !3879
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !3873
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !3873
   %277 = load i64, ptr %.sroa.01.sroa.9.0..sroa_idx.i, align 8, !alias.scope !3876, !noalias !3873, !noundef !5
   %278 = shl i64 %277, 56
   %279 = load i64, ptr %.sroa.01.sroa.10.0..sroa_idx.i, align 8, !alias.scope !3876, !noalias !3873, !noundef !5
@@ -25675,7 +25675,7 @@ common.ret:                                       ; preds = %218, %182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !3969
   call void @llvm.experimental.noalias.scope.decl(metadata !3972)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !3975
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3969
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3969
   %188 = load i64, ptr %.sroa.01.sroa.9.0..sroa_idx.i, align 8, !alias.scope !3972, !noalias !3969, !noundef !5
   %189 = shl i64 %188, 56
   %190 = load i64, ptr %.sroa.01.sroa.10.0..sroa_idx.i, align 8, !alias.scope !3972, !noalias !3969, !noundef !5
@@ -29264,7 +29264,7 @@ define hidden void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wa
   br i1 %11, label %"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit", label %12
 
 12:                                               ; preds = %10
-  call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
+  call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6)
   br label %"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit"
 
 "_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit4": ; preds = %13, %16
@@ -29277,7 +29277,7 @@ define hidden void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wa
   br i1 %15, label %"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit4", label %16
 
 16:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6)
           to label %"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wasmtime_wasi..preview1..types..Subscription$GT$$C$wiggle..error..GuestError$GT$$GT$17hd4185d15e4c29451E.llvm.10002545943538650143.exit4" unwind label %17
 
 17:                                               ; preds = %16

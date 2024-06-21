@@ -141,7 +141,7 @@ if.end24.i:                                       ; preds = %while.cond12.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dstport.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %prio.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %persist.i.i)
-  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %lineptr.0.i, ptr noundef nonnull @.str.14, ptr noundef nonnull %srcalpn.i.i, ptr noundef nonnull %srchost.i.i, ptr noundef nonnull %srcport.i.i, ptr noundef nonnull %dstalpn.i.i, ptr noundef nonnull %dsthost.i.i, ptr noundef nonnull %dstport.i.i, ptr noundef nonnull %date.i.i, ptr noundef nonnull %persist.i.i, ptr noundef nonnull %prio.i.i) #12
+  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %lineptr.0.i, ptr noundef nonnull @.str.14, ptr noundef nonnull %srcalpn.i.i, ptr noundef nonnull %srchost.i.i, ptr noundef nonnull %srcport.i.i, ptr noundef nonnull %dstalpn.i.i, ptr noundef nonnull %dsthost.i.i, ptr noundef nonnull %dstport.i.i, ptr noundef nonnull %date.i.i, ptr noundef nonnull %persist.i.i, ptr noundef nonnull %prio.i.i) #12
   %cmp.i.i = icmp eq i32 %call.i.i, 9
   br i1 %cmp.i.i, label %if.then.i.i, label %altsvc_add.exit.i
 

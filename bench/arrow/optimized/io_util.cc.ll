@@ -9159,7 +9159,7 @@ define void @_ZN5arrow8internal9DelEnvVarERKNSt7__cxx1112basic_stringIcSt11char_
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  %call.i = tail call i32 @unsetenv(ptr noundef %call) #32, !noalias !269
+  %call.i = tail call i32 @unsetenv(ptr noundef readonly %call) #32, !noalias !269
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -10250,7 +10250,7 @@ invoke.cont8.i20:                                 ; preds = %invoke.cont6.i
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i20
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_111DoCreateDirERKNS0_16PlatformFilenameEb(ptr noalias nonnull align 8 %result.i9, ptr noundef nonnull align 8 dereferenceable(8) %fn.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_111DoCreateDirERKNS0_16PlatformFilenameEb(ptr noalias nonnull align 8 %result.i9, ptr noundef nonnull readonly align 8 dereferenceable(8) %fn.i, i1 noundef zeroext false)
           to label %invoke.cont12.i23 unwind label %lpad11.i21
 
 invoke.cont12.i23:                                ; preds = %invoke.cont10.i
@@ -11245,7 +11245,7 @@ entry:
   %ref.tmp = alloca %"class.arrow::Result.15", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirContentsERKNS0_16PlatformFilenameEbb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this, i1 noundef zeroext true, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirContentsERKNS0_16PlatformFilenameEbb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry

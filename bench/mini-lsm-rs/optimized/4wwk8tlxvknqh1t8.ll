@@ -10676,7 +10676,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
   %89 = phi i64 [ %86, %.lr.ph.split.us.i ], [ %.pre.i.i.us.i, %88 ]
   %90 = load ptr, ptr %61, align 8, !alias.scope !1446, !noalias !1452, !nonnull !4, !noundef !4
   %91 = getelementptr inbounds i8, ptr %90, i64 %89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %82, i64 %66, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull readonly align 1 %82, i64 %66, i1 false)
   %92 = load i64, ptr %17, align 8, !alias.scope !1446, !noalias !1452, !noundef !4
   %93 = add i64 %92, %66
   store i64 %93, ptr %17, align 8, !alias.scope !1446, !noalias !1452
@@ -10756,7 +10756,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
   %121 = phi i64 [ %118, %.lr.ph.split.us.i28 ], [ %.pre.i.i.us.i30, %120 ]
   %122 = load ptr, ptr %61, align 8, !alias.scope !1482, !noalias !1487, !nonnull !4, !noundef !4
   %123 = getelementptr inbounds i8, ptr %122, i64 %121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %123, ptr nonnull align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %123, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %124 = load i64, ptr %17, align 8, !alias.scope !1482, !noalias !1487, !noundef !4
   %125 = add i64 %124, %3
   store i64 %125, ptr %17, align 8, !alias.scope !1482, !noalias !1487
@@ -10777,7 +10777,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
   %132 = extractvalue { i64, ptr } %130, 1
   %133 = icmp ne ptr %132, null
   tail call void @llvm.assume(i1 %133)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr nonnull align 1 %.sroa.034.0.copyload, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr nonnull readonly align 1 %.sroa.034.0.copyload, i64 %8, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1499
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h62e5f2d8dc088830E.llvm.14689451251361528239"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %39)
           to label %.noexc unwind label %140
@@ -11591,7 +11591,7 @@ common.resume:                                    ; preds = %.critedge46, %43, %
   %158 = getelementptr i8, ptr %.sroa.0.095, i64 16
   %.val49 = load ptr, ptr %158, align 8, !nonnull !4, !noundef !4
   %159 = shl nsw i64 %.val52, 3
-  %bcmp.i = call i32 @bcmp(ptr nonnull %.val51, ptr nonnull %.val49, i64 %159), !alias.scope !1650
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %.val51, ptr nonnull readonly %.val49, i64 %159), !alias.scope !1650
   %160 = icmp eq i32 %bcmp.i, 0
   br i1 %160, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4cc172cb64a304d8E.exit.thread"
 
@@ -11628,7 +11628,7 @@ common.resume:                                    ; preds = %.critedge46, %43, %
   %169 = icmp ne ptr %168, null
   call void @llvm.assume(i1 %169)
   %170 = shl i64 %151, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %168, ptr nonnull align 8 %150, i64 %170, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %168, ptr nonnull readonly align 8 %150, i64 %170, i1 false)
   store i64 %147, ptr %22, align 8
   store i64 %167, ptr %116, align 8
   store ptr %168, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11692,7 +11692,7 @@ common.resume:                                    ; preds = %.critedge46, %43, %
   %193 = extractvalue { i64, ptr } %189, 1
   %194 = icmp ne ptr %193, null
   call void @llvm.assume(i1 %194)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %193, ptr nonnull align 8 %4, i64 %118, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %193, ptr nonnull readonly align 8 %4, i64 %118, i1 false)
   store i64 %188, ptr %21, align 8
   store i64 %192, ptr %119, align 8
   store ptr %193, ptr %.sroa.477.0..sroa_idx, align 8

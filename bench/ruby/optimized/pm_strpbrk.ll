@@ -27,7 +27,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %12 = getelementptr i8, ptr %1, i64 %.03237.us.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %14) #3
+  %15 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %14) #3
   %.not.us.i = icmp eq ptr %15, null
   br i1 %.not.us.i, label %16, label %pm_strpbrk_utf8.exit
 
@@ -79,7 +79,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %38 = getelementptr i8, ptr %1, i64 %.03237.i
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
-  %41 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %40) #3
+  %41 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %40) #3
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %42, label %pm_strpbrk_utf8.exit
 
@@ -121,7 +121,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %59 = getelementptr i8, ptr %1, i64 %.011.i
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
-  %62 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %61) #3
+  %62 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %61) #3
   %.not.i25 = icmp eq ptr %62, null
   br i1 %.not.i25, label %63, label %pm_strpbrk_utf8.exit.loopexit.split.loop.exit
 
@@ -145,7 +145,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %70 = getelementptr i8, ptr %1, i64 %.03439.us.i
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %73 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %72) #3
+  %73 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %72) #3
   %.not.us.i32 = icmp eq ptr %73, null
   br i1 %.not.us.i32, label %74, label %pm_strpbrk_utf8.exit
 
@@ -201,7 +201,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %100 = getelementptr i8, ptr %1, i64 %.03439.i
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
-  %103 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %102) #3
+  %103 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %102) #3
   %.not.i28 = icmp eq ptr %103, null
   br i1 %.not.i28, label %104, label %pm_strpbrk_utf8.exit
 
@@ -242,7 +242,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %119 = getelementptr i8, ptr %1, i64 %.03340.us.i
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
-  %122 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %121) #3
+  %122 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %121) #3
   %.not.us.i39 = icmp eq ptr %122, null
   br i1 %.not.us.i39, label %123, label %pm_strpbrk_utf8.exit.loopexit83.split.loop.exit
 
@@ -256,7 +256,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %125 = getelementptr i8, ptr %1, i64 %.03340.i
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
-  %128 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %127) #3
+  %128 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %127) #3
   %.not.i43 = icmp eq ptr %128, null
   br i1 %.not.i43, label %129, label %pm_strpbrk_utf8.exit
 

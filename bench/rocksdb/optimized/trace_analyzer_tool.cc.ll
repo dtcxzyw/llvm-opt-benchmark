@@ -19920,7 +19920,7 @@ entry:
   %1 = load i64, ptr %write_batch_ts_.i, align 8, !noalias !151
   %size_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i64, ptr %size_.i.i, align 8, !noalias !151
-  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 1, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %2)
+  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 1, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %2)
   ret void
 }
 
@@ -19943,7 +19943,7 @@ entry:
   %1 = load i64, ptr %write_batch_ts_.i, align 8, !noalias !154
   %size_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i64, ptr %size_.i.i, align 8, !noalias !154
-  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 9, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %2)
+  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 9, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %2)
   ret void
 }
 
@@ -19962,7 +19962,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %write_batch_ts_.i = getelementptr inbounds i8, ptr %this, i64 1112
   %1 = load i64, ptr %write_batch_ts_.i, align 8, !noalias !157
-  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 2, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef 0)
+  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 2, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef 0)
   ret void
 }
 
@@ -19981,7 +19981,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %write_batch_ts_.i = getelementptr inbounds i8, ptr %this, i64 1112
   %1 = load i64, ptr %write_batch_ts_.i, align 8, !noalias !160
-  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 3, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef 0)
+  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 3, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef 0)
   ret void
 }
 
@@ -20095,7 +20095,7 @@ entry:
   %1 = load i64, ptr %write_batch_ts_.i, align 8, !noalias !163
   %size_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i64, ptr %size_.i.i, align 8, !noalias !163
-  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 5, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %2)
+  tail call void @_ZN7rocksdb13TraceAnalyzer20OutputAnalysisResultENS_18TraceOperationTypeEmjRKNS_5SliceEm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %0, i32 noundef 5, i64 noundef %1, i32 noundef %column_family_id, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %2)
   ret void
 }
 

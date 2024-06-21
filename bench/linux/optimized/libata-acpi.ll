@@ -513,7 +513,7 @@ define dso_local void @ata_acpi_dissociate(ptr nocapture noundef readonly %0) lo
 
 43:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(20) %30, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull readonly align 1 dereferenceable(20) %30, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 3, ptr %3, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
@@ -782,7 +782,7 @@ define dso_local void @ata_acpi_on_resume(ptr noundef %0) local_unnamed_addr #0 
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(20) %10, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull readonly align 1 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 3, ptr %3, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8

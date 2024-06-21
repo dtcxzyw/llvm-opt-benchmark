@@ -218,7 +218,7 @@ hwloc_tma_malloc.exit.i:                          ; preds = %17, %14
   br i1 %.not67.i, label %37, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #26
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %20) #26
   %23 = add i64 %22, 1
   br i1 %.not.i.i, label %27, label %24
 
@@ -237,7 +237,7 @@ hwloc_tma_malloc.exit.i.i:                        ; preds = %27, %24
   br i1 %.not.i75.i, label %29, label %hwloc_tma_strdup.exit.i
 
 hwloc_tma_strdup.exit.i:                          ; preds = %hwloc_tma_malloc.exit.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i, ptr nonnull align 1 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i, ptr nonnull readonly align 1 %20, i64 %23, i1 false)
   br label %37
 
 29:                                               ; preds = %hwloc_tma_malloc.exit.i.i
@@ -2159,7 +2159,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add_by_index(ptr no
   br i1 %.not22.i, label %14, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #25
+  %13 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #25
   store ptr %13, ptr %10, align 8
   %.not23.i = icmp eq ptr %13, null
   br i1 %.not23.i, label %hwloc_backend_distances_add_create.exit.thread.sink.split, label %14
@@ -2263,7 +2263,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add(ptr noundef %0,
   br i1 %.not22.i, label %13, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #25
+  %11 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #25
   store ptr %11, ptr %8, align 8
   %.not23.i = icmp eq ptr %11, null
   br i1 %.not23.i, label %12, label %13
@@ -2376,7 +2376,7 @@ define noalias noundef ptr @hwloc_distances_add_create(ptr nocapture noundef %0,
   br i1 %.not22.i, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #25
+  %31 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #25
   store ptr %31, ptr %28, align 8
   %.not23.i = icmp eq ptr %31, null
   br i1 %.not23.i, label %43, label %32
@@ -2690,7 +2690,7 @@ define hidden void @hwloc_internal_distances_refresh(ptr noundef %0) local_unnam
   br label %hwloc_get_next_obj_by_type.exit.i.us.i
 
 33:                                               ; preds = %26
-  %34 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %25, i32 noundef 0) #26
+  %34 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %25, i32 noundef 0) #26
   br label %hwloc_get_next_obj_by_type.exit.i.us.i
 
 hwloc_get_next_obj_by_type.exit.i.us.i:           ; preds = %33, %30
@@ -2745,7 +2745,7 @@ hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i:  ; preds = %35, %hwloc_get_next
   br label %hwloc_get_next_obj_by_type.exit.i58.us.i
 
 53:                                               ; preds = %46
-  %54 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %45, i32 noundef 0) #26
+  %54 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %45, i32 noundef 0) #26
   br label %hwloc_get_next_obj_by_type.exit.i58.us.i
 
 hwloc_get_next_obj_by_type.exit.i58.us.i:         ; preds = %53, %50

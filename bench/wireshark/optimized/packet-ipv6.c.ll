@@ -2359,8 +2359,8 @@ add_ipv6_address_isatap.exit305:                  ; preds = %proto_item_set_hidd
   br i1 %.not280, label %185, label %184
 
 184:                                              ; preds = %add_ipv6_address_isatap.exit305
-  call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef %1, ptr noundef %0, ptr noundef %95, i32 noundef 0)
-  call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef %1, ptr noundef %0, ptr noundef %107, i32 noundef 1)
+  call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef readonly %1, ptr noundef %0, ptr noundef %95, i32 noundef 0)
+  call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef readonly %1, ptr noundef %0, ptr noundef %107, i32 noundef 1)
   br label %185
 
 185:                                              ; preds = %add_ipv6_address_isatap.exit305, %184, %proto_item_set_generated.exit

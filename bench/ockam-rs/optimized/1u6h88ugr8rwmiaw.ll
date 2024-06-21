@@ -2235,7 +2235,7 @@ default.unreachable76:                            ; preds = %1013, %1002, %986, 
   br label %175
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb30d039be46d2df7E.exit": ; preds = %162
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %163, ptr noundef nonnull align 8 dereferenceable(168) %86, i64 168, i1 false), !alias.scope !354
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %163, ptr noundef nonnull readonly align 8 dereferenceable(168) %86, i64 168, i1 false), !alias.scope !354
   %.pr = load ptr, ptr %163, align 8
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %86)
   %169 = icmp eq ptr %.pr, null
@@ -2598,7 +2598,7 @@ common.ret:                                       ; preds = %1241, %191
   %292 = extractvalue { ptr, i64 } %290, 1
   %293 = icmp ne ptr %291, null
   call void @llvm.assume(i1 %293)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %291, ptr nonnull align 1 %288, i64 %289, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %291, ptr nonnull readonly align 1 %288, i64 %289, i1 false)
   %294 = getelementptr inbounds i8, ptr %73, i64 24
   store i8 %286, ptr %294, align 8, !alias.scope !381, !noalias !391
   store ptr %291, ptr %73, align 8, !alias.scope !381, !noalias !391

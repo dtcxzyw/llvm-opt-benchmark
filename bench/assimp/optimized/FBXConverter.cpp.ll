@@ -14877,7 +14877,7 @@ if.end11:                                         ; preds = %for.body
   %mWeights1.i = getelementptr inbounds i8, ptr %call12, i64 40
   store ptr %14, ptr %mWeights1.i, align 8
   %mOffsetMatrix.i11 = getelementptr inbounds i8, ptr %12, i64 1056
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i, ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i11, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %mOffsetMatrix.i11, i64 64, i1 false)
   store ptr %9, ptr %mMeshId.i, align 8
   %mNode.i = getelementptr inbounds i8, ptr %12, i64 1040
   %15 = load ptr, ptr %mNode.i, align 8
@@ -30037,7 +30037,7 @@ invoke.cont184:                                   ; preds = %if.end171
   %d4.i.i = getelementptr inbounds i8, ptr %m.i, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i.i, align 4
-  invoke void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nonnull align 8 poison, i32 noundef %call91, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp183, ptr noundef nonnull align 4 dereferenceable(64) %m.i)
+  invoke void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nonnull readnone align 8 poison, i32 noundef %call91, ptr noundef nonnull readonly align 4 dereferenceable(12) %ref.tmp183, ptr noundef nonnull align 4 dereferenceable(64) %m.i)
           to label %.noexc223 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc223:                                        ; preds = %invoke.cont184
@@ -30295,7 +30295,7 @@ invoke.cont246:                                   ; preds = %land.lhs.true
   %d4.i.i264 = getelementptr inbounds i8, ptr %m.i258, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i.i263, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i.i264, align 4
-  invoke void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nonnull align 8 poison, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp245, ptr noundef nonnull align 4 dereferenceable(64) %m.i258)
+  invoke void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nonnull readnone align 8 poison, i32 noundef 0, ptr noundef nonnull readonly align 4 dereferenceable(12) %ref.tmp245, ptr noundef nonnull align 4 dereferenceable(64) %m.i258)
           to label %.noexc346 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc346:                                        ; preds = %invoke.cont246
@@ -30547,7 +30547,7 @@ invoke.cont284:                                   ; preds = %land.lhs.true278
   %d4.i.i398 = getelementptr inbounds i8, ptr %m.i392, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i.i397, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i.i398, align 4
-  invoke void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nonnull align 8 poison, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp283, ptr noundef nonnull align 4 dereferenceable(64) %m.i392)
+  invoke void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nonnull readnone align 8 poison, i32 noundef 0, ptr noundef nonnull readonly align 4 dereferenceable(12) %ref.tmp283, ptr noundef nonnull align 4 dereferenceable(64) %m.i392)
           to label %.noexc480 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc480:                                        ; preds = %invoke.cont284

@@ -194,7 +194,7 @@ entry:
   ]
 
 if.then6.i:                                       ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %tobool.not.sroa.gep30, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %tobool.not.sroa.gep30, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread, label %for.body
 
@@ -363,7 +363,7 @@ do.end.i:                                         ; preds = %land.lhs.true
 
 if.then6.i:                                       ; preds = %do.end.i
   %sin6_addr.i = getelementptr inbounds i8, ptr %resolved_addr, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %2, label %if.end
 
@@ -930,7 +930,7 @@ do.end.i:                                         ; preds = %if.end
 
 if.then6.i:                                       ; preds = %do.end.i
   %sin6_addr.i = getelementptr inbounds i8, ptr %resolved_addr, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp ne i32 %bcmp.i, 0
   br i1 %cmp8.i, label %thread-pre-split, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit
 

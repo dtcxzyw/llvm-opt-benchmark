@@ -3210,9 +3210,9 @@ define internal fastcc noundef i32 @_ZL31assignPositionRestraintsForAtomRK12Atom
   %52 = sub i64 %50, %51
   %53 = getelementptr inbounds %union.t_iparams, ptr %5, i64 %46
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.0..sroa_idx.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.9.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.sroa.9.0..sroa_idx.i, i64 12, i1 false)
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.15.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.15.0..sroa_idx.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.15.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.sroa.15.0..sroa_idx.i, i64 12, i1 false)
   %54 = sext i32 %45 to i64
   %55 = load ptr, ptr %19, align 8
   %56 = getelementptr inbounds %"class.gmx::BasicVector.84", ptr %55, i64 %54
@@ -3335,7 +3335,7 @@ _ZL10add_posresiiiRK14gmx_molblock_tN3gmx8ArrayRefIiEEPK9t_iparamsP22Interaction
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds %union.t_iparams, ptr %5, i64 %46, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.6.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.6.0..sroa_idx.i, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.6.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %.sroa.6.0..sroa_idx.i, i64 36, i1 false)
   %104 = sext i32 %45 to i64
   %105 = getelementptr inbounds %"class.gmx::BasicVector.84", ptr %.val, i64 %104
   %106 = load <2 x float>, ptr %105, align 4

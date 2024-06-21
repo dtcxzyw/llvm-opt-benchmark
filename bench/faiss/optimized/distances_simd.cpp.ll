@@ -1102,7 +1102,7 @@ define void @_ZN5faiss27compute_PQ_dis_tables_dsub2EmmPKfmS1_bPf(i64 noundef %0,
 .lr.ph.preheader.i.us:                            ; preds = %121
   %122 = mul i64 %.0110.us, %0
   %gep112.us = getelementptr float, ptr %invariant.gep111.us, i64 %122
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %20, ptr align 4 %gep112.us, i64 %118, i1 false), !noalias !24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %20, ptr readonly align 4 %gep112.us, i64 %118, i1 false), !noalias !24
   br label %_ZN5faiss12_GLOBAL__N_125load_simd8float32_partialEPKfi.exit.us
 
 _ZN5faiss12_GLOBAL__N_125load_simd8float32_partialEPKfi.exit.us: ; preds = %.lr.ph.preheader.i.us, %121

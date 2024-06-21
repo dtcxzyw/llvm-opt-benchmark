@@ -597,7 +597,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i48: ; preds = %6
   %96 = extractvalue { ptr, i64 } %94, 1
   %97 = icmp ne ptr %95, null
   tail call void @llvm.assume(i1 %97)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull align 1 %.sroa.013.0, i64 %.sroa.9.0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %.sroa.013.0, i64 %.sroa.9.0, i1 false)
   store i64 1, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 2, ptr %.sroa.47.0..sroa_idx, align 8

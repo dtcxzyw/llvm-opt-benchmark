@@ -2171,7 +2171,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %664 = extractvalue { ptr, i64 } %658, 1
   %665 = icmp ne ptr %663, null
   call void @llvm.assume(i1 %665)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %663, ptr nonnull align 1 %656, i64 %657, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %663, ptr nonnull readonly align 1 %656, i64 %657, i1 false)
   %666 = getelementptr inbounds i8, ptr %67, i64 24
   store i8 %654, ptr %666, align 8, !alias.scope !276, !noalias !287
   store ptr %663, ptr %67, align 16, !alias.scope !276, !noalias !287
@@ -2218,7 +2218,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %682 = extractvalue { ptr, i64 } %676, 1
   %683 = icmp ne ptr %681, null
   call void @llvm.assume(i1 %683)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %681, ptr nonnull align 1 %674, i64 %675, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %681, ptr nonnull readonly align 1 %674, i64 %675, i1 false)
   %684 = getelementptr inbounds i8, ptr %66, i64 24
   store i8 %672, ptr %684, align 8, !alias.scope !288, !noalias !299
   store ptr %681, ptr %66, align 8, !alias.scope !288, !noalias !299
@@ -2415,7 +2415,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %36 = phi i64 [ %30, %28 ], [ %.pre.i.i, %.noexc ]
   %37 = load ptr, ptr %1, align 8, !alias.scope !309, !noalias !314, !nonnull !14, !noundef !14
   %38 = getelementptr inbounds i8, ptr %37, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sroa.52.0.copyload, i64 %.sroa.6.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %.sroa.52.0.copyload, i64 %.sroa.6.0.copyload, i1 false)
   %39 = load i64, ptr %29, align 8, !alias.scope !309, !noalias !314, !noundef !14
   %40 = add i64 %39, %.sroa.6.0.copyload
   store i64 %40, ptr %29, align 8, !alias.scope !309, !noalias !314
@@ -2528,7 +2528,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %85 = phi i64 [ %71, %66 ], [ %.pre.i.i22, %.noexc23 ]
   %86 = load ptr, ptr %1, align 8, !alias.scope !333, !noalias !338, !nonnull !14, !noundef !14
   %87 = getelementptr inbounds i8, ptr %86, i64 %85
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %67, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull readonly align 1 %67, i64 %69, i1 false)
   %88 = load i64, ptr %70, align 8, !alias.scope !333, !noalias !338, !noundef !14
   %89 = add i64 %88, %69
   store i64 %89, ptr %70, align 8, !alias.scope !333, !noalias !338
@@ -2579,7 +2579,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %109 = phi i64 [ %93, %91 ], [ %.pre.i.i25, %.noexc26 ]
   %110 = load ptr, ptr %1, align 8, !alias.scope !343, !noalias !348, !nonnull !14, !noundef !14
   %111 = getelementptr inbounds i8, ptr %110, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %81, i64 %83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull readonly align 1 %81, i64 %83, i1 false)
   %112 = load i64, ptr %92, align 8, !alias.scope !343, !noalias !348, !noundef !14
   %113 = add i64 %112, %83
   store i64 %113, ptr %92, align 8, !alias.scope !343, !noalias !348
@@ -2589,7 +2589,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %115 = phi i64 [ %102, %99 ], [ %.pre.i.i28, %.noexc29 ]
   %116 = load ptr, ptr %1, align 8, !alias.scope !353, !noalias !358, !nonnull !14, !noundef !14
   %117 = getelementptr inbounds i8, ptr %116, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull align 1 %81, i64 %83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull readonly align 1 %81, i64 %83, i1 false)
   %118 = load i64, ptr %101, align 8, !alias.scope !353, !noalias !358, !noundef !14
   %119 = add i64 %118, %83
   store i64 %119, ptr %101, align 8, !alias.scope !353, !noalias !358

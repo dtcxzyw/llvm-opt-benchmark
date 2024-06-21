@@ -80,7 +80,7 @@ lor.lhs.false.i:                                  ; preds = %init.end
   br i1 %tobool1.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call ptr @getenv(ptr noundef nonnull %name) #13
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %name) #13
   %tobool2.i.not = icmp eq ptr %call.i, null
   br i1 %tobool2.i.not, label %cond.end.i, label %land.lhs.true.i
 
@@ -229,7 +229,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call i32 @unsetenv(ptr noundef nonnull %name) #13
+  %call.i = tail call i32 @unsetenv(ptr noundef nonnull readonly %name) #13
   br label %_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit
 
 _ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit: ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -275,7 +275,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false.i
   br i1 %tobool1.not.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call.i.i = call ptr @getenv(ptr noundef nonnull %name) #13
+  %call.i.i = call ptr @getenv(ptr noundef nonnull readonly %name) #13
   %tobool2.i.i = icmp ne ptr %call.i.i, null
   br i1 %tobool2.i.i, label %land.lhs.true.i.i, label %cond.end.i.i
 
@@ -326,7 +326,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   br i1 %tobool1.not.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = call ptr @getenv(ptr noundef nonnull %name) #13
+  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name) #13
   %tobool2.i = icmp ne ptr %call.i, null
   br i1 %tobool2.i, label %land.lhs.true.i, label %cond.end.i
 

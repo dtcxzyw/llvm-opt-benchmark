@@ -739,7 +739,7 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   br i1 %169, label %hitLineFoldCnt.exit.i.i, label %170
 
 170:                                              ; preds = %167
-  %171 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1000) #19
+  %171 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %7, i64 noundef 1000) #19
   %172 = getelementptr inbounds i8, ptr %168, i64 1032
   %173 = getelementptr inbounds i8, ptr %168, i64 1040
   %174 = getelementptr inbounds i8, ptr %17, i64 104
@@ -765,7 +765,7 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   br i1 %179, label %.thread.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %176
-  %180 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
+  %180 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #21
   %.not1617.not.i.i.i = icmp eq i64 %180, 0
   br i1 %.not1617.not.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i
 
@@ -1079,17 +1079,17 @@ freeList.exit.i.i:                                ; preds = %.lr.ph.i201.i.i, %2
   br i1 %315, label %doContinueMultipleEmptyOptions.exit.i.i, label %316
 
 316:                                              ; preds = %314
-  %317 = call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.50) #21
+  %317 = call i32 @strcasecmp(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.50) #21
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %usefulHeader.exit.i.i, label %319
 
 319:                                              ; preds = %316
-  %320 = call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.51) #21
+  %320 = call i32 @strcasecmp(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.51) #21
   %321 = icmp eq i32 %320, 0
   br i1 %321, label %usefulHeader.exit.i.i, label %322
 
 322:                                              ; preds = %319
-  %323 = call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.52) #21
+  %323 = call i32 @strcasecmp(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.52) #21
   %324 = icmp eq i32 %323, 0
   br label %usefulHeader.exit.i.i
 
@@ -1103,7 +1103,7 @@ usefulHeader.exit.i.i:                            ; preds = %322, %319, %316
   %327 = getelementptr inbounds i8, ptr %.2139282.i.i, i64 1032
   %328 = load i64, ptr %327, align 8
   %329 = sub i64 1024, %328
-  %330 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
+  %330 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #21
   %331 = icmp ugt i64 %330, %329
   %332 = getelementptr inbounds [1025 x i8], ptr %.2139282.i.i, i64 0, i64 %328
   br i1 %331, label %333, label %346
@@ -1111,7 +1111,7 @@ usefulHeader.exit.i.i:                            ; preds = %322, %319, %316
 333:                                              ; preds = %326
   %sext.i.i = shl i64 %329, 32
   %334 = ashr exact i64 %sext.i.i, 32
-  %335 = call ptr @strncpy(ptr noundef nonnull %332, ptr noundef nonnull %3, i64 noundef %334) #19
+  %335 = call ptr @strncpy(ptr noundef nonnull %332, ptr noundef nonnull readonly %3, i64 noundef %334) #19
   %336 = load i64, ptr %327, align 8
   %337 = add i64 %336, %334
   store i64 %337, ptr %327, align 8
@@ -1123,15 +1123,15 @@ usefulHeader.exit.i.i:                            ; preds = %322, %319, %316
   %341 = getelementptr inbounds i8, ptr %.2139282.i.i, i64 1040
   store ptr %338, ptr %341, align 8
   %342 = getelementptr inbounds i8, ptr %3, i64 %334
-  %343 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %338, ptr noundef nonnull dereferenceable(1) %342) #19
-  %344 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %342) #21
+  %343 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %338, ptr noundef nonnull readonly dereferenceable(1) %342) #19
+  %344 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %342) #21
   %345 = getelementptr inbounds i8, ptr %338, i64 1032
   store i64 %344, ptr %345, align 8
   br label %appendReadStruct.exit.i
 
 346:                                              ; preds = %326
-  %347 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %332, ptr noundef nonnull dereferenceable(1) %3) #19
-  %348 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
+  %347 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %332, ptr noundef nonnull readonly dereferenceable(1) %3) #19
+  %348 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #21
   %349 = load i64, ptr %327, align 8
   %350 = add i64 %349, %348
   store i64 %350, ptr %327, align 8
@@ -1713,7 +1713,7 @@ define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not.i, label %.thread140, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12
-  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #21
+  %14 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #21
   %.not1617.not.i = icmp eq i64 %14, 0
   br i1 %.not1617.not.i, label %.critedge.i, label %.lr.ph.i
 
@@ -1852,17 +1852,17 @@ define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, pt
   br i1 %76, label %doContinueMultipleEmptyOptions.exit, label %77
 
 77:                                               ; preds = %75
-  %78 = call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.50) #21
+  %78 = call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.50) #21
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %usefulHeader.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.51) #21
+  %81 = call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.51) #21
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %usefulHeader.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.52) #21
+  %84 = call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.52) #21
   %85 = icmp eq i32 %84, 0
   br label %usefulHeader.exit
 
@@ -2685,8 +2685,8 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
 
 273:                                              ; preds = %.thread65.i, %.thread68.i, %266
   %274 = getelementptr inbounds i8, ptr %spec.select.i, i64 2
-  %275 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #21
-  %276 = tail call i32 @strncasecmp(ptr noundef nonnull %274, ptr noundef nonnull %98, i64 noundef %275) #21
+  %275 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %98) #21
+  %276 = tail call i32 @strncasecmp(ptr noundef nonnull %274, ptr noundef nonnull readonly %98, i64 noundef %275) #21
   %.not59.i = icmp eq i32 %276, 0
   br i1 %.not59.i, label %278, label %277
 
@@ -4967,7 +4967,7 @@ define internal fastcc void @checkURLs(ptr noundef %0, ptr nocapture noundef rea
 ._crit_edge.i.i:                                  ; preds = %68, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %62
   %.041.lcssa.i.i = phi i64 [ 4, %62 ], [ %.04145.i.i, %.lr.ph.i.i ], [ %.04145.i.i, %.lr.ph.i.i ], [ %.04145.i.i, %.lr.ph.i.i ], [ %69, %68 ]
   %.lcssa.i.i = phi i64 [ %63, %62 ], [ %65, %.lr.ph.i.i ], [ %65, %.lr.ph.i.i ], [ %65, %.lr.ph.i.i ], [ %70, %68 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %47, i64 %.041.lcssa.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %47, i64 %.041.lcssa.i.i, i1 false)
   %74 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %.041.lcssa.i.i
   store i8 0, ptr %74, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.181, ptr noundef nonnull %4) #19

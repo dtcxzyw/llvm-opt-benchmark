@@ -405,7 +405,7 @@ tailrecurse.i:                                    ; preds = %101, %119
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %tailrecurse.i
-  %115 = tail call fastcc i32 @dissect_control(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %112)
+  %115 = tail call fastcc i32 @dissect_control(ptr noundef %0, ptr noundef readonly %1, ptr noundef %9, i32 noundef %112)
   br label %119
 
 116:                                              ; preds = %tailrecurse.i

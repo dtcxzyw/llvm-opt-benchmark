@@ -2872,7 +2872,7 @@ define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext 
 31:                                               ; preds = %16
   %32 = getelementptr i8, ptr %20, i64 4
   %33 = zext i16 %.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %2, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %2, i64 %33, i1 false)
   br label %wtap_buffer_append_epdu_tag.exit
 
 wtap_buffer_append_epdu_tag.exit:                 ; preds = %16, %31

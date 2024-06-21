@@ -81,10 +81,10 @@ define ptr @Aig_ManConvertBddsToAigs(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #15
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #16
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #14
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %10

@@ -757,7 +757,7 @@ sw.bb3:                                           ; preds = %sw.bb
 
 sw.bb5:                                           ; preds = %sw.bb
   %sin6_addr.i = getelementptr inbounds i8, ptr %other, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   %add.ptr.i = getelementptr inbounds i8, ptr %other, i64 28
   %sin_addr.i8 = getelementptr inbounds i8, ptr %this, i64 12
@@ -777,7 +777,7 @@ sw.bb7:                                           ; preds = %entry
 
 sw.bb9:                                           ; preds = %sw.bb7
   %sin6_addr.i14 = getelementptr inbounds i8, ptr %this, i64 16
-  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i14, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i14, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
   %cmp.i16 = icmp eq i32 %bcmp.i15, 0
   %add.ptr.i17 = getelementptr inbounds i8, ptr %this, i64 28
   %sin_addr.i18 = getelementptr inbounds i8, ptr %other, i64 12
@@ -790,7 +790,7 @@ sw.bb9:                                           ; preds = %sw.bb7
 sw.bb11:                                          ; preds = %sw.bb7
   %sin6_addr.i22 = getelementptr inbounds i8, ptr %this, i64 16
   %sin6_addr2.i = getelementptr inbounds i8, ptr %other, i64 16
-  %bcmp.i23 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i22, ptr noundef nonnull dereferenceable(16) %sin6_addr2.i, i64 16)
+  %bcmp.i23 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i22, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i, i64 16)
   %cmp.i24 = icmp eq i32 %bcmp.i23, 0
   br label %return
 
@@ -832,14 +832,14 @@ sw.bb3:                                           ; preds = %sw.bb
 
 sw.bb5:                                           ; preds = %sw.bb
   %sin6_addr.i = getelementptr inbounds i8, ptr %other, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
   %cmp.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %sw.bb5
   %sin_addr.i = getelementptr inbounds i8, ptr %this, i64 12
   %add.ptr.i = getelementptr inbounds i8, ptr %other, i64 28
-  %call3.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %sin_addr.i, ptr noundef nonnull dereferenceable(4) %add.ptr.i, i64 noundef 4) #24
+  %call3.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %sin_addr.i, ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, i64 noundef 4) #24
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.else.i
 
@@ -858,14 +858,14 @@ sw.bb7:                                           ; preds = %entry
 
 sw.bb9:                                           ; preds = %sw.bb7
   %sin6_addr.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i13, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i13, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
   %cmp.not.i15 = icmp eq i32 %bcmp.i14, 0
   br i1 %cmp.not.i15, label %if.end.i17, label %return
 
 if.end.i17:                                       ; preds = %sw.bb9
   %sin_addr.i18 = getelementptr inbounds i8, ptr %other, i64 12
   %add.ptr.i19 = getelementptr inbounds i8, ptr %this, i64 28
-  %call3.i20 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %sin_addr.i18, ptr noundef nonnull dereferenceable(4) %add.ptr.i19, i64 noundef 4) #24
+  %call3.i20 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %sin_addr.i18, ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i19, i64 noundef 4) #24
   %cmp4.i21 = icmp slt i32 %call3.i20, 0
   br i1 %cmp4.i21, label %return, label %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit25
 
@@ -877,7 +877,7 @@ _ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit25: ; pre
 sw.bb15:                                          ; preds = %sw.bb7
   %sin6_addr.i26 = getelementptr inbounds i8, ptr %this, i64 16
   %sin6_addr2.i = getelementptr inbounds i8, ptr %other, i64 16
-  %call3.i27 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i26, ptr noundef nonnull dereferenceable(16) %sin6_addr2.i, i64 noundef 16) #24
+  %call3.i27 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i26, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i, i64 noundef 16) #24
   %cmp4.not.i = icmp ne i32 %call3.i27, 0
   %..i28 = zext i1 %cmp4.not.i to i32
   %cmp.inv.i = icmp sgt i32 %call3.i27, -1
@@ -934,7 +934,7 @@ sw.bb5:                                           ; preds = %sw.bb
 
 if.then.i:                                        ; preds = %sw.bb5
   %sin6_addr.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i.i, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i.i, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
   %cmp.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit
 
@@ -958,7 +958,7 @@ if.end.i:                                         ; preds = %sw.bb5
   store i32 %6, ptr %add.ptr.i, align 4
   %sin6_addr.i = getelementptr inbounds i8, ptr %other, i64 16
   %conv11.i = sext i32 %div.i to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %ip_mask.i, ptr nonnull %sin6_addr.i, i64 %conv11.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %ip_mask.i, ptr nonnull readonly %sin6_addr.i, i64 %conv11.i)
   %cmp13.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp13.not.i, label %if.end15.i, label %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit
 
@@ -993,34 +993,34 @@ sw.bb7:                                           ; preds = %entry
 sw.bb9:                                           ; preds = %sw.bb7
   %cmp.i17 = icmp eq i32 %prefix, 32
   %sin6_addr.i.i18 = getelementptr inbounds i8, ptr %this, i64 16
-  %bcmp.i.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i.i18, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
-  %cmp.not.i.i20 = icmp eq i32 %bcmp.i.i19, 0
-  br i1 %cmp.i17, label %if.then.i29, label %if.end.i21
+  %bcmp.i.i29 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i.i18, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %cmp.not.i.i30 = icmp eq i32 %bcmp.i.i29, 0
+  br i1 %cmp.i17, label %if.then.i28, label %if.end.i19
 
-if.then.i29:                                      ; preds = %sw.bb9
-  br i1 %cmp.not.i.i20, label %if.end.i.i30, label %return
+if.then.i28:                                      ; preds = %sw.bb9
+  br i1 %cmp.not.i.i30, label %if.end.i.i31, label %return
 
-if.end.i.i30:                                     ; preds = %if.then.i29
-  %sin_addr.i.i31 = getelementptr inbounds i8, ptr %other, i64 12
-  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %this, i64 28
-  %lhsv.i33 = load i32, ptr %sin_addr.i.i31, align 4
-  %rhsv.i34 = load i32, ptr %add.ptr.i.i32, align 4
-  %.not.i35 = icmp eq i32 %lhsv.i33, %rhsv.i34
+if.end.i.i31:                                     ; preds = %if.then.i28
+  %sin_addr.i.i32 = getelementptr inbounds i8, ptr %other, i64 12
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %this, i64 28
+  %lhsv.i34 = load i32, ptr %sin_addr.i.i32, align 4
+  %rhsv.i35 = load i32, ptr %add.ptr.i.i33, align 4
+  %.not.i36 = icmp eq i32 %lhsv.i34, %rhsv.i35
   br label %return
 
-if.end.i21:                                       ; preds = %sw.bb9
-  br i1 %cmp.not.i.i20, label %if.end10.i, label %return
+if.end.i19:                                       ; preds = %sw.bb9
+  br i1 %cmp.not.i.i30, label %if.end10.i, label %return
 
-if.end10.i:                                       ; preds = %if.end.i21
-  %sh_prom.i23 = zext nneg i32 %prefix to i64
-  %notmask.i24 = shl nsw i64 -1, %sh_prom.i23
-  %sub.i25 = xor i64 %notmask.i24, -1
+if.end10.i:                                       ; preds = %if.end.i19
+  %sh_prom.i22 = zext nneg i32 %prefix to i64
+  %notmask.i23 = shl nsw i64 -1, %sh_prom.i22
+  %sub.i24 = xor i64 %notmask.i23, -1
   %sub2.i = sub nsw i32 32, %prefix
   %sh_prom3.i = zext nneg i32 %sub2.i to i64
-  %shl4.i = shl i64 %sub.i25, %sh_prom3.i
-  %conv.i26 = trunc i64 %shl4.i to i32
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %this, i64 28
-  %13 = load i8, ptr %add.ptr.i27, align 4
+  %shl4.i = shl i64 %sub.i24, %sh_prom3.i
+  %conv.i25 = trunc i64 %shl4.i to i32
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %this, i64 28
+  %13 = load i8, ptr %add.ptr.i26, align 4
   %conv.i.i = zext i8 %13 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %this, i64 29
@@ -1037,54 +1037,54 @@ if.end10.i:                                       ; preds = %if.end.i21
   %16 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %16 to i32
   %or10.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
-  %sin_addr.i28 = getelementptr inbounds i8, ptr %other, i64 12
-  %17 = load i32, ptr %sin_addr.i28, align 4
+  %sin_addr.i27 = getelementptr inbounds i8, ptr %other, i64 12
+  %17 = load i32, ptr %sin_addr.i27, align 4
   %call12.i = tail call i32 @htonl(i32 noundef %17) #23
   %18 = xor i32 %or10.i.i, %call12.i
-  %19 = and i32 %18, %conv.i26
+  %19 = and i32 %18, %conv.i25
   %cmp14.i = icmp eq i32 %19, 0
   br label %return
 
 sw.bb11:                                          ; preds = %sw.bb7
-  %cmp.i36 = icmp eq i32 %prefix, 128
-  br i1 %cmp.i36, label %if.then.i49, label %if.end.i37
+  %cmp.i37 = icmp eq i32 %prefix, 128
+  br i1 %cmp.i37, label %if.then.i50, label %if.end.i38
 
-if.then.i49:                                      ; preds = %sw.bb11
-  %sin6_addr.i.i50 = getelementptr inbounds i8, ptr %this, i64 16
+if.then.i50:                                      ; preds = %sw.bb11
+  %sin6_addr.i.i51 = getelementptr inbounds i8, ptr %this, i64 16
   %sin6_addr2.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i.i50, ptr noundef nonnull dereferenceable(16) %sin6_addr2.i.i, i64 16)
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i51, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
   %cmp4.not.i.not.i = icmp eq i32 %bcmp14.i, 0
   br label %return
 
-if.end.i37:                                       ; preds = %sw.bb11
-  %rem.i38 = srem i32 %prefix, 8
-  %conv2.i39 = and i32 %rem.i38, 255
-  %sub.i40 = sub nsw i32 %prefix, %conv2.i39
-  %div.i41 = sdiv i32 %sub.i40, 8
-  %sin6_addr.i42 = getelementptr inbounds i8, ptr %this, i64 16
+if.end.i38:                                       ; preds = %sw.bb11
+  %rem.i39 = srem i32 %prefix, 8
+  %conv2.i40 = and i32 %rem.i39, 255
+  %sub.i41 = sub nsw i32 %prefix, %conv2.i40
+  %div.i42 = sdiv i32 %sub.i41, 8
+  %sin6_addr.i43 = getelementptr inbounds i8, ptr %this, i64 16
   %sin6_addr11.i = getelementptr inbounds i8, ptr %other, i64 16
-  %conv12.i = sext i32 %div.i41 to i64
-  %bcmp.i43 = tail call i32 @bcmp(ptr nonnull %sin6_addr.i42, ptr nonnull %sin6_addr11.i, i64 %conv12.i)
-  %cmp14.not.i = icmp eq i32 %bcmp.i43, 0
+  %conv12.i = sext i32 %div.i42 to i64
+  %bcmp.i44 = tail call i32 @bcmp(ptr nonnull readonly %sin6_addr.i43, ptr nonnull readonly %sin6_addr11.i, i64 %conv12.i)
+  %cmp14.not.i = icmp eq i32 %bcmp.i44, 0
   br i1 %cmp14.not.i, label %if.end16.i, label %return
 
-if.end16.i:                                       ; preds = %if.end.i37
-  %notmask.i45 = shl nsw i32 -1, %conv2.i39
-  %sub4.i46 = xor i32 %notmask.i45, -1
-  %sub6.i47 = sub nsw i32 8, %conv2.i39
-  %shl7.i48 = shl i32 %sub4.i46, %sub6.i47
-  %arrayidx.i = getelementptr inbounds i8, ptr %sin6_addr.i42, i64 %conv12.i
+if.end16.i:                                       ; preds = %if.end.i38
+  %notmask.i46 = shl nsw i32 -1, %conv2.i40
+  %sub4.i47 = xor i32 %notmask.i46, -1
+  %sub6.i48 = sub nsw i32 8, %conv2.i40
+  %shl7.i49 = shl i32 %sub4.i47, %sub6.i48
+  %arrayidx.i = getelementptr inbounds i8, ptr %sin6_addr.i43, i64 %conv12.i
   %20 = load i8, ptr %arrayidx.i, align 1
   %arrayidx24.i = getelementptr inbounds i8, ptr %sin6_addr11.i, i64 %conv12.i
   %21 = load i8, ptr %arrayidx24.i, align 1
   %22 = xor i8 %21, %20
   %23 = zext i8 %22 to i32
-  %24 = and i32 %shl7.i48, %23
+  %24 = and i32 %shl7.i49, %23
   %cmp28.i = icmp eq i32 %24, 0
   br label %return
 
-return:                                           ; preds = %if.end16.i, %if.end.i37, %if.then.i49, %if.end10.i, %if.end.i21, %if.end.i.i30, %if.then.i29, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
-  %retval.0 = phi i1 [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ %cmp.i, %sw.bb3 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp4.not.i.not.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
+return:                                           ; preds = %if.end16.i, %if.end.i38, %if.then.i50, %if.end10.i, %if.end.i19, %if.end.i.i31, %if.then.i28, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
+  %retval.0 = phi i1 [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ %cmp.i, %sw.bb3 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i19 ], [ false, %if.then.i28 ], [ %.not.i36, %if.end.i.i31 ], [ %cmp4.not.i.not.i, %if.then.i50 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i38 ]
   ret i1 %retval.0
 }
 
@@ -3179,7 +3179,7 @@ if.end.i61:                                       ; preds = %lor.lhs.false.i58
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit69: ; preds = %if.end.i61, %if.then.i66
   %retval.i52.sroa.0.0 = phi ptr [ %26, %if.then.i66 ], [ %27, %if.end.i61 ]
-  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %retval.0.i.i)
+  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %retval.0.i.i)
   %call10.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i52.sroa.0.0) #21
   br i1 %call10.i, label %lor.lhs.false.i, label %do.body25
 
@@ -3357,7 +3357,7 @@ if.end.i140:                                      ; preds = %lor.lhs.false.i137
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit148: ; preds = %if.end.i140, %if.then.i145
   %retval.i131.sroa.0.0 = phi ptr [ %26, %if.then.i145 ], [ %27, %if.end.i140 ]
-  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %retval.0.i.i)
+  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %retval.0.i.i)
   %call10.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i131.sroa.0.0) #21
   br i1 %call10.i, label %lor.lhs.false.i119, label %do.body25
 
@@ -3388,7 +3388,7 @@ if.end.i122:                                      ; preds = %lor.lhs.false.i119
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit130: ; preds = %if.end.i122, %if.then.i127
   %retval.i113.sroa.0.0 = phi ptr [ %32, %if.then.i127 ], [ %add.ptr.i125, %if.end.i122 ]
-  %call.i29 = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %retval.0.i.i)
+  %call.i29 = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %retval.0.i.i)
   %call10.i30 = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i29, ptr %retval.i113.sroa.0.0) #21
   br i1 %call10.i30, label %lor.lhs.false.i101, label %do.body43
 
@@ -3622,7 +3622,7 @@ if.end.i173:                                      ; preds = %lor.lhs.false.i170
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit181: ; preds = %if.end.i173, %if.then.i178
   %retval.i164.sroa.0.0 = phi ptr [ %26, %if.then.i178 ], [ %27, %if.end.i173 ]
-  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %retval.0.i.i)
+  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %retval.0.i.i)
   %call10.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i164.sroa.0.0) #21
   br i1 %call10.i, label %lor.lhs.false.i152, label %do.body25
 
@@ -3938,7 +3938,7 @@ if.end.i62:                                       ; preds = %lor.lhs.false.i59
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit70: ; preds = %if.end.i62, %if.then.i67
   %retval.i53.sroa.0.0 = phi ptr [ %26, %if.then.i67 ], [ %27, %if.end.i62 ]
-  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %retval.0.i.i)
+  %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %retval.0.i.i)
   %call10.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i53.sroa.0.0) #21
   br i1 %call10.i, label %lor.lhs.false.i, label %do.body25
 
@@ -4095,7 +4095,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %mutex_.i = getelementptr inbounds i8, ptr %22, i64 104
   tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i8 0, i64 24, i1 false)
-  %call.i = call noundef zeroext i1 @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11EnvironmentEPSt6vectorIN2v85LocalINS4_5ValueEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef %retval.0.i.i, ptr noundef nonnull %rules.i)
+  %call.i = call noundef zeroext i1 @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11EnvironmentEPSt6vectorIN2v85LocalINS4_5ValueEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef readonly %retval.0.i.i, ptr noundef nonnull %rules.i)
   %.pre.i = load ptr, ptr %rules.i, align 8
   br i1 %call.i, label %if.end.i, label %cleanup.i
 
@@ -4293,7 +4293,7 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %en
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %11 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %10) #21
-  %call8.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef nonnull %retval.0.i)
+  %call8.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef nonnull readonly %retval.0.i)
   tail call void @_ZN4node22SetConstructorFunctionEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEEPKcNS1_INS0_16FunctionTemplateEEENS_26SetConstructorFunctionFlagE(ptr %call2.i.i, ptr %target.coerce, ptr noundef nonnull @.str.53, ptr %call8.i, i32 noundef 0) #21
   %call33 = tail call noundef ptr @_ZN2v86Object10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce) #21
   %call35 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %call33) #21

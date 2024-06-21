@@ -1358,7 +1358,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %260 = load i32, ptr %232, align 8, !noalias !10
   %261 = add nsw i32 %259, %260
   %262 = sext i32 %261 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_110makeLegendB5cxx11ERKN3gmx13AwhBiasParamsENS_14OutputFileTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(93) %163, i32 noundef 0, i64 noundef %262)
+  invoke fastcc void @_ZN12_GLOBAL__N_110makeLegendB5cxx11ERKN3gmx13AwhBiasParamsENS_14OutputFileTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(93) %163, i32 noundef 0, i64 noundef %262)
           to label %.noexc46.i.i unwind label %387, !noalias !10
 
 .noexc46.i.i:                                     ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i.i.i
@@ -1593,7 +1593,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i53.i.i:    ; preds = %352, %350, %348, %.
   %355 = add i32 %353, -1
   %356 = add i32 %355, %354
   %357 = sext i32 %356 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_110makeLegendB5cxx11ERKN3gmx13AwhBiasParamsENS_14OutputFileTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(93) %163, i32 noundef 1, i64 noundef %357)
+  invoke fastcc void @_ZN12_GLOBAL__N_110makeLegendB5cxx11ERKN3gmx13AwhBiasParamsENS_14OutputFileTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull readonly align 8 dereferenceable(93) %163, i32 noundef 1, i64 noundef %357)
           to label %.noexc76.i.i unwind label %.loopexit94.i.i, !noalias !10
 
 .noexc76.i.i:                                     ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i53.i.i

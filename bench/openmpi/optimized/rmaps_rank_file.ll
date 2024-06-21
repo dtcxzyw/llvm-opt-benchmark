@@ -232,7 +232,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %52, 
   %80 = add i64 %79, 15
   %81 = tail call noalias ptr @malloc(i64 noundef %80) #19
   %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef %78) #18
-  %83 = tail call noalias ptr @fopen(ptr noundef nonnull %33, ptr noundef nonnull @.str.27)
+  %83 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %33, ptr noundef nonnull @.str.27)
   %84 = icmp eq ptr %83, null
   br i1 %84, label %175, label %85
 
@@ -370,7 +370,7 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %124, %120
   br i1 %.not.i.i.i.i.i, label %138, label %140
 
 138:                                              ; preds = %136
-  %139 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %133, i32 noundef %137, i32 noundef 0) #20
+  %139 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %133, i32 noundef %137, i32 noundef 0) #20
   br label %hwloc_get_next_obj_by_type.exit.i.i.i
 
 140:                                              ; preds = %136

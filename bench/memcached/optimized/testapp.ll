@@ -3216,7 +3216,7 @@ storage_command.exit.i:                           ; preds = %sw.bb.i
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
   store i32 0, ptr %invariant.gep.i, align 8
   store i32 0, ptr %add.ptr.i94.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %initial14.i.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %initial14.i.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %initial14.i.i, i64 %conv3.i
   store i64 -77129852189294865, ptr %add.ptr18.i.i, align 1
   br label %sw.epilog.i
@@ -3241,7 +3241,7 @@ raw_command.exit.i:                               ; preds = %sw.bb7.i
   %call12.i.i.i = call i32 @htonl(i32 noundef %add10.i.i.i) #22
   store i32 %call12.i.i.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %conv3.i
   store i64 -77129852189294865, ptr %gep.i, align 1
   br label %sw.epilog.i
@@ -3287,7 +3287,7 @@ raw_command.exit50.i:                             ; preds = %sw.bb17.i
   %call12.i.i46.i = call i32 @htonl(i32 noundef %add2.i) #22
   store i32 %call12.i.i46.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   br label %sw.epilog.i
 
 sw.bb21.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
@@ -3317,7 +3317,7 @@ arithmetic_command.exit.i:                        ; preds = %sw.bb21.i
   store i64 %call12.i.i, ptr %initial14.i.i, align 8
   %call15.i.i = call i32 @htonl(i32 noundef 0) #22
   store i32 %call15.i.i, ptr %expiration.i61.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i62.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i62.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %add17.i.i = add nsw i64 %conv3.i, 44
   br label %sw.epilog.i
 
@@ -3351,7 +3351,7 @@ raw_command.exit83.i:                             ; preds = %sw.bb28.i
   %call12.i.i79.i = call i32 @htonl(i32 noundef %add2.i) #22
   store i32 %call12.i.i79.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   br label %sw.epilog.i
 
 sw.bb32.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i, %while.body.i
@@ -3368,7 +3368,7 @@ sw.bb32.i:                                        ; preds = %while.body.i, %whil
   %call7.i91.i = call i32 @htonl(i32 noundef %conv6.i90.i) #22
   store i32 %call7.i91.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i94.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i94.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %add10.i.i = add nsw i64 %conv3.i, 28
   br label %sw.epilog.i
 
@@ -5082,7 +5082,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %cmp3 = icmp eq i8 %cmd, 1
@@ -5310,7 +5310,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %keylen.i14 = getelementptr inbounds i8, ptr %receive, i64 2
@@ -5486,7 +5486,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   br label %do.body.us.i
@@ -5572,7 +5572,7 @@ storage_command.exit34:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call6, i1 false)
   %add.ptr18.i33 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call6
   store i64 -2401053088876213506, ptr %add.ptr18.i33, align 1
   br label %do.body.us.i35
@@ -5658,7 +5658,7 @@ storage_command.exit84:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call12, i1 false)
   %add.ptr18.i83 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call12
   store i64 -2401053088876213506, ptr %add.ptr18.i83, align 1
   %cmp15 = icmp eq i8 %cmd, 3
@@ -5811,7 +5811,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i.preheader
 
 do.body.us.i.preheader:                           ; preds = %if.end.i.i, %if.then23.i.i
@@ -5902,7 +5902,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i16 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i16, ptr align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i16, ptr readonly align 1 %key, i64 %call6, i1 false)
   br label %do.body.us.i17
 
 do.body.us.i17:                                   ; preds = %do.cond.us.i26, %storage_command.exit
@@ -5985,7 +5985,7 @@ if.end.i.i52:                                     ; preds = %safe_recv_packet.ex
   br i1 %cmp21.not.i.i, label %do.body.us.i65.preheader, label %if.then23.i.i62
 
 if.then23.i.i62:                                  ; preds = %if.end.i.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i65.preheader
 
 do.body.us.i65.preheader:                         ; preds = %if.end.i.i52, %if.then23.i.i62
@@ -6167,7 +6167,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then19.i:                                      ; preds = %if.end.i, %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i, %if.then19.i
@@ -6176,7 +6176,7 @@ if.end20.i:                                       ; preds = %if.end.i, %if.then1
 
 if.then23.i:                                      ; preds = %if.end20.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %send, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   br label %do.body.us.i.preheader
 
 do.body.us.i.preheader:                           ; preds = %if.end20.i, %if.then23.i
@@ -6266,7 +6266,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i38 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i38, ptr align 1 %key, i64 %call11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i38, ptr readonly align 1 %key, i64 %call11, i1 false)
   br label %do.body.us.i39
 
 do.body.us.i39:                                   ; preds = %do.cond.us.i48, %storage_command.exit
@@ -6366,14 +6366,14 @@ if.end.i75:                                       ; preds = %for.body
   ]
 
 if.then19.i88:                                    ; preds = %if.end.i75, %if.end.i75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i89, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i89, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i90
 
 if.end20.i90:                                     ; preds = %if.end.i75, %if.then19.i88
   br i1 %cmp21.not.i, label %ext_command.exit94, label %if.then23.i92
 
 if.then23.i92:                                    ; preds = %if.end20.i90
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i93, ptr nonnull align 1 %key, i64 %call24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i93, ptr nonnull readonly align 1 %key, i64 %call24, i1 false)
   br label %ext_command.exit94
 
 ext_command.exit94:                               ; preds = %if.end20.i90, %if.then23.i92
@@ -6498,7 +6498,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call5, i1 false)
   %expiration. = select i1 %or.cond.not, ptr null, ptr %expiration
   %add.i = or disjoint i64 %spec.store.select, 24
   %add1.i19 = or disjoint i64 %spec.store.select, 48
@@ -6524,12 +6524,12 @@ storage_command.exit:                             ; preds = %entry
 
 if.then19.i:                                      ; preds = %storage_command.exit, %storage_command.exit
   %add.ptr.i27 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i27, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i27, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %ext_command.exit
 
 ext_command.exit:                                 ; preds = %storage_command.exit, %if.then19.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %temp, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
   store i32 -17958194, ptr %opaque.i26, align 4
   %add.ptr = getelementptr inbounds i8, ptr %send, i64 %add1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 8 dereferenceable(1) %temp, i64 %add1.i19, i1 false)
@@ -6560,7 +6560,7 @@ if.end.i32:                                       ; preds = %ext_command.exit
 
 if.then19.i44:                                    ; preds = %if.end.i32, %if.end.i32
   %add.ptr.i45 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i32, %if.then19.i44
@@ -6568,7 +6568,7 @@ if.end20.i:                                       ; preds = %if.end.i32, %if.the
   br i1 %cmp21.not.i, label %ext_command.exit47, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   br label %ext_command.exit47
 
 ext_command.exit47:                               ; preds = %if.end20.i, %if.then23.i
@@ -6702,7 +6702,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 5
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
@@ -6876,7 +6876,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 6
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
@@ -7106,7 +7106,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %storage_command.exit
@@ -7264,7 +7264,7 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp21.not.i.i, label %do.body.us.i63.preheader, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i63.preheader
 
 do.body.us.i63.preheader:                         ; preds = %if.end.i.i, %if.then23.i.i
@@ -7419,7 +7419,7 @@ storage_command.exit142:                          ; preds = %for.body
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call24, i1 false)
   br label %do.body.us.i143
 
 do.body.us.i143:                                  ; preds = %do.cond.us.i152, %storage_command.exit142
@@ -7573,7 +7573,7 @@ if.end.i.i217:                                    ; preds = %if.end40
   br i1 %cmp21.not.i.i, label %do.body.us.i230.preheader, label %if.then23.i.i227
 
 if.then23.i.i227:                                 ; preds = %if.end.i.i217
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call42, i1 false)
   br label %do.body.us.i230.preheader
 
 do.body.us.i230.preheader:                        ; preds = %if.end.i.i217, %if.then23.i.i227
@@ -7673,13 +7673,13 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   br label %raw_command.exit
 
 raw_command.exit:                                 ; preds = %if.end.i.i, %if.then23.i.i
   %1 = getelementptr i8, ptr %send, i64 %call
   %add.ptr29.i.i = getelementptr i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %raw_command.exit
@@ -7767,9 +7767,9 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i44 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr align 1 %key, i64 %call7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr readonly align 1 %key, i64 %call7, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %call7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i45
 
 do.body.us.i45:                                   ; preds = %do.cond.us.i54, %storage_command.exit
@@ -7853,13 +7853,13 @@ if.end.i.i81:                                     ; preds = %safe_recv_packet.ex
   br i1 %cmp21.not.i.i, label %raw_command.exit95, label %if.then23.i.i92
 
 if.then23.i.i92:                                  ; preds = %if.end.i.i81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call14, i1 false)
   br label %raw_command.exit95
 
 raw_command.exit95:                               ; preds = %if.end.i.i81, %if.then23.i.i92
   %18 = getelementptr i8, ptr %send, i64 %call14
   %add.ptr29.i.i94 = getelementptr i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i96
 
 do.body.us.i96:                                   ; preds = %do.cond.us.i105, %raw_command.exit95
@@ -7997,7 +7997,7 @@ if.end.i.i171:                                    ; preds = %if.end
   br i1 %cmp21.not.i.i, label %do.body.us.i185.preheader, label %if.then23.i.i182
 
 if.then23.i.i182:                                 ; preds = %if.end.i.i171
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call30, i1 false)
   br label %do.body.us.i185.preheader
 
 do.body.us.i185.preheader:                        ; preds = %if.end.i.i171, %if.then23.i.i182

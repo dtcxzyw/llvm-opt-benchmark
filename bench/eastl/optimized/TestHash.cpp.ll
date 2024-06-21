@@ -31584,7 +31584,7 @@ for.body.i.i.i.i9285:                             ; preds = %invoke.cont2514, %f
 _ZNK5eastl14hash_code_baseINS_4pairIiPKcEENS1_IKS4_bEENS_9use_firstIS6_EEZ8TestHashvE11name_equalsNS_4hashIS4_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS5_mPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i: ; preds = %for.body.i.i.i.i9285
   %2600 = getelementptr i8, ptr %pNode.addr.03.i.i.i.i, i64 8
   %pNode.addr.0.val5.i.i.i.i = load ptr, ptr %2600, align 8, !noalias !1008
-  %call.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.130, ptr noundef nonnull dereferenceable(1) %pNode.addr.0.val5.i.i.i.i) #24, !noalias !1008
+  %call.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.130, ptr noundef nonnull readonly dereferenceable(1) %pNode.addr.0.val5.i.i.i.i) #24, !noalias !1008
   %cmp4.i.i.i.i.i.i9306 = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i.i.i9306, label %invoke.cont2520, label %for.inc.i.i.i.i9286
 
@@ -31752,7 +31752,7 @@ for.body.i.i9326:                                 ; preds = %invoke.cont2520, %f
 _ZNK5eastl14hash_code_baseINS_4pairIiPKcEENS1_IKS4_bEENS_9use_firstIS6_EEZ8TestHashvE11name_equalsNS_4hashIS4_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS5_mPNS_9hash_nodeIS6_Lb0EEE.exit.i.i: ; preds = %for.body.i.i9326
   %2623 = getelementptr i8, ptr %pNode.addr.03.i.i, i64 8
   %pNode.addr.0.val5.i.i = load ptr, ptr %2623, align 8, !noalias !1016
-  %call.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.130, ptr noundef nonnull dereferenceable(1) %pNode.addr.0.val5.i.i) #24, !noalias !1016
+  %call.i.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.130, ptr noundef nonnull readonly dereferenceable(1) %pNode.addr.0.val5.i.i) #24, !noalias !1016
   %cmp4.i.i.i.i9334 = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i9334, label %invoke.cont2522.loopexit, label %for.inc.i.i9327
 

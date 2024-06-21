@@ -1304,7 +1304,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %183, %181
   %186 = phi i64 [ %176, %181 ], [ %.pre.i.i, %183 ]
   %187 = phi ptr [ %173, %181 ], [ %185, %183 ]
   %188 = getelementptr inbounds i8, ptr %187, i64 %186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %188, ptr align 1 %163, i64 %158, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %188, ptr readonly align 1 %163, i64 %158, i1 false)
   %189 = load i64, ptr %175, align 8
   %190 = add i64 %189, %158
   store i64 %190, ptr %175, align 8
@@ -1520,7 +1520,7 @@ ruby_nonempty_memcpy.exit.i.i237:                 ; preds = %282, %280
   %285 = phi i64 [ %275, %280 ], [ %.pre.i.i241, %282 ]
   %286 = phi ptr [ %272, %280 ], [ %284, %282 ]
   %287 = getelementptr inbounds i8, ptr %286, i64 %285
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %287, ptr align 1 %262, i64 %257, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %287, ptr readonly align 1 %262, i64 %257, i1 false)
   %288 = load i64, ptr %274, align 8
   %289 = add i64 %288, %257
   store i64 %289, ptr %274, align 8
@@ -3114,7 +3114,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %25
   %27 = ptrtoint ptr %.078124 to i64
   %28 = ptrtoint ptr %.082123 to i64
   %29 = sub i64 %27, %28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.175125, ptr align 1 %.082123, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.175125, ptr readonly align 1 %.082123, i64 %29, i1 false)
   %30 = getelementptr inbounds i8, ptr %.175125, i64 %29
   br label %31
 
@@ -3383,7 +3383,7 @@ convert_UTF32_to_UTF8.exit:                       ; preds = %172, %161, %153, %1
   %.280 = phi ptr [ %32, %39 ], [ %32, %38 ], [ %32, %37 ], [ %32, %36 ], [ %32, %35 ], [ %32, %34 ], [ %32, %31 ], [ %89, %99 ], [ %89, %96 ], [ %69, %149 ], [ %69, %153 ], [ %.179101107110, %161 ], [ %.179101107115, %172 ]
   %.077 = phi ptr [ @.str.48, %39 ], [ @.str.47, %38 ], [ @.str.46, %37 ], [ @.str.45, %36 ], [ @.str.44, %35 ], [ @.str.43, %34 ], [ @.str.42, %31 ], [ @.str.41, %99 ], [ @.str.41, %96 ], [ %5, %149 ], [ %5, %153 ], [ %5, %161 ], [ %5, %172 ]
   %.073 = phi i64 [ 1, %39 ], [ 1, %38 ], [ 1, %37 ], [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ 1, %31 ], [ 1, %99 ], [ 1, %96 ], [ 1, %149 ], [ 2, %153 ], [ 3, %161 ], [ 4, %172 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2, ptr noundef nonnull align 1 dereferenceable(1) %.077, i64 %.073, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2, ptr noundef nonnull readonly align 1 dereferenceable(1) %.077, i64 %.073, i1 false)
   %187 = getelementptr inbounds i8, ptr %.2, i64 %.073
   %188 = getelementptr inbounds i8, ptr %.280, i64 1
   br label %.backedge
@@ -3407,7 +3407,7 @@ ruby_nonempty_memcpy.exit96:                      ; preds = %._crit_edge
   %193 = ptrtoint ptr %.078.be to i64
   %194 = ptrtoint ptr %.082.be to i64
   %195 = sub i64 %193, %194
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.175.be, ptr align 1 %.082.be, i64 %195, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.175.be, ptr readonly align 1 %.082.be, i64 %195, i1 false)
   %196 = getelementptr inbounds i8, ptr %.175.be, i64 %195
   br label %._crit_edge.thread
 

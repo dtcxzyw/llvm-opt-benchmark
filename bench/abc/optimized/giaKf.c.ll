@@ -1694,7 +1694,7 @@ Abc_Clock.exit:                                   ; preds = %112, %116
   %206 = getelementptr inbounds i64, ptr %204, i64 %205
   %207 = sext i32 %.val157 to i64
   %208 = shl nsw i64 %207, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %206, ptr nonnull align 4 %.val158, i64 %208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %206, ptr nonnull readonly align 4 %.val158, i64 %208, i1 false)
   %.pre47.i.i = load ptr, ptr %93, align 8
   %.pre49.i.i = load i32, ptr %94, align 4
   br label %Kf_ObjSetCuts.exit
@@ -2830,7 +2830,7 @@ define internal fastcc void @Kf_ObjSetCuts(ptr nocapture noundef %0, i32 noundef
   %61 = getelementptr inbounds i64, ptr %59, i64 %60
   %62 = sext i32 %.4.val to i64
   %63 = shl nsw i64 %62, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 4 %.8.val, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull readonly align 4 %.8.val, i64 %63, i1 false)
   %.pre47.i = load ptr, ptr %9, align 8
   %.pre49.i = load i32, ptr %11, align 4
   br label %Vec_SetAppend.exit
@@ -3124,7 +3124,7 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %131 = getelementptr inbounds i64, ptr %128, i64 %130
   %132 = getelementptr inbounds i8, ptr %102, i64 56
   %133 = load i32, ptr %132, align 8
-  tail call fastcc void @Kf_SetPrepare(ptr noundef nonnull %63, ptr noundef %118, ptr noundef %131)
+  tail call fastcc void @Kf_SetPrepare(ptr noundef nonnull %63, ptr noundef readonly %118, ptr noundef readonly %131)
   %134 = load i32, ptr %68, align 4
   %135 = load i32, ptr %69, align 8
   %136 = mul nsw i32 %135, %134
@@ -3459,7 +3459,7 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   br i1 %.not92, label %518, label %309
 
 309:                                              ; preds = %278
-  tail call fastcc void @Kf_SetPrepare(ptr noundef nonnull %63, ptr noundef %293, ptr noundef %306)
+  tail call fastcc void @Kf_SetPrepare(ptr noundef nonnull %63, ptr noundef readonly %293, ptr noundef readonly %306)
   %310 = load i32, ptr %68, align 4
   %311 = load i32, ptr %69, align 8
   %312 = mul nsw i32 %311, %310

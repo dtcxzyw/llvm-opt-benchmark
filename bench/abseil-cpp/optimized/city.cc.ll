@@ -712,7 +712,7 @@ return:                                           ; preds = %if.then27.i, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN4absl13hash_internal18CityHash64WithSeedEPKcmm(ptr nocapture noundef readonly %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef %s, i64 noundef %len)
+  %call.i = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef readonly %s, i64 noundef %len)
   %sub.i = add i64 %call.i, 7286425919675154353
   %xor.i.i.i = xor i64 %sub.i, %seed
   %mul1.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023

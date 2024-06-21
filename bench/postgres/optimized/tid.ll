@@ -664,7 +664,7 @@ currtid_for_view.exit:                            ; preds = %87
   unreachable
 
 common.ret:                                       ; preds = %16, %16, %16, %16, %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull readonly align 2 dereferenceable(6) %1, i64 6, i1 false)
   %110 = tail call ptr @GetLatestSnapshot() #10
   %111 = tail call ptr @RegisterSnapshot(ptr noundef %110) #10
   %112 = getelementptr inbounds i8, ptr %0, i64 312

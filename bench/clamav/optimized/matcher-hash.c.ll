@@ -359,7 +359,7 @@ define internal fastcc void @hm_sort(ptr nocapture noundef readonly %0, i64 noun
 
 hm_cmp.exit:                                      ; preds = %19
   %26 = getelementptr inbounds i8, ptr %22, i64 4
-  %27 = call i32 @memcmp(ptr noundef nonnull %26, ptr noundef nonnull %9, i64 noundef %11) #8
+  %27 = call i32 @memcmp(ptr noundef nonnull readonly %26, ptr noundef nonnull readonly %9, i64 noundef %11) #8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %hm_cmp.exit.thread, label %hm_cmp.exit.thread86
 
@@ -578,7 +578,7 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1,
 
 hm_cmp.exit.i:                                    ; preds = %35
   %43 = getelementptr inbounds i8, ptr %39, i64 4
-  %44 = tail call i32 @memcmp(ptr noundef nonnull %32, ptr noundef nonnull %43, i64 noundef %34) #8
+  %44 = tail call i32 @memcmp(ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %43, i64 noundef %34) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %hm_cmp.exit.thread.i, label %48
 
@@ -667,7 +667,7 @@ define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr nounde
 
 hm_cmp.exit.i:                                    ; preds = %24
   %32 = getelementptr inbounds i8, ptr %28, i64 4
-  %33 = tail call i32 @memcmp(ptr noundef nonnull %21, ptr noundef nonnull %32, i64 noundef %23) #8
+  %33 = tail call i32 @memcmp(ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %32, i64 noundef %23) #8
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %hm_cmp.exit.thread.i, label %37
 

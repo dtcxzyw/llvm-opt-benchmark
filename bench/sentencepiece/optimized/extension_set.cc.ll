@@ -586,7 +586,7 @@ _ZNKSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8inter
   %.sroa.4.0..sroa_idx4.i = getelementptr inbounds i8, ptr %62, i64 16
   store i32 %1, ptr %.sroa.4.0..sroa_idx4.i, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   %65 = getelementptr inbounds i8, ptr %20, i64 32
   %66 = getelementptr inbounds i8, ptr %20, i64 40
   %67 = load i64, ptr %66, align 8
@@ -991,7 +991,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %10, %.noexc
   %.sroa.0.06.i.i = phi ptr [ %15, %.noexc ], [ %12, %10 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 40
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i
@@ -1010,7 +1010,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr nocapture nounde
 .lr.ph.i2.i:                                      ; preds = %16, %.noexc1
   %.07.i.i = phi ptr [ %22, %.noexc1 ], [ %9, %16 ]
   %21 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %.lr.ph.i2.i
@@ -8345,7 +8345,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111SizeOfUnionIPNS1_12ExtensionSet8KeyV
   %86 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 32
   %87 = load i32, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 40
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEiRKNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %87, ptr noundef nonnull align 8 dereferenceable(24) %88)
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEiRKNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %87, ptr noundef nonnull readonly align 8 dereferenceable(24) %88)
   %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08.i.i) #27
   %.not.i.i = icmp eq ptr %89, %85
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromERKS2_E3$_0EET_S7_.exit", label %.lr.ph.i.i, !llvm.loop !24
@@ -8362,7 +8362,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111SizeOfUnionIPNS1_12ExtensionSet8KeyV
   %.07.i.i = phi ptr [ %97, %.lr.ph.i6.i ], [ %81, %90 ]
   %95 = load i32, ptr %.07.i.i, align 8
   %96 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEiRKNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(24) %96)
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEiRKNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %95, ptr noundef nonnull readonly align 8 dereferenceable(24) %96)
   %97 = getelementptr inbounds i8, ptr %.07.i.i, i64 32
   %.not.i7.i = icmp eq ptr %97, %94
   br i1 %.not.i7.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromERKS2_E3$_0EET_S7_.exit", label %.lr.ph.i6.i, !llvm.loop !25
@@ -10887,7 +10887,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   %7 = alloca %"struct.google::protobuf::internal::ExtensionInfo", align 8
   %8 = lshr i32 %1, 3
   %9 = and i32 %1, 7
-  %10 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef %9, i32 noundef %8, ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %10 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull readnone align 8 poison, i32 noundef %9, i32 noundef %8, ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %6)
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %5
@@ -14837,7 +14837,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %9 = lshr i32 %1, 3
   %10 = and i32 %1, 7
-  %11 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef %10, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %11 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull readnone align 8 poison, i32 noundef %10, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.noexc
@@ -14875,7 +14875,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %11 = lshr i32 %1, 3
   %12 = and i32 %1, 7
-  %13 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef %12, i32 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %13 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull readnone align 8 poison, i32 noundef %12, i32 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.noexc
@@ -14943,7 +14943,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet19ParseMess
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %25 = lshr i32 %.0, 3
   %26 = and i32 %.0, 7
-  %27 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef %26, i32 noundef %25, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %27 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull readnone align 8 poison, i32 noundef %26, i32 noundef %25, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %27, label %28, label %_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEjPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperE.exit
 
 28:                                               ; preds = %24
@@ -20042,7 +20042,7 @@ define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet49InternalSeriali
   %14 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i, i64 40
-  %17 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %15, ptr noundef %13, ptr noundef %2)
+  %17 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i32 noundef %15, ptr noundef %13, ptr noundef %2)
   %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.09.i.i) #27
   %.not.i.i = icmp eq ptr %18, %12
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_S9_.exit", label %.lr.ph.i.i, !llvm.loop !86
@@ -20060,7 +20060,7 @@ define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet49InternalSeriali
   %.08.i.i = phi ptr [ %28, %.lr.ph.i11.i ], [ %8, %19 ]
   %25 = load i32, ptr %.08.i.i, align 8
   %26 = getelementptr inbounds i8, ptr %.08.i.i, i64 8
-  %27 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %25, ptr noundef %24, ptr noundef %2)
+  %27 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i32 noundef %25, ptr noundef %24, ptr noundef %2)
   %28 = getelementptr inbounds i8, ptr %.08.i.i, i64 32
   %.not.i12.i = icmp eq ptr %28, %23
   br i1 %.not.i12.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_S9_.exit", label %.lr.ph.i11.i, !llvm.loop !87

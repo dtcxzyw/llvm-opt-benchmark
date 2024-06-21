@@ -3895,7 +3895,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.then.i, %for.cond.i
   %row.020.i = phi i32 [ %inc.i, %for.cond.i ], [ %15, %if.then.i ]
   %func.val.val.i = load ptr, ptr %fromErrors, align 8
-  %call2.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %func.val.val.i, ptr nonnull %toErrors, i32 noundef %row.020.i)
+  %call2.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %func.val.val.i, ptr nonnull readonly %toErrors, i32 noundef %row.020.i)
   br i1 %call2.i, label %for.cond.i, label %return
 
 if.end4.i:                                        ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
@@ -3942,7 +3942,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %cast.i.i.i.i.i = trunc nuw nsw i64 %24 to i32
   %add.i26.i.i.i.i = or disjoint i32 %22, %cast.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %fromErrors, align 8
-  %call.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i.i.i.i.i, ptr nonnull %toErrors, i32 noundef %add.i26.i.i.i.i)
+  %call.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i.i.i.i.i, ptr nonnull readonly %toErrors, i32 noundef %add.i26.i.i.i.i)
   br i1 %call.i.i.i.i.i, label %if.end7.i.i.i.i.i, label %return
 
 if.end7.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
@@ -3981,7 +3981,7 @@ while.body.i42.i.i.i.i:                           ; preds = %if.end7.i51.i.i.i.i
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %26 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
   %.val.val.i48.i.i.i.i = load ptr, ptr %fromErrors, align 8
-  %call.i49.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i48.i.i.i.i, ptr nonnull %toErrors, i32 noundef %add.i45.i.i.i.i)
+  %call.i49.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i48.i.i.i.i, ptr nonnull readonly %toErrors, i32 noundef %add.i45.i.i.i.i)
   br i1 %call.i49.i.i.i.i, label %if.end7.i51.i.i.i.i, label %return
 
 if.end7.i51.i.i.i.i:                              ; preds = %while.body.i42.i.i.i.i
@@ -4015,7 +4015,7 @@ while.body.i63.i.i.i.i:                           ; preds = %if.end7.i72.i.i.i.i
   %cast.i65.i.i.i.i = trunc nuw nsw i64 %28 to i32
   %add.i66.i.i.i.i = or disjoint i32 %mul.i62.i.i.i.i, %cast.i65.i.i.i.i
   %.val.val.i69.i.i.i.i = load ptr, ptr %fromErrors, align 8
-  %call.i70.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i69.i.i.i.i, ptr nonnull %toErrors, i32 noundef %add.i66.i.i.i.i)
+  %call.i70.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i69.i.i.i.i, ptr nonnull readonly %toErrors, i32 noundef %add.i66.i.i.i.i)
   br i1 %call.i70.i.i.i.i, label %if.end7.i72.i.i.i.i, label %return
 
 if.end7.i72.i.i.i.i:                              ; preds = %while.body.i63.i.i.i.i
@@ -4052,7 +4052,7 @@ while.body.i87.i.i.i.i:                           ; preds = %if.then26.i.i.i10.i
   %cast.i89.i.i.i.i = trunc nuw nsw i64 %30 to i32
   %add.i90.i.i.i.i = or disjoint i32 %22, %cast.i89.i.i.i.i
   %.val.val.i93.i.i.i.i = load ptr, ptr %fromErrors, align 8
-  %call.i94.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i93.i.i.i.i, ptr nonnull %toErrors, i32 noundef %add.i90.i.i.i.i)
+  %call.i94.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_ENK3$_0clIiEEDaT_"(ptr %.val.val.i93.i.i.i.i, ptr nonnull readonly %toErrors, i32 noundef %add.i90.i.i.i.i)
   br i1 %call.i94.i.i.i.i, label %if.end7.i96.i.i.i.i, label %return
 
 if.end7.i96.i.i.i.i:                              ; preds = %while.body.i87.i.i.i.i
@@ -4635,7 +4635,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %.noexc, %for.body.lr.ph.i
   %row.012.i = phi i32 [ %16, %for.body.lr.ph.i ], [ %inc.i, %.noexc ]
-  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %row.012.i, ptr noundef nonnull align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i)
+  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %row.012.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -4691,7 +4691,7 @@ while.body.i.i.i.i.i:                             ; preds = %.noexc2, %while.bod
   %25 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %25 to i32
   %add.i26.i.i.i.i = or disjoint i32 %23, %cast.i.i.i.i.i
-  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i.i.i.i.i)
+  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add.i26.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i.i.i.i.i)
           to label %.noexc2 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc2:                                          ; preds = %while.body.i.i.i.i.i
@@ -4730,7 +4730,7 @@ while.body.i42.i.i.i.i:                           ; preds = %.noexc3, %while.bod
   %27 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %27 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i48.i.i.i.i)
+  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add.i45.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i48.i.i.i.i)
           to label %.noexc3 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc3:                                          ; preds = %while.body.i42.i.i.i.i
@@ -4779,7 +4779,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %.noexc4, %for.body.lr.ph.i.i.i.i.i
   %row.019.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %.noexc4 ]
   %conv.i.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i to i32
-  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %conv.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i58.i.i.i.i)
+  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %conv.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i58.i.i.i.i)
           to label %.noexc4 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc4:                                          ; preds = %for.body.i.i.i.i.i
@@ -4792,7 +4792,7 @@ while.body.i59.i.i.i.i:                           ; preds = %.noexc5, %while.bod
   %29 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i = trunc nuw nsw i64 %29 to i32
   %add9.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i, %cast.i60.i.i.i.i
-  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i58.i.i.i.i)
+  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add9.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i58.i.i.i.i)
           to label %.noexc5 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc5:                                          ; preds = %while.body.i59.i.i.i.i
@@ -4832,7 +4832,7 @@ while.body.i75.i.i.i.i:                           ; preds = %.noexc6, %while.bod
   %31 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i = trunc nuw nsw i64 %31 to i32
   %add.i78.i.i.i.i = or disjoint i32 %23, %cast.i77.i.i.i.i
-  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i81.i.i.i.i)
+  invoke void @_ZNK8facebook5velox4exec7EvalCtx8addErrorEiRKNSt15__exception_ptr13exception_ptrERSt10shared_ptrINS0_10FlatVectorIS7_IvEEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add.i78.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %veloxException, ptr noundef nonnull align 8 dereferenceable(16) %errors_.i.i81.i.i.i.i)
           to label %.noexc6 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc6:                                          ; preds = %while.body.i75.i.i.i.i
@@ -5001,7 +5001,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
   %row.011.i = phi i32 [ %inc.i, %for.body.i ], [ %16, %if.then.i ]
-  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i32 noundef %row.011.i)
+  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp1, i32 noundef %row.011.i)
   %inc.i = add nsw i32 %row.011.i, 1
   %18 = load i32, ptr %end_.i, align 8
   %cmp.i2 = icmp slt i32 %inc.i, %18
@@ -5015,10 +5015,10 @@ if.else.i:                                        ; preds = %_ZNK8facebook5velox
   %21 = load i32, ptr %end_4.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp3.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp24.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i, i64 8
   store ptr %19, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i, align 8
@@ -5062,7 +5062,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %25 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %25 to i32
   %add.i26.i.i.i.i = or disjoint i32 %23, %cast.i.i.i.i.i
-  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i26.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i26.i.i.i.i)
   %sub.i27.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i, -1
   %and6.i.i.i.i.i = and i64 %sub.i27.i.i.i.i, %word.0.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i, 0
@@ -5097,7 +5097,7 @@ while.body.i42.i.i.i.i:                           ; preds = %while.body.i42.i.i.
   %27 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %27 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
-  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i45.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i45.i.i.i.i)
   %sub.i46.i.i.i.i = add i64 %word.0.i43.i.i.i.i, -1
   %and6.i47.i.i.i.i = and i64 %sub.i46.i.i.i.i, %word.0.i43.i.i.i.i
   %tobool5.old.not.i48.i.i.i.i = icmp eq i64 %and6.i47.i.i.i.i, 0
@@ -5422,7 +5422,7 @@ while.body.i55.i.i.i.i:                           ; preds = %while.body.i55.i.i.
   %78 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i, i1 true)
   %cast.i56.i.i.i.i = trunc nuw nsw i64 %78 to i32
   %add9.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i, %cast.i56.i.i.i.i
-  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, i32 noundef %add9.i.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, i32 noundef %add9.i.i.i.i.i)
   %sub.i57.i.i.i.i = add i64 %word.013.i.i.i.i.i, -1
   %and.i58.i.i.i.i = and i64 %sub.i57.i.i.i.i, %word.013.i.i.i.i.i
   %tobool7.not.i.i.i.i.i = icmp eq i64 %and.i58.i.i.i.i, 0
@@ -5462,7 +5462,7 @@ while.body.i70.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   %85 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i, i1 true)
   %cast.i72.i.i.i.i = trunc nuw nsw i64 %85 to i32
   %add.i73.i.i.i.i = or disjoint i32 %23, %cast.i72.i.i.i.i
-  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i73.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox4exec7EvalCtx26addElementErrorsToTopLevelERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEERSt10shared_ptrINS0_10FlatVectorISC_IvEEEEENK3$_0clIiEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i73.i.i.i.i)
   %sub.i74.i.i.i.i = add nsw i64 %word.0.i71.i.i.i.i, -1
   %and6.i75.i.i.i.i = and i64 %sub.i74.i.i.i.i, %word.0.i71.i.i.i.i
   %tobool5.old.not.i76.i.i.i.i = icmp eq i64 %and6.i75.i.i.i.i, 0
@@ -50574,7 +50574,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

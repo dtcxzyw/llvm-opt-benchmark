@@ -1857,7 +1857,7 @@ _ZN4node23SetIsolateErrorHandlersEPN2v87IsolateERKNS_15IsolateSettingsE.exit:
   tail call void @_ZN2v87Isolate20SetFatalErrorHandlerEPFvPKcS2_E(ptr noundef nonnull align 1 dereferenceable(1) %isolate, ptr noundef nonnull @_ZN4node12OnFatalErrorEPKcS1_) #12
   tail call void @_ZN2v87Isolate18SetOOMErrorHandlerEPFvPKcRKNS_10OOMDetailsEE(ptr noundef nonnull align 1 dereferenceable(1) %isolate, ptr noundef nonnull @_ZN4node15OOMErrorHandlerEPKcRKN2v810OOMDetailsE) #12
   tail call void @_ZN2v87Isolate28SetPrepareStackTraceCallbackEPFNS_10MaybeLocalINS_5ValueEEENS_5LocalINS_7ContextEEENS4_IS2_EENS4_INS_5ArrayEEEE(ptr noundef nonnull align 1 dereferenceable(1) %isolate, ptr noundef nonnull @_ZN4node25PrepareStackTraceCallbackEN2v85LocalINS0_7ContextEEENS1_INS0_5ValueEEENS1_INS0_5ArrayEEE) #12
-  call void @_ZN4node22SetIsolateMiscHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %isolate, ptr noundef nonnull align 8 dereferenceable(64) %settings)
+  call void @_ZN4node22SetIsolateMiscHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %isolate, ptr noundef nonnull readonly align 8 dereferenceable(64) %settings)
   tail call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #12
   ret void
 }
@@ -1966,8 +1966,8 @@ _ZN4node29SetIsolateCreateParamsForNodeEPN2v87Isolate12CreateParamsE.exit: ; pre
 
 if.then5:                                         ; preds = %_ZN4node29SetIsolateCreateParamsForNodeEPN2v87Isolate12CreateParamsE.exit
   tail call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #12
-  tail call void @_ZN4node23SetIsolateErrorHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(64) %settings)
-  tail call void @_ZN4node22SetIsolateMiscHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(64) %settings)
+  tail call void @_ZN4node23SetIsolateErrorHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef nonnull %call, ptr noundef nonnull readonly align 8 dereferenceable(64) %settings)
+  tail call void @_ZN4node22SetIsolateMiscHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %call, ptr noundef nonnull readonly align 8 dereferenceable(64) %settings)
   tail call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #12
   br label %if.end6
 
@@ -3410,7 +3410,7 @@ do.end4.i:                                        ; preds = %entry
   %extra_linked_bindings_.i.i = getelementptr inbounds i8, ptr %env, i64 2344
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22
   %_M_storage.i.i.i.i6.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i.i6.i, ptr noundef nonnull align 8 dereferenceable(64) %node_mod, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i.i6.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %node_mod, i64 64, i1 false)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i, ptr noundef nonnull %extra_linked_bindings_.i.i) #12
   %2 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %2, 1
@@ -4497,7 +4497,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb

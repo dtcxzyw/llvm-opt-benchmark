@@ -146,10 +146,10 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
 _ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit: ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
   %62 = load i32, ptr %4, align 8
   %63 = add nsw i32 %62, -7
-  tail call fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef %63, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef %63, i32 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4)
   %64 = load i32, ptr %4, align 8
   %65 = add nsw i32 %64, -7
-  tail call fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef 0, i32 noundef %65, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef 0, i32 noundef %65, ptr noundef nonnull readonly align 8 dereferenceable(32) %4)
   %66 = load i32, ptr %26, align 4
   %67 = add nsw i32 %66, -8
   %68 = load i32, ptr %4, align 8

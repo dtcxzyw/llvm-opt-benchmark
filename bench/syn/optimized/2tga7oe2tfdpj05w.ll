@@ -2401,7 +2401,7 @@ define void @"_ZN3syn2ty7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
 
 17:                                               ; preds = %"_ZN3syn2ty7parsing61_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..ty..Type$GT$5parse17hf871428bb39f1cecE.exit"
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3), !noalias !555
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull align 8 dereferenceable(232) %6, i64 232, i1 false), !noalias !549
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull readonly align 8 dereferenceable(232) %6, i64 232, i1 false), !noalias !549
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !556
   %19 = call noundef align 8 dereferenceable_or_null(232) ptr @__rust_alloc(i64 noundef 232, i64 noundef 8) #25, !noalias !556
   %20 = icmp eq ptr %19, null
@@ -2427,7 +2427,7 @@ define void @"_ZN3syn2ty7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he52712098f2023dcE.exit.thread": ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %19, ptr noundef nonnull align 8 dereferenceable(232) %6, i64 232, i1 false), !noalias !549
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %19, ptr noundef nonnull readonly align 8 dereferenceable(232) %6, i64 232, i1 false), !noalias !549
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %3), !noalias !555
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %6)
   br label %28
@@ -2622,7 +2622,7 @@ define void @"_ZN3syn2ty7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
 
 25:                                               ; preds = %"_ZN3syn2ty7parsing61_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..ty..Type$GT$5parse17hf871428bb39f1cecE.exit"
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %7), !noalias !617
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull align 8 dereferenceable(232) %11, i64 232, i1 false), !noalias !612
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull readonly align 8 dereferenceable(232) %11, i64 232, i1 false), !noalias !612
   %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !618
   %27 = call noundef align 8 dereferenceable_or_null(232) ptr @__rust_alloc(i64 noundef 232, i64 noundef 8) #25, !noalias !618
   %28 = icmp eq ptr %27, null
@@ -2648,7 +2648,7 @@ define void @"_ZN3syn2ty7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he52712098f2023dcE.exit.thread": ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull align 8 dereferenceable(232) %11, i64 232, i1 false), !noalias !612
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull readonly align 8 dereferenceable(232) %11, i64 232, i1 false), !noalias !612
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7), !noalias !617
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %11)
   br label %36
@@ -6542,7 +6542,7 @@ define void @"_ZN3syn2ty7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
 
 19:                                               ; preds = %"_ZN3syn2ty7parsing61_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..ty..Type$GT$5parse17hf871428bb39f1cecE.exit"
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3), !noalias !1200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false), !noalias !1195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull readonly align 8 dereferenceable(232) %7, i64 232, i1 false), !noalias !1195
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1201
   %21 = call noundef align 8 dereferenceable_or_null(232) ptr @__rust_alloc(i64 noundef 232, i64 noundef 8) #25, !noalias !1201
   %22 = icmp eq ptr %21, null
@@ -6568,7 +6568,7 @@ define void @"_ZN3syn2ty7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he52712098f2023dcE.exit.thread": ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %21, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false), !noalias !1195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %21, ptr noundef nonnull readonly align 8 dereferenceable(232) %7, i64 232, i1 false), !noalias !1195
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %3), !noalias !1200
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7)
   br label %30

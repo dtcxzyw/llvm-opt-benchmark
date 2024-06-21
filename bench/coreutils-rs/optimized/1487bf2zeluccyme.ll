@@ -833,7 +833,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %53, %
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.i": ; preds = %59
   %67 = sub i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val, i64 %67
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %68, ptr nonnull %15, i64 %17), !alias.scope !146, !noalias !140
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !146, !noalias !140
   %69 = icmp eq i32 %bcmp.i.i, 0
   br i1 %69, label %75, label %63
 
@@ -1765,7 +1765,7 @@ common.resume:                                    ; preds = %36, %30, %14
   %24 = extractvalue { i64, ptr } %13, 1
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !271
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
@@ -4052,7 +4052,7 @@ _ZN7uu_sort13FieldSelector18parse_with_options17h6d08f08160314d92E.exit: ; preds
   %125 = extractvalue { i64, ptr } %122, 1
   %126 = icmp ne ptr %125, null
   call void @llvm.assume(i1 %126)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr nonnull align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %127 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !618
   %128 = getelementptr inbounds i8, ptr %5, i64 8
@@ -5560,7 +5560,7 @@ _ZN12clap_builder7builder3arg3Arg4help17ha5a220c2fbe585b8E.exit: ; preds = %19, 
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit": ; preds = %39
-  %bcmp.i = call i32 @bcmp(ptr nonnull %.pre, ptr nonnull %1, i64 %2), !alias.scope !792
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %.pre, ptr nonnull readonly %1, i64 %2), !alias.scope !792
   %42 = icmp eq i32 %bcmp.i, 0
   br i1 %42, label %51, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.thread"
 
@@ -10374,7 +10374,7 @@ define { ptr, ptr } @_ZN7uu_sort4exec17hc924815733b0d4bbE(ptr noalias noundef no
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %33, ptr noundef nonnull align 1 dereferenceable(29) @anon.a110fc8cc4a39fd147b5a3360eb1a23d.199, i64 29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %33, ptr noundef nonnull readonly align 1 dereferenceable(29) @anon.a110fc8cc4a39fd147b5a3360eb1a23d.199, i64 29, i1 false)
   %35 = getelementptr inbounds i8, ptr %10, i64 24
   store i32 2, ptr %35, align 8, !noalias !2519
   store i64 %32, ptr %10, align 8, !noalias !2519
@@ -10798,7 +10798,7 @@ default.unreachable334:                           ; preds = %347, %98
   %84 = load i64, ptr %83, align 8, !noundef !4
   %85 = sub i64 %81, %84
   %..i = tail call i64 @llvm.umin.i64(i64 %81, i64 %84)
-  %86 = tail call i32 @memcmp(ptr nonnull %79, ptr nonnull %82, i64 %..i), !alias.scope !2643
+  %86 = tail call i32 @memcmp(ptr nonnull readonly %79, ptr nonnull readonly %82, i64 %..i), !alias.scope !2643
   %87 = sext i32 %86 to i64
   %88 = icmp eq i32 %86, 0
   %spec.store.select.i = select i1 %88, i64 %85, i64 %87

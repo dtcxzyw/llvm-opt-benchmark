@@ -58840,7 +58840,7 @@ entry:
   %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i10, i64 40
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %test_vector, i64 16
   store ptr %add.ptr.i4.i, ptr %_M_end_of_storage.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i5.i10, ptr noundef nonnull align 4 dereferenceable(40) @constinit.463, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i5.i10, ptr noundef nonnull readonly align 4 dereferenceable(40) @constinit.463, i64 40, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %test_vector, i64 8
   store ptr %add.ptr.i4.i, ptr %_M_finish.i.i, align 8
   br label %while.body.i.i.i.i.i
@@ -63493,7 +63493,7 @@ entry:
   %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i10, i64 40
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %test_vector, i64 16
   store ptr %add.ptr.i4.i, ptr %_M_end_of_storage.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i5.i10, ptr noundef nonnull align 4 dereferenceable(40) @constinit.463, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i5.i10, ptr noundef nonnull readonly align 4 dereferenceable(40) @constinit.463, i64 40, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %test_vector, i64 8
   store ptr %add.ptr.i4.i, ptr %_M_finish.i.i, align 8
   br label %while.body.i.i.i.i.i

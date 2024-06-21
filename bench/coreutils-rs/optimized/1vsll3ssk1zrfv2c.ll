@@ -190,7 +190,7 @@ define hidden void @"_ZN3nom8sequence14separated_pair28_$u7b$$u7b$closure$u7d$$u
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !alias.scope !65
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull readonly align 8 dereferenceable(32) %27, i64 32, i1 false), !alias.scope !65
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4928307b33370045E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h4928307b33370045E.exit": ; preds = %28, %29
@@ -826,7 +826,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !alias.scope !239, !noalias !219
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull readonly align 8 dereferenceable(32) %27, i64 32, i1 false), !alias.scope !239, !noalias !219
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4928307b33370045E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h4928307b33370045E.exit.i": ; preds = %29, %28

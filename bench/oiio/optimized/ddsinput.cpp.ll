@@ -8151,12 +8151,12 @@ for.body9.i.i.i:                                  ; preds = %for.inc120.i.i.i, %
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.body9.i.i.i
-  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 0)
+  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 0)
   br label %sw.epilog.i.i.i
 
 sw.bb10.i.i.i:                                    ; preds = %for.body9.i.i.i, %for.body9.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 8
-  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef nonnull %add.ptr.i.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 1)
+  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef nonnull readonly %add.ptr.i.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 1)
   br label %for.cond1.preheader.i.i.i.i.i
 
 for.cond1.preheader.i.i.i.i.i:                    ; preds = %for.end.i.i.i.i.i, %sw.bb10.i.i.i
@@ -8189,18 +8189,18 @@ for.end.i.i.i.i.i:                                ; preds = %for.body3.i.i.i.i.i
 
 sw.bb12.i.i.i:                                    ; preds = %for.body9.i.i.i, %for.body9.i.i.i
   %add.ptr.i37.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 8
-  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef nonnull %add.ptr.i37.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 1)
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef %srcBlocks.190.i.i.i, ptr noundef nonnull %add.ptr1.i38.i.i.i, i32 noundef 16, i32 noundef 4)
+  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef nonnull readonly %add.ptr.i37.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 1)
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %add.ptr1.i38.i.i.i, i32 noundef 16, i32 noundef 4)
   br label %sw.epilog.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %for.body9.i.i.i
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 4, i32 noundef 1)
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 4, i32 noundef 1)
   br label %sw.epilog.i.i.i
 
 sw.bb16.i.i.i:                                    ; preds = %for.body9.i.i.i
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 8, i32 noundef 2)
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 8, i32 noundef 2)
   %add.ptr.i39.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 8
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef nonnull %add.ptr.i39.i.i.i, ptr noundef nonnull %add.ptr1.i40.i.i.i, i32 noundef 8, i32 noundef 2)
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef nonnull readonly %add.ptr.i39.i.i.i, ptr noundef nonnull %add.ptr1.i40.i.i.i, i32 noundef 8, i32 noundef 2)
   br label %sw.epilog.i.i.i
 
 sw.bb18.i.i.i:                                    ; preds = %for.body9.i.i.i, %for.body9.i.i.i
@@ -8470,7 +8470,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %__source.val5, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %__source.val5, i64 72, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

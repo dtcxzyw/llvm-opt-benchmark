@@ -1639,7 +1639,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
 
 if.end.i:                                         ; preds = %sdslen.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %retval.0.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %t, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %t, i64 %call, i1 false)
   %add.i = add i64 %retval.0.i.i, %call
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %5 = load i8, ptr %arrayidx.i12.i, align 1
@@ -1783,7 +1783,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
 
 if.end.i:                                         ; preds = %sdslen.exit.i
   %add.ptr.i2 = getelementptr inbounds i8, ptr %call.i.i, i64 %retval.0.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2, ptr nonnull align 1 %t, i64 %retval.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2, ptr nonnull readonly align 1 %t, i64 %retval.0.i, i1 false)
   %add.i = add i64 %retval.0.i.i, %retval.0.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %10 = load i8, ptr %arrayidx.i12.i, align 1
@@ -2097,7 +2097,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
 
 if.end.i:                                         ; preds = %sdslen.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %retval.0.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %buf.1, i64 %conv, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %buf.1, i64 %conv, i1 false)
   %add.i = add i64 %retval.0.i.i, %conv
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %5 = load i8, ptr %arrayidx.i12.i, align 1
@@ -5825,7 +5825,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %join.052 = phi ptr [ %retval.0.i.i, %for.body.lr.ph ], [ %join.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #27
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #27
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %join.052, i64 -1
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %4 to i32
@@ -5874,7 +5874,7 @@ sdslen.exit.i.i:                                  ; preds = %sw.bb13.i.i.i, %sw.
 
 if.end.i.i:                                       ; preds = %sdslen.exit.i.i
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %retval.0.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i7, ptr align 1 %3, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i7, ptr readonly align 1 %3, i64 %call.i, i1 false)
   %add.i.i = add i64 %retval.0.i.i.i, %call.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 -1
   %9 = load i8, ptr %arrayidx.i12.i.i, align 1
@@ -5926,7 +5926,7 @@ sdscat.exit:                                      ; preds = %sdslen.exit.i.i, %s
   br i1 %cmp2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %sdscat.exit
-  %call.i8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sep) #27
+  %call.i8 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %sep) #27
   %arrayidx.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i, i64 -1
   %11 = load i8, ptr %arrayidx.i.i.i9, align 1
   %conv.i.i.i10 = zext i8 %11 to i32
@@ -5975,7 +5975,7 @@ sdslen.exit.i.i14:                                ; preds = %sw.bb13.i.i.i12, %s
 
 if.end.i.i18:                                     ; preds = %sdslen.exit.i.i14
   %add.ptr.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i16, i64 %retval.0.i.i.i15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i19, ptr align 1 %sep, i64 %call.i8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i19, ptr readonly align 1 %sep, i64 %call.i8, i1 false)
   %add.i.i20 = add i64 %retval.0.i.i.i15, %call.i8
   %arrayidx.i12.i.i21 = getelementptr inbounds i8, ptr %call.i.i.i16, i64 -1
   %16 = load i8, ptr %arrayidx.i12.i.i21, align 1
@@ -6128,7 +6128,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
 
 if.end.i:                                         ; preds = %sdslen.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %retval.0.i.i7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %sep, i64 %seplen, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %sep, i64 %seplen, i1 false)
   %add.i = add i64 %retval.0.i.i7, %seplen
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %9 = load i8, ptr %arrayidx.i12.i, align 1
@@ -6247,7 +6247,7 @@ while.body:                                       ; preds = %sdsempty.exit, %whi
   br i1 %tobool2.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.0151) #27
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %p.0151) #27
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -1
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %3 to i32
@@ -6296,7 +6296,7 @@ sdslen.exit.i.i:                                  ; preds = %sw.bb13.i.i.i, %sw.
 
 if.end.i.i:                                       ; preds = %sdslen.exit.i.i
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %retval.0.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i25, ptr nonnull align 1 %p.0151, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i25, ptr nonnull readonly align 1 %p.0151, i64 %call.i, i1 false)
   %add.i.i = add i64 %retval.0.i.i.i, %call.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 -1
   %8 = load i8, ptr %arrayidx.i12.i.i, align 1
@@ -6399,7 +6399,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
 
 if.end.i:                                         ; preds = %sdslen.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %retval.0.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %p.0151, i64 %sub.ptr.sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %p.0151, i64 %sub.ptr.sub, i1 false)
   %add.i = add i64 %retval.0.i.i27, %sub.ptr.sub
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %15 = load i8, ptr %arrayidx.i12.i, align 1
@@ -6597,7 +6597,7 @@ sdsfree.exit:                                     ; preds = %if.end18, %sdsHdrSi
   br i1 %tobool24.not, label %error, label %if.end26
 
 if.end26:                                         ; preds = %sdsfree.exit
-  %call.i79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call23) #27
+  %call.i79 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call23) #27
   %arrayidx.i.i.i80 = getelementptr inbounds i8, ptr %res.1, i64 -1
   %30 = load i8, ptr %arrayidx.i.i.i80, align 1
   %conv.i.i.i81 = zext i8 %30 to i32
@@ -6646,7 +6646,7 @@ sdslen.exit.i.i85:                                ; preds = %sw.bb13.i.i.i83, %s
 
 if.end.i.i89:                                     ; preds = %sdslen.exit.i.i85
   %add.ptr.i.i90 = getelementptr inbounds i8, ptr %call.i.i.i87, i64 %retval.0.i.i.i86
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i90, ptr nonnull align 1 %call23, i64 %call.i79, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i90, ptr nonnull readonly align 1 %call23, i64 %call.i79, i1 false)
   %add.i.i91 = add i64 %retval.0.i.i.i86, %call.i79
   %arrayidx.i12.i.i92 = getelementptr inbounds i8, ptr %call.i.i.i87, i64 -1
   %35 = load i8, ptr %arrayidx.i12.i.i92, align 1

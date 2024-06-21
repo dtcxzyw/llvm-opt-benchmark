@@ -294,7 +294,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core.
 
 39:                                               ; preds = %35
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i.i, i64 39, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i.i, ptr noundef nonnull readonly align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i.i, i64 39, i1 false), !noalias !34
   br label %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i"
 
 "_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i": ; preds = %39, %35
@@ -311,7 +311,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core.
 
 49:                                               ; preds = %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i"
   %.sroa.4.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %6, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i11.i, i64 39, i1 false), !noalias !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i, ptr noundef nonnull readonly align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i11.i, i64 39, i1 false), !noalias !31
   br label %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit13.i"
 
 "_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit13.i": ; preds = %49, %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i"
@@ -380,7 +380,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17hf0efff9df3952007E.exit.i: ; preds
   br i1 %67, label %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h835832cf179d600bE.exit.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h835832cf179d600bE.exit.i": ; preds = %62
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull %19, i64 %18), !alias.scope !72, !noalias !54
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %16, ptr nonnull readonly %19, i64 %18), !alias.scope !72, !noalias !54
   %68 = icmp eq i32 %bcmp.i.i, 0
   br i1 %68, label %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit", label %35
 
@@ -1979,9 +1979,9 @@ define hidden void @_ZN6uucore8features2fs21make_path_relative_to17h3bac13a615e7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
   %23 = getelementptr inbounds i8, ptr %17, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false), !alias.scope !496, !noalias !499
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull readonly align 8 dereferenceable(64) %16, i64 64, i1 false), !alias.scope !496, !noalias !499
   %24 = getelementptr inbounds i8, ptr %17, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !alias.scope !500, !noalias !501
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull readonly align 8 dereferenceable(64) %15, i64 64, i1 false), !alias.scope !500, !noalias !501
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !502, !noalias !503
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
@@ -2094,7 +2094,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %53)
   %54 = icmp ne ptr %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %54)
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !518, !noalias !522
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !518, !noalias !522
   %55 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %55, label %85, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd530fee883cb652aE.exit"
 
@@ -2107,7 +2107,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %57)
   %58 = icmp ne ptr %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %58)
-  %bcmp.i5.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !533, !noalias !522
+  %bcmp.i5.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !533, !noalias !522
   %59 = icmp eq i32 %bcmp.i5.i.i.i.i.i.i.i, 0
   %.not.i15.i.i.i.i.i.i.i = icmp eq i64 %.sroa.5.i.i.sroa.8.0.copyload.i.i.i, %.sroa.512.i.i.sroa.8.0.copyload.i.i.i
   %or.cond.i.i.i = select i1 %59, i1 %.not.i15.i.i.i.i.i.i.i, i1 false
@@ -2126,7 +2126,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %64)
   %65 = icmp ne ptr %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %65)
-  %bcmp.i9.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !537, !noalias !522
+  %bcmp.i9.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !537, !noalias !522
   %66 = icmp eq i32 %bcmp.i9.i.i.i.i.i.i.i, 0
   br i1 %66, label %85, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd530fee883cb652aE.exit"
 
@@ -2139,7 +2139,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %68)
   %69 = icmp ne ptr %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %69)
-  %bcmp.i13.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !541, !noalias !522
+  %bcmp.i13.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !541, !noalias !522
   %70 = icmp eq i32 %bcmp.i13.i.i.i.i.i.i.i, 0
   %.not.i19.i.i.i.i.i.i.i = icmp eq i64 %.sroa.5.i.i.sroa.8.0.copyload.i.i.i, %.sroa.512.i.i.sroa.8.0.copyload.i.i.i
   %or.cond62.i.i.i = select i1 %70, i1 %.not.i19.i.i.i.i.i.i.i, i1 false
@@ -2154,7 +2154,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %74)
   %75 = icmp ne ptr %.sroa.5.i.i.sroa.7.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %75)
-  %bcmp.i17.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.7.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.7.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.8.0.copyload.i.i.i), !alias.scope !545, !noalias !522
+  %bcmp.i17.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.7.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.7.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.8.0.copyload.i.i.i), !alias.scope !545, !noalias !522
   %76 = icmp eq i32 %bcmp.i17.i.i.i.i.i.i.i, 0
   br i1 %76, label %85, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd530fee883cb652aE.exit"
 
@@ -2163,7 +2163,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %78)
   %79 = icmp ne ptr %.sroa.5.i.i.sroa.7.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %79)
-  %bcmp.i21.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.7.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.7.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.8.0.copyload.i.i.i), !alias.scope !549, !noalias !522
+  %bcmp.i21.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.7.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.7.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.8.0.copyload.i.i.i), !alias.scope !549, !noalias !522
   %80 = icmp eq i32 %bcmp.i21.i.i.i.i.i.i.i, 0
   br i1 %80, label %85, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd530fee883cb652aE.exit"
 
@@ -2176,7 +2176,7 @@ default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
   call void @llvm.assume(i1 %82)
   %83 = icmp ne ptr %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %83)
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !553, !noalias !557
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.5.i.i.sroa.5.0.copyload.i.i.i, ptr nonnull readonly %.sroa.512.i.i.sroa.5.0.copyload.i.i.i, i64 %.sroa.5.i.i.sroa.6.0.copyload.i.i.i), !alias.scope !553, !noalias !557
   %84 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %84, label %85, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd530fee883cb652aE.exit"
 

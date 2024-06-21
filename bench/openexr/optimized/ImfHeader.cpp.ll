@@ -2151,7 +2151,7 @@ entry:
   %ref.tmp2.i = alloca %"class.Imf_3_2::Name", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #24
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp2.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull dereferenceable(1) %call, i64 noundef 255) #24
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull readonly dereferenceable(1) %call, i64 noundef 255) #24
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2196,7 +2196,7 @@ entry:
   %ref.tmp2.i = alloca %"class.Imf_3_2::Name", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #24
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp2.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull dereferenceable(1) %call, i64 noundef 255) #24
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull readonly dereferenceable(1) %call, i64 noundef 255) #24
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16

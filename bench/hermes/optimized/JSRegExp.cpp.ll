@@ -462,7 +462,7 @@ _ZN6hermes2vm9GCPointerINS0_15StringPrimitiveEE3setERNS0_11PointerBaseEPS2_RNS0_
   %call4.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %bytecode.coerce1) #19
   %bytecode_.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %call4.i, ptr %bytecode_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i, ptr align 1 %bytecode.coerce0, i64 %bytecode.coerce1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i, ptr readonly align 1 %bytecode.coerce0, i64 %bytecode.coerce1, i1 false)
   ret void
 }
 
@@ -668,7 +668,7 @@ _ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15Str
   %call4.i.i = call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %conv33) #19
   %bytecode_.i.i = getelementptr inbounds i8, ptr %27, i64 24
   store ptr %call4.i.i, ptr %bytecode_.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i.i, ptr align 1 %20, i64 %conv33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i.i, ptr readonly align 1 %20, i64 %conv33, i1 false)
   br label %cleanup
 
 if.end40:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -916,7 +916,7 @@ cleanup.thread:                                   ; preds = %if.then.i.i.i.i, %i
   %call4.i.i = call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %sub.ptr.sub.i.i) #19
   %bytecode_.i.i = getelementptr inbounds i8, ptr %22, i64 24
   store ptr %call4.i.i, ptr %bytecode_.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i.i, ptr align 1 %14, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i.i, ptr readonly align 1 %14, i64 %sub.ptr.sub.i.i, i1 false)
   br label %if.then.i.i.i
 
 cleanup:                                          ; preds = %if.end

@@ -1035,7 +1035,7 @@ if.else.if.end9_crit_edge.i:                      ; preds = %if.else.i
 
 if.end9.i:                                        ; preds = %if.else.if.end9_crit_edge.i, %if.then3.i
   %.pre8.i = phi ptr [ %.pre8.pre.i, %if.else.if.end9_crit_edge.i ], [ %call4.i, %if.then3.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre8.i, ptr nonnull align 1 %id2, i64 %conv4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre8.i, ptr nonnull readonly align 1 %id2, i64 %conv4, i1 false)
   %.pre.i = load ptr, ptr %b.i, align 8
   %1 = icmp ne ptr %.pre.i, null
   %2 = zext i1 %1 to i32

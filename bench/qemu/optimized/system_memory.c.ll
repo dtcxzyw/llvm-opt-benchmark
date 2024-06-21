@@ -5458,7 +5458,7 @@ for.body3.i:                                      ; preds = %address_space_get_f
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body3.i
-  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull %2, i1 noundef zeroext false)
+  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %.pre.i = load ptr, ptr %ranges.i, align 8
   %.pre17.i = load i32, ptr %nr.i, align 8
   br label %for.inc.i
@@ -5583,7 +5583,7 @@ for.body3.i:                                      ; preds = %for.body.i, %for.in
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body3.i
-  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull %call, i1 noundef zeroext true)
+  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull readonly %call, i1 noundef zeroext true)
   %.pre.i = load ptr, ptr %ranges.i, align 8
   %.pre17.i = load i32, ptr %nr.i, align 8
   br label %for.inc.i
@@ -7391,7 +7391,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.then3.i, %if.end.i
-  %call.i = tail call ptr @address_space_get_flatview(ptr noundef %as)
+  %call.i = tail call ptr @address_space_get_flatview(ptr noundef readonly %as)
   %ranges.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %25 = load ptr, ptr %ranges.i, align 8
   %nr.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -7558,7 +7558,7 @@ if.then.i:                                        ; preds = %if.end5
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end5
-  %call.i = tail call ptr @address_space_get_flatview(ptr noundef %4)
+  %call.i = tail call ptr @address_space_get_flatview(ptr noundef readonly %4)
   %ranges.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %6 = load ptr, ptr %ranges.i, align 8
   %nr.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -9407,7 +9407,7 @@ if.then29:                                        ; preds = %if.then27
 
 for.body.i:                                       ; preds = %if.then29, %for.body.i
   %cmr.06.i = phi ptr [ %cmr.0.i, %for.body.i ], [ %cmr.04.i, %if.then29 ]
-  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %arrayidx, ptr noundef %as, ptr noundef nonnull %cmr.06.i, i1 noundef zeroext false)
+  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull readonly %arrayidx, ptr noundef readonly %as, ptr noundef nonnull %cmr.06.i, i1 noundef zeroext false)
   %link.i = getelementptr inbounds i8, ptr %cmr.06.i, i64 32
   %cmr.0.i = load ptr, ptr %link.i, align 8
   %tobool.not.i = icmp eq ptr %cmr.0.i, null
@@ -9823,7 +9823,7 @@ do.end157:                                        ; preds = %for.inc153, %sectio
 
 for.body.i209:                                    ; preds = %do.end157, %for.body.i209
   %cmr.05.i = phi ptr [ %109, %for.body.i209 ], [ %108, %do.end157 ]
-  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %frnew.0215225, ptr noundef %as, ptr noundef nonnull %cmr.05.i, i1 noundef zeroext true)
+  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull readonly %frnew.0215225, ptr noundef readonly %as, ptr noundef nonnull %cmr.05.i, i1 noundef zeroext true)
   %link.i210 = getelementptr inbounds i8, ptr %cmr.05.i, i64 32
   %109 = load ptr, ptr %link.i210, align 16
   %tobool.not.i211 = icmp eq ptr %109, null

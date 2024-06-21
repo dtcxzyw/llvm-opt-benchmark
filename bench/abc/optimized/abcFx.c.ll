@@ -1263,7 +1263,7 @@ Abc_Clock.exit:                                   ; preds = %7, %14
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %.05.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %24 ]
-  call fastcc void @Fx_PrintDiv(ptr noundef nonnull %21, i32 noundef %.05.i)
+  call fastcc void @Fx_PrintDiv(ptr noundef nonnull readonly %21, i32 noundef %.05.i)
   %29 = add nuw nsw i32 %.05.i, 1
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr i8, ptr %30, i64 4

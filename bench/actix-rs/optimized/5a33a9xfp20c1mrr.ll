@@ -151,7 +151,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..resp
   br i1 %6, label %.body, label %7
 
 7:                                                ; preds = %3
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %.body unwind label %12
 
 8:                                                ; preds = %1
@@ -160,7 +160,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..resp
   br i1 %10, label %"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h0ee635548db223c6E.llvm.11579535172419908104.exit", label %11
 
 11:                                               ; preds = %8
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h0ee635548db223c6E.llvm.11579535172419908104.exit" unwind label %14
 
 12:                                               ; preds = %7
@@ -755,7 +755,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head.
   br i1 %5, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hcf8d3b5906a2bf7fE.llvm.11579535172419908104.exit", label %6
 
 6:                                                ; preds = %2
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hcf8d3b5906a2bf7fE.llvm.11579535172419908104.exit" unwind label %11
 
 7:                                                ; preds = %1
@@ -764,7 +764,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head.
   br i1 %9, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hcf8d3b5906a2bf7fE.llvm.11579535172419908104.exit1", label %10
 
 10:                                               ; preds = %7
-  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h857a0b1982aef23dE.llvm.11579535172419908104"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hcf8d3b5906a2bf7fE.llvm.11579535172419908104.exit1"
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hcf8d3b5906a2bf7fE.llvm.11579535172419908104.exit1": ; preds = %7, %10

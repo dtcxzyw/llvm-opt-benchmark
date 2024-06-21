@@ -3126,7 +3126,7 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section12segment_name1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h6f0ee636a2b58da7E monotonic, align 8, !noalias !518
   %.0.i.i = inttoptr i64 %4 to ptr
-  %5 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3), !noalias !518
+  %5 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3), !noalias !518
   %6 = extractvalue { i64, ptr } %5, 0
   %switch8.i.not = icmp eq i64 %6, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %9
@@ -3158,7 +3158,7 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section12segment_name1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h6f0ee636a2b58da7E monotonic, align 8, !noalias !524
   %.0.i.i = inttoptr i64 %4 to ptr
-  %5 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3), !noalias !524
+  %5 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3), !noalias !524
   %6 = extractvalue { i64, ptr } %5, 0
   %switch8.i.not = icmp eq i64 %6, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %9
@@ -3262,7 +3262,7 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section4name17h14024c1
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h6f0ee636a2b58da7E monotonic, align 8, !noalias !556
   %.0.i.i = inttoptr i64 %3 to ptr
-  %4 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %2), !noalias !556
+  %4 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %2), !noalias !556
   %5 = extractvalue { i64, ptr } %4, 0
   %switch8.i.not = icmp eq i64 %5, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %8
@@ -3293,7 +3293,7 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section4name17h60355e6
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h6f0ee636a2b58da7E monotonic, align 8, !noalias !562
   %.0.i.i = inttoptr i64 %3 to ptr
-  %4 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %2), !noalias !562
+  %4 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %2), !noalias !562
   %5 = extractvalue { i64, ptr } %4, 0
   %switch8.i.not = icmp eq i64 %5, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %8

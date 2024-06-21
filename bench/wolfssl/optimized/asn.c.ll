@@ -2778,7 +2778,7 @@ land.lhs.true8.i:                                 ; preds = %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true8.i
   %conv11.i = zext i32 %length.1.i.i.i.i to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %arrayidx.i, ptr nonnull %call.i, i64 %conv11.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %arrayidx.i, ptr nonnull %call.i, i64 %conv11.i)
   %cmp13.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp13.not.i, label %GetOID.exit, label %do.end.i
 
@@ -12019,7 +12019,7 @@ if.end23.i.i:                                     ; preds = %if.end22.i.i, %if.e
   br i1 %cmp26.i.i, label %StoreEccKey.exit.i, label %if.end29.i.i
 
 if.end29.i.i:                                     ; preds = %if.end23.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call25.i.i, ptr nonnull align 1 %add.ptr61.i, i64 %conv24.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call25.i.i, ptr nonnull readonly align 1 %add.ptr61.i, i64 %conv24.i.i, i1 false)
   store ptr %call25.i.i, ptr %cert, align 8
   %pubKeyStored.i.i = getelementptr inbounds i8, ptr %cert, i64 12
   store i32 1, ptr %pubKeyStored.i.i, align 4
@@ -12331,7 +12331,7 @@ entry:
   store i8 %conv.i.i, ptr %digArray.1.digArray.1.digArray.1.arrayidx1.i.i.sroa_idx, align 1
   %conv.i = zext i32 %digSz to i64
   %digArray.2.digArray.2.digArray.2.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %digArray, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %digArray.2.digArray.2.digArray.2.arrayidx.i.sroa_idx, ptr align 1 %digest, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %digArray.2.digArray.2.digArray.2.arrayidx.i.sroa_idx, ptr readonly align 1 %digest, i64 %conv.i, i1 false)
   %add.i = add i32 %digSz, 2
   %call2 = call i32 @SetAlgoID(i32 noundef %hashOID, ptr noundef nonnull %algoArray, i32 noundef 0, i32 noundef 0)
   %add = add i32 %call2, %add.i
@@ -14946,7 +14946,7 @@ if.end53.i.i63.i.i.i.i:                           ; preds = %if.end45.i.i58.i.i.
 if.else.i.i.i.i:                                  ; preds = %if.end53.i.i63.i.i.i.i
   %idxprom.i.i181.i.i = zext i32 %idx.1.i.i60.i.i.i.i to i64
   %arrayidx.i.i182.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom.i.i181.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call69.i.i.i.i, ptr nonnull align 1 %arrayidx.i.i182.i.i, i64 %conv68.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call69.i.i.i.i, ptr nonnull readonly align 1 %arrayidx.i.i182.i.i, i64 %conv68.i.i.i.i, i1 false)
   %105 = load ptr, ptr %name.i.i.i.i, align 8
   %arrayidx80.i.i.i.i = getelementptr inbounds i8, ptr %105, i64 %conv68.i.i.i.i
   store i8 0, ptr %arrayidx80.i.i.i.i, align 1
@@ -15858,7 +15858,7 @@ if.then53.i.i.i.i:                                ; preds = %if.end43.i.i.i.i
 if.end55.i.i.i.i:                                 ; preds = %if.end43.i.i.i.i
   %idxprom57.i.i.i.i = zext i32 %nameIdx.2.i.i.i.i to i64
   %arrayidx58.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i389.i.i, i64 %idxprom57.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call45.i.i.i.i, ptr nonnull align 1 %arrayidx58.i.i.i.i, i64 %conv44.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call45.i.i.i.i, ptr nonnull readonly align 1 %arrayidx58.i.i.i.i, i64 %conv44.i.i.i.i, i1 false)
   %144 = load ptr, ptr %name.i.i406.i.i, align 8
   %arrayidx62.i.i.i.i = getelementptr inbounds i8, ptr %144, i64 %conv44.i.i.i.i
   store i8 0, ptr %arrayidx62.i.i.i.i, align 1
@@ -16747,7 +16747,7 @@ if.else163.i:                                     ; preds = %sw.bb150.i
   store i8 %conv.i.i.i.i, ptr %digArray.i.i.1.digArray.i.i.1.digArray.i.i.1.digArray.i.1.digArray.i.1.digArray.1.digArray.1.arrayidx1.i.i.sroa_idx, align 1
   %conv.i.i.i163 = zext i32 %225 to i64
   %digArray.i.i.2.digArray.i.i.2.digArray.i.i.2.digArray.i.2.digArray.i.2.digArray.2.digArray.2.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %digArray.i.i, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %digArray.i.i.2.digArray.i.i.2.digArray.i.i.2.digArray.i.2.digArray.i.2.digArray.2.digArray.2.arrayidx.i.sroa_idx, ptr align 1 %224, i64 %conv.i.i.i163, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %digArray.i.i.2.digArray.i.i.2.digArray.i.i.2.digArray.i.2.digArray.i.2.digArray.2.digArray.2.arrayidx.i.sroa_idx, ptr readonly align 1 %224, i64 %conv.i.i.i163, i1 false)
   %add.i.i.i = add i32 %225, 2
   %call2.i.i = call i32 @SetAlgoID(i32 noundef %231, ptr noundef nonnull %algoArray.i.i, i32 noundef 0, i32 noundef 0)
   %add.i.i = add i32 %call2.i.i, %add.i.i.i

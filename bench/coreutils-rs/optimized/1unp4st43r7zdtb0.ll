@@ -332,7 +332,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %56 = getelementptr inbounds i8, ptr %45, i64 8
   %57 = load ptr, ptr %56, align 8, !alias.scope !50, !noalias !57, !nonnull !13, !noundef !13
   %58 = getelementptr inbounds i8, ptr %57, i64 %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %44, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %44, i1 false), !noalias !45
   %59 = load i64, ptr %46, align 8, !alias.scope !50, !noalias !57, !noundef !13
   %60 = add i64 %59, %44
   store i64 %60, ptr %46, align 8, !alias.scope !50, !noalias !57
@@ -572,7 +572,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !93, !noalias !100, !nonnull !13, !noundef !13
   %17 = getelementptr inbounds i8, ptr %16, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %18 = load i64, ptr %5, align 8, !alias.scope !93, !noalias !100, !noundef !13
   %19 = add i64 %18, %2
   store i64 %19, ptr %5, align 8, !alias.scope !93, !noalias !100

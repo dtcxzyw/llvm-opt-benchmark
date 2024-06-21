@@ -285,29 +285,30 @@ define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_
   br i1 %19, label %cJSON_strdup.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = add i64 %13, 1
-  %22 = load ptr, ptr @global_hooks, align 8
-  %23 = tail call ptr %22(i64 noundef %21) #30
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %cJSON_strdup.exit.thread, label %25
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
+  %22 = add i64 %21, 1
+  %23 = load ptr, ptr @global_hooks, align 8
+  %24 = tail call ptr %23(i64 noundef %22) #30
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %cJSON_strdup.exit.thread, label %26
 
-25:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %21, i1 false)
-  %26 = load ptr, ptr %9, align 8
-  %.not23 = icmp eq ptr %26, null
-  br i1 %.not23, label %29, label %27
+26:                                               ; preds = %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %22, i1 false)
+  %27 = load ptr, ptr %9, align 8
+  %.not23 = icmp eq ptr %27, null
+  br i1 %.not23, label %30, label %28
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %28(ptr noundef nonnull %26) #30
-  br label %29
+28:                                               ; preds = %26
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %29(ptr noundef nonnull %27) #30
+  br label %30
 
-29:                                               ; preds = %27, %25
-  store ptr %23, ptr %9, align 8
+30:                                               ; preds = %28, %26
+  store ptr %24, ptr %9, align 8
   br label %cJSON_strdup.exit.thread
 
-cJSON_strdup.exit.thread:                         ; preds = %20, %18, %8, %2, %4, %29, %15
-  %.0 = phi ptr [ %17, %15 ], [ %23, %29 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ], [ null, %20 ]
+cJSON_strdup.exit.thread:                         ; preds = %20, %18, %8, %2, %4, %30, %15
+  %.0 = phi ptr [ %17, %15 ], [ %24, %30 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -2190,7 +2191,7 @@ define ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef readonly %0, ptr nounde
   br i1 %.not26.i, label %get_object_item.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
   %.not27.i = icmp eq i32 %11, 0
   br i1 %.not27.i, label %get_object_item.exit, label %12
 
@@ -2327,7 +2328,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef %0, ptr noundef re
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %11(i64 noundef %10) #30
@@ -2335,7 +2336,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef %0, ptr noundef re
   br i1 %13, label %add_item_to_object.exit, label %14
 
 14:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %1, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -513
@@ -2471,7 +2472,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemReferenceToArray(ptr noundef %0, ptr no
 
 create_reference.exit:                            ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull readonly align 8 dereferenceable(64) %1, i64 56, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = or i32 %8, 256
@@ -2530,7 +2531,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemReferenceToObject(ptr noundef %0, ptr n
 
 create_reference.exit:                            ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 56
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   %11 = load i32, ptr %10, align 8
@@ -2541,7 +2542,7 @@ create_reference.exit:                            ; preds = %7
   br i1 %13, label %add_item_to_object.exit, label %14
 
 14:                                               ; preds = %create_reference.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %16 = add i64 %15, 1
   %17 = load ptr, ptr @global_hooks, align 8
   %18 = tail call ptr %17(i64 noundef %16) #30
@@ -2549,7 +2550,7 @@ create_reference.exit:                            ; preds = %7
   br i1 %19, label %add_item_to_object.exit, label %20
 
 20:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %16, i1 false)
   %21 = load i32, ptr %10, align 8
   %22 = and i32 %21, -513
   %23 = and i32 %21, 512
@@ -2620,7 +2621,7 @@ cJSON_CreateNull.exit:                            ; preds = %2
   br i1 %8, label %cJSON_CreateNull.exit.thread, label %9
 
 9:                                                ; preds = %cJSON_CreateNull.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @global_hooks, align 8
   %13 = tail call ptr %12(i64 noundef %11) #30
@@ -2628,7 +2629,7 @@ cJSON_CreateNull.exit:                            ; preds = %2
   br i1 %14, label %cJSON_CreateNull.exit.thread, label %15
 
 15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
   %16 = load i32, ptr %4, align 8
   %17 = and i32 %16, -513
   %18 = and i32 %16, 512
@@ -2722,7 +2723,7 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   br i1 %8, label %cJSON_CreateTrue.exit.thread, label %9
 
 9:                                                ; preds = %cJSON_CreateTrue.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @global_hooks, align 8
   %13 = tail call ptr %12(i64 noundef %11) #30
@@ -2730,7 +2731,7 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   br i1 %14, label %cJSON_CreateTrue.exit.thread, label %15
 
 15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
   %16 = load i32, ptr %4, align 8
   %17 = and i32 %16, -513
   %18 = and i32 %16, 512
@@ -2824,7 +2825,7 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   br i1 %8, label %cJSON_CreateFalse.exit.thread, label %9
 
 9:                                                ; preds = %cJSON_CreateFalse.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @global_hooks, align 8
   %13 = tail call ptr %12(i64 noundef %11) #30
@@ -2832,7 +2833,7 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   br i1 %14, label %cJSON_CreateFalse.exit.thread, label %15
 
 15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
   %16 = load i32, ptr %4, align 8
   %17 = and i32 %16, -513
   %18 = and i32 %16, 512
@@ -2928,7 +2929,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
   br i1 %10, label %cJSON_CreateBool.exit.thread, label %11
 
 11:                                               ; preds = %cJSON_CreateBool.exit
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %13 = add i64 %12, 1
   %14 = load ptr, ptr @global_hooks, align 8
   %15 = tail call ptr %14(i64 noundef %13) #30
@@ -2936,7 +2937,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
   br i1 %16, label %cJSON_CreateBool.exit.thread, label %17
 
 17:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %1, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %1, i64 %13, i1 false)
   %18 = load i32, ptr %6, align 8
   %19 = and i32 %18, -513
   %20 = and i32 %18, 512
@@ -3049,7 +3050,7 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   br i1 %17, label %cJSON_CreateNumber.exit.thread, label %18
 
 18:                                               ; preds = %cJSON_CreateNumber.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %20 = add i64 %19, 1
   %21 = load ptr, ptr @global_hooks, align 8
   %22 = tail call ptr %21(i64 noundef %20) #30
@@ -3057,7 +3058,7 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   br i1 %23, label %cJSON_CreateNumber.exit.thread, label %24
 
 24:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %1, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %20, i1 false)
   %25 = load i32, ptr %6, align 8
   %26 = and i32 %25, -513
   %27 = and i32 %25, 512
@@ -3164,7 +3165,7 @@ define ptr @cJSON_AddStringToObject(ptr noundef %0, ptr noundef readonly %1, ptr
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #31
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %11(i64 noundef %10) #30
@@ -3172,7 +3173,7 @@ define ptr @cJSON_AddStringToObject(ptr noundef %0, ptr noundef readonly %1, ptr
   br i1 %13, label %15, label %cJSON_strdup.exit.i
 
 cJSON_strdup.exit.i:                              ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %2, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %2, i64 %10, i1 false)
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %12, ptr %14, align 8
   br label %cJSON_CreateString.exit
@@ -3195,7 +3196,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %21
 
 21:                                               ; preds = %cJSON_CreateString.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %23 = add i64 %22, 1
   %24 = load ptr, ptr @global_hooks, align 8
   %25 = tail call ptr %24(i64 noundef %23) #30
@@ -3203,7 +3204,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   br i1 %26, label %add_item_to_object.exit, label %27
 
 27:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %1, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %23, i1 false)
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -513
@@ -3277,7 +3278,7 @@ define ptr @cJSON_CreateString(ptr noundef readonly %0) local_unnamed_addr #8 {
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #31
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @global_hooks, align 8
   %10 = tail call ptr %9(i64 noundef %8) #30
@@ -3285,7 +3286,7 @@ define ptr @cJSON_CreateString(ptr noundef readonly %0) local_unnamed_addr #8 {
   br i1 %11, label %13, label %cJSON_strdup.exit
 
 cJSON_strdup.exit:                                ; preds = %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %0, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
   %12 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %10, ptr %12, align 8
   br label %cJSON_New_Item.exit.thread
@@ -3316,7 +3317,7 @@ define ptr @cJSON_AddRawToObject(ptr noundef %0, ptr noundef readonly %1, ptr no
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #31
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %11(i64 noundef %10) #30
@@ -3324,7 +3325,7 @@ define ptr @cJSON_AddRawToObject(ptr noundef %0, ptr noundef readonly %1, ptr no
   br i1 %13, label %15, label %cJSON_strdup.exit.i
 
 cJSON_strdup.exit.i:                              ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %2, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %2, i64 %10, i1 false)
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %12, ptr %14, align 8
   br label %cJSON_CreateRaw.exit
@@ -3347,7 +3348,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %21
 
 21:                                               ; preds = %cJSON_CreateRaw.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %23 = add i64 %22, 1
   %24 = load ptr, ptr @global_hooks, align 8
   %25 = tail call ptr %24(i64 noundef %23) #30
@@ -3355,7 +3356,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   br i1 %26, label %add_item_to_object.exit, label %27
 
 27:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %1, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %23, i1 false)
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -513
@@ -3429,7 +3430,7 @@ define ptr @cJSON_CreateRaw(ptr noundef readonly %0) local_unnamed_addr #8 {
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #31
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @global_hooks, align 8
   %10 = tail call ptr %9(i64 noundef %8) #30
@@ -3437,7 +3438,7 @@ define ptr @cJSON_CreateRaw(ptr noundef readonly %0) local_unnamed_addr #8 {
   br i1 %11, label %13, label %cJSON_strdup.exit
 
 cJSON_strdup.exit:                                ; preds = %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %0, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
   %12 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %10, ptr %12, align 8
   br label %cJSON_New_Item.exit.thread
@@ -3472,7 +3473,7 @@ cJSON_CreateObject.exit:                          ; preds = %2
   br i1 %8, label %cJSON_CreateObject.exit.thread, label %9
 
 9:                                                ; preds = %cJSON_CreateObject.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @global_hooks, align 8
   %13 = tail call ptr %12(i64 noundef %11) #30
@@ -3480,7 +3481,7 @@ cJSON_CreateObject.exit:                          ; preds = %2
   br i1 %14, label %cJSON_CreateObject.exit.thread, label %15
 
 15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
   %16 = load i32, ptr %4, align 8
   %17 = and i32 %16, -513
   %18 = and i32 %16, 512
@@ -3574,7 +3575,7 @@ cJSON_CreateArray.exit:                           ; preds = %2
   br i1 %8, label %cJSON_CreateArray.exit.thread, label %9
 
 9:                                                ; preds = %cJSON_CreateArray.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @global_hooks, align 8
   %13 = tail call ptr %12(i64 noundef %11) #30
@@ -3582,7 +3583,7 @@ cJSON_CreateArray.exit:                           ; preds = %2
   br i1 %14, label %cJSON_CreateArray.exit.thread, label %15
 
 15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
   %16 = load i32, ptr %4, align 8
   %17 = and i32 %16, -513
   %18 = and i32 %16, 512
@@ -4014,7 +4015,7 @@ define ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef %0, ptr noundef 
   br i1 %.not26.i.i, label %cJSON_DetachItemViaPointer.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
   %.not27.i.i = icmp eq i32 %11, 0
   br i1 %.not27.i.i, label %cJSON_GetObjectItemCaseSensitive.exit, label %12
 
@@ -4103,7 +4104,7 @@ define void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %0, ptr noundef
   br i1 %.not26.i.i.i, label %cJSON_DetachItemFromObjectCaseSensitive.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
   %.not27.i.i.i = icmp eq i32 %11, 0
   br i1 %.not27.i.i.i, label %cJSON_GetObjectItemCaseSensitive.exit.i, label %12
 
@@ -4474,7 +4475,7 @@ define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef %
   br label %16
 
 16:                                               ; preds = %7, %11, %14
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %18 = add i64 %17, 1
   %19 = load ptr, ptr @global_hooks, align 8
   %20 = tail call ptr %19(i64 noundef %18) #30
@@ -4487,7 +4488,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br label %cJSON_ReplaceItemViaPointer.exit
 
 23:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %1, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %1, i64 %18, i1 false)
   %24 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %20, ptr %24, align 8
   %25 = load i32, ptr %8, align 8
@@ -4957,7 +4958,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %15, label %.split.us, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #31
   %18 = add i64 %17, 1
   %19 = load ptr, ptr @global_hooks, align 8
   %20 = tail call ptr %19(i64 noundef %18) #30
@@ -4975,7 +4976,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.thread55
 
 23:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %11, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %11, i64 %18, i1 false)
   %24 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %20, ptr %24, align 8
   %.not31 = icmp eq i64 %.02342, 0
@@ -5045,7 +5046,7 @@ define ptr @cJSON_Duplicate(ptr noundef readonly %0, i32 noundef %1) local_unnam
   br i1 %.not52, label %25, label %18
 
 18:                                               ; preds = %5
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #31
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #31
   %20 = add i64 %19, 1
   %21 = load ptr, ptr @global_hooks, align 8
   %22 = tail call ptr %21(i64 noundef %20) #30
@@ -5053,7 +5054,7 @@ define ptr @cJSON_Duplicate(ptr noundef readonly %0, i32 noundef %1) local_unnam
   br i1 %23, label %.thread71.sink.split, label %cJSON_strdup.exit
 
 cJSON_strdup.exit:                                ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %17, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %17, i64 %20, i1 false)
   %24 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %22, ptr %24, align 8
   br label %25
@@ -5071,7 +5072,7 @@ cJSON_strdup.exit:                                ; preds = %18
   br i1 %.not55, label %31, label %cJSON_strdup.exit64.thread
 
 31:                                               ; preds = %28
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #31
+  %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #31
   %33 = add i64 %32, 1
   %34 = load ptr, ptr @global_hooks, align 8
   %35 = tail call ptr %34(i64 noundef %33) #30
@@ -5079,7 +5080,7 @@ cJSON_strdup.exit:                                ; preds = %18
   br i1 %36, label %.thread71.sink.split, label %37
 
 37:                                               ; preds = %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %27, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %27, i64 %33, i1 false)
   br label %cJSON_strdup.exit64.thread
 
 cJSON_strdup.exit64.thread:                       ; preds = %28, %37

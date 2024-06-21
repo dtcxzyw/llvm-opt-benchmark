@@ -1425,7 +1425,7 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %ZSTD_decompressBegi
   br i1 %185, label %ZSTD_copyRawBlock.exit.thread.i, label %ZSTD_decompressFrame.exit
 
 186:                                              ; preds = %182
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.096.i, ptr nonnull align 1 %169, i64 %166, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.096.i, ptr nonnull readonly align 1 %169, i64 %166, i1 false)
   br label %ZSTD_copyRawBlock.exit.thread.i
 
 187:                                              ; preds = %172
@@ -1997,7 +1997,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   br i1 %147, label %.thread, label %ZSTD_decodeFrameHeader.exit.thread
 
 ZSTD_copyRawBlock.exit:                           ; preds = %144
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1, ptr readonly align 1 %3, i64 %4, i1 false)
   %148 = icmp ult i64 %4, -119
   br i1 %148, label %.thread, label %ZSTD_decodeFrameHeader.exit.thread
 
@@ -4396,7 +4396,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %251, %253
 ZSTD_limitCopy.exit.thread391:                    ; preds = %301
   %305 = load ptr, ptr %82, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 %295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr align 1 %.0271422.ph, i64 %304, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr readonly align 1 %.0271422.ph, i64 %304, i1 false)
   %.pre433 = load i64, ptr %42, align 8
   br label %310
 
@@ -4499,7 +4499,7 @@ ZSTD_decompressContinueStream.exit357:            ; preds = %332, %334, %343
 352:                                              ; preds = %345
   %353 = load ptr, ptr %38, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 %347
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0371419, ptr align 1 %354, i64 %351, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0371419, ptr readonly align 1 %354, i64 %351, i1 false)
   %.pre = load i64, ptr %36, align 8
   br label %ZSTD_limitCopy.exit359
 

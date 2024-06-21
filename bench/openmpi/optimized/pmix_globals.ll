@@ -4490,7 +4490,7 @@ sub_2:                                            ; preds = %sub_152
   br i1 %63, label %dirpath_is_empty.exit.thread, label %64
 
 64:                                               ; preds = %60, %._crit_edge64
-  %65 = tail call ptr @opendir(ptr noundef nonnull %0)
+  %65 = tail call ptr @opendir(ptr noundef nonnull readonly %0)
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %dirpath_is_empty.exit.thread, label %.preheader.i
 

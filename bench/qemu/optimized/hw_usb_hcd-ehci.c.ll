@@ -1672,7 +1672,7 @@ land.lhs.true.i46:                                ; preds = %lor.lhs.false17.i
 lor.lhs.false21.i:                                ; preds = %land.lhs.true.i46, %lor.lhs.false17.i
   %altnext_qtd.i48 = getelementptr inbounds i8, ptr %qh.i, i64 20
   %altnext_qtd23.i = getelementptr inbounds i8, ptr %.pre, i64 68
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %altnext_qtd.i48, ptr noundef nonnull dereferenceable(28) %altnext_qtd23.i, i64 28)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd.i48, ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd23.i, i64 28)
   %cmp24.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp24.not.i, label %lor.lhs.false25.i, label %if.then.i
 
@@ -2221,7 +2221,7 @@ if.end9:                                          ; preds = %if.then7, %land.lhs
   %32 = load ptr, ptr %q, align 8
   %33 = or disjoint i32 %and.i14, 12
   %add.ptr.i = getelementptr i8, ptr %q, i64 60
-  tail call fastcc void @put_dwords(ptr noundef %32, i32 noundef %33, ptr noundef %add.ptr.i, i32 noundef 9)
+  tail call fastcc void @put_dwords(ptr noundef %32, i32 noundef %33, ptr noundef readonly %add.ptr.i, i32 noundef 9)
   ret void
 }
 
@@ -4418,7 +4418,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false17.i.i
 
 lor.lhs.false21.i.i:                              ; preds = %land.lhs.true.i.i, %lor.lhs.false17.i.i
   %altnext_qtd23.i.i = getelementptr inbounds i8, ptr %q.0.i, i64 68
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %altnext_qtd.i.i, ptr noundef nonnull dereferenceable(28) %altnext_qtd23.i.i, i64 28)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd.i.i, ptr noundef nonnull readonly dereferenceable(28) %altnext_qtd23.i.i, i64 28)
   %cmp24.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp24.not.i.i, label %lor.lhs.false25.i.i, label %if.then15.i
 
@@ -5438,7 +5438,7 @@ if.then23.i:                                      ; preds = %if.end21.i190
   %178 = load ptr, ptr %q.0, align 8
   %179 = or disjoint i32 %and.i24.i, 12
   %add.ptr.i.i = getelementptr i8, ptr %q.0, i64 60
-  call fastcc void @put_dwords(ptr noundef %178, i32 noundef %179, ptr noundef %add.ptr.i.i, i32 noundef 9)
+  call fastcc void @put_dwords(ptr noundef %178, i32 noundef %179, ptr noundef readonly %add.ptr.i.i, i32 noundef 9)
   %180 = load ptr, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %181 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5818,7 +5818,7 @@ if.end55:                                         ; preds = %if.then48, %for.end
   %and.i = and i32 %14, -32
   %15 = load ptr, ptr %q, align 8
   %16 = or disjoint i32 %and.i, 12
-  tail call fastcc void @put_dwords(ptr noundef %15, i32 noundef %16, ptr noundef nonnull %current_qtd, i32 noundef 9)
+  tail call fastcc void @put_dwords(ptr noundef %15, i32 noundef %16, ptr noundef nonnull readonly %current_qtd, i32 noundef 9)
   ret void
 }
 

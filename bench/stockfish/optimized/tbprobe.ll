@@ -3522,7 +3522,7 @@ _ZSt8count_ifIPN9Stockfish6SquareEZNS0_12_GLOBAL__N_114do_probe_tableINS3_7TBTab
 ._crit_edge233.i.i:                               ; preds = %._crit_edge233.loopexit.i.i, %691
   %.pre-phi.i.i = phi i1 [ %.pre319.i.i, %._crit_edge233.loopexit.i.i ], [ %687, %691 ]
   %.2.lcssa.i.i = phi i64 [ %727, %._crit_edge233.loopexit.i.i ], [ %681, %691 ]
-  %732 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull %512, i64 noundef %.2.lcssa.i.i)
+  %732 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull readonly %512, i64 noundef %.2.lcssa.i.i)
   %733 = select i1 %.pre-phi.i.i, i64 %510, i64 0
   %734 = getelementptr inbounds [4 x %"struct.Stockfish::(anonymous namespace)::PairsData"], ptr %509, i64 0, i64 %733
   %735 = load i8, ptr %734, align 8
@@ -6681,7 +6681,7 @@ _ZSt8count_ifIPN9Stockfish6SquareEZNS0_12_GLOBAL__N_114do_probe_tableINS3_7TBTab
 
 _ZN9Stockfish12_GLOBAL__N_114do_probe_tableINS0_7TBTableILNS0_6TBTypeE0EEENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPT_S6_PNS5_10ProbeStateE.exit: ; preds = %._crit_edge61.i, %631
   %.2.lcssa.i = phi i64 [ %621, %631 ], [ %667, %._crit_edge61.i ]
-  %672 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull %473, i64 noundef %.2.lcssa.i)
+  %672 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull readonly %473, i64 noundef %.2.lcssa.i)
   %673 = add nsw i32 %672, -2
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)

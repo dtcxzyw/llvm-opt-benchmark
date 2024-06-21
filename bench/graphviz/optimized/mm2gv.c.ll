@@ -118,7 +118,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
 
 8:                                                ; preds = %openF.exit.i
   %9 = load ptr, ptr @optarg, align 8
-  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.4)
+  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull readonly @.str.4)
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %11, label %openF.exit.i.outer129
 
@@ -190,7 +190,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
   %49 = sext i32 %46 to i64
   %50 = getelementptr inbounds ptr, ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef nonnull @.str.10)
+  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef nonnull readonly @.str.10)
   %.not.i25.i = icmp eq ptr %52, null
   br i1 %.not.i25.i, label %53, label %init.exit
 
@@ -1256,7 +1256,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #16
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -1316,7 +1316,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #16
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #16
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

@@ -1586,7 +1586,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont17.i.i
 
 if.then.i.i.i14:                                  ; preds = %if.then.i.i13
   %on_done_.val.i.i = load ptr, ptr %25, align 8, !noalias !20
-  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull align 8 dereferenceable(64) %on_done_.val.i.i)
+  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %on_done_.val.i.i)
           to label %"_ZZN9grpc_core12MaxAgeFilter8PostInitEvEN3$_3D2Ev.exit.i" unwind label %lpad22.i.i, !noalias !20
 
 invoke.cont23.i.i:                                ; preds = %if.then.i.i13
@@ -2860,7 +2860,7 @@ if.then.i2.i:                                     ; preds = %invoke.cont15.i.i
 
 if.then.i30.i.i:                                  ; preds = %if.then.i2.i
   %on_done_.val.i.i = load ptr, ptr %38, align 8, !noalias !51
-  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull align 8 dereferenceable(64) %on_done_.val.i.i)
+  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %on_done_.val.i.i)
           to label %"_ZZN9grpc_core17ChannelIdleFilter14StartIdleTimerEvEN3$_1D2Ev.exit.i" unwind label %lpad20.i.i, !noalias !51
 
 invoke.cont21.i.i:                                ; preds = %if.then.i2.i
@@ -6668,7 +6668,7 @@ if.then5.i.i.i:                                   ; preds = %invoke.cont.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.then5.i.i.i
   %19 = getelementptr inbounds i8, ptr %arg, i64 88
   %on_done_.val.i.i.i = load ptr, ptr %19, align 8
-  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull align 8 dereferenceable(64) %on_done_.val.i.i.i)
+  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %on_done_.val.i.i.i)
           to label %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_6TrySeqINS_5SleepEJZNS_12MaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EEENS_22ExecCtxWakeupSchedulerEZNS4_8PostInitEvE3$_3JPN17grpc_event_engine12experimental11EventEngineEEE4StepEv.exit.i.i" unwind label %lpad7.i.i.i
 
 invoke.cont8.i.i.i:                               ; preds = %if.then5.i.i.i
@@ -8807,7 +8807,7 @@ if.then5.i.i.i:                                   ; preds = %invoke.cont.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.then5.i.i.i
   %19 = getelementptr inbounds i8, ptr %arg, i64 88
   %on_done_.val.i.i.i = load ptr, ptr %19, align 8
-  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull align 8 dereferenceable(64) %on_done_.val.i.i.i)
+  invoke void @_ZN9grpc_core17ChannelIdleFilter12CloseChannelEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %on_done_.val.i.i.i)
           to label %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopIZNS_17ChannelIdleFilter14StartIdleTimerEvE3$_0EENS_22ExecCtxWakeupSchedulerEZNS3_14StartIdleTimerEvE3$_1JPN17grpc_event_engine12experimental11EventEngineEEE4StepEv.exit.i.i" unwind label %lpad7.i.i.i
 
 invoke.cont8.i.i.i:                               ; preds = %if.then5.i.i.i

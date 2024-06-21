@@ -525,7 +525,7 @@ entry:
 
 for.cond:                                         ; preds = %if.end, %entry
   %p.0 = phi ptr [ %list, %entry ], [ %incdec.ptr, %if.end ]
-  %call.i = tail call ptr @strchrnul(ptr noundef %p.0, i32 noundef 124) #10
+  %call.i = tail call ptr @strchrnul(ptr noundef readonly %p.0, i32 noundef 124) #10
   %sub.ptr.lhs.cast = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -813,7 +813,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp4.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #10
   %sext.i = shl i64 %call.i, 32
   %conv2.i = ashr exact i64 %sext.i, 32
   br label %for.body
@@ -825,7 +825,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.cond.i:                                       ; preds = %if.end.i, %for.body
   %p.0.i = phi ptr [ %1, %for.body ], [ %incdec.ptr.i, %if.end.i ]
-  %call.i.i = tail call ptr @strchrnul(ptr noundef %p.0.i, i32 noundef 124) #10
+  %call.i.i = tail call ptr @strchrnul(ptr noundef readonly %p.0.i, i32 noundef 124) #10
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %p.0.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -833,7 +833,7 @@ for.cond.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %for.cond.i
-  %bcmp.i = tail call i32 @bcmp(ptr %p.0.i, ptr %name, i64 %conv2.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %p.0.i, ptr readonly %name, i64 %conv2.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.then7, label %if.end.i
 

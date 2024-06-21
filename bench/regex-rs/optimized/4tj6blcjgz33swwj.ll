@@ -347,7 +347,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   store i8 %.sroa.518.0.i.i, ptr %143, align 1, !alias.scope !30, !noalias !53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !28
   %144 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %77, i64 %78
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha899343e308f32b2E.llvm.615997076723623618"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %22, ptr noundef nonnull %77, ptr noundef nonnull %144)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha899343e308f32b2E.llvm.615997076723623618"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %22, ptr noundef nonnull readonly %77, ptr noundef nonnull readonly %144)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hffc5956967af5192E.exit.i" unwind label %235, !noalias !54
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hffc5956967af5192E.exit.i": ; preds = %"_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h22eaa2114994b3f2E.exit.i"
@@ -749,7 +749,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
 263:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10), !noalias !141
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9), !noalias !141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %26, i64 80, i1 false), !noalias !136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull readonly align 8 dereferenceable(80) %26, i64 80, i1 false), !noalias !136
   invoke void @_ZN14regex_automata4meta5error10BuildError3hir17h11b06dcce014a70cE(ptr noalias nocapture noundef nonnull sret({ { i64, [16 x i64] } }) align 8 dereferenceable(136) %10, i32 noundef %.sroa.0124.1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %9)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8d2db358e7b068d7E.exit" unwind label %254
 
@@ -950,7 +950,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
 316:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7), !noalias !164
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6), !noalias !164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %30, i64 128, i1 false), !noalias !161
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull readonly align 8 dereferenceable(128) %30, i64 128, i1 false), !noalias !161
   invoke void @_ZN14regex_automata4meta5error10BuildError3ast17h99bd1d054f37c865E(ptr noalias nocapture noundef nonnull sret({ { i64, [16 x i64] } }) align 8 dereferenceable(136) %7, i32 noundef %.fca.1.extract.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %6)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit" unwind label %306
 

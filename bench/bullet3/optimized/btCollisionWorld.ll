@@ -1468,13 +1468,13 @@ invoke.cont61:                                    ; preds = %if.then58
   %m_triangleMesh.i = getelementptr inbounds i8, ptr %rcb, i64 64
   store ptr %0, ptr %m_triangleMesh.i, align 8
   %m_colObjWorldTransform.i = getelementptr inbounds i8, ptr %rcb, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %arrayidx8.i.i.i107 = getelementptr inbounds i8, ptr %rcb, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i107, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i107, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %rcb, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %m_origin.i.i108 = getelementptr inbounds i8, ptr %rcb, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i108, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i108, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_closestHitFraction62 = getelementptr inbounds i8, ptr %resultCallback, i64 8
   %90 = load float, ptr %m_closestHitFraction62, align 8
   %m_hitFraction = getelementptr inbounds i8, ptr %rcb, i64 44
@@ -1533,13 +1533,13 @@ invoke.cont87:                                    ; preds = %invoke.cont81
   %m_triangleMesh.i126 = getelementptr inbounds i8, ptr %rcb84, i64 64
   store ptr %92, ptr %m_triangleMesh.i126, align 8
   %m_colObjWorldTransform.i127 = getelementptr inbounds i8, ptr %rcb84, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i127, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i127, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %arrayidx8.i.i.i129 = getelementptr inbounds i8, ptr %rcb84, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i129, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i129, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i131 = getelementptr inbounds i8, ptr %rcb84, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i131, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i131, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %m_origin.i.i132 = getelementptr inbounds i8, ptr %rcb84, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i132, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i132, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_closestHitFraction88 = getelementptr inbounds i8, ptr %resultCallback, i64 8
   %101 = load float, ptr %m_closestHitFraction88, align 8
   %m_hitFraction89 = getelementptr inbounds i8, ptr %rcb84, i64 44
@@ -1604,13 +1604,13 @@ invoke.cont118:                                   ; preds = %invoke.cont112
   %m_triangleMesh.i142 = getelementptr inbounds i8, ptr %rcb115, i64 64
   store ptr %0, ptr %m_triangleMesh.i142, align 8
   %m_colObjWorldTransform.i143 = getelementptr inbounds i8, ptr %rcb115, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i143, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i143, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %arrayidx8.i.i.i145 = getelementptr inbounds i8, ptr %rcb115, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i145, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i145, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i147 = getelementptr inbounds i8, ptr %rcb115, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i147, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i147, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %m_origin.i.i148 = getelementptr inbounds i8, ptr %rcb115, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i148, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i148, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_closestHitFraction119 = getelementptr inbounds i8, ptr %resultCallback, i64 8
   %112 = load float, ptr %m_closestHitFraction119, align 8
   %m_hitFraction120 = getelementptr inbounds i8, ptr %rcb115, i64 44
@@ -1649,13 +1649,13 @@ invoke.cont142:                                   ; preds = %invoke.cont136
   %m_triangleMesh.i238 = getelementptr inbounds i8, ptr %rcb139, i64 64
   store ptr %0, ptr %m_triangleMesh.i238, align 8
   %m_colObjWorldTransform.i239 = getelementptr inbounds i8, ptr %rcb139, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i239, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i239, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %arrayidx8.i.i.i241 = getelementptr inbounds i8, ptr %rcb139, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i241, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i241, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i243 = getelementptr inbounds i8, ptr %rcb139, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i243, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i243, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %m_origin.i.i244 = getelementptr inbounds i8, ptr %rcb139, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i244, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i244, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_closestHitFraction143 = getelementptr inbounds i8, ptr %resultCallback, i64 8
   %117 = load float, ptr %m_closestHitFraction143, align 8
   %m_hitFraction144 = getelementptr inbounds i8, ptr %rcb139, i64 44

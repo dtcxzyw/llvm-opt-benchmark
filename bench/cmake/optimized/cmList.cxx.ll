@@ -5965,7 +5965,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   %.sroa.05.010.i = phi ptr [ %18, %.noexc24 ], [ %3, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
   %.sroa.02.09.i = phi ptr [ %19, %.noexc24 ], [ %12, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
   %.val1.i = load i64, ptr %.sroa.05.010.i, align 8
-  %17 = invoke noundef i64 @_ZNK6cmList12ComputeIndexElb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.val1.i, i1 noundef zeroext true)
+  %17 = invoke noundef i64 @_ZNK6cmList12ComputeIndexElb(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %.val1.i, i1 noundef zeroext true)
           to label %.noexc24 unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 .noexc24:                                         ; preds = %.lr.ph.i

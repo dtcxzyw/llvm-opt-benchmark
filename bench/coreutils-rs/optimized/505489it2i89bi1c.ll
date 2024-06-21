@@ -715,7 +715,7 @@ define hidden i40 @_ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE(ptr noalia
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit": ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0, ptr nonnull align 1 %0, i64 %1, i1 false), !alias.scope !92, !noalias !96
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !alias.scope !92, !noalias !96
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   %5 = trunc nuw i64 %1 to i40
@@ -757,7 +757,7 @@ define hidden { i64, i8 } @_ZN5uu_wc4utf810Incomplete20try_complete_offsets17h99
   %9 = sub nuw nsw i64 4, %7
   %10 = getelementptr inbounds i8, ptr %0, i64 %7
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !101, !noalias !105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !101, !noalias !105
   %11 = add nuw nsw i64 %.0.sroa.speculated.i, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %11)

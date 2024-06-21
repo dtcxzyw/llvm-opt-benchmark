@@ -933,7 +933,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParsePHPCoverage11ReadPHPDataEPKc(pt
   br i1 %or.cond.i, label %31, label %33
 
 31:                                               ; preds = %.noexc21
-  %32 = invoke noundef zeroext i1 @_ZN18cmParsePHPCoverage7ReadIntERSiRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %32 = invoke noundef zeroext i1 @_ZN18cmParsePHPCoverage7ReadIntERSiRi(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %33 unwind label %.loopexit.split-lp
 
 33:                                               ; preds = %.noexc21, %.noexc, %31

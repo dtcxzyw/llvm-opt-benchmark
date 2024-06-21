@@ -354,7 +354,7 @@ entry:
   %frombool.i = zext i1 %is_reset to i8
   call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %entry2, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
   %escapes.i = getelementptr inbounds i8, ptr %entry2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i, ptr noundef nonnull align 8 dereferenceable(32) %escapes, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes, i64 32, i1 false)
   %parent_slot.i = getelementptr inbounds i8, ptr %entry2, i64 40
   store i32 %parent_slot, ptr %parent_slot.i, align 8
   %is_reset.i = getelementptr inbounds i8, ptr %entry2, i64 44
@@ -568,7 +568,7 @@ entry:
   %frombool.i.i = zext i1 %is_reset to i8
   call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %entry2.i, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
   %escapes.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull align 8 dereferenceable(32) %escapes, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes, i64 32, i1 false)
   %parent_slot.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 40
   store i32 %parent_slot, ptr %parent_slot.i.i, align 8
   %is_reset.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 44
@@ -2226,7 +2226,7 @@ land.lhs.true.i.i:                                ; preds = %for.body
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true.i.i
   %escapes8.i.i = getelementptr inbounds i8, ptr %__it.sroa.0.041, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %escapes.i.i, ptr noundef nonnull dereferenceable(32) %escapes8.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i, label %for.inc
 
@@ -2350,7 +2350,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i
 
 land.lhs.true7.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i.i
   %escapes8.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %escapes.i.i10, ptr noundef nonnull dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i10, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, label %if.end3.i.i
 
@@ -2562,7 +2562,7 @@ invoke.cont14:                                    ; preds = %invoke.cont
   %3 = load ptr, ptr %ref.tmp.i.i.i, align 8
   store ptr %3, ptr %add.ptr, align 8
   %escapes.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__args1, i64 32, i1 false)
   %parent_slot.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 48
   store i32 %0, ptr %parent_slot.i.i.i, align 8
   %is_reset.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 52
@@ -2743,7 +2743,7 @@ land.lhs.true.i.i:                                ; preds = %for.body
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true.i.i
   %escapes8.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.014, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %escapes.i.i, ptr noundef nonnull dereferenceable(32) %escapes8.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %for.inc
 
@@ -2836,7 +2836,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i
 
 land.lhs.true7.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i.i
   %escapes8.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %escapes.i.i6, ptr noundef nonnull dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i6, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, label %if.end3.i.i
 

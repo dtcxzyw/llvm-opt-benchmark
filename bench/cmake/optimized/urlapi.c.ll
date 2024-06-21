@@ -1393,7 +1393,7 @@ define internal fastcc range(i32 0, 32) i32 @urlencode_str(ptr noundef %0, ptr n
   br i1 %3, label %22, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.21) #11
+  %9 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.21) #11
   %.not.i = icmp eq ptr %9, null
   %10 = getelementptr inbounds i8, ptr %9, i64 2
   %.016.i = select i1 %.not.i, ptr %1, ptr %10
@@ -1403,7 +1403,7 @@ define internal fastcc range(i32 0, 32) i32 @urlencode_str(ptr noundef %0, ptr n
   br i1 %.not20.i, label %13, label %16
 
 13:                                               ; preds = %8
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
   br label %16
 
@@ -1413,7 +1413,7 @@ define internal fastcc range(i32 0, 32) i32 @urlencode_str(ptr noundef %0, ptr n
   br i1 %.not21.i, label %17, label %find_host_sep.exit
 
 17:                                               ; preds = %16
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %19 = getelementptr inbounds i8, ptr %1, i64 %18
   br label %find_host_sep.exit
 
@@ -2223,12 +2223,12 @@ define internal fastcc i32 @parseurl_and_replace(ptr noundef %0, ptr nocapture n
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @Curl_dyn_init(ptr noundef nonnull %5, i64 noundef 8000000) #10
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %11 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %12 = icmp ugt i64 %11, 8000000
   br i1 %12, label %parseurl.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = call i64 @strcspn(ptr noundef %0, ptr noundef nonnull @junkscan.badbytes) #11
+  %14 = call i64 @strcspn(ptr noundef readonly %0, ptr noundef nonnull @junkscan.badbytes) #11
   %.not.i.i = icmp eq i64 %14, %11
   br i1 %.not.i.i, label %15, label %parseurl.exit
 
@@ -2238,7 +2238,7 @@ define internal fastcc i32 @parseurl_and_replace(ptr noundef %0, ptr nocapture n
   br i1 %.not10.i.i, label %17, label %junkscan.exit.i
 
 17:                                               ; preds = %15
-  %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 32) #11
+  %18 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 32) #11
   %.not11.i.i = icmp eq ptr %18, null
   br i1 %.not11.i.i, label %junkscan.exit.i, label %parseurl.exit
 

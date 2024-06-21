@@ -221,13 +221,13 @@ _ZNK31cmGeneratorExpressionDAGChecker34EvaluatingSystemIncludeDirectoriesEv.exit
   br i1 %27, label %_ZNK31cmGeneratorExpressionDAGChecker28EvaluatingIncludeDirectoriesEv.exit.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #18
+  %29 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #18
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %_ZNK31cmGeneratorExpressionDAGChecker28EvaluatingCompileDefinitionsEv.exit.thread40, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %28
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 20)
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %22, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i.i)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr readonly %22, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i.i)
   %31 = icmp eq i32 %bcmp.i.i.i.i, 0
   %32 = icmp ugt i64 %29, 19
   %or.cond = and i1 %32, %31
@@ -706,13 +706,13 @@ define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker28Eval
   br i1 %8, label %_Z14additionalTestIL18TransitiveProperty2EEbPKc.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
+  %10 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #18
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %9
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 20)
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %3, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i)
   %12 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %12, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_Z14additionalTestIL18TransitiveProperty2EEbPKc.exit
 

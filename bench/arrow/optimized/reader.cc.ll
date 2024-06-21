@@ -4776,11 +4776,11 @@ if.end78:                                         ; preds = %_ZNK3org6apache5arr
   br i1 %cmp.not.i406, label %if.else.i, label %if.then.i407
 
 if.then.i407:                                     ; preds = %if.end78
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121LoadRecordBatchSubsetEPKN3org6apache5arrow7flatbuf11RecordBatchERKSt10shared_ptrINS_6SchemaEEPKSt6vectorIbSaIbEERKNS1_14IpcReadContextEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull %add.ptr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %schema, ptr noundef nonnull %inclusion_mask, ptr noundef nonnull align 8 dereferenceable(25) %context, ptr noundef %file)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121LoadRecordBatchSubsetEPKN3org6apache5arrow7flatbuf11RecordBatchERKSt10shared_ptrINS_6SchemaEEPKSt6vectorIbSaIbEERKNS1_14IpcReadContextEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull %add.ptr4.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %schema, ptr noundef nonnull %inclusion_mask, ptr noundef nonnull readonly align 8 dereferenceable(25) %context, ptr noundef %file)
           to label %invoke.cont80 unwind label %lpad
 
 if.else.i:                                        ; preds = %if.end78
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121LoadRecordBatchSubsetEPKN3org6apache5arrow7flatbuf11RecordBatchERKSt10shared_ptrINS_6SchemaEEPKSt6vectorIbSaIbEERKNS1_14IpcReadContextEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull %add.ptr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %schema, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(25) %context, ptr noundef %file)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121LoadRecordBatchSubsetEPKN3org6apache5arrow7flatbuf11RecordBatchERKSt10shared_ptrINS_6SchemaEEPKSt6vectorIbSaIbEERKNS1_14IpcReadContextEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull %add.ptr4.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %schema, ptr noundef null, ptr noundef nonnull readonly align 8 dereferenceable(25) %context, ptr noundef %file)
           to label %invoke.cont80 unwind label %lpad
 
 invoke.cont80:                                    ; preds = %if.then.i407, %if.else.i
@@ -9928,7 +9928,7 @@ invoke.cont.i6.i:                                 ; preds = %_ZN5arrow6FutureISt
   store ptr %26, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i, align 8, !noalias !124
   store ptr null, ptr %next.i.i.i.i.i, align 8, !noalias !124
   store ptr %call.i3.i.i, ptr %agg.tmp.i.i, align 8, !noalias !124
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i.i.i) #30, !noalias !124
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.i.i.i) #30, !noalias !124
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i), !noalias !124
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i, ptr noundef nonnull %agg.tmp.i.i, i32 0, ptr null)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i, !noalias !124
@@ -9970,13 +9970,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i: ; preds = %_ZNKS
 
 ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i, %lpad.i3.i
   %.pn.i5.i = phi { ptr, i32 } [ %33, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i ], [ %32, %lpad.i3.i ]
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !124
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !124
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #30, !noalias !124
   br label %common.resume.i
 
 "_ZZN5arrow3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS0_14IpcReadOptionsEEN3$_0D2Ev.exit": ; preds = %invoke.cont6.i.i, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !124
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !124
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !124
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp2.i.i), !noalias !124
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #30, !noalias !124
@@ -10676,7 +10676,7 @@ invoke.cont.i6.i:                                 ; preds = %_ZN5arrow6FutureISt
   store ptr %26, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i, align 8, !noalias !131
   store ptr null, ptr %next.i.i.i.i.i, align 8, !noalias !131
   store ptr %call.i3.i.i, ptr %agg.tmp.i.i, align 8, !noalias !131
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i.i.i) #30, !noalias !131
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.i.i.i) #30, !noalias !131
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i), !noalias !131
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i, ptr noundef nonnull %agg.tmp.i.i, i32 0, ptr null)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i, !noalias !131
@@ -10718,13 +10718,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i: ; preds = %_ZNKS
 
 ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i, %lpad.i3.i
   %.pn.i5.i = phi { ptr, i32 } [ %33, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i ], [ %32, %lpad.i3.i ]
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !131
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !131
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #30, !noalias !131
   br label %common.resume.i
 
 "_ZZN5arrow3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS0_14IpcReadOptionsEEN3$_0D2Ev.exit": ; preds = %invoke.cont6.i.i, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !131
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !131
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !131
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp2.i.i), !noalias !131
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #30, !noalias !131
@@ -14814,7 +14814,7 @@ invoke.cont.i6.i:                                 ; preds = %_ZN5arrow6FutureINS
   store ptr %131, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i, align 8, !noalias !185
   store ptr null, ptr %next.i.i.i.i.i, align 8, !noalias !185
   store ptr %call.i3.i.i, ptr %agg.tmp.i.i, align 8, !noalias !185
-  call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i.i.i) #30, !noalias !185
+  call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.i.i.i) #30, !noalias !185
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i), !noalias !185
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i, ptr noundef nonnull %agg.tmp.i.i, i32 0, ptr null)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i, !noalias !185
@@ -14856,13 +14856,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i: ; preds = %_ZNKS
 
 ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i, %lpad.i3.i
   %.pn.i5.i = phi { ptr, i32 } [ %138, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i ], [ %137, %lpad.i3.i ]
-  call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !185
+  call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !185
   call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #30, !noalias !185
   br label %common.resume.i
 
 invoke.cont38:                                    ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i, %invoke.cont6.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !185
-  call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !185
+  call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #30, !noalias !185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !185
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp2.i.i), !noalias !185
   call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #30, !noalias !185
@@ -15437,7 +15437,7 @@ invoke.cont.i6.i433:                              ; preds = %_ZN5arrow6FutureISt
   store ptr %218, ptr %_M_refcount.i.i.i.i.i.i1.i.i.i, align 8, !noalias !195
   store ptr null, ptr %next.i.i.i.i.i435, align 8, !noalias !195
   store ptr %call.i3.i.i429, ptr %agg.tmp.i.i392, align 8, !noalias !195
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i.i.i391) #30, !noalias !195
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.i.i.i391) #30, !noalias !195
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i391), !noalias !195
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i426, ptr noundef nonnull %agg.tmp.i.i392, i32 0, ptr null)
           to label %invoke.cont6.i.i445 unwind label %lpad5.i.i439, !noalias !195
@@ -15479,13 +15479,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i444: ; preds = %_Z
 
 ehcleanup.i4.i431:                                ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i444, %lpad.i3.i430
   %.pn.i5.i432 = phi { ptr, i32 } [ %225, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i444 ], [ %224, %lpad.i3.i430 ]
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i393) #30, !noalias !195
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i393) #30, !noalias !195
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i396) #30, !noalias !195
   br label %common.resume.i398
 
 "_ZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvEN3$_1D2Ev.exit": ; preds = %invoke.cont6.i.i445, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i447
   store ptr null, ptr %agg.tmp.i.i392, align 8, !noalias !195
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i393) #30, !noalias !195
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i393) #30, !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i392), !noalias !195
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp2.i.i393), !noalias !195
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i396) #30, !noalias !195
@@ -15666,7 +15666,7 @@ invoke.cont.i6.i541:                              ; preds = %_ZN5arrow6FutureISt
   store ptr %245, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i548, align 8, !noalias !202
   store ptr null, ptr %next.i.i.i.i.i543, align 8, !noalias !202
   store ptr %call.i3.i.i537, ptr %agg.tmp.i.i498, align 8, !noalias !202
-  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp.i.i.i497) #30, !noalias !202
+  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %agg.tmp.i.i.i497) #30, !noalias !202
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i.i497), !noalias !202
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i533, ptr noundef nonnull %agg.tmp.i.i498, i32 0, ptr null)
           to label %invoke.cont6.i.i555 unwind label %lpad5.i.i549, !noalias !202
@@ -15708,13 +15708,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i554: ; preds = %_Z
 
 ehcleanup.i4.i539:                                ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i554, %lpad.i3.i538
   %.pn.i5.i540 = phi { ptr, i32 } [ %256, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i554 ], [ %255, %lpad.i3.i538 ]
-  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp2.i.i499) #30, !noalias !202
+  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %agg.tmp2.i.i499) #30, !noalias !202
   call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp.i502) #30, !noalias !202
   br label %common.resume.i504
 
 "_ZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvEN3$_2D2Ev.exit": ; preds = %invoke.cont6.i.i555, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i557
   store ptr null, ptr %agg.tmp.i.i498, align 8, !noalias !202
-  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp2.i.i499) #30, !noalias !202
+  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %agg.tmp2.i.i499) #30, !noalias !202
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i498), !noalias !202
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i.i499), !noalias !202
   call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp.i502) #30, !noalias !202
@@ -15879,7 +15879,7 @@ invoke.cont.i6.i653:                              ; preds = %_ZN5arrow6FutureISt
   store ptr %272, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i660, align 8, !noalias !209
   store ptr null, ptr %next.i.i.i.i.i655, align 8, !noalias !209
   store ptr %call.i3.i.i649, ptr %agg.tmp.i.i608, align 8, !noalias !209
-  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i.i.i607) #30, !noalias !209
+  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.i.i.i607) #30, !noalias !209
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i607), !noalias !209
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i645, ptr noundef nonnull %agg.tmp.i.i608, i32 0, ptr null)
           to label %invoke.cont6.i.i667 unwind label %lpad5.i.i661, !noalias !209
@@ -15921,13 +15921,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i666: ; preds = %_Z
 
 ehcleanup.i4.i651:                                ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i666, %lpad.i3.i650
   %.pn.i5.i652 = phi { ptr, i32 } [ %279, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i666 ], [ %278, %lpad.i3.i650 ]
-  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i609) #30, !noalias !209
+  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i609) #30, !noalias !209
   call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i612) #30, !noalias !209
   br label %common.resume.i614
 
 "_ZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvEN3$_3D2Ev.exit": ; preds = %invoke.cont6.i.i667, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i669
   store ptr null, ptr %agg.tmp.i.i608, align 8, !noalias !209
-  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i609) #30, !noalias !209
+  call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i609) #30, !noalias !209
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i608), !noalias !209
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp2.i.i609), !noalias !209
   call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i612) #30, !noalias !209
@@ -16424,7 +16424,7 @@ invoke.cont.i6.i:                                 ; preds = %_ZN5arrow6FutureISt
   store ptr %27, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i, align 8, !noalias !216
   store ptr null, ptr %next.i.i.i.i.i, align 8, !noalias !216
   store ptr %call.i3.i.i, ptr %agg.tmp.i.i, align 8, !noalias !216
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i.i.i) #30, !noalias !216
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.i.i.i) #30, !noalias !216
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i.i), !noalias !216
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i, ptr noundef nonnull %agg.tmp.i.i, i32 0, ptr null)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i, !noalias !216
@@ -16466,13 +16466,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i: ; preds = %_ZNKS
 
 ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i, %lpad.i3.i
   %.pn.i5.i = phi { ptr, i32 } [ %37, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i ], [ %36, %lpad.i3.i ]
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.i.i) #30, !noalias !216
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.i.i) #30, !noalias !216
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i) #30, !noalias !216
   br label %common.resume.i
 
 "_ZZN5arrow3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS0_8internal9FileBlockEEN3$_0D2Ev.exit": ; preds = %invoke.cont6.i.i, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !216
-  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.i.i) #30, !noalias !216
+  call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.i.i) #30, !noalias !216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !216
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp2.i.i), !noalias !216
   call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i) #30, !noalias !216
@@ -53868,7 +53868,7 @@ entry:
   %ref.tmp18 = alloca %class.anon.461, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1378)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEEN17BufferAccumulator10AppendFromERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %fields)
+  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEEN17BufferAccumulator10AppendFromERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(24) %fields)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -54141,7 +54141,7 @@ common.resume.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 
 _ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !1409
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %task.sroa.2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp18, i64 24, i1 false), !noalias !1409
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %task.sroa.2.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp18, i64 24, i1 false), !noalias !1409
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -54997,7 +54997,7 @@ for.cond.i:                                       ; preds = %.noexc19
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %for.cond.preheader.i, %for.cond.i
   %i.089.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
-  invoke fastcc void @"_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEENK3$_0clEi"(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp18, i32 noundef %i.089.i)
+  invoke fastcc void @"_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEENK3$_0clEi"(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp18, i32 noundef %i.089.i)
           to label %.noexc19 unwind label %lpad7.loopexit
 
 .noexc19:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i
@@ -61774,7 +61774,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
 _ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %entry
   %__args3.val.i.i.i.i = load i32, ptr %_M_bound_args.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
-  invoke fastcc void @"_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEENK3$_0clEi"(ptr noalias nonnull align 8 %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i4.i.i, i32 noundef %__args3.val.i.i.i.i)
+  invoke fastcc void @"_ZZN5arrow3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS0_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISA_EEENK3$_0clEi"(ptr noalias nonnull align 8 %agg.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %add.ptr.i.i.i4.i.i, i32 noundef %__args3.val.i.i.i.i)
           to label %.noexc.i.i.i.i unwind label %lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i
@@ -98594,7 +98594,7 @@ lpad.i:                                           ; preds = %if.then5.i
 
 do.end8.i:                                        ; preds = %do.body2.i
   %call9.i = tail call noundef ptr @_ZNK5arrow3ipc7Message6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0), !noalias !2152
-  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119UnpackSchemaMessageEPKvRKNS0_14IpcReadOptionsEPNS0_14DictionaryMemoEPSt10shared_ptrINS_6SchemaEESC_PSt6vectorIbSaIbEEPb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %call9.i, ptr noundef nonnull align 8 dereferenceable(80) %options_, ptr noundef nonnull %dictionary_memo_, ptr noundef nonnull %schema_, ptr noundef nonnull %filtered_schema_, ptr noundef nonnull %field_inclusion_mask_, ptr noundef nonnull %swap_endian_)
+  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119UnpackSchemaMessageEPKvRKNS0_14IpcReadOptionsEPNS0_14DictionaryMemoEPSt10shared_ptrINS_6SchemaEESC_PSt6vectorIbSaIbEEPb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %call9.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %options_, ptr noundef nonnull %dictionary_memo_, ptr noundef nonnull %schema_, ptr noundef nonnull %filtered_schema_, ptr noundef nonnull %field_inclusion_mask_, ptr noundef nonnull %swap_endian_)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.end8.i, %invoke.cont.i, %if.then.i
@@ -100103,7 +100103,7 @@ invoke.cont23.i:                                  ; preds = %_ZNSt10shared_ptrIN
 invoke.cont26.i:                                  ; preds = %invoke.cont23.i
   %36 = load ptr, ptr %ref.tmp24.i, align 8, !noalias !2190
   %37 = extractelement <2 x ptr> %35, i64 0
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6BufferERKNS1_14IpcReadContextEPNS1_14DictionaryKindEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(25) %context, ptr noundef nonnull %kind, ptr noundef %37)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6BufferERKNS1_14IpcReadContextEPNS1_14DictionaryKindEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull readonly align 8 dereferenceable(25) %context, ptr noundef nonnull %kind, ptr noundef %37)
           to label %invoke.cont30.i unwind label %lpad29.i
 
 invoke.cont30.i:                                  ; preds = %invoke.cont26.i
@@ -111670,7 +111670,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_) #30
   ret void
 }
 
@@ -111679,7 +111679,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISG_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -112333,7 +112333,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_) #30
   ret void
 }
 
@@ -112342,7 +112342,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNS5_14IpcReadOptionsEE3$_0NS3_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -116899,7 +116899,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_) #30
   ret void
 }
 
@@ -116908,7 +116908,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaIS7_EEE14ThenOnCompleteIZNS4_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSA_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -119166,7 +119166,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_) #30
   ret void
 }
 
@@ -119175,7 +119175,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NS3_17PassthruOnFailureIS7_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -119837,7 +119837,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %fn_) #30
   ret void
 }
 
@@ -119846,7 +119846,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -120247,7 +120247,7 @@ invoke.cont8.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
   store ptr %69, ptr %_M_refcount.i.i.i.i.i.i.i.i1.i.i.i.i.i.i.i.i, align 8, !noalias !2561
   store ptr null, ptr %64, align 8, !noalias !2577
   store ptr %call.i31.i.i.i.i.i.i.i, ptr %agg.tmp5.i.i.i.i.i.i.i, align 8, !noalias !2577
-  call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i15.i.i.i.i.i.i.i) #30, !noalias !2561
+  call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(32) %_M_bound_args.i.i15.i.i.i.i.i.i.i) #30, !noalias !2561
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i), !noalias !2577
   %_M_refcount.i.i.i32.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i.i.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i.i.i, i64 8
@@ -120448,7 +120448,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx27__
   br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_11RecordBatchEEEEZZNS0_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS4_INS8_7MessageEEEUlvE_EED2Ev.exit.i.i.i.i.i.i.i"
 
 "_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_11RecordBatchEEEEZZNS0_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS4_INS8_7MessageEEEUlvE_EED2Ev.exit.i.i.i.i.i.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i71.i.i.i.i.i.i.i, %_ZN5arrow8internal6FnOnceIFvvEED2Ev.exit.i.i.i.i.i.i.i
-  call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i.i.i.i) #30, !noalias !2561
+  call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i.i.i.i) #30, !noalias !2561
   %101 = load ptr, ptr %__s.i.i.i.i.i.i.i, align 8, !noalias !2577
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit191.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -120734,7 +120734,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i230.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx2
   br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_11RecordBatchEEEEZZNS0_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS4_INS8_7MessageEEEUlvE_EED2Ev.exit239.i.i.i.i.i.i.i"
 
 "_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_11RecordBatchEEEEZZNS0_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS4_INS8_7MessageEEEUlvE_EED2Ev.exit239.i.i.i.i.i.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i230.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i227.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i216.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS3_7MessageEEEUlvE_JENS_6FutureIS6_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit206.i.i.i.i.i.i.i"
-  call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i.i.i.i.i) #30, !noalias !2561
+  call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i.i.i.i.i) #30, !noalias !2561
   %141 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2577
   %cmp.not.i.i.i.i241.i.i.i.i.i.i.i = icmp eq ptr %141, null
   br i1 %cmp.not.i.i.i.i241.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i, label %if.then.i.i.i.i242.i.i.i.i.i.i.i
@@ -121774,7 +121774,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__ex
 
 "_ZNSt5tupleIJN5arrow6FutureISt10shared_ptrINS0_11RecordBatchEEEEZZNS0_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS2_INS6_7MessageEEEUlvE_EED2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   %_M_bound_args = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args) #30
+  tail call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(32) %_M_bound_args) #30
   ret void
 }
 
@@ -121993,7 +121993,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 
 "_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_11RecordBatchEEEEZZNS0_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS4_INS8_7MessageEEEUlvE_EED2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
   %_M_bound_args.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i) #30
+  tail call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(32) %_M_bound_args.i) #30
   ret void
 }
 
@@ -122076,7 +122076,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
 
 "_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEED2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
   %_M_bound_args.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i) #30
+  tail call fastcc void @"_ZZZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINS0_7MessageEEENUlvE_D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(32) %_M_bound_args.i.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -122671,7 +122671,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_) #30
   ret void
 }
 
@@ -122680,7 +122680,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEE14ThenOnCompleteIZNS2_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NS5_17PassthruOnFailureIS8_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -123209,7 +123209,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %fn_) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(64) %fn_) #30
   ret void
 }
 
@@ -123218,7 +123218,7 @@ define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplIN
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %fn_.i) #30
+  tail call fastcc void @"_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNS5_8internal9FileBlockEE3$_0NS3_17PassthruOnFailureISB_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(64) %fn_.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }

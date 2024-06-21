@@ -16450,7 +16450,7 @@ if.then.i51:                                      ; preds = %if.else23
   %m_num_args.i.i52 = getelementptr inbounds i8, ptr %101, i64 24
   %103 = load i32, ptr %m_num_args.i.i52, align 8
   %m_args.i.i53 = getelementptr inbounds i8, ptr %101, i64 32
-  %call9.i54 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef %102, i32 noundef %103, ptr noundef nonnull %m_args.i.i53, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call9.i54 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(2585) %this, ptr noundef %102, i32 noundef %103, ptr noundef nonnull %m_args.i.i53, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %cmp.not.i = icmp eq i32 %call9.i54, 5
   br i1 %cmp.not.i, label %if.end11.i, label %return
 

@@ -5736,7 +5736,7 @@ define noundef zeroext i1 @_ZN6google8protobuf14Base64UnescapeENS0_11StringPiece
 
 _ZN6google8protobuf15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %8, %3
   %10 = phi ptr [ %9, %8 ], [ null, %3 ]
-  %11 = tail call noundef i32 @_ZN6google8protobuf22Base64UnescapeInternalEPKciPciPKa(ptr noundef %0, i32 noundef %4, ptr noundef %10, i32 noundef %5, ptr noundef nonnull @_ZN6google8protobufL9kUnBase64E)
+  %11 = tail call noundef i32 @_ZN6google8protobuf22Base64UnescapeInternalEPKciPciPKa(ptr noundef readonly %0, i32 noundef %4, ptr noundef %10, i32 noundef %5, ptr noundef nonnull readonly @_ZN6google8protobufL9kUnBase64E)
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %14, label %13
 
@@ -5769,7 +5769,7 @@ define noundef zeroext i1 @_ZN6google8protobuf21WebSafeBase64UnescapeENS0_11Stri
 
 _ZN6google8protobuf15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %8, %3
   %10 = phi ptr [ %9, %8 ], [ null, %3 ]
-  %11 = tail call noundef i32 @_ZN6google8protobuf22Base64UnescapeInternalEPKciPciPKa(ptr noundef %0, i32 noundef %4, ptr noundef %10, i32 noundef %5, ptr noundef nonnull @_ZN6google8protobufL16kUnWebSafeBase64E)
+  %11 = tail call noundef i32 @_ZN6google8protobuf22Base64UnescapeInternalEPKciPciPKa(ptr noundef readonly %0, i32 noundef %4, ptr noundef %10, i32 noundef %5, ptr noundef nonnull readonly @_ZN6google8protobufL16kUnWebSafeBase64E)
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %14, label %13
 

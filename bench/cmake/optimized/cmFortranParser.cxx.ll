@@ -885,7 +885,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: 
   br label %.preheader.split.us.i, !llvm.loop !9
 
 _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.preheader.split.us.i, %53, %.lr.ph
-  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #10
+  %58 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #10
   %.not47 = icmp slt i64 %58, 0
   br i1 %.not47, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10, label %_ZL9yytnamerrPcPKc.exit.thread
 
@@ -971,7 +971,7 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit58
 
 .loopexit.thread.i:                               ; preds = %82, %.preheader.split.i, %.preheader.split.i, %70
-  %89 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull %77) #8
+  %89 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull readonly %77) #8
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %.036 to i64
   %92 = sub i64 %90, %91

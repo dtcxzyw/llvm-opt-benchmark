@@ -3717,7 +3717,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6
   store ptr %1, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %12 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %12, %14
@@ -3811,7 +3811,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6
   store ptr %1, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %12 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %12, %14
@@ -4364,7 +4364,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6
   store ptr %1, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %7, align 8
-  %8 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %8 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
@@ -4450,7 +4450,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %7 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
@@ -4522,7 +4522,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %7 = tail call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
@@ -4610,7 +4610,7 @@ _ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit:     ; preds = %4
   store ptr %1, ptr %7, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %2, ptr %18, align 8
-  %19 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %19 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %19, %21
@@ -4785,7 +4785,7 @@ _ZN5vcpkg4Json5Value5arrayERKNS0_5ArrayE.exit:    ; preds = %11, %_ZNKSt14defaul
   store ptr %1, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %2, ptr %17, align 8
-  %18 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %18 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
@@ -4951,7 +4951,7 @@ _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %4
   store ptr %1, ptr %7, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %2, ptr %18, align 8
-  %19 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %19 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %19, %21
@@ -5126,7 +5126,7 @@ _ZN5vcpkg4Json5Value6objectERKNS0_6ObjectE.exit:  ; preds = %11, %_ZNKSt14defaul
   store ptr %1, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %2, ptr %17, align 8
-  %18 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %18 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
@@ -6235,7 +6235,7 @@ define dso_local void @_ZN5vcpkg4Json9stringifyB5cxx11ERKNS0_5ValueE(ptr dead_on
   store i64 2, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !197
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8, !noalias !197
-  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier9stringifyERKNS0_5ValueEm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
+  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier9stringifyERKNS0_5ValueEm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef 0)
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
@@ -6437,7 +6437,7 @@ define dso_local void @_ZN5vcpkg4Json9stringifyB5cxx11ERKNS0_6ObjectE(ptr dead_o
   store i64 2, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !200
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8, !noalias !200
-  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier16stringify_objectERKNS0_6ObjectEm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0)
+  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier16stringify_objectERKNS0_6ObjectEm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef 0)
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
@@ -6673,7 +6673,7 @@ define dso_local void @_ZN5vcpkg4Json9stringifyB5cxx11ERKNS0_5ArrayE(ptr dead_on
   store i64 2, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !206
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8, !noalias !206
-  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier15stringify_arrayERKNS0_5ArrayEm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0)
+  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier15stringify_arrayERKNS0_5ArrayEm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef 0)
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
@@ -6936,7 +6936,7 @@ _ZNK5vcpkg4Json9JsonStyle6spacesEv.exit.i.invoke: ; preds = %7, %_ZNK5vcpkg4Json
           to label %_ZNK5vcpkg4Json12_GLOBAL__N_111Stringifier13append_indentEm.exit unwind label %23
 
 _ZNK5vcpkg4Json12_GLOBAL__N_111Stringifier13append_indentEm.exit: ; preds = %_ZNK5vcpkg4Json9JsonStyle6spacesEv.exit.i.invoke
-  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier25append_quoted_json_stringENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %1, i64 %2)
+  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier25append_quoted_json_stringENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr %1, i64 %2)
           to label %.noexc11 unwind label %23
 
 .noexc11:                                         ; preds = %_ZNK5vcpkg4Json12_GLOBAL__N_111Stringifier13append_indentEm.exit
@@ -6944,7 +6944,7 @@ _ZNK5vcpkg4Json12_GLOBAL__N_111Stringifier13append_indentEm.exit: ; preds = %_ZN
           to label %.noexc12 unwind label %23
 
 .noexc12:                                         ; preds = %.noexc11
-  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier15stringify_arrayERKNS0_5ArrayEm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %11)
+  invoke fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier15stringify_arrayERKNS0_5ArrayEm(ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef %11)
           to label %_ZN5vcpkg4Json12_GLOBAL__N_111Stringifier23stringify_object_memberENS_10StringViewERKNS0_5ArrayEm.exit unwind label %23
 
 _ZN5vcpkg4Json12_GLOBAL__N_111Stringifier23stringify_object_memberENS_10StringViewERKNS0_5ArrayEm.exit: ; preds = %.noexc12
@@ -9774,7 +9774,7 @@ _ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit: ; preds = %_ZN
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(32) %63) #26, !noalias !295
   %196 = load ptr, ptr %64, align 8, !noalias !295
   %197 = load i64, ptr %97, align 8, !noalias !295
-  %198 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr %196, i64 %197) #26, !noalias !295
+  %198 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %55, ptr %196, i64 %197) #26, !noalias !295
   %199 = load ptr, ptr %98, align 8, !noalias !295
   %.not = icmp eq ptr %198, %199
   br i1 %.not, label %204, label %200

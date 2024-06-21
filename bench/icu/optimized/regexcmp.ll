@@ -1022,7 +1022,7 @@ if.end6.i:                                        ; preds = %if.end.i
 
 return.sink.split.i:                              ; preds = %if.end6.i, %if.end.i
   %.sink.i = phi i32 [ 66304, %if.end.i ], [ 66324, %if.end6.i ]
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %.sink.i)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef %.sink.i)
   br label %_ZN6icu_7512RegexCompile17allocateStackDataEi.exit
 
 _ZN6icu_7512RegexCompile17allocateStackDataEi.exit: ; preds = %if.end6.i, %return.sink.split.i
@@ -6924,7 +6924,7 @@ land.lhs.true.i:                                  ; preds = %_ZN6icu_759UVector6
   br i1 %cmp.i2.i, label %_ZN6icu_7512RegexCompile8appendOpEi.exit, label %if.then9.i4
 
 if.then9.i4:                                      ; preds = %land.lhs.true.i
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 66324)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef 66324)
   br label %_ZN6icu_7512RegexCompile8appendOpEi.exit
 
 _ZN6icu_7512RegexCompile8appendOpEi.exit:         ; preds = %entry, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i, %land.lhs.true.i, %if.then9.i4
@@ -7186,7 +7186,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN6icu_759UVector6
   br i1 %cmp.i2.i.i, label %_ZN6icu_7512RegexCompile8appendOpEii.exit, label %if.then9.i4.i
 
 if.then9.i4.i:                                    ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 66324)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef 66324)
   br label %_ZN6icu_7512RegexCompile8appendOpEii.exit
 
 _ZN6icu_7512RegexCompile8appendOpEii.exit:        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit72, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i, %land.lhs.true.i.i, %if.then9.i4.i
@@ -8273,7 +8273,7 @@ land.lhs.true.i:                                  ; preds = %_ZN6icu_759UVector6
   br i1 %cmp.i2.i, label %_ZN6icu_7512RegexCompile8appendOpEi.exit54, label %if.then9.i24
 
 if.then9.i24:                                     ; preds = %land.lhs.true.i
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 66324)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef 66324)
   %.pre57 = load ptr, ptr %fStatus.i, align 8
   br label %if.end49
 
@@ -8334,7 +8334,7 @@ land.lhs.true.i45:                                ; preds = %_ZN6icu_759UVector6
   br i1 %cmp.i2.i46, label %_ZN6icu_7512RegexCompile8appendOpEi.exit54, label %if.then9.i47
 
 if.then9.i47:                                     ; preds = %land.lhs.true.i45
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 66324)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef 66324)
   br label %_ZN6icu_7512RegexCompile8appendOpEi.exit54
 
 _ZN6icu_7512RegexCompile8appendOpEi.exit54:       ; preds = %if.then48, %land.lhs.true.i, %if.end49, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i41, %land.lhs.true.i45, %if.then9.i47
@@ -8430,7 +8430,7 @@ if.end6.i:                                        ; preds = %lor.lhs.false3.i
 return.sink.split.i:                              ; preds = %if.end6.i, %lor.lhs.false3.i
   %.sink.i = phi i32 [ 66304, %lor.lhs.false3.i ], [ 66324, %if.end6.i ]
   %retval.0.ph.i = phi i32 [ 0, %lor.lhs.false3.i ], [ %16, %if.end6.i ]
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %.sink.i)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef %.sink.i)
   br label %_ZN6icu_7512RegexCompile17allocateStackDataEi.exit
 
 _ZN6icu_7512RegexCompile17allocateStackDataEi.exit: ; preds = %_ZN6icu_7512RegexCompile11blockTopLocEa.exit, %if.end6.i, %return.sink.split.i
@@ -8745,7 +8745,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN6icu_759UVector6
   br i1 %cmp.i2.i.i, label %_ZN6icu_7512RegexCompile8appendOpEii.exit, label %if.then9.i4.i
 
 if.then9.i4.i:                                    ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef 66324)
+  tail call void @_ZN6icu_7512RegexCompile5errorE10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(512) %this, i32 noundef 66324)
   br label %_ZN6icu_7512RegexCompile8appendOpEii.exit
 
 _ZN6icu_7512RegexCompile8appendOpEii.exit:        ; preds = %sw.bb, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i.i, %land.lhs.true.i.i, %if.then9.i4.i

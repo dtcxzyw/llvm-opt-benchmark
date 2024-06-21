@@ -7435,7 +7435,7 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %161, %_ZN17QArrayDa
   %174 = getelementptr inbounds i8, ptr %1, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = sext i32 %.val to i64
-  %bcmp.i = call i32 @bcmp(ptr %.val12, ptr %175, i64 %176)
+  %bcmp.i = call i32 @bcmp(ptr readonly %.val12, ptr %175, i64 %176)
   %177 = icmp eq i32 %bcmp.i, 0
   br i1 %177, label %_ZL20addresses_data_equalPK8_addressS1_.exit, label %_ZN7QStringD2Ev.exit76
 

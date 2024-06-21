@@ -182,7 +182,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
 
 if.end12:                                         ; preds = %invoke.cont8, %invoke.cont3
   %filenameBuffer.0 = phi ptr [ %call6, %invoke.cont8 ], [ %buffer, %invoke.cont3 ]
-  %call.i = call noalias ptr @fopen(ptr noundef nonnull %filenameBuffer.0, ptr noundef %perm)
+  %call.i = call noalias ptr @fopen(ptr noundef nonnull readonly %filenameBuffer.0, ptr noundef readonly %perm)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %invoke.cont13, label %if.end.i
 

@@ -749,7 +749,7 @@ if.end20.i:                                       ; preds = %if.then8.i
 
 if.end36.i:                                       ; preds = %if.end20.i, %if.end.i
   %5 = phi ptr [ %call.i, %if.end20.i ], [ %fResBuf.i, %if.end.i ]
-  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %3) #20
+  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #20
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end36.i, %if.then19.i, %do.body
@@ -3430,7 +3430,7 @@ _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %.noexc, %if.else.i.
   br i1 %cmp.i.i, label %if.end.i, label %if.end13.thread
 
 if.end.i:                                         ; preds = %_ZL9initCacheP10UErrorCode.exit.i
-  %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %5, i64 noundef 156) #20
+  %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %5, i64 noundef 156) #20
   %arrayidx.i = getelementptr inbounds i8, ptr %name.i, i64 156
   store i8 0, ptr %arrayidx.i, align 4
   %call15.i39 = invoke ptr @uloc_getDefault_75()
@@ -3483,7 +3483,7 @@ lor.lhs.false.i:                                  ; preds = %if.then22.i
   br i1 %cmp.not.i.i, label %if.end54.i, label %_ZL13mayHaveParentPc.exit.i
 
 _ZL13mayHaveParentPc.exit.i:                      ; preds = %lor.lhs.false.i
-  %call.i.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull dereferenceable(1) %name.i) #24
+  %call.i.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name.i) #24
   %cmp1.i.not.i = icmp eq ptr %call.i.i, null
   %tobool44.i = icmp ne i8 %.pre93.i, 0
   %or.cond.i = select i1 %cmp1.i.not.i, i1 true, i1 %tobool44.i
@@ -3544,7 +3544,7 @@ lor.lhs.false74.i:                                ; preds = %if.then72.i
   br i1 %cmp.not.i56.i, label %if.else106thread-pre-split.i, label %_ZL13mayHaveParentPc.exit61.i
 
 _ZL13mayHaveParentPc.exit61.i:                    ; preds = %lor.lhs.false74.i
-  %call.i58.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull dereferenceable(1) %name.i) #24
+  %call.i58.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name.i) #24
   %cmp1.i59.not.i = icmp eq ptr %call.i58.i, null
   %tobool80.i = icmp ne i8 %.pr.pre.i, 0
   %or.cond8.i = select i1 %cmp1.i59.not.i, i1 true, i1 %tobool80.i
@@ -4519,7 +4519,7 @@ call.i.noexc:                                     ; preds = %while.cond.i
   br i1 %cmp.not.i, label %invoke.cont33, label %while.body.i
 
 while.body.i:                                     ; preds = %call.i.noexc
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i82, ptr noundef nonnull dereferenceable(1) %parent) #24
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i82, ptr noundef nonnull readonly dereferenceable(1) %parent) #24
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %invoke.cont33, label %while.cond.i, !llvm.loop !19
 
@@ -5750,7 +5750,7 @@ if.end36.i:                                       ; preds = %if.end33.i, %if.end
   %21 = phi ptr [ %call.i, %if.end20.i ], [ %call30.i, %if.end33.i ], [ %19, %if.end.i ]
   %idx.ext.i = sext i32 %18 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i
-  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %containerResPath) #20
+  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %containerResPath) #20
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end36.i, %if.then32.i, %if.then19.i, %_ZL13entryIncreaseP18UResourceDataEntry.exit
@@ -5818,7 +5818,7 @@ if.end36.i84:                                     ; preds = %if.end33.i96, %if.e
   %26 = phi ptr [ %call.i99, %if.end20.i101 ], [ %call30.i94, %if.end33.i96 ], [ %24, %if.end.i81 ]
   %idx.ext.i85 = sext i32 %22 to i64
   %add.ptr.i86 = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i85
-  %call38.i87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i86, ptr noundef nonnull dereferenceable(1) %key) #20
+  %call38.i87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i86, ptr noundef nonnull readonly dereferenceable(1) %key) #20
   br label %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106
 
 _ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106: ; preds = %if.then19.i103, %if.then32.i97, %if.end36.i84
@@ -6288,7 +6288,7 @@ if.end20.i:                                       ; preds = %call.i.noexc
 
 if.end36.i:                                       ; preds = %if.end20.i, %if.end.i
   %44 = phi ptr [ %call.i126, %if.end20.i ], [ %fResBuf.i, %if.end.i ]
-  %call38.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %keyPath.0173) #20
+  %call38.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %keyPath.0173) #20
   br label %invoke.cont162
 
 invoke.cont162:                                   ; preds = %if.end36.i, %if.then19.i
@@ -7053,7 +7053,7 @@ while.body.i:                                     ; preds = %if.end26.i, %if.els
   %21 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %21 to i64
   %arrayidx.i25 = getelementptr inbounds i8, ptr @_ZL17parentLocaleChars, i64 %idxprom.i
-  %call.i26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %arrayidx.i25) #24
+  %call.i26 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i25) #24
   %cmp2.i = icmp eq i32 %call.i26, 0
   br i1 %cmp2.i, label %if.then32.i, label %if.else.i27
 
@@ -7462,7 +7462,7 @@ if.then13:                                        ; preds = %if.then10
 
 if.end14:                                         ; preds = %if.then10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call11, i8 0, i64 120, i1 false)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.0) #24
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.0) #24
   %conv.i66 = trunc i64 %call.i to i32
   %cmp4.i = icmp slt i32 %conv.i66, 3
   br i1 %cmp4.i, label %if.end12.thread.i, label %if.end12.i
@@ -7486,7 +7486,7 @@ _ZL12setEntryNameP18UResourceDataEntryPKcP10UErrorCode.exit.thread: ; preds = %i
 
 _ZL12setEntryNameP18UResourceDataEntryPKcP10UErrorCode.exit: ; preds = %if.end12.thread.i, %if.end12.i
   %storemerge14.i = phi ptr [ %fNameBuffer.i, %if.end12.thread.i ], [ %call10.i, %if.end12.i ]
-  %call18.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %storemerge14.i, ptr noundef nonnull dereferenceable(1) %name.0) #20
+  %call18.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %storemerge14.i, ptr noundef nonnull readonly dereferenceable(1) %name.0) #20
   %.pre = load i32, ptr %status, align 4
   %3 = icmp slt i32 %.pre, 1
   br i1 %3, label %if.end18, label %if.then17
@@ -7759,7 +7759,7 @@ lor.rhs:                                          ; preds = %if.else
   br i1 %cmp.not.i29, label %return, label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs
-  %call.i30 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull dereferenceable(1) %name) #24
+  %call.i30 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name) #24
   %cmp1.i.not = icmp eq ptr %call.i30, null
   br i1 %cmp1.i.not, label %return, label %land.lhs.true.backedge
 
@@ -8202,7 +8202,7 @@ while.body.i:                                     ; preds = %if.else.i, %if.end
   %18 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %18 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %arrayidx.i) #24
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i) #24
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %cleanup, label %if.else.i
 
@@ -8241,7 +8241,7 @@ while.body.i17:                                   ; preds = %if.else.i31, %if.th
   %21 = load i32, ptr %add.ptr1.i26, align 4
   %idxprom.i27 = sext i32 %21 to i64
   %arrayidx.i28 = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i27
-  %call.i29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %arrayidx.i28) #24
+  %call.i29 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i28) #24
   %cmp2.i30 = icmp eq i32 %call.i29, 0
   br i1 %cmp2.i30, label %if.then.i38, label %if.else.i31
 

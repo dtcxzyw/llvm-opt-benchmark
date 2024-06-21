@@ -1054,7 +1054,7 @@ define hidden void @_ZN9validator5types15ValidationError9add_param17h290f000929a
   %13 = extractvalue { i64, ptr } %10, 1
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   store i8 3, ptr %4, align 8, !alias.scope !181, !noalias !185
   %.sroa.51.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %12, ptr %.sroa.51.0..sroa_idx, align 8, !alias.scope !181, !noalias !185
@@ -1115,7 +1115,7 @@ define hidden void @_ZN9validator5types15ValidationError9add_param17h2981e8f1548
   %14 = extractvalue { i64, ptr } %11, 1
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %8, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %8, i64 %10, i1 false)
   store i8 3, ptr %4, align 8, !alias.scope !201, !noalias !205
   %.sroa.51.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %13, ptr %.sroa.51.0..sroa_idx, align 8, !alias.scope !201, !noalias !205

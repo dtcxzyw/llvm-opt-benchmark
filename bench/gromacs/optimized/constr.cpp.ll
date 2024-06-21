@@ -1362,10 +1362,10 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %175, %186, %_
   %513 = ptrtoint ptr %508 to i64
   %514 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %2, ptr noundef nonnull %17)
   %515 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %514) #14
-  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %16, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(768) %504, i32 noundef %506, ptr noundef %507, i64 %513, ptr noundef %8)
+  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %16, ptr noundef nonnull @.str.69, ptr noundef nonnull readonly align 8 dereferenceable(768) %504, i32 noundef %506, ptr noundef readonly %507, i64 %513, ptr noundef %8)
   %516 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %2, ptr noundef nonnull %17)
   %517 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.70, ptr noundef %516) #14
-  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull align 8 dereferenceable(768) %504, i32 noundef %506, ptr noundef %507, i64 %512, ptr noundef %8)
+  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull readonly align 8 dereferenceable(768) %504, i32 noundef %506, ptr noundef readonly %507, i64 %512, ptr noundef %8)
   %.not14.i = icmp eq ptr %502, null
   br i1 %.not14.i, label %520, label %518
 
@@ -3839,7 +3839,7 @@ _ZNSt12_Vector_baseIN3gmx11ListOfListsIiEESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
   %86 = getelementptr inbounds i8, ptr %.sroa.016.020.i, i64 8
   %87 = load i32, ptr %86, align 8, !noalias !36
   %88 = getelementptr inbounds i8, ptr %.sroa.016.020.i, i64 80
-  invoke fastcc void @_ZN3gmxL26makeAtomsToConstraintsListEiNS_8ArrayRefIK15InteractionListEENS0_IK9t_iparamsEENS_27FlexibleConstraintTreatmentE(ptr dead_on_unwind noalias nonnull writable align 8 %15, i32 noundef %87, ptr nonnull %88, ptr %85, i32 noundef %not..i)
+  invoke fastcc void @_ZN3gmxL26makeAtomsToConstraintsListEiNS_8ArrayRefIK15InteractionListEENS0_IK9t_iparamsEENS_27FlexibleConstraintTreatmentE(ptr dead_on_unwind noalias nonnull writable align 8 %15, i32 noundef %87, ptr nonnull readonly %88, ptr %85, i32 noundef %not..i)
           to label %_ZN3gmx11make_at2conERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEENS_27FlexibleConstraintTreatmentE.exit.i unwind label %.loopexit.i
 
 _ZN3gmx11make_at2conERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEENS_27FlexibleConstraintTreatmentE.exit.i: ; preds = %84

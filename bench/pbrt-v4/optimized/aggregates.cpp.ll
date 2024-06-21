@@ -5950,7 +5950,7 @@ if.else.lr.ph.i.i:                                ; preds = %if.else.lr.ph.i.i.p
 if.else.i.i:                                      ; preds = %if.then3.i.i, %if.else.lr.ph.i.i
   %__first.addr.118.i.i = phi ptr [ %__first.addr.021.i.i, %if.else.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.then3.i.i ]
   %73 = load ptr, ptr %__first.addr.118.i.i, align 8
-  %call.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIPNS_12BVHBuildNodeESaIS8_EEiiPSt6atomicIiEENK3$_0clEPKS7_"(ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i, ptr noundef %73)
+  %call.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIPNS_12BVHBuildNodeESaIS8_EEiiPSt6atomicIiEENK3$_0clEPKS7_"(ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i, ptr noundef %73)
   br i1 %call.i.i, label %if.then3.i.i, label %while.body8.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -5966,7 +5966,7 @@ while.body8.i.i:                                  ; preds = %if.else.i.i, %if.el
 
 if.else11.i.i:                                    ; preds = %while.body8.i.i
   %74 = load ptr, ptr %__last.addr.1.i.i, align 8
-  %call12.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIPNS_12BVHBuildNodeESaIS8_EEiiPSt6atomicIiEENK3$_0clEPKS7_"(ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i, ptr noundef %74)
+  %call12.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIPNS_12BVHBuildNodeESaIS8_EEiiPSt6atomicIiEENK3$_0clEPKS7_"(ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i, ptr noundef %74)
   br i1 %call12.i.i, label %while.end18.i.i, label %while.body8.i.i, !llvm.loop !80
 
 while.end18.i.i:                                  ; preds = %if.else11.i.i
@@ -15770,7 +15770,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__source.val5, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %__source.val5, i64 64, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -15909,7 +15909,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -15989,7 +15989,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

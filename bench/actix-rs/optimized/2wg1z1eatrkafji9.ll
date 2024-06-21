@@ -8721,9 +8721,9 @@ define void @_ZN9actix_web6config9AppConfig15__priv_test_new17h9fe22d8ad10b846cE
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext i1 %1 to i8
   store i8 %6, ptr %5, align 8, !alias.scope !1673, !noalias !1675
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !1676, !noalias !1671
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !1676, !noalias !1671
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !1677, !noalias !1668
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 4 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !1677, !noalias !1668
   ret void
 }
 
@@ -8801,9 +8801,9 @@ define void @"_ZN71_$LT$actix_web..config..AppConfig$u20$as$u20$core..default..D
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1691)
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 0, ptr %17, align 8, !alias.scope !1693, !noalias !1695
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !alias.scope !1696, !noalias !1691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false), !alias.scope !1696, !noalias !1691
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1697, !noalias !1688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 4 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1697, !noalias !1688
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void

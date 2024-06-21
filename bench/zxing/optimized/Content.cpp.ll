@@ -852,7 +852,7 @@ _ZNK5ZXing7Content10canProcessEv.exit.thread:     ; preds = %._crit_edge.i.i.i.i
 
 .sink.split.i:                                    ; preds = %82, %75
   %.sink.i = phi i32 [ %81, %75 ], [ %84, %82 ]
-  invoke fastcc void @"_ZZNK5ZXing7Content6renderB5cxx11EbENK3$_0clENS_3ECIEii"(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %71, i32 noundef 0, i32 noundef %.sink.i)
+  invoke fastcc void @"_ZZNK5ZXing7Content6renderB5cxx11EbENK3$_0clENS_3ECIEii"(ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i32 noundef %71, i32 noundef 0, i32 noundef %.sink.i)
           to label %.sink.split.i..noexc_crit_edge unwind label %.loopexit.split-lp
 
 .sink.split.i..noexc_crit_edge:                   ; preds = %.sink.split.i
@@ -905,7 +905,7 @@ _ZNK5ZXing7Content10canProcessEv.exit.thread:     ; preds = %._crit_edge.i.i.i.i
   br i1 %.not12.i, label %112, label %111
 
 111:                                              ; preds = %109
-  invoke fastcc void @"_ZZNK5ZXing7Content6renderB5cxx11EbENK3$_0clENS_3ECIEii"(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %110)
+  invoke fastcc void @"_ZZNK5ZXing7Content6renderB5cxx11EbENK3$_0clENS_3ECIEii"(ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %110)
           to label %.noexc5 unwind label %.loopexit
 
 .noexc5:                                          ; preds = %111
@@ -1553,7 +1553,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .sink.split.i:                                    ; preds = %87, %80
   %.sink.i = phi i32 [ %86, %80 ], [ %89, %87 ]
-  invoke fastcc void @"_ZZNK5ZXing7Content4typeEvENK3$_0clENS_3ECIEii"(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %76, i32 noundef 0, i32 noundef %.sink.i)
+  invoke fastcc void @"_ZZNK5ZXing7Content4typeEvENK3$_0clENS_3ECIEii"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %76, i32 noundef 0, i32 noundef %.sink.i)
           to label %.sink.split.i..noexc_crit_edge unwind label %.loopexit.split-lp
 
 .sink.split.i..noexc_crit_edge:                   ; preds = %.sink.split.i
@@ -1606,7 +1606,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %.not12.i, label %117, label %116
 
 116:                                              ; preds = %114
-  invoke fastcc void @"_ZZNK5ZXing7Content4typeEvENK3$_0clENS_3ECIEii"(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %115)
+  invoke fastcc void @"_ZZNK5ZXing7Content4typeEvENK3$_0clENS_3ECIEii"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %115)
           to label %.noexc5 unwind label %.loopexit
 
 .noexc5:                                          ; preds = %116

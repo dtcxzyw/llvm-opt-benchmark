@@ -1294,7 +1294,7 @@ define dso_local i64 @gtsvector_picksplit(ptr nocapture noundef readonly %0) loc
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr i8, ptr %47, i64 8
   %100 = sext i32 %16 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %99, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr readonly align 1 %99, i64 %100, i1 false)
   br label %fillcache.exit
 
 fillcache.exit:                                   ; preds = %81, %.loopexit.i.i, %95, %96
@@ -1430,7 +1430,7 @@ fillcache.exit245.preheader:                      ; preds = %.lr.ph
   %163 = getelementptr inbounds i8, ptr %116, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr i8, ptr %119, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %164, ptr align 1 %165, i64 %102, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %164, ptr readonly align 1 %165, i64 %102, i1 false)
   br label %fillcache.exit245.us
 
 fillcache.exit245.us:                             ; preds = %147, %162, %161, %.loopexit.i.i235.us
@@ -1585,7 +1585,7 @@ hemdistcache.exit:                                ; preds = %.lr.ph.i.i, %200, %
 244:                                              ; preds = %._crit_edge
   %245 = getelementptr i8, ptr %240, i64 8
   %246 = sext i32 %16 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %245, ptr nonnull align 1 %236, i64 %246, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %245, ptr nonnull readonly align 1 %236, i64 %246, i1 false)
   br label %gtsvector_alloc.exit
 
 gtsvector_alloc.exit:                             ; preds = %._crit_edge, %244
@@ -1610,7 +1610,7 @@ gtsvector_alloc.exit:                             ; preds = %._crit_edge, %244
 260:                                              ; preds = %gtsvector_alloc.exit
   %261 = getelementptr i8, ptr %256, i64 8
   %262 = sext i32 %16 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %261, ptr nonnull align 1 %253, i64 %262, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %261, ptr nonnull readonly align 1 %253, i64 %262, i1 false)
   br label %gtsvector_alloc.exit255
 
 gtsvector_alloc.exit255:                          ; preds = %gtsvector_alloc.exit, %260
@@ -1714,7 +1714,7 @@ gtsvector_alloc.exit255:                          ; preds = %gtsvector_alloc.exi
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr i8, ptr %271, i64 8
   %324 = sext i32 %16 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %322, ptr align 1 %323, i64 %324, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %322, ptr readonly align 1 %323, i64 %324, i1 false)
   br label %fillcache.exit267
 
 fillcache.exit267:                                ; preds = %305, %.loopexit.i.i257, %319, %320

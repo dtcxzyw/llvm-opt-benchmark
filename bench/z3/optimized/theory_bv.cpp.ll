@@ -26958,7 +26958,7 @@ land.lhs.true.i:                                  ; preds = %_ZNK3smt9theory_bv8
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %11 = trunc nuw i64 %indvars.iv.i to i32
-  tail call void @_ZNK3smt9theory_bv16display_bit_atomERSojPKNS0_8bit_atomE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %11, ptr noundef nonnull %.then.val.i.i)
+  tail call void @_ZNK3smt9theory_bv16display_bit_atomERSojPKNS0_8bit_atomE(ptr noundef nonnull readonly align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %11, ptr noundef nonnull %.then.val.i.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %_ZNK3smt9theory_bv8get_bv2aEj.exit.i, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE3getEjRKS3_.exit.i.i, %for.body.i
@@ -31918,7 +31918,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -32078,7 +32078,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

@@ -133,7 +133,7 @@ land.lhs.true7.i:                                 ; preds = %zipmapDecodeLength.
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
   %idx.ext.i = zext nneg i32 %conv.i23.i to i64
   %add.ptr11.i = getelementptr inbounds i8, ptr %p.0.i, i64 %idx.ext.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.i, ptr nonnull %key, i64 %conv12.us.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.i, ptr nonnull readonly %key, i64 %conv12.us.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %spec.select.i59 = select i1 %tobool.not.i, ptr %p.0.i, ptr null
   br label %if.end17.i
@@ -412,7 +412,7 @@ land.lhs.true7.i:                                 ; preds = %zipmapDecodeLength.
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
   %idx.ext.i = zext nneg i32 %conv.i23.i to i64
   %add.ptr11.i = getelementptr inbounds i8, ptr %p.0.i, i64 %idx.ext.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.i, ptr nonnull %key, i64 %conv12.us.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.i, ptr nonnull readonly %key, i64 %conv12.us.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %spec.select.i = select i1 %tobool.not.i, ptr %p.0.i, ptr null
   br label %if.end17.i
@@ -712,7 +712,7 @@ land.lhs.true7.us.i:                              ; preds = %if.then.i.us46.i, %
 land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
   %idx.ext.us.i = zext nneg i32 %conv.i23.us51.i to i64
   %add.ptr11.us.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext.us.i
-  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull %key, i64 %conv12.us.i)
+  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull readonly %key, i64 %conv12.us.i)
   %tobool.not.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %tobool.not.us.i, label %if.end, label %if.end17.us52.i
 
@@ -832,7 +832,7 @@ land.lhs.true7.us.i:                              ; preds = %if.then.i.us46.i, %
 land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
   %idx.ext.us.i = zext nneg i32 %conv.i23.us51.i to i64
   %add.ptr11.us.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext.us.i
-  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull %key, i64 %conv12.us.i)
+  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull readonly %key, i64 %conv12.us.i)
   %tobool.not.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %tobool.not.us.i, label %zipmapLookupRaw.exit, label %if.end17.us52.i
 

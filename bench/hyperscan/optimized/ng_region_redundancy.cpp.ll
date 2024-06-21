@@ -938,7 +938,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %second.i.i.i76 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i75, i64 24
   %94 = load i32, ptr %second.i.i.i76, align 4
   %props.i.i77 = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i48, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i77, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i48, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i77, i64 32, i1 false)
   %reports5.i = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i.i.i.i.i.i.i)

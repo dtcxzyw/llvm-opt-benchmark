@@ -9271,7 +9271,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
 
 27:                                               ; preds = %25
   %28 = tail call ptr @dt_alloc_aligned(i64 noundef 1088) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %28, ptr noundef nonnull align 64 dereferenceable(1088) %11, i64 1088, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %28, ptr noundef nonnull readonly align 64 dereferenceable(1088) %11, i64 1088, i1 false)
   %29 = getelementptr inbounds i8, ptr %11, i64 576
   %30 = getelementptr inbounds i8, ptr %11, i64 608
   %31 = getelementptr inbounds i8, ptr %11, i64 640
@@ -10065,7 +10065,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
 
 29:                                               ; preds = %27
   %30 = tail call ptr @dt_alloc_aligned(i64 noundef 1088) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %30, ptr noundef nonnull align 64 dereferenceable(1088) %22, i64 1088, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %30, ptr noundef nonnull readonly align 64 dereferenceable(1088) %22, i64 1088, i1 false)
   %31 = getelementptr inbounds i8, ptr %22, i64 576
   %32 = getelementptr inbounds i8, ptr %22, i64 608
   %33 = getelementptr inbounds i8, ptr %22, i64 640

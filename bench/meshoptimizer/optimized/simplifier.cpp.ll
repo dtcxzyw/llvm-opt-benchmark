@@ -239,7 +239,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %conv.i11.i.i = zext i32 %22 to i64
   %mul.i13.i.i = mul i64 %div28.i, %conv.i11.i.i
   %add.ptr.i14.i.i = getelementptr inbounds float, ptr %vertex_positions_data, i64 %mul.i13.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %add.ptr.i14.i.i, ptr noundef nonnull dereferenceable(12) %add.ptr.i.i.i, i64 12)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %add.ptr.i14.i.i, ptr noundef nonnull readonly dereferenceable(12) %add.ptr.i.i.i, i64 12)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i, label %_ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i.split.loop.exit797, label %if.end4.i.i
 

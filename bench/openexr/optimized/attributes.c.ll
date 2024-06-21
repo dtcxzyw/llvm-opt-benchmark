@@ -866,7 +866,7 @@ while.body.i:                                     ; preds = %if.then17.i, %if.en
   %add.ptr22.i = getelementptr inbounds ptr, ptr %first.032.i, i64 %idx.ext21.i
   %8 = load ptr, ptr %add.ptr22.i, align 8
   %9 = load ptr, ptr %8, align 8
-  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %name) #7
+  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %name) #7
   %cmp25.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.i, label %if.then29, label %if.end28.i
 
@@ -888,7 +888,7 @@ while.end.i:                                      ; preds = %if.end28.i, %if.the
 land.lhs.true36.i:                                ; preds = %while.end.i
   %10 = load ptr, ptr %first.0.lcssa.i, align 8
   %11 = load ptr, ptr %10, align 8
-  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %name) #7
+  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %name) #7
   %cmp39.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.i, label %if.then29, label %return
 
@@ -1486,7 +1486,7 @@ while.body.i:                                     ; preds = %if.then17.i, %if.en
   %add.ptr22.i = getelementptr inbounds ptr, ptr %first.032.i, i64 %idx.ext21.i
   %6 = load ptr, ptr %add.ptr22.i, align 8
   %7 = load ptr, ptr %6, align 8
-  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #7
+  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #7
   %cmp25.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.i, label %if.then2, label %if.end28.i
 
@@ -1508,7 +1508,7 @@ while.end.i:                                      ; preds = %if.end28.i, %if.the
 land.lhs.true36.i:                                ; preds = %while.end.i
   %8 = load ptr, ptr %first.0.lcssa.i, align 8
   %9 = load ptr, ptr %8, align 8
-  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #7
+  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #7
   %cmp39.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.i, label %if.then2, label %if.end6
 
@@ -1659,7 +1659,7 @@ if.end35.i:                                       ; preds = %if.end32.i
 
 if.then38.i:                                      ; preds = %if.end35.i
   %add39.i = add nuw nsw i64 %call11, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %name, i64 %add39.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %name, i64 %add39.i, i1 false)
   store ptr %add.ptr.i, ptr %call.i, align 8
   %conv42.i = trunc i64 %call11 to i8
   %name_length.i = getelementptr inbounds i8, ptr %call.i, i64 16

@@ -263,7 +263,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !noalias !39
-  call void @"_ZN6syntax7parsing10build_tree28_$u7b$$u7b$closure$u7d$$u7d$17h619ff22a86f6172fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1)
+  call void @"_ZN6syntax7parsing10build_tree28_$u7b$$u7b$closure$u7d$$u7d$17h619ff22a86f6172fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -3012,7 +3012,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hcf89452e36c773e1E.exit.i: ; 
 
 _ZN6syntax3ast9token_ext8IsString6is_raw17h653d569f3f53efbeE.exit.i: ; preds = %.noexc34.i
   %281 = extractvalue { ptr, i64 } %193, 0
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.82b27cccaf6c1d93c3497edc733a2d28.91.llvm.15484593084965490010, ptr noundef nonnull dereferenceable(2) %281, i64 2), !alias.scope !765
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.82b27cccaf6c1d93c3497edc733a2d28.91.llvm.15484593084965490010, ptr noundef nonnull readonly dereferenceable(2) %281, i64 2), !alias.scope !765
   %282 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %282, label %.thread135.i, label %.lr.ph.split.i.i.i84.i.preheader
 
@@ -3116,7 +3116,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17h5d5b51f1589bf2d6E.exit.i: ; 
 
 _ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.i: ; preds = %.noexc39.i
   %311 = extractvalue { ptr, i64 } %197, 0
-  %bcmp.i.i.i37.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.82b27cccaf6c1d93c3497edc733a2d28.90.llvm.15484593084965490010, ptr noundef nonnull dereferenceable(2) %311, i64 2), !alias.scope !805
+  %bcmp.i.i.i37.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.82b27cccaf6c1d93c3497edc733a2d28.90.llvm.15484593084965490010, ptr noundef nonnull readonly dereferenceable(2) %311, i64 2), !alias.scope !805
   %312 = icmp eq i32 %bcmp.i.i.i37.i, 0
   br i1 %312, label %.thread141.i, label %.lr.ph.split.i.i.i103.i.preheader
 

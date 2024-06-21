@@ -245,7 +245,8 @@ ends_with_dirsep.exit.thread:                     ; preds = %land.lhs.true
   br label %if.end7
 
 ends_with_dirsep.exit:                            ; preds = %land.lhs.true
-  %3 = getelementptr i8, ptr %dirname, i64 %call2
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %dirname) #15
+  %3 = getelementptr i8, ptr %dirname, i64 %call.i
   %add.ptr.i = getelementptr i8, ptr %3, i64 -1
   %.pre.i = load i8, ptr %add.ptr.i, align 1
   %.pre.i.fr = freeze i8 %.pre.i
@@ -407,7 +408,7 @@ for.cond13.preheader.i:                           ; preds = %for.end.i
   br i1 %cmp42.not.i, label %if.end45.i, label %handle_symlink.exit.thread
 
 if.end45.i:                                       ; preds = %for.cond13.preheader.i
-  %call46.i = call i64 @readlink(ptr noundef %call45, ptr noundef nonnull %linktarget.i, i64 noundef 4096) #14
+  %call46.i = call i64 @readlink(ptr noundef readonly %call45, ptr noundef nonnull %linktarget.i, i64 noundef 4096) #14
   %or.cond.i = icmp ugt i64 %call46.i, 4095
   br i1 %or.cond.i, label %handle_symlink.exit.thread, label %handle_symlink.exit
 

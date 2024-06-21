@@ -1946,7 +1946,7 @@ sw.bb11.i:                                        ; preds = %sw.bb7.i, %if.end26
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit
 
 sw.default.i:                                     ; preds = %if.end26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %add.ptr27, i64 %rem, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %add.ptr27, i64 %rem, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit:  ; preds = %if.end26, %sw.bb11.i, %sw.default.i
@@ -1997,7 +1997,7 @@ sw.bb11.i25:                                      ; preds = %sw.bb7.i27, %if.end
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 sw.default.i39:                                   ; preds = %if.end28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr readonly align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41: ; preds = %if.end28, %sw.bb11.i25, %sw.default.i39
@@ -2065,7 +2065,7 @@ sw.bb11.i45:                                      ; preds = %sw.bb7.i47, %if.end
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61
 
 sw.default.i59:                                   ; preds = %if.end32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa, ptr align 1 %Ptr.tr.ph.lcssa77, i64 %Size.tr.ph.lcssa75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa, ptr readonly align 1 %Ptr.tr.ph.lcssa77, i64 %Size.tr.ph.lcssa75, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61: ; preds = %if.end32, %sw.bb11.i45, %sw.default.i59

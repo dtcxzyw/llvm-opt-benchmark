@@ -227,7 +227,7 @@ define dso_local range(i64 0, 2) i64 @uuid_lt(ptr nocapture noundef readonly %0)
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %.lobit = lshr i32 %8, 31
   %9 = zext nneg i32 %.lobit to i64
   ret i64 %9
@@ -241,7 +241,7 @@ define dso_local range(i64 0, 2) i64 @uuid_le(ptr nocapture noundef readonly %0)
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = icmp slt i32 %8, 1
   %10 = zext i1 %9 to i64
   ret i64 %10
@@ -269,7 +269,7 @@ define dso_local range(i64 0, 2) i64 @uuid_ge(ptr nocapture noundef readonly %0)
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = icmp sgt i32 %8, -1
   %10 = zext i1 %9 to i64
   ret i64 %10
@@ -283,7 +283,7 @@ define dso_local range(i64 0, 2) i64 @uuid_gt(ptr nocapture noundef readonly %0)
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = icmp sgt i32 %8, 0
   %10 = zext i1 %9 to i64
   ret i64 %10
@@ -311,7 +311,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @uuid_cmp(ptr nocapture 
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -359,7 +359,7 @@ define dso_local noundef i64 @uuid_sortsupport(ptr nocapture noundef readonly %0
 define internal i32 @uuid_fast_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #3 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
-  %6 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %5, i64 noundef 16) #14
+  %6 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %5, i64 noundef 16) #14
   ret i32 %6
 }
 

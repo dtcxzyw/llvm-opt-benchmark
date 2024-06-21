@@ -51,7 +51,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdict_put_obj(ptr noundef %qdict, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
   %conv.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -89,7 +89,7 @@ tdb_hash.exit:                                    ; preds = %for.body.i, %entry
 for.body.i22:                                     ; preds = %tdb_hash.exit, %for.inc.i
   %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %tdb_hash.exit ]
   %4 = load ptr, ptr %entry1.06.i, align 8
-  %call.i23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i = icmp eq i32 %call.i23, 0
   br i1 %tobool3.not.i, label %if.then, label %for.inc.i
 
@@ -203,7 +203,7 @@ entry:
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qdict_get(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
   %conv.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -241,7 +241,7 @@ tdb_hash.exit:                                    ; preds = %for.body.i, %entry
 for.body.i5:                                      ; preds = %tdb_hash.exit, %for.inc.i
   %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %tdb_hash.exit ]
   %4 = load ptr, ptr %entry1.06.i, align 8
-  %call.i6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i = icmp eq i32 %call.i6, 0
   br i1 %tobool3.not.i, label %cond.false, label %for.inc.i
 
@@ -264,7 +264,7 @@ cond.end:                                         ; preds = %for.inc.i, %tdb_has
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @qdict_haskey(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
   %conv.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -302,7 +302,7 @@ tdb_hash.exit:                                    ; preds = %for.body.i, %entry
 for.body.i4:                                      ; preds = %tdb_hash.exit, %for.inc.i
   %entry1.06.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %entry1.04.i, %tdb_hash.exit ]
   %4 = load ptr, ptr %entry1.06.i, align 8
-  %call.i5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i = icmp eq i32 %call.i5, 0
   br i1 %tobool3.not.i, label %qdict_find.exit, label %for.inc.i
 
@@ -328,7 +328,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local double @qdict_get_double(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -366,7 +366,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -410,7 +410,7 @@ declare double @qnum_get_double(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qdict_get_int(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -448,7 +448,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -492,7 +492,7 @@ declare i64 @qnum_get_int(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qdict_get_bool(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -530,7 +530,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -574,7 +574,7 @@ declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdict_get_qlist(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -612,7 +612,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -653,7 +653,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdict_get_qdict(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -691,7 +691,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -732,7 +732,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdict_get_str(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -770,7 +770,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -815,7 +815,7 @@ declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #3
 define dso_local i64 @qdict_get_try_int(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key, i64 noundef %def_value) local_unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -853,7 +853,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -899,7 +899,7 @@ declare zeroext i1 @qnum_get_try_int(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qdict_get_try_bool(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key, i1 noundef zeroext %def_value) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -937,7 +937,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -979,7 +979,7 @@ cond.end:                                         ; preds = %for.inc.i.i, %tdb_h
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdict_get_try_str(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -1017,7 +1017,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %4 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %qdict_get.exit, label %for.inc.i.i
 
@@ -1086,7 +1086,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %entry1, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #10
   %2 = trunc i64 %call.i to i32
   %conv.i = mul i32 %2, 596579247
   %3 = load i8, ptr %1, align 1
@@ -1168,7 +1168,7 @@ for.body3:                                        ; preds = %for.body, %cond.end
   br i1 %tobool4.not, label %for.body3.split, label %qobject_ref_impl.exit
 
 for.body3.split:                                  ; preds = %for.body3
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %2 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %2, 596579247
   %3 = load i8, ptr %0, align 1
@@ -1205,7 +1205,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %for.
 for.body.i22.i:                                   ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %6 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i23.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #10
+  %call.i23.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %tobool3.not.i.i = icmp eq i32 %call.i23.i, 0
   br i1 %tobool3.not.i.i, label %if.then.i, label %for.inc.i.i
 
@@ -1276,7 +1276,7 @@ qobject_ref_impl.exit:                            ; preds = %for.body3
   %11 = load i64, ptr %refcnt.i, align 8
   %inc.i11 = add i64 %11, 1
   store i64 %inc.i11, ptr %refcnt.i, align 8
-  %call.i.i13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %call.i.i13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %12 = trunc i64 %call.i.i13 to i32
   %conv.i.i14 = mul i32 %12, 596579247
   %13 = load i8, ptr %0, align 1
@@ -1313,7 +1313,7 @@ tdb_hash.exit.i28:                                ; preds = %for.body.i.i16, %qo
 for.body.i22.i38:                                 ; preds = %tdb_hash.exit.i28, %for.inc.i.i42
   %entry1.06.i.i39 = phi ptr [ %entry1.0.i.i44, %for.inc.i.i42 ], [ %entry1.04.i.i36, %tdb_hash.exit.i28 ]
   %16 = load ptr, ptr %entry1.06.i.i39, align 8
-  %call.i23.i40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %0) #10
+  %call.i23.i40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %tobool3.not.i.i41 = icmp eq i32 %call.i23.i40, 0
   br i1 %tobool3.not.i.i41, label %if.then.i58, label %for.inc.i.i42
 
@@ -1397,7 +1397,7 @@ for.end8:                                         ; preds = %for.inc7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdict_del(ptr nocapture noundef %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
   %conv.i = mul i32 %0, 596579247
   %1 = load i8, ptr %key, align 1
@@ -1435,7 +1435,7 @@ tdb_hash.exit:                                    ; preds = %for.body.i, %entry
 for.body.i13:                                     ; preds = %tdb_hash.exit, %for.inc.i
   %entry1.06.i = phi ptr [ %5, %for.inc.i ], [ %entry1.04.i, %tdb_hash.exit ]
   %4 = load ptr, ptr %entry1.06.i, align 8
-  %call.i14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %tobool3.not.i = icmp eq i32 %call.i14, 0
   %next = getelementptr inbounds i8, ptr %entry1.06.i, i64 16
   %5 = load ptr, ptr %next, align 8
@@ -1600,7 +1600,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %value.i = getelementptr inbounds i8, ptr %e.050, i64 8
   %6 = load ptr, ptr %value.i, align 8
   %7 = load ptr, ptr %e.050, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #10
   %8 = trunc i64 %call.i.i to i32
   %conv.i.i = mul i32 %8, 596579247
   %9 = load i8, ptr %7, align 1
@@ -1637,7 +1637,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i18, %fo
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
   %12 = load ptr, ptr %entry1.06.i.i, align 8
-  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %7) #10
+  %call.i6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %7) #10
   %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool3.not.i.i, label %cond.false.i, label %for.inc.i.i
 
@@ -1669,7 +1669,7 @@ for.body.backedge:                                ; preds = %for.body.i3.i, %for
 
 if.then.i:                                        ; preds = %for.inc
   %15 = load ptr, ptr %e.050, align 8
-  %call.i.i23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #10
+  %call.i.i23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #10
   %16 = trunc i64 %call.i.i23 to i32
   %conv.i.i24 = mul i32 %16, 596579247
   %17 = load i8, ptr %15, align 1

@@ -377,7 +377,7 @@ _ZN6uu_env15string_expander14StringExpander17put_native_string17h6d02a56aaa7dc00
   %46 = getelementptr inbounds i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !97, !noalias !102, !nonnull !5, !noundef !5
   %48 = getelementptr inbounds i8, ptr %47, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %.sroa.516.0.copyload, i64 %.sroa.617.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %.sroa.516.0.copyload, i64 %.sroa.617.0.copyload, i1 false)
   %49 = load i64, ptr %36, align 8, !alias.scope !97, !noalias !102, !noundef !5
   %50 = add i64 %49, %.sroa.617.0.copyload
   store i64 %50, ptr %36, align 8, !alias.scope !97, !noalias !102

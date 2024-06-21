@@ -13796,9 +13796,9 @@ array_contains_nulls.exit149:                     ; preds = %.lr.ph.i145, %114
   %246 = getelementptr i8, ptr %241, i64 16
   %247 = shl nuw nsw i32 %78, 2
   %248 = zext nneg i32 %247 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %246, ptr align 4 %62, i64 %248, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %246, ptr readonly align 4 %62, i64 %248, i1 false)
   %249 = getelementptr i8, ptr %246, i64 %248
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %249, ptr align 4 %.0114, i64 %248, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %249, ptr readonly align 4 %.0114, i64 %248, i1 false)
   %250 = load i32, ptr %244, align 4
   %.not135 = icmp eq i32 %250, 0
   br i1 %.not135, label %253, label %251
@@ -13850,9 +13850,9 @@ array_contains_nulls.exit149:                     ; preds = %.lr.ph.i145, %114
   %278 = getelementptr i8, ptr %273, i64 16
   %279 = shl nuw nsw i32 %78, 2
   %280 = zext nneg i32 %279 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %278, ptr align 4 %62, i64 %280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %278, ptr readonly align 4 %62, i64 %280, i1 false)
   %281 = getelementptr i8, ptr %278, i64 %280
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %281, ptr align 4 %.0114, i64 %280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %281, ptr readonly align 4 %.0114, i64 %280, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %265, %148

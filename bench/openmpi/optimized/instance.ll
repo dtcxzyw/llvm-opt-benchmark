@@ -3116,7 +3116,7 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
   %45 = load ptr, ptr %5, align 8
   %46 = call i32 @PMIx_Value_unload(ptr noundef %45, ptr noundef nonnull %7, ptr noundef nonnull %6) #13
   %47 = load ptr, ptr %7, align 8
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %47) #15
+  %48 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %47) #15
   %49 = icmp eq i32 %48, 0
   %50 = zext i1 %49 to i64
   %51 = load i64, ptr %6, align 8

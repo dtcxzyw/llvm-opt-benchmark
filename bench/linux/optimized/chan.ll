@@ -1504,7 +1504,7 @@ define dso_local i32 @ieee80211_link_reserve_chanctx(ptr noundef %0, ptr noundef
   %108 = getelementptr inbounds i8, ptr %102, i64 56
   store volatile ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %102, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %109, ptr noundef align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %109, ptr noundef readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %110 = getelementptr inbounds i8, ptr %102, i64 152
   store i8 1, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %102, i64 153
@@ -1849,7 +1849,7 @@ define dso_local i32 @ieee80211_link_use_channel(ptr noundef %0, ptr noundef %1,
   %105 = getelementptr inbounds i8, ptr %99, i64 56
   store volatile ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %99, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %106, ptr noundef align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %106, ptr noundef readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %107 = getelementptr inbounds i8, ptr %99, i64 152
   store i8 1, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %99, i64 153

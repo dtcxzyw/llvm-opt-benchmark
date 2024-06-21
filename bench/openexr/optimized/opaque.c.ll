@@ -286,7 +286,7 @@ land.lhs.true.i:                                  ; preds = %exr_attr_opaquedata
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %0, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %0, i64 %conv, i1 false)
   br label %return
 
 if.end4:                                          ; preds = %if.end

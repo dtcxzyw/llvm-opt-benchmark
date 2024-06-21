@@ -790,12 +790,12 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @fake_rsa_st_open(ptr nocapture readnone %provctx, ptr nocapture noundef readonly %uri) #1 {
 entry:
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(10) @fake_rsa_scheme, i64 noundef 9) #13
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(10) @fake_rsa_scheme, i64 noundef 9) #13
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %fake_rsa_st_open_ex.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(20) @fake_rsa_openpwtest, i64 noundef 19) #13
+  %call1.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(20) @fake_rsa_openpwtest, i64 noundef 19) #13
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %fake_rsa_st_open_ex.exit, label %if.end16.i
 

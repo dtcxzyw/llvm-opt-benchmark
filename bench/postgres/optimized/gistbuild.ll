@@ -395,7 +395,7 @@ BufferGetPage.exit:                               ; preds = %110, %116
   %182 = load ptr, ptr %4, align 8
   %183 = load i32, ptr %176, align 8
   %184 = load i32, ptr %180, align 4
-  %185 = call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull %5, ptr noundef %182, i32 noundef %183, i32 noundef %184)
+  %185 = call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull readonly %5, ptr noundef %182, i32 noundef %183, i32 noundef %184)
   br i1 %185, label %._crit_edge.i.i, label %186
 
 186:                                              ; preds = %181
@@ -594,7 +594,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef re
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 96
   %32 = load i32, ptr %31, align 8
-  %33 = tail call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull %5, ptr noundef nonnull %14, i32 noundef 0, i32 noundef %32)
+  %33 = tail call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull readonly %5, ptr noundef nonnull %14, i32 noundef 0, i32 noundef %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %34 = load ptr, ptr %29, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 48
@@ -623,7 +623,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef re
   %45 = load ptr, ptr %8, align 8
   %46 = load i32, ptr %39, align 8
   %47 = load i32, ptr %43, align 4
-  %48 = call fastcc zeroext i1 @gistProcessItup(ptr noundef %5, ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  %48 = call fastcc zeroext i1 @gistProcessItup(ptr noundef readonly %5, ptr noundef %45, i32 noundef %46, i32 noundef %47)
   br i1 %48, label %._crit_edge.i.i, label %49
 
 49:                                               ; preds = %44

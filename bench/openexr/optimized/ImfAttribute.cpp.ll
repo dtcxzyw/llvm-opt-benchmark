@@ -120,7 +120,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10lock_guardIS
   %__y.addr.02.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %typeName) #19
+  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %typeName) #19
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.02.i.i.i, ptr %__x.addr.03.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
@@ -136,7 +136,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_1
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %4) #19
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %4) #19
   %cmp.i3.i.i = icmp sgt i32 %call.i.i.i, -1
   br label %invoke.cont
 
@@ -190,7 +190,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10lock_guardIS
   %__y.addr.02.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %typeName) #19
+  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %typeName) #19
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.02.i.i.i, ptr %__x.addr.03.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
@@ -206,7 +206,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_1
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %4) #19
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %4) #19
   %cmp.i3.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i3.i.i, label %while.body.i.i.i6.preheader, label %do.body
 
@@ -268,7 +268,7 @@ while.body.i.i.i6:                                ; preds = %while.body.i.i.i6.p
   %__x.014.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i6 ], [ %_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap.val.i.i, %while.body.i.i.i6.preheader ]
   %_M_storage.i.i.i.i.i7 = getelementptr inbounds i8, ptr %__x.014.i.i.i, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
-  %call.i.i.i.i8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %8) #19
+  %call.i.i.i.i8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %8) #19
   %cmp.i.i.i.i9 = icmp slt i32 %call.i.i.i.i8, 0
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i9, i64 16, i64 24
   %cond.in.i.i.i = getelementptr i8, ptr %__x.014.i.i.i, i64 %cond.in.v.i.i.i
@@ -294,7 +294,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %while.end.i.i.i
   %10 = phi ptr [ %.pre.i.i, %if.else.i.i.i ], [ %8, %while.end.i.i.i ]
   %__y.0.lcssa19.i.i.i = phi ptr [ %__y.0.lcssa18.i.i.i, %if.else.i.i.i ], [ %__x.014.i.i.i, %while.end.i.i.i ]
-  %call.i6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %typeName) #19
+  %call.i6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %typeName) #19
   %cmp.i7.i.i.i = icmp slt i32 %call.i6.i.i.i, 0
   br i1 %cmp.i7.i.i.i, label %if.then.i.i12, label %invoke.cont19
 
@@ -306,7 +306,7 @@ if.then.i.i12:                                    ; preds = %if.end12.i.i.i, %if
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i12
   %_M_storage.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %11 = load ptr, ptr %_M_storage.i.i.i.i5.i.i, align 8
-  %call.i.i6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %11) #19
+  %call.i.i6.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %11) #19
   %cmp.i.i7.i.i = icmp slt i32 %call.i.i6.i.i, 0
   br label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE10_M_insert_IS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i
 
@@ -400,12 +400,12 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10lock_guardIS
   %__y.06.i.i.i = phi ptr [ %__y.1.i.i.i, %if.end19.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %typeName) #19
+  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %typeName) #19
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.end19.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %call.i22.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %3) #19
+  %call.i22.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %3) #19
   %cmp.i23.i.i.i = icmp slt i32 %call.i22.i.i.i, 0
   br i1 %cmp.i23.i.i.i, label %if.end19.i.i.i, label %if.else12.i.i.i
 
@@ -422,7 +422,7 @@ while.body.i.i.i.i:                               ; preds = %if.else12.i.i.i, %w
   %__y.addr.02.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %__x.07.i.i.i, %if.else12.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i, i64 32
   %6 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %typeName) #19
+  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %typeName) #19
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.02.i.i.i.i, ptr %__x.addr.03.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
@@ -441,7 +441,7 @@ while.body.i25.i.i.i:                             ; preds = %_ZNSt8_Rb_treeIPKcS
   %__y.addr.02.i27.i.i.i = phi ptr [ %__y.addr.1.i31.i.i.i, %while.body.i25.i.i.i ], [ %__y.06.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ]
   %_M_storage.i.i.i28.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i26.i.i.i, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i28.i.i.i, align 8
-  %call.i.i29.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %7) #19
+  %call.i.i29.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %7) #19
   %cmp.i.i30.i.i.i = icmp slt i32 %call.i.i29.i.i.i, 0
   %__y.addr.1.i31.i.i.i = select i1 %cmp.i.i30.i.i.i, ptr %__x.addr.03.i26.i.i.i, ptr %__y.addr.02.i27.i.i.i
   %__x.addr.1.in.v.i32.i.i.i = select i1 %cmp.i.i30.i.i.i, i64 16, i64 24
@@ -542,7 +542,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10lock_guardIS
   %__y.addr.02.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %typeName) #19
+  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %typeName) #19
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.02.i.i.i, ptr %__x.addr.03.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
@@ -558,7 +558,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_1
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %typeName, ptr noundef nonnull dereferenceable(1) %4) #19
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %typeName, ptr noundef nonnull readonly dereferenceable(1) %4) #19
   %cmp.i3.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i3.i.i, label %do.body, label %if.end
 

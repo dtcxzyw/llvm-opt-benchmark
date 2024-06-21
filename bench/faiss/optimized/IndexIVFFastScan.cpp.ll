@@ -3841,7 +3841,7 @@ define void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKflPfPlRKNS0
 49:                                               ; preds = %.thread, %47, %45
   %50 = phi i32 [ %48, %47 ], [ %.pr, %45 ], [ %.pr, %.thread ]
   %.0 = phi i1 [ false, %47 ], [ false, %45 ], [ %44, %.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
   %51 = getelementptr inbounds i8, ptr %17, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 48, i1 false)
   %52 = getelementptr inbounds i8, ptr %17, i64 16
@@ -4162,7 +4162,7 @@ define void @_ZNK5faiss16IndexIVFFastScan28range_search_dispatch_implemElPKffRNS
 
 35:                                               ; preds = %33, %34, %25
   %.pr = phi i32 [ 12, %33 ], [ 10, %34 ], [ %27, %25 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   %36 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
   %37 = icmp sgt i64 %1, 1
@@ -7287,7 +7287,7 @@ define internal void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKfl
   %52 = getelementptr inbounds float, ptr %49, i64 %51
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds i64, ptr %53, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   store i64 %46, ptr %33, align 8
   store i64 %48, ptr %34, align 8
@@ -16583,7 +16583,7 @@ define internal void @_ZNK5faiss16IndexIVFFastScan28range_search_dispatch_implem
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %48 = mul nsw i64 %43, %indvars.iv.next
   %49 = sdiv i64 %48, %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   store i64 %47, ptr %33, align 8
   store i64 %49, ptr %34, align 8

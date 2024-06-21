@@ -7518,7 +7518,7 @@ for.body5.us.us.us.i:                             ; preds = %for.body5.us.us.us.
   %add.ptr.us.us.us.i = getelementptr i8, ptr %10, i64 %mul8.us.us.us.i
   %mul12.us.us.us.i = mul nsw i64 %indvars.iv89.i, %dst_ystride.addr.0.i
   %add.ptr14.us.us.us.i = getelementptr i8, ptr %11, i64 %mul12.us.us.us.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr14.us.us.us.i, ptr align 1 %add.ptr.us.us.us.i, i64 %mul16.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr14.us.us.us.i, ptr readonly align 1 %add.ptr.us.us.us.i, i64 %mul16.i, i1 false)
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count92.i
   br i1 %exitcond93.not.i, label %for.cond3.for.inc25_crit_edge.split.us.us.us.i, label %for.body5.us.us.us.i, !llvm.loop !83
@@ -49007,7 +49007,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__source.val5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source.val5, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %1 = getelementptr inbounds i8, ptr %__source.val5, i64 16
   %2 = load i8, ptr %1, align 4
@@ -49912,7 +49912,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   %1 = getelementptr inbounds i8, ptr %__source.val5, i64 32
   %2 = load i8, ptr %1, align 4
@@ -49933,7 +49933,7 @@ sw.bb4.i:                                         ; preds = %entry
   store i32 %5, ptr %arraylen.i.i.i.i.i, align 4
   %6 = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %7 = getelementptr inbounds i8, ptr %__source.val5, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   %9 = getelementptr inbounds i8, ptr %__source.val5, i64 72
   %10 = load i8, ptr %9, align 4
@@ -49954,7 +49954,7 @@ sw.bb4.i:                                         ; preds = %entry
   store i32 %13, ptr %arraylen.i10.i.i.i.i, align 4
   %14 = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   %15 = getelementptr inbounds i8, ptr %__source.val5, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

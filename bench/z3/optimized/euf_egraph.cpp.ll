@@ -5580,7 +5580,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i: ; preds = %
   %m_n2.i = getelementptr inbounds i8, ptr %this, i64 248
   store ptr %n2, ptr %m_n2.i, align 8
   %m_justification.i = getelementptr inbounds i8, ptr %this, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_justification.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp42, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_justification.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp42, i64 24, i1 false)
   br label %_ZN3euf6egraph12set_conflictEPNS_5enodeES2_NS_13justificationE.exit
 
 _ZN3euf6egraph12set_conflictEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %if.then41, %_ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i
@@ -5657,7 +5657,7 @@ _ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i61: ; preds =
   %m_n2.i69 = getelementptr inbounds i8, ptr %this, i64 248
   store ptr %n2, ptr %m_n2.i69, align 8
   %m_justification.i70 = getelementptr inbounds i8, ptr %this, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_justification.i70, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp5347, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_justification.i70, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp5347, i64 24, i1 false)
   br label %_ZN3euf6egraph12set_conflictEPNS_5enodeES2_NS_13justificationE.exit75
 
 _ZN3euf6egraph12set_conflictEPNS_5enodeES2_NS_13justificationE.exit75: ; preds = %if.then52, %_ZN6vectorIN3euf6egraph13update_recordELb0EjE9push_backEOS2_.exit.i61
@@ -5803,7 +5803,7 @@ _ZN3euf6egraph7push_eqEPNS_5enodeES2_j.exit:      ; preds = %lor.lhs.false.i.i88
   %m_target.i = getelementptr inbounds i8, ptr %n1.addr.0, i64 72
   store ptr %n2.addr.0, ptr %m_target.i, align 8
   %m_justification.i103 = getelementptr inbounds i8, ptr %n1.addr.0, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_justification.i103, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67102, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_justification.i103, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp67102, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp67102)
   br label %for.body
 

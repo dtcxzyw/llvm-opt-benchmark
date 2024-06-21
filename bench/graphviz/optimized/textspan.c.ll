@@ -89,7 +89,7 @@ define { double, double } @textspan_size(ptr noundef %0, ptr noundef %1) local_u
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %9) #15
+  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef readonly %9) #15
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %._crit_edge.i, label %14
 
@@ -99,13 +99,13 @@ define { double, double } @textspan_size(ptr noundef %0, ptr noundef %1) local_u
 
 14:                                               ; preds = %12, %8
   tail call void @free(ptr noundef %10) #16
-  %15 = tail call noalias ptr @strdup(ptr noundef %9) #16
+  %15 = tail call noalias ptr @strdup(ptr noundef readonly %9) #16
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %gv_strdup.exit.i
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #15
   %20 = add i64 %19, 1
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i64 noundef %20) #17
   tail call fastcc void @graphviz_exit() #18

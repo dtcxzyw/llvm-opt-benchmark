@@ -1282,7 +1282,7 @@ define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %.not8.i, label %39, label %36
 
 36:                                               ; preds = %.lr.ph.i38
-  %37 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 255) #18
+  %37 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull readonly dereferenceable(1) %19, i64 noundef 255) #18
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %pmix_ifnametokindex.exit, label %39
 

@@ -940,7 +940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101: ;
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds [4 x ptr], ptr @__const._Z24testCommandLineArgumentsiPPc.valid_strings, i64 0, i64 %.3172
   %355 = load ptr, ptr %354, align 8
-  %356 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %353, ptr noundef nonnull dereferenceable(1) %355) #12
+  %356 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %353, ptr noundef nonnull readonly dereferenceable(1) %355) #12
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %377, label %358
 

@@ -128,7 +128,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %i.01.i = phi i64 [ 0, %for.body ], [ %inc.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [50 x %"struct.(anonymous namespace)::Flag"], ptr @_ZN12_GLOBAL__N_110kBoolFlagsE, i64 0, i64 %i.01.i
   %1 = load ptr, ptr %arrayidx.i, align 16
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #8
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #8
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, label %for.cond.i
 
@@ -154,7 +154,7 @@ for.body.i41:                                     ; preds = %for.body.i41.prehea
   %i.01.i42 = phi i64 [ %inc.i47, %for.cond.i46 ], [ 0, %for.body.i41.preheader ]
   %arrayidx.i43 = getelementptr inbounds [21 x %"struct.(anonymous namespace)::Flag.0"], ptr @_ZN12_GLOBAL__N_112kStringFlagsB5cxx11E, i64 0, i64 %i.01.i42
   %3 = load ptr, ptr %arrayidx.i43, align 16
-  %call.i44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #8
+  %call.i44 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #8
   %cmp2.i45 = icmp eq i32 %call.i44, 0
   br i1 %cmp2.i45, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit, label %for.cond.i46
 
@@ -193,7 +193,7 @@ for.body.i53:                                     ; preds = %for.body.i53.prehea
   %i.01.i54 = phi i64 [ %inc.i59, %for.cond.i58 ], [ 0, %for.body.i53.preheader ]
   %arrayidx.i55 = getelementptr inbounds [6 x %"struct.(anonymous namespace)::Flag.0"], ptr @_ZN12_GLOBAL__N_112kBase64FlagsB5cxx11E, i64 0, i64 %i.01.i54
   %8 = load ptr, ptr %arrayidx.i55, align 16
-  %call.i56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8) #8
+  %call.i56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8) #8
   %cmp2.i57 = icmp eq i32 %call.i56, 0
   br i1 %cmp2.i57, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit, label %for.cond.i58
 
@@ -274,7 +274,7 @@ for.body.i68:                                     ; preds = %for.body.i68.prehea
   %i.01.i69 = phi i64 [ %inc.i74, %for.cond.i73 ], [ 0, %for.body.i68.preheader ]
   %arrayidx.i70 = getelementptr inbounds [8 x %"struct.(anonymous namespace)::Flag.3"], ptr @_ZN12_GLOBAL__N_19kIntFlagsE, i64 0, i64 %i.01.i69
   %21 = load ptr, ptr %arrayidx.i70, align 16
-  %call.i71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %21) #8
+  %call.i71 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %21) #8
   %cmp2.i72 = icmp eq i32 %call.i71, 0
   br i1 %cmp2.i72, label %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, label %for.cond.i73
 

@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @hwloc_topology_export_synthetic(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef 0, i32 noundef 0) #21
+  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #21
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -173,7 +173,7 @@ define i32 @hwloc_topology_export_synthetic(ptr noundef %0, ptr nocapture nounde
   br i1 %.not.i.i.i.i, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %29, i32 noundef 0) #21
+  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %29, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_type.exit.i.i
 
 32:                                               ; preds = %28
@@ -3327,7 +3327,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #22
   %5 = load ptr, ptr %3, align 8
-  %6 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.37, i64 noundef 2) #21
+  %6 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.37, i64 noundef 2) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -3337,7 +3337,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.38, i64 noundef 3) #21
+  %11 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.38, i64 noundef 3) #21
   %.not10 = icmp eq i32 %11, 0
   br i1 %.not10, label %12, label %15
 
@@ -3347,7 +3347,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.39, i64 noundef 2) #21
+  %16 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.39, i64 noundef 2) #21
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %20
 
@@ -3357,7 +3357,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.40, i64 noundef 3) #21
+  %21 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.40, i64 noundef 3) #21
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %22, label %25
 
@@ -3367,7 +3367,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 25:                                               ; preds = %20
-  %26 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.41, i64 noundef 2) #21
+  %26 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.41, i64 noundef 2) #21
   %.not13 = icmp eq i32 %26, 0
   br i1 %.not13, label %27, label %30
 
@@ -3377,7 +3377,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.42, i64 noundef 3) #21
+  %31 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.42, i64 noundef 3) #21
   %.not14 = icmp eq i32 %31, 0
   br i1 %.not14, label %32, label %35
 
@@ -3387,7 +3387,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 35:                                               ; preds = %30
-  %36 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.43, i64 noundef 2) #21
+  %36 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.43, i64 noundef 2) #21
   %.not15 = icmp eq i32 %36, 0
   br i1 %.not15, label %37, label %40
 
@@ -3397,7 +3397,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 40:                                               ; preds = %35
-  %41 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.44, i64 noundef 3) #21
+  %41 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.44, i64 noundef 3) #21
   %.not16 = icmp eq i32 %41, 0
   br i1 %.not16, label %42, label %45
 

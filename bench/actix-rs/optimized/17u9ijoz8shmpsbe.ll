@@ -532,7 +532,7 @@ _ZN15actix_multipart6server5Field4name17ha37906a15c663d59E.exit: ; preds = %.noe
   %52 = extractvalue { i64, ptr } %48, 1
   %53 = icmp ne ptr %52, null
   tail call void @llvm.assume(i1 %53)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %42, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %42, i64 %47, i1 false)
   store i64 %51, ptr %50, align 8, !alias.scope !86, !noalias !89
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 280
   store ptr %52, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !86, !noalias !89
@@ -1246,7 +1246,7 @@ common.ret:                                       ; preds = %324, %277, %199, %1
   %304 = extractvalue { i64, ptr } %302, 1
   %305 = icmp ne ptr %304, null
   call void @llvm.assume(i1 %305)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %304, ptr nonnull align 1 %298, i64 %299, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %304, ptr nonnull readonly align 1 %298, i64 %299, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit": ; preds = %.noexc104, %297

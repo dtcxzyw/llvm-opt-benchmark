@@ -1834,14 +1834,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %if.end292, %_ZNKS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hola) #21
   %83 = getelementptr inbounds i8, ptr %str1, i64 16
   store ptr %83, ptr %str1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %83, ptr noundef nonnull align 1 dereferenceable(15) @.str.98, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %83, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.98, i64 15, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %str1, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %str1, i64 31
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %84 = getelementptr inbounds i8, ptr %str2, i64 16
   store ptr %84, ptr %str2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %84, ptr noundef nonnull align 1 dereferenceable(9) @.str.99, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %84, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.99, i64 9, i1 false)
   %_M_string_length.i.i.i.i318 = getelementptr inbounds i8, ptr %str2, i64 8
   store i64 9, ptr %_M_string_length.i.i.i.i318, align 8
   %arrayidx.i.i.i319 = getelementptr inbounds i8, ptr %str2, i64 25

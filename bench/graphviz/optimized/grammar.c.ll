@@ -418,7 +418,7 @@ startgraph.exit:                                  ; preds = %123, %127
   %.014.us.i.i = phi ptr [ %.0.us.i.i, %179 ], [ %.012.i.i, %160 ]
   %163 = getelementptr inbounds i8, ptr %.014.us.i.i, i64 8
   %164 = load ptr, ptr %163, align 8
-  %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @Key) #16
+  %165 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @Key) #16
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %179, label %167
 
@@ -466,7 +466,7 @@ bindattrs.exit.i:                                 ; preds = %179
 183:                                              ; preds = %.lr.ph.i226
   %184 = getelementptr inbounds i8, ptr %.02649.i, i64 8
   %185 = load ptr, ptr %184, align 8
-  %186 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @Key) #16
+  %186 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @Key) #16
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %191
 
@@ -1496,7 +1496,7 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
   %.014.us.i = phi ptr [ %.0.us.i, %40 ], [ %.012.i34, %.thread ]
   %24 = getelementptr inbounds i8, ptr %.014.us.i, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @Key) #16
+  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @Key) #16
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %40, label %28
 

@@ -3947,7 +3947,7 @@ for.body.i:                                       ; preds = %for.end, %for.cond.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %for.end ]
   %arrayidx.i = getelementptr inbounds [9 x ptr], ptr @preMonitorCfgName, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %call.i15 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef %11) #32
+  %call.i15 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef readonly %11) #32
   %tobool.not.i = icmp eq i32 %call.i15, 0
   br i1 %tobool.not.i, label %if.then21, label %for.cond.i
 

@@ -3168,7 +3168,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %not.i = xor i32 %crc1, -1
-  %call.i.i = call noundef i32 @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm(i32 noundef %not.i, ptr noundef nonnull %zeros, i64 noundef %and), !callees !6
+  %call.i.i = call noundef i32 @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm(i32 noundef %not.i, ptr noundef nonnull readonly %zeros, i64 noundef %and), !callees !6
   %not.i1.i = xor i32 %call.i.i, -1
   br label %if.end
 

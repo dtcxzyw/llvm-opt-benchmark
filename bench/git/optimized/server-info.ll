@@ -188,7 +188,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then6.i.i.i, %fo
   %15 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %16 = load ptr, ptr %15, align 8
   %call.i.i.i.i.i = call ptr @pack_basename(ptr noundef %16) #13
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %arg.1.i.i.i) #15
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %arg.1.i.i.i) #15
   %tobool.not.i.i.i.i.i = icmp eq i32 %call2.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %find_pack_by_name.exit.i.i.i.i, label %for.cond.i.i.i.i.i
 

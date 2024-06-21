@@ -791,7 +791,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE(ptr 
   %5 = load i64, ptr %4, align 8, !alias.scope !136, !noundef !9
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !139
-  %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull %3, ptr noundef nonnull %6), !noalias !146
+  %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %6), !noalias !146
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %8, 0
   %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
   br i1 %switch8.i.not.i.i, label %9, label %10
@@ -844,7 +844,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE(ptr 
   %.sroa.0.0.i.i.i = phi ptr [ %8, %6 ], [ %13, %11 ]
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %.sroa.5.0.i.i.i
   %16 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !155
-  %17 = tail call { i64, ptr } %16(i8 noundef 36, ptr noundef nonnull %.sroa.0.0.i.i.i, ptr noundef nonnull %15), !noalias !162
+  %17 = tail call { i64, ptr } %16(i8 noundef 36, ptr noundef nonnull readonly %.sroa.0.0.i.i.i, ptr noundef nonnull readonly %15), !noalias !162
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %17, 0
   %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
   br i1 %switch8.i.not.i.i, label %18, label %19
@@ -879,7 +879,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E(ptr 
   %6 = load i64, ptr %5, align 8, !alias.scope !163, !noundef !9
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !166
-  %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull %4, ptr noundef nonnull %7), !noalias !173
+  %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %7), !noalias !173
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %9, 0
   %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
   br i1 %switch8.i.not.i.i, label %10, label %11
@@ -930,7 +930,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E(ptr 
   %.sroa.0.0.i.i = phi ptr [ %7, %5 ], [ %12, %10 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i
   %15 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !179
-  %16 = tail call { i64, ptr } %15(i8 noundef 36, ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull %14), !noalias !186
+  %16 = tail call { i64, ptr } %15(i8 noundef 36, ptr noundef nonnull readonly %.sroa.0.0.i.i, ptr noundef nonnull readonly %14), !noalias !186
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %16, 0
   %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
   br i1 %switch8.i.not.i.i, label %17, label %18
@@ -967,7 +967,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E(ptr 
   %7 = load i64, ptr %6, align 8, !alias.scope !190, !noalias !187, !noundef !9
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !193
-  %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %8), !noalias !200
+  %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %8), !noalias !200
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %10, 0
   %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
   br i1 %switch8.i.not.i.i, label %11, label %12
@@ -1022,7 +1022,7 @@ define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..strin
   %7 = load i64, ptr %6, align 8, !alias.scope !217, !noalias !220, !noundef !9
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !221
-  %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %8), !noalias !228
+  %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %8), !noalias !228
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %10, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
   br i1 %switch8.i.not.i.i.i, label %11, label %12
@@ -1074,7 +1074,7 @@ define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..R
   %6 = load i64, ptr %5, align 8, !alias.scope !241, !noalias !236, !noundef !9
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !244
-  %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull %4, ptr noundef nonnull %7), !noalias !251
+  %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %7), !noalias !251
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %9, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
   br i1 %switch8.i.not.i.i.i, label %10, label %11

@@ -1362,7 +1362,7 @@ mbedtls_sha256_starts.exit:                       ; preds = %17, %.backedge
 36:                                               ; preds = %35
   %37 = zext nneg i32 %27 to i64
   %38 = getelementptr inbounds i8, ptr %14, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %29, i1 false)
   %39 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef nonnull %14)
   %40 = getelementptr inbounds i8, ptr %4, i64 %29
   %41 = sub nuw nsw i64 1000, %29

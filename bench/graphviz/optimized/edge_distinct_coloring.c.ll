@@ -229,12 +229,12 @@ gv_calloc.exit221.i:                              ; preds = %gv_calloc.exit.i
   br i1 %.not.i, label %.critedge.thread.i, label %106
 
 106:                                              ; preds = %gv_calloc.exit221.i
-  %107 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.3) #18
+  %107 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.3) #18
   %.not205.i = icmp eq ptr %107, null
   br i1 %.not205.i, label %.lr.ph.split.us.split.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %106
-  %108 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.4) #18
+  %108 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.4) #18
   %.not206.i = icmp eq ptr %108, null
   %109 = getelementptr inbounds i8, ptr %108, i64 2
   %spec.select.i = select i1 %.not206.i, ptr %93, ptr %109
@@ -487,7 +487,7 @@ gv_recalloc.exit111:                              ; preds = %220, %218, %211, %.
   br i1 %.not211.i, label %.critedge3.thread.i, label %226
 
 226:                                              ; preds = %.critedge.thread.i
-  %227 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.3) #18
+  %227 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.3) #18
   %.not212.i = icmp ne ptr %227, null
   br i1 %.not212.i, label %228, label %230
 
@@ -496,7 +496,7 @@ gv_recalloc.exit111:                              ; preds = %220, %218, %211, %.
   br label %.lr.ph291.preheader.i
 
 230:                                              ; preds = %226
-  %231 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.4) #18
+  %231 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.4) #18
   %.not213.i = icmp eq ptr %231, null
   %232 = getelementptr inbounds i8, ptr %231, i64 2
   %spec.select220.i = select i1 %.not213.i, ptr %95, ptr %232

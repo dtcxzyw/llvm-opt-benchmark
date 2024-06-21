@@ -5050,7 +5050,7 @@ _ZN5uu_dd11read_helper12perform_swab17hba8c97738742d3dfE.exit.i: ; preds = %354,
   %377 = extractvalue { i64, ptr } %375, 1
   %378 = icmp ne ptr %377, null
   call void @llvm.assume(i1 %378)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %377, ptr nonnull align 1 %373, i64 %374, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %377, ptr nonnull readonly align 1 %373, i64 %374, i1 false)
   store i64 %376, ptr %14, align 8, !alias.scope !625, !noalias !628
   store ptr %377, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !625, !noalias !628
   store i64 %374, ptr %.sroa.6.0..sroa_idx.i.i46.i, align 8, !alias.scope !625, !noalias !628

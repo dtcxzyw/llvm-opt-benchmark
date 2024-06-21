@@ -9380,7 +9380,7 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
   br i1 %tobool.not.i.i, label %invoke.cont288.thread, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then3.i.i, %if.else.i.i
-  %call7.i.i361 = invoke noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %c.0.i)
+  %call7.i.i361 = invoke noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %c.0.i)
           to label %invoke.cont288 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 invoke.cont288.thread:                            ; preds = %land.lhs.true287, %do.end.i356, %if.then3.i.i

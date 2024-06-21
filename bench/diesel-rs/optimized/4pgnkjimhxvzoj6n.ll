@@ -290,7 +290,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %18 = load i64, ptr %13, align 8, !alias.scope !85, !noalias !90, !noundef !9
   %19 = load ptr, ptr %12, align 8, !alias.scope !85, !noalias !90, !nonnull !9, !noundef !9
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %15, i64 %17, i1 false), !noalias !92
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %15, i64 %17, i1 false), !noalias !92
   %21 = load i64, ptr %13, align 8, !alias.scope !85, !noalias !90, !noundef !9
   %22 = add i64 %21, %17
   store i64 %22, ptr %13, align 8, !alias.scope !85, !noalias !90

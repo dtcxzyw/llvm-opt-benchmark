@@ -517,7 +517,7 @@ _ZN3ue2L11buildLbrDotERKNS_9CharReachERKNS_5depthES5_jbj.exit.i: ; preds = %if.t
 if.then.i:                                        ; preds = %_ZN3ue2L11buildLbrDotERKNS_9CharReachERKNS_5depthES5_jbj.exit.i, %_ZN3ue2L11buildLbrDotERKNS_9CharReachERKNS_5depthES5_jbj.exit.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %escapes.i.i), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !32
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i
@@ -648,7 +648,7 @@ if.end.i:                                         ; preds = %if.then.i.i41.i, %_
 if.then6.i:                                       ; preds = %if.end.i
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %escapes.i43.i), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i43.i, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i43.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !40
   %57 = load <4 x i64>, ptr %escapes.i43.i, align 8, !noalias !40
   %58 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %57)
   %59 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %58)
@@ -1068,7 +1068,7 @@ if.then.i.i.i2.i.i.i168.i:                        ; preds = %_ZNSt6vectorImSaImE
 
 invoke.cont.i169.i:                               ; preds = %if.then.i.i.i2.i.i.i168.i, %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i166.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %rsi.i.i85.i), !noalias !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !44
   br label %for.body.i.i.i.i170.i
 
 for.body.i.i.i.i170.i:                            ; preds = %for.body.i.i.i.i170.i, %invoke.cont.i169.i
@@ -1468,7 +1468,7 @@ if.then.i.i.i2.i.i.i336.i:                        ; preds = %_ZNSt6vectorImSaImE
 
 invoke.cont.i337.i:                               ; preds = %if.then.i.i.i2.i.i.i336.i, %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i334.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %rsi.i.i239.i), !noalias !57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i240.i, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i240.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second, i64 32, i1 false), !noalias !57
   br label %for.body.i.i.i.i338.i
 
 for.body.i.i.i.i338.i:                            ; preds = %for.body.i.i.i.i338.i, %invoke.cont.i337.i

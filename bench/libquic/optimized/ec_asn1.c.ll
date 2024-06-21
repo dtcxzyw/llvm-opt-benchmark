@@ -418,7 +418,7 @@ for.body:                                         ; preds = %parse_explicit_prim
   %data10 = getelementptr inbounds i8, ptr %4, i64 10
   %conv11 = zext i8 %5 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i, ptr noundef nonnull align 8 dereferenceable(16) %prime, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %prime, i64 16, i1 false)
   %call5.i22 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i) #7
   %cmp.not6.i = icmp eq i64 %call5.i22, 0
   br i1 %cmp.not6.i, label %while.end.i, label %land.rhs.i
@@ -467,7 +467,7 @@ integers_equal.exit:                              ; preds = %land.rhs8.i, %while
 land.lhs.true:                                    ; preds = %integers_equal.exit
   %add.ptr = getelementptr inbounds i8, ptr %data10, i64 %conv11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i25)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i25, ptr noundef nonnull align 8 dereferenceable(16) %a, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i25, ptr noundef nonnull readonly align 8 dereferenceable(16) %a, i64 16, i1 false)
   %call5.i26 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i25) #7
   %cmp.not6.i27 = icmp eq i64 %call5.i26, 0
   br i1 %cmp.not6.i27, label %while.end.i31, label %land.rhs.i28
@@ -517,7 +517,7 @@ land.lhs.true20:                                  ; preds = %integers_equal.exit
   %idx.ext24 = zext nneg i32 %mul to i64
   %add.ptr25 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i51)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i51, ptr noundef nonnull align 8 dereferenceable(16) %b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i51, ptr noundef nonnull readonly align 8 dereferenceable(16) %b, i64 16, i1 false)
   %call5.i52 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i51) #7
   %cmp.not6.i53 = icmp eq i64 %call5.i52, 0
   br i1 %cmp.not6.i53, label %while.end.i57, label %land.rhs.i54
@@ -567,7 +567,7 @@ land.lhs.true29:                                  ; preds = %integers_equal.exit
   %idx.ext34 = zext nneg i32 %mul33 to i64
   %add.ptr35 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i77)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i77, ptr noundef nonnull align 8 dereferenceable(16) %base_x, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i77, ptr noundef nonnull readonly align 8 dereferenceable(16) %base_x, i64 16, i1 false)
   %call5.i78 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i77) #7
   %cmp.not6.i79 = icmp eq i64 %call5.i78, 0
   br i1 %cmp.not6.i79, label %while.end.i83, label %land.rhs.i80
@@ -617,7 +617,7 @@ land.lhs.true39:                                  ; preds = %integers_equal.exit
   %idx.ext44 = zext nneg i32 %mul43 to i64
   %add.ptr45 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i103)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i103, ptr noundef nonnull align 8 dereferenceable(16) %base_y, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i103, ptr noundef nonnull readonly align 8 dereferenceable(16) %base_y, i64 16, i1 false)
   %call5.i104 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i103) #7
   %cmp.not6.i105 = icmp eq i64 %call5.i104, 0
   br i1 %cmp.not6.i105, label %while.end.i109, label %land.rhs.i106
@@ -667,7 +667,7 @@ land.lhs.true49:                                  ; preds = %integers_equal.exit
   %idx.ext54 = zext nneg i32 %mul53 to i64
   %add.ptr55 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i129)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i129, ptr noundef nonnull align 8 dereferenceable(16) %order, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i129, ptr noundef nonnull readonly align 8 dereferenceable(16) %order, i64 16, i1 false)
   %call5.i130 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i129) #7
   %cmp.not6.i131 = icmp eq i64 %call5.i130, 0
   br i1 %cmp.not6.i131, label %while.end.i135, label %land.rhs.i132

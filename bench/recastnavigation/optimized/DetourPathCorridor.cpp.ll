@@ -1331,7 +1331,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   %67 = getelementptr inbounds i32, ptr %6, i64 %66
   %68 = sext i32 %57 to i64
   %69 = shl nsw i64 %68, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 4 %67, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull readonly align 4 %67, i64 %69, i1 false)
   br label %_Z23dtMergeCorridorEndMovedPjiiPKji.exit
 
 _Z23dtMergeCorridorEndMovedPjiiPKji.exit:         ; preds = %30, %._crit_edge58.i, %62, %63

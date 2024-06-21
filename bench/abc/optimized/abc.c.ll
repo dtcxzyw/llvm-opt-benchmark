@@ -78489,10 +78489,10 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %39
   br label %.loopexit
 
 Abc_UtilStrsav.exit:                              ; preds = %39
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #31
+  %44 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %42) #31
   %45 = add i64 %44, 1
   %46 = tail call noalias ptr @malloc(i64 noundef %45) #29
-  %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %42) #28
+  %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %42) #28
   %48 = add nsw i32 %37, 1
   store i32 %48, ptr @globalUtilOptind, align 4
   %49 = icmp eq ptr %46, null
@@ -82240,10 +82240,10 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %67
   br label %77
 
 Abc_UtilStrsav.exit:                              ; preds = %67
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #31
+  %71 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %70) #31
   %72 = add i64 %71, 1
   %73 = tail call noalias ptr @malloc(i64 noundef %72) #29
-  %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %70) #28
+  %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %70) #28
   tail call void @Gia_ManStochSyn(i32 noundef %.048.ph, i32 noundef %.045.ph227, i32 noundef %.042.ph233, i32 noundef %.039.ph238, i32 noundef %.0, ptr noundef %73, i32 noundef %.037.ph242) #28
   %.not70 = icmp eq ptr %73, null
   br i1 %.not70, label %77, label %75

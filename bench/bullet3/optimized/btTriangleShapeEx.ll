@@ -870,7 +870,7 @@ for.body23.i:                                     ; preds = %for.body23.i, %for.
   %idxprom26.i = sext i32 %18 to i64
   %arrayidx27.i = getelementptr inbounds %class.btVector3, ptr %clipped_points, i64 %idxprom26.i
   %arrayidx29.i = getelementptr inbounds [16 x %class.btVector3], ptr %m_points.i, i64 0, i64 %indvars.iv18.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx27.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx27.i, i64 16, i1 false)
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count21.i
   br i1 %exitcond22.not.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit, label %for.body23.i, !llvm.loop !7
@@ -988,7 +988,7 @@ for.body23.i46:                                   ; preds = %for.body23.i46, %fo
   %idxprom26.i49 = sext i32 %36 to i64
   %arrayidx27.i50 = getelementptr inbounds %class.btVector3, ptr %clipped_points, i64 %idxprom26.i49
   %arrayidx29.i51 = getelementptr inbounds [16 x %class.btVector3], ptr %m_points.i44, i64 0, i64 %indvars.iv18.i47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i51, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx27.i50, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i51, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx27.i50, i64 16, i1 false)
   %indvars.iv.next19.i52 = add nuw nsw i64 %indvars.iv18.i47, 1
   %exitcond22.not.i53 = icmp eq i64 %indvars.iv.next19.i52, %wide.trip.count21.i45
   br i1 %exitcond22.not.i53, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55, label %for.body23.i46, !llvm.loop !7

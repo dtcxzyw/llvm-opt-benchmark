@@ -1926,7 +1926,7 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
 if.then3.i:                                       ; preds = %vhost_vdpa_host_notifier_uninit.exit.i.i, %if.then7.i.i
   %14 = load i32, ptr %vq_index.i, align 4
   %sub.i = sub i32 %i.021.i, %14
-  tail call fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef nonnull %dev, i32 noundef %sub.i)
+  tail call fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef nonnull readonly %dev, i32 noundef %sub.i)
   br label %for.end.i
 
 for.inc.i:                                        ; preds = %if.end.i.i

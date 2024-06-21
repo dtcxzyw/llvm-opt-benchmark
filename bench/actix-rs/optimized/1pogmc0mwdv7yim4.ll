@@ -26,7 +26,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %8, ptr %4, align 8, !noalias !4
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %9, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !4
@@ -539,7 +539,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef4join28_$u7b$$u7b$cl
   %24 = phi ptr [ %15, %3 ], [ %.pre, %.noexc3 ]
   %25 = phi i64 [ 0, %3 ], [ %.pre.i.i, %.noexc3 ]
   %26 = getelementptr inbounds i8, ptr %24, i64 %25
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %5, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %5, i64 %7, i1 false)
   %27 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !111, !noalias !116, !noundef !14
   %28 = add i64 %27, %7
   store i64 %28, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !111, !noalias !116
@@ -566,7 +566,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef4join28_$u7b$$u7b$cl
   %37 = phi i64 [ %28, %23 ], [ %.pre.i.i4, %.noexc6 ]
   %38 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !127, !noalias !125, !nonnull !14, !noundef !14
   %39 = getelementptr inbounds i8, ptr %38, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %9, i64 %11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
   %40 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !127, !noalias !125, !noundef !14
   %41 = add i64 %40, %11
   store i64 %41, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !127, !noalias !125
@@ -1297,7 +1297,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17hbeedcd55
   %11 = extractvalue { i64, ptr } %9, 1
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %10, ptr %13, align 8, !alias.scope !209, !noalias !210
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 16
@@ -1358,7 +1358,7 @@ define hidden { ptr, i64 } @"_ZN12actix_router8resource11ResourceDef5parse28_$u7
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %8, ptr %4, align 8, !noalias !211
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %9, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !211

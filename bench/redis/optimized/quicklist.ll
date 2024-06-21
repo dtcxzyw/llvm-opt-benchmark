@@ -924,7 +924,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, i8 0, i64 16, i1 false)
   %call1.i.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i, ptr %entry1.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i, align 8
   %bf.set9.i.i = or disjoint i32 %bf.clear3.i.i.i, 327681
   store i32 %bf.set9.i.i, ptr %count.i.i.i, align 8
@@ -1061,7 +1061,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, i8 0, i64 16, i1 false)
   %call1.i.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i, ptr %entry1.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i, align 8
   %bf.set9.i.i = or disjoint i32 %bf.clear3.i.i.i, 327681
   store i32 %bf.set9.i.i, ptr %count.i.i.i, align 8
@@ -1642,7 +1642,7 @@ if.else84:                                        ; preds = %if.then50
   br label %do.body176
 
 if.else88:                                        ; preds = %if.then47
-  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
+  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull readonly %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
   %21 = load ptr, ptr %node, align 8
   tail call void @__quicklistDelNode(ptr noundef %0, ptr noundef %21)
   br label %do.body176
@@ -1650,7 +1650,7 @@ if.else88:                                        ; preds = %if.then47
 if.else91:                                        ; preds = %if.else39
   %bf.set = or i32 %bf.load, 4194304
   store i32 %bf.set, ptr %container, align 8
-  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
+  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull readonly %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
   %22 = load ptr, ptr %node, align 8
   %count = getelementptr inbounds i8, ptr %22, i64 32
   %bf.load96 = load i32, ptr %count, align 8
@@ -2435,7 +2435,7 @@ if.then7:                                         ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, i8 0, i64 16, i1 false)
   %call1.i.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i, ptr %entry1.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i, align 8
   %bf.set9.i.i = or disjoint i32 %bf.clear3.i.i.i, 327681
   store i32 %bf.set9.i.i, ptr %count.i.i.i, align 8
@@ -2692,7 +2692,7 @@ if.then77:                                        ; preds = %if.then64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i276, i8 0, i64 16, i1 false)
   %call1.i.i282 = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i282, ptr %entry1.i.i.i277, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i282, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i282, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i280, align 8
   %bf.set9.i.i283 = or disjoint i32 %bf.clear3.i.i.i281, 327681
   store i32 %bf.set9.i.i283, ptr %count.i.i.i278, align 8
@@ -2756,7 +2756,7 @@ do.end:                                           ; preds = %land.lhs.true79, %_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i, i8 0, i64 16, i1 false)
   %call1.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i, ptr %entry1.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i, align 8
   %bf.set9.i = or disjoint i32 %bf.clear3.i.i, 327681
   store i32 %bf.set9.i, ptr %count.i.i, align 8
@@ -4508,7 +4508,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %indvars.iv.i
   %name1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #26
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then1, label %for.cond.i
 
@@ -4608,7 +4608,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %indvars.iv.i
   %name1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %name) #26
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 
@@ -4646,7 +4646,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %indvars.iv.i
   %name1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %name) #26
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 

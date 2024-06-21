@@ -32820,7 +32820,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBa
 
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_117AntMetaDataRecordES3_S3_EET1_T_T0_S4_.exit.i: ; preds = %for.body.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i
   %retval.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ], [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ]
-  tail call fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value)
+  tail call fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %value)
   %10 = load ptr, ptr %this, align 8
   %11 = load ptr, ptr %mpEnd, align 8
   %cmp.not3.i.i.i = icmp eq ptr %10, %11

@@ -1654,7 +1654,7 @@ while.body:                                       ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
-  call void @hashTypeCurrentObject(ptr noundef nonnull %call.i, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  call void @hashTypeCurrentObject(ptr noundef nonnull readonly %call.i, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %6 = load ptr, ptr %vstr.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i24
@@ -1678,7 +1678,7 @@ hashTypeCurrentObjectNewSds.exit:                 ; preds = %if.then.i24, %if.en
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i28)
-  call void @hashTypeCurrentObject(ptr noundef nonnull %call.i, i32 noundef 2, ptr noundef nonnull %vstr.i26, ptr noundef nonnull %vlen.i27, ptr noundef nonnull %vll.i28)
+  call void @hashTypeCurrentObject(ptr noundef nonnull readonly %call.i, i32 noundef 2, ptr noundef nonnull %vstr.i26, ptr noundef nonnull %vlen.i27, ptr noundef nonnull %vll.i28)
   %9 = load ptr, ptr %vstr.i26, align 8
   %tobool.not.i29 = icmp eq ptr %9, null
   br i1 %tobool.not.i29, label %if.end.i34, label %if.then.i30
@@ -2116,7 +2116,7 @@ if.end:                                           ; preds = %if.end.i, %hashType
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i15 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i22, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  %call.i15 = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %retval.0.i22, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp.i16.not = icmp eq i32 %call.i15, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vlen.i)
@@ -2611,7 +2611,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   store ptr null, ptr %vstr.i, align 8
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %6, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else5.i
 
@@ -2705,7 +2705,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ad
   store ptr null, ptr %vstr.i, align 8
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %8, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %8, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else5.i
 
@@ -2979,7 +2979,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store ptr null, ptr %vstr.i, align 8
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %hashTypeGetValueLength.exit
 
@@ -3357,7 +3357,7 @@ if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
   store i32 -1, ptr %vlen.i, align 4
   store i64 9223372036854775807, ptr %vll.i, align 8
-  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  %call.i = call i32 @hashTypeGetValue(ptr noundef nonnull readonly %call, ptr noundef %5, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %cmp.i.not = icmp eq i32 %call.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vlen.i)
@@ -3864,7 +3864,7 @@ while.body149:                                    ; preds = %while.cond145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i)
-  call void @hashTypeCurrentObject(ptr noundef %call144, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
+  call void @hashTypeCurrentObject(ptr noundef readonly %call144, i32 noundef 1, ptr noundef nonnull %vstr.i, ptr noundef nonnull %vlen.i, ptr noundef nonnull %vll.i)
   %36 = load ptr, ptr %vstr.i, align 8
   %tobool.not.i = icmp eq ptr %36, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i175
@@ -3891,7 +3891,7 @@ if.then154:                                       ; preds = %hashTypeCurrentObje
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vstr.i179)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vlen.i180)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vll.i181)
-  call void @hashTypeCurrentObject(ptr noundef %call144, i32 noundef 2, ptr noundef nonnull %vstr.i179, ptr noundef nonnull %vlen.i180, ptr noundef nonnull %vll.i181)
+  call void @hashTypeCurrentObject(ptr noundef readonly %call144, i32 noundef 2, ptr noundef nonnull %vstr.i179, ptr noundef nonnull %vlen.i180, ptr noundef nonnull %vll.i181)
   %39 = load ptr, ptr %vstr.i179, align 8
   %tobool.not.i182 = icmp eq ptr %39, null
   br i1 %tobool.not.i182, label %if.end.i187, label %if.then.i183

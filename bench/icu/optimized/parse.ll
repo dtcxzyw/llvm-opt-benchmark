@@ -5460,7 +5460,7 @@ while.body.i:                                     ; preds = %if.end6.i, %while.b
   %48 = load i32, ptr %fKey.i, align 4
   %idx.ext.i = sext i32 %48 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %47, i64 %idx.ext.i
-  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @.str.39) #22
+  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(11) @.str.39) #22
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then120, label %if.end6.i
 
@@ -5503,7 +5503,7 @@ while.body.i64:                                   ; preds = %if.end6.i71, %while
   %52 = load i32, ptr %fKey.i66, align 4
   %idx.ext.i67 = sext i32 %52 to i64
   %add.ptr.i68 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i67
-  %call3.i69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i68, ptr noundef nonnull dereferenceable(1) %collationType) #22
+  %call3.i69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i68, ptr noundef nonnull readonly dereferenceable(1) %collationType) #22
   %cmp4.i70 = icmp eq i32 %call3.i69, 0
   br i1 %cmp4.i70, label %if.then124, label %if.end6.i71
 

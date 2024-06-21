@@ -4109,7 +4109,7 @@ define void @_ZN3nix18resolveDerivedPathB5cxx11ERNS_5StoreERKNS_16DerivedPathBui
   br label %_ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_.exit
 
 23:                                               ; preds = %4
-  call fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  call fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(48) %15)
   br label %_ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_.exit
 
 _ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_.exit: ; preds = %22, %23
@@ -4584,7 +4584,7 @@ define void @_ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0
   br label %"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN3nix9StorePathEEENS3_10overloadedIJZNS3_18resolveDerivedPathERNS3_5StoreERKNS3_17SingleDerivedPathEPS7_E3$_0ZNS3_18resolveDerivedPathES8_SB_SC_E3$_1EEEJRKSt7variantIJNS3_17DerivedPathOpaqueENS3_22SingleDerivedPathBuiltEEEEEDcOT0_DpOT1_.exit"
 
 14:                                               ; preds = %4
-  call fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  call fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN3nix9StorePathEEENS3_10overloadedIJZNS3_18resolveDerivedPathERNS3_5StoreERKNS3_17SingleDerivedPathEPS7_E3$_0ZNS3_18resolveDerivedPathES8_SB_SC_E3$_1EEEJRKSt7variantIJNS3_17DerivedPathOpaqueENS3_22SingleDerivedPathBuiltEEEEEDcOT0_DpOT1_.exit"
 
 "_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN3nix9StorePathEEENS3_10overloadedIJZNS3_18resolveDerivedPathERNS3_5StoreERKNS3_17SingleDerivedPathEPS7_E3$_0ZNS3_18resolveDerivedPathES8_SB_SC_E3$_1EEEJRKSt7variantIJNS3_17DerivedPathOpaqueENS3_22SingleDerivedPathBuiltEEEEEDcOT0_DpOT1_.exit": ; preds = %13, %14
@@ -5003,7 +5003,7 @@ define void @_ZN3nix18resolveDerivedPathB5cxx11ERNS_5StoreERKNS_16DerivedPathBui
   br label %_ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_.exit
 
 21:                                               ; preds = %3
-  call fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %14)
+  call fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %14)
   br label %_ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_.exit
 
 _ZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_.exit: ; preds = %20, %21
@@ -18167,7 +18167,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9Stor
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EERS8_bbbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
@@ -18529,7 +18529,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9Stor
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EERS8_bbbE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
@@ -20110,7 +20110,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9StorePat
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EERS8_bbbE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EERS8_bbbE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EERS8_bbbE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -20744,7 +20744,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EERS8_bbbENK3$_2clERKS4_St8functionIFvRSt7promiseIS8_EEEEUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation.exit"
 
@@ -22232,7 +22232,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN3nix3refINS0_17
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store12queryMissingERKSt6vectorINS1_11DerivedPathESaIS4_EERSt3setINS1_9StorePathESt4lessISA_ESaISA_EESF_SF_RmSG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
@@ -24583,7 +24583,7 @@ _ZZN3nix5Store12queryMissingERKSt6vectorINS_11DerivedPathESaIS2_EERSt3setINS_9St
   %.sroa.0138.0182.i.i.i.i.i.i.i.i.i = phi ptr [ %603, %.lr.ph183.i.i.i.i.i.i.i.i.i ], [ %697, %"_ZNSt5_BindIFZN3nix5Store12queryMissingERKSt6vectorINS0_11DerivedPathESaIS3_EERSt3setINS0_9StorePathESt4lessIS9_ESaIS9_EESE_SE_RmSF_E3$_1S9_NS0_3refINS0_10DerivationEEES9_NSH_INS0_4SyncIZNS1_12queryMissingES7_SE_SE_SE_SF_SF_E8DrvStateSt5mutexEEEEEED2Ev.exit.i.i.i.i.i.i.i.i.i" ]
   %617 = getelementptr inbounds i8, ptr %.sroa.0138.0182.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull readonly align 8 dereferenceable(32) %69, i64 32, i1 false)
   store ptr %557, ptr %605, align 8, !alias.scope !257
   store ptr %553, ptr %606, align 8, !alias.scope !257
   %618 = load i8, ptr @__libc_single_threaded, align 1, !noalias !257
@@ -25075,7 +25075,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN3nix11DerivedPa
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.val6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store12queryMissingERKSt6vectorINS1_11DerivedPathESaIS4_EERSt3setINS1_9StorePathESt4lessISA_ESaISA_EESF_SF_RmSG_E3$_2E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
@@ -34325,7 +34325,7 @@ _ZN3nix22SingleDerivedPathBuiltD2Ev.exit.i.i.i:   ; preds = %_ZNSt16_Sp_counted_
           to label %287 unwind label %.loopexit.i.i.i
 
 286:                                              ; preds = %_ZN3nix22SingleDerivedPathBuiltD2Ev.exit.i.i.i
-  invoke fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %21)
+  invoke fastcc void @"_ZZN3nix18resolveDerivedPathERNS_5StoreERKNS_17SingleDerivedPathEPS0_ENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %21)
           to label %287 unwind label %.loopexit.i.i.i
 
 287:                                              ; preds = %286, %285
@@ -34564,7 +34564,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9StorePat
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix19drvOutputReferencesERNS1_5StoreERKNS1_10DerivationERKNS1_9StorePathEPS2_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 

@@ -1769,7 +1769,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a2.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
-  %call.i5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %ipasc, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
+  %call.i5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %ipasc, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
   %cmp.not.i = icmp eq i32 %call.i5, 4
   br i1 %cmp.not.i, label %if.end.i7, label %11
 
@@ -2072,7 +2072,7 @@ while.end.thread:                                 ; preds = %while.cond, %while.
 
 8:                                                ; preds = %while.end, %while.end.thread
   %9 = phi i64 [ %a_len, %while.end.thread ], [ %dec, %while.end ]
-  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr %b, i64 %9)
+  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr readonly %b, i64 %9)
   %tobool.not.i20 = icmp eq i32 %bcmp.i, 0
   %lnot.ext.i = zext i1 %tobool.not.i20 to i32
   br label %return
@@ -2828,7 +2828,7 @@ if.end21:                                         ; preds = %if.end19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a2.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
-  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %elem, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
+  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %elem, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
   %cmp.not.i = icmp eq i32 %call.i, 4
   br i1 %cmp.not.i, label %if.end.i, label %ipv4_from_asc.exit.thread
 

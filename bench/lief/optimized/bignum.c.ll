@@ -4927,7 +4927,7 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
   store i64 1, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %8, ptr %164, align 8
-  call fastcc void @mpi_montmul(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %3, i64 noundef %77, ptr noundef nonnull %11)
+  call fastcc void @mpi_montmul(ptr noundef nonnull readonly %0, ptr noundef nonnull %9, ptr noundef nonnull readonly %3, i64 noundef %77, ptr noundef nonnull readonly %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br i1 %102, label %165, label %.loopexit
@@ -5104,7 +5104,7 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
   store i64 1, ptr %220, align 8
   %221 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %6, ptr %221, align 8
-  call fastcc void @mpi_montmul(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef %77, ptr noundef nonnull %11)
+  call fastcc void @mpi_montmul(ptr noundef readonly %0, ptr noundef nonnull %7, ptr noundef nonnull readonly %3, i64 noundef %77, ptr noundef nonnull readonly %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br i1 %128, label %222, label %mbedtls_mpi_grow.exit

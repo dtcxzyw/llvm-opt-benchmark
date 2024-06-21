@@ -910,7 +910,7 @@ define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %.not40.i, label %20, label %14
 
 14:                                               ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %11, i1 false)
   %15 = shl nuw nsw i64 %11, 3
   %16 = load i64, ptr %6, align 8
   %17 = add i64 %16, %15
@@ -921,7 +921,7 @@ define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br label %21
 
 20:                                               ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %.sink.split.i
 
 21:                                               ; preds = %14, %5

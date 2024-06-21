@@ -14647,7 +14647,7 @@ _ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %.not.i, label %1186, label %1183
 
 1183:                                             ; preds = %1180
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA43_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_31EEEvRSD_PT_DpOT0_"(ptr noundef %1181, ptr noundef nonnull align 4 dereferenceable(4) %200, ptr noundef nonnull align 8 dereferenceable(8) %201)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA43_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_31EEEvRSD_PT_DpOT0_"(ptr noundef %1181, ptr noundef nonnull readonly align 4 dereferenceable(4) %200, ptr noundef nonnull readonly align 8 dereferenceable(8) %201)
           to label %.noexc1107 unwind label %1609
 
 .noexc1107:                                       ; preds = %1183
@@ -14683,7 +14683,7 @@ _ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_tr
 _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i: ; preds = %1197, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i
   %1200 = phi ptr [ null, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i ], [ %1199, %1197 ]
   %1201 = getelementptr inbounds %struct.cmCommandLineArgument, ptr %1200, i64 %1192
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA43_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_31EEEvRSD_PT_DpOT0_"(ptr noundef %1201, ptr noundef nonnull align 4 dereferenceable(4) %200, ptr noundef nonnull align 8 dereferenceable(8) %201)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA43_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_31EEEvRSD_PT_DpOT0_"(ptr noundef %1201, ptr noundef nonnull readonly align 4 dereferenceable(4) %200, ptr noundef nonnull readonly align 8 dereferenceable(8) %201)
           to label %1202 unwind label %1206
 
 1202:                                             ; preds = %_ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i
@@ -14748,7 +14748,7 @@ _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11c
   br i1 %.not.i1112, label %1223, label %1220
 
 1220:                                             ; preds = %"_ZNSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12emplace_backIJRA19_KcRA43_SG_NSC_6ValuesEZNS9_7SetArgsERKS_IS6_SaIS6_EEE4$_31EEERSC_DpOT_.exit"
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA41_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_32EEEvRSD_PT_DpOT0_"(ptr noundef nonnull %1219, ptr noundef nonnull align 4 dereferenceable(4) %202, ptr noundef nonnull align 8 dereferenceable(8) %203)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA41_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_32EEEvRSD_PT_DpOT0_"(ptr noundef nonnull %1219, ptr noundef nonnull readonly align 4 dereferenceable(4) %202, ptr noundef nonnull readonly align 8 dereferenceable(8) %203)
           to label %.noexc1121 unwind label %1609
 
 .noexc1121:                                       ; preds = %1220
@@ -14784,7 +14784,7 @@ _ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_tr
 _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i1116: ; preds = %1234, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i1113
   %1237 = phi ptr [ null, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i1113 ], [ %1236, %1234 ]
   %1238 = getelementptr inbounds %struct.cmCommandLineArgument, ptr %1237, i64 %1229
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA41_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_32EEEvRSD_PT_DpOT0_"(ptr noundef %1238, ptr noundef nonnull align 4 dereferenceable(4) %202, ptr noundef nonnull align 8 dereferenceable(8) %203)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA19_KcRA41_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_32EEEvRSD_PT_DpOT0_"(ptr noundef %1238, ptr noundef nonnull readonly align 4 dereferenceable(4) %202, ptr noundef nonnull readonly align 8 dereferenceable(8) %203)
           to label %1239 unwind label %1243
 
 1239:                                             ; preds = %_ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i1116
@@ -14849,7 +14849,7 @@ _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11c
   br i1 %.not.i1126, label %1260, label %1257
 
 1257:                                             ; preds = %"_ZNSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12emplace_backIJRA19_KcRA41_SG_NSC_6ValuesEZNS9_7SetArgsERKS_IS6_SaIS6_EEE4$_32EEERSC_DpOT_.exit"
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA9_KcRA33_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_33EEEvRSD_PT_DpOT0_"(ptr noundef nonnull %1256, ptr noundef nonnull align 4 dereferenceable(4) %204, ptr noundef nonnull align 8 dereferenceable(8) %205)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA9_KcRA33_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_33EEEvRSD_PT_DpOT0_"(ptr noundef nonnull %1256, ptr noundef nonnull readonly align 4 dereferenceable(4) %204, ptr noundef nonnull readonly align 8 dereferenceable(8) %205)
           to label %.noexc1135 unwind label %1609
 
 .noexc1135:                                       ; preds = %1257
@@ -14885,7 +14885,7 @@ _ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_tr
 _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i1130: ; preds = %1271, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i1127
   %1274 = phi ptr [ null, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i1127 ], [ %1273, %1271 ]
   %1275 = getelementptr inbounds %struct.cmCommandLineArgument, ptr %1274, i64 %1266
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA9_KcRA33_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_33EEEvRSD_PT_DpOT0_"(ptr noundef %1275, ptr noundef nonnull align 4 dereferenceable(4) %204, ptr noundef nonnull align 8 dereferenceable(8) %205)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA9_KcRA33_SG_NSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_33EEEvRSD_PT_DpOT0_"(ptr noundef %1275, ptr noundef nonnull readonly align 4 dereferenceable(4) %204, ptr noundef nonnull readonly align 8 dereferenceable(8) %205)
           to label %1276 unwind label %1280
 
 1276:                                             ; preds = %_ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i1130
@@ -14950,7 +14950,7 @@ _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11c
   br i1 %.not.i1140, label %1297, label %1294
 
 1294:                                             ; preds = %"_ZNSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12emplace_backIJRA9_KcRA33_SG_NSC_6ValuesEZNS9_7SetArgsERKS_IS6_SaIS6_EEE4$_33EEERSC_DpOT_.exit"
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA15_KcNSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_34EEEvRSD_PT_DpOT0_"(ptr noundef nonnull %1293, ptr noundef nonnull align 4 dereferenceable(4) %206, ptr noundef nonnull align 8 dereferenceable(8) %207)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA15_KcNSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_34EEEvRSD_PT_DpOT0_"(ptr noundef nonnull %1293, ptr noundef nonnull readonly align 4 dereferenceable(4) %206, ptr noundef nonnull readonly align 8 dereferenceable(8) %207)
           to label %.noexc1147 unwind label %1609
 
 .noexc1147:                                       ; preds = %1294
@@ -14992,7 +14992,7 @@ _ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_tr
 _ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i1144: ; preds = %1308, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i1141
   %1311 = phi ptr [ null, %_ZNKSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE12_M_check_lenEmPKc.exit.i.i1141 ], [ %1310, %1308 ]
   %1312 = getelementptr inbounds %struct.cmCommandLineArgument, ptr %1311, i64 %1303
-  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA15_KcNSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_34EEEvRSD_PT_DpOT0_"(ptr noundef %1312, ptr noundef nonnull align 4 dereferenceable(4) %206, ptr noundef nonnull align 8 dereferenceable(8) %207)
+  invoke fastcc void @"_ZNSt16allocator_traitsISaI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEEEE9constructISC_JRA15_KcNSC_6ValuesEZNS9_7SetArgsERKSt6vectorIS6_SaIS6_EEE4$_34EEEvRSD_PT_DpOT0_"(ptr noundef %1312, ptr noundef nonnull readonly align 4 dereferenceable(4) %206, ptr noundef nonnull readonly align 8 dereferenceable(8) %207)
           to label %1313 unwind label %1317
 
 1313:                                             ; preds = %_ZNSt12_Vector_baseI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeEESaISC_EE11_M_allocateEm.exit.i.i1144
@@ -20071,7 +20071,7 @@ define dso_local noundef i32 @_ZN5cmake16StringToLogLevelESt17basic_string_viewI
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %17 = extractvalue { i64, ptr } %14, 1
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.408, ptr noundef nonnull dereferenceable(5) %17, i64 5)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.408, ptr noundef nonnull dereferenceable(5) %17, i64 5)
   %18 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %18, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit", label %19
 
@@ -20083,7 +20083,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47.i.i.i: ; preds = %19
   %23 = extractvalue { i64, ptr } %20, 1
-  %bcmp.i.i.i48.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.409, ptr noundef nonnull dereferenceable(7) %23, i64 7)
+  %bcmp.i.i.i48.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.409, ptr noundef nonnull dereferenceable(7) %23, i64 7)
   %24 = icmp eq i32 %bcmp.i.i.i48.i.i.i, 0
   br i1 %24, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit", label %25
 
@@ -20095,7 +20095,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47.i.i.i: ; preds = %19
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i: ; preds = %25
   %29 = extractvalue { i64, ptr } %26, 1
-  %bcmp.i.i.i52.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.410, ptr noundef nonnull dereferenceable(6) %29, i64 6)
+  %bcmp.i.i.i52.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.410, ptr noundef nonnull dereferenceable(6) %29, i64 6)
   %30 = icmp eq i32 %bcmp.i.i.i52.i.i.i, 0
   br i1 %30, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit", label %31
 
@@ -20107,7 +20107,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i: ; preds = %25
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i: ; preds = %31
   %35 = extractvalue { i64, ptr } %32, 1
-  %bcmp.i.i.i56.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.411, ptr noundef nonnull dereferenceable(6) %35, i64 6)
+  %bcmp.i.i.i56.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.411, ptr noundef nonnull dereferenceable(6) %35, i64 6)
   %36 = icmp eq i32 %bcmp.i.i.i56.i.i.i, 0
   br i1 %36, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit", label %._crit_edge.loopexit.i.i.i
 
@@ -20119,7 +20119,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i: ; preds = %31
 
 40:                                               ; preds = %._crit_edge.loopexit.i.i.i
   %41 = extractvalue { i64, ptr } %37, 1
-  %bcmp.i.i.i60.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.412, ptr noundef nonnull dereferenceable(7) %41, i64 7)
+  %bcmp.i.i.i60.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.412, ptr noundef nonnull dereferenceable(7) %41, i64 7)
   %42 = icmp eq i32 %bcmp.i.i.i60.i.i.i, 0
   br i1 %42, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit.thread", label %43
 
@@ -20131,7 +20131,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i: ; preds = %31
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i63.i.i.i: ; preds = %43
   %47 = extractvalue { i64, ptr } %44, 1
-  %bcmp.i.i.i64.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.413, ptr noundef nonnull dereferenceable(5) %47, i64 5)
+  %bcmp.i.i.i64.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.413, ptr noundef nonnull dereferenceable(5) %47, i64 5)
   %48 = icmp eq i32 %bcmp.i.i.i64.i.i.i, 0
   br i1 %48, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit.thread", label %49
 
@@ -20143,7 +20143,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i63.i.i.i: ; preds = %43
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i67.i.i.i: ; preds = %49
   %53 = extractvalue { i64, ptr } %50, 1
-  %bcmp.i.i.i68.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.414, ptr noundef nonnull dereferenceable(5) %53, i64 5)
+  %bcmp.i.i.i68.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.414, ptr noundef nonnull dereferenceable(5) %53, i64 5)
   %54 = icmp eq i32 %bcmp.i.i.i68.i.i.i, 0
   br i1 %54, label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit.thread", label %"_ZSt7find_ifIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEN7Message8LogLevelEEZN5cmake16StringToLogLevelES4_E3$_0ET_SC_SC_T0_.exit.thread15"
 
@@ -46989,7 +46989,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
   br label %"_ZNSt14_Function_base13_Base_managerIZN5cmake12SetCacheArgsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN5cmake12SetCacheArgsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN5cmake12SetCacheArgsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

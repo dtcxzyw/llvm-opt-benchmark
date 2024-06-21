@@ -1889,7 +1889,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #8
   %15 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %14) #7
   %.not167.i = icmp eq i64 %14, 0
   br i1 %.not167.i, label %json_string_unescape.exit, label %.lr.ph162.i

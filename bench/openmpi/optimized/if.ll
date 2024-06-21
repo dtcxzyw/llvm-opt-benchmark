@@ -992,7 +992,7 @@ define noundef i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
 .lr.ph.i37:                                       ; preds = %27, %31
   %.09.i = phi ptr [ %.0.i38, %31 ], [ %.07.i, %27 ]
   %28 = getelementptr inbounds i8, ptr %.09.i, i64 40
-  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %14) #15
+  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %14) #15
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %opal_ifnametokindex.exit, label %31
 

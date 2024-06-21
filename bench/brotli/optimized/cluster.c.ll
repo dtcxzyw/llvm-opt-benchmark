@@ -352,7 +352,7 @@ cond.false.i:                                     ; preds = %if.else39.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.else39.i
   %cond.i = phi double [ %cond.i.i, %cond.false.i ], [ 0x547D42AEA2879F2E, %if.else39.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx13.i, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx13.i, i64 1040, i1 false)
   %14 = load i64, ptr %total_count_31.i, align 8
   %15 = load i64, ptr %total_count_1.i.i, align 8
   %add.i85.i = add i64 %15, %14
@@ -712,7 +712,7 @@ cond.false.i143:                                  ; preds = %if.else39.i141
 
 cond.end.i147:                                    ; preds = %cond.false.i143, %if.else39.i141
   %cond.i148 = phi double [ %cond.i.i146, %cond.false.i143 ], [ 0x547D42AEA2879F2E, %if.else39.i141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx13.i130, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx13.i130, i64 1040, i1 false)
   %53 = load i64, ptr %total_count_31.i139, align 8
   %54 = load i64, ptr %total_count_1.i.i149, align 8
   %add.i85.i150 = add i64 %54, %53
@@ -876,7 +876,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.us, label %for.body7.us.us.preheader, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
   %total_count_.i.i.us = getelementptr inbounds i8, ptr %arrayidx4.us, i64 1024
   %2 = load i64, ptr %total_count_.i.i.us, align 8
   %3 = load i64, ptr %total_count_1.i.i, align 8
@@ -922,7 +922,7 @@ for.body7.us68:                                   ; preds = %BrotliHistogramBitC
   br i1 %cmp.i44.us, label %BrotliHistogramBitCostDistanceLiteral.exit61.us, label %if.else.i45.us
 
 if.else.i45.us:                                   ; preds = %for.body7.us68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
   %total_count_.i.i46.us = getelementptr inbounds i8, ptr %arrayidx11.us, i64 1024
   %10 = load i64, ptr %total_count_.i.i46.us, align 8
   %11 = load i64, ptr %total_count_1.i.i, align 8
@@ -1014,7 +1014,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Br
   br i1 %cmp.i41, label %BrotliHistogramBitCostDistanceLiteral.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx3, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx3, i64 1040, i1 false)
   %total_count_.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 1024
   %19 = load i64, ptr %total_count_.i.i, align 8
   %20 = load i64, ptr %total_count_1.i.i, align 8
@@ -1653,7 +1653,7 @@ cond.false.i:                                     ; preds = %if.else39.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.else39.i
   %cond.i = phi double [ %cond.i.i, %cond.false.i ], [ 0x547D42AEA2879F2E, %if.else39.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx13.i, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx13.i, i64 2832, i1 false)
   %14 = load i64, ptr %total_count_31.i, align 8
   %15 = load i64, ptr %total_count_1.i.i, align 8
   %add.i87.i = add i64 %15, %14
@@ -2013,7 +2013,7 @@ cond.false.i143:                                  ; preds = %if.else39.i141
 
 cond.end.i147:                                    ; preds = %cond.false.i143, %if.else39.i141
   %cond.i148 = phi double [ %cond.i.i146, %cond.false.i143 ], [ 0x547D42AEA2879F2E, %if.else39.i141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx13.i130, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx13.i130, i64 2832, i1 false)
   %53 = load i64, ptr %total_count_31.i139, align 8
   %54 = load i64, ptr %total_count_1.i.i149, align 8
   %add.i87.i150 = add i64 %54, %53
@@ -2174,7 +2174,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.us, label %for.body7.us.us.preheader, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
   %total_count_.i.i.us = getelementptr inbounds i8, ptr %arrayidx4.us, i64 2816
   %2 = load i64, ptr %total_count_.i.i.us, align 8
   %3 = load i64, ptr %total_count_1.i.i, align 8
@@ -2220,7 +2220,7 @@ for.body7.us68:                                   ; preds = %BrotliHistogramBitC
   br i1 %cmp.i44.us, label %BrotliHistogramBitCostDistanceCommand.exit61.us, label %if.else.i45.us
 
 if.else.i45.us:                                   ; preds = %for.body7.us68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
   %total_count_.i.i46.us = getelementptr inbounds i8, ptr %arrayidx11.us, i64 2816
   %10 = load i64, ptr %total_count_.i.i46.us, align 8
   %11 = load i64, ptr %total_count_1.i.i, align 8
@@ -2312,7 +2312,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Br
   br i1 %cmp.i41, label %BrotliHistogramBitCostDistanceCommand.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx3, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx3, i64 2832, i1 false)
   %total_count_.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 2816
   %19 = load i64, ptr %total_count_.i.i, align 8
   %20 = load i64, ptr %total_count_1.i.i, align 8
@@ -2947,7 +2947,7 @@ cond.false.i:                                     ; preds = %if.else39.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.else39.i
   %cond.i = phi double [ %cond.i.i, %cond.false.i ], [ 0x547D42AEA2879F2E, %if.else39.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx13.i, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx13.i, i64 2192, i1 false)
   %14 = load i64, ptr %total_count_31.i, align 8
   %15 = load i64, ptr %total_count_1.i.i, align 8
   %add.i87.i = add i64 %15, %14
@@ -3307,7 +3307,7 @@ cond.false.i143:                                  ; preds = %if.else39.i141
 
 cond.end.i147:                                    ; preds = %cond.false.i143, %if.else39.i141
   %cond.i148 = phi double [ %cond.i.i146, %cond.false.i143 ], [ 0x547D42AEA2879F2E, %if.else39.i141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx13.i130, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx13.i130, i64 2192, i1 false)
   %53 = load i64, ptr %total_count_31.i139, align 8
   %54 = load i64, ptr %total_count_1.i.i149, align 8
   %add.i87.i150 = add i64 %54, %53
@@ -3468,7 +3468,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.us, label %for.body7.us.us.preheader, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
   %total_count_.i.i.us = getelementptr inbounds i8, ptr %arrayidx4.us, i64 2176
   %2 = load i64, ptr %total_count_.i.i.us, align 8
   %3 = load i64, ptr %total_count_1.i.i, align 8
@@ -3514,7 +3514,7 @@ for.body7.us68:                                   ; preds = %BrotliHistogramBitC
   br i1 %cmp.i44.us, label %BrotliHistogramBitCostDistanceDistance.exit61.us, label %if.else.i45.us
 
 if.else.i45.us:                                   ; preds = %for.body7.us68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
   %total_count_.i.i46.us = getelementptr inbounds i8, ptr %arrayidx11.us, i64 2176
   %10 = load i64, ptr %total_count_.i.i46.us, align 8
   %11 = load i64, ptr %total_count_1.i.i, align 8
@@ -3606,7 +3606,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Br
   br i1 %cmp.i41, label %BrotliHistogramBitCostDistanceDistance.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx3, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx3, i64 2192, i1 false)
   %total_count_.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 2176
   %19 = load i64, ptr %total_count_.i.i, align 8
   %20 = load i64, ptr %total_count_1.i.i, align 8

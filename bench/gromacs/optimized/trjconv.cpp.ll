@@ -3590,7 +3590,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit626:    ; preds = %1175
 1503:                                             ; preds = %1501
   %1504 = load i32, ptr %30, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  %1505 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %.0449) #20
+  %1505 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(1) %.0449) #20
   br label %1506
 
 1506:                                             ; preds = %1506, %1503
@@ -3614,7 +3614,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit626:    ; preds = %1175
 _ZL9mk_filenmPcPKciiS_.exit:                      ; preds = %1510, %1512
   %1516 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.273, i32 noundef %.0427) #20
   %1517 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %3) #20
-  %1518 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %1502) #20
+  %1518 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(1) %1502) #20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %1519
 

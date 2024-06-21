@@ -39982,7 +39982,7 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_113InPlaceHelperEE9MakeV
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i, i64 12
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   store i64 %3, ptr %y.i.i, align 8
@@ -40011,7 +40011,7 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_113InPlaceHelperEE9MakeV
   %add.ptr.i1.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i10, i64 12
   %_M_end_of_storage.i.i.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i1.i.i.i.i19, ptr %_M_end_of_storage.i.i.i.i.i20, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i10, ptr noundef nonnull align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i10, ptr noundef nonnull readonly align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
   %_M_finish.i.i.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i1.i.i.i.i19, ptr %_M_finish.i.i.i.i.i23, align 8
   %y.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 32

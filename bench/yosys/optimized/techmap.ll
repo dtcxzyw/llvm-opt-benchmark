@@ -23152,7 +23152,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWork
 
 .lr.ph.i.i.i.i.i1869:                             ; preds = %.body1404, %.lr.ph.i.i.i.i.i1869
   %.05.i.i.i.i.i1870 = phi ptr [ %8448, %.lr.ph.i.i.i.i.i1869 ], [ %8446, %.body1404 ]
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i1870) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i.i1870) #25
   %8448 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i1870, i64 40
   %.not.i.i.i.i.i1871 = icmp eq ptr %8448, %8447
   br i1 %.not.i.i.i.i.i1871, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS8_EENS1_8hash_opsIS4_EEE7entry_tESE_EvT_SG_RSaIT0_E.exitthread-pre-split.i.i1872, label %.lr.ph.i.i.i.i.i1869, !llvm.loop !157
@@ -23494,7 +23494,7 @@ _ZN5Yosys15LogMakeDebugHdl3offEv.exit:            ; preds = %8580, %8578, %8575
 
 .lr.ph.i.i.i.i.i1925:                             ; preds = %.loopexit4808, %.lr.ph.i.i.i.i.i1925
   %.05.i.i.i.i.i1926 = phi ptr [ %8589, %.lr.ph.i.i.i.i.i1925 ], [ %8587, %.loopexit4808 ]
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i1926) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i.i1926) #25
   %8589 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i1926, i64 40
   %.not.i.i.i.i.i1927 = icmp eq ptr %8589, %8588
   br i1 %.not.i.i.i.i.i1927, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS8_EENS1_8hash_opsIS4_EEE7entry_tESE_EvT_SG_RSaIT0_E.exitthread-pre-split.i.i1928, label %.lr.ph.i.i.i.i.i1925, !llvm.loop !157
@@ -25573,7 +25573,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearE
 
 .lr.ph.i.i.i.i.i2157:                             ; preds = %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearEv.exit2128, %.lr.ph.i.i.i.i.i2157
   %.05.i.i.i.i.i2158 = phi ptr [ %9445, %.lr.ph.i.i.i.i.i2157 ], [ %9443, %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearEv.exit2128 ]
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i2158) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i.i2158) #25
   %9445 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2158, i64 40
   %.not.i.i.i.i.i2159 = icmp eq ptr %9445, %9444
   br i1 %.not.i.i.i.i.i2159, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS8_EENS1_8hash_opsIS4_EEE7entry_tESE_EvT_SG_RSaIT0_E.exitthread-pre-split.i.i2160, label %.lr.ph.i.i.i.i.i2157, !llvm.loop !157
@@ -38996,7 +38996,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_113Techm
 
 .lr.ph.i.i.i.i.i.i.i49:                           ; preds = %175, %.lr.ph.i.i.i.i.i.i.i49
   %.05.i.i.i.i.i.i.i50 = phi ptr [ %177, %.lr.ph.i.i.i.i.i.i.i49 ], [ %.val29.i.i.i.i, %175 ]
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i50) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i50) #25
   %177 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i50, i64 40
   %.not.i.i.i.i.i.i.i51 = icmp eq ptr %177, %150
   br i1 %.not.i.i.i.i.i.i.i51, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS8_EENS1_8hash_opsIS4_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i49, !llvm.loop !157
@@ -39014,7 +39014,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_
           catch ptr null
   %180 = extractvalue { ptr, i32 } %179, 0
   %181 = call ptr @__cxa_begin_catch(ptr %180) #25
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %171) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %171) #25
   call void @_ZdlPv(ptr noundef nonnull %170) #26
   invoke void @__cxa_rethrow() #30
           to label %187 unwind label %182
@@ -39160,7 +39160,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_113Techm
 
 .lr.ph.i.i.i.i.i29.i.i:                           ; preds = %232, %.lr.ph.i.i.i.i.i29.i.i
   %.05.i.i.i.i.i30.i.i = phi ptr [ %234, %.lr.ph.i.i.i.i.i29.i.i ], [ %.val.i.i.i.i, %232 ]
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i30.i.i) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i.i30.i.i) #25
   %234 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i30.i.i, i64 40
   %.not.i.i.i.i.i31.i.i = icmp eq ptr %234, %207
   br i1 %.not.i.i.i.i.i31.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS8_EENS1_8hash_opsIS4_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i32.i.i, label %.lr.ph.i.i.i.i.i29.i.i, !llvm.loop !157
@@ -39178,7 +39178,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_
           catch ptr null
   %237 = extractvalue { ptr, i32 } %236, 0
   %238 = call ptr @__cxa_begin_catch(ptr %237) #25
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %228) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %228) #25
   call void @_ZdlPv(ptr noundef nonnull %227) #26
   invoke void @__cxa_rethrow() #30
           to label %244 unwind label %239
@@ -40203,7 +40203,7 @@ define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vector
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %3, %1 ]
-  tail call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #25
+  tail call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS6_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i) #25
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS8_EENS1_8hash_opsIS4_EEE7entry_tESE_EvT_SG_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !157

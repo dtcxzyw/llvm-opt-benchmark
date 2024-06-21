@@ -72,7 +72,7 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %20, i64 12, i1 false)
   %22 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %22, align 4
   tail call void @XLogBeginInsert() #8

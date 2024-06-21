@@ -4203,7 +4203,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   br i1 %cmp6.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i.i.i
 
 _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call.val.i.i.i.i.i.i, ptr noundef nonnull %call3.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i) #34
+  %call10.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, ptr noundef nonnull readonly %call3.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i) #34
   %cmp11.i.i.i.i.i.i.i.i = icmp slt i32 %call10.i.i.i.i.i.i.i.i, 0
   br i1 %cmp11.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i.i.i
 
@@ -4254,7 +4254,7 @@ if.then.i9.i.i.i.i.i.i.i:                         ; preds = %if.end12.i.i.i.i.i.
 
 _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit16.i.i.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i.i.i
   %conv.i13.i.i.i.i.i.i.i = zext i32 %6 to i64
-  %call10.i14.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call15.val.i.i.i.i.i.i.i, ptr noundef nonnull %call.val.i.i.i.i.i.i, i64 noundef %conv.i13.i.i.i.i.i.i.i) #34
+  %call10.i14.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call15.val.i.i.i.i.i.i.i, ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, i64 noundef %conv.i13.i.i.i.i.i.i.i) #34
   %cmp11.i15.i.i.i.i.i.i.i = icmp slt i32 %call10.i14.i.i.i.i.i.i.i, 0
   br i1 %cmp11.i15.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS0_19LoadBalancingPolicy10UpdateArgsEE3$_0JRKNS0_17EndpointAddressesEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
@@ -4279,7 +4279,7 @@ if.then.i.i11.i.i.i.i.i.i:                        ; preds = %lor.rhs.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i.i
   %conv.i.i13.i.i.i.i.i.i = zext i32 %8 to i64
-  %call10.i.i14.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call.val.i.i.i.i.i.i, ptr noundef nonnull %call4.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i13.i.i.i.i.i.i) #34
+  %call10.i.i14.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, ptr noundef nonnull readonly %call4.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i13.i.i.i.i.i.i) #34
   %cmp11.i.i15.i.i.i.i.i.i = icmp slt i32 %call10.i.i14.i.i.i.i.i.i, 0
   br label %lor.end.i.i.i.i.i.i.i
 
@@ -12917,7 +12917,7 @@ if.end12.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
   %call15.val.i.i.i.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i, align 8
   %3 = getelementptr i8, ptr %__j.sroa.0.0.i.i.i.i.i.i.i, i64 40
   %call15.val4.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call16.i.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK25EndpointAddressesLessThanclERKNS_17EndpointAddressesES7_(ptr %call15.val.i.i.i.i.i.i.i, ptr %call15.val4.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args)
+  %call16.i.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK25EndpointAddressesLessThanclERKNS_17EndpointAddressesES7_(ptr %call15.val.i.i.i.i.i.i.i, ptr %call15.val4.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %args)
   br i1 %call16.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS0_19LoadBalancingPolicy10UpdateArgsEE3$_0JRKNS0_17EndpointAddressesEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end12.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i

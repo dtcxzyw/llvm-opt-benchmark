@@ -2741,7 +2741,7 @@ clear_block_exit.exit:                            ; preds = %805, %807
   br i1 %817, label %cond.exit, label %818
 
 818:                                              ; preds = %815
-  %819 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %816, i32 noundef 1, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %819 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %816, i32 noundef 1, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   %.pre6700 = load ptr, ptr %810, align 8
   br label %cond.exit
 
@@ -2759,7 +2759,7 @@ cond.exit:                                        ; preds = %815, %818
   br i1 %826, label %cond.exit6227, label %827
 
 827:                                              ; preds = %824
-  %828 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %825, i32 noundef 1, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %828 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %825, i32 noundef 1, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   %.pre6701 = load ptr, ptr %810, align 8
   br label %cond.exit6227
 
@@ -2815,7 +2815,7 @@ clear_block_exit.exit6229:                        ; preds = %841, %843
   br i1 %853, label %cond.exit6231, label %854
 
 854:                                              ; preds = %851
-  %855 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %852, i32 noundef 1, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %855 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %852, i32 noundef 1, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   %.pre6698 = load ptr, ptr %846, align 8
   br label %cond.exit6231
 
@@ -2833,7 +2833,7 @@ cond.exit6231:                                    ; preds = %851, %854
   br i1 %862, label %cond.exit6233, label %863
 
 863:                                              ; preds = %860
-  %864 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %861, i32 noundef 1, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %864 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %861, i32 noundef 1, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   %.pre6699 = load ptr, ptr %846, align 8
   br label %cond.exit6233
 
@@ -3501,7 +3501,7 @@ remove_begin.exit6250:                            ; preds = %979, %980, %983
   br i1 %1338, label %method_cond.exit, label %1339
 
 1339:                                             ; preds = %1336
-  %1340 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1337, i32 noundef 0, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %1340 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1337, i32 noundef 0, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   br label %method_cond.exit
 
 method_cond.exit:                                 ; preds = %1336, %1339
@@ -3633,7 +3633,7 @@ remove_begin.exit6260:                            ; preds = %1367, %1368, %1371
   br i1 %1421, label %method_cond.exit6262, label %1422
 
 1422:                                             ; preds = %1419
-  %1423 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1420, i32 noundef 0, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %1423 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1420, i32 noundef 0, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   br label %method_cond.exit6262
 
 method_cond.exit6262:                             ; preds = %1419, %1422
@@ -3659,7 +3659,7 @@ method_cond.exit6262:                             ; preds = %1419, %1422
   br i1 %1436, label %method_cond.exit6264, label %1437
 
 1437:                                             ; preds = %1434
-  %1438 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1435, i32 noundef 0, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %1438 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1435, i32 noundef 0, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   br label %method_cond.exit6264
 
 method_cond.exit6264:                             ; preds = %1434, %1437
@@ -4094,7 +4094,7 @@ block_dup_check.exit:                             ; preds = %1681, %1687, %1690
   %1697 = getelementptr inbounds i8, ptr %1696, i64 40
   store ptr %1695, ptr %1697, align 8
   %1698 = getelementptr inbounds i8, ptr %1696, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1698, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1698, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   store ptr %1696, ptr %7, align 8
   %1699 = load ptr, ptr %1692, align 8
   %1700 = icmp ne ptr %1696, null
@@ -6183,7 +6183,7 @@ parser_set_lex_state.exit6293:                    ; preds = %2481, %2484
   br i1 %3168, label %method_cond.exit6299, label %3169
 
 3169:                                             ; preds = %3166
-  %3170 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %3167, i32 noundef 0, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %3170 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %3167, i32 noundef 0, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   br label %method_cond.exit6299
 
 method_cond.exit6299:                             ; preds = %3166, %3169
@@ -6500,7 +6500,7 @@ fixpos.exit6301:                                  ; preds = %3276, %3287
   br i1 %3395, label %method_cond.exit6303, label %3396
 
 3396:                                             ; preds = %3393
-  %3397 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %3394, i32 noundef 0, ptr noundef nonnull %.25482, i1 noundef zeroext true)
+  %3397 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %3394, i32 noundef 0, ptr noundef nonnull readonly %.25482, i1 noundef zeroext true)
   br label %method_cond.exit6303
 
 method_cond.exit6303:                             ; preds = %3393, %3396
@@ -7603,7 +7603,7 @@ parser_set_lex_state.exit6317:                    ; preds = %3991, %3994
 
 4054:                                             ; preds = %4051
   %4055 = getelementptr inbounds i8, ptr %4053, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4055, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4055, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %4056 = load i64, ptr %4053, align 8
   %4057 = and i64 %4056, 32767
   %4058 = load i32, ptr %8, align 8
@@ -7732,7 +7732,7 @@ parser_set_lex_state.exit6317:                    ; preds = %3991, %3994
 
 4135:                                             ; preds = %4131
   %4136 = getelementptr inbounds i8, ptr %.25482, i64 -16
-  %4137 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %4133, i32 noundef 0, ptr noundef nonnull %4136, i1 noundef zeroext true)
+  %4137 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %4133, i32 noundef 0, ptr noundef nonnull readonly %4136, i1 noundef zeroext true)
   br label %method_cond.exit6319
 
 method_cond.exit6319:                             ; preds = %4131, %4135
@@ -7759,7 +7759,7 @@ method_cond.exit6319:                             ; preds = %4131, %4135
   br i1 %4151, label %method_cond.exit6321, label %4152
 
 4152:                                             ; preds = %4148
-  %4153 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %4150, i32 noundef 0, ptr noundef nonnull %4149, i1 noundef zeroext true)
+  %4153 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %4150, i32 noundef 0, ptr noundef nonnull readonly %4149, i1 noundef zeroext true)
   br label %method_cond.exit6321
 
 method_cond.exit6321:                             ; preds = %4148, %4152
@@ -7782,7 +7782,7 @@ method_cond.exit6321:                             ; preds = %4148, %4152
   %4164 = getelementptr inbounds i8, ptr %4163, i64 40
   store ptr %4162, ptr %4164, align 8
   %4165 = getelementptr inbounds i8, ptr %4163, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4165, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4165, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   store ptr %4163, ptr %7, align 8
   %4166 = load i64, ptr %44, align 8
   %4167 = call i64 @rb_ary_entry(i64 noundef %4166, i64 noundef -2) #25
@@ -7839,7 +7839,7 @@ block_dup_check.exit6324:                         ; preds = %4187, %4194, %4197
   %4200 = getelementptr inbounds i8, ptr %4198, i64 40
   store ptr %4199, ptr %4200, align 8
   %4201 = getelementptr inbounds i8, ptr %4198, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4201, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4201, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   store ptr %4198, ptr %7, align 8
   %4202 = load i64, ptr %44, align 8
   %4203 = call i64 @rb_ary_entry(i64 noundef %4202, i64 noundef -2) #25
@@ -7951,7 +7951,7 @@ fixpos.exit6328:                                  ; preds = %4242, %4253
 
 4279:                                             ; preds = %4273
   %4280 = getelementptr inbounds i8, ptr %.25482, i64 -32
-  %4281 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %4277, i32 noundef 1, ptr noundef nonnull %4280, i1 noundef zeroext true)
+  %4281 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %4277, i32 noundef 1, ptr noundef nonnull readonly %4280, i1 noundef zeroext true)
   br label %cond.exit6330
 
 cond.exit6330:                                    ; preds = %4273, %4279
@@ -8002,7 +8002,7 @@ fixpos.exit6332:                                  ; preds = %cond.exit6330, %428
 
 4311:                                             ; preds = %4305
   %4312 = getelementptr inbounds i8, ptr %.25482, i64 -32
-  %4313 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %4309, i32 noundef 1, ptr noundef nonnull %4312, i1 noundef zeroext true)
+  %4313 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %4309, i32 noundef 1, ptr noundef nonnull readonly %4312, i1 noundef zeroext true)
   br label %cond.exit6334
 
 cond.exit6334:                                    ; preds = %4305, %4311
@@ -9517,7 +9517,7 @@ new_args.exit:                                    ; preds = %yy_reduce_print.exi
   %5220 = and i8 %5216, -3
   store i8 %5220, ptr %5215, align 8
   %5221 = getelementptr inbounds i8, ptr %5213, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5221, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5221, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %5222 = load i64, ptr %5213, align 8
   %5223 = and i64 %5222, 32767
   %5224 = load i32, ptr %8, align 8
@@ -9598,7 +9598,7 @@ new_args.exit6362:                                ; preds = %yy_reduce_print.exi
   %5272 = and i8 %5268, -3
   store i8 %5272, ptr %5267, align 8
   %5273 = getelementptr inbounds i8, ptr %5265, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5273, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5273, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %5274 = load i64, ptr %5265, align 8
   %5275 = and i64 %5274, 32767
   %5276 = load i32, ptr %8, align 8
@@ -9989,7 +9989,7 @@ block_dup_check.exit6372:                         ; preds = %block_dup_check.exi
   %5485 = getelementptr inbounds i8, ptr %5484, i64 40
   store ptr %5483, ptr %5485, align 8
   %5486 = getelementptr inbounds i8, ptr %5484, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5486, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5486, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   store ptr %5484, ptr %7, align 8
   %5487 = load ptr, ptr %5471, align 8
   %5488 = icmp ne ptr %5484, null
@@ -12218,7 +12218,7 @@ splat_array.exit:                                 ; preds = %6824, %6828
 
 6881:                                             ; preds = %6876
   %6882 = getelementptr inbounds i8, ptr %6880, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6882, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6882, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %6883 = load i64, ptr %6880, align 8
   %6884 = and i64 %6883, 32767
   %6885 = load i32, ptr %8, align 8
@@ -12285,7 +12285,7 @@ splat_array.exit:                                 ; preds = %6824, %6828
 
 6927:                                             ; preds = %6924
   %6928 = getelementptr inbounds i8, ptr %6926, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6928, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6928, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %6929 = load i64, ptr %6926, align 8
   %6930 = and i64 %6929, 32767
   %6931 = load i32, ptr %8, align 8
@@ -12383,7 +12383,7 @@ splat_array.exit:                                 ; preds = %6824, %6828
 
 6991:                                             ; preds = %6988
   %6992 = getelementptr inbounds i8, ptr %6990, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6992, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6992, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %6993 = load i64, ptr %6990, align 8
   %6994 = and i64 %6993, 32767
   %6995 = load i32, ptr %8, align 8
@@ -12447,7 +12447,7 @@ splat_array.exit:                                 ; preds = %6824, %6828
 
 7031:                                             ; preds = %7028
   %7032 = getelementptr inbounds i8, ptr %7030, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7032, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7032, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %7033 = load i64, ptr %7030, align 8
   %7034 = and i64 %7033, 32767
   %7035 = load i32, ptr %8, align 8
@@ -12483,7 +12483,7 @@ splat_array.exit:                                 ; preds = %6824, %6828
 
 7053:                                             ; preds = %7050
   %7054 = getelementptr inbounds i8, ptr %7052, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7054, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7054, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %7055 = load i64, ptr %7052, align 8
   %7056 = and i64 %7055, 32767
   %7057 = load i32, ptr %8, align 8
@@ -13172,7 +13172,7 @@ new_args.exit6457:                                ; preds = %yy_reduce_print.exi
   %7404 = and i8 %7400, -3
   store i8 %7404, ptr %7399, align 8
   %7405 = getelementptr inbounds i8, ptr %7397, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7405, ptr noundef nonnull align 4 dereferenceable(16) %7396, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7405, ptr noundef nonnull readonly align 4 dereferenceable(16) %7396, i64 16, i1 false)
   %7406 = load i64, ptr %7397, align 8
   %7407 = and i64 %7406, 32767
   %7408 = load i32, ptr %7396, align 4
@@ -13547,7 +13547,7 @@ new_args.exit6470:                                ; preds = %yy_reduce_print.exi
   %7647 = and i8 %7643, -3
   store i8 %7647, ptr %7642, align 8
   %7648 = getelementptr inbounds i8, ptr %7640, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7648, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7648, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %7649 = load i64, ptr %7640, align 8
   %7650 = and i64 %7649, 32767
   %7651 = load i32, ptr %8, align 8
@@ -13628,7 +13628,7 @@ new_args.exit6474:                                ; preds = %yy_reduce_print.exi
   %7699 = and i8 %7695, -3
   store i8 %7699, ptr %7694, align 8
   %7700 = getelementptr inbounds i8, ptr %7692, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7700, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7700, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16, i1 false)
   %7701 = load i64, ptr %7692, align 8
   %7702 = and i64 %7701, 32767
   %7703 = load i32, ptr %8, align 8
@@ -13661,7 +13661,7 @@ new_args.exit6478:                                ; preds = %yy_reduce_print.exi
   %7717 = and i8 %7713, -3
   store i8 %7717, ptr %7712, align 8
   %7718 = getelementptr inbounds i8, ptr %7710, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7718, ptr noundef nonnull align 4 dereferenceable(16) %.25482, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7718, ptr noundef nonnull readonly align 4 dereferenceable(16) %.25482, i64 16, i1 false)
   %7719 = load i64, ptr %7710, align 8
   %7720 = and i64 %7719, 32767
   %7721 = load i32, ptr %.25482, align 4
@@ -15447,7 +15447,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %18
 
 29:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
   %30 = shl nuw nsw i64 %26, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %25, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %25, i64 %30, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %29, %rbimpl_size_mul_or_raise.exit.i
@@ -15524,7 +15524,7 @@ local_tbl.exit:                                   ; preds = %vtable_size.exit32.
   %56 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 0, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %56, i32 noundef 0) #24
   %57 = getelementptr inbounds i8, ptr %56, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %58 = load i64, ptr %56, align 8
   %59 = and i64 %58, 32767
   %60 = load i32, ptr %3, align 4
@@ -15569,7 +15569,7 @@ define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr n
   %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 1, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %13, i32 noundef 1) #24
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(16) %11, i64 16, i1 false)
   %15 = load i64, ptr %13, align 8
   %16 = and i64 %15, 32767
   %17 = load i32, ptr %11, align 4
@@ -15635,7 +15635,7 @@ define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr n
   %49 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 1, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %49, i32 noundef 1) #24
   %50 = getelementptr inbounds i8, ptr %49, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %47, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull readonly align 4 dereferenceable(16) %47, i64 16, i1 false)
   %51 = load i64, ptr %49, align 8
   %52 = and i64 %51, 32767
   %53 = load i32, ptr %47, align 4
@@ -15790,7 +15790,7 @@ define internal fastcc noundef ptr @rb_node_begin_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 18, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 18) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -16176,7 +16176,7 @@ define internal fastcc noundef ptr @new_bodystmt(ptr nocapture noundef %0, ptr n
   %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 21, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %38, i32 noundef 21) #24
   %39 = getelementptr inbounds i8, ptr %38, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %40 = load i64, ptr %38, align 8
   %41 = and i64 %40, 32767
   %42 = load i32, ptr %5, align 4
@@ -16240,7 +16240,7 @@ define internal fastcc noundef ptr @rb_node_alias_new(ptr nocapture noundef %0, 
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 83, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 83) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -16268,7 +16268,7 @@ define internal fastcc noundef ptr @rb_node_valias_new(ptr nocapture noundef %0,
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 84, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 84) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -16298,7 +16298,7 @@ define internal fastcc noundef ptr @rb_node_error_new(ptr nocapture noundef %0, 
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 109, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 109) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -16340,7 +16340,7 @@ define internal fastcc noundef ptr @new_if(ptr noundef %0, ptr noundef %1, ptr n
   %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 2, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %9, i32 noundef 2) #24
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
   %12 = and i64 %11, 32767
   %13 = load i32, ptr %4, align 4
@@ -16397,7 +16397,7 @@ define internal fastcc noundef ptr @new_unless(ptr noundef %0, ptr noundef %1, p
   %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 3, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %9, i32 noundef 3) #24
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
   %12 = and i64 %11, 32767
   %13 = load i32, ptr %4, align 4
@@ -16449,7 +16449,7 @@ define internal fastcc noundef ptr @rb_node_while_new(ptr nocapture noundef %0, 
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 9, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 9) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -16479,7 +16479,7 @@ define internal fastcc noundef ptr @rb_node_until_new(ptr nocapture noundef %0, 
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 10, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 10) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -16509,7 +16509,7 @@ define internal fastcc noundef ptr @rb_node_resbody_new(ptr nocapture noundef %0
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 20, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 20) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -16539,7 +16539,7 @@ define internal fastcc noundef ptr @rb_node_rescue_new(ptr nocapture noundef %0,
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 19, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 19) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -16573,7 +16573,7 @@ define internal fastcc noundef ptr @rb_node_scope_new2(ptr nocapture noundef %0,
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 0, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 0) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -16603,7 +16603,7 @@ define internal fastcc noundef ptr @rb_node_postexe_new(ptr nocapture noundef %0
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 101, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 101) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -16731,19 +16731,19 @@ define internal fastcc noundef ptr @node_assign(ptr noundef %0, ptr noundef retu
   ]
 
 16:                                               ; preds = %15
-  %17 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %4, i64 noundef 0)
+  %17 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef readonly %4, i64 noundef 0)
   %.not25.i = icmp eq ptr %17, null
   %..i = select i1 %.not25.i, ptr %2, ptr %17
   br label %shareable_constant_value.exit
 
 18:                                               ; preds = %15, %15
-  %19 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %4, i64 noundef 0)
+  %19 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef readonly %4, i64 noundef 0)
   %.not24.i = icmp eq ptr %19, null
   br i1 %.not24.i, label %20, label %shareable_constant_value.exit
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %14, 2
-  %22 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %2, i1 noundef zeroext %21, ptr noundef %4)
+  %22 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %2, i1 noundef zeroext %21, ptr noundef readonly %4)
   br label %shareable_constant_value.exit
 
 default.unreachable:                              ; preds = %15
@@ -16825,7 +16825,7 @@ parser_node_name.exit.i:                          ; preds = %41, %40, %23
 set_nd_value.exit:                                ; preds = %26, %28, %30, %32, %34, %36, %38, %parser_node_name.exit.i
   %43 = phi i64 [ %24, %26 ], [ %24, %28 ], [ %24, %30 ], [ %24, %32 ], [ %24, %34 ], [ %24, %36 ], [ %24, %38 ], [ %.pre22, %parser_node_name.exit.i ]
   %44 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   br label %.sink.split
 
 45:                                               ; preds = %7
@@ -16834,7 +16834,7 @@ set_nd_value.exit:                                ; preds = %26, %28, %30, %32, 
   %48 = tail call fastcc ptr @arg_append(ptr noundef %0, ptr noundef %47, ptr noundef %2, ptr noundef %4)
   store ptr %48, ptr %46, align 8
   %49 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %50 = load i64, ptr %1, align 8
   br label %.sink.split
 
@@ -16965,19 +16965,19 @@ get_nd_vid.exit:                                  ; preds = %16, %19, %22, %25, 
   ]
 
 50:                                               ; preds = %49
-  %51 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull %48, i64 noundef 0)
+  %51 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull readonly %48, i64 noundef 0)
   %.not25.i = icmp eq ptr %51, null
   %..i = select i1 %.not25.i, ptr %3, ptr %51
   br label %shareable_constant_value.exit
 
 52:                                               ; preds = %49, %49
-  %53 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull %48, i64 noundef 0)
+  %53 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull readonly %48, i64 noundef 0)
   %.not24.i = icmp eq ptr %53, null
   br i1 %.not24.i, label %54, label %shareable_constant_value.exit
 
 54:                                               ; preds = %52
   %55 = icmp eq i32 %.0, 2
-  %56 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %55, ptr noundef nonnull %48)
+  %56 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %55, ptr noundef nonnull readonly %48)
   br label %shareable_constant_value.exit
 
 default.unreachable:                              ; preds = %49
@@ -17052,7 +17052,7 @@ parser_node_name.exit.i71:                        ; preds = %76, %75, %shareable
 
 set_nd_value.exit:                                ; preds = %61, %63, %65, %67, %69, %71, %73, %parser_node_name.exit.i71
   %78 = phi i64 [ %57, %61 ], [ %57, %63 ], [ %57, %65 ], [ %57, %67 ], [ %57, %69 ], [ %57, %71 ], [ %57, %73 ], [ %.pre99, %parser_node_name.exit.i71 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %79 = and i64 %78, 32767
   %80 = load i32, ptr %5, align 4
   %81 = sext i32 %80 to i64
@@ -17065,7 +17065,7 @@ set_nd_value.exit:                                ; preds = %61, %63, %65, %67, 
   %86 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 34, i64 noundef 48, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %86, i32 noundef 34) #24
   %87 = getelementptr inbounds i8, ptr %86, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %88 = load i64, ptr %86, align 8
   %89 = and i64 %88, 32767
   %90 = load i32, ptr %5, align 4
@@ -17101,19 +17101,19 @@ set_nd_value.exit:                                ; preds = %61, %63, %65, %67, 
   br i1 %switch.not, label %104, label %106
 
 104:                                              ; preds = %103
-  %105 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %102, i64 noundef 0)
+  %105 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull readonly %102, i64 noundef 0)
   %.not25.i76 = icmp eq ptr %105, null
   %..i77 = select i1 %.not25.i76, ptr %3, ptr %105
   br label %shareable_constant_value.exit79
 
 106:                                              ; preds = %103
-  %107 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %102, i64 noundef 0)
+  %107 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull readonly %102, i64 noundef 0)
   %.not24.i74 = icmp eq ptr %107, null
   br i1 %.not24.i74, label %108, label %shareable_constant_value.exit79
 
 108:                                              ; preds = %106
   %109 = icmp eq i32 %.0, 2
-  %110 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %109, ptr noundef nonnull %102)
+  %110 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %109, ptr noundef nonnull readonly %102)
   br label %shareable_constant_value.exit79
 
 shareable_constant_value.exit79:                  ; preds = %101, %104, %106, %108
@@ -17189,7 +17189,7 @@ parser_node_name.exit.i80:                        ; preds = %131, %130, %111
 
 set_nd_value.exit82:                              ; preds = %116, %118, %120, %122, %124, %126, %128, %parser_node_name.exit.i80
   %133 = phi i64 [ %112, %116 ], [ %112, %118 ], [ %112, %120 ], [ %112, %122 ], [ %112, %124 ], [ %112, %126 ], [ %112, %128 ], [ %.pre, %parser_node_name.exit.i80 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %134 = and i64 %133, 32767
   %135 = load i32, ptr %5, align 4
   %136 = sext i32 %135 to i64
@@ -17202,7 +17202,7 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   %141 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i83, i32 noundef 33, i64 noundef 48, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %141, i32 noundef 33) #24
   %142 = getelementptr inbounds i8, ptr %141, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %143 = load i64, ptr %141, align 8
   %144 = and i64 %143, 32767
   %145 = load i32, ptr %5, align 4
@@ -17230,7 +17230,7 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   %159 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i84, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %159, i32 noundef 43) #24
   %160 = getelementptr inbounds i8, ptr %159, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 4 dereferenceable(16) %157, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull readonly align 4 dereferenceable(16) %157, i64 16, i1 false)
   %161 = load i64, ptr %159, align 8
   %162 = and i64 %161, 32767
   %163 = load i32, ptr %157, align 4
@@ -17254,7 +17254,7 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   %174 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i85, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %174, i32 noundef 36) #24
   %175 = getelementptr inbounds i8, ptr %174, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %176 = load i64, ptr %174, align 8
   %177 = and i64 %176, 32767
   %178 = load i32, ptr %5, align 4
@@ -17283,19 +17283,19 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   br i1 %switch98.not, label %189, label %191
 
 189:                                              ; preds = %188
-  %190 = call fastcc ptr @shareable_literal_constant(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %174, ptr noundef nonnull %175, i64 noundef 0)
+  %190 = call fastcc ptr @shareable_literal_constant(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %174, ptr noundef nonnull readonly %175, i64 noundef 0)
   %.not25.i89 = icmp eq ptr %190, null
   %..i90 = select i1 %.not25.i89, ptr %174, ptr %190
   br label %shareable_constant_value.exit92
 
 191:                                              ; preds = %188
-  %192 = call fastcc ptr @shareable_literal_constant(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef nonnull %7, ptr noundef nonnull %174, ptr noundef nonnull %175, i64 noundef 0)
+  %192 = call fastcc ptr @shareable_literal_constant(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef nonnull %7, ptr noundef nonnull %174, ptr noundef nonnull readonly %175, i64 noundef 0)
   %.not24.i87 = icmp eq ptr %192, null
   br i1 %.not24.i87, label %193, label %shareable_constant_value.exit92
 
 193:                                              ; preds = %191
   %194 = icmp eq i32 %.0, 2
-  %195 = call fastcc ptr @make_shareable_node(ptr noundef nonnull %0, ptr noundef nonnull %174, i1 noundef zeroext %194, ptr noundef nonnull %175)
+  %195 = call fastcc ptr @make_shareable_node(ptr noundef nonnull %0, ptr noundef nonnull %174, i1 noundef zeroext %194, ptr noundef nonnull readonly %175)
   br label %shareable_constant_value.exit92
 
 shareable_constant_value.exit92:                  ; preds = %189, %191, %193
@@ -17371,7 +17371,7 @@ parser_node_name.exit.i93:                        ; preds = %216, %215, %196
 
 set_nd_value.exit95:                              ; preds = %201, %203, %205, %207, %209, %211, %213, %parser_node_name.exit.i93
   %218 = phi i64 [ %197, %201 ], [ %197, %203 ], [ %197, %205 ], [ %197, %207 ], [ %197, %209 ], [ %197, %211 ], [ %197, %213 ], [ %.pre100, %parser_node_name.exit.i93 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %219 = and i64 %218, 32767
   %220 = load i32, ptr %5, align 4
   %221 = sext i32 %220 to i64
@@ -17386,7 +17386,7 @@ set_nd_value.exit95:                              ; preds = %201, %203, %205, %2
   %226 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i96, i32 noundef 109, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %226, i32 noundef 109) #24
   %227 = getelementptr inbounds i8, ptr %226, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %228 = load i64, ptr %226, align 8
   %229 = and i64 %228, 32767
   %230 = load i32, ptr %5, align 4
@@ -17414,7 +17414,7 @@ define internal fastcc noundef ptr @new_ary_op_assign(ptr nocapture noundef %0, 
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %10 = load i64, ptr %2, align 8
   %11 = and i64 %10, 32767
   %12 = load i32, ptr %5, align 4
@@ -17430,7 +17430,7 @@ define internal fastcc noundef ptr @new_ary_op_assign(ptr nocapture noundef %0, 
   %18 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 44, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %18, i32 noundef 44) #24
   %19 = getelementptr inbounds i8, ptr %18, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %20 = load i64, ptr %18, align 8
   %21 = and i64 %20, 32767
   %22 = load i32, ptr %5, align 4
@@ -17453,7 +17453,7 @@ define internal fastcc noundef ptr @new_ary_op_assign(ptr nocapture noundef %0, 
   %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i14, i32 noundef 31, i64 noundef 64, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %33, i32 noundef 31) #24
   %34 = getelementptr inbounds i8, ptr %33, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %35 = load i64, ptr %33, align 8
   %36 = and i64 %35, 32767
   %37 = load i32, ptr %6, align 4
@@ -17502,7 +17502,7 @@ define internal fastcc noundef ptr @new_attr_op_assign(ptr nocapture noundef %0,
   %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 32, i64 noundef 72, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %11, i32 noundef 32) #24
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %13 = load i64, ptr %11, align 8
   %14 = and i64 %13, 32767
   %15 = load i32, ptr %6, align 4
@@ -17567,19 +17567,19 @@ define internal fastcc noundef ptr @new_const_op_assign(ptr noundef %0, ptr noun
   ]
 
 11:                                               ; preds = %10
-  %12 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %5, i64 noundef 0)
+  %12 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef readonly %5, i64 noundef 0)
   %.not25.i = icmp eq ptr %12, null
   %..i = select i1 %.not25.i, ptr %3, ptr %12
   br label %fixpos.exit
 
 13:                                               ; preds = %10, %10
-  %14 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %5, i64 noundef 0)
+  %14 = call fastcc ptr @shareable_literal_constant(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef readonly %5, i64 noundef 0)
   %.not24.i = icmp eq ptr %14, null
   br i1 %.not24.i, label %15, label %fixpos.exit
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %9, 2
-  %17 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %16, ptr noundef %5)
+  %17 = call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %16, ptr noundef readonly %5)
   br label %fixpos.exit
 
 default.unreachable:                              ; preds = %10
@@ -17593,7 +17593,7 @@ fixpos.exit:                                      ; preds = %.split, %10, %11, %
   %19 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 35, i64 noundef 56, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %19, i32 noundef 35) #24
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
   %22 = and i64 %21, 32767
   %23 = load i32, ptr %5, align 4
@@ -17629,7 +17629,7 @@ fixpos.exit:                                      ; preds = %.split, %10, %11, %
   %42 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i17, i32 noundef 109, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %42, i32 noundef 109) #24
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %44 = load i64, ptr %42, align 8
   %45 = and i64 %44, 32767
   %46 = load i32, ptr %5, align 4
@@ -17657,7 +17657,7 @@ define internal fastcc noundef ptr @rb_node_colon2_new(ptr nocapture noundef %0,
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 89, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 89) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -18125,7 +18125,7 @@ value_expr_gen.exit:                              ; preds = %5, %32, %45
   %49 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 37, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %49, i32 noundef 37) #24
   %50 = getelementptr inbounds i8, ptr %49, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %51 = load i64, ptr %49, align 8
   %52 = and i64 %51, 32767
   %53 = load i32, ptr %4, align 4
@@ -18263,7 +18263,7 @@ value_expr_gen.exit:                              ; preds = %6, %37, %50
   %68 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46, i32 noundef %66, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %68, i32 noundef %66) #24
   %69 = getelementptr inbounds i8, ptr %68, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %70 = load i64, ptr %68, align 8
   %71 = and i64 %70, 32767
   %72 = load i32, ptr %5, align 4
@@ -18305,7 +18305,7 @@ value_expr_gen.exit:                              ; preds = %6, %37, %50
   %94 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef %92, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %94, i32 noundef %92) #24
   %95 = getelementptr inbounds i8, ptr %94, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %96 = load i64, ptr %94, align 8
   %97 = and i64 %96, 32767
   %98 = load i32, ptr %5, align 4
@@ -18344,7 +18344,7 @@ define internal fastcc noundef ptr @rb_node_case3_new(ptr nocapture noundef %0, 
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 6, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 6) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -18372,7 +18372,7 @@ define internal fastcc noundef ptr @rb_node_in_new(ptr nocapture noundef %0, ptr
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 8, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 8) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -18402,7 +18402,7 @@ define internal fastcc noundef ptr @rb_node_true_new(ptr nocapture noundef %0, p
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 97, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 97) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -18426,7 +18426,7 @@ define internal fastcc noundef ptr @rb_node_false_new(ptr nocapture noundef %0, 
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 98, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 98) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -18472,7 +18472,7 @@ define internal fastcc noundef ptr @rb_node_defn_new(ptr nocapture noundef %0, i
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 81, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 81) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18500,7 +18500,7 @@ define internal fastcc noundef ptr @rb_node_defs_new(ptr nocapture noundef %0, p
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 82, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 82) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -18537,7 +18537,7 @@ define internal fastcc noundef ptr @new_qcall(ptr nocapture noundef %0, i64 noun
   %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef %., i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %11, i32 noundef %.) #24
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %13 = load i64, ptr %11, align 8
   %14 = and i64 %13, 32767
   %15 = load i32, ptr %6, align 4
@@ -18573,7 +18573,7 @@ define internal fastcc noundef ptr @rb_node_fcall_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 38) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18620,7 +18620,7 @@ block_dup_check.exit:                             ; preds = %13, %10, %8
   %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef %..i, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %17, i32 noundef %..i) #24
   %18 = getelementptr inbounds i8, ptr %17, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull readonly align 4 dereferenceable(16) %7, i64 16, i1 false)
   %19 = load i64, ptr %17, align 8
   %20 = and i64 %19, 32767
   %21 = load i32, ptr %7, align 4
@@ -18652,7 +18652,7 @@ block_dup_check.exit:                             ; preds = %13, %10, %8
   %38 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %17, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %7, i64 16, i1 false)
   br label %40
 
 40:                                               ; preds = %37, %block_dup_check.exit
@@ -18682,7 +18682,7 @@ define internal fastcc noundef ptr @rb_node_super_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 41, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 41) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18723,7 +18723,7 @@ define internal fastcc noundef ptr @new_yield(ptr noundef %0, ptr noundef %1, pt
   %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 47, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %8, i32 noundef 47) #24
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
   %11 = and i64 %10, 32767
   %12 = load i32, ptr %2, align 4
@@ -18749,7 +18749,7 @@ define internal fastcc noundef ptr @rb_node_return_new(ptr nocapture noundef %0,
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 46, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 46) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18874,7 +18874,7 @@ define internal fastcc noundef ptr @rb_node_break_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 14, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 14) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18902,7 +18902,7 @@ define internal fastcc noundef ptr @rb_node_next_new(ptr nocapture noundef %0, p
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 15, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 15) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18930,7 +18930,7 @@ define internal fastcc noundef ptr @rb_node_masgn_new(ptr nocapture noundef %0, 
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 24, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 24) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -18960,7 +18960,7 @@ define internal fastcc noundef ptr @rb_node_list_new(ptr nocapture noundef %0, p
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 43) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -18995,7 +18995,7 @@ define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr no
   %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %8, i32 noundef 43) #24
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
   %11 = and i64 %10, 32767
   %12 = load i32, ptr %6, align 4
@@ -19040,7 +19040,7 @@ define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr no
   %35 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %35, i32 noundef 43) #24
   %36 = getelementptr inbounds i8, ptr %35, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull readonly align 4 dereferenceable(16) %33, i64 16, i1 false)
   %37 = load i64, ptr %35, align 8
   %38 = and i64 %37, 32767
   %39 = load i32, ptr %33, align 4
@@ -19083,7 +19083,7 @@ define internal fastcc noundef ptr @rb_node_postarg_new(ptr nocapture noundef %0
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 76, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 76) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -19124,7 +19124,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %10 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 26, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %10, i32 noundef 26) #24
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %12 = load i64, ptr %10, align 8
   %13 = and i64 %12, 32767
   %14 = load i32, ptr %3, align 4
@@ -19147,7 +19147,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 25, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %24, i32 noundef 25) #24
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %26 = load i64, ptr %24, align 8
   %27 = and i64 %26, 32767
   %28 = load i32, ptr %3, align 4
@@ -19170,7 +19170,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 27, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %38, i32 noundef 27) #24
   %39 = getelementptr inbounds i8, ptr %38, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %40 = load i64, ptr %38, align 8
   %41 = and i64 %40, 32767
   %42 = load i32, ptr %3, align 4
@@ -19193,7 +19193,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %52 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 28, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %52, i32 noundef 28) #24
   %53 = getelementptr inbounds i8, ptr %52, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %54 = load i64, ptr %52, align 8
   %55 = and i64 %54, 32767
   %56 = load i32, ptr %3, align 4
@@ -19216,7 +19216,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 29, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %66, i32 noundef 29) #24
   %67 = getelementptr inbounds i8, ptr %66, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %68 = load i64, ptr %66, align 8
   %69 = and i64 %68, 32767
   %70 = load i32, ptr %3, align 4
@@ -19241,7 +19241,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %81 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 30, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %81, i32 noundef 30) #24
   %82 = getelementptr inbounds i8, ptr %81, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %83 = load i64, ptr %81, align 8
   %84 = and i64 %83, 32767
   %85 = load i32, ptr %3, align 4
@@ -19264,7 +19264,7 @@ define internal fastcc noundef ptr @assignable(ptr noundef %0, i64 noundef %1, p
   %95 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 109, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %95, i32 noundef 109) #24
   %96 = getelementptr inbounds i8, ptr %95, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %97 = load i64, ptr %95, align 8
   %98 = and i64 %97, 32767
   %99 = load i32, ptr %3, align 4
@@ -19325,7 +19325,7 @@ define internal fastcc noundef ptr @aryset(ptr nocapture noundef %0, ptr noundef
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 104, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 104) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -19432,7 +19432,7 @@ define internal fastcc noundef ptr @attrset(ptr nocapture noundef %0, ptr nounde
   %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 104, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %11, i32 noundef 104) #24
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %13 = load i64, ptr %11, align 8
   %14 = and i64 %13, 32767
   %15 = load i32, ptr %4, align 4
@@ -19528,7 +19528,7 @@ parser_yyerror.exit:                              ; preds = %44, %31, %3
   %48 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i6, i32 noundef 29, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %48, i32 noundef 29) #24
   %49 = getelementptr inbounds i8, ptr %48, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %50 = load i64, ptr %48, align 8
   %51 = and i64 %50, 32767
   %52 = load i32, ptr %2, align 4
@@ -19588,7 +19588,7 @@ define internal fastcc noundef ptr @rb_node_colon3_new(ptr nocapture noundef %0,
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 90, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 90) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -19614,7 +19614,7 @@ define internal fastcc noundef ptr @rb_node_sym_new(ptr noundef %0, i64 noundef 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 102, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 102) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -19643,7 +19643,7 @@ define internal fastcc noundef ptr @rb_node_undef_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 85, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 85) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -19699,7 +19699,7 @@ define internal fastcc noundef ptr @rb_node_dot2_new(ptr nocapture noundef %0, p
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 91, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 91) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -19727,7 +19727,7 @@ define internal fastcc noundef ptr @rb_node_dot3_new(ptr nocapture noundef %0, p
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 92, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 92) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -19911,7 +19911,7 @@ value_expr_gen.exit20:                            ; preds = %value_expr_gen.exit
   %93 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %93, i32 noundef 43) #24
   %94 = getelementptr inbounds i8, ptr %93, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull readonly align 4 dereferenceable(16) %91, i64 16, i1 false)
   %95 = load i64, ptr %93, align 8
   %96 = and i64 %95, 32767
   %97 = load i32, ptr %91, align 4
@@ -19935,7 +19935,7 @@ value_expr_gen.exit20:                            ; preds = %value_expr_gen.exit
   %108 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21, i32 noundef 37, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %108, i32 noundef 37) #24
   %109 = getelementptr inbounds i8, ptr %108, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %110 = load i64, ptr %108, align 8
   %111 = and i64 %110, 32767
   %112 = load i32, ptr %5, align 4
@@ -20133,7 +20133,7 @@ last_expr_once_body.exit.thread3:                 ; preds = %last_expr_once_body
   %101 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 57, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %101, i32 noundef 57) #24
   %102 = getelementptr inbounds i8, ptr %101, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %103 = load i64, ptr %101, align 8
   %104 = and i64 %103, 32767
   %105 = load i32, ptr %3, align 4
@@ -20172,7 +20172,7 @@ last_expr_once_body.exit.thread3:                 ; preds = %last_expr_once_body
   %126 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i58, i32 noundef 57, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %126, i32 noundef 57) #24
   %127 = getelementptr inbounds i8, ptr %126, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %128 = load i64, ptr %126, align 8
   %129 = and i64 %128, 32767
   %130 = load i32, ptr %3, align 4
@@ -20258,7 +20258,7 @@ last_expr_once_body.exit64.thread9:               ; preds = %last_expr_once_body
   %167 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i65, i32 noundef 58, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %167, i32 noundef 58) #24
   %168 = getelementptr inbounds i8, ptr %167, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %169 = load i64, ptr %167, align 8
   %170 = and i64 %169, 32767
   %171 = load i32, ptr %3, align 4
@@ -20285,7 +20285,7 @@ last_expr_once_body.exit64.thread:                ; preds = %last_expr_once_body
   %183 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i66, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %183, i32 noundef 43) #24
   %184 = getelementptr inbounds i8, ptr %183, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 4 dereferenceable(16) %181, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull readonly align 4 dereferenceable(16) %181, i64 16, i1 false)
   %185 = load i64, ptr %183, align 8
   %186 = and i64 %185, 32767
   %187 = load i32, ptr %181, align 4
@@ -20309,7 +20309,7 @@ last_expr_once_body.exit64.thread:                ; preds = %last_expr_once_body
   %198 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i67, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %198, i32 noundef 36) #24
   %199 = getelementptr inbounds i8, ptr %198, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %200 = load i64, ptr %198, align 8
   %201 = and i64 %200, 32767
   %202 = load i32, ptr %3, align 4
@@ -20376,7 +20376,7 @@ define internal fastcc noundef ptr @new_defined(ptr nocapture noundef %0, ptr no
   %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 100, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %13, i32 noundef 100) #24
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %15 = load i64, ptr %13, align 8
   %16 = and i64 %15, 32767
   %17 = load i32, ptr %2, align 4
@@ -20407,7 +20407,7 @@ define internal fastcc noundef ptr @arg_append(ptr nocapture noundef %0, ptr nou
   %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %8, i32 noundef 43) #24
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
   %11 = and i64 %10, 32767
   %12 = load i32, ptr %6, align 4
@@ -20464,7 +20464,7 @@ list_append.exit:                                 ; preds = %28, %31
   %39 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %39, i32 noundef 43) #24
   %40 = getelementptr inbounds i8, ptr %39, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull readonly align 4 dereferenceable(16) %37, i64 16, i1 false)
   %41 = load i64, ptr %39, align 8
   %42 = and i64 %41, 32767
   %43 = load i32, ptr %37, align 4
@@ -20519,7 +20519,7 @@ common.ret42:                                     ; preds = %102, %97, %67, %lis
   %72 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i40, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %72, i32 noundef 43) #24
   %73 = getelementptr inbounds i8, ptr %72, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 4 dereferenceable(16) %70, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull readonly align 4 dereferenceable(16) %70, i64 16, i1 false)
   %74 = load i64, ptr %72, align 8
   %75 = and i64 %74, 32767
   %76 = load i32, ptr %70, align 4
@@ -20571,7 +20571,7 @@ common.ret42:                                     ; preds = %102, %97, %67, %lis
   %104 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i41, i32 noundef 78, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %104, i32 noundef 78) #24
   %105 = getelementptr inbounds i8, ptr %104, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %106 = load i64, ptr %104, align 8
   %107 = and i64 %106, 32767
   %108 = load i32, ptr %3, align 4
@@ -20603,7 +20603,7 @@ define internal fastcc noundef ptr @new_hash(ptr noundef %0, ptr noundef %1, ptr
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 45) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -20628,7 +20628,7 @@ define internal fastcc noundef ptr @new_hash(ptr noundef %0, ptr noundef %1, ptr
   %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i8, i32 noundef 45, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %19, i32 noundef 45) #24
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
   %22 = and i64 %21, 32767
   %23 = load i32, ptr %2, align 4
@@ -20760,7 +20760,7 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr noundef %0, ptr no
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 48, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 48) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %2, align 4
@@ -20780,7 +20780,7 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr noundef %0, ptr no
   %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i27, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %19, i32 noundef 43) #24
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
   %22 = and i64 %21, 32767
   %23 = load i32, ptr %2, align 4
@@ -20803,7 +20803,7 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr noundef %0, ptr no
   %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i28, i32 noundef 48, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %33, i32 noundef 48) #24
   %34 = getelementptr inbounds i8, ptr %33, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %35 = load i64, ptr %33, align 8
   %36 = and i64 %35, 32767
   %37 = load i32, ptr %2, align 4
@@ -20823,7 +20823,7 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr noundef %0, ptr no
   %46 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i29, i32 noundef 48, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %46, i32 noundef 48) #24
   %47 = getelementptr inbounds i8, ptr %46, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %48 = load i64, ptr %46, align 8
   %49 = and i64 %48, 32767
   %50 = load i32, ptr %2, align 4
@@ -20842,7 +20842,7 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr noundef %0, ptr no
   %58 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i30, i32 noundef 80, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %58, i32 noundef 80) #24
   %59 = getelementptr inbounds i8, ptr %58, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %60 = load i64, ptr %58, align 8
   %61 = and i64 %60, 32767
   %62 = load i32, ptr %2, align 4
@@ -20930,7 +20930,7 @@ list_concat.exit.i:                               ; preds = %95, %86
   br label %118
 
 103:                                              ; preds = %splat_array.exit.i, %71
-  %104 = tail call fastcc ptr @arg_concat(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %3)
+  %104 = tail call fastcc ptr @arg_concat(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef readonly %3)
   br label %118
 
 105:                                              ; preds = %4
@@ -20938,7 +20938,7 @@ list_concat.exit.i:                               ; preds = %95, %86
   %106 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 79, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %106, i32 noundef 79) #24
   %107 = getelementptr inbounds i8, ptr %106, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %108 = load i64, ptr %106, align 8
   %109 = and i64 %108, 32767
   %110 = load i32, ptr %2, align 4
@@ -20984,7 +20984,7 @@ define internal fastcc noundef ptr @rb_node_block_pass_new(ptr nocapture noundef
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 80, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 80) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21203,7 +21203,7 @@ define internal fastcc noundef ptr @rb_node_lvar_new(ptr nocapture noundef %0, i
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 48, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 48) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21229,7 +21229,7 @@ define internal fastcc noundef ptr @rb_node_splat_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 79, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 79) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21291,7 +21291,7 @@ list_append.exit:                                 ; preds = %10, %13
   %21 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %21, i32 noundef 43) #24
   %22 = getelementptr inbounds i8, ptr %21, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull readonly align 4 dereferenceable(16) %19, i64 16, i1 false)
   %23 = load i64, ptr %21, align 8
   %24 = and i64 %23, 32767
   %25 = load i32, ptr %19, align 4
@@ -21415,7 +21415,7 @@ define internal fastcc noundef ptr @rb_node_block_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 1, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 1) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21445,7 +21445,7 @@ define internal fastcc noundef ptr @rb_node_zlist_new(ptr nocapture noundef %0, 
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 44, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 44) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -21469,7 +21469,7 @@ define internal fastcc noundef ptr @rb_node_yield_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 47, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 47) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21495,7 +21495,7 @@ define internal fastcc noundef ptr @rb_node_nil_new(ptr nocapture noundef %0, pt
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 96) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -21580,7 +21580,7 @@ define internal fastcc noundef ptr @rb_node_case_new(ptr nocapture noundef %0, p
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 4, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 4) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -21608,7 +21608,7 @@ define internal fastcc noundef ptr @rb_node_case2_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 5, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 5) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21638,7 +21638,7 @@ define internal fastcc noundef ptr @rb_node_args_aux_new(ptr nocapture noundef %
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 73, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 73) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   store i64 %8, ptr %5, align 8
@@ -21664,7 +21664,7 @@ define internal fastcc noundef ptr @rb_node_dvar_new(ptr nocapture noundef %0, i
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 49, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 49) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21761,7 +21761,7 @@ define internal fastcc noundef ptr @rb_node_for_masgn_new(ptr nocapture noundef 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 13, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 13) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -21929,7 +21929,7 @@ rb_long2int_inline.exit:                          ; preds = %55
   %87 = and i8 %10, -3
   store i8 %87, ptr %9, align 8
   %88 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %89 = load i64, ptr %5, align 8
   %90 = and i64 %89, 32767
   %91 = load i32, ptr %6, align 4
@@ -21950,7 +21950,7 @@ define internal fastcc noundef ptr @new_args_tail(ptr noundef %0, ptr noundef %1
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 72, i64 noundef 112, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 72) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   store i64 %10, ptr %7, align 8
@@ -22409,7 +22409,7 @@ arg_var.exit93:                                   ; preds = %211, %200, %arg_var
   %217 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i94, i32 noundef 49, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %217, i32 noundef 49) #24
   %218 = getelementptr inbounds i8, ptr %217, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %219 = load i64, ptr %217, align 8
   %220 = and i64 %219, 32767
   %221 = load i32, ptr %4, align 4
@@ -22444,7 +22444,7 @@ arg_var.exit93:                                   ; preds = %211, %200, %arg_var
   %234 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i95, i32 noundef 49, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %234, i32 noundef 49) #24
   %235 = getelementptr inbounds i8, ptr %234, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %236 = load i64, ptr %234, align 8
   %237 = and i64 %236, 32767
   %238 = load i32, ptr %4, align 4
@@ -22474,7 +22474,7 @@ define internal fastcc noundef ptr @rb_node_for_new(ptr nocapture noundef %0, pt
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 12, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 12) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -22503,7 +22503,7 @@ define internal fastcc noundef ptr @rb_node_class_new(ptr nocapture noundef %0, 
   %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 86, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %8, i32 noundef 86) #24
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
   %11 = and i64 %10, 32767
   %12 = load i32, ptr %4, align 4
@@ -22534,7 +22534,7 @@ define internal fastcc noundef ptr @rb_node_sclass_new(ptr nocapture noundef %0,
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 88, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 88) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %3, align 4
@@ -22563,7 +22563,7 @@ define internal fastcc noundef ptr @rb_node_module_new(ptr nocapture noundef %0,
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 87, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 87) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %3, align 4
@@ -22591,7 +22591,7 @@ define internal fastcc noundef ptr @rb_node_redo_new(ptr nocapture noundef %0, p
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 16, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 16) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -22617,7 +22617,7 @@ define internal fastcc noundef ptr @rb_node_retry_new(ptr nocapture noundef %0, 
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 17, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 17) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -22761,7 +22761,7 @@ define internal fastcc noundef ptr @rb_node_def_temp_new(ptr nocapture noundef %
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 114, i64 noundef 80, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 114) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -23250,7 +23250,7 @@ define internal fastcc noundef ptr @args_with_numbered(ptr nocapture noundef %0,
   %25 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 72, i64 noundef 112, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %25, i32 noundef 72) #24
   %26 = getelementptr inbounds i8, ptr %25, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %27 = load i64, ptr %25, align 8
   %28 = and i64 %27, 32767
   store i64 %28, ptr %25, align 8
@@ -23309,7 +23309,7 @@ define internal fastcc noundef ptr @rb_node_lambda_new(ptr nocapture noundef %0,
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 105, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 105) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %3, align 4
@@ -23416,7 +23416,7 @@ define internal fastcc noundef ptr @rb_node_zsuper_new(ptr nocapture noundef %0,
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 42, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 42) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -23440,7 +23440,7 @@ define internal fastcc noundef ptr @rb_node_call_new(ptr nocapture noundef %0, p
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 36) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -23471,7 +23471,7 @@ define internal fastcc noundef ptr @rb_node_iter_new(ptr nocapture noundef %0, p
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 11, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 11) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %3, align 4
@@ -23557,7 +23557,7 @@ define internal fastcc noundef ptr @rb_node_when_new(ptr nocapture noundef %0, p
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 7, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 7) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -23593,7 +23593,7 @@ define internal fastcc noundef ptr @new_array_pattern_tail(ptr nocapture noundef
   %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 106, i64 noundef 64, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %9, i32 noundef 106) #24
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
   %12 = and i64 %11, 32767
   %13 = load i32, ptr %5, align 4
@@ -23631,7 +23631,7 @@ define internal fastcc noundef ptr @new_array_pattern(ptr nocapture noundef %0, 
   %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %9, i32 noundef 43) #24
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
   %12 = and i64 %11, 32767
   %13 = load i32, ptr %4, align 4
@@ -23771,7 +23771,7 @@ define internal fastcc noundef ptr @rb_node_or_new(ptr nocapture noundef %0, ptr
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 23, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 23) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -23813,7 +23813,7 @@ define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef %0, ptr no
   %10 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 107, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %10, i32 noundef 107) #24
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %12 = load i64, ptr %10, align 8
   %13 = and i64 %12, 32767
   %14 = load i32, ptr %3, align 4
@@ -23914,7 +23914,7 @@ define internal fastcc noundef ptr @new_find_pattern_tail(ptr nocapture noundef 
   %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 108, i64 noundef 64, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %9, i32 noundef 108) #24
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
   %12 = and i64 %11, 32767
   %13 = load i32, ptr %4, align 4
@@ -24056,7 +24056,7 @@ define internal fastcc noundef ptr @new_unique_key_hash(ptr nocapture noundef %0
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 45) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -24180,7 +24180,7 @@ define internal fastcc noundef ptr @dsym_node(ptr noundef %0, ptr noundef %1, pt
   %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 102, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %9, i32 noundef 102) #24
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
   %12 = and i64 %11, 32767
   %13 = load i32, ptr %2, align 4
@@ -24212,7 +24212,7 @@ define internal fastcc noundef ptr @dsym_node(ptr noundef %0, ptr noundef %1, pt
 28:                                               ; preds = %23
   %29 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 103) #24
   %30 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %31 = load i64, ptr %1, align 8
   %32 = and i64 %31, 32767
   %33 = load i32, ptr %2, align 4
@@ -24234,7 +24234,7 @@ define internal fastcc noundef ptr @dsym_node(ptr noundef %0, ptr noundef %1, pt
   %42 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i20, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %42, i32 noundef 43) #24
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %44 = load i64, ptr %42, align 8
   %45 = and i64 %44, 32767
   %46 = load i32, ptr %2, align 4
@@ -24258,7 +24258,7 @@ define internal fastcc noundef ptr @dsym_node(ptr noundef %0, ptr noundef %1, pt
   %57 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21, i32 noundef 103, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %57, i32 noundef 103) #24
   %58 = getelementptr inbounds i8, ptr %57, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %59 = load i64, ptr %57, align 8
   %60 = and i64 %59, 32767
   %61 = load i32, ptr %2, align 4
@@ -24310,7 +24310,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 95, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 95) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %2, align 4
@@ -24334,7 +24334,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %22 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i126, i32 noundef 96, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %22, i32 noundef 96) #24
   %23 = getelementptr inbounds i8, ptr %22, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %24 = load i64, ptr %22, align 8
   %25 = and i64 %24, 32767
   %26 = load i32, ptr %2, align 4
@@ -24356,7 +24356,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %36 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i127, i32 noundef 97, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %36, i32 noundef 97) #24
   %37 = getelementptr inbounds i8, ptr %36, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %38 = load i64, ptr %36, align 8
   %39 = and i64 %38, 32767
   %40 = load i32, ptr %2, align 4
@@ -24378,7 +24378,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %50 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i128, i32 noundef 98, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %50, i32 noundef 98) #24
   %51 = getelementptr inbounds i8, ptr %50, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %52 = load i64, ptr %50, align 8
   %53 = and i64 %52, 32767
   %54 = load i32, ptr %2, align 4
@@ -24411,7 +24411,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %70 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i129, i32 noundef 111, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %70, i32 noundef 111) #24
   %71 = getelementptr inbounds i8, ptr %70, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %72 = load i64, ptr %70, align 8
   %73 = and i64 %72, 32767
   %74 = load i32, ptr %2, align 4
@@ -24436,7 +24436,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %86 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i130, i32 noundef 110, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %86, i32 noundef 110) #24
   %87 = getelementptr inbounds i8, ptr %86, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %88 = load i64, ptr %86, align 8
   %89 = and i64 %88, 32767
   %90 = load i32, ptr %2, align 4
@@ -24458,7 +24458,7 @@ define internal fastcc noundef ptr @gettable(ptr noundef %0, i64 noundef %1, ptr
   %100 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i131, i32 noundef 112, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %100, i32 noundef 112) #24
   %101 = getelementptr inbounds i8, ptr %100, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %102 = load i64, ptr %100, align 8
   %103 = and i64 %102, 32767
   %104 = load i32, ptr %2, align 4
@@ -24729,7 +24729,7 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
   %226 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i139, i32 noundef 50, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %226, i32 noundef 50) #24
   %227 = getelementptr inbounds i8, ptr %226, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %228 = load i64, ptr %226, align 8
   %229 = and i64 %228, 32767
   %230 = load i32, ptr %2, align 4
@@ -24753,7 +24753,7 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
   %241 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i140, i32 noundef 51, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %241, i32 noundef 51) #24
   %242 = getelementptr inbounds i8, ptr %241, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %243 = load i64, ptr %241, align 8
   %244 = and i64 %243, 32767
   %245 = load i32, ptr %2, align 4
@@ -24777,7 +24777,7 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
   %256 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i141, i32 noundef 52, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %256, i32 noundef 52) #24
   %257 = getelementptr inbounds i8, ptr %256, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %258 = load i64, ptr %256, align 8
   %259 = and i64 %258, 32767
   %260 = load i32, ptr %2, align 4
@@ -24801,7 +24801,7 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
   %271 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i142, i32 noundef 53, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %271, i32 noundef 53) #24
   %272 = getelementptr inbounds i8, ptr %271, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %273 = load i64, ptr %271, align 8
   %274 = and i64 %273, 32767
   %275 = load i32, ptr %2, align 4
@@ -24836,7 +24836,7 @@ define internal fastcc noundef ptr @rb_node_errinfo_new(ptr nocapture noundef %0
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 99, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %4, i32 noundef 99) #24
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32767
   %8 = load i32, ptr %1, align 4
@@ -24860,7 +24860,7 @@ define internal fastcc noundef ptr @rb_node_str_new(ptr nocapture noundef %0, pt
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 64) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -24920,7 +24920,7 @@ list_append.exit:                                 ; preds = %2
   %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %14, i32 noundef 65) #24
   %15 = getelementptr inbounds i8, ptr %14, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %16 = load i64, ptr %14, align 8
   %17 = and i64 %16, 32767
   %18 = load i32, ptr %5, align 4
@@ -24944,7 +24944,7 @@ list_append.exit:                                 ; preds = %2
   %29 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %29, i32 noundef 43) #24
   %30 = getelementptr inbounds i8, ptr %29, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %31 = load i64, ptr %29, align 8
   %32 = and i64 %31, 32767
   %33 = load i32, ptr %5, align 4
@@ -25010,7 +25010,7 @@ list_append.exit:                                 ; preds = %6
   %20 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %20, i32 noundef 65) #24
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %22 = load i64, ptr %20, align 8
   %23 = and i64 %22, 32767
   %24 = load i32, ptr %3, align 4
@@ -25035,7 +25035,7 @@ list_append.exit:                                 ; preds = %6
   %36 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %36, i32 noundef 43) #24
   %37 = getelementptr inbounds i8, ptr %36, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %35, i64 16, i1 false)
   %38 = load i64, ptr %36, align 8
   %39 = and i64 %38, 32767
   %40 = load i32, ptr %35, align 4
@@ -25103,7 +25103,7 @@ str2dstr.exit:                                    ; preds = %58, %63
   store i64 %71, ptr %60, align 8
   %72 = getelementptr inbounds i8, ptr %60, i64 8
   %73 = getelementptr inbounds i8, ptr %.087, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull readonly align 8 dereferenceable(16) %73, i64 16, i1 false)
   %74 = getelementptr inbounds i8, ptr %.087, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %60, i64 24
@@ -25340,7 +25340,7 @@ str2dstr.exit121:                                 ; preds = %175, %180
   store i64 %188, ptr %177, align 8
   %189 = getelementptr inbounds i8, ptr %177, i64 8
   %190 = getelementptr inbounds i8, ptr %.087, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %190, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull readonly align 8 dereferenceable(16) %190, i64 16, i1 false)
   %191 = getelementptr inbounds i8, ptr %.087, i64 24
   %192 = load i32, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %177, i64 24
@@ -25625,7 +25625,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 66, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %13, i32 noundef 66) #24
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %15 = load i64, ptr %13, align 8
   %16 = and i64 %15, 32767
   %17 = load i32, ptr %2, align 4
@@ -25656,7 +25656,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
 31:                                               ; preds = %26
   %32 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 66) #24
   %33 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %34 = load i64, ptr %1, align 8
   %35 = and i64 %34, 32767
   %36 = load i32, ptr %2, align 4
@@ -25669,7 +25669,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
 40:                                               ; preds = %26
   %41 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 67) #24
   %42 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %43 = load i64, ptr %1, align 8
   %44 = and i64 %43, 32767
   %45 = load i32, ptr %2, align 4
@@ -25685,7 +25685,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   %51 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i22, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %51, i32 noundef 43) #24
   %52 = getelementptr inbounds i8, ptr %51, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %53 = load i64, ptr %51, align 8
   %54 = and i64 %53, 32767
   %55 = load i32, ptr %2, align 4
@@ -25709,7 +25709,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i23, i32 noundef 67, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %66, i32 noundef 67) #24
   %67 = getelementptr inbounds i8, ptr %66, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %68 = load i64, ptr %66, align 8
   %69 = and i64 %68, 32767
   %70 = load i32, ptr %2, align 4
@@ -25759,7 +25759,7 @@ define internal fastcc noundef ptr @new_regexp(ptr noundef %0, ptr noundef %1, i
   %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 69, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %14, i32 noundef 69) #24
   %15 = getelementptr inbounds i8, ptr %14, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %16 = load i64, ptr %14, align 8
   %17 = and i64 %16, 32767
   %18 = load i32, ptr %3, align 4
@@ -25821,7 +25821,7 @@ str2regx.exit:                                    ; preds = %34, %41
   store i64 %49, ptr %38, align 8
   %50 = getelementptr inbounds i8, ptr %38, i64 8
   %51 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull readonly align 8 dereferenceable(16) %51, i64 16, i1 false)
   %52 = getelementptr inbounds i8, ptr %1, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %38, i64 24
@@ -25852,7 +25852,7 @@ str2regx.exit:                                    ; preds = %34, %41
   %67 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i95, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %67, i32 noundef 43) #24
   %68 = getelementptr inbounds i8, ptr %67, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %69 = load i64, ptr %67, align 8
   %70 = and i64 %69, 32767
   %71 = load i32, ptr %3, align 4
@@ -25876,7 +25876,7 @@ str2regx.exit:                                    ; preds = %34, %41
   %82 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i96, i32 noundef 65, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %82, i32 noundef 65) #24
   %83 = getelementptr inbounds i8, ptr %82, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %84 = load i64, ptr %82, align 8
   %85 = and i64 %84, 32767
   %86 = load i32, ptr %3, align 4
@@ -25901,7 +25901,7 @@ str2regx.exit:                                    ; preds = %34, %41
   %.077 = phi ptr [ %82, %58 ], [ %1, %29 ]
   %97 = tail call i64 @rb_node_set_type(ptr noundef nonnull %.077, i32 noundef 70) #24
   %98 = getelementptr inbounds i8, ptr %.077, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %99 = load i64, ptr %.077, align 8
   %100 = and i64 %99, 32767
   %101 = load i32, ptr %3, align 4
@@ -25987,7 +25987,7 @@ str2regx.exit:                                    ; preds = %34, %41
   %143 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i97, i32 noundef 96, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %143, i32 noundef 96) #24
   %144 = getelementptr inbounds i8, ptr %143, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %145 = load i64, ptr %143, align 8
   %146 = and i64 %145, 32767
   %147 = load i32, ptr %3, align 4
@@ -26077,7 +26077,7 @@ rb_parser_str_resize.exit:                        ; preds = %161, %167
   %182 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i98, i32 noundef 71, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %182, i32 noundef 71) #24
   %183 = getelementptr inbounds i8, ptr %182, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %184 = load i64, ptr %182, align 8
   %185 = and i64 %184, 32767
   %186 = load i32, ptr %3, align 4
@@ -26169,7 +26169,7 @@ nd_copy_flag.exit:                                ; preds = %1, %5
   store i64 %13, ptr %2, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 24
@@ -26191,7 +26191,7 @@ define internal fastcc noundef ptr @rb_node_dstr_new(ptr nocapture noundef %0, p
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 65) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -26221,7 +26221,7 @@ define internal fastcc noundef ptr @rb_node_evstr_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 68, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 68) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -26251,7 +26251,7 @@ define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noun
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 68, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 68) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -26285,7 +26285,7 @@ define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noun
   %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i12, i32 noundef 68, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %24, i32 noundef 68) #24
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %26 = load i64, ptr %24, align 8
   %27 = and i64 %26, 32767
   %28 = load i32, ptr %2, align 4
@@ -26331,7 +26331,7 @@ str2dstr.exit:                                    ; preds = %37, %42
   store i64 %50, ptr %39, align 8
   %51 = getelementptr inbounds i8, ptr %39, i64 8
   %52 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull readonly align 8 dereferenceable(16) %52, i64 16, i1 false)
   %53 = getelementptr inbounds i8, ptr %1, i64 24
   %54 = load i32, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %39, i64 24
@@ -26923,7 +26923,7 @@ define internal fastcc noundef ptr @new_kw_arg(ptr nocapture noundef %0, ptr nou
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 75, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 75) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %2, align 4
@@ -26957,7 +26957,7 @@ define internal fastcc noundef ptr @rb_node_opt_arg_new(ptr nocapture noundef %0
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 74, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 74) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -34669,7 +34669,7 @@ define internal fastcc void @reduce_nodes(ptr noundef %0, ptr nocapture noundef 
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 96) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   store i64 %9, ptr %6, align 8
@@ -34926,7 +34926,7 @@ define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr noundef %0, ptr 
   br i1 %.not.i.i.i, label %rb_enc_asciicompat.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
 rb_enc_asciicompat.exit.i.i:                      ; preds = %20
-  %21 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.val.i) #25
+  %21 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #25
   %.not3.i.i.i = icmp eq i32 %21, 0
   br i1 %.not3.i.i.i, label %22, label %rb_enc_asciicompat.exit.thread.i.i
 
@@ -34937,7 +34937,7 @@ rb_enc_asciicompat.exit.i.i:                      ; preds = %20
   br i1 %.not.i.i.i.i, label %rb_enc_asciicompat.exit.i.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
 rb_enc_asciicompat.exit.i.i.i:                    ; preds = %22
-  %24 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.val16.i) #25
+  %24 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #25
   %.not3.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not3.i.i.i.i, label %rb_parser_enc_str_asciionly_p.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
@@ -34949,7 +34949,7 @@ rb_parser_enc_str_asciionly_p.exit.i.i:           ; preds = %rb_enc_asciicompat.
   br i1 %.not.i.i.i, label %rb_enc_asciicompat.exit33.i.i, label %rb_parser_enc_compatible.exit
 
 rb_enc_asciicompat.exit33.i.i:                    ; preds = %26
-  %27 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.val.i) #25
+  %27 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #25
   %.not3.i32.i.i = icmp eq i32 %27, 0
   br i1 %.not3.i32.i.i, label %28, label %rb_parser_enc_compatible.exit
 
@@ -34960,7 +34960,7 @@ rb_enc_asciicompat.exit33.i.i:                    ; preds = %26
   br i1 %.not.i35.i.i, label %rb_enc_asciicompat.exit38.i.i, label %rb_parser_enc_compatible.exit
 
 rb_enc_asciicompat.exit38.i.i:                    ; preds = %28
-  %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.val16.i) #25
+  %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #25
   %.not3.i37.i.i = icmp eq i32 %30, 0
   br i1 %.not3.i37.i.i, label %31, label %rb_parser_enc_compatible.exit
 
@@ -35159,7 +35159,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %93
   %107 = getelementptr inbounds i8, ptr %106, i64 %.034.i.i.i
   %spec.select.i.i.i = select i1 %.not41.i.i.i, ptr %69, ptr %107
   %108 = getelementptr inbounds i8, ptr %106, i64 %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr align 1 %spec.select.i.i.i, i64 %71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr readonly align 1 %spec.select.i.i.i, i64 %71, i1 false)
   store i64 %104, ptr %72, align 8
   %109 = load ptr, ptr %98, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 %104
@@ -35369,7 +35369,7 @@ define internal fastcc i32 @parser_yylex(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %64
 
 rb_enc_asciicompat.exit.i:                        ; preds = %50
-  %52 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %.pre284.i) #25
+  %52 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.pre284.i) #25
   %.not3.i.i = icmp eq i32 %52, 0
   br i1 %.not3.i.i, label %53, label %64
 
@@ -35579,7 +35579,7 @@ parser_set_lex_state.exit.i:                      ; preds = %133, %heredoc_resto
   %.1.i.i = phi ptr [ %.0.i204.i, %167 ], [ %.val194.i, %157 ], [ %.val194.i, %155 ]
   %172 = sub nsw i64 0, %30
   %173 = getelementptr inbounds i8, ptr %.1.i.i, i64 %172
-  %174 = tail call i32 @strncmp(ptr noundef %27, ptr noundef %173, i64 noundef %30) #25
+  %174 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef %173, i64 noundef %30) #25
   %.not.i203.i = icmp eq i32 %174, 0
   br i1 %.not.i203.i, label %175, label %whole_match_p.exit.thread.i
 
@@ -35874,7 +35874,7 @@ whole_match_p.exit.thread.i:                      ; preds = %whole_match_p.exit.
 315:                                              ; preds = %311, %301, %299
   %.1.i211.i = phi ptr [ %.0.i221.i, %311 ], [ %.val196.i, %301 ], [ %.val196.i, %299 ]
   %316 = getelementptr inbounds i8, ptr %.1.i211.i, i64 %237
-  %317 = tail call i32 @strncmp(ptr noundef %27, ptr noundef %316, i64 noundef %30) #25
+  %317 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef %316, i64 noundef %30) #25
   %.not.i212.i = icmp eq i32 %317, 0
   br i1 %.not.i212.i, label %318, label %whole_match_p.exit223.i
 
@@ -36161,7 +36161,7 @@ pushback.exit.i:                                  ; preds = %430, %426, %423, %4
   %448 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %448, i32 noundef 64) #24
   %449 = getelementptr inbounds i8, ptr %448, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %449, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %449, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
   %450 = load i64, ptr %448, align 8
   %451 = and i64 %450, 32767
   %452 = load i32, ptr %8, align 4
@@ -36271,7 +36271,7 @@ tokadd.exit232.i:                                 ; preds = %481, %471
 514:                                              ; preds = %510, %500, %498
   %.1.i233.i = phi ptr [ %.0.i243.i, %510 ], [ %.val198.i, %500 ], [ %.val198.i, %498 ]
   %515 = getelementptr inbounds i8, ptr %.1.i233.i, i64 %413
-  %516 = tail call i32 @strncmp(ptr noundef %27, ptr noundef %515, i64 noundef %30) #25
+  %516 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef %515, i64 noundef %30) #25
   %.not.i234.i = icmp eq i32 %516, 0
   br i1 %.not.i234.i, label %517, label %whole_match_p.exit245.i
 
@@ -36392,7 +36392,7 @@ heredoc_restore.exit247.i:                        ; preds = %570, %.loopexit261.
   %584 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i248.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %584, i32 noundef 64) #24
   %585 = getelementptr inbounds i8, ptr %584, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, ptr noundef nonnull readonly align 4 dereferenceable(16) %9, i64 16, i1 false)
   %586 = load i64, ptr %584, align 8
   %587 = and i64 %586, 32767
   %588 = load i32, ptr %9, align 4
@@ -36951,7 +36951,7 @@ pushback.exit110.i:                               ; preds = %826, %822, %819, %8
   %853 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i826, i32 noundef 64, i64 noundef 40, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %853, i32 noundef 64) #24
   %854 = getelementptr inbounds i8, ptr %853, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %854, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %854, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %855 = load i64, ptr %853, align 8
   %856 = and i64 %855, 32767
   %857 = load i32, ptr %4, align 4
@@ -37671,7 +37671,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %1130, %1124
   br i1 %.not.i225.i856, label %ruby_nonempty_memcpy.exit.i, label %1131
 
 1131:                                             ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i.i, ptr nonnull align 1 %.us-phi1405, i64 %1123, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i.i, ptr nonnull readonly align 1 %.us-phi1405, i64 %1123, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 1132:                                             ; preds = %.critedge10.i
@@ -37769,7 +37769,7 @@ rbimpl_size_mul_or_raise.exit234.i:               ; preds = %1166, %1160
   br i1 %.not.i235.i, label %ruby_nonempty_memcpy.exit236.i, label %1167
 
 1167:                                             ; preds = %rbimpl_size_mul_or_raise.exit234.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i232.i, ptr nonnull align 1 %.0164419.i, i64 %.0147.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i232.i, ptr nonnull readonly align 1 %.0164419.i, i64 %.0147.i, i1 false)
   br label %ruby_nonempty_memcpy.exit236.i
 
 1168:                                             ; preds = %1159
@@ -37836,7 +37836,7 @@ rbimpl_size_mul_or_raise.exit245.i:               ; preds = %1185, %1179
   br i1 %.not.i246.i860, label %ruby_nonempty_memcpy.exit247.i, label %1186
 
 1186:                                             ; preds = %rbimpl_size_mul_or_raise.exit245.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i243.i, ptr nonnull align 1 %.0164419.i, i64 %.pre-phi1643, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i243.i, ptr nonnull readonly align 1 %.0164419.i, i64 %.pre-phi1643, i1 false)
   br label %ruby_nonempty_memcpy.exit247.i
 
 1187:                                             ; preds = %.loopexit.i859
@@ -38507,7 +38507,7 @@ parser_set_lex_state.exit901:                     ; preds = %1456, %1457
   br i1 %1466, label %1467, label %word_match_p.exit
 
 1467:                                             ; preds = %1462
-  %1468 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1463, ptr noundef nonnull dereferenceable(6) @.str.29, i64 noundef 5) #25
+  %1468 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1463, ptr noundef nonnull readonly dereferenceable(6) @.str.29, i64 noundef 5) #25
   %.not.i902 = icmp eq i32 %1468, 0
   br i1 %.not.i902, label %1469, label %word_match_p.exit
 
@@ -40888,7 +40888,7 @@ define internal fastcc range(i32 -1, 256) i32 @nextc0(ptr noundef %0) unnamed_ad
   br i1 %.not.i.i.i.i, label %rb_enc_asciicompat.exit.i.i.i, label %rb_enc_asciicompat.exit.thread.i.i.i
 
 rb_enc_asciicompat.exit.i.i.i:                    ; preds = %34
-  %37 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %35) #25
+  %37 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %35) #25
   %.not3.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not3.i.i.i.i, label %must_be_ascii_compatible.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i.i
 
@@ -41767,7 +41767,7 @@ tokadd.exit:                                      ; preds = %169, %160, %148, %.
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %parser_str_new.exit
 
 rb_enc_asciicompat.exit.i:                        ; preds = %tokadd.exit
-  %185 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %174) #25
+  %185 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %174) #25
   %.not3.i.i = icmp eq i32 %185, 0
   br i1 %.not3.i.i, label %186, label %parser_str_new.exit
 
@@ -41799,7 +41799,7 @@ parser_str_new.exit:                              ; preds = %tokadd.exit, %rb_en
   %200 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i119, i32 noundef 64, i64 noundef 40, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %200, i32 noundef 64) #24
   %201 = getelementptr inbounds i8, ptr %200, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %202 = load i64, ptr %200, align 8
   %203 = and i64 %202, 32767
   %204 = load i32, ptr %4, align 4
@@ -44059,7 +44059,7 @@ tokadd.exit124:                                   ; preds = %148, %156
   %176 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 55, i64 noundef 40, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %176, i32 noundef 55) #24
   %177 = getelementptr inbounds i8, ptr %176, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %178 = load i64, ptr %176, align 8
   %179 = and i64 %178, 32767
   %180 = load i32, ptr %5, align 4
@@ -44224,7 +44224,7 @@ parse_numvar.exit:                                ; preds = %246, %259
   %272 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i133, i32 noundef 54, i64 noundef 40, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %272, i32 noundef 54) #24
   %273 = getelementptr inbounds i8, ptr %272, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %274 = load i64, ptr %272, align 8
   %275 = and i64 %274, 32767
   %276 = load i32, ptr %6, align 4
@@ -46407,7 +46407,7 @@ define internal fastcc i64 @parser_str_new(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %8
-  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %2) #25
+  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %2) #25
   %.not3.i = icmp eq i32 %10, 0
   br i1 %.not3.i, label %11, label %rb_enc_asciicompat.exit.thread
 
@@ -47424,7 +47424,7 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %24
   %38 = sub nsw i32 %30, %15
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %31, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %37, i64 %34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %37, i64 %34, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 41:                                               ; preds = %1
@@ -47513,7 +47513,7 @@ tokspace.exit25:                                  ; preds = %._crit_edge.i22, %7
   %87 = sub nsw i32 %79, %64
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %80, i64 %88
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %86, i64 %83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull readonly align 1 %86, i64 %83, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 90:                                               ; preds = %4, %1
@@ -47683,7 +47683,7 @@ tokspace.exit:                                    ; preds = %.preheader.i
   %50 = sub nsw i32 %46, %30
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %45, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %49, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %49, i64 %32, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %44, %tokspace.exit, %parser_precise_mbclen.exit.thread, %tokadd.exit
@@ -47861,7 +47861,7 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %94
   %107 = sub nsw i32 %100, %85
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %101, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull align 1 %106, i64 %103, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull readonly align 1 %106, i64 %103, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 110:                                              ; preds = %83
@@ -48729,7 +48729,7 @@ define internal fastcc void @parser_set_encode(ptr noundef %0, ptr noundef %1) u
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %48
-  %51 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %49) #25
+  %51 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %49) #25
   %.not3.i = icmp eq i32 %51, 0
   br i1 %.not3.i, label %54, label %rb_enc_asciicompat.exit.thread
 
@@ -48968,7 +48968,7 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef %
   %18 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 60, i64 noundef 48, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %18, i32 noundef 60) #24
   %19 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %20 = load i64, ptr %18, align 8
   %21 = and i64 %20, 32767
   %22 = load i32, ptr %6, align 4
@@ -49000,7 +49000,7 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef %
   %39 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i51, i32 noundef 61, i64 noundef 48, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %39, i32 noundef 61) #24
   %40 = getelementptr inbounds i8, ptr %39, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull readonly align 4 dereferenceable(16) %7, i64 16, i1 false)
   %41 = load i64, ptr %39, align 8
   %42 = and i64 %41, 32767
   %43 = load i32, ptr %7, align 4
@@ -49030,7 +49030,7 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef %
   %59 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i52, i32 noundef 62, i64 noundef 56, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %59, i32 noundef 62) #24
   %60 = getelementptr inbounds i8, ptr %59, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
   %61 = load i64, ptr %59, align 8
   %62 = and i64 %61, 32767
   %63 = load i32, ptr %8, align 4
@@ -49067,7 +49067,7 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef %
   %82 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i53, i32 noundef 63, i64 noundef 56, i64 noundef 8) #24
   call void @rb_node_init(ptr noundef %82, i32 noundef 63) #24
   %83 = getelementptr inbounds i8, ptr %82, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull readonly align 4 dereferenceable(16) %9, i64 16, i1 false)
   %84 = load i64, ptr %82, align 8
   %85 = and i64 %84, 32767
   %86 = load i32, ptr %9, align 4
@@ -49419,7 +49419,7 @@ define internal fastcc noundef ptr @rb_node_list_new2(ptr nocapture noundef %0, 
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 43) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %4, align 4
@@ -49449,7 +49449,7 @@ define internal fastcc noundef ptr @rb_node_match2_new(ptr nocapture noundef %0,
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 57, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %6, i32 noundef 57) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
   %9 = and i64 %8, 32767
   %10 = load i32, ptr %3, align 4
@@ -49716,7 +49716,7 @@ define internal fastcc noundef ptr @rb_node_vcall_new(ptr nocapture noundef %0, 
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 39, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 39) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -49742,7 +49742,7 @@ define internal fastcc noundef ptr @rb_node_gvar_new(ptr nocapture noundef %0, i
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %5, i32 noundef 50) #24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
   %8 = and i64 %7, 32767
   %9 = load i32, ptr %2, align 4
@@ -49844,7 +49844,7 @@ parser_yyerror.exit:                              ; preds = %29, %42
   %51 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i9, i32 noundef 102, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %51, i32 noundef 102) #24
   %52 = getelementptr inbounds i8, ptr %51, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %53 = load i64, ptr %51, align 8
   %54 = and i64 %53, 32767
   %55 = load i32, ptr %1, align 4
@@ -50725,7 +50725,7 @@ define internal fastcc noundef ptr @arg_concat(ptr nocapture noundef %0, ptr nou
   %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %17, i32 noundef 43) #24
   %18 = getelementptr inbounds i8, ptr %17, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %19 = load i64, ptr %17, align 8
   %20 = and i64 %19, 32767
   %21 = load i32, ptr %3, align 4
@@ -50766,7 +50766,7 @@ define internal fastcc noundef ptr @arg_concat(ptr nocapture noundef %0, ptr nou
   %40 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i38, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %40, i32 noundef 43) #24
   %41 = getelementptr inbounds i8, ptr %40, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %42 = load i64, ptr %40, align 8
   %43 = and i64 %42, 32767
   %44 = load i32, ptr %3, align 4
@@ -50875,7 +50875,7 @@ list_concat.exit43:                               ; preds = %81, %90
   %100 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i44, i32 noundef 77, i64 noundef 48, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %100, i32 noundef 77) #24
   %101 = getelementptr inbounds i8, ptr %100, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %102 = load i64, ptr %100, align 8
   %103 = and i64 %102, 32767
   %104 = load i32, ptr %3, align 4
@@ -50937,7 +50937,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %15 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %15, i32 noundef 36) #24
   %16 = getelementptr inbounds i8, ptr %15, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %17 = load i64, ptr %15, align 8
   %18 = and i64 %17, 32767
   %19 = load i32, ptr %4, align 4
@@ -50967,7 +50967,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %34 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i141, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %34, i32 noundef 59) #24
   %35 = getelementptr inbounds i8, ptr %34, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %36 = load i64, ptr %34, align 8
   %37 = and i64 %36, 32767
   %38 = load i32, ptr %4, align 4
@@ -51003,7 +51003,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %58 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i142, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %58, i32 noundef 59) #24
   %59 = getelementptr inbounds i8, ptr %58, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %60 = load i64, ptr %58, align 8
   %61 = and i64 %60, 32767
   %62 = load i32, ptr %4, align 4
@@ -51042,7 +51042,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %84 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i143, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %84, i32 noundef 59) #24
   %85 = getelementptr inbounds i8, ptr %84, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %86 = load i64, ptr %84, align 8
   %87 = and i64 %86, 32767
   %88 = load i32, ptr %4, align 4
@@ -51244,7 +51244,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %180 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %180, i32 noundef 59) #24
   %181 = getelementptr inbounds i8, ptr %180, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %182 = load i64, ptr %180, align 8
   %183 = and i64 %182, 32767
   %184 = load i32, ptr %4, align 4
@@ -51264,7 +51264,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %193 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i13.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %193, i32 noundef 43) #24
   %194 = getelementptr inbounds i8, ptr %193, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %195 = load i64, ptr %193, align 8
   %196 = and i64 %195, 32767
   %197 = load i32, ptr %4, align 4
@@ -51296,7 +51296,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %213 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %213, i32 noundef 59) #24
   %214 = getelementptr inbounds i8, ptr %213, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 4 dereferenceable(16) %211, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull readonly align 4 dereferenceable(16) %211, i64 16, i1 false)
   %215 = load i64, ptr %213, align 8
   %216 = and i64 %215, 32767
   %217 = load i32, ptr %211, align 4
@@ -51346,7 +51346,7 @@ list_append.exit:                                 ; preds = %177, %const_decl_pa
   %239 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %239, i32 noundef 43) #24
   %240 = getelementptr inbounds i8, ptr %239, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, ptr noundef nonnull align 4 dereferenceable(16) %238, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, ptr noundef nonnull readonly align 4 dereferenceable(16) %238, i64 16, i1 false)
   %241 = load i64, ptr %239, align 8
   %242 = and i64 %241, 32767
   %243 = load i32, ptr %238, align 4
@@ -51390,7 +51390,7 @@ ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_a
   %260 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i14.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %260, i32 noundef 36) #24
   %261 = getelementptr inbounds i8, ptr %260, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %262 = load i64, ptr %260, align 8
   %263 = and i64 %262, 32767
   %264 = load i32, ptr %4, align 4
@@ -51429,7 +51429,7 @@ ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_a
   %279 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i146, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %279, i32 noundef 59) #24
   %280 = getelementptr inbounds i8, ptr %279, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %281 = load i64, ptr %279, align 8
   %282 = and i64 %281, 32767
   %283 = load i32, ptr %4, align 4
@@ -51470,7 +51470,7 @@ define internal fastcc noundef ptr @make_shareable_node(ptr nocapture noundef %0
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %7, i32 noundef 59) #24
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
   %10 = and i64 %9, 32767
   %11 = load i32, ptr %3, align 4
@@ -51516,7 +51516,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i22, %.lr.ph
   %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i25, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %24, i32 noundef 43) #24
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %26 = load i64, ptr %24, align 8
   %27 = and i64 %26, 32767
   %28 = load i32, ptr %3, align 4
@@ -51539,7 +51539,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i22, %.lr.ph
   %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i26, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %38, i32 noundef 36) #24
   %39 = getelementptr inbounds i8, ptr %38, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %40 = load i64, ptr %38, align 8
   %41 = and i64 %40, 32767
   %42 = load i32, ptr %3, align 4
@@ -52356,7 +52356,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %63
   %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %66, i32 noundef 50) #24
   %67 = getelementptr inbounds i8, ptr %66, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %68 = load i64, ptr %66, align 8
   %69 = and i64 %68, 32767
   %70 = load i32, ptr %2, align 4
@@ -52376,7 +52376,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %63
   %79 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i22, i32 noundef 43, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %79, i32 noundef 43) #24
   %80 = getelementptr inbounds i8, ptr %79, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %81 = load i64, ptr %79, align 8
   %82 = and i64 %81, 32767
   %83 = load i32, ptr %2, align 4
@@ -52399,7 +52399,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %63
   %93 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i23, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
   tail call void @rb_node_init(ptr noundef %93, i32 noundef 36) #24
   %94 = getelementptr inbounds i8, ptr %93, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %95 = load i64, ptr %93, align 8
   %96 = and i64 %95, 32767
   %97 = load i32, ptr %2, align 4

@@ -121,7 +121,7 @@ define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocaptu
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
-  %16 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #15
+  %16 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %4) #15
   call void @llvm.va_end.p0(ptr nonnull %4)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %21
@@ -158,7 +158,7 @@ define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocaptu
   br label %36
 
 36:                                               ; preds = %29, %28
-  %37 = call i32 @vsnprintf(ptr noundef nonnull %23, i64 noundef %22, ptr noundef %1, ptr noundef %2) #15
+  %37 = call i32 @vsnprintf(ptr noundef nonnull %23, i64 noundef %22, ptr noundef readonly %1, ptr noundef %2) #15
   call void @llvm.va_end.p0(ptr %2)
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %42

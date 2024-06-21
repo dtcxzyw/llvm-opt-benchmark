@@ -951,7 +951,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i113:                                      ; preds = %for.body.i
   %addr1.i = getelementptr inbounds i8, ptr %l.011.i, i64 24
-  %bcmp.i = call i32 @bcmp(ptr nonnull %addr1.i, ptr nonnull %addr, i64 %conv.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %addr1.i, ptr nonnull readonly %addr, i64 %conv.i)
   %cmp9.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp9.i, label %for.end.i, label %for.inc.i
 

@@ -643,7 +643,7 @@ if.then51.i:                                      ; preds = %if.then42.i
 
 if.end57.i:                                       ; preds = %if.then51.i, %if.then42.i, %if.end37.i
   %add.ptr58.i = getelementptr i8, ptr %arrayidx, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data.i, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr58.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(64) %add.ptr58.i, i64 64, i1 false)
   br label %ctucan_buff2frame.exit
 
 ctucan_buff2frame.exit:                           ; preds = %if.end10, %if.end57.i
@@ -953,7 +953,7 @@ if.end.i:                                         ; preds = %if.end
   store i32 %frame_form_w.sroa.0.3.i, ptr @ctucan_receive.rcv, align 16
   store i32 %identifier_w.sroa.0.0.i, ptr getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 4), align 4
   %data.i = getelementptr inbounds i8, ptr %frames, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 16), ptr noundef nonnull align 8 dereferenceable(64) %data.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(64) %data.i, i64 64, i1 false)
   br label %ctucan_frame2buff.exit
 
 ctucan_frame2buff.exit:                           ; preds = %if.end, %if.end.i

@@ -272,7 +272,7 @@ lor.lhs.false.i:                                  ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp18.i)
   store ptr null, ptr %buf.i, align 8
   store i32 0, ptr %bufLen.i, align 4
-  %call1.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
+  %call1.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %2 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i)
   %3 = load i32, ptr @_ZL8tabCount, align 4
@@ -453,7 +453,7 @@ sw.bb2:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp14.i35)
   store ptr null, ptr %buf.i31, align 8
   store i32 0, ptr %bufLen.i32, align 4
-  %call.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
+  %call.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %26 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i30)
   %27 = load i32, ptr @_ZL8tabCount, align 4
@@ -632,7 +632,7 @@ sw.bb3:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp38.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i82, i8 0, i64 256, i1 false)
   store i8 48, ptr %buf.i82, align 16
-  %call.i84 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
+  %call.i84 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %fCount.i = getelementptr inbounds i8, ptr %res, i64 56
   %50 = load i64, ptr %fCount.i, align 8
   %cmp1.not.i = icmp eq i64 %50, 0
@@ -1204,7 +1204,7 @@ if.then58.i:                                      ; preds = %lor.lhs.false55.i, 
 
 if.end62.i:                                       ; preds = %if.then58.i, %lor.lhs.false55.i, %lor.lhs.false48.i, %lor.lhs.false45.i, %if.else42.i, %lor.lhs.false38.i, %if.else35.i, %lor.lhs.false31.i, %lor.lhs.false.i127, %if.end26.i
   %m_type.0.i = phi ptr [ @.str.73, %if.then58.i ], [ @.str.78, %lor.lhs.false55.i ], [ @.str.64, %lor.lhs.false31.i ], [ @.str.64, %lor.lhs.false.i127 ], [ @.str.64, %if.end26.i ], [ @.str.67, %lor.lhs.false38.i ], [ @.str.67, %if.else35.i ], [ @.str.71, %lor.lhs.false48.i ], [ @.str.71, %lor.lhs.false45.i ], [ @.str.71, %if.else42.i ]
-  %call63.i = call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %m_type.0.i, ptr noundef %id, ptr noundef nonnull %status)
+  %call63.i = call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %m_type.0.i, ptr noundef readonly %id, ptr noundef nonnull %status)
   %129 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i118)
   %130 = load i32, ptr @_ZL8tabCount, align 4
@@ -1398,7 +1398,7 @@ lpad82.i:                                         ; preds = %_ZL10write_tabsP11_
 
 if.else85.i:                                      ; preds = %cond.end7.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %temp.i, i8 0, i64 256, i1 false)
-  %call86.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.78, ptr noundef %id, ptr noundef nonnull %status)
+  %call86.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.78, ptr noundef readonly %id, ptr noundef nonnull %status)
   %155 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i71.i)
   %156 = load i32, ptr @_ZL8tabCount, align 4
@@ -1740,7 +1740,7 @@ sw.bb5:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp8.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp12.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i149, i8 0, i64 256, i1 false)
-  %call.i151 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
+  %call.i151 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %198 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i148)
   %199 = load i32, ptr @_ZL8tabCount, align 4
@@ -3122,13 +3122,13 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %_ZL10write_tabsP11_FileStream.exit
-  %call.i19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id) #15
+  %call.i19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %id) #15
   %add.i = add i64 %call.i19, 1
   %call1.i = call noalias ptr @uprv_malloc_75(i64 noundef %add.i) #14
-  %call2.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id) #15
+  %call2.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %id) #15
   %add4.i = add i64 %call2.i, 1
   call void @llvm.memset.p0.i64(ptr align 1 %call1.i, i8 0, i64 %add4.i, i1 false)
-  %call5.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull dereferenceable(1) %id) #13
+  %call5.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull readonly dereferenceable(1) %id) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

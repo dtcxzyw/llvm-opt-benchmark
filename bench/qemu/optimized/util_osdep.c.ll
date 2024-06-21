@@ -437,7 +437,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %entry
   %or.i = or i32 %flags, 524288
-  %call.i22 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef %name, i32 noundef %or.i, i32 noundef %mode) #15
+  %call.i22 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %name, i32 noundef %or.i, i32 noundef %mode) #15
   %cmp13 = icmp eq i32 %call.i22, -1
   br i1 %cmp13, label %if.then15, label %return
 

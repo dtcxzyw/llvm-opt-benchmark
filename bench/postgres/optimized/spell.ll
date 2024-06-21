@@ -233,7 +233,7 @@ findchar.exit.thread:                             ; preds = %16, %30, %findchar.
 
 56:                                               ; preds = %.sink.split, %.loopexit
   %57 = load ptr, ptr %6, align 8
-  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #17
+  %58 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %43) #17
   %59 = add i64 %58, 9
   %60 = call ptr @MemoryContextAlloc(ptr noundef %57, i64 noundef %59) #15
   %61 = load ptr, ptr %9, align 8
@@ -247,13 +247,13 @@ findchar.exit.thread:                             ; preds = %16, %30, %findchar.
   %68 = getelementptr ptr, ptr %65, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %43) #15
+  %71 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(1) %43) #15
   %72 = load i8, ptr %.0, align 1
   %.not25.i = icmp eq i8 %72, 0
   br i1 %.not25.i, label %NIAddSpell.exit, label %73
 
 73:                                               ; preds = %56
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #17
+  %74 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #17
   %75 = add i64 %74, 1
   %76 = icmp ugt i64 %75, 1024
   br i1 %76, label %77, label %79
@@ -288,7 +288,7 @@ findchar.exit.thread:                             ; preds = %16, %30, %findchar.
 
 cpstrdup.exit.i:                                  ; preds = %86, %77
   %.0.i.i.i = phi ptr [ %78, %77 ], [ %88, %86 ]
-  %91 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull dereferenceable(1) %.0) #15
+  %91 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %.0) #15
   br label %NIAddSpell.exit
 
 NIAddSpell.exit:                                  ; preds = %56, %cpstrdup.exit.i
@@ -1292,7 +1292,7 @@ sub_1157.i:                                       ; preds = %sub_0156.i
   br i1 %405, label %406, label %429
 
 406:                                              ; preds = %404
-  %407 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %407 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #17
   %408 = add i64 %407, 1
   %409 = icmp ugt i64 %408, 1024
   br i1 %409, label %410, label %412
@@ -1327,7 +1327,7 @@ sub_1157.i:                                       ; preds = %sub_0156.i
 
 cpstrdup.exit.i:                                  ; preds = %419, %410
   %.0.i.i.i = phi ptr [ %411, %410 ], [ %421, %419 ]
-  %424 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull dereferenceable(1) %9) #15
+  %424 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %9) #15
   %425 = load ptr, ptr %337, align 8
   %426 = sext i32 %.0118193.i to i64
   %427 = getelementptr ptr, ptr %425, i64 %426
@@ -1882,7 +1882,7 @@ sub_1:                                            ; preds = %sub_0
   %83 = or disjoint i32 %79, 28
   %spec.select = select i1 %or.cond88, i32 %83, i32 %79
   store i32 %spec.select, ptr %74, align 8
-  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %85 = add i64 %84, 1
   %86 = icmp ugt i64 %85, 1024
   br i1 %86, label %87, label %89
@@ -1920,7 +1920,7 @@ sub_1:                                            ; preds = %sub_0
 
 cpstrdup.exit:                                    ; preds = %87, %97
   %.0.i.i = phi ptr [ %88, %87 ], [ %99, %97 ]
-  %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(1) %1) #15
+  %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly dereferenceable(1) %1) #15
   store ptr %.0.i.i, ptr %25, align 8
   %104 = load i32, ptr %74, align 8
   %105 = and i32 %6, 1
@@ -1936,7 +1936,7 @@ cpstrdup.exit:                                    ; preds = %87, %97
   br i1 %.not75, label %131, label %110
 
 110:                                              ; preds = %108
-  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
+  %111 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #17
   %112 = add i64 %111, 1
   %113 = icmp ugt i64 %112, 1024
   br i1 %113, label %114, label %116
@@ -1974,7 +1974,7 @@ cpstrdup.exit:                                    ; preds = %87, %97
 
 cpstrdup.exit81:                                  ; preds = %114, %124
   %.0.i.i80 = phi ptr [ %115, %114 ], [ %126, %124 ]
-  %130 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i80, ptr noundef nonnull dereferenceable(1) %4) #15
+  %130 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i80, ptr noundef nonnull readonly dereferenceable(1) %4) #15
   %.pre90 = load i32, ptr %74, align 8
   br label %131
 
@@ -1994,7 +1994,7 @@ cpstrdup.exit81:                                  ; preds = %114, %124
   br i1 %.not76, label %162, label %141
 
 141:                                              ; preds = %131
-  %142 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
+  %142 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #17
   %143 = add i64 %142, 1
   %144 = icmp ugt i64 %143, 1024
   br i1 %144, label %145, label %147
@@ -2032,7 +2032,7 @@ cpstrdup.exit81:                                  ; preds = %114, %124
 
 cpstrdup.exit86:                                  ; preds = %145, %155
   %.0.i.i85 = phi ptr [ %146, %145 ], [ %157, %155 ]
-  %161 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i85, ptr noundef nonnull dereferenceable(1) %5) #15
+  %161 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i85, ptr noundef nonnull readonly dereferenceable(1) %5) #15
   br label %162
 
 162:                                              ; preds = %131, %cpstrdup.exit86
@@ -2257,7 +2257,7 @@ define dso_local void @NISortDictionary(ptr noundef %0) local_unnamed_addr #0 {
 117:                                              ; preds = %._crit_edge104, %108
   %118 = phi ptr [ %.pre106, %._crit_edge104 ], [ %111, %108 ]
   %119 = add i32 %.188, 1
-  %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #17
+  %120 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %118) #17
   %121 = add i64 %120, 1
   %122 = icmp ugt i64 %121, 1024
   br i1 %122, label %123, label %125
@@ -2292,7 +2292,7 @@ define dso_local void @NISortDictionary(ptr noundef %0) local_unnamed_addr #0 {
 
 cpstrdup.exit:                                    ; preds = %123, %132
   %.0.i.i = phi ptr [ %124, %123 ], [ %134, %132 ]
-  %137 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(1) %118) #15
+  %137 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly dereferenceable(1) %118) #15
   %138 = load ptr, ptr %102, align 8
   %139 = sext i32 %119 to i64
   %140 = getelementptr ptr, ptr %138, i64 %139
@@ -2859,8 +2859,8 @@ define dso_local void @NISortAffixes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.not.i.i, label %50, label %47
 
 47:                                               ; preds = %44
-  call fastcc void @getNextFlagFromString(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %35) #17
+  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %35) #17
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.loopexit, label %44, !llvm.loop !28
 
@@ -2898,9 +2898,9 @@ define dso_local void @NISortAffixes(ptr noundef %0) local_unnamed_addr #0 {
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %.05271, i64 -8
   %70 = load i32, ptr %69, align 8
-  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #17
+  %71 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %66) #17
   %72 = trunc i64 %71 to i32
-  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #17
+  %73 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %68) #17
   %74 = trunc i64 %73 to i32
   %.02533.i = add i32 %74, -1
   %.02634.i = add i32 %72, -1
@@ -3019,8 +3019,8 @@ define internal i32 @cmpaffix(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %strbcmp.exit
 
 20:                                               ; preds = %12
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #17
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #17
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #17
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #17
   br label %23
 
 23:                                               ; preds = %35, %20
@@ -4131,8 +4131,8 @@ FindAffixes.exit.loopexit:                        ; preds = %63
   br i1 %.not.not.i.i, label %IsAffixFlagInUse.exit.i, label %124
 
 124:                                              ; preds = %121
-  call fastcc void @getNextFlagFromString(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %81) #17
+  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %81) #17
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %.loopexit232, label %121, !llvm.loop !28
 
@@ -4410,8 +4410,8 @@ FindAffixes.exit129.loopexit:                     ; preds = %191
   br i1 %.not.not.i.i143, label %IsAffixFlagInUse.exit.i145, label %253
 
 253:                                              ; preds = %250
-  call fastcc void @getNextFlagFromString(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %210) #17
+  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %210) #17
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %.loopexit226, label %250, !llvm.loop !28
 
@@ -4684,8 +4684,8 @@ FindAffixes.exit173.loopexit:                     ; preds = %310
   br i1 %.not.not.i.i187, label %IsAffixFlagInUse.exit.i189, label %383
 
 383:                                              ; preds = %380
-  call fastcc void @getNextFlagFromString(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %384 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %340) #17
+  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %384 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %340) #17
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %.loopexit, label %380, !llvm.loop !28
 
@@ -5364,7 +5364,7 @@ define internal fastcc void @setCompoundAffixFlagValue(ptr nocapture noundef %0,
   br label %49
 
 28:                                               ; preds = %4
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #17
   %30 = add i64 %29, 1
   %31 = icmp ugt i64 %30, 1024
   br i1 %31, label %32, label %34
@@ -5402,7 +5402,7 @@ define internal fastcc void @setCompoundAffixFlagValue(ptr nocapture noundef %0,
 
 cpstrdup.exit:                                    ; preds = %32, %42
   %.0.i.i = phi ptr [ %33, %32 ], [ %44, %42 ]
-  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(1) %2) #15
+  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly dereferenceable(1) %2) #15
   store ptr %.0.i.i, ptr %1, align 8
   br label %49
 
@@ -5898,8 +5898,8 @@ define internal fastcc range(i32 0, 2) i32 @FindWord(ptr nocapture noundef reado
   br i1 %.not.not.i, label %IsAffixFlagInUse.exit, label %54
 
 54:                                               ; preds = %51
-  call fastcc void @getNextFlagFromString(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %2) #17
+  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %2) #17
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %IsAffixFlagInUse.exit.thread, label %51, !llvm.loop !28
 

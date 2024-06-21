@@ -137,7 +137,7 @@ define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr n
   %.038 = phi ptr [ %43, %.lr.ph.split ], [ %11, %.lr.ph.split.preheader ]
   %.03137 = phi i32 [ %spec.select, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %28 = tail call ptr @agnameof(ptr noundef nonnull %.038) #18
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
+  %29 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %28, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
   %30 = icmp eq i32 %29, 0
   %31 = zext i1 %30 to i32
   %spec.select = add nuw nsw i32 %.03137, %31
@@ -172,7 +172,7 @@ define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr n
   %.141 = phi ptr [ %60, %59 ], [ %47, %44 ]
   %.240 = phi i32 [ %.3, %59 ], [ 0, %44 ]
   %48 = tail call ptr @agnameof(ptr noundef nonnull %.141) #18
-  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
+  %49 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %59
 
@@ -698,7 +698,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #18
+  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #18
   %31 = icmp sgt i32 %30, 0
   %32 = load i32, ptr %4, align 4
   %33 = icmp sgt i32 %32, -1

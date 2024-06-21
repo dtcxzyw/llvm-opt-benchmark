@@ -747,10 +747,10 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit.i: ; preds = %129
 
 _ZL26convertOldToNewGroupFormatP12t_swapcoordsRK10gmx_mtop_tbP9t_commrec.exit: ; preds = %._crit_edge.i, %159
   %164 = getelementptr inbounds i8, ptr %83, i64 96
-  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %100, i32 noundef %.027.lcssa.i, ptr noundef nonnull %164, ptr noundef %6)
+  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %100, i32 noundef %.027.lcssa.i, ptr noundef nonnull %164, ptr noundef readonly %6)
   %165 = load ptr, ptr %82, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 128
-  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %103, i32 noundef %.026.lcssa.i, ptr noundef nonnull %166, ptr noundef %6)
+  tail call fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr noundef %103, i32 noundef %.026.lcssa.i, ptr noundef nonnull %166, ptr noundef readonly %6)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.4, i32 noundef 1507, ptr noundef %100)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.4, i32 noundef 1508, ptr noundef %103)
   %.pre = load i32, ptr %79, align 8
@@ -2242,7 +2242,7 @@ _ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.exit.threa
 
 ._crit_edge.i385:                                 ; preds = %969, %963
   %988 = load ptr, ptr %960, align 8
-  call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %965, ptr noundef %6, ptr noundef %.val338, ptr noundef nonnull %46, ptr noundef nonnull %955, i64 noundef 0, ptr noundef %988, i1 noundef zeroext %957, i1 noundef zeroext false)
+  call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %965, ptr noundef readonly %6, ptr noundef readonly %.val338, ptr noundef nonnull %46, ptr noundef nonnull readonly %955, i64 noundef 0, ptr noundef %988, i1 noundef zeroext %957, i1 noundef zeroext false)
   %989 = getelementptr inbounds i8, ptr %965, i64 112
   br label %990
 

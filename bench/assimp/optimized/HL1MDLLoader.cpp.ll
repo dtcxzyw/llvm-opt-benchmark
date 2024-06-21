@@ -2848,13 +2848,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx38 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
   %21 = load ptr, ptr %arrayidx38, align 8
   %mFilename.i31 = getelementptr inbounds i8, ptr %21, i64 32
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx19) #25
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx19) #25
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %spec.store.select.i.i.i = call i32 @llvm.smin.i32(i32 %conv.i.i.i, i32 1023)
   store i32 %spec.store.select.i.i.i, ptr %mFilename.i31, align 4
   %data.i.i.i = getelementptr inbounds i8, ptr %21, i64 36
   %conv2.i.i.i = sext i32 %spec.store.select.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr align 1 %arrayidx19, i64 %conv2.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr readonly align 1 %arrayidx19, i64 %conv2.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i.i, i64 0, i64 %conv2.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %22 = load i32, ptr %width, align 1

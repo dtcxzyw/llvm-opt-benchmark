@@ -37,7 +37,7 @@ entry:
   %st.i = alloca %struct.poly1305_state_internal_t, align 64
   %correct = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %st.i)
-  call fastcc void @poly1305_init_ext(ptr noundef nonnull %st.i, ptr noundef %k, i64 noundef %inlen)
+  call fastcc void @poly1305_init_ext(ptr noundef nonnull %st.i, ptr noundef readonly %k, i64 noundef %inlen)
   %and.i = and i64 %inlen, -32
   %cmp.not.i = icmp eq i64 %and.i, 0
   br i1 %cmp.not.i, label %crypto_onetimeauth_poly1305_sse2.exit, label %if.then.i

@@ -2085,7 +2085,7 @@ entry:
   %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
   %sourceHash.i = getelementptr inbounds i8, ptr %0, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %agg.result, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash.i, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(20) %sourceHash.i, i64 20, i1 false)
   ret void
 }
 

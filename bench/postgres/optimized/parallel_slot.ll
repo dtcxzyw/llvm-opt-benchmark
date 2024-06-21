@@ -67,7 +67,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local
 
 25:                                               ; preds = %22
   %26 = call ptr @PQdb(ptr noundef nonnull %23) #9
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %1) #10
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %1) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %find_matching_idle_slot.exit, label %._crit_edge28.i
 

@@ -1326,7 +1326,7 @@ define ptr @rb_Digest_SHA384_Data(ptr nocapture noundef readonly %0, i64 noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) @sha384_initial_hash_value, i64 64, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
-  call void @rb_Digest_SHA512_Update(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1)
+  call void @rb_Digest_SHA512_Update(ptr noundef nonnull %4, ptr noundef readonly %0, i64 noundef %1)
   %6 = call ptr @rb_Digest_SHA384_End(ptr noundef nonnull %4, ptr noundef %2)
   ret ptr %6
 }

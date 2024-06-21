@@ -66381,7 +66381,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_
   br i1 %.not.i, label %18, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNKR8pybind116object4castIRKZ21test_submodule_class_RNS_7module_EE23ConvertibleFromUserTypeEET_v(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %15 = invoke fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNKR8pybind116object4castIRKZ21test_submodule_class_RNS_7module_EE23ConvertibleFromUserTypeEET_v(ptr noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %_ZN8pybind114noneD2Ev.exit.i unwind label %5
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %14
@@ -66391,7 +66391,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %14
   br label %_ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_callE.exit.i
 
 18:                                               ; preds = %7
-  %19 = invoke fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNKR8pybind116object4castIRKZ21test_submodule_class_RNS_7module_EE23ConvertibleFromUserTypeEET_v(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %19 = invoke fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNKR8pybind116object4castIRKZ21test_submodule_class_RNS_7module_EE23ConvertibleFromUserTypeEET_v(ptr noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %20 unwind label %5
 
 20:                                               ; preds = %18
@@ -77694,7 +77694,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
   %2 = alloca %"class.pybind11::detail::argument_loader.1364", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   call fastcc void @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2)
-  %3 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %3 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull readonly align 8 dereferenceable(104) %0)
   br i1 %3, label %4, label %"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_class_RNS_7module_EE4$_21vJRZ21test_submodule_class_S3_E6NestediRZ21test_submodule_class_S3_E8NestBaseS6_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESP_.exit"
 
 4:                                                ; preds = %1
@@ -77924,7 +77924,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
   %2 = alloca %"class.pybind11::detail::argument_loader.1364", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   call fastcc void @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2)
-  %3 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %3 = call fastcc noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull readonly align 8 dereferenceable(104) %0)
   br i1 %3, label %4, label %"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_class_RNS_7module_EE4$_22vJRZ21test_submodule_class_S3_E6NestediRZ21test_submodule_class_S3_E8NestBaseS6_EJNS_4nameENS_9is_methodENS_7siblingENS_3argESC_SC_EEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
 4:                                                ; preds = %1

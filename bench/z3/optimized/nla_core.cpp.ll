@@ -2987,10 +2987,10 @@ for.body:                                         ; preds = %_ZNK3nla4core10ineq
   %__begin1.07 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %_ZNK3nla4core10ineq_holdsERKNS_4ineqE.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %m_term.i.i = getelementptr inbounds i8, ptr %__begin1.07, i64 8
-  call void @_ZNK3nla4core5valueERKN2lp8lar_termE(ptr nonnull sret(%class.rational) align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(4720) %this, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i)
+  call void @_ZNK3nla4core5valueERKN2lp8lar_termE(ptr nonnull sret(%class.rational) align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(4720) %this, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i)
   %3 = load i32, ptr %__begin1.07, align 8
   %m_rs.i.i = getelementptr inbounds i8, ptr %__begin1.07, i64 32
-  %call6.i = invoke noundef zeroext i1 @_ZNK3nla4core13compare_holdsERK8rationalN2lp16lconstraint_kindES3_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
+  %call6.i = invoke noundef zeroext i1 @_ZNK3nla4core13compare_holdsERK8rationalN2lp16lconstraint_kindES3_(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %for.body
@@ -7490,7 +7490,7 @@ entry:
   %m_term.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i32, ptr %ref.tmp, align 8
   %m_rs.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %call4.i1 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
+  %call4.i1 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %entry
@@ -8030,7 +8030,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %m_term.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %29 = load i32, ptr %ref.tmp, align 8
   %m_rs.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %call4.i45 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %28, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
+  %call4.i45 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %28, ptr noundef nonnull readonly align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
           to label %call4.i.noexc unwind label %lpad14
 
 call4.i.noexc:                                    ; preds = %invoke.cont13
@@ -14093,7 +14093,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   %m_term.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %25 = load i32, ptr %ref.tmp, align 8
   %m_rs.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %call4.i67 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %24, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
+  %call4.i67 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
           to label %call4.i.noexc unwind label %lpad17
 
 call4.i.noexc:                                    ; preds = %invoke.cont16
@@ -14661,7 +14661,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
   %m_term.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   %45 = load i32, ptr %ref.tmp20, align 8
   %m_rs.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 32
-  %call4.i80 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %44, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %45, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
+  %call4.i80 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %44, ptr noundef nonnull readonly align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %45, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
           to label %call4.i.noexc unwind label %lpad38
 
 call4.i.noexc:                                    ; preds = %invoke.cont37
@@ -18415,7 +18415,7 @@ _ZltRK8rationalS1_.exit:                          ; preds = %if.then.i.i.i.i, %i
   %m_term.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %10 = load i32, ptr %ref.tmp, align 8
   %m_rs.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %call4.i5 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %9, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
+  %call4.i5 = invoke noundef zeroext i1 @_ZN3nla4core12explain_ineqERNS_9new_lemmaERKN2lp8lar_termENS3_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(4720) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(24) %m_term.i.i, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %m_rs.i.i)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %_ZltRK8rationalS1_.exit
@@ -18832,7 +18832,7 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   %4 = load ptr, ptr %m_monics.i3.i, align 8
   %idxprom.i1.i.i = zext i32 %3 to i64
   %arrayidx.i2.i.i = getelementptr inbounds %"class.nla::monic", ptr %4, i64 %idxprom.i1.i.i
-  %call9.i2 = invoke noundef zeroext i1 @_ZNK3nla4core11check_monicERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(4720) %this, ptr noundef nonnull align 8 dereferenceable(34) %arrayidx.i2.i.i)
+  %call9.i2 = invoke noundef zeroext i1 @_ZNK3nla4core11check_monicERKNS_5monicE(ptr noundef nonnull readonly align 8 dereferenceable(4720) %this, ptr noundef nonnull align 8 dereferenceable(34) %arrayidx.i2.i.i)
           to label %call9.i.noexc unwind label %lpad.loopexit
 
 call9.i.noexc:                                    ; preds = %for.body.i
@@ -22406,7 +22406,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 if.then.i.i54:                                    ; preds = %if.then.i.i
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %checks, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i666, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i38, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i666, ptr noundef nonnull readonly align 8 dereferenceable(24) %call.i.i2.i38, i64 24, i1 false)
   store ptr %call.i.i.i.i666, ptr %second.i, align 8
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %checks, i64 32
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3nla4core5checkEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 16
@@ -22425,7 +22425,7 @@ lpad.i.i56:                                       ; preds = %if.then.i.i54
 
 if.then.i.i73:                                    ; preds = %if.then.i.i54
   %_M_manager.i.i.i50 = getelementptr inbounds i8, ptr %checks, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i688, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i4142, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i688, ptr noundef nonnull readonly align 8 dereferenceable(24) %call.i.i2.i4142, i64 24, i1 false)
   store ptr %call.i.i.i.i688, ptr %second.i49, align 16
   %_M_invoker.i.i51 = getelementptr inbounds i8, ptr %checks, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3nla4core5checkEvE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i51, align 8
@@ -22444,7 +22444,7 @@ lpad.i.i75:                                       ; preds = %if.then.i.i73
 
 invoke.cont31:                                    ; preds = %if.then.i.i73
   %_M_manager.i.i.i69 = getelementptr inbounds i8, ptr %checks, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i695, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i4546, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i695, ptr noundef nonnull readonly align 8 dereferenceable(24) %call.i.i2.i4546, i64 24, i1 false)
   store ptr %call.i.i.i.i695, ptr %second.i68, align 8
   %_M_invoker.i.i70 = getelementptr inbounds i8, ptr %checks, i64 112
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3nla4core5checkEvE3$_2E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i70, align 16
@@ -38029,7 +38029,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -38194,7 +38194,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -38358,7 +38358,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

@@ -18431,7 +18431,7 @@ define noundef i32 @_Z26completeTprDeserializationP26PartialDeserializedTprFileP
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   call void @_ZN3gmx20InMemoryDeserializerC1ENS_8ArrayRefIKcEEbNS_18EndianSwapBehaviorE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %6, ptr %12, i1 noundef zeroext %15, i32 noundef 3)
-  %16 = invoke fastcc noundef i32 @_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %2)
+  %16 = invoke fastcc noundef i32 @_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr noundef nonnull %4, ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %2)
           to label %_Z26completeTprDeserializationP26PartialDeserializedTprFileP10t_inputrecP7t_statePA3_fS6_P10gmx_mtop_t.exit unwind label %17
 
 17:                                               ; preds = %3
@@ -18593,7 +18593,7 @@ _ZL15doTpxBodyBufferPN3gmx11ISerializerENS_8ArrayRefIcEE.exit: ; preds = %27
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %_ZL15doTpxBodyBufferPN3gmx11ISerializerENS_8ArrayRefIcEE.exit
-  %46 = invoke fastcc noundef i32 @_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %46 = invoke fastcc noundef i32 @_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr noundef nonnull %11, ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
           to label %49 unwind label %47
 
 47:                                               ; preds = %.noexc
@@ -18668,7 +18668,7 @@ _ZL15doTpxBodyBufferPN3gmx11ISerializerENS_8ArrayRefIcEE.exit: ; preds = %27
           to label %74 unwind label %50
 
 74:                                               ; preds = %54
-  %75 = invoke fastcc noundef i32 @_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %7)
+  %75 = invoke fastcc noundef i32 @_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr noundef nonnull %12, ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %7)
           to label %_ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP10gmx_mtop_t.exit unwind label %90
 
 _ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP10gmx_mtop_t.exit: ; preds = %74

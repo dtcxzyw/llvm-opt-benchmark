@@ -8673,7 +8673,7 @@ get_iv.exit:                                      ; preds = %16, %19
   %33 = getelementptr i8, ptr %1, i64 %28
   %34 = sub nsw i64 0, %27
   %35 = getelementptr i8, ptr %33, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %35, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %35, i64 %27, i1 false)
   br label %set_next_iv.exit
 
 set_next_iv.exit:                                 ; preds = %get_iv.exit, %30

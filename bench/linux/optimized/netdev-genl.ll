@@ -1289,7 +1289,7 @@ define internal noundef i32 @netdev_genl_netdevice_event(ptr nocapture readnone 
   br i1 %26, label %netdev_genl_dev_notify.exit, label %27
 
 27:                                               ; preds = %21
-  %28 = call fastcc i32 @netdev_nl_dev_fill(ptr noundef %5, ptr noundef nonnull %25, ptr noundef nonnull %4), !range !5
+  %28 = call fastcc i32 @netdev_nl_dev_fill(ptr noundef readonly %5, ptr noundef nonnull %25, ptr noundef nonnull %4), !range !5
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %31, label %30
 

@@ -1728,7 +1728,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %371 = icmp eq i64 %370, -9223372036854775808
   %.0.v.i = select i1 %371, i64 8, i64 40
   %.0.i76 = getelementptr inbounds i8, ptr %369, i64 %.0.v.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %.0.i76, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull readonly align 8 dereferenceable(32) %.0.i76, i64 32, i1 false)
   store ptr %347, ptr %53, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %109, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %54, ptr nonnull align 8 @anon.5e57fe82ff1aab3e07530ed2abc6b869.17, i64 2, ptr nonnull align 8 %53, i64 1)

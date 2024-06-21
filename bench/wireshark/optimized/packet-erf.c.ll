@@ -1557,7 +1557,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   %86 = getelementptr [32 x i32], ptr %85, i64 0, i64 %indvars.iv.i.i.i
   store ptr %86, ptr %14, align 8
   %87 = getelementptr %struct._header_field_info, ptr @erf_parent_section, i64 %indvars.iv.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef nonnull align 8 dereferenceable(72) %87, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef nonnull readonly align 8 dereferenceable(72) %87, i64 72, i1 false)
   %88 = call ptr @wmem_epan_scope() #11
   %89 = load ptr, ptr %78, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
@@ -1604,7 +1604,7 @@ init_tag_value_subfields.exit.i.i:                ; preds = %83
   %108 = getelementptr [32 x i32], ptr %107, i64 0, i64 %indvars.iv.i.i.i.i
   store ptr %108, ptr %12, align 8
   %109 = getelementptr %struct._header_field_info, ptr %13, i64 %indvars.iv.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(72) %109, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull readonly align 8 dereferenceable(72) %109, i64 72, i1 false)
   %110 = call ptr @wmem_epan_scope() #11
   %111 = load ptr, ptr %78, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 16
@@ -1670,7 +1670,7 @@ init_ns_addr_tag_value_fields.exit.i.i:           ; preds = %105
   %136 = getelementptr [32 x i32], ptr %135, i64 0, i64 %indvars.iv.i27.i.i
   store ptr %136, ptr %10, align 8
   %137 = getelementptr %struct._header_field_info, ptr @erf_tunneling_modes, i64 %indvars.iv.i27.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef nonnull align 8 dereferenceable(72) %137, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef nonnull readonly align 8 dereferenceable(72) %137, i64 72, i1 false)
   %138 = call ptr @wmem_epan_scope() #11
   %139 = load ptr, ptr %78, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 16
@@ -1699,7 +1699,7 @@ init_tag_value_subfields.exit34.i.i:              ; preds = %129
   store ptr %149, ptr %79, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 4
   store ptr %150, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr noundef nonnull align 16 dereferenceable(72) @erf_link_status, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr noundef nonnull readonly align 16 dereferenceable(72) @erf_link_status, i64 72, i1 false)
   %151 = call ptr @wmem_epan_scope() #11
   %152 = load ptr, ptr %78, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 16
@@ -1728,7 +1728,7 @@ init_tag_value_subfields.exit34.i.i:              ; preds = %129
   %165 = getelementptr [32 x i32], ptr %164, i64 0, i64 %indvars.iv.i35.i.i
   store ptr %165, ptr %8, align 8
   %166 = getelementptr %struct._header_field_info, ptr @erf_ptp_time_properties_flags, i64 %indvars.iv.i35.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(72) %166, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull readonly align 8 dereferenceable(72) %166, i64 72, i1 false)
   %167 = call ptr @wmem_epan_scope() #11
   %168 = load ptr, ptr %78, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 16
@@ -1764,7 +1764,7 @@ init_tag_value_subfields.exit38.i.i:              ; preds = %162
   %183 = getelementptr [32 x i32], ptr %182, i64 0, i64 %indvars.iv.i39.i.i
   store ptr %183, ptr %7, align 8
   %184 = getelementptr %struct._header_field_info, ptr @erf_ptp_clock_quality, i64 %indvars.iv.i39.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef nonnull align 8 dereferenceable(72) %184, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef nonnull readonly align 8 dereferenceable(72) %184, i64 72, i1 false)
   %185 = call ptr @wmem_epan_scope() #11
   %186 = load ptr, ptr %78, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 16
@@ -1800,7 +1800,7 @@ init_tag_value_subfields.exit42.i.i:              ; preds = %180
   %201 = getelementptr [32 x i32], ptr %200, i64 0, i64 %indvars.iv.i43.i.i
   store ptr %201, ptr %6, align 8
   %202 = getelementptr %struct._header_field_info, ptr @erf_stream_flags, i64 %indvars.iv.i43.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %47, ptr noundef nonnull align 8 dereferenceable(72) %202, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %47, ptr noundef nonnull readonly align 8 dereferenceable(72) %202, i64 72, i1 false)
   %203 = call ptr @wmem_epan_scope() #11
   %204 = load ptr, ptr %78, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
@@ -1829,7 +1829,7 @@ init_tag_value_subfields.exit50.i.i:              ; preds = %129
   store ptr %214, ptr %79, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 4
   store ptr %215, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 16 dereferenceable(72) @erf_smart_trunc_default_flags, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull readonly align 16 dereferenceable(72) @erf_smart_trunc_default_flags, i64 72, i1 false)
   %216 = call ptr @wmem_epan_scope() #11
   %217 = load ptr, ptr %78, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 16
@@ -1864,7 +1864,7 @@ init_tag_value_subfields.exit50.i.i:              ; preds = %129
   %230 = getelementptr [32 x i32], ptr %229, i64 0, i64 %indvars.iv.i.i51.i.i
   store ptr %230, ptr %3, align 8
   %231 = getelementptr %struct._header_field_info, ptr @erf_ext_hdr_items, i64 %indvars.iv.i.i51.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(72) %231, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull readonly align 8 dereferenceable(72) %231, i64 72, i1 false)
   %232 = call ptr @wmem_epan_scope() #11
   %233 = load ptr, ptr %78, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 16

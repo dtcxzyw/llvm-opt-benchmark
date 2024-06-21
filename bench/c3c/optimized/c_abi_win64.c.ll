@@ -514,7 +514,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef %0) local_u
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store ptr null, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  %51 = call fastcc ptr @type_lowering(ptr noundef %48)
+  %51 = call fastcc ptr @type_lowering(ptr noundef readonly %48)
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, -1
   %54 = icmp ult i32 %53, 22

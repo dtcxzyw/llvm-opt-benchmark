@@ -740,7 +740,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7setRGBAIdEEv
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %values, i64 128, i1 false)
   ret void
 }
 
@@ -2858,7 +2858,7 @@ for.end.i:                                        ; preds = %for.body5.i
   br i1 %exitcond15.not.i, label %invoke.cont6, label %for.cond3.preheader.i, !llvm.loop !15
 
 invoke.cont6:                                     ; preds = %for.end.i, %call.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %invOffsets, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %invOffsets, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont6
@@ -2901,9 +2901,9 @@ invoke.cont20:                                    ; preds = %if.end8
   %20 = load ptr, ptr %m_data.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %18, i64 192
   %21 = load ptr, ptr %m_data.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull align 8 dereferenceable(128) %20, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull readonly align 8 dereferenceable(128) %20, i64 128, i1 false)
   %m_offsets.i7 = getelementptr inbounds i8, ptr %18, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i7, ptr noundef nonnull align 8 dereferenceable(32) %invOffsets, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i7, ptr noundef nonnull readonly align 8 dereferenceable(32) %invOffsets, i64 32, i1 false)
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_metadata.i8 = getelementptr inbounds i8, ptr %18, i64 48
   %call29 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i8, ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i)
@@ -3868,7 +3868,7 @@ for.end86:                                        ; preds = %for.body76, %invoke
   %max_val.0.lcssa59 = phi double [ 0.000000e+00, %invoke.cont54 ], [ %cond72, %for.body76 ]
   %34 = load ptr, ptr %agg.result, align 8
   %m_offsets.i42 = getelementptr inbounds i8, ptr %34, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i42, ptr noundef nonnull align 8 dereferenceable(32) %offs, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i42, ptr noundef nonnull readonly align 8 dereferenceable(32) %offs, i64 32, i1 false)
   %m_array.i.i = getelementptr inbounds i8, ptr %34, i64 168
   %m_data.i.i43 = getelementptr inbounds i8, ptr %34, i64 192
   %vtable.i44 = load ptr, ptr %m_array.i.i, align 8
@@ -4211,7 +4211,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %m_offsets = getelementptr inbounds i8, ptr %this, i64 216
   %m_offsets3 = getelementptr inbounds i8, ptr %other, i64 216
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %m_offsets, ptr noundef nonnull dereferenceable(32) %m_offsets3, i64 32)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %m_offsets, ptr noundef nonnull readonly dereferenceable(32) %m_offsets3, i64 32)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %land.rhs, label %return
 
@@ -5047,7 +5047,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %m_offsets.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %m_offsets3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_offsets3.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %m_offsets3.i.i.i, i64 32, i1 false)
   %m_fileInBitDepth.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %m_fileInBitDepth6.i.i.i = getelementptr inbounds i8, ptr %__args, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %m_fileInBitDepth.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %m_fileInBitDepth6.i.i.i, i64 12, i1 false)

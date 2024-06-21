@@ -1869,7 +1869,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN5model17copy_func_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %1)
   tail call void @_ZN5model18copy_usort_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %1)
-  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull %1, ptr noundef nonnull %call)
+  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull %1, ptr noundef nonnull %call)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1887,7 +1887,7 @@ if.end.i.thread:                                  ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   tail call void @_ZN5model17copy_func_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %2)
   tail call void @_ZN5model18copy_usort_interpsERKS_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %2)
-  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull %2, ptr noundef nonnull %call)
+  tail call void @_ZN20ackr_model_converter17convert_constantsEP5modelS1_(ptr noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull %2, ptr noundef nonnull %call)
   %.pr = load ptr, ptr %md, align 8
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load i32, ptr %m_ref_count.i.i, align 8

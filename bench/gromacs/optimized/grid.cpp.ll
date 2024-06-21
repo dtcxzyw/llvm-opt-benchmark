@@ -4149,10 +4149,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %160, %162, %164, %1
   %265 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %228, i64 %264
   %266 = sext i32 %246 to i64
   %267 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %230, i64 %266
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %267, ptr noundef nonnull align 4 dereferenceable(16) %265, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %267, ptr noundef nonnull readonly align 4 dereferenceable(16) %265, i64 16, i1 false)
   %268 = getelementptr inbounds i8, ptr %265, i64 16
   %269 = getelementptr inbounds i8, ptr %267, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %269, ptr noundef nonnull align 4 dereferenceable(16) %268, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %269, ptr noundef nonnull readonly align 4 dereferenceable(16) %268, i64 16, i1 false)
   br label %270
 
 270:                                              ; preds = %262, %._crit_edge.i

@@ -740,7 +740,7 @@ aeron_frame_info_add.exit:                        ; preds = %132, %107, %105
   %148 = add i32 %.0101170, 12
   %149 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %148) #9
   %150 = load i32, ptr %53, align 4
-  %151 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %149, i32 noundef %150)
+  %151 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %149, i32 noundef %150)
   %152 = add i32 %.0101170, 16
   %153 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %152) #9
   %154 = add i32 %.0101170, 20
@@ -871,7 +871,7 @@ dissect_aeron_pad.exit:                           ; preds = %140, %145, %proto_i
   %221 = add i32 %.0101170, 12
   %222 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %221) #9
   %223 = load i32, ptr %53, align 4
-  %224 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %222, i32 noundef %223)
+  %224 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %222, i32 noundef %223)
   %225 = add i32 %.0101170, 16
   %226 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %225) #9
   %227 = add i32 %.0101170, 20
@@ -1011,7 +1011,7 @@ dissect_aeron_heartbeat.exit:                     ; preds = %217, %proto_item_se
   %296 = add i32 %.0101170, 12
   %297 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %296) #9
   %298 = load i32, ptr %53, align 4
-  %299 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %297, i32 noundef %298)
+  %299 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %297, i32 noundef %298)
   %300 = add i32 %.0101170, 16
   %301 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %300) #9
   %302 = add i32 %.0101170, 20
@@ -1171,7 +1171,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %.not48.i.i, label %390, label %381
 
 381:                                              ; preds = %378, %377
-  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %373, ptr noundef nonnull %1, ptr noundef nonnull %11)
+  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %373, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %11)
   br label %390
 
 383:                                              ; preds = %374
@@ -1184,7 +1184,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %387, label %390, label %388
 
 388:                                              ; preds = %384
-  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef nonnull %376, ptr noundef nonnull %11)
+  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef nonnull %376, ptr noundef nonnull readonly %11)
   %.not46.i.i = icmp eq ptr %389, null
   br i1 %.not46.i.i, label %390, label %aeron_msg_process.exit.i
 
@@ -1403,7 +1403,7 @@ dissect_aeron_data.exit:                          ; preds = %287, %293, %488, %4
   %497 = add i32 %.0101170, 8
   %498 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %497) #9
   %499 = load i32, ptr %53, align 4
-  %500 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %498, i32 noundef %499)
+  %500 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %498, i32 noundef %499)
   %501 = add i32 %.0101170, 12
   %502 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %501) #9
   %503 = add i32 %.0101170, 16
@@ -1498,7 +1498,7 @@ dissect_aeron_nak.exit:                           ; preds = %493, %496, %proto_i
   %556 = add i32 %.0101170, 8
   %557 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %556) #9
   %558 = load i32, ptr %53, align 4
-  %559 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %557, i32 noundef %558)
+  %559 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %557, i32 noundef %558)
   %560 = add i32 %.0101170, 12
   %561 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %560) #9
   %562 = add i32 %.0101170, 16
@@ -1707,7 +1707,7 @@ dissect_aeron_sm.exit:                            ; preds = %551, %573, %662, %6
   %671 = add i32 %.0101170, 8
   %672 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %671) #9
   %673 = load i32, ptr %53, align 4
-  %674 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %672, i32 noundef %673)
+  %674 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %672, i32 noundef %673)
   %675 = add i32 %.0101170, 12
   %676 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %675) #9
   %677 = add i32 %.0101170, 32
@@ -1830,7 +1830,7 @@ proto_item_set_generated.exit.i144:               ; preds = %689, %686, %670
   %762 = add i32 %.0101170, 12
   %763 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %762) #9
   %764 = load i32, ptr %53, align 4
-  %765 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %763, i32 noundef %764)
+  %765 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %763, i32 noundef %764)
   %766 = add i32 %.0101170, 16
   %767 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %766) #9
   %768 = add i32 %.0101170, 20

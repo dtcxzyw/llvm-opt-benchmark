@@ -35999,7 +35999,7 @@ _ZN8pybind116detail15argument_loaderIJPKN19exercise_trampoline10SimpleBaseEEEC2E
   br i1 %27, label %.sink.split.i, label %"_ZNO8pybind116detail15argument_loaderIJPKN19exercise_trampoline10SimpleBaseEEE4callIbNS0_9void_typeERZNS2_4wrapENS_7module_EE3$_3EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit16.i"
 
 "_ZNO8pybind116detail15argument_loaderIJPKN19exercise_trampoline10SimpleBaseEEE4callIbNS0_9void_typeERZNS2_4wrapENS_7module_EE3$_3EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit16.i": ; preds = %26
-  %28 = call ptr @__dynamic_cast(ptr nonnull %.val15.i, ptr nonnull @_ZTIN19exercise_trampoline10SimpleBaseE, ptr nonnull @_ZTIN19exercise_trampoline16SimpleCppDerivedE, i64 0) #26
+  %28 = call ptr @__dynamic_cast(ptr nonnull readonly %.val15.i, ptr nonnull @_ZTIN19exercise_trampoline10SimpleBaseE, ptr nonnull @_ZTIN19exercise_trampoline16SimpleCppDerivedE, i64 0) #26
   %.fr.i = freeze ptr %28
   %.not2.i = icmp eq ptr %.fr.i, null
   %spec.select.i = select i1 %.not2.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct

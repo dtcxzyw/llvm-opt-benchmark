@@ -59,7 +59,7 @@ if.end12:                                         ; preds = %if.then9, %if.end5
   %idxprom = zext nneg i32 %sub to i64
   %arrayidx = getelementptr inbounds [3 x %struct.object_id], ptr %oid, i64 0, i64 %idxprom
   %oid14 = getelementptr inbounds i8, ptr %ce, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull align 4 dereferenceable(32) %oid14, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid14, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %ce, i64 104
   %5 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
@@ -295,7 +295,7 @@ if.end44:                                         ; preds = %if.end39
   %9 = load ptr, ptr %hash_algo.i, align 8
   %rawsz.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i64, ptr %rawsz.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %arrayidx46, ptr align 1 %data.addr.246, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %arrayidx46, ptr readonly align 1 %data.addr.246, i64 %10, i1 false)
   %11 = load ptr, ptr @the_repository, align 8
   %hash_algo2.i = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo2.i, align 8

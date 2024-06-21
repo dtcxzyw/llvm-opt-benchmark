@@ -29570,7 +29570,7 @@ entry:
 if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %num_accesses.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 24
   %4 = load i64, ptr %num_accesses.i.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %__functor.val, i64 24
@@ -29624,7 +29624,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -30828,7 +30828,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont26.i.i.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.04.i.i.i, i64 32
   %17 = load ptr, ptr %__functor.val, align 8
   %18 = load i8, ptr %_M_storage.i.i.i.i.i, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext %18, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext %18, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %19 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not5.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %while.body.lr.ph.i.i.i.i.i.i
@@ -30882,14 +30882,14 @@ lpad.i.i.i:                                       ; preds = %invoke.cont.i.i.i
   br label %eh.resume.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit41.i.i.i
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label29.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label29.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %access_sequence_number_timeline.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 368
   %access_timeline.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 440
   %26 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %29 = load ptr, ptr %28, align 8
-  invoke void @_ZNK7rocksdb23BlockCacheTraceAnalyzer20UpdateFeatureVectorsERKSt6vectorImSaImEES5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt3mapISB_NS_8FeaturesESt4lessISB_ESaISt4pairISC_SF_EEEPSE_ISB_NS_11PredictionsESH_SaISI_ISC_SN_EEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %access_sequence_number_timeline.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %access_timeline.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %label29.i.i.i, ptr noundef %27, ptr noundef %29)
+  invoke void @_ZNK7rocksdb23BlockCacheTraceAnalyzer20UpdateFeatureVectorsERKSt6vectorImSaImEES5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt3mapISB_NS_8FeaturesESt4lessISB_ESaISt4pairISC_SF_EEEPSE_ISB_NS_11PredictionsESH_SaISI_ISC_SN_EEE(ptr nonnull align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %access_sequence_number_timeline.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %access_timeline.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %label29.i.i.i, ptr noundef %27, ptr noundef %29)
           to label %invoke.cont31.i.i.i unwind label %lpad30.i.i.i
 
 invoke.cont31.i.i.i:                              ; preds = %if.end28.i.i.i
@@ -30935,7 +30935,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -31878,7 +31878,7 @@ for.end23.i.i.i:                                  ; preds = %for.inc21.i.i.i, %i
   %naccesses.0.lcssa.fr.i.i.i = freeze i64 %naccesses.0.lcssa.i.i.i
   %5 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %6 = load ptr, ptr %5, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext 9, i8 noundef signext 1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext 9, i8 noundef signext 1, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 104
   %7 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %8 = load i64, ptr %num_keys.i.i.i, align 8
@@ -32165,7 +32165,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__source.val4, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__source.val4, i64 56, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -32230,7 +32230,7 @@ for.body.i.i.i:                                   ; preds = %for.inc24.i.i.i, %f
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %11 = load ptr, ptr %1, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext %7, i64 noundef %__args9.val, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext %7, i64 noundef %__args9.val, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %_M_left.i.i10.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.016.i.i.i, i64 64
   %12 = load ptr, ptr %_M_left.i.i10.i.i.i, align 8
   %add.ptr.i.i11.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.016.i.i.i, i64 48
@@ -32538,7 +32538,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__source.val4, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %__source.val4, i64 64, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -32998,7 +32998,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %label.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %1 = load ptr, ptr %0, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %3 = load ptr, ptr %2, align 8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -33185,7 +33185,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -33332,7 +33332,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt3mapImmSt4less
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i.i, i64 32
   %23 = load i8, ptr %_M_storage.i.i.i.i.i, align 8
   %24 = load ptr, ptr %10, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext %23, i64 noundef %__args9.val, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext %23, i64 noundef %__args9.val, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %25 = load ptr, ptr %19, align 8
   store i32 0, ptr %20, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
@@ -33413,7 +33413,7 @@ lpad18.i.i.i:                                     ; preds = %invoke.cont.i.i.i
   br label %eh.resume.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.i.i.i
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label22.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label22.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %37 = getelementptr inbounds i8, ptr %timeline23.i.i.i, i64 8
   store i32 0, ptr %37, align 8
   %_M_parent.i.i.i.i.i30.i.i.i = getelementptr inbounds i8, ptr %timeline23.i.i.i, i64 16
@@ -33853,7 +33853,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %__source.val4, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %__source.val4, i64 72, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -33899,7 +33899,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
   %storemerge.i.i.i = phi i64 [ %div.i.i.i, %if.then.i.i.i ], [ -2, %entry ]
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull align 8 dereferenceable(512) %__args11)
+  call void @_ZNK7rocksdb23BlockCacheTraceAnalyzer10BuildLabelERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKS7_mjNS_9TraceTypeENS_17TableReaderCallerEmRKNS_15BlockAccessInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %label.i.i.i, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %__args1.val, i32 noundef %__args3.val, i8 noundef signext %__args5.val, i8 noundef signext 15, i64 noundef %__args9.val, ptr noundef nonnull readonly align 8 dereferenceable(512) %__args11)
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %7 = load ptr, ptr %6, align 8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -34066,7 +34066,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -34489,7 +34489,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -35414,7 +35414,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb
@@ -35927,7 +35927,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -36936,7 +36936,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -39833,7 +39833,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val4, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -41092,7 +41092,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -41240,7 +41240,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val4, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val4, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

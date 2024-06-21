@@ -313,7 +313,7 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %32, align 4
-  call void @recordMultipleDependencies(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 101)
+  call void @recordMultipleDependencies(ptr noundef readonly %0, ptr noundef nonnull readonly %3, i32 noundef 1, i32 noundef 101)
   br label %33
 
 33:                                               ; preds = %12, %29, %2
@@ -623,7 +623,7 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   store i32 %1, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %16, align 4
-  call void @recordMultipleDependencies(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 1, i32 noundef 110)
+  call void @recordMultipleDependencies(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %7, i32 noundef 1, i32 noundef 110)
   br label %70
 
 17:                                               ; preds = %5

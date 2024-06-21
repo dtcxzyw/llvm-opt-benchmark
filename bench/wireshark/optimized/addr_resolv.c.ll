@@ -2314,7 +2314,7 @@ initialize_services.exit:                         ; preds = %13, %18, %21
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @g_manuf_path, align 8
-  %58 = tail call noalias ptr @fopen(ptr noundef %57, ptr noundef nonnull @.str.52)
+  %58 = tail call noalias ptr @fopen(ptr noundef readonly %57, ptr noundef nonnull @.str.52)
   store ptr %58, ptr @eth_p, align 8
   br label %set_ethent.exit.i
 
@@ -2377,7 +2377,7 @@ end_ethent.exit.i:                                ; preds = %66, %._crit_edge.i,
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr @g_pmanuf_path, align 8
-  %83 = tail call noalias ptr @fopen(ptr noundef %82, ptr noundef nonnull @.str.52)
+  %83 = tail call noalias ptr @fopen(ptr noundef readonly %82, ptr noundef nonnull @.str.52)
   store ptr %83, ptr @eth_p, align 8
   br label %set_ethent.exit15.i
 
@@ -2427,7 +2427,7 @@ end_ethent.exit17.i:                              ; preds = %91, %._crit_edge25.
   br label %set_ethent.exit19.i
 
 101:                                              ; preds = %97
-  %102 = tail call noalias ptr @fopen(ptr noundef %98, ptr noundef nonnull @.str.52)
+  %102 = tail call noalias ptr @fopen(ptr noundef readonly %98, ptr noundef nonnull @.str.52)
   store ptr %102, ptr @eth_p, align 8
   br label %set_ethent.exit19.i
 
@@ -2762,7 +2762,7 @@ add_manually_resolved.exit.i:                     ; preds = %250, %248
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %254 = tail call noalias ptr @fopen(ptr noundef %253, ptr noundef nonnull @.str.52)
+  %254 = tail call noalias ptr @fopen(ptr noundef readonly %253, ptr noundef nonnull @.str.52)
   %255 = icmp eq ptr %254, null
   br i1 %255, label %read_ss7pcs_file.exit.thread.i.i, label %.preheader.i.i.i
 
@@ -3478,7 +3478,7 @@ define hidden ptr @get_ipxnet_name(ptr noundef %0, i32 noundef %1) local_unnamed
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr @g_ipxnets_path, align 8
-  %21 = tail call noalias ptr @fopen(ptr noundef %20, ptr noundef nonnull @.str.52)
+  %21 = tail call noalias ptr @fopen(ptr noundef readonly %20, ptr noundef nonnull @.str.52)
   store ptr %21, ptr @ipxnet_p, align 8
   br label %set_ipxnetent.exit.i.i.preheader
 
@@ -3507,7 +3507,7 @@ set_ipxnetent.exit.i.i:                           ; preds = %set_ipxnetent.exit.
 
 set_ipxnetent.exit14.i.i:                         ; preds = %27, %25
   %29 = load ptr, ptr @g_pipxnets_path, align 8
-  %30 = tail call noalias ptr @fopen(ptr noundef %29, ptr noundef nonnull @.str.52)
+  %30 = tail call noalias ptr @fopen(ptr noundef readonly %29, ptr noundef nonnull @.str.52)
   store ptr %30, ptr @ipxnet_p, align 8
   br label %31
 
@@ -3593,7 +3593,7 @@ define hidden noalias ptr @get_vlan_name(ptr noundef %0, i16 noundef zeroext %1)
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr @g_pvlan_path, align 8
-  %22 = tail call noalias ptr @fopen(ptr noundef %21, ptr noundef nonnull @.str.52)
+  %22 = tail call noalias ptr @fopen(ptr noundef readonly %21, ptr noundef nonnull @.str.52)
   store ptr %22, ptr @vlan_p, align 8
   br label %set_vlanent.exit.i.i
 
@@ -4919,7 +4919,7 @@ define internal fastcc noundef ptr @eth_addr_resolve(ptr noundef returned %0) un
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @g_pethers_path, align 8
-  %16 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.52)
+  %16 = tail call noalias ptr @fopen(ptr noundef readonly %15, ptr noundef nonnull @.str.52)
   store ptr %16, ptr @eth_p, align 8
   br label %set_ethent.exit.i.preheader
 
@@ -4932,7 +4932,7 @@ set_ethent.exit.i:                                ; preds = %set_ethent.exit.i.p
   br i1 %cond.i, label %19, label %18
 
 18:                                               ; preds = %set_ethent.exit.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %11, ptr noundef nonnull dereferenceable(6) %17, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %11, ptr noundef nonnull dereferenceable(6) %17, i64 6)
   %.not10.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not10.i, label %get_ethbyaddr.exit.thread, label %set_ethent.exit.i, !llvm.loop !34
 
@@ -4948,7 +4948,7 @@ set_ethent.exit.i:                                ; preds = %set_ethent.exit.i.p
 
 set_ethent.exit16.i:                              ; preds = %21, %19
   %23 = load ptr, ptr @g_ethers_path, align 8
-  %24 = tail call noalias ptr @fopen(ptr noundef %23, ptr noundef nonnull @.str.52)
+  %24 = tail call noalias ptr @fopen(ptr noundef readonly %23, ptr noundef nonnull @.str.52)
   store ptr %24, ptr @eth_p, align 8
   br label %25
 
@@ -4958,7 +4958,7 @@ set_ethent.exit16.i:                              ; preds = %21, %19
   br i1 %.not11.i, label %.critedge2.i, label %27
 
 27:                                               ; preds = %25
-  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %11, ptr noundef nonnull dereferenceable(6) %26, i64 6)
+  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %11, ptr noundef nonnull dereferenceable(6) %26, i64 6)
   %.not13.i = icmp eq i32 %bcmp12.i, 0
   br i1 %.not13.i, label %.critedge2.i, label %25, !llvm.loop !35
 
@@ -5020,7 +5020,7 @@ get_ethbyaddr.exit.thread:                        ; preds = %18, %get_ethbyaddr.
   %51 = lshr i32 %50, 3
   %narrow.i = add nuw nsw i32 %51, 1
   %52 = zext nneg i32 %narrow.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %52, i1 false)
   %53 = and i32 %50, -8
   %.neg = sub i32 %53, %42
   %54 = getelementptr i8, ptr %11, i64 %52
@@ -5123,7 +5123,7 @@ wka_name_lookup.exit:                             ; preds = %._crit_edge28.i
   %100 = lshr i32 %99, 3
   %narrow.i113 = add nuw nsw i32 %100, 1
   %101 = zext nneg i32 %narrow.i113 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %101, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %101, i1 false)
   %102 = and i32 %99, -8
   %.neg289 = sub i32 %102, %91
   %103 = getelementptr i8, ptr %11, i64 %101
@@ -5228,7 +5228,7 @@ wka_name_lookup.exit121:                          ; preds = %._crit_edge28.i109
   %150 = lshr i32 %149, 3
   %narrow.i131 = add nuw nsw i32 %150, 1
   %151 = zext nneg i32 %narrow.i131 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %151, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %151, i1 false)
   %152 = and i32 %149, -8
   %.neg290 = sub i32 %152, %141
   %153 = getelementptr i8, ptr %11, i64 %151
@@ -5364,7 +5364,7 @@ wka_name_lookup.exit139:                          ; preds = %._crit_edge28.i127
   %224 = lshr i32 %223, 3
   %narrow.i149 = add nuw nsw i32 %224, 1
   %225 = zext nneg i32 %narrow.i149 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %225, i1 false)
   %226 = and i32 %223, -8
   %.neg291 = sub i32 %226, %215
   %227 = getelementptr i8, ptr %11, i64 %225
@@ -5473,7 +5473,7 @@ wka_name_lookup.exit157:                          ; preds = %._crit_edge28.i145
   %280 = lshr i32 %272, 3
   %narrow.i167 = add nuw nsw i32 %280, 1
   %281 = zext nneg i32 %narrow.i167 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %281, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %281, i1 false)
   %282 = and i32 %272, -8
   %283 = add nuw i32 %272, 8
   %.neg292 = sub i32 %282, %283
@@ -5591,7 +5591,7 @@ wka_name_lookup.exit175:                          ; preds = %._crit_edge28.i163
   %341 = lshr i32 %340, 3
   %narrow.i185 = add nuw nsw i32 %341, 1
   %342 = zext nneg i32 %narrow.i185 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %342, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %342, i1 false)
   %343 = and i32 %340, -8
   %.neg293 = sub i32 %343, %332
   %344 = getelementptr i8, ptr %11, i64 %342
@@ -6507,7 +6507,7 @@ define internal fastcc void @add_manuf_name(ptr noundef %0, i32 noundef %1, ptr 
 13:                                               ; preds = %4
   %14 = load ptr, ptr @addr_resolv_scope, align 8
   %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 6) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %15, ptr noundef nonnull align 1 dereferenceable(6) %0, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %15, ptr noundef nonnull readonly align 1 dereferenceable(6) %0, i64 6, i1 false)
   %16 = load ptr, ptr @addr_resolv_scope, align 8
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 16) #20
   store i8 2, ptr %17, align 8

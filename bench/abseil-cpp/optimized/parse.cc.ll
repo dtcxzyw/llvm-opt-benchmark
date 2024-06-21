@@ -529,7 +529,7 @@ call.i.i.i.i.noexc:                               ; preds = %while.body.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %call.i.i.i.i.noexc
   %11 = extractvalue { i64, ptr } %call.i.i.i.i5, 1
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %11, ptr noundef %flag_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %11, ptr noundef readonly %flag_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #22
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEEKSt17basic_string_viewIcSt11char_traitsIcEEEEbT_RT0_.exit.i.i
 
@@ -571,7 +571,7 @@ call.i.i.noexc:                                   ; preds = %land.rhs.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %call.i.i.noexc
   %16 = extractvalue { i64, ptr } %call.i.i6, 1
-  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %flag_name.coerce1, ptr noundef %16, i64 noundef %.sroa.speculated.i.i.i.i) #22
+  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %flag_name.coerce1, ptr noundef %16, i64 noundef %.sroa.speculated.i.i.i.i) #22
   %cmp.i.i.i3.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.i3.i, label %if.then.i.i.i.i, label %_ZNK4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareclESt17basic_string_viewIcSt11char_traitsIcEEPKNS_15CommandLineFlagE.exit.i
 
@@ -5426,7 +5426,7 @@ invoke.cont19:                                    ; preds = %lor.lhs.false
 invoke.cont22:                                    ; preds = %invoke.cont19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %envval) #22
   %call23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %envname) #22
-  %call.i18 = call ptr @getenv(ptr noundef %call23) #22
+  %call.i18 = call ptr @getenv(ptr noundef readonly %call23) #22
   %cmp.i19.not = icmp eq ptr %call.i18, null
   br i1 %cmp.i19.not, label %if.then27, label %if.end.i
 
@@ -7375,7 +7375,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

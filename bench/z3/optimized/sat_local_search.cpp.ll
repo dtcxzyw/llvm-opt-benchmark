@@ -4654,7 +4654,7 @@ invoke.cont57:                                    ; preds = %invoke.cont53
 if.end66:                                         ; preds = %invoke.cont57
   store i32 %xor.i, ptr %ls, align 4
   store i32 %conv.i, ptr %arrayinit.element, align 4
-  invoke void @_ZN3sat12local_search15add_cardinalityEjPKNS_7literalEj(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef 2, ptr noundef nonnull %ls, i32 noundef 1)
+  invoke void @_ZN3sat12local_search15add_cardinalityEjPKNS_7literalEj(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef 2, ptr noundef nonnull readonly %ls, i32 noundef 1)
           to label %for.inc68 unwind label %lpad.loopexit.split-lp.loopexit
 
 for.inc68:                                        ; preds = %if.end66, %invoke.cont57, %invoke.cont53
@@ -4688,7 +4688,7 @@ for.body80:                                       ; preds = %_ZNK6vectorIPN3sat6
   %48 = load i32, ptr %m_size.i, align 4
   %m_lits.i = getelementptr inbounds i8, ptr %47, i64 20
   %sub.i = add i32 %48, -1
-  invoke void @_ZN3sat12local_search15add_cardinalityEjPKNS_7literalEj(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef %48, ptr noundef nonnull %m_lits.i, i32 noundef %sub.i)
+  invoke void @_ZN3sat12local_search15add_cardinalityEjPKNS_7literalEj(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef %48, ptr noundef nonnull readonly %m_lits.i, i32 noundef %sub.i)
           to label %for.inc86 unwind label %lpad.loopexit
 
 for.inc86:                                        ; preds = %for.body80
@@ -6870,7 +6870,7 @@ _ZNK6vectorIN3sat12local_search10constraintELb1EjE3endEv.exit.i: ; preds = %invo
 
 for.body.i51:                                     ; preds = %_ZNK6vectorIN3sat12local_search10constraintELb1EjE3endEv.exit.i, %call3.i.noexc
   %__begin1.014.i = phi ptr [ %incdec.ptr.i, %call3.i.noexc ], [ %45, %_ZNK6vectorIN3sat12local_search10constraintELb1EjE3endEv.exit.i ]
-  %call3.i57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSoRKNS0_10constraintE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(8) %call68, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.014.i)
+  %call3.i57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSoRKNS0_10constraintE(ptr noundef nonnull readonly align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(8) %call68, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.014.i)
           to label %call3.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call3.i.noexc:                                    ; preds = %for.body.i51
@@ -6902,7 +6902,7 @@ _ZNK3sat12local_search8num_varsEv.exit.i54:       ; preds = %if.end.i.i10.i, %fo
 for.body7.i:                                      ; preds = %_ZNK3sat12local_search8num_varsEv.exit.i54
   %arrayidx.i.i55 = getelementptr inbounds %"struct.sat::local_search::var_info", ptr %48, i64 %indvars.iv.i53
   %52 = trunc nuw i64 %indvars.iv.i53 to i32
-  %call9.i58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSojRKNS0_8var_infoE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %call68, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i.i55)
+  %call9.i58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSojRKNS0_8var_infoE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %call68, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i.i55)
           to label %call9.i.noexc unwind label %lpad.loopexit
 
 call9.i.noexc:                                    ; preds = %for.body7.i
@@ -6933,7 +6933,7 @@ _ZNK6vectorIN3sat12local_search10constraintELb1EjE3endEv.exit.i61: ; preds = %in
 
 for.body.i65:                                     ; preds = %_ZNK6vectorIN3sat12local_search10constraintELb1EjE3endEv.exit.i61, %call3.i.noexc82
   %__begin1.014.i66 = phi ptr [ %incdec.ptr.i67, %call3.i.noexc82 ], [ %53, %_ZNK6vectorIN3sat12local_search10constraintELb1EjE3endEv.exit.i61 ]
-  %call3.i83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSoRKNS0_10constraintE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(8) %call74, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.014.i66)
+  %call3.i83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSoRKNS0_10constraintE(ptr noundef nonnull readonly align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(8) %call74, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.014.i66)
           to label %call3.i.noexc82 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call3.i.noexc82:                                  ; preds = %for.body.i65
@@ -6965,7 +6965,7 @@ _ZNK3sat12local_search8num_varsEv.exit.i76:       ; preds = %if.end.i.i10.i74, %
 for.body7.i79:                                    ; preds = %_ZNK3sat12local_search8num_varsEv.exit.i76
   %arrayidx.i.i80 = getelementptr inbounds %"struct.sat::local_search::var_info", ptr %56, i64 %indvars.iv.i72
   %60 = trunc nuw i64 %indvars.iv.i72 to i32
-  %call9.i85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSojRKNS0_8var_infoE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %call74, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i.i80)
+  %call9.i85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat12local_search7displayERSojRKNS0_8var_infoE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %call74, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i.i80)
           to label %call9.i.noexc84 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call9.i.noexc84:                                  ; preds = %for.body7.i79
@@ -8389,7 +8389,7 @@ entry:
   %__args.val = load i32, ptr %__args, align 4
   %__args1.val = load ptr, ptr %__args1, align 8
   %__args3.val = load i32, ptr %__args3, align 4
-  tail call void @_ZN3sat12local_search15add_cardinalityEjPKNS_7literalEj(ptr noundef nonnull align 8 dereferenceable(232) %call.val, i32 noundef %__args.val, ptr noundef %__args1.val, i32 noundef %__args3.val)
+  tail call void @_ZN3sat12local_search15add_cardinalityEjPKNS_7literalEj(ptr noundef nonnull align 8 dereferenceable(232) %call.val, i32 noundef %__args.val, ptr noundef readonly %__args1.val, i32 noundef %__args3.val)
   ret void
 }
 
@@ -8427,7 +8427,7 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %__args3.val = load ptr, ptr %__args3, align 8
   %__args5.val = load i32, ptr %__args5, align 4
-  tail call void @_ZN3sat12local_search6add_pbEjPKNS_7literalEPKjj(ptr noundef nonnull align 8 dereferenceable(232) %call.val, i32 noundef %__args.val, ptr noundef %__args1.val, ptr noundef %__args3.val, i32 noundef %__args5.val)
+  tail call void @_ZN3sat12local_search6add_pbEjPKNS_7literalEPKjj(ptr noundef nonnull align 8 dereferenceable(232) %call.val, i32 noundef %__args.val, ptr noundef readonly %__args1.val, ptr noundef readonly %__args3.val, i32 noundef %__args5.val)
   ret void
 }
 

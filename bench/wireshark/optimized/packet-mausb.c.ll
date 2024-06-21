@@ -843,7 +843,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   ]
 
 92:                                               ; preds = %87
-  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
+  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
   br label %127
 
 94:                                               ; preds = %87

@@ -118,7 +118,7 @@ define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
-  %28 = tail call i32 @strncmp(ptr noundef %26, ptr noundef nonnull %18, i64 noundef %27) #15
+  %28 = tail call i32 @strncmp(ptr noundef %26, ptr noundef nonnull readonly %18, i64 noundef %27) #15
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %41
 
@@ -748,7 +748,7 @@ define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocaptur
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #15
-  %35 = tail call i32 @strncmp(ptr noundef %33, ptr noundef nonnull %29, i64 noundef %34) #15
+  %35 = tail call i32 @strncmp(ptr noundef %33, ptr noundef nonnull readonly %29, i64 noundef %34) #15
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %48
 
@@ -936,7 +936,7 @@ define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr nocapture no
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #15
-  %32 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull %26, i64 noundef %31) #15
+  %32 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull readonly %26, i64 noundef %31) #15
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %45
 

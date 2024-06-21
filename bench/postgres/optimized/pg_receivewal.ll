@@ -710,12 +710,12 @@ get_destination_dir.exit.preheader.i.i:           ; preds = %234
 241:                                              ; preds = %.lr.ph.i.i, %get_destination_dir.exit.backedge.i.i
   %242 = phi ptr [ %349, %.lr.ph.i.i ], [ %286, %get_destination_dir.exit.backedge.i.i ]
   %243 = getelementptr inbounds i8, ptr %242, i64 19
-  %244 = call i64 @strspn(ptr noundef nonnull %243, ptr noundef nonnull @.str.95) #13
+  %244 = call i64 @strspn(ptr noundef nonnull readonly %243, ptr noundef nonnull @.str.95) #13
   %.not.i.i.i = icmp eq i64 %244, 24
   br i1 %.not.i.i.i, label %245, label %get_destination_dir.exit.backedge.i.i
 
 245:                                              ; preds = %241
-  %246 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %243) #13
+  %246 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %243) #13
   switch i64 %246, label %get_destination_dir.exit.backedge.i.i [
     i64 24, label %267
     i64 27, label %247
@@ -727,31 +727,31 @@ get_destination_dir.exit.preheader.i.i:           ; preds = %234
 
 247:                                              ; preds = %245
   %248 = getelementptr i8, ptr %242, i64 43
-  %249 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %248, ptr noundef nonnull dereferenceable(4) @.str.96) #13
+  %249 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %248, ptr noundef nonnull dereferenceable(4) @.str.96) #13
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %267, label %get_destination_dir.exit.backedge.i.i
 
 251:                                              ; preds = %245
   %252 = getelementptr i8, ptr %242, i64 43
-  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %252, ptr noundef nonnull dereferenceable(5) @.str.97) #13
+  %253 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %252, ptr noundef nonnull dereferenceable(5) @.str.97) #13
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %267, label %get_destination_dir.exit.backedge.i.i
 
 255:                                              ; preds = %245
   %256 = getelementptr i8, ptr %242, i64 43
-  %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(9) @.str.82) #13
+  %257 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %256, ptr noundef nonnull dereferenceable(9) @.str.82) #13
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %267, label %get_destination_dir.exit.backedge.i.i
 
 259:                                              ; preds = %245
   %260 = getelementptr i8, ptr %242, i64 43
-  %261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %260, ptr noundef nonnull dereferenceable(12) @.str.98) #13
+  %261 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %260, ptr noundef nonnull dereferenceable(12) @.str.98) #13
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %267, label %get_destination_dir.exit.backedge.i.i
 
 263:                                              ; preds = %245
   %264 = getelementptr i8, ptr %242, i64 43
-  %265 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %264, ptr noundef nonnull dereferenceable(13) @.str.99) #13
+  %265 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %264, ptr noundef nonnull dereferenceable(13) @.str.99) #13
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %get_destination_dir.exit.backedge.i.i
 
@@ -763,7 +763,7 @@ get_destination_dir.exit.preheader.i.i:           ; preds = %234
   %271 = load i32, ptr @WalSegSz, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %272 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %243, ptr noundef nonnull @.str.100, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %272 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %243, ptr noundef nonnull @.str.100, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %273 = load i32, ptr %3, align 4
   %274 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)

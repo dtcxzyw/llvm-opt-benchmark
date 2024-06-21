@@ -2635,7 +2635,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_step_desc_fields(ptr nocapt
   br i1 %.not.i, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #16
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #16
   %15 = trunc i64 %14 to i32
   %16 = icmp sgt i32 %15, 1024
   br i1 %16, label %17, label %.thread
@@ -2656,7 +2656,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_step_desc_fields(ptr nocapt
   br i1 %.not.i12, label %.thread27, label %23
 
 23:                                               ; preds = %.thread
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #16
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #16
   %25 = trunc i64 %24 to i32
   %26 = icmp sgt i32 %25, 1024
   br i1 %26, label %27, label %.thread27
@@ -2677,7 +2677,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_step_desc_fields(ptr nocapt
   br i1 %.not.i16, label %.thread31, label %33
 
 33:                                               ; preds = %.thread27
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #16
+  %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %32) #16
   %35 = trunc i64 %34 to i32
   %36 = icmp sgt i32 %35, 1024
   br i1 %36, label %37, label %.thread31
@@ -2699,7 +2699,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_step_desc_fields(ptr nocapt
   br i1 %.not.i20, label %47, label %44
 
 44:                                               ; preds = %.thread31
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #16
+  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %42) #16
   %46 = trunc i64 %45 to i32
   br label %47
 

@@ -3402,7 +3402,7 @@ if.end.i:                                         ; preds = %call.i.noexc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end.i
-  %call4.i2 = invoke noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5ParseEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %input_stream.i, ptr noundef %output)
+  %call4.i2 = invoke noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5ParseEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr noundef nonnull readonly align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %input_stream.i, ptr noundef %output)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call.i.noexc, %.noexc
@@ -3457,7 +3457,7 @@ if.end.i:                                         ; preds = %call.i.noexc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end.i
-  %call4.i2 = invoke noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5MergeEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %input_stream.i, ptr noundef %output)
+  %call4.i2 = invoke noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5MergeEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr noundef nonnull readonly align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %input_stream.i, ptr noundef %output)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call.i.noexc, %.noexc
@@ -10997,7 +10997,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %call.i1 = invoke noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS0_2io20ZeroCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, ptr noundef nonnull %output_stream.i)
+  %call.i1 = invoke noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS0_2io20ZeroCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields, ptr noundef nonnull %output_stream.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc

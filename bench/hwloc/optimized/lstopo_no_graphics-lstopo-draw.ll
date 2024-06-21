@@ -1115,7 +1115,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define hidden void @lstopo_prepare_custom_styles(ptr noundef %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %2, i32 noundef 0, i32 noundef 0) #22
+  %3 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %2, i32 noundef 0, i32 noundef 0) #22
   tail call fastcc void @lstopo__prepare_custom_styles(ptr noundef nonnull %0, ptr noundef %3)
   ret void
 }
@@ -1150,7 +1150,7 @@ define internal fastcc void @lstopo__prepare_custom_styles(ptr noundef %0, ptr n
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
   %16 = getelementptr inbounds %struct.hwloc_info_s, ptr %13, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.29) #22
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(12) @.str.29) #22
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %hwloc_obj_get_info_by_name.exit, label %14
 
@@ -1550,7 +1550,7 @@ define hidden void @output_draw(ptr noundef %0) local_unnamed_addr #8 {
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 940
   %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %9, i32 noundef 0, i32 noundef 0) #22
+  %18 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %9, i32 noundef 0, i32 noundef 0) #22
   %19 = getelementptr inbounds i8, ptr %18, i64 232
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 1608
@@ -1566,7 +1566,7 @@ define hidden void @output_draw(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %27, label %28, label %98
 
 28:                                               ; preds = %24
-  %29 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %9, i32 noundef 0, i32 noundef 0) #22
+  %29 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %9, i32 noundef 0, i32 noundef 0) #22
   %30 = getelementptr inbounds i8, ptr %29, i64 224
   %31 = load i32, ptr %30, align 8
   %.not10.i.i = icmp eq i32 %31, 0
@@ -1587,7 +1587,7 @@ define hidden void @output_draw(ptr noundef %0) local_unnamed_addr #8 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %34 ]
   %36 = getelementptr inbounds %struct.hwloc_info_s, ptr %33, i64 %indvars.iv.i.i
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(9) @.str.22) #22
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(9) @.str.22) #22
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %hwloc_obj_get_info_by_name.exit, label %34
 
@@ -1811,7 +1811,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   br i1 %.not.i.i.i, label %155, label %157
 
 155:                                              ; preds = %.lr.ph284
-  %156 = call ptr @hwloc_get_obj_by_depth(ptr noundef %152, i32 noundef %154, i32 noundef 0) #22
+  %156 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %152, i32 noundef %154, i32 noundef 0) #22
   br label %hwloc_get_next_obj_by_type.exit.i
 
 157:                                              ; preds = %.lr.ph284
@@ -1854,7 +1854,7 @@ hwloc_get_next_obj_by_type.exit.i:                ; preds = %160, %155
   br i1 %.not.i.i36.i, label %171, label %173
 
 171:                                              ; preds = %.lr.ph45.i
-  %172 = call ptr @hwloc_get_obj_by_depth(ptr noundef %152, i32 noundef %170, i32 noundef 0) #22
+  %172 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %152, i32 noundef %170, i32 noundef 0) #22
   br label %hwloc_get_next_obj_by_type.exit39.i
 
 173:                                              ; preds = %.lr.ph45.i
@@ -2147,7 +2147,7 @@ define internal fastcc ptr @hwloc_obj_get_info_by_name(ptr nocapture noundef rea
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %9 = getelementptr inbounds %struct.hwloc_info_s, ptr %6, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #22
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %1) #22
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %7
 
@@ -2673,7 +2673,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %298 ]
   %300 = getelementptr inbounds %struct.hwloc_info_s, ptr %297, i64 %indvars.iv.i.i
   %301 = load ptr, ptr %300, align 8
-  %302 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %301, ptr noundef nonnull dereferenceable(5) @.str.65) #22
+  %302 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %301, ptr noundef nonnull readonly dereferenceable(5) @.str.65) #22
   %.not.i.i = icmp eq i32 %302, 0
   br i1 %.not.i.i, label %hwloc_obj_get_info_by_name.exit, label %298
 
@@ -2718,7 +2718,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %298, %293, %hwloc_o
   %indvars.iv.i.i233 = phi i64 [ 0, %.lr.ph.i.i231 ], [ %indvars.iv.next.i.i235, %319 ]
   %321 = getelementptr inbounds %struct.hwloc_info_s, ptr %318, i64 %indvars.iv.i.i233
   %322 = load ptr, ptr %321, align 8
-  %323 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %322, ptr noundef nonnull dereferenceable(11) @.str.66) #22
+  %323 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %322, ptr noundef nonnull readonly dereferenceable(11) @.str.66) #22
   %.not.i.i234 = icmp eq i32 %323, 0
   br i1 %.not.i.i234, label %hwloc_obj_get_info_by_name.exit238, label %319
 
@@ -2763,7 +2763,7 @@ hwloc_obj_get_info_by_name.exit238.thread:        ; preds = %319, %326, %hwloc_o
   %indvars.iv.i.i242 = phi i64 [ 0, %.lr.ph.i.i240 ], [ %indvars.iv.next.i.i244, %338 ]
   %340 = getelementptr inbounds %struct.hwloc_info_s, ptr %337, i64 %indvars.iv.i.i242
   %341 = load ptr, ptr %340, align 8
-  %342 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %341, ptr noundef nonnull dereferenceable(12) @.str.68) #22
+  %342 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %341, ptr noundef nonnull readonly dereferenceable(12) @.str.68) #22
   %.not.i.i243 = icmp eq i32 %342, 0
   br i1 %.not.i.i243, label %hwloc_obj_get_info_by_name.exit247, label %338
 
@@ -4917,7 +4917,7 @@ define internal fastcc void @lstopo_set_object_color(ptr nocapture noundef reado
   %.val = load ptr, ptr %0, align 8
   %36 = getelementptr i8, ptr %1, i64 16
   %.val89 = load i32, ptr %36, align 8
-  %37 = tail call ptr @hwloc_topology_get_allowed_nodeset(ptr noundef %.val) #22
+  %37 = tail call ptr @hwloc_topology_get_allowed_nodeset(ptr noundef readonly %.val) #22
   %38 = tail call i32 @hwloc_bitmap_isset(ptr noundef %37, i32 noundef %.val89) #22
   %.not.i.not = icmp eq i32 %38, 0
   br i1 %.not.i.not, label %.loopexit.sink.split, label %39
@@ -4968,7 +4968,7 @@ lstopo_numa_binding.exit.thread:                  ; preds = %42, %lstopo_numa_bi
   %.val90 = load ptr, ptr %0, align 8
   %58 = getelementptr i8, ptr %1, i64 16
   %.val91 = load i32, ptr %58, align 8
-  %59 = tail call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef %.val90) #22
+  %59 = tail call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef readonly %.val90) #22
   %60 = tail call i32 @hwloc_bitmap_isset(ptr noundef %59, i32 noundef %.val91) #22
   %.not.i93.not = icmp eq i32 %60, 0
   br i1 %.not.i93.not, label %.loopexit.sink.split, label %61
@@ -5315,7 +5315,7 @@ define internal fastcc void @place__children(ptr nocapture noundef readonly %0, 
 
 12:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %13 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %11)
+  %13 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %11)
   %.not29.i = icmp eq ptr %13, null
   br i1 %.not29.i, label %place_children_horiz.exit, label %.lr.ph.i
 
@@ -5337,7 +5337,7 @@ define internal fastcc void @place__children(ptr nocapture noundef readonly %0, 
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %.032.i, %4
   %24 = add i32 %23, %22
-  %25 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %.02631.i, ptr noundef nonnull %11)
+  %25 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.02631.i, ptr noundef nonnull %11)
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %place_children_horiz.exit, label %.lr.ph.i, !llvm.loop !29
 
@@ -5377,7 +5377,7 @@ place_children_horiz.exit:                        ; preds = %.lr.ph.i, %12
 
 44:                                               ; preds = %40, %37, %30
   %45 = phi i1 [ false, %37 ], [ false, %30 ], [ %43, %40 ]
-  %46 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10)
+  %46 = call fastcc ptr @next_child(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10)
   %.not4549.i = icmp eq ptr %46, null
   br i1 %.not4549.i, label %place_children_vert.exit, label %.lr.ph.i22
 
@@ -5435,7 +5435,7 @@ pci_link_speed.exit.thread.us.i:                  ; preds = %70, %pci_link_speed
   %.0.us.i = phi i32 [ %51, %pci_link_speed.exit.us.i ], [ %spec.select47.us.i, %70 ], [ %51, %.lr.ph.split.us.i ], [ %51, %58 ]
   %71 = add i32 %.03953.us.i, %4
   %72 = add i32 %71, %.0.us.i
-  %73 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %.04051.us.i, ptr noundef nonnull %10)
+  %73 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.us.i, ptr noundef nonnull %10)
   %.not45.us.i = icmp eq ptr %73, null
   br i1 %.not45.us.i, label %place_children_vert.exit, label %.lr.ph.split.us.i, !llvm.loop !30
 
@@ -5457,7 +5457,7 @@ pci_link_speed.exit.thread.i:                     ; preds = %.lr.ph.i22, %pci_li
   %spec.select.i23 = tail call i32 @llvm.umax.i32(i32 %82, i32 %.04150.i)
   %83 = add i32 %.03953.i, %4
   %84 = add i32 %83, %77
-  %85 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %.04051.i, ptr noundef nonnull %10)
+  %85 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.i, ptr noundef nonnull %10)
   %.not45.i = icmp eq ptr %85, null
   br i1 %.not45.i, label %place_children_vert.exit, label %pci_link_speed.exit.thread.i, !llvm.loop !30
 
@@ -5487,7 +5487,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
 95:                                               ; preds = %92, %90
   %.050.i = phi float [ 8.000000e+00, %90 ], [ %..i, %92 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %96 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %8)
+  %96 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %8)
   %.not119.i.i = icmp eq ptr %96, null
   br i1 %.not119.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -5510,7 +5510,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %108 = add i32 %107, %.0101121.i.i
   %109 = mul i32 %107, %103
   %110 = add i32 %109, %.0102120.i.i
-  %111 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %97, ptr noundef nonnull %8)
+  %111 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %97, ptr noundef nonnull %8)
   %.not.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
@@ -5671,7 +5671,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
 find_children_rectangle.exit.i:                   ; preds = %157, %205, %177, %._crit_edge133.i.i
   %.393.i.i = phi i32 [ %.292.i.i, %._crit_edge133.i.i ], [ %207, %205 ], [ %181, %177 ], [ %.191.i.i, %157 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %208 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %9)
+  %208 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %9)
   %.not66.i = icmp eq ptr %208, null
   br i1 %.not66.i, label %place_children_rect.exit, label %.lr.ph.i25
 
@@ -5717,7 +5717,7 @@ find_children_rectangle.exit.i:                   ; preds = %157, %205, %177, %.
   %227 = load i32, ptr %226, align 4
   %spec.select61.i = tail call i32 @llvm.umax.i32(i32 %227, i32 %.153.i)
   %228 = add nuw nsw i32 %.04971.i, 1
-  %229 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %.05170.i, ptr noundef nonnull %9)
+  %229 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.05170.i, ptr noundef nonnull %9)
   %.not.i26 = icmp eq ptr %229, null
   br i1 %.not.i26, label %._crit_edge.loopexit.i, label %.lr.ph.i25, !llvm.loop !33
 

@@ -376,7 +376,7 @@ fe25519_invert.exit:                              ; preds = %for.body33.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t.i)
   call void @x25519_x86_64_mul(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z) #5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t.i2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %t.i2, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %t.i2, ptr noundef nonnull readonly align 8 dereferenceable(40) %t, i64 40, i1 false)
   call void @x25519_x86_64_freeze(ptr noundef nonnull %t.i2) #5
   %48 = load i64, ptr %t.i2, align 8
   %conv.i3 = trunc i64 %48 to i8

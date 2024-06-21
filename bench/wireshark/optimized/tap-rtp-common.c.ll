@@ -98,7 +98,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @rtpstream_info_malloc_and_copy_deep(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %2, ptr noundef nonnull align 8 dereferenceable(7304) %0, i64 7304, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %2, ptr noundef nonnull readonly align 8 dereferenceable(7304) %0, i64 7304, i1 false)
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4

@@ -3674,10 +3674,10 @@ while.body:                                       ; preds = %entry, %while.body
   %w.addr.0293 = phi i32 [ %sub, %while.body ], [ %w, %entry ]
   %in.addr.0292 = phi ptr [ %add.ptr1, %while.body ], [ %in, %entry ]
   %out.addr.0291 = phi ptr [ %add.ptr, %while.body ], [ %out, %entry ]
-  tail call fastcc void @half_to_float4(ptr noundef %out.addr.0291, ptr noundef %in.addr.0292)
+  tail call fastcc void @half_to_float4(ptr noundef %out.addr.0291, ptr noundef readonly %in.addr.0292)
   %add.ptr.i = getelementptr inbounds i8, ptr %out.addr.0291, i64 16
   %add.ptr1.i = getelementptr inbounds i8, ptr %in.addr.0292, i64 8
-  tail call fastcc void @half_to_float4(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr1.i)
+  tail call fastcc void @half_to_float4(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly %add.ptr1.i)
   %add.ptr = getelementptr inbounds i8, ptr %out.addr.0291, i64 32
   %add.ptr1 = getelementptr inbounds i8, ptr %in.addr.0292, i64 16
   %sub = add nsw i32 %w.addr.0293, -8

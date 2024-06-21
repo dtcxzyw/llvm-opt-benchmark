@@ -239,7 +239,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   %27 = getelementptr i8, ptr %22, i64 32
   %28 = getelementptr i8, ptr %1, i64 32
   %29 = add i64 %.val, -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr readonly align 8 %28, i64 %29, i1 false)
   %.not43 = icmp eq ptr %.040.lcssa, null
   br i1 %.not43, label %35, label %30
 
@@ -629,7 +629,7 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   %28 = getelementptr i8, ptr %1, i64 32
   %29 = getelementptr i8, ptr %.148.i, i64 32
   %30 = add i64 %.val.i, -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %29, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr readonly align 8 %29, i64 %30, i1 false)
   br label %31
 
 31:                                               ; preds = %26, %25

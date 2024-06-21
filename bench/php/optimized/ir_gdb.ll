@@ -676,7 +676,7 @@ ir_gdbjit_buildobj.exit:                          ; preds = %240, %.lr.ph96.preh
   store ptr %259, ptr %260, align 8
   %261 = getelementptr inbounds i8, ptr %256, i64 24
   store i64 %253, ptr %261, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %259, ptr nonnull align 8 %13, i64 %253, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %259, ptr nonnull readonly align 8 %13, i64 %253, i1 false)
   %262 = getelementptr inbounds i8, ptr %256, i64 8
   store ptr null, ptr %262, align 8
   %263 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8

@@ -895,7 +895,7 @@ proto_item_set_generated.exit.i:                  ; preds = %154, %151, %147
   %196 = load ptr, ptr %.sink48.i, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 24
   %198 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull readonly align 8 dereferenceable(16) %198, i64 16, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %47, %.loopexit.sink.split.i
@@ -1736,7 +1736,7 @@ append_tcaphash_ansicall.exit.i:                  ; preds = %641, %616
   %651 = load ptr, ptr %630, align 8
   %652 = getelementptr inbounds i8, ptr %651, i64 24
   %653 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %652, ptr noundef nonnull align 8 dereferenceable(16) %653, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %652, ptr noundef nonnull readonly align 8 dereferenceable(16) %653, i64 16, i1 false)
   br label %proto_item_set_generated.exit157.i
 
 .thread.i39:                                      ; preds = %606, %605, %595, %594
@@ -1806,7 +1806,7 @@ append_tcaphash_ansicall.exit158.i:               ; preds = %681, %656
   %691 = load ptr, ptr %670, align 8
   %692 = getelementptr inbounds i8, ptr %691, i64 24
   %693 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %692, ptr noundef nonnull align 8 dereferenceable(16) %693, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %692, ptr noundef nonnull readonly align 8 dereferenceable(16) %693, i64 16, i1 false)
   br label %proto_item_set_generated.exit157.i
 
 694:                                              ; preds = %.thread.i39
@@ -1951,7 +1951,7 @@ proto_item_set_generated.exit170.i:               ; preds = %737, %734, %proto_i
   %772 = load ptr, ptr %759, align 8
   %773 = getelementptr inbounds i8, ptr %772, i64 24
   %774 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %773, ptr noundef nonnull align 8 dereferenceable(16) %774, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %773, ptr noundef nonnull readonly align 8 dereferenceable(16) %774, i64 16, i1 false)
   br label %proto_item_set_generated.exit157.i
 
 proto_item_set_generated.exit157.i:               ; preds = %525, %519, %742, %proto_item_set_generated.exit170.i, %append_tcaphash_ansicall.exit158.i, %append_tcaphash_ansicall.exit.i, %583, %580, %proto_item_set_generated.exit154.i, %532

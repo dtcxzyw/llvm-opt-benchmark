@@ -8630,7 +8630,7 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   store ptr %92, ptr %24, align 8
   %455 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %119, ptr %455, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %454, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %454, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
   br label %.lr.ph109.i
 
 .lr.ph109.i:                                      ; preds = %.lr.ph109.i, %.lr.ph109.preheader.i
@@ -8652,11 +8652,11 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   store ptr %92, ptr %24, align 8
   %462 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %119, ptr %462, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %461, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %461, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
   br label %._crit_edge110.i
 
 ._crit_edge110.i:                                 ; preds = %.lr.ph109.i, %._crit_edge110.critedge.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %38, i32 noundef %26, float noundef 1.000000e+00, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef %33)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef %33)
   %463 = fpext float %50 to double
   %464 = fmul double %463, 0x3F91DF46A2529D39
   %465 = call double @cos(double noundef %464) #17
@@ -8963,7 +8963,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %678 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val167.i, i64 %30
   store ptr %92, ptr %25, align 8
   store ptr %119, ptr %499, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %678, ptr %83, ptr nonnull %85, ptr nonnull %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %678, ptr %83, ptr nonnull %85, ptr nonnull %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
   br label %.lr.ph112.i
 
 .lr.ph112.i:                                      ; preds = %_ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfPS5_S8_S8_fPfS9_Pb.exit.i, %.lr.ph112.i
@@ -8990,11 +8990,11 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %686 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val167.c.i, i64 %30
   store ptr %92, ptr %25, align 8
   store ptr %119, ptr %499, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %686, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %686, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
   br label %._crit_edge113.i
 
 ._crit_edge113.i:                                 ; preds = %.lr.ph112.i, %._crit_edge113.critedge.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %38, i32 noundef %26, float noundef 1.000000e+00, ptr %101, ptr %121, ptr %71, ptr %39, ptr %45, ptr noundef %33)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %101, ptr %121, ptr %71, ptr %39, ptr %45, ptr noundef %33)
   %687 = add nuw nsw i32 %.0161114.i, 1
   %688 = load i32, ptr %466, align 4
   %689 = icmp slt i32 %687, %688
@@ -9005,7 +9005,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   br i1 %.not.i, label %691, label %690
 
 690:                                              ; preds = %._crit_edge117.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %38, i32 noundef %26, float noundef %51, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef nonnull %52)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef %51, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef nonnull %52)
   br label %691
 
 691:                                              ; preds = %690, %._crit_edge117.i
@@ -9862,7 +9862,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
   store ptr %69, ptr %17, align 8
   %406 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %83, ptr %406, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %24, ptr noundef nonnull align 8 dereferenceable(176) %405, ptr %60, ptr %62, ptr %82, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %17, i64 %80)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %24, ptr noundef nonnull align 8 dereferenceable(176) %405, ptr %60, ptr %62, ptr %82, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %17, i64 %80)
   %407 = icmp eq i32 %32, 3
   %or.cond.i = and i1 %407, %85
   br i1 %or.cond.i, label %.lr.ph65.i, label %.loopexit59.i
@@ -9922,13 +9922,13 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 ._crit_edge69.i:                                  ; preds = %.lr.ph68.i
   %.sroa.3.0.i = select i1 %.not.i, ptr null, ptr %31
   %.sroa.01.0.i = select i1 %.not.i, ptr null, ptr %25
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %24, i32 noundef %18, float noundef 1.000000e+00, ptr nonnull %76, ptr nonnull %84, ptr %54, ptr %.sroa.01.0.i, ptr %.sroa.3.0.i, ptr noundef %22)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr nonnull %76, ptr nonnull %84, ptr %54, ptr %.sroa.01.0.i, ptr %.sroa.3.0.i, ptr noundef %22)
   br i1 %34, label %.preheader57.i, label %441
 
 ._crit_edge69.i.thread:                           ; preds = %.loopexit59.i
   %.sroa.3.0.i27 = select i1 %.not.i, ptr null, ptr %31
   %.sroa.01.0.i28 = select i1 %.not.i, ptr null, ptr %25
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %24, i32 noundef %18, float noundef 1.000000e+00, ptr %76, ptr %84, ptr %54, ptr %.sroa.01.0.i28, ptr %.sroa.3.0.i27, ptr noundef %22)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr %76, ptr %84, ptr %54, ptr %.sroa.01.0.i28, ptr %.sroa.3.0.i27, ptr noundef %22)
   br i1 %34, label %._crit_edge73.i, label %.loopexit
 
 .preheader57.i:                                   ; preds = %._crit_edge69.i

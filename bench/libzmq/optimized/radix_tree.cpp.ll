@@ -849,7 +849,7 @@ _Z9make_nodemmm.exit:                             ; preds = %if.then3, %if.then.
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %11, i64 4
   %u32.0.copyload.i.i = load i32, ptr %add.ptr.i1.i, align 1
   %conv.i = zext i32 %u32.0.copyload.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i26, ptr align 1 %add.ptr, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i26, ptr readonly align 1 %add.ptr, i64 %conv.i, i1 false)
   %u32.0.copyload.i28 = load i32, ptr %add.ptr.i168, align 1
   %conv6 = zext i32 %u32.0.copyload.i28 to i64
   %add.ptr.i29 = getelementptr inbounds i8, ptr %6, i64 8
@@ -998,21 +998,21 @@ _Z9make_nodemmm.exit95:                           ; preds = %_Z9make_nodemmm.exi
   %add.ptr.i1.i97 = getelementptr inbounds i8, ptr %22, i64 4
   %u32.0.copyload.i.i98 = load i32, ptr %add.ptr.i1.i97, align 1
   %conv.i99 = zext i32 %u32.0.copyload.i.i98 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i96, ptr align 1 %add.ptr40, i64 %conv.i99, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i96, ptr readonly align 1 %add.ptr40, i64 %conv.i99, i1 false)
   %add.ptr.i100 = getelementptr inbounds i8, ptr %6, i64 12
   %add.ptr42 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 %1
   %add.ptr.i.i101 = getelementptr inbounds i8, ptr %27, i64 12
   %add.ptr.i1.i102 = getelementptr inbounds i8, ptr %27, i64 4
   %u32.0.copyload.i.i103 = load i32, ptr %add.ptr.i1.i102, align 1
   %conv.i104 = zext i32 %u32.0.copyload.i.i103 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i101, ptr nonnull align 1 %add.ptr42, i64 %conv.i104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i101, ptr nonnull readonly align 1 %add.ptr42, i64 %conv.i104, i1 false)
   %u32.0.copyload.i.i107 = load i32, ptr %add.ptr.i168, align 1
   %idx.ext.i108 = zext i32 %u32.0.copyload.i.i107 to i64
   %add.ptr.i109 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 %idx.ext.i108
   %add.ptr.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i.i101, i64 %conv.i104
   %u32.0.copyload.i.i116 = load i32, ptr %add.ptr.i4.i91, align 1
   %conv.i117 = zext i32 %u32.0.copyload.i.i116 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i114, ptr nonnull align 1 %add.ptr.i109, i64 %conv.i117, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i114, ptr nonnull readonly align 1 %add.ptr.i109, i64 %conv.i117, i1 false)
   %u32.0.copyload.i.i120 = load i32, ptr %add.ptr.i168, align 1
   %idx.ext.i121 = zext i32 %u32.0.copyload.i.i120 to i64
   %add.ptr.i122 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 %idx.ext.i121
@@ -1026,7 +1026,7 @@ _Z9make_nodemmm.exit95:                           ; preds = %_Z9make_nodemmm.exi
   %idx.ext4.i.i = zext i32 %u32.0.copyload.i3.i.i to i64
   %add.ptr5.i.i132 = getelementptr inbounds i8, ptr %add.ptr.i.i131, i64 %idx.ext4.i.i
   %mul.i133 = shl nuw nsw i64 %idx.ext4.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i132, ptr nonnull align 1 %add.ptr5.i126, i64 %mul.i133, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i132, ptr nonnull readonly align 1 %add.ptr5.i126, i64 %mul.i133, i1 false)
   %add2.i135 = add i64 %1, 30
   %call.i136 = call ptr @realloc(ptr noundef nonnull %6, i64 noundef %add2.i135) #23
   %tobool.not.i137 = icmp eq ptr %call.i136, null
@@ -1127,12 +1127,12 @@ _Z9make_nodemmm.exit188:                          ; preds = %if.then61, %if.then
   %add.ptr.i1.i191 = getelementptr inbounds i8, ptr %39, i64 4
   %u32.0.copyload.i.i192 = load i32, ptr %add.ptr.i1.i191, align 1
   %conv.i193 = zext i32 %u32.0.copyload.i.i192 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i190, ptr nonnull align 1 %add.ptr73, i64 %conv.i193, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i190, ptr nonnull readonly align 1 %add.ptr73, i64 %conv.i193, i1 false)
   %u32.0.copyload.i.i196 = load i32, ptr %add.ptr.i168, align 1
   %idx.ext.i197 = zext i32 %u32.0.copyload.i.i196 to i64
   %add.ptr.i198 = getelementptr inbounds i8, ptr %add.ptr.i189, i64 %idx.ext.i197
   %add.ptr.i.i203 = getelementptr inbounds i8, ptr %add.ptr.i.i190, i64 %conv.i193
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i203, ptr nonnull align 1 %add.ptr.i198, i64 %conv69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i203, ptr nonnull readonly align 1 %add.ptr.i198, i64 %conv69, i1 false)
   %u32.0.copyload.i.i209 = load i32, ptr %add.ptr.i168, align 1
   %idx.ext.i210 = zext i32 %u32.0.copyload.i.i209 to i64
   %add.ptr.i211 = getelementptr inbounds i8, ptr %add.ptr.i189, i64 %idx.ext.i210
@@ -1146,7 +1146,7 @@ _Z9make_nodemmm.exit188:                          ; preds = %if.then61, %if.then
   %idx.ext4.i.i223 = zext i32 %u32.0.copyload.i3.i.i222 to i64
   %add.ptr5.i.i224 = getelementptr inbounds i8, ptr %add.ptr.i.i220, i64 %idx.ext4.i.i223
   %mul.i225 = shl nuw nsw i64 %idx.ext4.i.i223, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i224, ptr nonnull align 1 %add.ptr5.i215, i64 %mul.i225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i224, ptr nonnull readonly align 1 %add.ptr5.i215, i64 %mul.i225, i1 false)
   %add2.i227 = add i64 %1, 21
   %call.i228 = call ptr @realloc(ptr noundef nonnull %6, i64 noundef %add2.i227) #23
   %tobool.not.i229 = icmp eq ptr %call.i228, null
@@ -1315,7 +1315,7 @@ if.then21:                                        ; preds = %if.end19
   %add.ptr.i1.i29 = getelementptr inbounds i8, ptr %10, i64 8
   %u32.0.copyload.i.i30 = load i32, ptr %add.ptr.i1.i29, align 1
   %conv.i = zext i32 %u32.0.copyload.i.i30 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i28, ptr nonnull align 1 %add.ptr.i27, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i28, ptr nonnull readonly align 1 %add.ptr.i27, i64 %conv.i, i1 false)
   %u32.0.copyload.i.i33 = load i32, ptr %add.ptr.i19, align 1
   %idx.ext.i34 = zext i32 %u32.0.copyload.i.i33 to i64
   %add.ptr.i35 = getelementptr inbounds i8, ptr %add.ptr.i24, i64 %idx.ext.i34
@@ -1329,7 +1329,7 @@ if.then21:                                        ; preds = %if.end19
   %idx.ext4.i.i = zext i32 %u32.0.copyload.i3.i.i to i64
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i40, i64 %idx.ext4.i.i
   %mul.i = shl nuw nsw i64 %idx.ext4.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull align 1 %add.ptr5.i, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull readonly align 1 %add.ptr5.i, i64 %mul.i, i1 false)
   %u32.0.copyload.i41 = load i32, ptr %call22, align 1
   store i32 %u32.0.copyload.i41, ptr %10, align 1
   call void @free(ptr noundef %call22) #26
@@ -1394,7 +1394,7 @@ do.end:                                           ; preds = %do.body, %if.then51
   %add.ptr.i1.i65 = getelementptr inbounds i8, ptr %14, i64 8
   %u32.0.copyload.i.i66 = load i32, ptr %add.ptr.i1.i65, align 1
   %conv.i67 = zext i32 %u32.0.copyload.i.i66 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i64, ptr nonnull align 1 %add.ptr.i59, i64 %conv.i67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i64, ptr nonnull readonly align 1 %add.ptr.i59, i64 %conv.i67, i1 false)
   %u32.0.copyload.i.i70 = load i32, ptr %add.ptr.i47, align 1
   %idx.ext.i71 = zext i32 %u32.0.copyload.i.i70 to i64
   %add.ptr.i72 = getelementptr inbounds i8, ptr %add.ptr.i52, i64 %idx.ext.i71
@@ -1408,7 +1408,7 @@ do.end:                                           ; preds = %do.body, %if.then51
   %idx.ext4.i.i84 = zext i32 %u32.0.copyload.i3.i.i83 to i64
   %add.ptr5.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i.i81, i64 %idx.ext4.i.i84
   %mul.i86 = shl nuw nsw i64 %idx.ext4.i.i84, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i85, ptr nonnull align 1 %add.ptr5.i76, i64 %mul.i86, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i85, ptr nonnull readonly align 1 %add.ptr5.i76, i64 %mul.i86, i1 false)
   %u32.0.copyload.i87 = load i32, ptr %call57, align 1
   store i32 %u32.0.copyload.i87, ptr %14, align 1
   call void @free(ptr noundef nonnull %9) #26

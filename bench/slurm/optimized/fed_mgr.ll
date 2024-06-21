@@ -5710,7 +5710,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
 
 .loopexit.i:                                      ; preds = %83, %.critedge.i, %_persist_fed_job_lock.exit.thread.i
   %.02947.i = phi i64 [ %.02951.i, %_persist_fed_job_lock.exit.thread.i ], [ %.029.lcssa.i, %.critedge.i ], [ %.02951.i, %83 ]
-  call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull %0, i64 noundef %.02947.i)
+  call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull readonly %0, i64 noundef %.02947.i)
   br label %_is_fed_job.exit.thread
 
 121:                                              ; preds = %52, %49, %47

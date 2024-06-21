@@ -47621,7 +47621,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit792: ; preds = %_ZSt8_Destr
   store ptr %2516, ptr %2519, align 8
   store i64 0, ptr %2520, align 8
   %2594 = getelementptr inbounds i8, ptr %2586, i64 72
-  invoke fastcc void @_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8CaseRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_(ptr noundef nonnull %2594, ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef nonnull align 8 dereferenceable(48) %112)
+  invoke fastcc void @_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8CaseRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_(ptr noundef nonnull readonly %2594, ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef nonnull align 8 dereferenceable(48) %112)
           to label %.noexc802 unwind label %.loopexit.split-lp2098.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc802:                                        ; preds = %2593

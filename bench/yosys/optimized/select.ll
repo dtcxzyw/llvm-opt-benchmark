@@ -20130,7 +20130,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116select_op_expandEPN5Yosys5RTLIL6
   br i1 %.not.i, label %189, label %187
 
 187:                                              ; preds = %184
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %185, ptr noundef nonnull align 8 dereferenceable(104) %10)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %185, ptr noundef nonnull readonly align 8 dereferenceable(104) %10)
           to label %.noexc unwind label %.loopexit220
 
 .noexc:                                           ; preds = %187
@@ -20172,7 +20172,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tESaIS2_EE12_M_check_le
 _ZNSt12_Vector_baseIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %201, %_ZNKSt6vectorIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %204 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %203, %201 ]
   %205 = getelementptr inbounds %"struct.(anonymous namespace)::(anonymous namespace)::expand_rule_t", ptr %204, i64 %195
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %205, ptr noundef nonnull align 8 dereferenceable(104) %10)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %205, ptr noundef nonnull readonly align 8 dereferenceable(104) %10)
           to label %206 unwind label %256
 
 206:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tESaIS2_EE11_M_allocateEm.exit.i.i

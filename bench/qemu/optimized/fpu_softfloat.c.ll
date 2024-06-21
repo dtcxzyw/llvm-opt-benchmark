@@ -792,7 +792,7 @@ if.then24.i:                                      ; preds = %pickNaN.exit.i, %39
 
 parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i108, %if.then24.i, %39, %if.then6.i.i, %if.then3.i, %if.then8.i, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i ], [ %pa, %if.then3.i ], [ %.ph.i125, %if.then24.i ], [ %pb, %39 ], [ %pa, %if.then6.i.i ], [ %spec.select, %lor.lhs.false.i.i108 ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %42 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i111 = zext i8 %42 to i64
@@ -3398,7 +3398,7 @@ if.else.i:                                        ; preds = %if.end51.i
 
 parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i79, %if.then24.i, %20, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
   %retval.i.0 = phi ptr [ %pa, %if.end.i ], [ %pa, %if.then31.i ], [ %pa, %if.then46.i ], [ %pa, %if.then54.i ], [ %pa, %if.then3.i ], [ %.ph.i93, %if.then24.i ], [ %pb, %20 ], [ %pa, %if.then6.i.i ], [ %spec.select99, %lor.lhs.false.i.i79 ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %23 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i81 = zext i8 %23 to i64
@@ -6416,7 +6416,7 @@ d_nan.i:                                          ; preds = %if.then57.i, %if.en
   br label %parts64_muladd.exit
 
 parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.then174.i, %d_nan.i, %parts64_pick_nan_muladd.exit
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %42 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i144 = zext i8 %42 to i64
   %shl.i.i.i145 = shl nuw nsw i64 %conv.i.i.i144, 15
@@ -9161,7 +9161,7 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_div(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -13416,7 +13416,7 @@ default.unreachable:                              ; preds = %if.else
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i7, %if.then.i.i8, %if.then
   %float16_params_ahp.sink = phi ptr [ @float16_params, %if.then ], [ @float16_params, %if.then.i.i8 ], [ @float16_params, %if.else.i.i7 ], [ @float16_params, %sw.bb1.i.i ], [ @float16_params, %if.then4.i.i ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %sw.bb1.i ], [ @float16_params_ahp, %sw.bb3.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull %float16_params_ahp.sink)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
   %12 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i11 = zext i8 %12 to i64
   %shl.i.i.i12 = shl nuw nsw i64 %conv.i.i.i11, 15
@@ -13757,7 +13757,7 @@ default.unreachable:                              ; preds = %if.else
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i7, %if.then.i.i8, %if.then
   %float16_params_ahp.sink = phi ptr [ @float16_params, %if.then ], [ @float16_params, %if.then.i.i8 ], [ @float16_params, %if.else.i.i7 ], [ @float16_params, %sw.bb1.i.i ], [ @float16_params, %if.then4.i.i ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %sw.bb1.i ], [ @float16_params_ahp, %sw.bb3.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull %float16_params_ahp.sink)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
   %12 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i12 = zext i8 %12 to i64
   %shl.i.i.i13 = shl nuw nsw i64 %conv.i.i.i12, 15
@@ -15781,7 +15781,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts64_round_to_int.exit
 
 parts64_round_to_int.exit:                        ; preds = %if.then47.i.i.i, %if.then10.i.i.i, %if.then8.i.i.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
   %11 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
   %conv.i.i.i.i4 = zext i8 %11 to i64
   %shl.i.i.i.i5 = shl nuw nsw i64 %conv.i.i.i.i4, 15
@@ -21511,7 +21511,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %parts64_sint_to_float.exit
 
 parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -21571,7 +21571,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21632,7 +21632,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21689,7 +21689,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21747,7 +21747,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21805,7 +21805,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21863,7 +21863,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23346,7 +23346,7 @@ if.else.i:                                        ; preds = %entry
 parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -23392,7 +23392,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23439,7 +23439,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23482,7 +23482,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23526,7 +23526,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23570,7 +23570,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23614,7 +23614,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -25136,7 +25136,7 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -27833,7 +27833,7 @@ sw.bb2.i:                                         ; preds = %float16_unpack_cano
   br label %parts64_scalbn.exit
 
 parts64_scalbn.exit:                              ; preds = %if.then47.i.i.i, %if.then10.i.i.i, %if.then8.i.i.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %10 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
   %conv.i.i.i.i3 = zext i8 %10 to i64
   %shl.i.i.i.i4 = shl nuw nsw i64 %conv.i.i.i.i3, 15
@@ -28673,7 +28673,7 @@ d_nan.i:                                          ; preds = %if.end16.i, %float1
   br label %parts64_sqrt.exit
 
 parts64_sqrt.exit:                                ; preds = %if.then10.i.i, %if.then8.i.i, %if.then4.i, %sw.bb1.i, %if.else.i55, %if.then.i, %if.then124.i, %if.else.i, %float16a_unpack_canonical.exit.thread62, %d_nan.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %16 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i59 = zext i8 %16 to i64
   %shl.i.i.i60 = shl nuw nsw i64 %conv.i.i.i59, 15

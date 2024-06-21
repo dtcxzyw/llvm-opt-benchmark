@@ -3235,7 +3235,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp.i, label %if.then18, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %3, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   store i64 %4, ptr %seed_len.i, align 8
   br label %return
 

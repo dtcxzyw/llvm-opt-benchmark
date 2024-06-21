@@ -1743,7 +1743,7 @@ append_entry.exit:                                ; preds = %29, %68
 
 121:                                              ; preds = %115
   %122 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %122, ptr noundef nonnull align 1 dereferenceable(9) @.str.3, i64 9, i1 false) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %122, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.3, i64 9, i1 false) #19
   %123 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %122) #24
   %124 = getelementptr inbounds i8, ptr %122, i64 %123
   store ptr %124, ptr %7, align 8

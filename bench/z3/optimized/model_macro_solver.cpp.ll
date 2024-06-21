@@ -8908,7 +8908,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %call4.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  call void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %3, ptr noundef %6)
+  call void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %3, ptr noundef %6)
   %9 = load ptr, ptr %m_q2info.i, align 8
   %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -9326,7 +9326,7 @@ call4.i.noexc:                                    ; preds = %.noexc49
   br i1 %call4.i50, label %if.end.i45, label %cleanup
 
 if.end.i45:                                       ; preds = %call4.i.noexc
-  invoke void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %f, ptr noundef nonnull %40)
+  invoke void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %f, ptr noundef nonnull %40)
           to label %if.then42 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.then42:                                        ; preds = %if.end.i45
@@ -9669,7 +9669,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
 for.body.i:                                       ; preds = %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit.i
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.2.i, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit.i ], [ %retval.sroa.0.1.i.i, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i ]
   %3 = load ptr, ptr %__begin1.sroa.0.010.i, align 8
-  invoke void @_ZN20non_auf_macro_solver7processEP9func_declRK10ptr_vectorI10quantifierER13obj_hashtableIS3_E(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %qs, ptr noundef nonnull align 8 dereferenceable(20) %removed)
+  invoke void @_ZN20non_auf_macro_solver7processEP9func_declRK10ptr_vectorI10quantifierER13obj_hashtableIS3_E(ptr noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(8) %qs, ptr noundef nonnull align 8 dereferenceable(20) %removed)
           to label %.noexc unwind label %lpad4.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %for.body.i

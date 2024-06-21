@@ -2041,7 +2041,7 @@ if.end.i:                                         ; preds = %str_buf_reserve.exi
   %len1.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %7 = load i64, ptr %len1.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %data, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %data, i64 %len, i1 false)
   %8 = load i64, ptr %len1.i, align 8
   %add.i = add i64 %8, %len
   store i64 %add.i, ptr %len1.i, align 8

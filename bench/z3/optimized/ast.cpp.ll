@@ -7193,7 +7193,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %sw.bb2
-  %call.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.31, i32 noundef 13, i32 noundef 0, i1 noundef zeroext true)
+  %call.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.31, i32 noundef 13, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i, ptr %m_true_pr_decl, align 8
   br label %return
 
@@ -7204,7 +7204,7 @@ sw.bb3:                                           ; preds = %entry
   br i1 %tobool.not.i58, label %if.then.i59, label %return
 
 if.then.i59:                                      ; preds = %sw.bb3
-  %call.i60 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.32, i32 noundef 14, i32 noundef 0, i1 noundef zeroext true)
+  %call.i60 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.32, i32 noundef 14, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i60, ptr %m_asserted_decl, align 8
   br label %return
 
@@ -7215,7 +7215,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %tobool.not.i62, label %if.then.i63, label %return
 
 if.then.i63:                                      ; preds = %sw.bb5
-  %call.i64 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.33, i32 noundef 15, i32 noundef 2, i1 noundef zeroext true)
+  %call.i64 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.33, i32 noundef 15, i32 noundef 2, i1 noundef zeroext true)
   store ptr %call.i64, ptr %m_goal_decl, align 8
   br label %return
 
@@ -7226,7 +7226,7 @@ sw.bb7:                                           ; preds = %entry
   br i1 %tobool.not.i66, label %if.then.i67, label %return
 
 if.then.i67:                                      ; preds = %sw.bb7
-  %call.i68 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.34, i32 noundef 16, i32 noundef 2, i1 noundef zeroext true)
+  %call.i68 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.34, i32 noundef 16, i32 noundef 2, i1 noundef zeroext true)
   store ptr %call.i68, ptr %m_modus_ponens_decl, align 8
   br label %return
 
@@ -7237,7 +7237,7 @@ sw.bb9:                                           ; preds = %entry
   br i1 %tobool.not.i70, label %if.then.i71, label %return
 
 if.then.i71:                                      ; preds = %sw.bb9
-  %call.i72 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.35, i32 noundef 17, i32 noundef 0, i1 noundef zeroext true)
+  %call.i72 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.35, i32 noundef 17, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i72, ptr %m_reflexivity_decl, align 8
   br label %return
 
@@ -7248,7 +7248,7 @@ sw.bb11:                                          ; preds = %entry
   br i1 %tobool.not.i74, label %if.then.i75, label %return
 
 if.then.i75:                                      ; preds = %sw.bb11
-  %call.i76 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.36, i32 noundef 18, i32 noundef 1, i1 noundef zeroext true)
+  %call.i76 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.36, i32 noundef 18, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i76, ptr %m_symmetry_decl, align 8
   br label %return
 
@@ -7259,7 +7259,7 @@ sw.bb13:                                          ; preds = %entry
   br i1 %tobool.not.i78, label %if.then.i79, label %return
 
 if.then.i79:                                      ; preds = %sw.bb13
-  %call.i80 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.37, i32 noundef 19, i32 noundef 2, i1 noundef zeroext true)
+  %call.i80 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.37, i32 noundef 19, i32 noundef 2, i1 noundef zeroext true)
   store ptr %call.i80, ptr %m_transitivity_decl, align 8
   br label %return
 
@@ -7340,7 +7340,7 @@ if.end.i:                                         ; preds = %for.body.preheader.
   br i1 %tobool.not.i82, label %if.then3.i, label %return
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call4.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.38, i32 noundef 20, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.38, i32 noundef 20, i32 noundef %num_parents, i1 noundef zeroext true)
   %17 = load ptr, ptr %m_transitivity_star_decls, align 8
   %arrayidx.i13.i = getelementptr inbounds ptr, ptr %17, i64 %idxprom.i.i
   store ptr %call4.i, ptr %arrayidx.i13.i, align 8
@@ -7426,7 +7426,7 @@ if.end.i91:                                       ; preds = %for.body.preheader.
   br i1 %tobool.not.i94, label %if.then3.i95, label %return
 
 if.then3.i95:                                     ; preds = %if.end.i91
-  %call4.i96 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.39, i32 noundef 21, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i96 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.39, i32 noundef 21, i32 noundef %num_parents, i1 noundef zeroext true)
   %27 = load ptr, ptr %m_monotonicity_decls, align 8
   %arrayidx.i13.i97 = getelementptr inbounds ptr, ptr %27, i64 %idxprom.i.i92
   store ptr %call4.i96, ptr %arrayidx.i13.i97, align 8
@@ -7442,7 +7442,7 @@ sw.bb19:                                          ; preds = %entry
   br i1 %tobool.not.i127, label %if.then.i129, label %return
 
 if.then.i129:                                     ; preds = %sw.bb19
-  %call.i130 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.40, i32 noundef 22, i32 noundef 1, i1 noundef zeroext true)
+  %call.i130 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.40, i32 noundef 22, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i130, ptr %m_quant_intro_decl, align 8
   br label %return
 
@@ -7528,7 +7528,7 @@ if.end.i140:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i143, label %if.then3.i144, label %return
 
 if.then3.i144:                                    ; preds = %if.end.i140
-  %call4.i145 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.41, i32 noundef 24, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i145 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.41, i32 noundef 24, i32 noundef %num_parents, i1 noundef zeroext true)
   %38 = load ptr, ptr %m_distributivity_decls, align 8
   %arrayidx.i13.i146 = getelementptr inbounds ptr, ptr %38, i64 %idxprom.i.i141
   store ptr %call4.i145, ptr %arrayidx.i13.i146, align 8
@@ -7544,7 +7544,7 @@ sw.bb24:                                          ; preds = %entry
   br i1 %tobool.not.i176, label %if.then.i178, label %return
 
 if.then.i178:                                     ; preds = %sw.bb24
-  %call.i179 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.42, i32 noundef 25, i32 noundef 1, i1 noundef zeroext true)
+  %call.i179 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.42, i32 noundef 25, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i179, ptr %m_and_elim_decl, align 8
   br label %return
 
@@ -7555,7 +7555,7 @@ sw.bb26:                                          ; preds = %entry
   br i1 %tobool.not.i181, label %if.then.i183, label %return
 
 if.then.i183:                                     ; preds = %sw.bb26
-  %call.i184 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.43, i32 noundef 26, i32 noundef 1, i1 noundef zeroext true)
+  %call.i184 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.43, i32 noundef 26, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i184, ptr %m_not_or_elim_decl, align 8
   br label %return
 
@@ -7566,7 +7566,7 @@ sw.bb28:                                          ; preds = %entry
   br i1 %tobool.not.i186, label %if.then.i188, label %return
 
 if.then.i188:                                     ; preds = %sw.bb28
-  %call.i189 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.44, i32 noundef 27, i32 noundef 0, i1 noundef zeroext true)
+  %call.i189 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.44, i32 noundef 27, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i189, ptr %m_rewrite_decl, align 8
   br label %return
 
@@ -7647,7 +7647,7 @@ if.end.i199:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i202, label %if.then3.i203, label %return
 
 if.then3.i203:                                    ; preds = %if.end.i199
-  %call4.i204 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.45, i32 noundef 28, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i204 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.45, i32 noundef 28, i32 noundef %num_parents, i1 noundef zeroext true)
   %51 = load ptr, ptr %m_rewrite_star_decls, align 8
   %arrayidx.i13.i205 = getelementptr inbounds ptr, ptr %51, i64 %idxprom.i.i200
   store ptr %call4.i204, ptr %arrayidx.i13.i205, align 8
@@ -7663,7 +7663,7 @@ sw.bb32:                                          ; preds = %entry
   br i1 %tobool.not.i235, label %if.then.i237, label %return
 
 if.then.i237:                                     ; preds = %sw.bb32
-  %call.i238 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.46, i32 noundef 29, i32 noundef 0, i1 noundef zeroext true)
+  %call.i238 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.46, i32 noundef 29, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i238, ptr %m_pull_quant_decl, align 8
   br label %return
 
@@ -7674,7 +7674,7 @@ sw.bb34:                                          ; preds = %entry
   br i1 %tobool.not.i240, label %if.then.i242, label %return
 
 if.then.i242:                                     ; preds = %sw.bb34
-  %call.i243 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.47, i32 noundef 30, i32 noundef 0, i1 noundef zeroext true)
+  %call.i243 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.47, i32 noundef 30, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i243, ptr %m_push_quant_decl, align 8
   br label %return
 
@@ -7685,7 +7685,7 @@ sw.bb36:                                          ; preds = %entry
   br i1 %tobool.not.i245, label %if.then.i247, label %return
 
 if.then.i247:                                     ; preds = %sw.bb36
-  %call.i248 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.48, i32 noundef 31, i32 noundef 0, i1 noundef zeroext true)
+  %call.i248 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.48, i32 noundef 31, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i248, ptr %m_elim_unused_vars_decl, align 8
   br label %return
 
@@ -7696,7 +7696,7 @@ sw.bb38:                                          ; preds = %entry
   br i1 %tobool.not.i250, label %if.then.i252, label %return
 
 if.then.i252:                                     ; preds = %sw.bb38
-  %call.i253 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.49, i32 noundef 32, i32 noundef 0, i1 noundef zeroext true)
+  %call.i253 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.49, i32 noundef 32, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i253, ptr %m_der_decl, align 8
   br label %return
 
@@ -7707,7 +7707,7 @@ sw.bb40:                                          ; preds = %entry
   br i1 %tobool.not.i255, label %if.then.i257, label %return
 
 if.then.i257:                                     ; preds = %sw.bb40
-  %call.i258 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.29, i32 noundef 33, i32 noundef 0, i1 noundef zeroext true)
+  %call.i258 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.29, i32 noundef 33, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i258, ptr %m_quant_inst_decl, align 8
   br label %return
 
@@ -7718,7 +7718,7 @@ sw.bb42:                                          ; preds = %entry
   br i1 %tobool.not.i260, label %if.then.i262, label %return
 
 if.then.i262:                                     ; preds = %sw.bb42
-  %call.i263 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.50, i32 noundef 34, i32 noundef 0, i1 noundef zeroext true)
+  %call.i263 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.50, i32 noundef 34, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i263, ptr %m_hypothesis_decl, align 8
   br label %return
 
@@ -7729,7 +7729,7 @@ sw.bb44:                                          ; preds = %entry
   br i1 %tobool.not.i265, label %if.then.i267, label %return
 
 if.then.i267:                                     ; preds = %sw.bb44
-  %call.i268 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.51, i32 noundef 35, i32 noundef 1, i1 noundef zeroext true)
+  %call.i268 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.51, i32 noundef 35, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i268, ptr %m_lemma_decl, align 8
   br label %return
 
@@ -7810,7 +7810,7 @@ if.end.i278:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i281, label %if.then3.i282, label %return
 
 if.then3.i282:                                    ; preds = %if.end.i278
-  %call4.i283 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.52, i32 noundef 36, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i283 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.52, i32 noundef 36, i32 noundef %num_parents, i1 noundef zeroext true)
   %68 = load ptr, ptr %m_unit_resolution_decls, align 8
   %arrayidx.i13.i284 = getelementptr inbounds ptr, ptr %68, i64 %idxprom.i.i279
   store ptr %call4.i283, ptr %arrayidx.i13.i284, align 8
@@ -7826,7 +7826,7 @@ sw.bb48:                                          ; preds = %entry
   br i1 %tobool.not.i314, label %if.then.i316, label %return
 
 if.then.i316:                                     ; preds = %sw.bb48
-  %call.i317 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.53, i32 noundef 37, i32 noundef 1, i1 noundef zeroext true)
+  %call.i317 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.53, i32 noundef 37, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i317, ptr %m_iff_true_decl, align 8
   br label %return
 
@@ -7837,7 +7837,7 @@ sw.bb50:                                          ; preds = %entry
   br i1 %tobool.not.i319, label %if.then.i321, label %return
 
 if.then.i321:                                     ; preds = %sw.bb50
-  %call.i322 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.54, i32 noundef 38, i32 noundef 1, i1 noundef zeroext true)
+  %call.i322 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.54, i32 noundef 38, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i322, ptr %m_iff_false_decl, align 8
   br label %return
 
@@ -7848,7 +7848,7 @@ sw.bb52:                                          ; preds = %entry
   br i1 %tobool.not.i324, label %if.then.i326, label %return
 
 if.then.i326:                                     ; preds = %sw.bb52
-  %call.i327 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.55, i32 noundef 39, i32 noundef 0, i1 noundef zeroext true)
+  %call.i327 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.55, i32 noundef 39, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i327, ptr %m_commutativity_decl, align 8
   br label %return
 
@@ -7859,7 +7859,7 @@ sw.bb54:                                          ; preds = %entry
   br i1 %tobool.not.i329, label %if.then.i331, label %return
 
 if.then.i331:                                     ; preds = %sw.bb54
-  %call.i332 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.56, i32 noundef 40, i32 noundef 0, i1 noundef zeroext true)
+  %call.i332 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.56, i32 noundef 40, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i332, ptr %m_def_axiom_decl, align 8
   br label %return
 
@@ -7870,7 +7870,7 @@ sw.bb56:                                          ; preds = %entry
   br i1 %tobool.not.i334, label %if.then.i336, label %return
 
 if.then.i336:                                     ; preds = %sw.bb56
-  %call.i337 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.57, i32 noundef 47, i32 noundef 0, i1 noundef zeroext true)
+  %call.i337 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.57, i32 noundef 47, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i337, ptr %m_def_intro_decl, align 8
   br label %return
 
@@ -7951,7 +7951,7 @@ if.end.i347:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i350, label %if.then3.i351, label %return
 
 if.then3.i351:                                    ; preds = %if.end.i347
-  %call4.i352 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.58, i32 noundef 48, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i352 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.58, i32 noundef 48, i32 noundef %num_parents, i1 noundef zeroext true)
   %83 = load ptr, ptr %m_apply_def_decls, align 8
   %arrayidx.i13.i353 = getelementptr inbounds ptr, ptr %83, i64 %idxprom.i.i348
   store ptr %call4.i352, ptr %arrayidx.i13.i353, align 8
@@ -7967,7 +7967,7 @@ sw.bb60:                                          ; preds = %entry
   br i1 %tobool.not.i383, label %if.then.i385, label %return
 
 if.then.i385:                                     ; preds = %sw.bb60
-  %call.i386 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.59, i32 noundef 49, i32 noundef 1, i1 noundef zeroext true)
+  %call.i386 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.59, i32 noundef 49, i32 noundef 1, i1 noundef zeroext true)
   store ptr %call.i386, ptr %m_iff_oeq_decl, align 8
   br label %return
 
@@ -8048,7 +8048,7 @@ if.end.i396:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i399, label %if.then3.i400, label %return
 
 if.then3.i400:                                    ; preds = %if.end.i396
-  %call4.i401 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.60, i32 noundef 50, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i401 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.60, i32 noundef 50, i32 noundef %num_parents, i1 noundef zeroext true)
   %94 = load ptr, ptr %m_nnf_pos_decls, align 8
   %arrayidx.i13.i402 = getelementptr inbounds ptr, ptr %94, i64 %idxprom.i.i397
   store ptr %call4.i401, ptr %arrayidx.i13.i402, align 8
@@ -8134,7 +8134,7 @@ if.end.i440:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i443, label %if.then3.i444, label %return
 
 if.then3.i444:                                    ; preds = %if.end.i440
-  %call4.i445 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.61, i32 noundef 51, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i445 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.61, i32 noundef 51, i32 noundef %num_parents, i1 noundef zeroext true)
   %104 = load ptr, ptr %m_nnf_neg_decls, align 8
   %arrayidx.i13.i446 = getelementptr inbounds ptr, ptr %104, i64 %idxprom.i.i441
   store ptr %call4.i445, ptr %arrayidx.i13.i446, align 8
@@ -8150,7 +8150,7 @@ sw.bb66:                                          ; preds = %entry
   br i1 %tobool.not.i476, label %if.then.i478, label %return
 
 if.then.i478:                                     ; preds = %sw.bb66
-  %call.i479 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.62, i32 noundef 52, i32 noundef 0, i1 noundef zeroext true)
+  %call.i479 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.62, i32 noundef 52, i32 noundef 0, i1 noundef zeroext true)
   store ptr %call.i479, ptr %m_skolemize_decl, align 8
   br label %return
 
@@ -8161,7 +8161,7 @@ sw.bb68:                                          ; preds = %entry
   br i1 %tobool.not.i481, label %if.then.i483, label %return
 
 if.then.i483:                                     ; preds = %sw.bb68
-  %call.i484 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.63, i32 noundef 53, i32 noundef 2, i1 noundef zeroext true)
+  %call.i484 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.63, i32 noundef 53, i32 noundef 2, i1 noundef zeroext true)
   store ptr %call.i484, ptr %m_mp_oeq_decl, align 8
   br label %return
 
@@ -8242,7 +8242,7 @@ if.end.i494:                                      ; preds = %for.body.preheader.
   br i1 %tobool.not.i497, label %if.then3.i498, label %return
 
 if.then3.i498:                                    ; preds = %if.end.i494
-  %call4.i499 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 54, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call4.i499 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 54, i32 noundef %num_parents, i1 noundef zeroext true)
   %116 = load ptr, ptr %m_th_lemma_decls, align 8
   %arrayidx.i13.i500 = getelementptr inbounds ptr, ptr %116, i64 %idxprom.i.i495
   store ptr %call4.i499, ptr %arrayidx.i13.i500, align 8
@@ -8258,7 +8258,7 @@ sw.bb72:                                          ; preds = %entry
   br i1 %tobool.not.i530, label %if.then.i532, label %return
 
 if.then.i532:                                     ; preds = %sw.bb72
-  %call.i533 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.30, i32 noundef 55, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call.i533 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.30, i32 noundef 55, i32 noundef %num_parents, i1 noundef zeroext true)
   store ptr %call.i533, ptr %m_hyper_res_decl0, align 8
   br label %return
 
@@ -8269,7 +8269,7 @@ sw.bb74:                                          ; preds = %entry
   br i1 %tobool.not.i535, label %if.then.i537, label %return
 
 if.then.i537:                                     ; preds = %sw.bb74
-  %call.i538 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.64, i32 noundef 41, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call.i538 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.64, i32 noundef 41, i32 noundef %num_parents, i1 noundef zeroext true)
   store ptr %call.i538, ptr %m_assumption_add_decl, align 8
   br label %return
 
@@ -8280,7 +8280,7 @@ sw.bb76:                                          ; preds = %entry
   br i1 %tobool.not.i540, label %if.then.i542, label %return
 
 if.then.i542:                                     ; preds = %sw.bb76
-  %call.i543 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.65, i32 noundef 43, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call.i543 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.65, i32 noundef 43, i32 noundef %num_parents, i1 noundef zeroext true)
   store ptr %call.i543, ptr %m_lemma_add_decl, align 8
   br label %return
 
@@ -8291,7 +8291,7 @@ sw.bb78:                                          ; preds = %entry
   br i1 %tobool.not.i545, label %if.then.i547, label %return
 
 if.then.i547:                                     ; preds = %sw.bb78
-  %call.i548 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.66, i32 noundef 42, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call.i548 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.66, i32 noundef 42, i32 noundef %num_parents, i1 noundef zeroext true)
   store ptr %call.i548, ptr %m_th_assumption_add_decl, align 8
   br label %return
 
@@ -8302,7 +8302,7 @@ sw.bb80:                                          ; preds = %entry
   br i1 %tobool.not.i550, label %if.then.i552, label %return
 
 if.then.i552:                                     ; preds = %sw.bb80
-  %call.i553 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 44, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call.i553 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 44, i32 noundef %num_parents, i1 noundef zeroext true)
   store ptr %call.i553, ptr %m_th_lemma_add_decl, align 8
   br label %return
 
@@ -8313,7 +8313,7 @@ sw.bb82:                                          ; preds = %entry
   br i1 %tobool.not.i555, label %if.then.i557, label %return
 
 if.then.i557:                                     ; preds = %sw.bb82
-  %call.i558 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.67, i32 noundef 45, i32 noundef %num_parents, i1 noundef zeroext true)
+  %call.i558 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjb(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.67, i32 noundef 45, i32 noundef %num_parents, i1 noundef zeroext true)
   store ptr %call.i558, ptr %m_redundant_del_decl, align 8
   br label %return
 
@@ -11553,7 +11553,7 @@ while.body.i:                                     ; preds = %cond.true13, %while
   %incdec.ptr.i = getelementptr inbounds i8, ptr %srts.addr.07.i, i64 8
   %dec.i = add i32 %n.addr.06.i, -1
   %10 = load ptr, ptr %incdec.ptr.i, align 8
-  %call.i = tail call noundef ptr @_ZN17basic_decl_plugin4joinEP4sortS1_(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %s.08.i, ptr noundef %10)
+  %call.i = tail call noundef ptr @_ZN17basic_decl_plugin4joinEP4sortS1_(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef %s.08.i, ptr noundef %10)
   %cmp.i = icmp ugt i32 %dec.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZN17basic_decl_plugin4joinEjPKP4sort.exit, !llvm.loop !31
 
@@ -11577,7 +11577,7 @@ while.body.i32:                                   ; preds = %cond.true21, %while
   %incdec.ptr.i36 = getelementptr inbounds i8, ptr %srts.addr.07.i34, i64 8
   %dec.i37 = add i32 %n.addr.06.i35, -1
   %12 = load ptr, ptr %incdec.ptr.i36, align 8
-  %call.i38 = tail call noundef ptr @_ZN17basic_decl_plugin4joinEP4sortS1_(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %s.08.i33, ptr noundef %12)
+  %call.i38 = tail call noundef ptr @_ZN17basic_decl_plugin4joinEP4sortS1_(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef %s.08.i33, ptr noundef %12)
   %cmp.i39 = icmp ugt i32 %dec.i37, 1
   br i1 %cmp.i39, label %while.body.i32, label %_ZN17basic_decl_plugin4joinEjPKP4sort.exit40, !llvm.loop !31
 
@@ -11700,7 +11700,7 @@ while.body.i53:                                   ; preds = %for.body, %call.i59
   %n.addr.06.i56 = phi i32 [ %dec.i58, %call.i59.noexc ], [ %arity, %for.body ]
   %incdec.ptr.i57 = getelementptr inbounds i8, ptr %srts.addr.07.i55, i64 8
   %25 = load ptr, ptr %incdec.ptr.i57, align 8
-  %call.i5961 = invoke noundef ptr @_ZN17basic_decl_plugin4joinEP4sortS1_(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %s.08.i54, ptr noundef %25)
+  %call.i5961 = invoke noundef ptr @_ZN17basic_decl_plugin4joinEP4sortS1_(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef %s.08.i54, ptr noundef %25)
           to label %call.i59.noexc unwind label %lpad39.loopexit.split-lp.loopexit
 
 call.i59.noexc:                                   ; preds = %while.body.i53
@@ -11953,15 +11953,15 @@ if.end63:                                         ; preds = %if.end59
   ]
 
 sw.bb.i:                                          ; preds = %if.end63
-  %call.i99 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 54, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
+  %call.i99 = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 54, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
   br label %return
 
 sw.bb2.i:                                         ; preds = %if.end63
-  %call3.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.29, i32 noundef 33, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
+  %call3.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.29, i32 noundef 33, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
   br label %return
 
 sw.bb4.i:                                         ; preds = %if.end63
-  %call5.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.30, i32 noundef 55, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
+  %call5.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.30, i32 noundef 55, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
   br label %return
 
 sw.default.i:                                     ; preds = %if.end63
@@ -12395,15 +12395,15 @@ if.end44:                                         ; preds = %if.end
   ]
 
 sw.bb.i61:                                        ; preds = %if.end44
-  %call.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 54, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
+  %call.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.28, i32 noundef 54, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
   br label %return
 
 sw.bb2.i:                                         ; preds = %if.end44
-  %call3.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.29, i32 noundef 33, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
+  %call3.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.29, i32 noundef 33, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
   br label %return
 
 sw.bb4.i:                                         ; preds = %if.end44
-  %call5.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.30, i32 noundef 55, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
+  %call5.i = tail call noundef ptr @_ZN17basic_decl_plugin13mk_proof_declEPKc13basic_op_kindjPK9parameterj(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef nonnull @.str.30, i32 noundef 55, i32 noundef %num_parameters, ptr noundef %parameters, i32 noundef %sub)
   br label %return
 
 sw.default.i62:                                   ; preds = %if.end44
@@ -23673,11 +23673,11 @@ for.body.i:                                       ; preds = %for.cond.i
   %2 = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds ptr, ptr %domain, i64 %2
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef %3)
+  %call2.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull readonly align 8 dereferenceable(976) %this, ptr noundef %3)
   br i1 %call2.i, label %if.then, label %for.cond.i, !llvm.loop !90
 
 invoke.cont:                                      ; preds = %for.cond.i
-  %call5.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef %range)
+  %call5.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull readonly align 8 dereferenceable(976) %this, ptr noundef readonly %range)
   br i1 %call5.i, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %for.body.i, %invoke.cont
@@ -23728,7 +23728,7 @@ if.then.i:                                        ; preds = %if.end10
   %m_domain.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %conv.i12 = zext i32 %arity to i64
   %mul.i13 = shl nuw nsw i64 %conv.i12, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_domain.i.i, ptr align 8 %domain, i64 %mul.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_domain.i.i, ptr readonly align 8 %domain, i64 %mul.i13, i1 false)
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.then.i, %if.end10
@@ -28343,9 +28343,9 @@ _Z10has_labelsPK4expr.exit.i:                     ; preds = %if.then4.i14.i, %if
   %m_patterns_decls.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   %conv.i28 = zext i32 %num_decls to i64
   %mul.i29 = shl nuw nsw i64 %conv.i28, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_patterns_decls.i.i, ptr align 8 %decl_sorts, i64 %mul.i29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_patterns_decls.i.i, ptr readonly align 8 %decl_sorts, i64 %mul.i29, i1 false)
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i, i64 %conv.i28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i, ptr align 8 %decl_names, i64 %mul.i29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i, ptr readonly align 8 %decl_names, i64 %mul.i29, i1 false)
   %cmp.not.i = icmp eq i32 %num_patterns, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -28356,7 +28356,7 @@ if.then.i:                                        ; preds = %_Z10has_labelsPK4ex
   %add.ptr.i24.i = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.i
   %conv8.i = zext i32 %num_patterns to i64
   %mul9.i = shl nuw nsw i64 %conv8.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i24.i, ptr align 8 %patterns, i64 %mul9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i24.i, ptr readonly align 8 %patterns, i64 %mul9.i, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_Z10has_labelsPK4expr.exit.i
@@ -28370,7 +28370,7 @@ if.then11.i:                                      ; preds = %if.end.i
   %add.ptr.i29.i = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i28.i, i64 %idx.ext.i.i27.i
   %conv13.i = zext i32 %num_no_patterns to i64
   %mul14.i = shl nuw nsw i64 %conv13.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i29.i, ptr align 8 %no_patterns, i64 %mul14.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i29.i, ptr readonly align 8 %no_patterns, i64 %mul14.i, i1 false)
   br label %_ZN10quantifierC2E15quantifier_kindjPKP4sortPK6symbolP4exprS2_iRS6_SA_jPKS9_jSC_.exit
 
 _ZN10quantifierC2E15quantifier_kindjPKP4sortPK6symbolP4exprS2_iRS6_SA_jPKS9_jSC_.exit: ; preds = %if.end.i, %if.then11.i
@@ -28681,9 +28681,9 @@ _ZN10quantifierC2EjPKP4sortPK6symbolP4exprS1_.exit: ; preds = %_Z9get_depthPK4ex
   %conv.i9 = zext i32 %num_decls to i64
   %mul.i10 = shl nuw nsw i64 %conv.i9, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_qid.i, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_patterns_decls.i.i, ptr align 8 %decl_sorts, i64 %mul.i10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_patterns_decls.i.i, ptr readonly align 8 %decl_sorts, i64 %mul.i10, i1 false)
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i, i64 %conv.i9
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i, ptr align 8 %decl_names, i64 %mul.i10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i, ptr readonly align 8 %decl_names, i64 %mul.i10, i1 false)
   %call.i11 = call noundef ptr @_ZN11ast_manager18register_node_coreEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef nonnull %call.i)
   %m_trace_stream = getelementptr inbounds i8, ptr %this, i64 912
   %6 = load ptr, ptr %m_trace_stream, align 8
@@ -30209,11 +30209,11 @@ for.body.i:                                       ; preds = %for.cond.i
   %4 = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds ptr, ptr %m_domain.i, i64 %4
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef %5)
+  %call2.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull readonly align 8 dereferenceable(976) %this, ptr noundef %5)
   br i1 %call2.i, label %_ZNK11ast_manager12has_type_varEjPKP4sortS1_.exit, label %for.cond.i, !llvm.loop !90
 
 for.end.i:                                        ; preds = %for.cond.i
-  %call5.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef %0)
+  %call5.i = tail call noundef zeroext i1 @_ZNK11ast_manager12has_type_varEP4sort(ptr noundef nonnull readonly align 8 dereferenceable(976) %this, ptr noundef readonly %0)
   br label %_ZNK11ast_manager12has_type_varEjPKP4sortS1_.exit
 
 _ZNK11ast_manager12has_type_varEjPKP4sortS1_.exit: ; preds = %for.body.i, %entry, %for.end.i

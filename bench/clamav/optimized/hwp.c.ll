@@ -885,7 +885,7 @@ convert_hstr_to_utf8.exit.thread.i:               ; preds = %44
 
 convert_hstr_to_utf8.exit.i:                      ; preds = %44
   %46 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %45, ptr noundef nonnull align 1 dereferenceable(40) %46, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %45, ptr noundef nonnull readonly align 1 dereferenceable(40) %46, i64 40, i1 false)
   %47 = tail call ptr @cl_base64_encode(ptr noundef nonnull %45, i64 noundef 40) #9
   tail call void @free(ptr noundef nonnull %45) #9
   %.not57.i = icmp eq ptr %47, null
@@ -905,7 +905,7 @@ convert_hstr_to_utf8.exit64.thread.i:             ; preds = %48
 
 convert_hstr_to_utf8.exit64.i:                    ; preds = %48
   %52 = getelementptr inbounds i8, ptr %7, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %51, ptr noundef nonnull align 1 dereferenceable(24) %52, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %51, ptr noundef nonnull readonly align 1 dereferenceable(24) %52, i64 24, i1 false)
   %53 = tail call ptr @cl_base64_encode(ptr noundef nonnull %51, i64 noundef 24) #9
   tail call void @free(ptr noundef nonnull %51) #9
   %.not58.i = icmp eq ptr %53, null
@@ -963,7 +963,7 @@ convert_hstr_to_utf8.exit.thread.i32:             ; preds = %.preheader.i
 
 convert_hstr_to_utf8.exit.i30:                    ; preds = %.preheader.i
   %73 = getelementptr inbounds i8, ptr %61, i64 %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %72, ptr noundef nonnull align 1 dereferenceable(112) %73, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %72, ptr noundef nonnull readonly align 1 dereferenceable(112) %73, i64 112, i1 false)
   %74 = tail call ptr @cl_base64_encode(ptr noundef nonnull %72, i64 noundef 112) #9
   tail call void @free(ptr noundef nonnull %72) #9
   %.not34.i = icmp eq ptr %74, null

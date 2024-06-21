@@ -7174,7 +7174,7 @@ define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef 
   store i16 %51, ptr %UL_tti_info.DL_tti_info.i, align 8
   %68 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 8), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 8)
   %69 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %69, i64 16, i1 false)
   %70 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 24), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 24)
   store i32 1, ptr %70, align 8
   br label %75
@@ -8460,7 +8460,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %590, %588, %587, %.
   store i32 %741, ptr %742, align 4
   %743 = getelementptr inbounds i8, ptr %734, i64 16
   %744 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull align 8 dereferenceable(16) %744, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull readonly align 8 dereferenceable(16) %744, i64 16, i1 false)
   br label %751
 
 745:                                              ; preds = %639

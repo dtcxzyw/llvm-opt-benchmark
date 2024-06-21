@@ -4752,7 +4752,7 @@ _ZL18copyIListsFromMtopI6t_idefEvRK10gmx_mtop_tPT_b.exit.i: ; preds = %_ZL8ilist
   store i32 1, ptr %65, align 8
   %384 = load ptr, ptr %1, align 8
   store ptr %384, ptr %0, align 8
-  call void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%struct.t_atoms) align 8 %10, ptr noundef nonnull align 8 dereferenceable(768) %1)
+  call void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%struct.t_atoms) align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(768) %1)
   %385 = getelementptr inbounds i8, ptr %0, i64 2320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %385, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   %386 = load ptr, ptr %66, align 8, !noalias !71
@@ -4840,7 +4840,7 @@ _ZL14gen_t_topologyRK10gmx_mtop_tbP10t_topology.exit: ; preds = %._crit_edge.i.i
   store i8 %418, ptr %417, align 8
   %419 = getelementptr inbounds i8, ptr %1, i64 688
   %420 = getelementptr inbounds i8, ptr %0, i64 2424
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %420, ptr noundef nonnull align 8 dereferenceable(16) %419, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %420, ptr noundef nonnull readonly align 8 dereferenceable(16) %419, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   br i1 %2, label %421, label %423
 

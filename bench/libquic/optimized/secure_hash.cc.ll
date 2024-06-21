@@ -227,7 +227,7 @@ _ZNSt10unique_ptrIN6crypto12_GLOBAL__N_116SecureHashSHA256ESt14default_deleteIS2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 16), ptr %call.i, align 8, !noalias !8
   %ctx_2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %ctx_3.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ctx_2.i.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx_3.i.i, i64 112, i1 false), !noalias !8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ctx_2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(112) %ctx_3.i.i, i64 112, i1 false), !noalias !8
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

@@ -6569,7 +6569,7 @@ if.end.i.i:                                       ; preds = %if.end3.i
 
 _PyUnicode_FromASCII.exit.thread82:               ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr align 1 %ascii, i64 %len.addr.0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr readonly align 1 %ascii, i64 %len.addr.0, i1 false)
   br label %if.end6
 
 if.end6:                                          ; preds = %_PyUnicode_FromASCII.exit.thread82, %if.then.i
@@ -28632,7 +28632,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
 
 _PyUnicode_FromASCII.exit.thread48.i:             ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr align 1 %add.ptr.i, i64 %sub56.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr readonly align 1 %add.ptr.i, i64 %sub56.i, i1 false)
   br label %if.end61.i
 
 if.end61.i:                                       ; preds = %_PyUnicode_FromASCII.exit.thread48.i, %if.then.i.i
@@ -30239,7 +30239,7 @@ if.then2:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.then2
   %4 = getelementptr i8, ptr %left, i64 16
   %unicode.val5.i = load i64, ptr %4, align 8
-  %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #34
+  %call2.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #34
   %cmp.i = icmp eq i64 %call2.i, %unicode.val5.i
   br i1 %cmp.i, label %land.rhs.i, label %return
 
@@ -30259,7 +30259,7 @@ if.end.i.i:                                       ; preds = %land.rhs.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  %bcmp.i = tail call i32 @bcmp(ptr %retval.0.i.i, ptr %2, i64 %unicode.val5.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %retval.0.i.i, ptr readonly %2, i64 %unicode.val5.i)
   %cmp5.i = icmp eq i32 %bcmp.i, 0
   br label %return
 
@@ -31870,7 +31870,7 @@ if.end.i.i:                                       ; preds = %if.end3.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i30 = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i30, ptr align 1 %add.ptr, i64 %sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i30, ptr readonly align 1 %add.ptr, i64 %sub, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end13
@@ -33059,7 +33059,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
 
 _PyUnicode_FromASCII.exit.thread129.i:            ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr align 1 %add.ptr.i, i64 %sub34.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr readonly align 1 %add.ptr.i, i64 %sub34.i, i1 false)
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %_PyUnicode_FromASCII.exit.thread129.i, %if.then.i90.i
@@ -33191,7 +33191,7 @@ if.end.i.i115.i:                                  ; preds = %if.end3.i105.i
 
 _PyUnicode_FromASCII.exit125.thread135.i:         ; preds = %if.end.i.i115.i, %if.then.i.i108.i
   %retval.0.i.i113.i = phi ptr [ %retval.0.i.i.i111.i, %if.then.i.i108.i ], [ %op.val3.i.i116.i, %if.end.i.i115.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i113.i, ptr nonnull align 1 %arrayidx58.i.le, i64 %sub70.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i113.i, ptr nonnull readonly align 1 %arrayidx58.i.le, i64 %sub70.i, i1 false)
   br label %if.end75.i
 
 if.end75.i:                                       ; preds = %_PyUnicode_FromASCII.exit125.thread135.i, %if.then.i117.i
@@ -34532,7 +34532,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end3.i.i.i
 
 _PyUnicode_FromASCII.exit.thread92.i.i:           ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i495 = phi ptr [ %retval.0.i.i.i.i.i, %if.then.i.i.i.i ], [ %op.val3.i.i.i.i, %if.end.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i.i495, ptr align 1 %add.ptr.i.i492, i64 %sub9.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i.i495, ptr readonly align 1 %add.ptr.i.i492, i64 %sub9.i.i, i1 false)
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %_PyUnicode_FromASCII.exit.thread92.i.i, %if.then.i.i.i498
@@ -34672,7 +34672,7 @@ if.end.i.i78.i.i:                                 ; preds = %if.end3.i68.i.i
 
 _PyUnicode_FromASCII.exit88.thread98.i.i:         ; preds = %if.end.i.i78.i.i, %if.then.i.i71.i.i
   %retval.0.i.i76.i.i = phi ptr [ %retval.0.i.i.i74.i.i, %if.then.i.i71.i.i ], [ %op.val3.i.i79.i.i, %if.end.i.i78.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i76.i.i, ptr align 1 %add.ptr36.i.i, i64 %sub37.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i76.i.i, ptr readonly align 1 %add.ptr36.i.i, i64 %sub37.i.i, i1 false)
   br label %if.end42.i.i
 
 if.end42.i.i:                                     ; preds = %_PyUnicode_FromASCII.exit88.thread98.i.i, %if.then.i80.i.i
@@ -34815,7 +34815,7 @@ if.end.i.i75.i:                                   ; preds = %if.end3.i.i521
 
 _PyUnicode_FromASCII.exit.thread109.i:            ; preds = %if.end.i.i75.i, %if.then.i.i70.i
   %retval.0.i.i73.i = phi ptr [ %retval.0.i.i.i72.i, %if.then.i.i70.i ], [ %op.val3.i.i.i529, %if.end.i.i75.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i73.i, ptr align 1 %add.ptr.i518, i64 %call11.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i73.i, ptr readonly align 1 %add.ptr.i518, i64 %call11.i, i1 false)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %_PyUnicode_FromASCII.exit.thread109.i, %if.then.i.i530
@@ -34939,7 +34939,7 @@ if.end.i.i95.i:                                   ; preds = %if.end3.i85.i
 
 _PyUnicode_FromASCII.exit105.thread115.i:         ; preds = %if.end.i.i95.i, %if.then.i.i88.i
   %retval.0.i.i93.i = phi ptr [ %retval.0.i.i.i91.i, %if.then.i.i88.i ], [ %op.val3.i.i96.i, %if.end.i.i95.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i93.i, ptr align 1 %add.ptr37.i, i64 %sub38.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i93.i, ptr readonly align 1 %add.ptr37.i, i64 %sub38.i, i1 false)
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %_PyUnicode_FromASCII.exit105.thread115.i, %if.then.i97.i
@@ -36811,7 +36811,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
 
 PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr align 1 %retval.0.i57, i64 %call3.i72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr readonly align 1 %retval.0.i57, i64 %call3.i72, i1 false)
   br label %_PyUnicode_FromASCII.exit.i
 
 _PyUnicode_FromASCII.exit.i:                      ; preds = %PyUnicode_DATA.exit.i.i, %if.end.i38.i, %cond.false.i.i.i, %cond.true.i.i.i
@@ -36878,7 +36878,7 @@ if.end.i.i57.i:                                   ; preds = %if.end3.i47.i
 
 PyUnicode_DATA.exit.i54.i:                        ; preds = %if.end.i.i57.i, %if.then.i.i50.i
   %retval.0.i.i55.i = phi ptr [ %retval.0.i.i.i53.i, %if.then.i.i50.i ], [ %op.val3.i.i58.i, %if.end.i.i57.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i55.i, ptr align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i55.i, ptr readonly align 1 %add.ptr.i, i64 %sub.i, i1 false)
   br label %_PyUnicode_FromASCII.exit67.i
 
 _PyUnicode_FromASCII.exit67.i:                    ; preds = %PyUnicode_DATA.exit.i54.i, %if.end.i44.i, %cond.false.i.i61.i, %cond.true.i.i64.i
@@ -37628,7 +37628,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
 
 PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr align 1 %retval.0.i57, i64 %call3.i72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr readonly align 1 %retval.0.i57, i64 %call3.i72, i1 false)
   br label %_PyUnicode_FromASCII.exit.i
 
 _PyUnicode_FromASCII.exit.i:                      ; preds = %PyUnicode_DATA.exit.i.i, %if.end.i38.i, %cond.false.i.i.i, %cond.true.i.i.i
@@ -37695,7 +37695,7 @@ if.end.i.i57.i:                                   ; preds = %if.end3.i47.i
 
 PyUnicode_DATA.exit.i54.i:                        ; preds = %if.end.i.i57.i, %if.then.i.i50.i
   %retval.0.i.i55.i = phi ptr [ %retval.0.i.i.i53.i, %if.then.i.i50.i ], [ %op.val3.i.i58.i, %if.end.i.i57.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i55.i, ptr align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i55.i, ptr readonly align 1 %add.ptr.i, i64 %sub.i, i1 false)
   br label %_PyUnicode_FromASCII.exit67.i
 
 _PyUnicode_FromASCII.exit67.i:                    ; preds = %PyUnicode_DATA.exit.i54.i, %if.end.i44.i, %cond.false.i.i61.i, %cond.true.i.i64.i
@@ -38472,7 +38472,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
 
 _PyUnicode_FromASCII.exit.thread127.i:            ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr align 1 %add.ptr.i, i64 %sub39.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i, ptr readonly align 1 %add.ptr.i, i64 %sub39.i, i1 false)
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %_PyUnicode_FromASCII.exit.thread127.i, %if.then.i84.i
@@ -38599,7 +38599,7 @@ if.end.i.i109.i:                                  ; preds = %if.end3.i99.i
 
 _PyUnicode_FromASCII.exit119.thread136.i:         ; preds = %if.end.i.i109.i, %if.then.i.i102.i
   %retval.0.i.i107.i = phi ptr [ %retval.0.i.i.i105.i, %if.then.i.i102.i ], [ %op.val3.i.i110.i, %if.end.i.i109.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i107.i, ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i, i64 %add75.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i107.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %retval.0.i, i64 %add75.i, i1 false)
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %_PyUnicode_FromASCII.exit119.thread136.i, %if.then.i111.i
@@ -39916,7 +39916,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end3.i.i.i
 
 _PyUnicode_FromASCII.exit.thread87.i.i:           ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i490 = phi ptr [ %retval.0.i.i.i.i.i, %if.then.i.i.i.i ], [ %op.val3.i.i.i.i, %if.end.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i.i490, ptr align 1 %gep.i.i, i64 %sub13.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i.i490, ptr readonly align 1 %gep.i.i, i64 %sub13.i.i, i1 false)
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %_PyUnicode_FromASCII.exit.thread87.i.i, %if.then.i.i.i493
@@ -40049,7 +40049,7 @@ if.end.i.i73.i.i:                                 ; preds = %if.end3.i63.i.i
 
 _PyUnicode_FromASCII.exit83.thread93.i.i:         ; preds = %if.end.i.i73.i.i, %if.then.i.i66.i.i
   %retval.0.i.i71.i.i = phi ptr [ %retval.0.i.i.i69.i.i, %if.then.i.i66.i.i ], [ %op.val3.i.i74.i.i, %if.end.i.i73.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i71.i.i, ptr align 1 %retval.0.i466, i64 %add41.i162.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i71.i.i, ptr readonly align 1 %retval.0.i466, i64 %add41.i162.i, i1 false)
   br label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %_PyUnicode_FromASCII.exit83.thread93.i.i, %if.then.i75.i.i
@@ -40196,7 +40196,7 @@ if.end.i.i73.i:                                   ; preds = %if.end3.i.i512
 
 _PyUnicode_FromASCII.exit.thread108.i:            ; preds = %if.end.i.i73.i, %if.then.i.i68.i
   %retval.0.i.i71.i = phi ptr [ %retval.0.i.i.i70.i, %if.then.i.i68.i ], [ %op.val3.i.i.i518, %if.end.i.i73.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i71.i, ptr align 1 %add.ptr.i510, i64 %sub16.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i71.i, ptr readonly align 1 %add.ptr.i510, i64 %sub16.i, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %_PyUnicode_FromASCII.exit.thread108.i, %if.then.i.i519
@@ -40316,7 +40316,7 @@ if.end.i.i94.i:                                   ; preds = %if.end3.i84.i
 
 _PyUnicode_FromASCII.exit104.thread114.i:         ; preds = %if.end.i.i94.i, %if.then.i.i87.i
   %retval.0.i.i92.i = phi ptr [ %retval.0.i.i.i90.i, %if.then.i.i87.i ], [ %op.val3.i.i95.i, %if.end.i.i94.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i92.i, ptr align 1 %retval.0.i466, i64 %j.0.lcssa166.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i92.i, ptr readonly align 1 %retval.0.i466, i64 %j.0.lcssa166.i, i1 false)
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %_PyUnicode_FromASCII.exit104.thread114.i, %if.then.i96.i
@@ -42498,7 +42498,7 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
 
 sw.bb.i:                                          ; preds = %PyUnicode_DATA.exit.i
   %add.ptr1.i = getelementptr i8, ptr %retval.0.i.i, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr1.i, ptr align 1 %str, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr1.i, ptr readonly align 1 %str, i64 %len, i1 false)
   br label %unicode_write_cstr.exit
 
 sw.bb2.i:                                         ; preds = %PyUnicode_DATA.exit.i
@@ -42898,7 +42898,7 @@ if.end.i.i:                                       ; preds = %if.end3.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i87 = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i87, ptr align 1 %buf.3, i64 %conv108, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i87, ptr readonly align 1 %buf.3, i64 %conv108, i1 false)
   br label %_PyUnicode_FromASCII.exit
 
 _PyUnicode_FromASCII.exit:                        ; preds = %cond.true.i.i, %cond.false.i.i, %if.end.i84, %PyUnicode_DATA.exit.i
@@ -48789,7 +48789,7 @@ if.end.i:                                         ; preds = %entry
   %call1.i.i = tail call fastcc i32 @get_error_handler_wide(ptr noundef %1), !noalias !257
   %filesystem_encoding.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %2 = load ptr, ptr %filesystem_encoding.i.i, align 8, !noalias !257
-  %call.i.i.i = call i32 @_Py_EncodeUTF8Ex(ptr noundef %2, ptr noundef nonnull %encoding.i.i, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1), !noalias !257
+  %call.i.i.i = call i32 @_Py_EncodeUTF8Ex(ptr noundef readonly %2, ptr noundef nonnull %encoding.i.i, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1), !noalias !257
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -48808,7 +48808,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %4 = load ptr, ptr %filesystem_errors.i.i, align 8, !noalias !257
-  %call.i13.i.i = call i32 @_Py_EncodeUTF8Ex(ptr noundef %4, ptr noundef nonnull %errors.i.i, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1), !noalias !257
+  %call.i13.i.i = call i32 @_Py_EncodeUTF8Ex(ptr noundef readonly %4, ptr noundef nonnull %errors.i.i, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1), !noalias !257
   %cmp.i14.i.i = icmp eq i32 %call.i13.i.i, -2
   br i1 %cmp.i14.i.i, label %if.then.i20.i.i, label %if.end.i15.i.i
 
@@ -51576,7 +51576,7 @@ if.then63:                                        ; preds = %for.cond27.preheade
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
   call fastcc void @ucs1lib__preprocess(ptr noundef %p, i64 noundef %m, ptr noundef nonnull %p.i)
-  %call.i = call fastcc i64 @ucs1lib__two_way(ptr noundef %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
+  %call.i = call fastcc i64 @ucs1lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
   %add70 = add i64 %call.i, %.us-phi89
@@ -52983,7 +52983,7 @@ if.then63:                                        ; preds = %for.cond27.preheade
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
   call fastcc void @ucs2lib__preprocess(ptr noundef %p, i64 noundef %m, ptr noundef nonnull %p.i)
-  %call.i = call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @ucs2lib__two_way(ptr noundef %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
+  %call.i = call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @ucs2lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
   %add70 = add i64 %call.i, %.us-phi89
@@ -54338,7 +54338,7 @@ if.then46:                                        ; preds = %for.cond19.preheade
 if.then48:                                        ; preds = %if.then46
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
   call fastcc void @ucs4lib__preprocess(ptr noundef %p, i64 noundef %m, ptr noundef nonnull %p.i)
-  %call.i = call fastcc range(i64 -2305843009213693952, 2305843009213693952) i64 @ucs4lib__two_way(ptr noundef %add.ptr, i64 noundef %sub49, ptr noundef nonnull %p.i)
+  %call.i = call fastcc range(i64 -2305843009213693952, 2305843009213693952) i64 @ucs4lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub49, ptr noundef nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp50 = icmp eq i64 %call.i, -1
   %add51 = add i64 %call.i, %.us-phi89
@@ -56962,7 +56962,7 @@ if.end.i.i:                                       ; preds = %if.end3.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr nonnull align 1 %call9, i64 %call14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr nonnull readonly align 1 %call9, i64 %call14, i1 false)
   br label %_PyUnicode_FromASCII.exit
 
 _PyUnicode_FromASCII.exit:                        ; preds = %cond.true.i.i, %cond.false.i.i, %if.end.i, %PyUnicode_DATA.exit.i
@@ -58457,7 +58457,7 @@ entry:
   store ptr null, ptr %substring, align 8
   store i64 0, ptr %start, align 8
   store i64 9223372036854775807, ptr %end, align 8
-  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull @.str.219, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
+  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull readonly @.str.219, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -58979,7 +58979,7 @@ entry:
   store ptr null, ptr %substring, align 8
   store i64 0, ptr %start, align 8
   store i64 0, ptr %end, align 8
-  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull @.str.221, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
+  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull readonly @.str.221, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -59032,7 +59032,7 @@ entry:
   store ptr null, ptr %substring, align 8
   store i64 0, ptr %start, align 8
   store i64 0, ptr %end, align 8
-  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull @.str.223, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
+  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull readonly @.str.223, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -59353,7 +59353,7 @@ entry:
   store ptr null, ptr %substring, align 8
   store i64 0, ptr %start, align 8
   store i64 0, ptr %end, align 8
-  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull @.str.227, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
+  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull readonly @.str.227, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -59399,7 +59399,7 @@ entry:
   store ptr null, ptr %substring, align 8
   store i64 0, ptr %start, align 8
   store i64 0, ptr %end, align 8
-  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull @.str.228, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
+  %call.i = call fastcc i32 @asciilib_parse_args_finds(ptr noundef nonnull readonly @.str.228, ptr noundef %args, ptr noundef nonnull %substring, ptr noundef nonnull %start, ptr noundef nonnull %end)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -60000,7 +60000,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc i32 @tailmatch(ptr noundef %self, ptr noundef nonnull %arg, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef -1)
+  %call.i = tail call fastcc i32 @tailmatch(ptr noundef %self, ptr noundef nonnull readonly %arg, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef -1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end5.i, label %if.then1.i
 
@@ -60037,7 +60037,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc i32 @tailmatch(ptr noundef %self, ptr noundef nonnull %arg, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 1)
+  %call.i = tail call fastcc i32 @tailmatch(ptr noundef %self, ptr noundef nonnull readonly %arg, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end5.i, label %if.then1.i
 
@@ -61436,7 +61436,7 @@ unicode_isalnum_impl.exit:                        ; preds = %Py_UNICODE_ISALNUM.
 ; Function Attrs: nounwind uwtable
 define internal ptr @unicode_isidentifier(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i.i = tail call i64 @_PyUnicode_ScanIdentifier(ptr noundef %self)
+  %call.i.i = tail call i64 @_PyUnicode_ScanIdentifier(ptr noundef readonly %self)
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i.i = load i64, ptr %0, align 8
   %tobool.i.i = icmp ne i64 %self.val.i.i, 0
@@ -63543,7 +63543,7 @@ if.end6.i.i:                                      ; preds = %for.body.i
 
 PyUnicode_READ.exit.i:                            ; preds = %if.end6.i.i, %if.then3.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %conv5.i.i, %if.then3.i.i ], [ %2, %if.end6.i.i ]
-  %call1.i = call fastcc i32 @lower_ucs4(i32 noundef %kind, ptr noundef nonnull %data, i64 noundef %length, i64 noundef %i.021.i, i32 noundef %retval.0.i.i, ptr noundef nonnull %mapped.i)
+  %call1.i = call fastcc i32 @lower_ucs4(i32 noundef %kind, ptr noundef nonnull readonly %data, i64 noundef %length, i64 noundef %i.021.i, i32 noundef %retval.0.i.i, ptr noundef nonnull %mapped.i)
   %cmp516.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp516.i, label %for.body6.preheader.i, label %for.inc14.i
 
@@ -66962,7 +66962,7 @@ define internal fastcc range(i32 -1, 1) i32 @config_get_codec_name(ptr nocapture
 entry:
   %encoding = alloca ptr, align 8
   %0 = load ptr, ptr %config_encoding, align 8
-  %call.i = call i32 @_Py_EncodeUTF8Ex(ptr noundef %0, ptr noundef nonnull %encoding, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1)
+  %call.i = call i32 @_Py_EncodeUTF8Ex(ptr noundef readonly %0, ptr noundef nonnull %encoding, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1)
   %cmp.i19 = icmp eq i32 %call.i, -2
   br i1 %cmp.i19, label %if.then.i, label %if.end.i20
 

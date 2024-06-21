@@ -3570,9 +3570,9 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1176, %1175
   %1222 = mul nsw i32 %1221, %1220
   %1223 = load i32, ptr %1190, align 4
   %1224 = mul nsw i32 %1223, %1221
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1191, i32 noundef 3)
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1192, i32 noundef 3)
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1193, i32 noundef 3)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1191, i32 noundef 3)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1192, i32 noundef 3)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1193, i32 noundef 3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %1225 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 524, i64 noundef 1, i64 noundef 4)
   %1226 = load ptr, ptr %1196, align 8
@@ -3595,27 +3595,27 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1176, %1175
   store float %1238, ptr %1197, align 4
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 543, ptr noundef nonnull %1232)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1198, i32 noundef 3)
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1199, i32 noundef 3)
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1200, i32 noundef 3)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1198, i32 noundef 3)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1199, i32 noundef 3)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1200, i32 noundef 3)
   %1239 = load ptr, ptr %1201, align 8
-  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef %2, i32 noundef %1214, ptr noundef %1239, i32 noundef %1222)
+  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1239, i32 noundef %1222)
   %1240 = load ptr, ptr %1202, align 8
-  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef %2, i32 noundef %1214, ptr noundef %1240, i32 noundef %1222)
+  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1240, i32 noundef %1222)
   %1241 = load ptr, ptr %1203, align 8
-  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef %2, i32 noundef %1214, ptr noundef %1241, i32 noundef %1224)
+  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1241, i32 noundef %1224)
   %1242 = load ptr, ptr %1204, align 8
-  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef %2, i32 noundef %1214, ptr noundef %1242, i32 noundef %1224)
+  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1242, i32 noundef %1224)
   %1243 = load ptr, ptr %1205, align 8
   %1244 = load i32, ptr %1188, align 8
-  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef %2, i32 noundef %1214, ptr noundef %1243, i32 noundef %1244)
-  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef %2, i32 noundef %1214, ptr noundef nonnull %1206, i32 noundef 1)
+  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1243, i32 noundef %1244)
+  call fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef nonnull %1206, i32 noundef 1)
   %1245 = load ptr, ptr %1207, align 8
   %1246 = load i32, ptr %4, align 8
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef %1245, i32 noundef %1246)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1245, i32 noundef %1246)
   %1247 = load ptr, ptr %1208, align 8
   %1248 = load i32, ptr %4, align 8
-  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef %2, i32 noundef %1214, ptr noundef %1247, i32 noundef %1248)
+  call fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr noundef readonly %2, i32 noundef %1214, ptr noundef %1247, i32 noundef %1248)
   br label %1249
 
 1249:                                             ; preds = %1209, %1219

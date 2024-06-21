@@ -10648,7 +10648,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
   br i1 %3584, label %.lr.ph444.i, label %.loopexit.i284
 
 3585:                                             ; preds = %3580
-  %3586 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef %1, i32 noundef %.1.i)
+  %3586 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef readonly %1, i32 noundef %.1.i)
   %.not146.i = icmp eq i32 %3586, 0
   br i1 %.not146.i, label %.loopexit.i284, label %.loopexit149.i
 
@@ -10660,7 +10660,7 @@ _handle_getpw.exit:                               ; preds = %.outer357._crit_edg
 
 .lr.ph444.i:                                      ; preds = %.preheader.i283, %3587
   %.0443.i = phi i32 [ %3588, %3587 ], [ 0, %.preheader.i283 ]
-  %3591 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %.0443.i)
+  %3591 = tail call fastcc i32 @_send_one_struct_group(i32 noundef %0, ptr noundef nonnull readonly %1, i32 noundef %.0443.i)
   %.not145.i = icmp eq i32 %3591, 0
   br i1 %.not145.i, label %3587, label %.loopexit149.i
 

@@ -2335,7 +2335,7 @@ define internal fastcc ptr @hwloc_get_next_obj_by_type(ptr noundef %0) unnamed_a
   br i1 %or.cond, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %2, i32 noundef 0) #16
+  %4 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %2, i32 noundef 0) #16
   br label %5
 
 5:                                                ; preds = %1, %3

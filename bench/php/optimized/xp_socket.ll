@@ -1387,7 +1387,7 @@ php_tcp_sockop_bind.exit:                         ; preds = %160, %164, %parse_u
 
 281:                                              ; preds = %.critedge.i33
   %282 = tail call noalias ptr @_emalloc_40() #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull readonly align 8 dereferenceable(40) %13, i64 40, i1 false)
   store i32 %279, ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 4
   store i8 1, ptr %283, align 4

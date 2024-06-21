@@ -2003,7 +2003,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6casadi16SparsityInternal3btfERSt6ve
   %9 = alloca %"class.casadi::Sparsity", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !43
-  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext false)
+  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %9, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext false)
           to label %10 unwind label %13
 
 10:                                               ; preds = %7
@@ -3016,7 +3016,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal3sccERSt6vectorIxSaIxEES4_(ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !75
-  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext false)
+  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext false)
           to label %9 unwind label %12
 
 9:                                                ; preds = %3
@@ -3781,7 +3781,7 @@ define void @_ZNK6casadi16SparsityInternal3amdEv(ptr dead_on_unwind noalias writ
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.0", align 1
   %12 = alloca %"class.std::vector.10", align 8
-  %13 = tail call noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_transposeERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  %13 = tail call noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_transposeERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 dereferenceable(56) %1)
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %2
@@ -5877,7 +5877,7 @@ define void @_ZNK6casadi16SparsityInternal3bfsExRSt6vectorIxSaIxEES4_S4_RKS3_S6_
 38:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !123
-  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i1 noundef zeroext false)
+  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i1 noundef zeroext false)
           to label %39 unwind label %42
 
 39:                                               ; preds = %38
@@ -6552,7 +6552,7 @@ _ZNSt6vectorIxSaIxEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIxSaIxE
 128:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !141
-  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext false)
+  invoke void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext false)
           to label %129 unwind label %132
 
 129:                                              ; preds = %128
@@ -19949,7 +19949,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalERKNS_8Sparsity
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %23
   %gepdiff.i = add nuw i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull dereferenceable(1) %8, i64 %gepdiff.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %8, i64 %gepdiff.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
@@ -19959,7 +19959,7 @@ _ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i:        ; preds = %_ZSt5equalIPKxS1_Eb
 
 24:                                               ; preds = %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i
   %.idx26.i = shl nsw i64 %16, 3
-  %bcmp.i.i.i.i17.i = tail call i32 @bcmp(ptr nonnull %.ptr24.i, ptr %9, i64 %.idx26.i)
+  %bcmp.i.i.i.i17.i = tail call i32 @bcmp(ptr nonnull %.ptr24.i, ptr readonly %9, i64 %.idx26.i)
   %.not7.i.i.i.i18.i = icmp eq i32 %bcmp.i.i.i.i17.i, 0
   br label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
@@ -20903,7 +20903,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalExxRKSt6vectorI
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %128
   %gepdiff.i = add nuw i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull dereferenceable(1) %spec.select.i, i64 %gepdiff.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %spec.select.i, i64 %gepdiff.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
@@ -20913,7 +20913,7 @@ _ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i:        ; preds = %_ZSt5equalIPKxS1_Eb
 
 129:                                              ; preds = %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i
   %.idx26.i = shl nsw i64 %121, 3
-  %bcmp.i.i.i.i17.i = tail call i32 @bcmp(ptr nonnull %.ptr24.i, ptr %spec.select.i61, i64 %.idx26.i)
+  %bcmp.i.i.i.i17.i = tail call i32 @bcmp(ptr nonnull %.ptr24.i, ptr readonly %spec.select.i61, i64 %.idx26.i)
   %.not7.i.i.i.i18.i = icmp eq i32 %bcmp.i.i.i.i17.i, 0
   br label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
@@ -30230,13 +30230,13 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal10is_reshapeERKS0_(ptr n
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %35
   %gepdiff.i = add nuw i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %21, i64 %gepdiff.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %21, i64 %gepdiff.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i:        ; preds = %35, %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.i
   %.idx26.i = shl nsw i64 %20, 3
-  %bcmp.i.i.i.i17.i = tail call i32 @bcmp(ptr nonnull %.ptr24.i, ptr nonnull %29, i64 %.idx26.i)
+  %bcmp.i.i.i.i17.i = tail call i32 @bcmp(ptr nonnull %.ptr24.i, ptr nonnull readonly %29, i64 %.idx26.i)
   %.not7.i.i.i.i18.i = icmp eq i32 %bcmp.i.i.i.i17.i, 0
   br label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 

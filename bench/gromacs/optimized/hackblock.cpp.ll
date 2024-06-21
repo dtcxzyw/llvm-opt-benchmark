@@ -3266,7 +3266,7 @@ _ZNSt6vectorI13MoleculePatchSaIS0_EE9push_backERKS0_.exit.i.i: ; preds = %66, %6
   br i1 %.not.i.i25, label %_Z29mergeAtomAndBondModificationsRK21MoleculePatchDatabasePS_.exit, label %60
 
 _Z29mergeAtomAndBondModificationsRK21MoleculePatchDatabasePS_.exit: ; preds = %_ZNSt6vectorI13MoleculePatchSaIS0_EE9push_backERKS0_.exit.i.i, %55
-  %68 = tail call noundef zeroext i1 @_Z26mergeBondedInteractionListN3gmx8ArrayRefIK21BondedInteractionListEENS0_IS1_EEbb(ptr nonnull %10, ptr nonnull poison, ptr nonnull %.ptr29, ptr nonnull poison, i1 noundef zeroext false, i1 noundef zeroext false)
+  %68 = tail call noundef zeroext i1 @_Z26mergeBondedInteractionListN3gmx8ArrayRefIK21BondedInteractionListEENS0_IS1_EEbb(ptr nonnull readonly %10, ptr nonnull readonly poison, ptr nonnull %.ptr29, ptr nonnull poison, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 

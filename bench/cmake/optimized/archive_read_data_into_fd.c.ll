@@ -117,7 +117,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %48 = icmp sgt i64 %47, %42
   %49 = sub nsw i64 %42, %.02327.i
   %spec.select.i = select i1 %48, i64 %49, i64 16384
-  %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull %19, i64 noundef %spec.select.i) #9
+  %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull readonly %19, i64 noundef %spec.select.i) #9
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %.thread61.sink.split, label %44
 

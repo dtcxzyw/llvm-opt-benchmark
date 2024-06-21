@@ -1464,7 +1464,7 @@ proto_item_set_generated.exit106.i:               ; preds = %130, %127, %proto_i
 proto_item_set_generated.exit109.i:               ; preds = %143, %140, %136
   %147 = load i16, ptr %134, align 2
   %148 = zext i16 %147 to i32
-  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull %1, ptr noundef nonnull @.str.296, i32 noundef %148)
+  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.296, i32 noundef %148)
   br label %149
 
 149:                                              ; preds = %proto_item_set_generated.exit109.i, %proto_item_set_generated.exit106.i
@@ -1525,12 +1525,12 @@ proto_item_set_generated.exit115.i:               ; preds = %170, %167, %163, %p
   %179 = select i1 %178, ptr @.str.298, ptr @.str.299
   %180 = load i8, ptr %161, align 8
   %181 = zext i8 %180 to i32
-  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull %1, ptr noundef nonnull @.str.297, ptr noundef nonnull %179, i32 noundef %181)
+  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.297, ptr noundef nonnull %179, i32 noundef %181)
   br label %184
 
 182:                                              ; preds = %proto_item_set_generated.exit115.i
   %183 = tail call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @bearer_type_vals, ptr noundef nonnull @.str.277) #13
-  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull %1, ptr noundef nonnull @.str.300, ptr noundef %183)
+  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.300, ptr noundef %183)
   br label %184
 
 184:                                              ; preds = %182, %176

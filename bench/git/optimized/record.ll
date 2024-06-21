@@ -1300,14 +1300,14 @@ sw.bb11:                                          ; preds = %if.end6
   %value12 = getelementptr inbounds i8, ptr %a, i64 24
   %value14 = getelementptr inbounds i8, ptr %b, i64 24
   %conv.i17 = sext i32 %hash_size to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %value12, ptr nonnull %value14, i64 %conv.i17)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %value12, ptr nonnull readonly %value14, i64 %conv.i17)
   %tobool2.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool2.not.i.not, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %sw.bb11
   %target_value = getelementptr inbounds i8, ptr %a, i64 56
   %target_value22 = getelementptr inbounds i8, ptr %b, i64 56
-  %bcmp.i21 = tail call i32 @bcmp(ptr nonnull %target_value, ptr nonnull %target_value22, i64 %conv.i17)
+  %bcmp.i21 = tail call i32 @bcmp(ptr nonnull readonly %target_value, ptr nonnull readonly %target_value22, i64 %conv.i17)
   %tobool2.not.i22 = icmp eq i32 %bcmp.i21, 0
   br label %return
 
@@ -1315,7 +1315,7 @@ sw.bb26:                                          ; preds = %if.end6
   %value27 = getelementptr inbounds i8, ptr %a, i64 24
   %value29 = getelementptr inbounds i8, ptr %b, i64 24
   %conv.i25 = sext i32 %hash_size to i64
-  %bcmp.i26 = tail call i32 @bcmp(ptr nonnull %value27, ptr nonnull %value29, i64 %conv.i25)
+  %bcmp.i26 = tail call i32 @bcmp(ptr nonnull readonly %value27, ptr nonnull readonly %value29, i64 %conv.i25)
   %tobool2.not.i27 = icmp eq i32 %bcmp.i26, 0
   br label %return
 
@@ -1640,7 +1640,7 @@ if.end:                                           ; preds = %put_var_int.exit
 sw.bb:                                            ; preds = %if.end
   %value = getelementptr inbounds i8, ptr %rec, i64 24
   %5 = load ptr, ptr %value, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #24
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #24
   %sext.i = shl i64 %call.i, 32
   %conv1.i = ashr exact i64 %sext.i, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i)
@@ -1697,7 +1697,7 @@ if.end.i18:                                       ; preds = %put_var_int.exit.i
 
 encode_string.exit:                               ; preds = %if.end.i18
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %5, i64 %conv1.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %5, i64 %conv1.i, i1 false)
   %sub.i10.neg.i = add i64 %call.i, %sub.i
   %sub.i19 = sub i64 %sub.i10.neg.i, %sub.i.i
   %9 = and i64 %sub.i19, 2147483648
@@ -2291,7 +2291,7 @@ if.end10:                                         ; preds = %if.end
   %3 = load ptr, ptr %name, align 8
   %tobool16.not = icmp eq ptr %3, null
   %spec.select = select i1 %tobool16.not, ptr @.str.12, ptr %3
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #24
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select) #24
   %sext.i = shl i64 %call.i, 32
   %conv1.i = ashr exact i64 %sext.i, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i)
@@ -2348,7 +2348,7 @@ if.end.i:                                         ; preds = %put_var_int.exit.i
 
 encode_string.exit:                               ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %spec.select, i64 %conv1.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %spec.select, i64 %conv1.i, i1 false)
   %sub.i10.neg.i = add i64 %call.i, %sub.i
   %sub.i30 = sub i64 %sub.i10.neg.i, %sub.i.i
   %7 = and i64 %sub.i30, 2147483648
@@ -2363,7 +2363,7 @@ if.end23:                                         ; preds = %encode_string.exit
   %8 = load ptr, ptr %email, align 8
   %tobool25.not = icmp eq ptr %8, null
   %spec.select27 = select i1 %tobool25.not, ptr @.str.12, ptr %8
-  %call.i36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select27) #24
+  %call.i36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select27) #24
   %sext.i37 = shl i64 %call.i36, 32
   %conv1.i38 = ashr exact i64 %sext.i37, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i35)
@@ -2420,7 +2420,7 @@ if.end.i62:                                       ; preds = %put_var_int.exit.i5
 
 encode_string.exit73:                             ; preds = %if.end.i62
   %add.ptr.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i32, i64 %idx.ext.i.i63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i67, ptr nonnull align 1 %spec.select27, i64 %conv1.i38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i67, ptr nonnull readonly align 1 %spec.select27, i64 %conv1.i38, i1 false)
   %sub.i10.neg.i68 = add i64 %call.i36, %sub.i34
   %sub.i69 = sub i64 %sub.i10.neg.i68, %sub.i.i64
   %12 = and i64 %sub.i69, 2147483648
@@ -2496,7 +2496,7 @@ if.end47:                                         ; preds = %if.end42
   %18 = load ptr, ptr %message, align 8
   %tobool51.not = icmp eq ptr %18, null
   %spec.select28 = select i1 %tobool51.not, ptr @.str.12, ptr %18
-  %call.i92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select28) #24
+  %call.i92 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select28) #24
   %sext.i93 = shl i64 %call.i92, 32
   %conv1.i94 = ashr exact i64 %sext.i93, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i91)
@@ -2553,7 +2553,7 @@ if.end.i118:                                      ; preds = %put_var_int.exit.i1
 
 encode_string.exit129:                            ; preds = %if.end.i118
   %add.ptr.i.i123 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 %idx.ext.i.i119
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i123, ptr nonnull align 1 %spec.select28, i64 %conv1.i94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i123, ptr nonnull readonly align 1 %spec.select28, i64 %conv1.i94, i1 false)
   %sub.i10.neg.i124 = add i64 %call.i92, %sub.i90
   %sub.i125 = sub i64 %sub.i10.neg.i124, %sub.i.i120
   %22 = and i64 %sub.i125, 2147483648
@@ -3307,7 +3307,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw nsw i64 %conv15, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9, ptr align 1 %7, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9, ptr readonly align 1 %7, i64 %mul.i.i, i1 false)
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %if.end, %st_mult.exit.i

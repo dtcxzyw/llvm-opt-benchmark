@@ -14530,7 +14530,7 @@ invoke.cont106:                                   ; preds = %cond.false102
 
 invoke.cont111:                                   ; preds = %invoke.cont106
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %__begin3.sroa.0.090)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__begin3.sroa.0.090)
           to label %.noexc unwind label %lpad108
 
 .noexc:                                           ; preds = %invoke.cont111
@@ -17486,7 +17486,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -17865,7 +17865,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -18393,7 +18393,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -18858,7 +18858,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -19304,7 +19304,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -19750,7 +19750,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -20157,7 +20157,7 @@ invoke.cont28:                                    ; preds = %cond.false24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont33
@@ -20563,7 +20563,7 @@ invoke.cont27:                                    ; preds = %cond.false23
 
 invoke.cont32:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %invoke.cont32
@@ -20948,7 +20948,7 @@ invoke.cont27:                                    ; preds = %cond.false23
 
 invoke.cont32:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %invoke.cont32
@@ -21479,7 +21479,7 @@ invoke.cont27:                                    ; preds = %cond.false23
 
 invoke.cont32:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %invoke.cont32
@@ -50113,7 +50113,7 @@ cleanup.done:                                     ; preds = %invoke.cont, %clean
   br i1 %spec.select.i.i, label %land.rhs.i, label %invoke.cont21
 
 land.rhs.i:                                       ; preds = %cleanup.done
-  %call1.i11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %call1.i11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %call1.i.noexc unwind label %lpad
 
 call1.i.noexc:                                    ; preds = %land.rhs.i
@@ -50433,7 +50433,7 @@ cleanup.done:                                     ; preds = %invoke.cont, %clean
   br i1 %spec.select.i.i, label %land.rhs.i, label %cond.false24
 
 land.rhs.i:                                       ; preds = %cleanup.done
-  %call1.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %call1.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %call1.i.noexc unwind label %lpad
 
 call1.i.noexc:                                    ; preds = %land.rhs.i
@@ -50896,7 +50896,7 @@ cleanup.done:                                     ; preds = %invoke.cont, %clean
   br i1 %spec.select.i.i, label %land.rhs.i, label %invoke.cont21
 
 land.rhs.i:                                       ; preds = %cleanup.done
-  %call1.i11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %call1.i11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %call1.i.noexc unwind label %lpad
 
 call1.i.noexc:                                    ; preds = %land.rhs.i
@@ -51216,7 +51216,7 @@ cleanup.done:                                     ; preds = %invoke.cont, %clean
   br i1 %spec.select.i.i, label %land.rhs.i, label %cond.false24
 
 land.rhs.i:                                       ; preds = %cleanup.done
-  %call1.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %call1.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc56detail11getRationalERKNS_8internal12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %call1.i.noexc unwind label %lpad
 
 call1.i.noexc:                                    ; preds = %land.rhs.i
@@ -64567,7 +64567,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc5lsE
   %__begin0.sroa.0.07 = phi ptr [ %incdec.ptr.i, %_ZN4cvc5lsERSoRKNS_4TermE.exit ], [ %0, %entry ]
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %is_first.08)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %__begin0.sroa.0.07)
+  call void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__begin0.sroa.0.07)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN4cvc5lsERSoRKNS_4TermE.exit unwind label %lpad.i
 
@@ -64613,7 +64613,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc5lsE
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.08, i64 32
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %is_first.09)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i)
+  call void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %_M_storage.i.i)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN4cvc5lsERSoRKNS_4TermE.exit unwind label %lpad.i
 
@@ -64658,7 +64658,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc5lsE
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.09, i64 8
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %is_first.08)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i)
+  call void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %add.ptr.i)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN4cvc5lsERSoRKNS_4TermE.exit unwind label %lpad.i
 
@@ -65071,7 +65071,7 @@ invoke.cont57:                                    ; preds = %cond.false53
 
 invoke.cont62:                                    ; preds = %invoke.cont57
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad59
 
 .noexc:                                           ; preds = %invoke.cont62
@@ -66499,7 +66499,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc5lsE
   %__begin0.sroa.0.07 = phi ptr [ %incdec.ptr.i, %_ZN4cvc5lsERSoRKNS_23DatatypeConstructorDeclE.exit ], [ %0, %entry ]
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %is_first.08)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc523DatatypeConstructorDecl8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %__begin0.sroa.0.07)
+  call void @_ZNK4cvc523DatatypeConstructorDecl8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__begin0.sroa.0.07)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN4cvc5lsERSoRKNS_23DatatypeConstructorDeclE.exit unwind label %lpad.i
 
@@ -72106,7 +72106,7 @@ invoke.cont52:                                    ; preds = %cond.false48
 
 invoke.cont57:                                    ; preds = %invoke.cont52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %retSort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %retSort)
           to label %.noexc unwind label %lpad54
 
 .noexc:                                           ; preds = %invoke.cont57
@@ -81682,7 +81682,7 @@ invoke.cont90:                                    ; preds = %cond.false86
 
 invoke.cont95:                                    ; preds = %invoke.cont90
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ntSymbol)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ntSymbol)
           to label %.noexc unwind label %lpad92
 
 .noexc:                                           ; preds = %invoke.cont95
@@ -81828,7 +81828,7 @@ invoke.cont160:                                   ; preds = %cond.false156
 
 invoke.cont165:                                   ; preds = %invoke.cont160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i45)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i45, ptr noundef nonnull align 8 dereferenceable(24) %rule)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i45, ptr noundef nonnull readonly align 8 dereferenceable(24) %rule)
           to label %.noexc48 unwind label %lpad162
 
 .noexc48:                                         ; preds = %invoke.cont165
@@ -82521,7 +82521,7 @@ invoke.cont142:                                   ; preds = %invoke.cont137
 
 invoke.cont145:                                   ; preds = %invoke.cont142
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp144)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp144)
           to label %.noexc unwind label %lpad147
 
 .noexc:                                           ; preds = %invoke.cont145
@@ -82824,7 +82824,7 @@ invoke.cont191:                                   ; preds = %cond.false187
 
 invoke.cont196:                                   ; preds = %invoke.cont191
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i46)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(24) %ntSymbol)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i46, ptr noundef nonnull readonly align 8 dereferenceable(24) %ntSymbol)
           to label %.noexc49 unwind label %lpad193
 
 .noexc49:                                         ; preds = %invoke.cont196
@@ -82900,7 +82900,7 @@ invoke.cont238:                                   ; preds = %invoke.cont233
   %38 = load ptr, ptr %rules, align 8
   %add.ptr.i56 = getelementptr inbounds %"class.cvc5::Term", ptr %38, i64 %i219.0119
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i57)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i57, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i56)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i57, ptr noundef nonnull readonly align 8 dereferenceable(24) %add.ptr.i56)
           to label %.noexc60 unwind label %lpad235
 
 .noexc60:                                         ; preds = %invoke.cont238
@@ -83538,7 +83538,7 @@ invoke.cont58:                                    ; preds = %cond.false54
 
 invoke.cont63:                                    ; preds = %invoke.cont58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ntSymbol)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ntSymbol)
           to label %.noexc unwind label %lpad60
 
 .noexc:                                           ; preds = %invoke.cont63
@@ -84078,7 +84078,7 @@ invoke.cont58:                                    ; preds = %cond.false54
 
 invoke.cont63:                                    ; preds = %invoke.cont58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ntSymbol)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ntSymbol)
           to label %.noexc unwind label %lpad60
 
 .noexc:                                           ; preds = %invoke.cont63
@@ -99724,7 +99724,7 @@ invoke.cont78:                                    ; preds = %cond.false74
 
 invoke.cont83:                                    ; preds = %invoke.cont78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc512DatatypeDecl8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %dtypedecl)
+  invoke void @_ZNK4cvc512DatatypeDecl8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %dtypedecl)
           to label %.noexc unwind label %lpad80
 
 .noexc:                                           ; preds = %invoke.cont83
@@ -101395,7 +101395,7 @@ invoke.cont201:                                   ; preds = %cond.false197
 
 invoke.cont206:                                   ; preds = %invoke.cont201
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %codomain)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %codomain)
           to label %.noexc unwind label %lpad203
 
 .noexc:                                           ; preds = %invoke.cont206
@@ -110588,7 +110588,7 @@ invoke.cont4:                                     ; preds = %cond.false
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %invoke.cont8
@@ -110645,7 +110645,7 @@ invoke.cont32:                                    ; preds = %cond.false28
 
 invoke.cont37:                                    ; preds = %invoke.cont32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i18)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i18, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i18, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc21 unwind label %lpad34
 
 .noexc21:                                         ; preds = %invoke.cont37
@@ -111067,7 +111067,7 @@ invoke.cont4:                                     ; preds = %cond.false
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %invoke.cont8
@@ -111124,7 +111124,7 @@ invoke.cont32:                                    ; preds = %cond.false28
 
 invoke.cont37:                                    ; preds = %invoke.cont32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i18)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i18, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i18, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc21 unwind label %lpad34
 
 .noexc21:                                         ; preds = %invoke.cont37
@@ -114119,7 +114119,7 @@ invoke.cont4:                                     ; preds = %cond.false
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %invoke.cont8
@@ -114809,7 +114809,7 @@ invoke.cont107:                                   ; preds = %cond.false103
 
 invoke.cont112:                                   ; preds = %invoke.cont107
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad109
 
 .noexc:                                           ; preds = %invoke.cont112
@@ -114929,7 +114929,7 @@ invoke.cont175:                                   ; preds = %cond.false171
 
 invoke.cont180:                                   ; preds = %invoke.cont175
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i42)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i42, ptr noundef nonnull align 8 dereferenceable(24) %val)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i42, ptr noundef nonnull readonly align 8 dereferenceable(24) %val)
           to label %.noexc45 unwind label %lpad177
 
 .noexc45:                                         ; preds = %invoke.cont180
@@ -117795,7 +117795,7 @@ invoke.cont121:                                   ; preds = %cond.false117
 
 invoke.cont126:                                   ; preds = %invoke.cont121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %val)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %val)
           to label %.noexc unwind label %lpad123
 
 .noexc:                                           ; preds = %invoke.cont126
@@ -117900,7 +117900,7 @@ invoke.cont168:                                   ; preds = %cond.false164
 
 invoke.cont173:                                   ; preds = %invoke.cont168
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i40)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i40, ptr noundef nonnull align 8 dereferenceable(24) %val)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i40, ptr noundef nonnull readonly align 8 dereferenceable(24) %val)
           to label %.noexc43 unwind label %lpad170
 
 .noexc43:                                         ; preds = %invoke.cont173
@@ -118515,7 +118515,7 @@ invoke.cont172:                                   ; preds = %cond.false168
 
 invoke.cont177:                                   ; preds = %invoke.cont172
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sign)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sign)
           to label %.noexc unwind label %lpad174
 
 .noexc:                                           ; preds = %invoke.cont177
@@ -118613,7 +118613,7 @@ invoke.cont217:                                   ; preds = %cond.false213
 
 invoke.cont222:                                   ; preds = %invoke.cont217
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i59)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i59, ptr noundef nonnull align 8 dereferenceable(24) %exp)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i59, ptr noundef nonnull readonly align 8 dereferenceable(24) %exp)
           to label %.noexc62 unwind label %lpad219
 
 .noexc62:                                         ; preds = %invoke.cont222
@@ -118711,7 +118711,7 @@ invoke.cont264:                                   ; preds = %cond.false260
 
 invoke.cont269:                                   ; preds = %invoke.cont264
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i79)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i79, ptr noundef nonnull align 8 dereferenceable(24) %sig)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i79, ptr noundef nonnull readonly align 8 dereferenceable(24) %sig)
           to label %.noexc82 unwind label %lpad266
 
 .noexc82:                                         ; preds = %invoke.cont269
@@ -118801,7 +118801,7 @@ invoke.cont306:                                   ; preds = %cond.false302
 
 invoke.cont311:                                   ; preds = %invoke.cont306
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i99)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i99, ptr noundef nonnull align 8 dereferenceable(24) %sign)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i99, ptr noundef nonnull readonly align 8 dereferenceable(24) %sign)
           to label %.noexc102 unwind label %lpad308
 
 .noexc102:                                        ; preds = %invoke.cont311
@@ -118891,7 +118891,7 @@ invoke.cont348:                                   ; preds = %cond.false344
 
 invoke.cont353:                                   ; preds = %invoke.cont348
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i119)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i119, ptr noundef nonnull align 8 dereferenceable(24) %exp)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i119, ptr noundef nonnull readonly align 8 dereferenceable(24) %exp)
           to label %.noexc122 unwind label %lpad350
 
 .noexc122:                                        ; preds = %invoke.cont353
@@ -119668,7 +119668,7 @@ invoke.cont50:                                    ; preds = %cond.false46
 
 invoke.cont55:                                    ; preds = %invoke.cont50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad52
 
 .noexc:                                           ; preds = %invoke.cont55
@@ -132411,7 +132411,7 @@ invoke.cont119:                                   ; preds = %invoke.cont114
 
 invoke.cont122:                                   ; preds = %invoke.cont119
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp121)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp121)
           to label %.noexc unwind label %lpad124
 
 .noexc:                                           ; preds = %invoke.cont122
@@ -133195,7 +133195,7 @@ invoke.cont91:                                    ; preds = %invoke.cont86
 
 invoke.cont94:                                    ; preds = %invoke.cont91
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp93)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp93)
           to label %.noexc unwind label %lpad96
 
 .noexc:                                           ; preds = %invoke.cont94
@@ -133749,7 +133749,7 @@ invoke.cont117:                                   ; preds = %invoke.cont112
 
 invoke.cont120:                                   ; preds = %invoke.cont117
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp119)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp119)
           to label %.noexc unwind label %lpad122
 
 .noexc:                                           ; preds = %invoke.cont120
@@ -133940,7 +133940,7 @@ for.end222.thread:                                ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc37
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %.noexc37 ], [ %.pre101, %if.then.i ]
-  invoke void @_ZNK4cvc56Solver20ensureWellFormedTermERKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.05.i)
+  invoke void @_ZNK4cvc56Solver20ensureWellFormedTermERKNS_4TermE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.05.i)
           to label %.noexc37 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc37:                                         ; preds = %for.body.i
@@ -135293,7 +135293,7 @@ invoke.cont171:                                   ; preds = %cond.false167
 
 invoke.cont176:                                   ; preds = %invoke.cont171
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad173
 
 .noexc:                                           ; preds = %invoke.cont176
@@ -136384,7 +136384,7 @@ invoke.cont51:                                    ; preds = %cond.false47
 
 invoke.cont56:                                    ; preds = %invoke.cont51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad53
 
 .noexc:                                           ; preds = %invoke.cont56
@@ -136494,7 +136494,7 @@ invoke.cont147:                                   ; preds = %cond.false143
 
 invoke.cont152:                                   ; preds = %invoke.cont147
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i64)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i64, ptr noundef nonnull align 8 dereferenceable(24) %term)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i64, ptr noundef nonnull readonly align 8 dereferenceable(24) %term)
           to label %.noexc67 unwind label %lpad149
 
 .noexc67:                                         ; preds = %invoke.cont152
@@ -136519,7 +136519,7 @@ invoke.cont154:                                   ; preds = %.noexc67
 
 invoke.cont156:                                   ; preds = %invoke.cont154
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i69)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i69, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i69, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc72 unwind label %lpad149
 
 .noexc72:                                         ; preds = %invoke.cont156
@@ -138234,7 +138234,7 @@ invoke.cont169:                                   ; preds = %cond.false165
 
 invoke.cont174:                                   ; preds = %invoke.cont169
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad171
 
 .noexc:                                           ; preds = %invoke.cont174
@@ -138297,7 +138297,7 @@ invoke.cont211:                                   ; preds = %cond.false207
 
 invoke.cont216:                                   ; preds = %invoke.cont211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i84)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i84, ptr noundef nonnull align 8 dereferenceable(24) %term)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i84, ptr noundef nonnull readonly align 8 dereferenceable(24) %term)
           to label %.noexc87 unwind label %lpad213
 
 .noexc87:                                         ; preds = %invoke.cont216
@@ -138322,7 +138322,7 @@ invoke.cont218:                                   ; preds = %.noexc87
 
 invoke.cont220:                                   ; preds = %invoke.cont218
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i89)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i89, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i89, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc92 unwind label %lpad213
 
 .noexc92:                                         ; preds = %invoke.cont220
@@ -140689,7 +140689,7 @@ invoke.cont441:                                   ; preds = %cond.false437
 
 invoke.cont446:                                   ; preds = %invoke.cont441
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %term)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %term)
           to label %.noexc unwind label %lpad443
 
 .noexc:                                           ; preds = %invoke.cont446
@@ -140714,7 +140714,7 @@ invoke.cont448:                                   ; preds = %.noexc
 
 invoke.cont450:                                   ; preds = %invoke.cont448
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i113)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i113, ptr noundef nonnull align 8 dereferenceable(24) %codomain)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i113, ptr noundef nonnull readonly align 8 dereferenceable(24) %codomain)
           to label %.noexc116 unwind label %lpad443
 
 .noexc116:                                        ; preds = %invoke.cont450
@@ -141081,7 +141081,7 @@ invoke.cont615:                                   ; preds = %cond.false611
 
 invoke.cont620:                                   ; preds = %invoke.cont615
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i156)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i156, ptr noundef nonnull align 8 dereferenceable(24) %fun)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i156, ptr noundef nonnull readonly align 8 dereferenceable(24) %fun)
           to label %.noexc160 unwind label %lpad617
 
 .noexc160:                                        ; preds = %invoke.cont620
@@ -143217,7 +143217,7 @@ invoke.cont682:                                   ; preds = %invoke.cont680
 
 invoke.cont684:                                   ; preds = %invoke.cont682
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i240)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i240, ptr noundef nonnull align 8 dereferenceable(24) %codomain)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i240, ptr noundef nonnull readonly align 8 dereferenceable(24) %codomain)
           to label %.noexc unwind label %lpad667
 
 .noexc:                                           ; preds = %invoke.cont684
@@ -143733,7 +143733,7 @@ invoke.cont849:                                   ; preds = %cond.false845
 
 invoke.cont854:                                   ; preds = %invoke.cont849
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i335)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i335, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i120)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i335, ptr noundef nonnull readonly align 8 dereferenceable(24) %add.ptr.i120)
           to label %.noexc339 unwind label %lpad851
 
 .noexc339:                                        ; preds = %invoke.cont854
@@ -148069,9 +148069,9 @@ lpad.i.i.i.i42.i.i:                               ; preds = %.noexc16
   %18 = load <2 x i64>, ptr %valueInfo, align 8, !noalias !398
   store <2 x i64> %18, ptr %valueInfo.i.i.i.i50.i.i, align 8, !alias.scope !398
   %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %minimum8.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %minimum8.i.i.i.i.i.i, i64 16, i1 false)
   %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %maximum9.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %maximum9.i.i.i.i.i.i, i64 16, i1 false)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i51.i.i = getelementptr inbounds i8, ptr %agg.result, i64 152
   store i8 3, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i51.i.i, align 8, !alias.scope !398
   br label %invoke.cont31
@@ -148118,9 +148118,9 @@ lpad.i.i.i.i55.i.i:                               ; preds = %.noexc17
   %22 = load <2 x i64>, ptr %valueInfo, align 8, !noalias !411
   store <2 x i64> %22, ptr %valueInfo.i.i.i.i63.i.i, align 8, !alias.scope !411
   %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i68.i.i = getelementptr inbounds i8, ptr %agg.result, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i68.i.i, ptr noundef nonnull align 8 dereferenceable(16) %minimum8.i.i.i.i65.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i68.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %minimum8.i.i.i.i65.i.i, i64 16, i1 false)
   %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i69.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i69.i.i, ptr noundef nonnull align 8 dereferenceable(16) %maximum9.i.i.i.i66.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i69.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %maximum9.i.i.i.i66.i.i, i64 16, i1 false)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i70.i.i = getelementptr inbounds i8, ptr %agg.result, i64 152
   store i8 4, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i70.i.i, align 8, !alias.scope !411
   br label %invoke.cont31
@@ -148167,9 +148167,9 @@ lpad.i.i.i.i74.i.i:                               ; preds = %.noexc18
   %26 = load <2 x double>, ptr %valueInfo, align 8, !noalias !424
   store <2 x double> %26, ptr %valueInfo.i.i.i.i82.i.i, align 8, !alias.scope !424
   %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i87.i.i = getelementptr inbounds i8, ptr %agg.result, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i87.i.i, ptr noundef nonnull align 8 dereferenceable(16) %minimum8.i.i.i.i84.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.valueInfo.sroa_idx.i.i.i.i87.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %minimum8.i.i.i.i84.i.i, i64 16, i1 false)
   %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i88.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i88.i.i, ptr noundef nonnull align 8 dereferenceable(16) %maximum9.i.i.i.i85.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.4.0.valueInfo.sroa_idx.i.i.i.i88.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %maximum9.i.i.i.i85.i.i, i64 16, i1 false)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i89.i.i = getelementptr inbounds i8, ptr %agg.result, i64 152
   store i8 5, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i89.i.i, align 8, !alias.scope !424
   br label %invoke.cont31
@@ -154357,7 +154357,7 @@ invoke.cont215.thread:                            ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %.noexc ], [ %.pre101, %if.then.i ]
-  invoke void @_ZNK4cvc56Solver20ensureWellFormedTermERKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.05.i)
+  invoke void @_ZNK4cvc56Solver20ensureWellFormedTermERKNS_4TermE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.05.i)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -159924,7 +159924,7 @@ invoke.cont171:                                   ; preds = %cond.false167
 
 invoke.cont176:                                   ; preds = %invoke.cont171
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %sort)
+  invoke void @_ZNK4cvc54Sort8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %sort)
           to label %.noexc unwind label %lpad173
 
 .noexc:                                           ; preds = %invoke.cont176
@@ -164179,7 +164179,7 @@ invoke.cont150.thread:                            ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %.noexc ], [ %.pre73, %if.then.i ]
-  invoke void @_ZNK4cvc56Solver20ensureWellFormedTermERKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.05.i)
+  invoke void @_ZNK4cvc56Solver20ensureWellFormedTermERKNS_4TermE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.05.i)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -169464,7 +169464,7 @@ invoke.cont58:                                    ; preds = %cond.false54
 
 invoke.cont63:                                    ; preds = %invoke.cont58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %term)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %term)
           to label %.noexc unwind label %lpad60
 
 .noexc:                                           ; preds = %invoke.cont63
@@ -170433,7 +170433,7 @@ invoke.cont58:                                    ; preds = %cond.false54
 
 invoke.cont63:                                    ; preds = %invoke.cont58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %term)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %term)
           to label %.noexc unwind label %lpad60
 
 .noexc:                                           ; preds = %invoke.cont63
@@ -171561,7 +171561,7 @@ invoke.cont225:                                   ; preds = %cond.false221
 
 invoke.cont230:                                   ; preds = %invoke.cont225
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %inv)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %inv)
           to label %.noexc unwind label %lpad227
 
 .noexc:                                           ; preds = %invoke.cont230
@@ -171668,7 +171668,7 @@ invoke.cont266:                                   ; preds = %cond.false262
 
 invoke.cont271:                                   ; preds = %invoke.cont266
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i76)
-  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i76, ptr noundef nonnull align 8 dereferenceable(24) %inv)
+  invoke void @_ZNK4cvc54Term8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i76, ptr noundef nonnull readonly align 8 dereferenceable(24) %inv)
           to label %.noexc79 unwind label %lpad268
 
 .noexc79:                                         ; preds = %invoke.cont271

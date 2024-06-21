@@ -5972,7 +5972,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %85
   br i1 %87, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i, label %77
 
 _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %85
-  invoke fastcc void @_ZN12_GLOBAL__N_124UsageRequirementProperty11WriteDirectI7cmValueEEvPK17cmTargetInternalsRKSt8optionalI19cmListFileBacktraceET_NS0_6ActionE(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %2, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_124UsageRequirementProperty11WriteDirectI7cmValueEEvPK17cmTargetInternalsRKSt8optionalI19cmListFileBacktraceET_NS0_6ActionE(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef readonly %80, ptr noundef nonnull readonly align 8 dereferenceable(24) %21, ptr %2, i32 noundef 0)
           to label %_ZNK8cmTarget25IsImportedGloballyVisibleEv.exit unwind label %88
 
 88:                                               ; preds = %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i
@@ -6048,7 +6048,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.sroa.0110.0.copyload.i = load i64, ptr %113, align 8
   %.sroa.2111.0..sroa_idx.i = getelementptr inbounds i8, ptr %96, i64 104
   %.sroa.2111.0.copyload.i = load ptr, ptr %.sroa.2111.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %97, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %2, i64 %.sroa.020.0.copyload.i, ptr %.sroa.221.0.copyload.i, i64 %.sroa.0110.0.copyload.i, ptr %.sroa.2111.0.copyload.i)
+  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %97, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %2, i64 %.sroa.020.0.copyload.i, ptr %.sroa.221.0.copyload.i, i64 %.sroa.0110.0.copyload.i, ptr %.sroa.2111.0.copyload.i)
           to label %114 unwind label %117
 
 114:                                              ; preds = %112
@@ -6116,7 +6116,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.sroa.0108.0.copyload.i = load i64, ptr %136, align 8
   %.sroa.2109.0..sroa_idx.i = getelementptr inbounds i8, ptr %96, i64 104
   %.sroa.2109.0.copyload.i = load ptr, ptr %.sroa.2109.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %97, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr %2, i64 %.sroa.013.0.copyload.i, ptr %.sroa.214.0.copyload.i, i64 %.sroa.0108.0.copyload.i, ptr %.sroa.2109.0.copyload.i)
+  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %97, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr %2, i64 %.sroa.013.0.copyload.i, ptr %.sroa.214.0.copyload.i, i64 %.sroa.0108.0.copyload.i, ptr %.sroa.2109.0.copyload.i)
           to label %137 unwind label %140
 
 137:                                              ; preds = %135
@@ -6249,7 +6249,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i: ; preds = %
   %178 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   %179 = extractvalue { i64, ptr } %178, 0
   %180 = extractvalue { i64, ptr } %178, 1
-  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %97, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr %2, i64 %.sroa.06.0.copyload.i, ptr %.sroa.27.0.copyload.i, i64 %179, ptr %180)
+  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %97, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr %2, i64 %.sroa.06.0.copyload.i, ptr %.sroa.27.0.copyload.i, i64 %179, ptr %180)
           to label %183 unwind label %181
 
 181:                                              ; preds = %177
@@ -6378,7 +6378,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit91.i: ; preds =
   %219 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #25
   %220 = extractvalue { i64, ptr } %219, 0
   %221 = extractvalue { i64, ptr } %219, 1
-  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %97, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr %2, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i169, i64 %220, ptr %221)
+  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %97, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr %2, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i169, i64 %220, ptr %221)
           to label %224 unwind label %222
 
 222:                                              ; preds = %218
@@ -8445,7 +8445,7 @@ define dso_local noundef zeroext i1 @_ZNK8cmTarget23IsExecutableWithExportsEv(pt
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
-  %11 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %11 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc12 unwind label %21
 
 .noexc12:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -8533,7 +8533,7 @@ define dso_local noundef zeroext i1 @_ZNK8cmTarget26IsSharedLibraryWithExportsEv
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
-  %11 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %11 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc12 unwind label %21
 
 .noexc12:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -8610,7 +8610,7 @@ define dso_local noundef zeroext i1 @_ZNK8cmTarget18IsFrameworkOnAppleEv(ptr noc
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
-  %14 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %14 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc12 unwind label %24
 
 .noexc12:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -8695,7 +8695,7 @@ define dso_local noundef zeroext i1 @_ZNK8cmTarget18IsAppBundleOnAppleEv(ptr noc
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
-  %15 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %15 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc12 unwind label %25
 
 .noexc12:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -8771,7 +8771,7 @@ define dso_local noundef zeroext i1 @_ZNK8cmTarget22IsAndroidGuiExecutableEv(ptr
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
-  %15 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %15 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc12 unwind label %25
 
 .noexc12:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -11392,7 +11392,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %113
   br i1 %115, label %_ZN12_GLOBAL__N_124UsageRequirementProperty5WriteI7cmValueEEbPK17cmTargetInternalsRKSt8optionalI19cmListFileBacktraceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS0_6ActionE.exit, label %116
 
 _ZN12_GLOBAL__N_124UsageRequirementProperty5WriteI7cmValueEEbPK17cmTargetInternalsRKSt8optionalI19cmListFileBacktraceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS0_6ActionE.exit: ; preds = %113, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_124UsageRequirementProperty11WriteDirectI7cmValueEEvPK17cmTargetInternalsRKSt8optionalI19cmListFileBacktraceET_NS0_6ActionE(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef %108, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %2, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_124UsageRequirementProperty11WriteDirectI7cmValueEEvPK17cmTargetInternalsRKSt8optionalI19cmListFileBacktraceET_NS0_6ActionE(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef readonly %108, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nonnull %2, i32 noundef 2)
   br label %321
 
 116:                                              ; preds = %106, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -11476,7 +11476,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.sroa.0115.0.copyload.i = load i64, ptr %141, align 8
   %.sroa.2116.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 104
   %.sroa.2116.0.copyload.i = load ptr, ptr %.sroa.2116.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %124, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %14, i64 %.sroa.017.0.copyload.i, ptr %.sroa.218.0.copyload.i, i64 %.sroa.0115.0.copyload.i, ptr %.sroa.2116.0.copyload.i)
+  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %124, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %14, i64 %.sroa.017.0.copyload.i, ptr %.sroa.218.0.copyload.i, i64 %.sroa.0115.0.copyload.i, ptr %.sroa.2116.0.copyload.i)
           to label %142 unwind label %147
 
 142:                                              ; preds = %140
@@ -11559,7 +11559,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.sroa.0113.0.copyload.i = load i64, ptr %168, align 8
   %.sroa.2114.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 104
   %.sroa.2114.0.copyload.i = load ptr, ptr %.sroa.2114.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %124, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %17, i64 %.sroa.011.0.copyload.i, ptr %.sroa.212.0.copyload.i, i64 %.sroa.0113.0.copyload.i, ptr %.sroa.2114.0.copyload.i)
+  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %124, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %17, i64 %.sroa.011.0.copyload.i, ptr %.sroa.212.0.copyload.i, i64 %.sroa.0113.0.copyload.i, ptr %.sroa.2114.0.copyload.i)
           to label %169 unwind label %174
 
 169:                                              ; preds = %167
@@ -11710,7 +11710,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i: ; preds = %
   %214 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #25
   %215 = extractvalue { i64, ptr } %214, 0
   %216 = extractvalue { i64, ptr } %214, 1
-  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %124, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %20, i64 %.sroa.05.0.copyload.i, ptr %.sroa.26.0.copyload.i, i64 %215, ptr %216)
+  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %124, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %20, i64 %.sroa.05.0.copyload.i, ptr %.sroa.26.0.copyload.i, i64 %215, ptr %216)
           to label %217 unwind label %220
 
 217:                                              ; preds = %213
@@ -11860,7 +11860,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit96.i: ; preds =
   %260 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #25
   %261 = extractvalue { i64, ptr } %260, 0
   %262 = extractvalue { i64, ptr } %260, 1
-  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull align 8 dereferenceable(1896) %124, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %24, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i56, i64 %261, ptr %262)
+  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvP8cmTargetRKS6_T_St17basic_string_viewIcS4_ESD_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1896) %124, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %24, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i56, i64 %261, ptr %262)
           to label %263 unwind label %266
 
 263:                                              ; preds = %259
@@ -13641,7 +13641,7 @@ define dso_local void @_ZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_(ptr n
 87:                                               ; preds = %.preheader167, %87
   %.095.idx163 = phi i64 [ %.095.add, %87 ], [ 0, %.preheader167 ]
   %.095.ptr = getelementptr inbounds i8, ptr @_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_E16propertiesToCopyB5cxx11, i64 %.095.idx163
-  %88 = call ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %.095.ptr)
+  %88 = call ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %.095.ptr)
   call void @_ZN8cmTarget11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7cmValue(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %.095.ptr, ptr %88)
   %.095.add = add nuw nsw i64 %.095.idx163, 32
   %.not131 = icmp eq i64 %.095.add, 1152
@@ -14114,7 +14114,7 @@ define dso_local void @_ZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_(ptr n
 
 218:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %219 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %42)
+  %219 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %.noexc unwind label %222
 
 .noexc:                                           ; preds = %218
@@ -14196,7 +14196,7 @@ _ZNK8cmTarget18GetGlobalGeneratorEv.exit:         ; preds = %._crit_edge
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc148
-  %240 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %43)
+  %240 = invoke ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %.noexc149 unwind label %248
 
 .noexc149:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -14817,7 +14817,7 @@ _ZNK8cmTarget10IsImportedEv.exit.i:               ; preds = %_ZNKSt13unordered_m
   br i1 %175, label %180, label %176
 
 176:                                              ; preds = %.thread.i
-  call fastcc void @_ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %1)
+  call fastcc void @_ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly %1)
   invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %177 unwind label %178
 
@@ -14850,7 +14850,7 @@ _ZNK8cmTarget10IsImportedEv.exit.i:               ; preds = %_ZNKSt13unordered_m
 
 187:                                              ; preds = %185
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %186) #25
-  invoke fastcc void @_ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %1)
+  invoke fastcc void @_ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly %1)
           to label %188 unwind label %205
 
 188:                                              ; preds = %187
@@ -14922,7 +14922,7 @@ _ZNK8cmTarget10IsImportedEv.exit.i:               ; preds = %_ZNKSt13unordered_m
   br label %217
 
 213:                                              ; preds = %180, %180, %180
-  call fastcc void @_ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %1)
+  call fastcc void @_ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull readonly align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly %1)
   invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %214 unwind label %215
 
@@ -16407,7 +16407,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.sroa.028.0.copyload.i = load i64, ptr %300, align 8
   %.sroa.229.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %317 = invoke ptr @_ZNK17cmTargetInternals21GetFileSetDirectoriesEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull align 8 dereferenceable(1896) %301, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 %.sroa.028.0.copyload.i, ptr %.sroa.229.0.copyload.i)
+  %317 = invoke ptr @_ZNK17cmTargetInternals21GetFileSetDirectoriesEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull readonly align 8 dereferenceable(1896) %301, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 %.sroa.028.0.copyload.i, ptr %.sroa.229.0.copyload.i)
           to label %318 unwind label %321
 
 318:                                              ; preds = %316
@@ -16471,7 +16471,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.sroa.021.0.copyload.i = load i64, ptr %300, align 8
   %.sroa.222.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i65.i, align 8
-  %340 = invoke ptr @_ZNK17cmTargetInternals15GetFileSetPathsEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull align 8 dereferenceable(1896) %301, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 %.sroa.021.0.copyload.i, ptr %.sroa.222.0.copyload.i)
+  %340 = invoke ptr @_ZNK17cmTargetInternals15GetFileSetPathsEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull readonly align 8 dereferenceable(1896) %301, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 %.sroa.021.0.copyload.i, ptr %.sroa.222.0.copyload.i)
           to label %341 unwind label %344
 
 341:                                              ; preds = %339
@@ -16645,7 +16645,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i: ; preds = %
   %.sroa.06.0.copyload.i = load i64, ptr %300, align 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds i8, ptr %300, i64 8
   %.sroa.27.0.copyload.i = load ptr, ptr %.sroa.27.0..sroa_idx.i, align 8
-  %406 = invoke ptr @_ZNK17cmTargetInternals21GetFileSetDirectoriesEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull align 8 dereferenceable(1896) %301, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %.sroa.06.0.copyload.i, ptr %.sroa.27.0.copyload.i)
+  %406 = invoke ptr @_ZNK17cmTargetInternals21GetFileSetDirectoriesEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull readonly align 8 dereferenceable(1896) %301, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %.sroa.06.0.copyload.i, ptr %.sroa.27.0.copyload.i)
           to label %409 unwind label %407
 
 407:                                              ; preds = %405
@@ -16691,7 +16691,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit87.i: ; preds =
   %.sroa.0.0.copyload.i70 = load i64, ptr %300, align 8
   %.sroa.2.0..sroa_idx.i71 = getelementptr inbounds i8, ptr %300, i64 8
   %.sroa.2.0.copyload.i72 = load ptr, ptr %.sroa.2.0..sroa_idx.i71, align 8
-  %420 = invoke ptr @_ZNK17cmTargetInternals15GetFileSetPathsEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull align 8 dereferenceable(1896) %301, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 %.sroa.0.0.copyload.i70, ptr %.sroa.2.0.copyload.i72)
+  %420 = invoke ptr @_ZNK17cmTargetInternals15GetFileSetPathsEPK8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_E(ptr noundef nonnull readonly align 8 dereferenceable(1896) %301, ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 %.sroa.0.0.copyload.i70, ptr %.sroa.2.0.copyload.i72)
           to label %423 unwind label %421
 
 421:                                              ; preds = %419
@@ -24545,7 +24545,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N12_GLOBAL__N_116ReadOnlyPropertyEENS_10_AllocNodeISaINS_10_Hash_nodeISF_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSN_.exit.i.i.i.i.i: ; preds = %.noexc.i.i
   %75 = getelementptr inbounds i8, ptr %.016.i.ptr.i, i64 32
   %76 = getelementptr inbounds i8, ptr %63, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %76, ptr noundef nonnull align 8 dereferenceable(12) %75, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %76, ptr noundef nonnull readonly align 8 dereferenceable(12) %75, i64 12, i1 false)
   %77 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_117IsSetablePropertyEP10cmMakefileP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13readOnlyPropsB5cxx11, i64 40), align 8
   %78 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_117IsSetablePropertyEP10cmMakefileP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13readOnlyPropsB5cxx11, i64 8), align 8
   %79 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_117IsSetablePropertyEP10cmMakefileP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13readOnlyPropsB5cxx11, i64 24), align 8

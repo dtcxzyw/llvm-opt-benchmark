@@ -2278,7 +2278,7 @@ sema_analyse_expr.exit497:                        ; preds = %sema_analyse_expr_l
 
 289:                                              ; preds = %.lr.ph568
   %290 = call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %290, ptr noundef nonnull align 8 dereferenceable(56) %284, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %290, ptr noundef nonnull readonly align 8 dereferenceable(56) %284, i64 56, i1 false)
   %291 = load i16, ptr %285, align 8
   %292 = and i16 %291, -256
   %293 = or disjoint i16 %292, 42
@@ -5011,7 +5011,7 @@ define internal fastcc void @sema_expr_flatten_const(ptr nocapture noundef %0) u
 
 22:                                               ; preds = %17
   %23 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull readonly align 8 dereferenceable(56) %16, i64 56, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load i64, ptr %24, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)
@@ -5449,7 +5449,7 @@ type_flatten.exit65:                              ; preds = %.critedge.i
 
 144:                                              ; preds = %135
   %145 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %145, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %145, ptr noundef nonnull readonly align 8 dereferenceable(56) %3, i64 56, i1 false)
   %146 = load i16, ptr %17, align 8
   %147 = and i16 %146, -256
   %148 = or disjoint i16 %147, 47
@@ -12395,7 +12395,7 @@ expr_may_ref.exit:                                ; preds = %tailrecurse.i
 
 expr_may_ref.exit.thread:                         ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %68, %71, %58, %58, %58, %58, %58, %53, %47, %24, %expr_may_ref.exit
   %83 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull readonly align 8 dereferenceable(56) %3, i64 56, i1 false)
   %84 = getelementptr inbounds i8, ptr %3, i64 16
   %85 = load i16, ptr %84, align 8
   %86 = and i16 %85, -256
@@ -18192,7 +18192,7 @@ sema_analyse_expr_lvalue.exit259:                 ; preds = %597
 
 642:                                              ; preds = %630
   %643 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %643, ptr noundef nonnull align 8 dereferenceable(56) %634, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %643, ptr noundef nonnull readonly align 8 dereferenceable(56) %634, i64 56, i1 false)
   %644 = load i8, ptr %10, align 8
   %645 = icmp eq i8 %644, 8
   %646 = getelementptr inbounds i8, ptr %643, i64 32
@@ -19618,7 +19618,7 @@ type_flatten.exit:                                ; preds = %120
   %269 = load i64, ptr %268, align 8
   %270 = tail call ptr @decl_new_generated_var(ptr noundef %267, i32 noundef 3, i64 %269) #13
   %271 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %271, ptr noundef nonnull align 8 dereferenceable(56) %234, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %271, ptr noundef nonnull readonly align 8 dereferenceable(56) %234, i64 56, i1 false)
   %272 = tail call ptr @expr_generate_decl(ptr noundef %270, ptr noundef %271) #13
   %273 = getelementptr inbounds i8, ptr %234, i64 16
   %274 = load i16, ptr %273, align 8
@@ -19671,7 +19671,7 @@ type_flatten.exit:                                ; preds = %120
 
 304:                                              ; preds = %302
   %305 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr noundef nonnull align 8 dereferenceable(56) %84, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr noundef nonnull readonly align 8 dereferenceable(56) %84, i64 56, i1 false)
   %306 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %305)
   br i1 %306, label %307, label %sema_analyse_expr_lvalue_fold_const.exit
 
@@ -21259,7 +21259,7 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
 
 678:                                              ; preds = %674
   %679 = call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %679, ptr noundef nonnull align 8 dereferenceable(56) %.0460, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %679, ptr noundef nonnull readonly align 8 dereferenceable(56) %.0460, i64 56, i1 false)
   %680 = getelementptr inbounds i8, ptr %.0459, i64 56
   %681 = load ptr, ptr %680, align 8
   %682 = getelementptr inbounds i8, ptr %681, i64 96

@@ -703,7 +703,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %64, %58, %51, %45, 
   br label %101
 
 94:                                               ; preds = %85
-  %95 = tail call fastcc i32 @H5FS__size_node_decr(ptr noundef nonnull %10, i32 noundef %.0.i.i, ptr noundef nonnull %79, ptr noundef %8)
+  %95 = tail call fastcc i32 @H5FS__size_node_decr(ptr noundef nonnull %10, i32 noundef %.0.i.i, ptr noundef nonnull %79, ptr noundef readonly %8)
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %H5FS__sect_unlink_size.exit
 

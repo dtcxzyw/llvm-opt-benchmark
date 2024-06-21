@@ -99,7 +99,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef %str, i64 noundef %conv.i) #6
+  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #6
   %conv1.i = trunc i64 %call.i to i32
   tail call void @BIO_clear_retry_flags(ptr noundef %bp) #6
   %cmp.i = icmp slt i32 %conv1.i, 1

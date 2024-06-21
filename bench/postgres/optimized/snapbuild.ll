@@ -1411,7 +1411,7 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
 
 24:                                               ; preds = %16, %14
   %25 = load i32, ptr %7, align 8
-  tail call fastcc void @SnapBuildWaitSnapshot(ptr noundef nonnull %2, i32 noundef %25)
+  tail call fastcc void @SnapBuildWaitSnapshot(ptr noundef nonnull readonly %2, i32 noundef %25)
   br label %SnapBuildFindSnapshot.exit.thread
 
 ._crit_edge.i:                                    ; preds = %6
@@ -1501,7 +1501,7 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
 
 70:                                               ; preds = %62, %55
   %71 = load i32, ptr %26, align 4
-  tail call fastcc void @SnapBuildWaitSnapshot(ptr noundef nonnull %2, i32 noundef %71)
+  tail call fastcc void @SnapBuildWaitSnapshot(ptr noundef nonnull readonly %2, i32 noundef %71)
   br label %SnapBuildFindSnapshot.exit.thread
 
 72:                                               ; preds = %53
@@ -1531,7 +1531,7 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
 
 88:                                               ; preds = %80, %77
   %89 = load i32, ptr %26, align 4
-  tail call fastcc void @SnapBuildWaitSnapshot(ptr noundef nonnull %2, i32 noundef %89)
+  tail call fastcc void @SnapBuildWaitSnapshot(ptr noundef nonnull readonly %2, i32 noundef %89)
   br label %SnapBuildFindSnapshot.exit.thread
 
 thread-pre-split.i:                               ; preds = %72

@@ -331,7 +331,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %150 = getelementptr inbounds i8, ptr %145, i64 16
   %151 = getelementptr inbounds i8, ptr %145, i64 36
   %152 = load i32, ptr %151, align 4
-  %153 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %145, ptr noundef nonnull %150, i32 noundef %152, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %153 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %145, ptr noundef nonnull %150, i32 noundef %152, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
   store i32 %153, ptr %151, align 4
   %154 = load ptr, ptr %12, align 8
   %155 = sext i32 %153 to i64
@@ -340,7 +340,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   store i32 %157, ptr %151, align 4
   %158 = getelementptr inbounds i8, ptr %145, i64 40
   %159 = load i32, ptr %158, align 8
-  %160 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %150, ptr noundef nonnull %145, i32 noundef %159, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %160 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %150, ptr noundef nonnull %145, i32 noundef %159, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
   store i32 %160, ptr %158, align 8
   %161 = load ptr, ptr %12, align 8
   %162 = sext i32 %160 to i64

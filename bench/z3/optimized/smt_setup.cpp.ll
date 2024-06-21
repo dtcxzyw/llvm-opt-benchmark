@@ -446,7 +446,7 @@ invoke.cont13:                                    ; preds = %call.i.noexc7
           to label %invoke.cont14 unwind label %lpad2
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  invoke void @_ZN3smt5setup8setup_bvEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  invoke void @_ZN3smt5setup8setup_bvEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
           to label %.noexc10 unwind label %lpad2
 
 .noexc10:                                         ; preds = %invoke.cont14
@@ -618,7 +618,7 @@ if.then4:                                         ; preds = %if.end11.i10, %_Zeq
   %m_params.i14 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_params.i14, align 8
   call void @_ZN10smt_params12setup_QF_RDLEv(ptr noundef nonnull align 8 dereferenceable(800) %4)
-  call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   br label %if.end156
 
 if.else5:                                         ; preds = %if.end11.i10
@@ -872,7 +872,7 @@ if.then32:                                        ; preds = %if.else29
   %m_params.i86 = getelementptr inbounds i8, ptr %this, i64 16
   %29 = load ptr, ptr %m_params.i86, align 8
   call void @_ZN10smt_params11setup_QF_AXEv(ptr noundef nonnull align 8 dereferenceable(800) %29)
-  call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   br label %if.end156
 
 if.else33:                                        ; preds = %if.else29
@@ -1019,7 +1019,7 @@ if.then104:                                       ; preds = %if.else101
   %m_params.i87 = getelementptr inbounds i8, ptr %this, i64 16
   %30 = load ptr, ptr %m_params.i87, align 8
   call void @_ZN10smt_params9setup_LRAEv(ptr noundef nonnull align 8 dereferenceable(800) %30)
-  call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   br label %if.end156
 
 if.else105:                                       ; preds = %if.else101
@@ -1319,7 +1319,7 @@ call.i.noexc50:                                   ; preds = %.noexc49
           to label %.noexc53 unwind label %lpad
 
 .noexc53:                                         ; preds = %.noexc52
-  invoke void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  invoke void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
           to label %if.end254 unwind label %lpad
 
 if.else33:                                        ; preds = %.noexc46, %invoke.cont29.thread, %invoke.cont29
@@ -1588,7 +1588,7 @@ if.then131:                                       ; preds = %invoke.cont129
           to label %.noexc89 unwind label %lpad55
 
 .noexc89:                                         ; preds = %if.then131
-  invoke void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  invoke void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
           to label %if.end252 unwind label %lpad55
 
 if.else133:                                       ; preds = %invoke.cont129
@@ -1746,7 +1746,7 @@ if.then225:                                       ; preds = %invoke.cont223
           to label %.noexc92 unwind label %lpad55
 
 .noexc92:                                         ; preds = %if.then225
-  invoke void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  invoke void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
           to label %if.end252 unwind label %lpad55
 
 if.else227:                                       ; preds = %invoke.cont223
@@ -2184,8 +2184,8 @@ entry:
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_params.i, align 8
   tail call void @_ZN10smt_params13setup_AUFLIRAEb(ptr noundef nonnull align 8 dereferenceable(800) %0, i1 noundef zeroext true)
-  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   ret void
 }
 
@@ -2200,7 +2200,7 @@ entry:
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN3smt12theory_arithINS_5i_extEEC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1544) %call.i, ptr noundef nonnull align 8 dereferenceable(11616) %2)
   tail call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(11616) %1, ptr noundef nonnull %call.i)
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   ret void
 }
 
@@ -2210,8 +2210,8 @@ entry:
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_params.i, align 8
   tail call void @_ZN10smt_params13setup_AUFLIRAEb(ptr noundef nonnull align 8 dereferenceable(800) %0, i1 noundef zeroext true)
-  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   ret void
 }
 
@@ -3564,7 +3564,7 @@ if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %this, align 8
   tail call void @_ZN3smt12theory_arithINS_5i_extEEC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1544) %call.i, ptr noundef nonnull align 8 dereferenceable(11616) %6)
   tail call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(11616) %5, ptr noundef nonnull %call.i)
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
@@ -3593,7 +3593,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   tail call void @_ZN10smt_params13setup_AUFLIRAEb(ptr noundef nonnull align 8 dereferenceable(800) %2, i1 noundef zeroext false)
-  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
@@ -3606,7 +3606,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   %5 = load ptr, ptr %this, align 8
   %call.i61 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 728)
   %6 = load ptr, ptr %this, align 8
@@ -3617,7 +3617,7 @@ if.end:                                           ; preds = %if.else, %if.then2
   %call.i62 = tail call noundef ptr @_ZN3smt12mk_theory_dlERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(11616) %7)
   tail call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(11616) %7, ptr noundef %call.i62)
   tail call void @_ZN3smt5setup13setup_seq_strERK15static_features(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(792) %st)
-  tail call void @_ZN3smt5setup8setup_bvEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup8setup_bvEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   %8 = load ptr, ptr %this, align 8
   %call.i63 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1584)
   %9 = load ptr, ptr %this, align 8
@@ -3826,7 +3826,7 @@ lor.lhs.false.if.else55_crit_edge:                ; preds = %lor.lhs.false
   br label %if.else55
 
 if.then54:                                        ; preds = %lor.lhs.false, %land.lhs.true50
-  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup14setup_mi_arithEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   br label %return
 
 if.else55:                                        ; preds = %lor.lhs.false.if.else55_crit_edge, %land.lhs.true50
@@ -3969,7 +3969,7 @@ if.then113:                                       ; preds = %land.lhs.true111
   %m_params.i92 = getelementptr inbounds i8, ptr %this, i64 16
   %60 = load ptr, ptr %m_params.i92, align 8
   tail call void @_ZN10smt_params11setup_QF_AXERK15static_features(ptr noundef nonnull align 8 dereferenceable(800) %60, ptr noundef nonnull align 8 dereferenceable(792) %st)
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   br label %return
 
 if.end114:                                        ; preds = %land.lhs.true111, %if.end108
@@ -4865,7 +4865,7 @@ entry:
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN3smt12theory_arithINS_5i_extEEC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1544) %call.i, ptr noundef nonnull align 8 dereferenceable(11616) %2)
   tail call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(11616) %1, ptr noundef nonnull %call.i)
-  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
+  tail call void @_ZN3smt5setup12setup_arraysEv(ptr noundef nonnull readonly align 8 dereferenceable(33) %this)
   ret void
 }
 

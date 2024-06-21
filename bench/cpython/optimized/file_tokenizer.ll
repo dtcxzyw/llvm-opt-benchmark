@@ -1063,7 +1063,7 @@ if.end.i80:                                       ; preds = %if.end30
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %newtok.1) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %newtok.1) #12
   %cmp.i81 = icmp sgt i64 %call.i, 0
   %sub.i = sext i1 %cmp.i81 to i64
   %15 = getelementptr i8, ptr %newtok.1, i64 %call.i
@@ -1089,7 +1089,7 @@ if.then13.i:                                      ; preds = %if.then10.i
 
 if.end18.i:                                       ; preds = %if.end.i80
   %add.ptr.i = getelementptr i8, ptr %call8.i, i64 %sub.ptr.sub.i
-  %call19.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %newtok.1) #11
+  %call19.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %newtok.1) #11
   %implicit_newline.i = getelementptr inbounds i8, ptr %tok, i64 17268
   store i32 0, ptr %implicit_newline.i, align 4
   br i1 %cmp1.not.i, label %if.then23.i, label %if.end30.i
@@ -1354,7 +1354,7 @@ if.end.i19.i:                                     ; preds = %if.end13.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call6.i) #12
+  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call6.i) #12
   %cmp.i20.i = icmp sgt i64 %call.i.i, 0
   %sub.i.i = sext i1 %cmp.i20.i to i64
   %14 = getelementptr i8, ptr %call6.i, i64 %call.i.i
@@ -1386,7 +1386,7 @@ tok_concatenate_interactive_new_line.exit.thread.i: ; preds = %if.then13.i.i, %i
 
 if.end18.i.i:                                     ; preds = %if.end.i19.i
   %add.ptr.i.i = getelementptr i8, ptr %call8.i.i, i64 %sub.ptr.sub.i.i
-  %call19.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull dereferenceable(1) %call6.i) #11
+  %call19.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(1) %call6.i) #11
   %implicit_newline.i.i = getelementptr inbounds i8, ptr %tok, i64 17268
   store i32 0, ptr %implicit_newline.i.i, align 4
   br i1 %cmp1.not.i.i, label %if.then23.i.i, label %tok_concatenate_interactive_new_line.exit.i
@@ -1489,7 +1489,7 @@ if.end.i.i43:                                     ; preds = %if.end5.i42
   %sub.ptr.lhs.cast.i.i44 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i.i45 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i44, %sub.ptr.rhs.cast.i.i45
-  %call.i.i47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2.i) #12
+  %call.i.i47 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call2.i) #12
   %cmp.i.i48 = icmp sgt i64 %call.i.i47, 0
   %sub.i.i49 = sext i1 %cmp.i.i48 to i64
   %28 = getelementptr i8, ptr %call2.i, i64 %call.i.i47
@@ -1521,7 +1521,7 @@ tok_concatenate_interactive_new_line.exit.thread.i70: ; preds = %if.then13.i.i69
 
 if.end18.i.i58:                                   ; preds = %if.end.i.i43
   %add.ptr.i.i59 = getelementptr i8, ptr %call8.i.i56, i64 %sub.ptr.sub.i.i46
-  %call19.i.i60 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i59, ptr noundef nonnull dereferenceable(1) %call2.i) #11
+  %call19.i.i60 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i59, ptr noundef nonnull readonly dereferenceable(1) %call2.i) #11
   store i32 0, ptr %implicit_newline.i.i38, align 4
   br i1 %cmp1.not.i.i51, label %if.then23.i.i65, label %tok_concatenate_interactive_new_line.exit.i61
 

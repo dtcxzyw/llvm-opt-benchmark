@@ -138,7 +138,7 @@ if.then31:                                        ; preds = %safe_malloc_add_2op
   br label %sw.epilog
 
 if.else:                                          ; preds = %safe_malloc_add_2op_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %spec.addr.0148, i64 %sub.ptr.sub22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %spec.addr.0148, i64 %sub.ptr.sub22, i1 false)
   %arrayidx.i69 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub22
   store i8 0, ptr %arrayidx.i69, align 1
   %call32 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i, i32 noundef 0) #11
@@ -167,7 +167,7 @@ if.then45:                                        ; preds = %safe_malloc_add_2op
   br label %sw.epilog
 
 if.else46:                                        ; preds = %safe_malloc_add_2op_.exit.i71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr align 1 %spec.addr.0148, i64 %sub.ptr.sub41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr readonly align 1 %spec.addr.0148, i64 %sub.ptr.sub41, i1 false)
   %arrayidx.i76 = getelementptr inbounds i8, ptr %call.i.i.i73, i64 %sub.ptr.sub41
   store i8 0, ptr %arrayidx.i76, align 1
   %call47 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i73, i32 noundef 0) #11
@@ -532,7 +532,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mime_type, ptr noundef nonnull dereferenceable(1) %mime_type_in, i64 noundef 63) #11
+  %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mime_type, ptr noundef nonnull readonly dereferenceable(1) %mime_type_in, i64 noundef 63) #11
   %arrayidx.i = getelementptr inbounds i8, ptr %mime_type, i64 63
   store i8 0, ptr %arrayidx.i, align 1
   store ptr null, ptr %error_message, align 8

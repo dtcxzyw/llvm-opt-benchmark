@@ -3961,7 +3961,7 @@ opal_thread_add_fetch_32.exit144:                 ; preds = %306, %304, %263, %2
   %328 = load i64, ptr %327, align 8
   %329 = mul i64 %328, %321
   %330 = getelementptr inbounds i8, ptr %326, i64 %329
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %330, ptr nonnull align 4 %15, i64 %328, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %330, ptr nonnull readonly align 4 %15, i64 %328, i1 false)
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %324, %318, %314, %316, %311

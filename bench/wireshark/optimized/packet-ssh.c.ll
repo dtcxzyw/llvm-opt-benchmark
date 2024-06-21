@@ -1263,7 +1263,7 @@ switch.lookup:                                    ; preds = %66
   br i1 %.not.i, label %157, label %155
 
 155:                                              ; preds = %153
-  %156 = call fastcc i32 @ssh_dissect_encrypted_packet(ptr noundef %0, ptr noundef %1, ptr noundef %69, i32 noundef %.0119, ptr noundef %73)
+  %156 = call fastcc i32 @ssh_dissect_encrypted_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly %69, i32 noundef %.0119, ptr noundef %73)
   br label %223
 
 157:                                              ; preds = %153
@@ -1379,7 +1379,7 @@ ssh_hash_buffer_put_string.exit.sink.split.i:     ; preds = %199, %197
   store i8 %213, ptr %214, align 1
   %215 = getelementptr i8, ptr %204, i64 4
   %216 = zext i32 %.069.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %215, ptr align 1 %196, i64 %216, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %215, ptr readonly align 1 %196, i64 %216, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %.sink80.i, ptr noundef nonnull %204, i32 noundef %202) #21
   br label %ssh_hash_buffer_put_string.exit.i
 
@@ -1795,7 +1795,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br i1 %.not.i.i.i.i, label %ssh_kex_make_bignum.exit.i.i.i, label %420
 
 420:                                              ; preds = %414
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %419, ptr noundef nonnull align 1 dereferenceable(16) %415, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %419, ptr noundef nonnull readonly align 1 dereferenceable(16) %415, i64 16, i1 false)
   br label %ssh_kex_make_bignum.exit.i.i.i
 
 ssh_kex_make_bignum.exit.i.i.i:                   ; preds = %420, %414
@@ -2159,7 +2159,7 @@ ssh_hash_buffer_put_string.exit.sink.split.i.i.i: ; preds = %626, %624
   store i8 %640, ptr %641, align 1
   %642 = getelementptr i8, ptr %631, i64 4
   %643 = zext i32 %618 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %642, ptr nonnull align 1 %620, i64 %643, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %642, ptr nonnull readonly align 1 %620, i64 %643, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %.sink151.i.i.i, ptr noundef nonnull %631, i32 noundef %629) #21
   br label %ssh_dissect_key_init.exit.i.i
 
@@ -4347,7 +4347,7 @@ define internal fastcc noundef i32 @ssh_tree_add_hostkey(ptr noundef %0, i32 nou
   %36 = getelementptr i8, ptr %26, i64 3
   store i8 %35, ptr %36, align 1
   %37 = getelementptr i8, ptr %26, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %20, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr readonly align 1 %20, i64 %19, i1 false)
   tail call void @wmem_array_append(ptr noundef nonnull %22, ptr noundef nonnull %26, i32 noundef %14) #21
   br label %ssh_hash_buffer_put_string.exit
 
@@ -4897,7 +4897,7 @@ ssh_kex_hash_type.exit:                           ; preds = %54, %56, %.critedge
   br i1 %.not.i194, label %ssh_kex_make_bignum.exit.thread220, label %89
 
 89:                                               ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull align 1 %79, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull readonly align 1 %79, i64 %87, i1 false)
   br label %ssh_kex_make_bignum.exit.thread220
 
 ssh_kex_make_bignum.exit.thread220:               ; preds = %83, %89
@@ -4976,7 +4976,7 @@ ssh_kex_make_bignum.exit._crit_edge:              ; preds = %ssh_kex_make_bignum
   store i8 %131, ptr %132, align 1
   %133 = getelementptr i8, ptr %122, i64 4
   %134 = zext i32 %118 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr nonnull align 1 %113, i64 %134, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr nonnull readonly align 1 %113, i64 %134, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %115, ptr noundef nonnull %122, i32 noundef %120) #21
   br label %ssh_hash_buffer_put_string.exit
 
@@ -5014,7 +5014,7 @@ ssh_hash_buffer_put_string.exit:                  ; preds = %112, %117
   store i8 %155, ptr %156, align 1
   %157 = getelementptr i8, ptr %146, i64 4
   %158 = zext i32 %141 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %142, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr readonly align 1 %142, i64 %158, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %136, ptr noundef nonnull %146, i32 noundef %144) #21
   br label %ssh_hash_buffer_put_string.exit198
 
@@ -5052,7 +5052,7 @@ ssh_hash_buffer_put_string.exit198:               ; preds = %139, %ssh_hash_buff
   store i8 %179, ptr %180, align 1
   %181 = getelementptr i8, ptr %170, i64 4
   %182 = zext i32 %165 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 1 %166, i64 %182, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr readonly align 1 %166, i64 %182, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %160, ptr noundef nonnull %170, i32 noundef %168) #21
   br label %ssh_hash_buffer_put_string.exit200
 
@@ -5090,7 +5090,7 @@ ssh_hash_buffer_put_string.exit200:               ; preds = %163, %ssh_hash_buff
   store i8 %203, ptr %204, align 1
   %205 = getelementptr i8, ptr %194, i64 4
   %206 = zext i32 %189 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %205, ptr align 1 %190, i64 %206, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %205, ptr readonly align 1 %190, i64 %206, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %184, ptr noundef nonnull %194, i32 noundef %192) #21
   br label %ssh_hash_buffer_put_string.exit202
 
@@ -5128,7 +5128,7 @@ ssh_hash_buffer_put_string.exit202:               ; preds = %187, %ssh_hash_buff
   store i8 %227, ptr %228, align 1
   %229 = getelementptr i8, ptr %218, i64 4
   %230 = zext i32 %213 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr align 1 %214, i64 %230, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr readonly align 1 %214, i64 %230, i1 false)
   call void @wmem_array_append(ptr noundef nonnull %208, ptr noundef nonnull %218, i32 noundef %216) #21
   br label %ssh_hash_buffer_put_string.exit204
 
@@ -5468,7 +5468,7 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %.fold.split.i.i, %.
   store i8 %419, ptr %420, align 1
   %421 = getelementptr i8, ptr %410, i64 4
   %422 = zext i32 %406 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %421, ptr align 1 %405, i64 %422, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %421, ptr readonly align 1 %405, i64 %422, i1 false)
   %423 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %.0.i.i, i32 noundef 0) #21
   %424 = icmp eq i32 %423, 0
   br i1 %424, label %425, label %452
@@ -7268,7 +7268,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
   %457 = load i32, ptr %9, align 4
   %458 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %459 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %458, ptr noundef nonnull dereferenceable(5) @.str.353) #22
+  %459 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %458, ptr noundef nonnull dereferenceable(5) @.str.353) #22
   %460 = icmp ne i32 %459, 0
   %461 = load ptr, ptr @sftp_handle, align 8
   %.not34.i = icmp eq ptr %461, null

@@ -2911,7 +2911,7 @@ proto_item_set_hidden.exit104:                    ; preds = %100, %101, %104
   %indvars.iv.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i, %129 ]
   %131 = getelementptr [13 x %struct.anon.1], ptr @__const.parse_sdp_media_protocol.protocols, i64 0, i64 %indvars.iv.i
   %132 = load ptr, ptr %131, align 16
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %128) #10
+  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(1) %128) #10
   %.not.i105 = icmp eq i32 %133, 0
   br i1 %.not.i105, label %134, label %129
 
@@ -3333,7 +3333,7 @@ dissect_sdp_media_attribute_rtpmap.exit:          ; preds = %53, %56, %64, %.thr
   %190 = load i32, ptr @ett_sdp_fmtp, align 4
   %191 = call ptr @proto_item_add_subtree(ptr noundef %189, i32 noundef %190) #9
   %192 = load i8, ptr %20, align 1
-  call fastcc void @decode_sdp_fmtp(ptr noundef %191, ptr noundef %0, ptr noundef %1, i32 noundef %183, i32 noundef %187, i8 noundef zeroext %192, ptr noundef %4, ptr noundef null)
+  call fastcc void @decode_sdp_fmtp(ptr noundef %191, ptr noundef %0, ptr noundef %1, i32 noundef %183, i32 noundef %187, i8 noundef zeroext %192, ptr noundef readonly %4, ptr noundef null)
   br i1 %.not66.i, label %dissect_sdp_media_attribute_fmtp.exit, label %.split.us.split.us.i, !llvm.loop !24
 
 .split.us.split.i:                                ; preds = %.split.us.i, %198
@@ -3358,7 +3358,7 @@ dissect_sdp_media_attribute_rtpmap.exit:          ; preds = %53, %56, %64, %.thr
   %203 = call ptr @proto_item_add_subtree(ptr noundef %201, i32 noundef %202) #9
   %204 = load ptr, ptr %180, align 8
   %205 = load i8, ptr %20, align 1
-  call fastcc void @decode_sdp_fmtp(ptr noundef %203, ptr noundef %0, ptr noundef %1, i32 noundef %195, i32 noundef %199, i8 noundef zeroext %205, ptr noundef %4, ptr noundef %204)
+  call fastcc void @decode_sdp_fmtp(ptr noundef %203, ptr noundef %0, ptr noundef %1, i32 noundef %195, i32 noundef %199, i8 noundef zeroext %205, ptr noundef readonly %4, ptr noundef %204)
   br i1 %.not65.i, label %dissect_sdp_media_attribute_fmtp.exit, label %.split.us.split.i, !llvm.loop !24
 
 .split.i:                                         ; preds = %178, %211
@@ -3383,7 +3383,7 @@ dissect_sdp_media_attribute_rtpmap.exit:          ; preds = %53, %56, %64, %.thr
   %216 = call ptr @proto_item_add_subtree(ptr noundef %214, i32 noundef %215) #9
   %217 = load ptr, ptr %179, align 8
   %218 = load i8, ptr %20, align 1
-  call fastcc void @decode_sdp_fmtp(ptr noundef %216, ptr noundef %0, ptr noundef %1, i32 noundef %208, i32 noundef %212, i8 noundef zeroext %218, ptr noundef %4, ptr noundef %217)
+  call fastcc void @decode_sdp_fmtp(ptr noundef %216, ptr noundef %0, ptr noundef %1, i32 noundef %208, i32 noundef %212, i8 noundef zeroext %218, ptr noundef readonly %4, ptr noundef %217)
   br i1 %.not64.i, label %dissect_sdp_media_attribute_fmtp.exit, label %.split.i, !llvm.loop !24
 
 dissect_sdp_media_attribute_fmtp.exit:            ; preds = %211, %198, %186, %150, %176
@@ -3394,7 +3394,7 @@ dissect_sdp_media_attribute_fmtp.exit:            ; preds = %211, %198, %186, %1
 219:                                              ; preds = %46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18)
-  %220 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(8) @.str.243, i64 noundef 7) #10
+  %220 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %50, ptr noundef nonnull dereferenceable(8) @.str.243, i64 noundef 7) #10
   %221 = icmp eq i32 %220, 0
   %222 = load ptr, ptr @msrp_handle, align 8
   %223 = icmp ne ptr %222, null

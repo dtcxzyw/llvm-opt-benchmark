@@ -4085,7 +4085,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
   %__i.015.i.ptr.i = getelementptr inbounds i8, ptr %11, i64 %__i.015.i.idx.i
   %15 = load ptr, ptr %__i.015.i.ptr.i, align 8
   %16 = load ptr, ptr %11, align 8
-  %call.i413 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %15, ptr noundef %16)
+  %call.i413 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %15, ptr noundef readonly %16)
   %cmp.not.i414 = icmp eq i32 %call.i413, 0
   br i1 %cmp.not.i414, label %if.end.i417, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit473
 
@@ -4194,7 +4194,7 @@ if.then2.i.i:                                     ; preds = %_ZN7datalogL18initi
 
 if.else.i.i:                                      ; preds = %for.inc.i.i468, %if.end.i417, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit473
   %31 = load ptr, ptr %__first.pn14.i.i, align 8
-  %call.i352 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %15, ptr noundef %31)
+  %call.i352 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %15, ptr noundef readonly %31)
   %cmp.not.i353 = icmp eq i32 %call.i352, 0
   br i1 %cmp.not.i353, label %if.end.i356, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit412
 
@@ -4591,7 +4591,7 @@ for.body.i7.i:                                    ; preds = %_ZSt16__insertion_s
   %95 = load ptr, ptr %__i.04.i.i, align 8
   %__next.09.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i, i64 -8
   %96 = load ptr, ptr %__next.09.i.i.i, align 8
-  %call.i230 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %95, ptr noundef %96)
+  %call.i230 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %95, ptr noundef readonly %96)
   %cmp.not.i231 = icmp eq i32 %call.i230, 0
   br i1 %cmp.not.i231, label %if.end.i234, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit290
 
@@ -4992,7 +4992,7 @@ for.body.i16.i:                                   ; preds = %for.body.i16.i.preh
   %__first.pn14.i18.i = phi ptr [ %__i.015.i17.i, %for.inc.i22.i ], [ %11, %for.body.i16.i.preheader ]
   %160 = load ptr, ptr %__i.015.i17.i, align 8
   %161 = load ptr, ptr %11, align 8
-  %call.i108 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %160, ptr noundef %161)
+  %call.i108 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %160, ptr noundef readonly %161)
   %cmp.not.i109 = icmp eq i32 %call.i108, 0
   br i1 %cmp.not.i109, label %if.end.i112, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit168
 
@@ -5107,7 +5107,7 @@ if.then2.i31.i:                                   ; preds = %_ZN7datalogL18initi
 
 if.else.i20.i:                                    ; preds = %for.inc.i.i163, %if.end.i112, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit168
   %176 = load ptr, ptr %__first.pn14.i18.i, align 8
-  %call.i47 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %160, ptr noundef %176)
+  %call.i47 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %160, ptr noundef readonly %176)
   %cmp.not.i48 = icmp eq i32 %call.i47, 0
   br i1 %cmp.not.i48, label %if.end.i51, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit107
 
@@ -5223,7 +5223,7 @@ while.body.i.i26.i:                               ; preds = %while.body.i.i26.i.
   store ptr %191, ptr %__last.addr.011.i.i28.i, align 8
   %__next.0.i.i29.i = getelementptr inbounds i8, ptr %__next.012.i.i27.i, i64 -8
   %192 = load ptr, ptr %__next.0.i.i29.i, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %160, ptr noundef %192)
+  %call.i = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %160, ptr noundef readonly %192)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit
 

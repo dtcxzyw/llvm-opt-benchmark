@@ -621,7 +621,7 @@ define dso_local noundef zeroext i1 @_ZN26cmBinUtilsMacOSMachOLinker16ScanDepend
 
 .noexc:                                           ; preds = %28
   %29 = getelementptr inbounds i8, ptr %25, i64 24
-  %30 = invoke noundef zeroext i1 @_ZN26cmBinUtilsMacOSMachOLinker19GetFileDependenciesERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SC_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %29)
+  %30 = invoke noundef zeroext i1 @_ZN26cmBinUtilsMacOSMachOLinker19GetFileDependenciesERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SC_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %29)
           to label %_ZN26cmBinUtilsMacOSMachOLinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EESC_S7_.exit unwind label %31
 
 31:                                               ; preds = %.noexc

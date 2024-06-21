@@ -752,7 +752,7 @@ define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr nocapture nounde
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread1, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit.thread1:                    ; preds = %.lr.ph.i.i, %8
-  %19 = tail call noalias ptr @strdup(ptr noundef %0) #12
+  %19 = tail call noalias ptr @strdup(ptr noundef readonly %0) #12
   %20 = getelementptr inbounds i8, ptr %3, i64 144
   store ptr %19, ptr %20, align 8
   %21 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
@@ -1139,12 +1139,12 @@ define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   %43 = phi ptr [ %51, %pmix_query_check_is_local_resolve.exit.thread.i ], [ %42, %.preheader.i ]
   %.018.i = phi i64 [ %49, %pmix_query_check_is_local_resolve.exit.thread.i ], [ 0, %.preheader.i ]
   %.117.i = phi i64 [ %spec.select.i, %pmix_query_check_is_local_resolve.exit.thread.i ], [ %.01219.i, %.preheader.i ]
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(18) @.str.4) #13
+  %44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull dereferenceable(18) @.str.4) #13
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %pmix_query_check_is_local_resolve.exit.thread.i, label %pmix_query_check_is_local_resolve.exit.i
 
 pmix_query_check_is_local_resolve.exit.i:         ; preds = %.lr.ph.i
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(18) @.str.6) #13
+  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull dereferenceable(18) @.str.6) #13
   %.fr.i = freeze i32 %46
   %47 = icmp eq i32 %.fr.i, 0
   %48 = zext i1 %47 to i64
@@ -1264,12 +1264,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %65, %6
   %98 = phi ptr [ %94, %.lr.ph.i32 ], [ %110, %pmix_query_check_is_local_resolve.exit.thread.i34 ]
   %.02240.i = phi i64 [ 0, %.lr.ph.i32 ], [ %.1.i, %pmix_query_check_is_local_resolve.exit.thread.i34 ]
   %.02539.i = phi i64 [ 0, %.lr.ph.i32 ], [ %108, %pmix_query_check_is_local_resolve.exit.thread.i34 ]
-  %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(18) @.str.4) #13
+  %99 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %98, ptr noundef nonnull dereferenceable(18) @.str.4) #13
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %pmix_query_check_is_local_resolve.exit.thread.i34, label %pmix_query_check_is_local_resolve.exit.i33
 
 pmix_query_check_is_local_resolve.exit.i33:       ; preds = %96
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(18) @.str.6) #13
+  %101 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %98, ptr noundef nonnull dereferenceable(18) @.str.6) #13
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %pmix_query_check_is_local_resolve.exit.thread.i34, label %103
 
@@ -1381,12 +1381,12 @@ define i32 @PMIx_Query_info(ptr noundef %0, i64 noundef %1, ptr nocapture nounde
   %19 = phi ptr [ %27, %pmix_query_check_is_local_resolve.exit.thread.i.i ], [ %18, %.preheader.i.i ]
   %.018.i.i = phi i64 [ %25, %pmix_query_check_is_local_resolve.exit.thread.i.i ], [ 0, %.preheader.i.i ]
   %.117.i.i = phi i64 [ %spec.select.i.i, %pmix_query_check_is_local_resolve.exit.thread.i.i ], [ %.01219.i.i, %.preheader.i.i ]
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.4) #13
+  %20 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.4) #13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %pmix_query_check_is_local_resolve.exit.thread.i.i, label %pmix_query_check_is_local_resolve.exit.i.i
 
 pmix_query_check_is_local_resolve.exit.i.i:       ; preds = %.lr.ph.i.i
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.6) #13
+  %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.6) #13
   %.fr.i.i = freeze i32 %22
   %23 = icmp eq i32 %.fr.i.i, 0
   %24 = zext i1 %23 to i64

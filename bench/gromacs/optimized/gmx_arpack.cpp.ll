@@ -474,7 +474,7 @@ sub_1199:                                         ; preds = %sub_0198
   %251 = getelementptr double, ptr %221, i64 %250
   %252 = getelementptr i8, ptr %251, i64 8
   %253 = getelementptr inbounds i8, ptr %13, i64 240
-  call fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %247, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %252, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %253, ptr noundef %16)
+  call fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %247, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %252, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %253, ptr noundef %16)
   %254 = load i32, ptr %0, align 4
   %.not369.i = icmp eq i32 %254, 99
   br i1 %.not369.i, label %255, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
@@ -524,7 +524,7 @@ sub_1199:                                         ; preds = %sub_0198
   %282 = getelementptr i8, ptr %281, i64 8
   %283 = getelementptr inbounds i8, ptr %13, i64 160
   %.val.i = load i32, ptr %205, align 4
-  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %277, ptr noundef nonnull %198, ptr noundef %6, ptr noundef %282, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %283, ptr noundef %16)
+  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %277, ptr noundef nonnull readonly %198, ptr noundef %6, ptr noundef %282, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %283, ptr noundef %16)
   %284 = load i32, ptr %0, align 4
   %.not370.i = icmp eq i32 %284, 99
   br i1 %.not370.i, label %285, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
@@ -559,7 +559,7 @@ sub_1199:                                         ; preds = %sub_0198
   %300 = getelementptr i8, ptr %299, i64 8
   %301 = getelementptr inbounds i8, ptr %13, i64 160
   %.val383.i = load i32, ptr %205, align 4
-  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %198, ptr noundef %6, ptr noundef %300, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %301, ptr noundef %16)
+  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull readonly %198, ptr noundef %6, ptr noundef %300, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %301, ptr noundef %16)
   %302 = load i32, ptr %0, align 4
   %.not371.i = icmp eq i32 %302, 99
   br i1 %.not371.i, label %303, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
@@ -1387,7 +1387,7 @@ _ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.i:             ; preds = %.lr.ph.i.i
   %683 = getelementptr inbounds i8, ptr %13, i64 116
   %684 = load i32, ptr %683, align 4
   store i32 %684, ptr %197, align 4
-  call fastcc void @_ZL7dsgets_PiPKcS_S_PdS2_S2_(ptr noundef nonnull %199, ptr noundef %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
+  call fastcc void @_ZL7dsgets_PiPKcS_S_PdS2_S2_(ptr noundef nonnull readonly %199, ptr noundef readonly %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
   %685 = load i32, ptr %197, align 4
   %686 = add nsw i32 %685, 1
   %687 = sext i32 %686 to i64
@@ -1748,7 +1748,7 @@ sub_022.i:                                        ; preds = %.lr.ph75.i, %._crit
   br i1 %842, label %843, label %.thread305
 
 843:                                              ; preds = %839
-  call fastcc void @_ZL7dsgets_PiPKcS_S_PdS2_S2_(ptr noundef nonnull %199, ptr noundef %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
+  call fastcc void @_ZL7dsgets_PiPKcS_S_PdS2_S2_(ptr noundef nonnull readonly %199, ptr noundef readonly %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
   %.pr.i.pre = load i32, ptr %199, align 4
   br label %thread-pre-split.i
 
@@ -4488,7 +4488,7 @@ sub_1199:                                         ; preds = %sub_0198
   %251 = getelementptr float, ptr %221, i64 %250
   %252 = getelementptr i8, ptr %251, i64 4
   %253 = getelementptr inbounds i8, ptr %13, i64 240
-  call fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %247, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %252, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %253, ptr noundef %16)
+  call fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %247, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %252, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %253, ptr noundef %16)
   %254 = load i32, ptr %0, align 4
   %.not369.i = icmp eq i32 %254, 99
   br i1 %.not369.i, label %255, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
@@ -4538,7 +4538,7 @@ sub_1199:                                         ; preds = %sub_0198
   %282 = getelementptr i8, ptr %281, i64 4
   %283 = getelementptr inbounds i8, ptr %13, i64 160
   %.val.i = load i32, ptr %205, align 4
-  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %277, ptr noundef nonnull %198, ptr noundef %6, ptr noundef %282, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %283, ptr noundef %16)
+  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %277, ptr noundef nonnull readonly %198, ptr noundef %6, ptr noundef %282, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %283, ptr noundef %16)
   %284 = load i32, ptr %0, align 4
   %.not370.i = icmp eq i32 %284, 99
   br i1 %.not370.i, label %285, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
@@ -4573,7 +4573,7 @@ sub_1199:                                         ; preds = %sub_0198
   %300 = getelementptr i8, ptr %299, i64 4
   %301 = getelementptr inbounds i8, ptr %13, i64 160
   %.val383.i = load i32, ptr %205, align 4
-  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %198, ptr noundef %6, ptr noundef %300, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %301, ptr noundef %16)
+  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull readonly %198, ptr noundef %6, ptr noundef %300, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %204, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %301, ptr noundef %16)
   %302 = load i32, ptr %0, align 4
   %.not371.i = icmp eq i32 %302, 99
   br i1 %.not371.i, label %303, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
@@ -5415,7 +5415,7 @@ _ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.i:             ; preds = %.lr.ph.i.i
   %697 = getelementptr inbounds i8, ptr %13, i64 116
   %698 = load i32, ptr %697, align 4
   store i32 %698, ptr %197, align 4
-  call fastcc void @_ZL7ssgets_PiPKcS_S_PfS2_S2_(ptr noundef nonnull %199, ptr noundef %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
+  call fastcc void @_ZL7ssgets_PiPKcS_S_PfS2_S2_(ptr noundef nonnull readonly %199, ptr noundef readonly %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
   %699 = load i32, ptr %197, align 4
   %700 = add nsw i32 %699, 1
   %701 = sext i32 %700 to i64
@@ -5776,7 +5776,7 @@ sub_022.i:                                        ; preds = %.lr.ph75.i, %._crit
   br i1 %856, label %857, label %.thread305
 
 857:                                              ; preds = %853
-  call fastcc void @_ZL7ssgets_PiPKcS_S_PfS2_S2_(ptr noundef nonnull %199, ptr noundef %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
+  call fastcc void @_ZL7ssgets_PiPKcS_S_PfS2_S2_(ptr noundef nonnull readonly %199, ptr noundef readonly %3, ptr noundef nonnull %196, ptr noundef nonnull %197, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %219)
   %.pr.i.pre = load i32, ptr %199, align 4
   br label %thread-pre-split.i
 

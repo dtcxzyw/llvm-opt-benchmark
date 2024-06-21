@@ -445,14 +445,14 @@ aer_log_add_err.exit.i.i:                         ; preds = %if.then16.i.i
   %21 = load ptr, ptr %log.i.i.i, align 8
   %idxprom.i.i.i = zext i16 %19 to i64
   %arrayidx.i.i.i = getelementptr %struct.PCIEAERErr, ptr %21, i64 %idxprom.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %err, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %err, i64 40, i1 false)
   %22 = load i16, ptr %aer_log.i.i, align 8
   %inc.i.i.i = add i16 %22, 1
   store i16 %inc.i.i.i, ptr %aer_log.i.i, align 8
   br label %if.end33.i
 
 if.end22.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end9.i.i
-  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull %err)
+  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull readonly %err)
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then16.i.i, %aer_log_add_err.exit.i.i, %if.end22.i.i, %if.end20.i51
@@ -556,14 +556,14 @@ aer_log_add_err.exit.i.i100:                      ; preds = %if.then16.i.i96
   %36 = load ptr, ptr %log.i.i.i101, align 8
   %idxprom.i.i.i102 = zext i16 %34 to i64
   %arrayidx.i.i.i103 = getelementptr %struct.PCIEAERErr, ptr %36, i64 %idxprom.i.i.i102
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i103, ptr noundef nonnull align 4 dereferenceable(40) %err, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %arrayidx.i.i.i103, ptr noundef nonnull readonly align 4 dereferenceable(40) %err, i64 40, i1 false)
   %37 = load i16, ptr %aer_log.i.i97, align 8
   %inc.i.i.i104 = add i16 %37, 1
   store i16 %inc.i.i.i104, ptr %aer_log.i.i97, align 8
   br label %pcie_aer_record_error.exit.i105
 
 if.end22.i.i113:                                  ; preds = %land.lhs.true.i.i90, %if.end9.i.i87
-  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull %err)
+  tail call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull readonly %err)
   br label %pcie_aer_record_error.exit.i105
 
 pcie_aer_record_error.exit.i105:                  ; preds = %if.end22.i.i113, %aer_log_add_err.exit.i.i100, %if.then16.i.i96

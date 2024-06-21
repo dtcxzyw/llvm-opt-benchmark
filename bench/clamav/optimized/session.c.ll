@@ -1105,7 +1105,7 @@ print_commands.exit:                              ; preds = %62, %71
   br label %.thread48.i
 
 108:                                              ; preds = %102, %102, %102, %102
-  %109 = tail call noalias ptr @strdup(ptr noundef %2) #13
+  %109 = tail call noalias ptr @strdup(ptr noundef readonly %2) #13
   %110 = getelementptr inbounds i8, ptr %93, i64 8
   store ptr %109, ptr %110, align 8
   %.not36.i = icmp eq ptr %109, null

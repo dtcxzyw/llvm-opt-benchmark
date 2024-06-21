@@ -15976,7 +15976,7 @@ define internal noundef zeroext i1 @_ZThn280_NK12_GLOBAL__N_121BuildLogRecompact
   br i1 %4, label %5, label %_ZNK12_GLOBAL__N_121BuildLogRecompactTest10IsPathDeadE11StringPiece.exit
 
 5:                                                ; preds = %3
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @__const._ZN12_GLOBAL__N_124BuildLogTest_Restat_Test8TestBodyEv.out2, i64 4)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @__const._ZN12_GLOBAL__N_124BuildLogTest_Restat_Test8TestBodyEv.out2, i64 4)
   %6 = icmp eq i32 %bcmp.i.i, 0
   br label %_ZNK12_GLOBAL__N_121BuildLogRecompactTest10IsPathDeadE11StringPiece.exit
 

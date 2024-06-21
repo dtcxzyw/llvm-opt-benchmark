@@ -7308,7 +7308,7 @@ dissect_dch_rx_timing_deviation.exit:             ; preds = %32, %42, %62, %64
   br label %169
 
 111:                                              ; preds = %4
-  tail call fastcc void @dissect_common_ul_node_synchronisation(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_common_ul_node_synchronisation(ptr noundef nonnull readonly %1, ptr noundef %0, ptr noundef %2)
   br label %169
 
 .preheader:                                       ; preds = %4, %.preheader

@@ -476,7 +476,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   br label %.thread.thread.i
 
 221:                                              ; preds = %212
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %215, ptr align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %215, ptr readonly align 1 %2, i64 %3, i1 false)
   %222 = call i32 @H5T_convert(ptr noundef nonnull %191, ptr noundef %1, ptr noundef nonnull %168, i64 noundef %44, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %215, ptr noundef null) #8
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %224, label %228

@@ -434,7 +434,7 @@ entry:
   %0 = load i32, ptr %pc.i, align 8
   %lasttarget.i = getelementptr inbounds i8, ptr %fs, i64 36
   store i32 %0, ptr %lasttarget.i, align 4
-  tail call fastcc void @patchlistaux(ptr noundef %fs, i32 noundef %list, i32 noundef %0, i32 noundef 255, i32 noundef %0)
+  tail call fastcc void @patchlistaux(ptr noundef readonly %fs, i32 noundef %list, i32 noundef %0, i32 noundef 255, i32 noundef %0)
   ret void
 }
 
@@ -1275,7 +1275,7 @@ cond.end:                                         ; preds = %if.then8, %cond.fal
   %call.i.i75 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i.i74)
   %24 = load i32, ptr %pc.i.i, align 8
   store i32 %24, ptr %lasttarget.i.i, align 4
-  tail call fastcc void @patchlistaux(ptr noundef %fs, i32 noundef %cond, i32 noundef %24, i32 noundef 255, i32 noundef %24)
+  tail call fastcc void @patchlistaux(ptr noundef readonly %fs, i32 noundef %cond, i32 noundef %24, i32 noundef 255, i32 noundef %24)
   br label %if.end14
 
 if.end14:                                         ; preds = %for.inc.i54, %lor.lhs.false, %cond.end
@@ -1840,7 +1840,7 @@ luaK_concat.exit:                                 ; preds = %entry, %entry, %ent
   %14 = load i32, ptr %pc.i.i, align 8
   %lasttarget.i.i = getelementptr inbounds i8, ptr %fs, i64 36
   store i32 %14, ptr %lasttarget.i.i, align 4
-  tail call fastcc void @patchlistaux(ptr noundef %fs, i32 noundef %13, i32 noundef %14, i32 noundef 255, i32 noundef %14)
+  tail call fastcc void @patchlistaux(ptr noundef readonly %fs, i32 noundef %13, i32 noundef %14, i32 noundef 255, i32 noundef %14)
   store i32 -1, ptr %t, align 8
   ret void
 }
@@ -2066,7 +2066,7 @@ luaK_concat.exit:                                 ; preds = %entry, %entry, %sw.
   %8 = load i32, ptr %pc.i.i, align 8
   %lasttarget.i.i = getelementptr inbounds i8, ptr %fs, i64 36
   store i32 %8, ptr %lasttarget.i.i, align 4
-  tail call fastcc void @patchlistaux(ptr noundef %fs, i32 noundef %7, i32 noundef %8, i32 noundef 255, i32 noundef %8)
+  tail call fastcc void @patchlistaux(ptr noundef readonly %fs, i32 noundef %7, i32 noundef %8, i32 noundef 255, i32 noundef %8)
   store i32 -1, ptr %f, align 4
   ret void
 }
@@ -3213,7 +3213,7 @@ land.lhs.true.split.i:                            ; preds = %isSCint.exit.i, %is
 if.then3.i:                                       ; preds = %isSCint.exit.i
   %conv.i.i = trunc i64 %41 to i32
   %add.i.i123 = add nsw i32 %conv.i.i, 127
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull %e2, i32 noundef 21, i32 noundef %add.i.i123, i32 noundef %flip.0.i, i32 noundef %line, i32 noundef 47, i32 noundef 6)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull readonly %e2, i32 noundef 21, i32 noundef %add.i.i123, i32 noundef %flip.0.i, i32 noundef %line, i32 noundef 47, i32 noundef 6)
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
@@ -3239,7 +3239,7 @@ if.else.i128:                                     ; preds = %isKint.exit.i
 finishbinexpneg.exit:                             ; preds = %if.else.i128
   %conv.i130 = trunc i64 %46 to i32
   %add.i = sub nsw i32 127, %conv.i130
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull %e2, i32 noundef 21, i32 noundef %add.i, i32 noundef 0, i32 noundef %line, i32 noundef 47, i32 noundef 7)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull readonly %e2, i32 noundef 21, i32 noundef %add.i, i32 noundef 0, i32 noundef %line, i32 noundef 47, i32 noundef 7)
   %48 = load ptr, ptr %fs, align 8
   %code.i = getelementptr inbounds i8, ptr %48, i64 64
   %49 = load ptr, ptr %code.i, align 8
@@ -3290,7 +3290,7 @@ if.then3.i140:                                    ; preds = %land.lhs.true.i139
   %u.i.i142 = getelementptr inbounds i8, ptr %e2, i64 8
   %56 = load i32, ptr %u.i.i142, align 8
   %add.i3.i.i = add nuw nsw i32 %opr, 22
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull %e2, i32 noundef %add.i3.i.i, i32 noundef %56, i32 noundef %flip.0.i136, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i.i141)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull readonly %e2, i32 noundef %add.i3.i.i, i32 noundef %56, i32 noundef %flip.0.i136, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i.i141)
   br label %sw.epilog
 
 if.else.i137:                                     ; preds = %land.lhs.true.i139, %if.end.i135
@@ -3341,7 +3341,7 @@ if.then16:                                        ; preds = %isSCint.exit
   %62 = load i64, ptr %u.i152, align 8
   %conv.i153 = trunc i64 %62 to i32
   %add.i154 = add nsw i32 %conv.i153, 127
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef %e2, i32 noundef 33, i32 noundef %add.i154, i32 noundef 1, i32 noundef %line, i32 noundef 47, i32 noundef 16)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef readonly %e2, i32 noundef 33, i32 noundef %add.i154, i32 noundef 1, i32 noundef %line, i32 noundef 47, i32 noundef 16)
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb13, %isKint.exit.i145, %isSCint.exit
@@ -3376,7 +3376,7 @@ isSCint.exit166:                                  ; preds = %isKint.exit.i157
 if.then26:                                        ; preds = %isSCint.exit166
   %conv.i168 = trunc i64 %66 to i32
   %add.i169 = add nsw i32 %conv.i168, 127
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull %e2, i32 noundef 32, i32 noundef %add.i169, i32 noundef 0, i32 noundef %line, i32 noundef 47, i32 noundef 17)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull readonly %e2, i32 noundef 32, i32 noundef %add.i169, i32 noundef 0, i32 noundef %line, i32 noundef 47, i32 noundef 17)
   br label %sw.epilog
 
 if.else27:                                        ; preds = %sw.bb23, %isKint.exit.i157, %isSCint.exit166
@@ -3812,7 +3812,7 @@ if.then:                                          ; preds = %land.lhs.true
   %u.i = getelementptr inbounds i8, ptr %e2, i64 8
   %3 = load i32, ptr %u.i, align 8
   %add.i3.i = add nsw i32 %opr, 22
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull %e2, i32 noundef %add.i3.i, i32 noundef %3, i32 noundef %flip, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull readonly %e2, i32 noundef %add.i3.i, i32 noundef %3, i32 noundef %flip, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i)
   br label %if.end
 
 if.else:                                          ; preds = %if.end.i, %entry, %land.lhs.true

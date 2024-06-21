@@ -5689,7 +5689,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val.i.i.i, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !26
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
@@ -5831,7 +5831,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i118:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i115, %for.body.i.i.i.i.i.i118
   %__cur.03.i.i.i.i.i.i119 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i122, %for.body.i.i.i.i.i.i118 ], [ %cond.i12.i.i.i116, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i115 ]
   %__first.addr.02.i.i.i.i.i.i120 = phi ptr [ %incdec.ptr.i.i.i.i.i.i121, %for.body.i.i.i.i.i.i118 ], [ %this.val.i.i.i99, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i115 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i119, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i120, i64 32, i1 false), !alias.scope !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i119, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i120, i64 32, i1 false), !alias.scope !31
   %incdec.ptr.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i120, i64 32
   %incdec.ptr1.i.i.i.i.i.i122 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i119, i64 32
   %cmp.not.i.i.i.i.i.i123 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i121, %3
@@ -5918,7 +5918,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i159:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i156, %for.body.i.i.i.i.i.i159
   %__cur.03.i.i.i.i.i.i160 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i163, %for.body.i.i.i.i.i.i159 ], [ %cond.i12.i.i.i157, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i156 ]
   %__first.addr.02.i.i.i.i.i.i161 = phi ptr [ %incdec.ptr.i.i.i.i.i.i162, %for.body.i.i.i.i.i.i159 ], [ %this.val.i.i.i140, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i156 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i160, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i161, i64 32, i1 false), !alias.scope !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i160, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i161, i64 32, i1 false), !alias.scope !35
   %incdec.ptr.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i161, i64 32
   %incdec.ptr1.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i160, i64 32
   %cmp.not.i.i.i.i.i.i164 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i162, %26
@@ -6004,7 +6004,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i200:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i197, %for.body.i.i.i.i.i.i200
   %__cur.03.i.i.i.i.i.i201 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i204, %for.body.i.i.i.i.i.i200 ], [ %cond.i12.i.i.i198, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i197 ]
   %__first.addr.02.i.i.i.i.i.i202 = phi ptr [ %incdec.ptr.i.i.i.i.i.i203, %for.body.i.i.i.i.i.i200 ], [ %this.val.i.i.i181, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i197 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i201, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i202, i64 32, i1 false), !alias.scope !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i201, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i202, i64 32, i1 false), !alias.scope !39
   %incdec.ptr.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i202, i64 32
   %incdec.ptr1.i.i.i.i.i.i204 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i201, i64 32
   %cmp.not.i.i.i.i.i.i205 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i203, %30
@@ -6122,7 +6122,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i251:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i248, %for.body.i.i.i.i.i.i251
   %__cur.03.i.i.i.i.i.i252 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i255, %for.body.i.i.i.i.i.i251 ], [ %cond.i12.i.i.i249, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i248 ]
   %__first.addr.02.i.i.i.i.i.i253 = phi ptr [ %incdec.ptr.i.i.i.i.i.i254, %for.body.i.i.i.i.i.i251 ], [ %this.val.i.i.i232, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i248 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i252, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i253, i64 32, i1 false), !alias.scope !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i252, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i253, i64 32, i1 false), !alias.scope !43
   %incdec.ptr.i.i.i.i.i.i254 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i253, i64 32
   %incdec.ptr1.i.i.i.i.i.i255 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i252, i64 32
   %cmp.not.i.i.i.i.i.i256 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i254, %38
@@ -6204,7 +6204,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i292:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i289, %for.body.i.i.i.i.i.i292
   %__cur.03.i.i.i.i.i.i293 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i296, %for.body.i.i.i.i.i.i292 ], [ %cond.i12.i.i.i290, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i289 ]
   %__first.addr.02.i.i.i.i.i.i294 = phi ptr [ %incdec.ptr.i.i.i.i.i.i295, %for.body.i.i.i.i.i.i292 ], [ %this.val.i.i.i273, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i289 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i293, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i294, i64 32, i1 false), !alias.scope !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i293, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i294, i64 32, i1 false), !alias.scope !47
   %incdec.ptr.i.i.i.i.i.i295 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i294, i64 32
   %incdec.ptr1.i.i.i.i.i.i296 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i293, i64 32
   %cmp.not.i.i.i.i.i.i297 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i295, %42
@@ -6342,7 +6342,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i341:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i338, %for.body.i.i.i.i.i.i341
   %__cur.03.i.i.i.i.i.i342 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i345, %for.body.i.i.i.i.i.i341 ], [ %cond.i12.i.i.i339, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i338 ]
   %__first.addr.02.i.i.i.i.i.i343 = phi ptr [ %incdec.ptr.i.i.i.i.i.i344, %for.body.i.i.i.i.i.i341 ], [ %this.val.i.i.i322, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i338 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i342, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i343, i64 32, i1 false), !alias.scope !51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i342, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i343, i64 32, i1 false), !alias.scope !51
   %incdec.ptr.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i343, i64 32
   %incdec.ptr1.i.i.i.i.i.i345 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i342, i64 32
   %cmp.not.i.i.i.i.i.i346 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i344, %51
@@ -6428,7 +6428,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i382:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i379, %for.body.i.i.i.i.i.i382
   %__cur.03.i.i.i.i.i.i383 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i386, %for.body.i.i.i.i.i.i382 ], [ %cond.i12.i.i.i380, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i379 ]
   %__first.addr.02.i.i.i.i.i.i384 = phi ptr [ %incdec.ptr.i.i.i.i.i.i385, %for.body.i.i.i.i.i.i382 ], [ %this.val.i.i.i363, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i379 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i383, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i384, i64 32, i1 false), !alias.scope !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i383, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i384, i64 32, i1 false), !alias.scope !55
   %incdec.ptr.i.i.i.i.i.i385 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i384, i64 32
   %incdec.ptr1.i.i.i.i.i.i386 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i383, i64 32
   %cmp.not.i.i.i.i.i.i387 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i385, %60
@@ -6517,7 +6517,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i423:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i420, %for.body.i.i.i.i.i.i423
   %__cur.03.i.i.i.i.i.i424 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i427, %for.body.i.i.i.i.i.i423 ], [ %cond.i12.i.i.i421, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i420 ]
   %__first.addr.02.i.i.i.i.i.i425 = phi ptr [ %incdec.ptr.i.i.i.i.i.i426, %for.body.i.i.i.i.i.i423 ], [ %this.val.i.i.i404, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i420 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i424, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i425, i64 32, i1 false), !alias.scope !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i424, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i425, i64 32, i1 false), !alias.scope !59
   %incdec.ptr.i.i.i.i.i.i426 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i425, i64 32
   %incdec.ptr1.i.i.i.i.i.i427 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i424, i64 32
   %cmp.not.i.i.i.i.i.i428 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i426, %51
@@ -6602,7 +6602,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i464:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i461, %for.body.i.i.i.i.i.i464
   %__cur.03.i.i.i.i.i.i465 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i468, %for.body.i.i.i.i.i.i464 ], [ %cond.i12.i.i.i462, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i461 ]
   %__first.addr.02.i.i.i.i.i.i466 = phi ptr [ %incdec.ptr.i.i.i.i.i.i467, %for.body.i.i.i.i.i.i464 ], [ %this.val.i.i.i445, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i461 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i465, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i466, i64 32, i1 false), !alias.scope !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i465, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i466, i64 32, i1 false), !alias.scope !63
   %incdec.ptr.i.i.i.i.i.i467 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i466, i64 32
   %incdec.ptr1.i.i.i.i.i.i468 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i465, i64 32
   %cmp.not.i.i.i.i.i.i469 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i467, %69
@@ -6680,7 +6680,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i505:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i502, %for.body.i.i.i.i.i.i505
   %__cur.03.i.i.i.i.i.i506 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i509, %for.body.i.i.i.i.i.i505 ], [ %cond.i12.i.i.i503, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i502 ]
   %__first.addr.02.i.i.i.i.i.i507 = phi ptr [ %incdec.ptr.i.i.i.i.i.i508, %for.body.i.i.i.i.i.i505 ], [ %this.val.i.i.i486, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i502 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i506, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i507, i64 32, i1 false), !alias.scope !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i506, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i507, i64 32, i1 false), !alias.scope !67
   %incdec.ptr.i.i.i.i.i.i508 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i507, i64 32
   %incdec.ptr1.i.i.i.i.i.i509 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i506, i64 32
   %cmp.not.i.i.i.i.i.i510 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i508, %51
@@ -6765,7 +6765,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i546:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i543, %for.body.i.i.i.i.i.i546
   %__cur.03.i.i.i.i.i.i547 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i550, %for.body.i.i.i.i.i.i546 ], [ %cond.i12.i.i.i544, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i543 ]
   %__first.addr.02.i.i.i.i.i.i548 = phi ptr [ %incdec.ptr.i.i.i.i.i.i549, %for.body.i.i.i.i.i.i546 ], [ %this.val.i.i.i527, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i543 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i547, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i548, i64 32, i1 false), !alias.scope !71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i547, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i548, i64 32, i1 false), !alias.scope !71
   %incdec.ptr.i.i.i.i.i.i549 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i548, i64 32
   %incdec.ptr1.i.i.i.i.i.i550 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i547, i64 32
   %cmp.not.i.i.i.i.i.i551 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i549, %76
@@ -6901,7 +6901,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i596:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i593, %for.body.i.i.i.i.i.i596
   %__cur.03.i.i.i.i.i.i597 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i600, %for.body.i.i.i.i.i.i596 ], [ %cond.i12.i.i.i594, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i593 ]
   %__first.addr.02.i.i.i.i.i.i598 = phi ptr [ %incdec.ptr.i.i.i.i.i.i599, %for.body.i.i.i.i.i.i596 ], [ %this.val.i.i.i577, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i593 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i597, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i598, i64 32, i1 false), !alias.scope !75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i597, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i598, i64 32, i1 false), !alias.scope !75
   %incdec.ptr.i.i.i.i.i.i599 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i598, i64 32
   %incdec.ptr1.i.i.i.i.i.i600 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i597, i64 32
   %cmp.not.i.i.i.i.i.i601 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i599, %85
@@ -6989,7 +6989,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i637:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i634, %for.body.i.i.i.i.i.i637
   %__cur.03.i.i.i.i.i.i638 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i641, %for.body.i.i.i.i.i.i637 ], [ %cond.i12.i.i.i635, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i634 ]
   %__first.addr.02.i.i.i.i.i.i639 = phi ptr [ %incdec.ptr.i.i.i.i.i.i640, %for.body.i.i.i.i.i.i637 ], [ %this.val.i.i.i618, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i634 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i638, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i639, i64 32, i1 false), !alias.scope !79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i638, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i639, i64 32, i1 false), !alias.scope !79
   %incdec.ptr.i.i.i.i.i.i640 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i639, i64 32
   %incdec.ptr1.i.i.i.i.i.i641 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i638, i64 32
   %cmp.not.i.i.i.i.i.i642 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i640, %95
@@ -7127,7 +7127,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i687:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i684, %for.body.i.i.i.i.i.i687
   %__cur.03.i.i.i.i.i.i688 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i691, %for.body.i.i.i.i.i.i687 ], [ %cond.i12.i.i.i685, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i684 ]
   %__first.addr.02.i.i.i.i.i.i689 = phi ptr [ %incdec.ptr.i.i.i.i.i.i690, %for.body.i.i.i.i.i.i687 ], [ %this.val.i.i.i668, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i684 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i688, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i689, i64 32, i1 false), !alias.scope !83
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i688, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i689, i64 32, i1 false), !alias.scope !83
   %incdec.ptr.i.i.i.i.i.i690 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i689, i64 32
   %incdec.ptr1.i.i.i.i.i.i691 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i688, i64 32
   %cmp.not.i.i.i.i.i.i692 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i690, %104
@@ -7220,7 +7220,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i728:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i725, %for.body.i.i.i.i.i.i728
   %__cur.03.i.i.i.i.i.i729 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i732, %for.body.i.i.i.i.i.i728 ], [ %cond.i12.i.i.i726, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i725 ]
   %__first.addr.02.i.i.i.i.i.i730 = phi ptr [ %incdec.ptr.i.i.i.i.i.i731, %for.body.i.i.i.i.i.i728 ], [ %this.val.i.i.i709, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i725 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i729, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i730, i64 32, i1 false), !alias.scope !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i729, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i730, i64 32, i1 false), !alias.scope !87
   %incdec.ptr.i.i.i.i.i.i731 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i730, i64 32
   %incdec.ptr1.i.i.i.i.i.i732 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i729, i64 32
   %cmp.not.i.i.i.i.i.i733 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i731, %114
@@ -7300,7 +7300,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i769:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i766, %for.body.i.i.i.i.i.i769
   %__cur.03.i.i.i.i.i.i770 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i773, %for.body.i.i.i.i.i.i769 ], [ %cond.i12.i.i.i767, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i766 ]
   %__first.addr.02.i.i.i.i.i.i771 = phi ptr [ %incdec.ptr.i.i.i.i.i.i772, %for.body.i.i.i.i.i.i769 ], [ %this.val.i.i.i750, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i766 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i770, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i771, i64 32, i1 false), !alias.scope !91
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i770, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i771, i64 32, i1 false), !alias.scope !91
   %incdec.ptr.i.i.i.i.i.i772 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i771, i64 32
   %incdec.ptr1.i.i.i.i.i.i773 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i770, i64 32
   %cmp.not.i.i.i.i.i.i774 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i772, %114
@@ -7411,7 +7411,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i811:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i808, %for.body.i.i.i.i.i.i811
   %__cur.03.i.i.i.i.i.i812 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i815, %for.body.i.i.i.i.i.i811 ], [ %cond.i12.i.i.i809, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i808 ]
   %__first.addr.02.i.i.i.i.i.i813 = phi ptr [ %incdec.ptr.i.i.i.i.i.i814, %for.body.i.i.i.i.i.i811 ], [ %this.val.i.i.i792, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i808 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i812, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i813, i64 32, i1 false), !alias.scope !95
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i812, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i813, i64 32, i1 false), !alias.scope !95
   %incdec.ptr.i.i.i.i.i.i814 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i813, i64 32
   %incdec.ptr1.i.i.i.i.i.i815 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i812, i64 32
   %cmp.not.i.i.i.i.i.i816 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i814, %123
@@ -7489,7 +7489,7 @@ _ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_
 for.body.i.i.i.i.i.i852:                          ; preds = %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i849, %for.body.i.i.i.i.i.i852
   %__cur.03.i.i.i.i.i.i853 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i856, %for.body.i.i.i.i.i.i852 ], [ %cond.i12.i.i.i850, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i849 ]
   %__first.addr.02.i.i.i.i.i.i854 = phi ptr [ %incdec.ptr.i.i.i.i.i.i855, %for.body.i.i.i.i.i.i852 ], [ %this.val.i.i.i833, %_ZNSt12_Vector_baseIN4mold3elf12_GLOBAL__N_18GotEntryINS1_5ARM32EEESaIS5_EE11_M_allocateEm.exit.i.i.i849 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i853, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i854, i64 32, i1 false), !alias.scope !99
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i853, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i854, i64 32, i1 false), !alias.scope !99
   %incdec.ptr.i.i.i.i.i.i855 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i854, i64 32
   %incdec.ptr1.i.i.i.i.i.i856 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i853, i64 32
   %cmp.not.i.i.i.i.i.i857 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i855, %123
@@ -51328,7 +51328,7 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
   %my_depth.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 3
   store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool.i.i, align 8
   %my_pool2.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i.i.i, ptr noundef nonnull align 64 dereferenceable(24) %my_range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i.i.i, ptr noundef nonnull readonly align 64 dereferenceable(24) %my_range, i64 24, i1 false)
   %my_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %my_body2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   br label %do.body.i.i
@@ -51436,7 +51436,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elfL14compute_blake3INS7_5ARM32EEEvRNS7_7ContextIT_EElEUllE_lEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i.i.i, align 64
   %my_range.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i.i, i64 24, i1 false)
   %my_body.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i.i.i.i.i, i64 24, i1 false)
   %my_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 112

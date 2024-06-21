@@ -163,7 +163,7 @@ if.end6.i:                                        ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp8.i, label %ecdh_X9_63_kdf_derive.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %call11.i = call fastcc i32 @ecdh_plain_derive(ptr noundef nonnull %vpecdhctx, ptr noundef nonnull %call7.i, ptr noundef nonnull %stmplen.i, i64 noundef %retval.0.i.i.i)
+  %call11.i = call fastcc i32 @ecdh_plain_derive(ptr noundef nonnull readonly %vpecdhctx, ptr noundef nonnull %call7.i, ptr noundef nonnull %stmplen.i, i64 noundef %retval.0.i.i.i)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   %.pre.i = load i64, ptr %stmplen.i, align 8
   br i1 %tobool12.not.i, label %err.i, label %if.end14.i

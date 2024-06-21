@@ -541,7 +541,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.body.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %invoke.cont29.i
 
 invoke.cont29.i:                                  ; preds = %if.end.i.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %29, ptr %agg.tmp26.sroa.0.0.copyload.i, i64 %sub.ptr.sub.i.i42.i)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr readonly %29, ptr readonly %agg.tmp26.sroa.0.0.copyload.i, i64 %sub.ptr.sub.i.i42.i)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %if.else.i
 

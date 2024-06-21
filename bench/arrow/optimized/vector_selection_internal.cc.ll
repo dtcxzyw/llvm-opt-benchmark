@@ -5756,7 +5756,7 @@ entry:
   %null_selection_behavior.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i32, ptr %null_selection_behavior.i, align 8, !noalias !176
   %call2.i = tail call noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i.i, i32 noundef %2), !noalias !176
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef %out), !noalias !176
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef readonly %out), !noalias !176
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !176
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !176
@@ -6814,7 +6814,7 @@ entry:
   %null_selection_behavior.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i32, ptr %null_selection_behavior.i, align 8, !noalias !284
   %call2.i = tail call noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i.i, i32 noundef %2), !noalias !284
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef %out), !noalias !284
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef readonly %out), !noalias !284
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !284
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !284
@@ -7872,7 +7872,7 @@ entry:
   %null_selection_behavior.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i32, ptr %null_selection_behavior.i, align 8, !noalias !392
   %call2.i = tail call noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i.i, i32 noundef %2), !noalias !392
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(336) %kernel.i, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef %out), !noalias !392
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(336) %kernel.i, ptr noundef %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef readonly %out), !noalias !392
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !392
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !392
@@ -9181,7 +9181,7 @@ entry:
   %null_selection_behavior.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i32, ptr %null_selection_behavior.i, align 8, !noalias !515
   %call2.i = tail call noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i.i, i32 noundef %2), !noalias !515
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(280) %kernel.i, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef %out), !noalias !515
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(280) %kernel.i, ptr noundef %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef readonly %out), !noalias !515
   call void @llvm.experimental.noalias.scope.decl(metadata !518)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !515
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !515
@@ -10360,7 +10360,7 @@ entry:
   %null_selection_behavior.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i32, ptr %null_selection_behavior.i, align 8, !noalias !643
   %call2.i = tail call noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i.i, i32 noundef %2), !noalias !643
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef %out), !noalias !643
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %call2.i, ptr noundef readonly %out), !noalias !643
   call void @llvm.experimental.noalias.scope.decl(metadata !646)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !643
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !643
@@ -19570,7 +19570,7 @@ if.end11.i:                                       ; preds = %_ZN5arrow6StatusD2E
   %length.i47.i = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load i64, ptr %length.i47.i, align 8, !noalias !1392
   %cond.i48.i = select i1 %cmp.i.i46.i, i64 %8, i64 1
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef %out), !noalias !1392
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef readonly %out), !noalias !1392
   call void @llvm.experimental.noalias.scope.decl(metadata !1399)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !1392
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !1392
@@ -19826,7 +19826,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i:              ; preds = %.noexc5.i.i.i, %for
   %arrayidx27.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.1333.i.i.i.i.i
   %49 = load i8, ptr %arrayidx27.i.i.i.i.i, align 1, !noalias !1428
   %conv28.i.i.i.i.i = zext i8 %49 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %conv28.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %conv28.i.i.i.i.i)
           to label %.noexc6.i.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i.i.i, !noalias !1424
 
 .noexc6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
@@ -19907,7 +19907,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i.i.i:           ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1428
   %65 = load i8, ptr %arrayidx51.i.i.i.i.i, align 1, !noalias !1428
   %conv60.i.i.i.i.i = zext i8 %65 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %conv60.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %conv60.i.i.i.i.i)
           to label %.noexc7.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !1424
 
 .noexc7.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i.i.i
@@ -20374,7 +20374,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i303.i.i:           ; preds = %.noexc5.i296.i.i, %
   %arrayidx27.i.i.i306.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i254.i.i, i64 %position.1333.i.i.i305.i.i
   %142 = load i16, ptr %arrayidx27.i.i.i306.i.i, align 2, !noalias !1454
   %conv28.i.i.i307.i.i = zext i16 %142 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i231.i.i, i64 noundef %conv28.i.i.i307.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i231.i.i, i64 noundef %conv28.i.i.i307.i.i)
           to label %.noexc6.i310.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i308.i.i, !noalias !1450
 
 .noexc6.i310.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i303.i.i
@@ -20455,7 +20455,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i354.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i360.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1454
   %158 = load i16, ptr %arrayidx51.i.i.i345.i.i, align 2, !noalias !1454
   %conv60.i.i.i361.i.i = zext i16 %158 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i231.i.i, i64 noundef %conv60.i.i.i361.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i231.i.i, i64 noundef %conv60.i.i.i361.i.i)
           to label %.noexc7.i364.i.i unwind label %lpad2.loopexit.i362.i.i, !noalias !1450
 
 .noexc7.i364.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i354.i.i
@@ -20922,7 +20922,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i580.i.i:           ; preds = %.noexc5.i573.i.i, %
   %arrayidx27.i.i.i583.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i531.i.i, i64 %position.1333.i.i.i582.i.i
   %235 = load i32, ptr %arrayidx27.i.i.i583.i.i, align 4, !noalias !1480
   %conv28.i.i.i584.i.i = zext i32 %235 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i503.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i508.i.i, i64 noundef %conv28.i.i.i584.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i503.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i508.i.i, i64 noundef %conv28.i.i.i584.i.i)
           to label %.noexc6.i587.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i585.i.i, !noalias !1476
 
 .noexc6.i587.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i580.i.i
@@ -21003,7 +21003,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i631.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i637.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1480
   %251 = load i32, ptr %arrayidx51.i.i.i622.i.i, align 4, !noalias !1480
   %conv60.i.i.i638.i.i = zext i32 %251 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i504.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i508.i.i, i64 noundef %conv60.i.i.i638.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i504.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i508.i.i, i64 noundef %conv60.i.i.i638.i.i)
           to label %.noexc7.i641.i.i unwind label %lpad2.loopexit.i639.i.i, !noalias !1476
 
 .noexc7.i641.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i631.i.i
@@ -21469,7 +21469,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i855.i.i:           ; preds = %.noexc5.i849.i.i, %
   %position.1333.i.i.i857.i.i = phi i64 [ %inc.i.i.i866.i.i, %for.inc.i.i.i865.i.i ], [ %position.0344.i.i.i836.i.i, %.noexc5.i849.i.i ]
   %arrayidx27.i.i.i858.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i807.i.i, i64 %position.1333.i.i.i857.i.i
   %328 = load i64, ptr %arrayidx27.i.i.i858.i.i, align 8, !noalias !1506
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i780.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i784.i.i, i64 noundef %328)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i780.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i784.i.i, i64 noundef %328)
           to label %.noexc6.i861.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i859.i.i, !noalias !1502
 
 .noexc6.i861.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i855.i.i
@@ -21548,7 +21548,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i889.i.i:        ; preds = %_ZNK5arrow8internal
   %inc4.i.i.i.i895.i.i = add nsw i64 %343, 1
   store i64 %inc4.i.i.i.i895.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1506
   %344 = load i64, ptr %arrayidx50.i.i.i.i.i, align 8, !noalias !1506
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i784.i.i, i64 noundef %344)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i784.i.i, i64 noundef %344)
           to label %.noexc7.i898.i.i unwind label %lpad2.loopexit.i896.i.i, !noalias !1502
 
 .noexc7.i898.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i889.i.i
@@ -22001,7 +22001,7 @@ if.end11.i:                                       ; preds = %_ZN5arrow6StatusD2E
   %length.i47.i = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load i64, ptr %length.i47.i, align 8, !noalias !1535
   %cond.i48.i = select i1 %cmp.i.i46.i, i64 %8, i64 1
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef %out), !noalias !1535
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef readonly %out), !noalias !1535
   call void @llvm.experimental.noalias.scope.decl(metadata !1542)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !1535
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !1535
@@ -22257,7 +22257,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i:              ; preds = %.noexc5.i.i.i, %for
   %arrayidx27.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.1333.i.i.i.i.i
   %49 = load i8, ptr %arrayidx27.i.i.i.i.i, align 1, !noalias !1571
   %conv28.i.i.i.i.i = zext i8 %49 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv28.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv28.i.i.i.i.i)
           to label %.noexc6.i.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i.i.i, !noalias !1567
 
 .noexc6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
@@ -22338,7 +22338,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i.i.i:           ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1571
   %65 = load i8, ptr %arrayidx51.i.i.i.i.i, align 1, !noalias !1571
   %conv60.i.i.i.i.i = zext i8 %65 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv60.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv60.i.i.i.i.i)
           to label %.noexc7.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !1567
 
 .noexc7.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i.i.i
@@ -22805,7 +22805,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i303.i.i:           ; preds = %.noexc5.i296.i.i, %
   %arrayidx27.i.i.i306.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i254.i.i, i64 %position.1333.i.i.i305.i.i
   %142 = load i16, ptr %arrayidx27.i.i.i306.i.i, align 2, !noalias !1597
   %conv28.i.i.i307.i.i = zext i16 %142 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv28.i.i.i307.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv28.i.i.i307.i.i)
           to label %.noexc6.i310.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i308.i.i, !noalias !1593
 
 .noexc6.i310.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i303.i.i
@@ -22886,7 +22886,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i354.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i360.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1597
   %158 = load i16, ptr %arrayidx51.i.i.i345.i.i, align 2, !noalias !1597
   %conv60.i.i.i361.i.i = zext i16 %158 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv60.i.i.i361.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv60.i.i.i361.i.i)
           to label %.noexc7.i364.i.i unwind label %lpad2.loopexit.i362.i.i, !noalias !1593
 
 .noexc7.i364.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i354.i.i
@@ -23353,7 +23353,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i580.i.i:           ; preds = %.noexc5.i573.i.i, %
   %arrayidx27.i.i.i583.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i531.i.i, i64 %position.1333.i.i.i582.i.i
   %235 = load i32, ptr %arrayidx27.i.i.i583.i.i, align 4, !noalias !1623
   %conv28.i.i.i584.i.i = zext i32 %235 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i503.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv28.i.i.i584.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i503.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv28.i.i.i584.i.i)
           to label %.noexc6.i587.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i585.i.i, !noalias !1619
 
 .noexc6.i587.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i580.i.i
@@ -23434,7 +23434,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i631.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i637.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1623
   %251 = load i32, ptr %arrayidx51.i.i.i622.i.i, align 4, !noalias !1623
   %conv60.i.i.i638.i.i = zext i32 %251 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i504.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv60.i.i.i638.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i504.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv60.i.i.i638.i.i)
           to label %.noexc7.i641.i.i unwind label %lpad2.loopexit.i639.i.i, !noalias !1619
 
 .noexc7.i641.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i631.i.i
@@ -23900,7 +23900,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i855.i.i:           ; preds = %.noexc5.i849.i.i, %
   %position.1333.i.i.i857.i.i = phi i64 [ %inc.i.i.i866.i.i, %for.inc.i.i.i865.i.i ], [ %position.0344.i.i.i836.i.i, %.noexc5.i849.i.i ]
   %arrayidx27.i.i.i858.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i807.i.i, i64 %position.1333.i.i.i857.i.i
   %328 = load i64, ptr %arrayidx27.i.i.i858.i.i, align 8, !noalias !1649
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i780.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %328)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i780.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %328)
           to label %.noexc6.i861.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i859.i.i, !noalias !1645
 
 .noexc6.i861.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i855.i.i
@@ -23979,7 +23979,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i889.i.i:        ; preds = %_ZNK5arrow8internal
   %inc4.i.i.i.i895.i.i = add nsw i64 %343, 1
   store i64 %inc4.i.i.i.i895.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !1649
   %344 = load i64, ptr %arrayidx50.i.i.i.i.i, align 8, !noalias !1649
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %344)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %344)
           to label %.noexc7.i898.i.i unwind label %lpad2.loopexit.i896.i.i, !noalias !1645
 
 .noexc7.i898.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i889.i.i
@@ -24428,7 +24428,7 @@ if.end11.i:                                       ; preds = %_ZN5arrow6StatusD2E
   %length.i47.i = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load i64, ptr %length.i47.i, align 8, !noalias !1678
   %cond.i48.i = select i1 %cmp.i.i46.i, i64 %8, i64 1
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(336) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef %out), !noalias !1678
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(336) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef readonly %out), !noalias !1678
   call void @llvm.experimental.noalias.scope.decl(metadata !1685)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !1678
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !1678
@@ -27721,7 +27721,7 @@ if.end11.i:                                       ; preds = %_ZN5arrow6StatusD2E
   %length.i47.i = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load i64, ptr %length.i47.i, align 8, !noalias !1974
   %cond.i48.i = select i1 %cmp.i.i46.i, i64 %8, i64 1
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(280) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef %out), !noalias !1974
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(280) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef readonly %out), !noalias !1974
   call void @llvm.experimental.noalias.scope.decl(metadata !1981)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !1974
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !1974
@@ -27973,7 +27973,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i:              ; preds = %.noexc4.i.i.i, %for
   %arrayidx27.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.1325.i.i.i.i.i
   %48 = load i8, ptr %arrayidx27.i.i.i.i.i, align 1, !noalias !2010
   %conv28.i.i.i.i.i = zext i8 %48 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i.i.i, i64 noundef %conv28.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i.i.i, i64 noundef %conv28.i.i.i.i.i)
           to label %.noexc5.i.i.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i, !noalias !2006
 
 .noexc5.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
@@ -28054,7 +28054,7 @@ _ZN5arrow6StatusD2Ev.exit119.i.i.i.i.i:           ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2010
   %64 = load i8, ptr %arrayidx51.i.i.i.i.i, align 1, !noalias !2010
   %conv60.i.i.i.i.i = zext i8 %64 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i.i.i, i64 noundef %conv60.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i.i.i, i64 noundef %conv60.i.i.i.i.i)
           to label %.noexc6.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !2006
 
 .noexc6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit119.i.i.i.i.i
@@ -28511,7 +28511,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i298.i.i:           ; preds = %.noexc4.i291.i.i, %
   %arrayidx27.i.i.i301.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i255.i.i, i64 %position.1325.i.i.i300.i.i
   %132 = load i16, ptr %arrayidx27.i.i.i301.i.i, align 2, !noalias !2036
   %conv28.i.i.i302.i.i = zext i16 %132 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i232.i.i, i64 noundef %conv28.i.i.i302.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i232.i.i, i64 noundef %conv28.i.i.i302.i.i)
           to label %.noexc5.i305.i.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.i303.i.i, !noalias !2032
 
 .noexc5.i305.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i298.i.i
@@ -28592,7 +28592,7 @@ _ZN5arrow6StatusD2Ev.exit119.i.i.i349.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i355.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2036
   %148 = load i16, ptr %arrayidx51.i.i.i340.i.i, align 2, !noalias !2036
   %conv60.i.i.i356.i.i = zext i16 %148 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i232.i.i, i64 noundef %conv60.i.i.i356.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i232.i.i, i64 noundef %conv60.i.i.i356.i.i)
           to label %.noexc6.i359.i.i unwind label %lpad2.loopexit.i357.i.i, !noalias !2032
 
 .noexc6.i359.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit119.i.i.i349.i.i
@@ -29049,7 +29049,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i569.i.i:           ; preds = %.noexc4.i562.i.i, %
   %arrayidx27.i.i.i572.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i526.i.i, i64 %position.1325.i.i.i571.i.i
   %216 = load i32, ptr %arrayidx27.i.i.i572.i.i, align 4, !noalias !2062
   %conv28.i.i.i573.i.i = zext i32 %216 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i497.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i503.i.i, i64 noundef %conv28.i.i.i573.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i497.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i503.i.i, i64 noundef %conv28.i.i.i573.i.i)
           to label %.noexc5.i576.i.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.i574.i.i, !noalias !2058
 
 .noexc5.i576.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i569.i.i
@@ -29130,7 +29130,7 @@ _ZN5arrow6StatusD2Ev.exit119.i.i.i620.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i626.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2062
   %232 = load i32, ptr %arrayidx51.i.i.i611.i.i, align 4, !noalias !2062
   %conv60.i.i.i627.i.i = zext i32 %232 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i498.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i503.i.i, i64 noundef %conv60.i.i.i627.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i498.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i503.i.i, i64 noundef %conv60.i.i.i627.i.i)
           to label %.noexc6.i630.i.i unwind label %lpad2.loopexit.i628.i.i, !noalias !2058
 
 .noexc6.i630.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit119.i.i.i620.i.i
@@ -29586,7 +29586,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i836.i.i:           ; preds = %.noexc4.i830.i.i, %
   %position.1325.i.i.i838.i.i = phi i64 [ %inc.i.i.i847.i.i, %for.inc.i.i.i846.i.i ], [ %position.0336.i.i.i817.i.i, %.noexc4.i830.i.i ]
   %arrayidx27.i.i.i839.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i794.i.i, i64 %position.1325.i.i.i838.i.i
   %300 = load i64, ptr %arrayidx27.i.i.i839.i.i, align 8, !noalias !2088
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i768.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i771.i.i, i64 noundef %300)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i768.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i771.i.i, i64 noundef %300)
           to label %.noexc5.i842.i.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.i840.i.i, !noalias !2084
 
 .noexc5.i842.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i836.i.i
@@ -29665,7 +29665,7 @@ _ZN5arrow6StatusD2Ev.exit119.i.i.i869.i.i:        ; preds = %_ZNK5arrow8internal
   %inc4.i.i.i.i875.i.i = add nsw i64 %315, 1
   store i64 %inc4.i.i.i.i875.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2088
   %316 = load i64, ptr %arrayidx50.i.i.i.i.i, align 8, !noalias !2088
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i771.i.i, i64 noundef %316)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i771.i.i, i64 noundef %316)
           to label %.noexc6.i878.i.i unwind label %lpad2.loopexit.i876.i.i, !noalias !2084
 
 .noexc6.i878.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit119.i.i.i869.i.i
@@ -33334,7 +33334,7 @@ if.end11.i:                                       ; preds = %_ZN5arrow6StatusD2E
   %length.i47.i = getelementptr inbounds i8, ptr %6, i64 144
   %8 = load i64, ptr %length.i47.i, align 8, !noalias !2315
   %cond.i48.i = select i1 %cmp.i.i46.i, i64 %8, i64 1
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef %out), !noalias !2315
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %kernel.i, ptr noundef nonnull %ctx, ptr noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %cond.i48.i, ptr noundef readonly %out), !noalias !2315
   call void @llvm.experimental.noalias.scope.decl(metadata !2322)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !2315
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i), !noalias !2315
@@ -33590,7 +33590,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i:              ; preds = %.noexc5.i.i.i, %for
   %arrayidx27.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.1333.i.i.i.i.i
   %49 = load i8, ptr %arrayidx27.i.i.i.i.i, align 1, !noalias !2351
   %conv28.i.i.i.i.i = zext i8 %49 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv28.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv28.i.i.i.i.i)
           to label %.noexc6.i.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i.i.i, !noalias !2347
 
 .noexc6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
@@ -33671,7 +33671,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i.i.i:           ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2351
   %65 = load i8, ptr %arrayidx51.i.i.i.i.i, align 1, !noalias !2351
   %conv60.i.i.i.i.i = zext i8 %65 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv60.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i.i.i, i64 noundef %conv60.i.i.i.i.i)
           to label %.noexc7.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !2347
 
 .noexc7.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i.i.i
@@ -34138,7 +34138,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i303.i.i:           ; preds = %.noexc5.i296.i.i, %
   %arrayidx27.i.i.i306.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i254.i.i, i64 %position.1333.i.i.i305.i.i
   %142 = load i16, ptr %arrayidx27.i.i.i306.i.i, align 2, !noalias !2377
   %conv28.i.i.i307.i.i = zext i16 %142 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv28.i.i.i307.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i226.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv28.i.i.i307.i.i)
           to label %.noexc6.i310.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i308.i.i, !noalias !2373
 
 .noexc6.i310.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i303.i.i
@@ -34219,7 +34219,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i354.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i360.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2377
   %158 = load i16, ptr %arrayidx51.i.i.i345.i.i, align 2, !noalias !2377
   %conv60.i.i.i361.i.i = zext i16 %158 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv60.i.i.i361.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i227.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i231.i.i, i64 noundef %conv60.i.i.i361.i.i)
           to label %.noexc7.i364.i.i unwind label %lpad2.loopexit.i362.i.i, !noalias !2373
 
 .noexc7.i364.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i354.i.i
@@ -34686,7 +34686,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i580.i.i:           ; preds = %.noexc5.i573.i.i, %
   %arrayidx27.i.i.i583.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i531.i.i, i64 %position.1333.i.i.i582.i.i
   %235 = load i32, ptr %arrayidx27.i.i.i583.i.i, align 4, !noalias !2403
   %conv28.i.i.i584.i.i = zext i32 %235 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i503.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv28.i.i.i584.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i503.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv28.i.i.i584.i.i)
           to label %.noexc6.i587.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i585.i.i, !noalias !2399
 
 .noexc6.i587.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i580.i.i
@@ -34767,7 +34767,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i631.i.i:        ; preds = %_ZNK5arrow8internal
   store i64 %inc4.i.i.i.i637.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2403
   %251 = load i32, ptr %arrayidx51.i.i.i622.i.i, align 4, !noalias !2403
   %conv60.i.i.i638.i.i = zext i32 %251 to i64
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i504.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv60.i.i.i638.i.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp58.i.i.i504.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i508.i.i, i64 noundef %conv60.i.i.i638.i.i)
           to label %.noexc7.i641.i.i unwind label %lpad2.loopexit.i639.i.i, !noalias !2399
 
 .noexc7.i641.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i631.i.i
@@ -35233,7 +35233,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i855.i.i:           ; preds = %.noexc5.i849.i.i, %
   %position.1333.i.i.i857.i.i = phi i64 [ %inc.i.i.i866.i.i, %for.inc.i.i.i865.i.i ], [ %position.0344.i.i.i836.i.i, %.noexc5.i849.i.i ]
   %arrayidx27.i.i.i858.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i807.i.i, i64 %position.1333.i.i.i857.i.i
   %328 = load i64, ptr %arrayidx27.i.i.i858.i.i, align 8, !noalias !2429
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i780.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %328)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i780.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %328)
           to label %.noexc6.i861.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i859.i.i, !noalias !2425
 
 .noexc6.i861.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i855.i.i
@@ -35312,7 +35312,7 @@ _ZN5arrow6StatusD2Ev.exit121.i.i.i889.i.i:        ; preds = %_ZNK5arrow8internal
   %inc4.i.i.i.i895.i.i = add nsw i64 %343, 1
   store i64 %inc4.i.i.i.i895.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2429
   %344 = load i64, ptr %arrayidx50.i.i.i.i.i, align 8, !noalias !2429
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %344)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp56.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i784.i.i, i64 noundef %344)
           to label %.noexc7.i898.i.i unwind label %lpad2.loopexit.i896.i.i, !noalias !2425
 
 .noexc7.i898.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit121.i.i.i889.i.i
@@ -39432,7 +39432,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -44700,7 +44700,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -48053,7 +48053,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -49588,7 +49588,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -54264,7 +54264,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -55892,7 +55892,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

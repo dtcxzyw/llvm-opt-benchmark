@@ -819,7 +819,7 @@ init_dirty_bitmap_migration.exit:                 ; preds = %if.end68.i, %if.the
 
 for.body:                                         ; preds = %init_dirty_bitmap_migration.exit, %for.body
   %dbms.019 = phi ptr [ %dbms.0, %for.body ], [ %dbms.017, %init_dirty_bitmap_migration.exit ]
-  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull %dbms.019, i32 noundef 16)
+  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull readonly %dbms.019, i32 noundef 16)
   %bitmap.i6 = getelementptr inbounds i8, ptr %dbms.019, i64 24
   %14 = load ptr, ptr %bitmap.i6, align 8
   %call.i7 = tail call i32 @bdrv_dirty_bitmap_granularity(ptr noundef %14) #11
@@ -942,7 +942,7 @@ if.end:                                           ; preds = %if.then, %trace_dir
 
 for.body:                                         ; preds = %if.end, %for.body
   %dbms.026 = phi ptr [ %dbms.0, %for.body ], [ %dbms.024, %if.end ]
-  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull %dbms.026, i32 noundef 32)
+  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull readonly %dbms.026, i32 noundef 32)
   %entry2 = getelementptr inbounds i8, ptr %dbms.026, i64 48
   %dbms.0 = load ptr, ptr %entry2, align 8
   %tobool1.not = icmp eq ptr %dbms.0, null
@@ -2512,7 +2512,7 @@ trace_send_bitmap_bits.exit42.i.i:                ; preds = %if.else.i.i37.i.i, 
 if.end.i.i:                                       ; preds = %trace_send_bitmap_bits.exit42.i.i, %trace_send_bitmap_bits.exit.i.i
   %.sink.i.i = phi i32 [ 64, %trace_send_bitmap_bits.exit.i.i ], [ 66, %trace_send_bitmap_bits.exit42.i.i ]
   %buf.0.i.i = phi ptr [ %call2.i.i, %trace_send_bitmap_bits.exit.i.i ], [ null, %trace_send_bitmap_bits.exit42.i.i ]
-  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %s, ptr noundef nonnull %dbms.010, i32 noundef %.sink.i.i)
+  tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %s, ptr noundef nonnull readonly %dbms.010, i32 noundef %.sink.i.i)
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %2) #11
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv.i) #11
   br i1 %call7.i.i, label %if.then8.i.i, label %if.else.i.i

@@ -225,7 +225,7 @@ match_eclass_clauses_to_index.exit:               ; preds = %match_clauses_to_in
 list_length.exit.i:                               ; preds = %99, %.lr.ph.i172
   %102 = phi i32 [ %101, %99 ], [ 0, %.lr.ph.i172 ]
   %103 = add i32 %102, %.02831.i
-  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %98, i32 noundef %103, ptr noundef nonnull %3)
+  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %6, ptr noundef %98, i32 noundef %103, ptr noundef nonnull %3)
   %104 = getelementptr [32 x ptr], ptr %21, i64 0, i64 %indvars.iv.i173
   %105 = load ptr, ptr %104, align 8
   %.not.i29.i = icmp eq ptr %105, null
@@ -239,7 +239,7 @@ list_length.exit.i:                               ; preds = %99, %.lr.ph.i172
 list_length.exit30.i:                             ; preds = %106, %list_length.exit.i
   %109 = phi i32 [ %108, %106 ], [ 0, %list_length.exit.i ]
   %110 = add i32 %109, %103
-  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %105, i32 noundef %110, ptr noundef nonnull %3)
+  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %6, ptr noundef %105, i32 noundef %110, ptr noundef nonnull %3)
   %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i173, 1
   %111 = load i32, ptr %94, align 8
   %112 = sext i32 %111 to i64
@@ -2973,7 +2973,7 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
 
 193:                                              ; preds = %189, %185
   %194 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %195 = tail call zeroext i1 @match_index_to_operand(ptr noundef nonnull %177, i32 noundef %194, ptr noundef nonnull %2)
+  %195 = tail call zeroext i1 @match_index_to_operand(ptr noundef nonnull %177, i32 noundef %194, ptr noundef nonnull readonly %2)
   br i1 %195, label %196, label %201
 
 196:                                              ; preds = %193
@@ -2990,7 +2990,7 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
   br i1 %.not.i105.not.i, label %.thread62.i, label %match_clause_to_ordering_op.exit.thread.i
 
 201:                                              ; preds = %198, %196, %193
-  %202 = tail call zeroext i1 @match_index_to_operand(ptr noundef nonnull %182, i32 noundef %194, ptr noundef nonnull %2)
+  %202 = tail call zeroext i1 @match_index_to_operand(ptr noundef nonnull %182, i32 noundef %194, ptr noundef nonnull readonly %2)
   br i1 %202, label %203, label %match_clause_to_ordering_op.exit.thread.i
 
 203:                                              ; preds = %201
@@ -3014,7 +3014,7 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
 match_clause_to_ordering_op.exit.thread56.i:      ; preds = %210
   %212 = tail call noundef ptr @palloc0(i64 noundef 48) #7
   store i32 15, ptr %212, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %212, ptr noundef nonnull align 4 dereferenceable(48) %164, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %212, ptr noundef nonnull readonly align 4 dereferenceable(48) %164, i64 48, i1 false)
   %213 = getelementptr inbounds i8, ptr %212, i64 4
   store i32 %208, ptr %213, align 4
   %214 = getelementptr inbounds i8, ptr %212, i64 8
@@ -3788,7 +3788,7 @@ list_length.exit.i.i:                             ; preds = %55
   %176 = getelementptr i32, ptr %175, i64 %indvars.iv134
   %177 = load i32, ptr %176, align 4
   %178 = trunc nuw nsw i64 %indvars.iv134 to i32
-  %179 = tail call zeroext i1 @match_index_to_operand(ptr noundef %161, i32 noundef %178, ptr noundef nonnull %2)
+  %179 = tail call zeroext i1 @match_index_to_operand(ptr noundef %161, i32 noundef %178, ptr noundef nonnull readonly %2)
   br i1 %179, label %180, label %match_clause_to_indexcol.exit.thread
 
 180:                                              ; preds = %157
@@ -3871,7 +3871,7 @@ list_length.exit.i.i:                             ; preds = %55
 
 230:                                              ; preds = %224, %200
   %231 = trunc nuw nsw i64 %indvars.iv134 to i32
-  %232 = tail call zeroext i1 @match_index_to_operand(ptr noundef %214, i32 noundef %231, ptr noundef nonnull %2)
+  %232 = tail call zeroext i1 @match_index_to_operand(ptr noundef %214, i32 noundef %231, ptr noundef nonnull readonly %2)
   br i1 %232, label %233, label %238
 
 233:                                              ; preds = %230
@@ -3884,7 +3884,7 @@ list_length.exit.i.i:                             ; preds = %55
   br i1 %237, label %238, label %248
 
 238:                                              ; preds = %236, %233, %230
-  %239 = tail call zeroext i1 @match_index_to_operand(ptr noundef %218, i32 noundef %231, ptr noundef nonnull %2)
+  %239 = tail call zeroext i1 @match_index_to_operand(ptr noundef %218, i32 noundef %231, ptr noundef nonnull readonly %2)
   br i1 %239, label %240, label %match_clause_to_indexcol.exit.thread
 
 240:                                              ; preds = %238
@@ -4022,7 +4022,7 @@ list_length.exit.i.i.i:                           ; preds = %283, %282
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %330
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %330 ], [ 0, %.preheader.i.i.i ]
   %310 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %311 = call zeroext i1 @match_index_to_operand(ptr noundef %290, i32 noundef %310, ptr noundef nonnull %2)
+  %311 = call zeroext i1 @match_index_to_operand(ptr noundef %290, i32 noundef %310, ptr noundef nonnull readonly %2)
   br i1 %311, label %312, label %330
 
 312:                                              ; preds = %.lr.ph.i.i.i

@@ -1351,7 +1351,7 @@ for.body:                                         ; preds = %_ZN15model_evaluato
   %5 = load ptr, ptr %m_manager.i.i.i, align 8
   store ptr null, ptr %tmp.i, align 8
   store ptr %5, ptr %m_manager.i.i, align 8
-  %call2.i = invoke noundef zeroext i1 @_ZN15model_evaluator4evalEP4exprR7obj_refIS0_11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i, i1 noundef zeroext true)
+  %call2.i = invoke noundef zeroext i1 @_ZN15model_evaluator4evalEP4exprR7obj_refIS0_11ast_managerEb(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i, i1 noundef zeroext true)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body

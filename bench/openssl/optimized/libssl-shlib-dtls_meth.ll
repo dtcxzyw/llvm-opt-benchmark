@@ -96,9 +96,9 @@ if.then5:                                         ; preds = %again.backedge, %if
   %packet_length2.i.i = getelementptr inbounds i8, ptr %rl, i64 4088
   store i64 %4, ptr %packet_length2.i.i, align 8
   %rbuf4.i.i = getelementptr inbounds i8, ptr %call.val.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %rbuf, ptr noundef nonnull align 8 dereferenceable(48) %rbuf4.i.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %rbuf, ptr noundef nonnull readonly align 8 dereferenceable(48) %rbuf4.i.i, i64 48, i1 false)
   %rrec5.i.i = getelementptr inbounds i8, ptr %call.val.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %rrec, ptr noundef nonnull align 8 dereferenceable(72) %rrec5.i.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %rrec, ptr noundef nonnull readonly align 8 dereferenceable(72) %rrec5.i.i, i64 72, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %rl, i64 4098
   %5 = load ptr, ptr %call.val.i, align 8
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %5, i64 5

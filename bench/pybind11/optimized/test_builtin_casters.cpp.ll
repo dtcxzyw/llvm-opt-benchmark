@@ -41090,7 +41090,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %_ZN8pybind116detail
   br label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_19mJPcEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESM_.exit"
 
 29:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJPcEE9load_argsERNS0_13function_callE.exit.i._crit_edge
-  %30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #32
+  %30 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #32
   %31 = invoke ptr @PyLong_FromSize_t(i64 noundef %30)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_19mJPcEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESM_.exit" unwind label %25
 

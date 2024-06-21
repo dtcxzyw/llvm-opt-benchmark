@@ -1393,7 +1393,7 @@ define internal i32 @dissect_gsm_sim_part(ptr noundef %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.512) #2
-  %13 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
+  %13 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef 0, ptr noundef nonnull readonly %1, ptr noundef %2, ptr noundef null)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %10

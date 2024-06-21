@@ -1208,9 +1208,9 @@ if.end.i.i:                                       ; preds = %if.end, %if.end.thr
   %version.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 156
   store i32 1, ptr %version.i.i, align 4
   %dst_conn_id.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i, ptr noundef nonnull align 1 dereferenceable(21) %cur_dcid.i.i, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %cur_dcid.i.i, i64 21, i1 false)
   %src_conn_id.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id.i.i, ptr noundef nonnull align 8 dereferenceable(21) %txp, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id.i.i, ptr noundef nonnull readonly align 8 dereferenceable(21) %txp, i64 21, i1 false)
   %len.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 224
   store i64 16379, ptr %len.i.i, align 8
   br i1 %cmp7.not, label %if.then24.i.i, label %if.end27.i.i

@@ -2437,7 +2437,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h209ba9c2f
 53:                                               ; preds = %42
   %54 = getelementptr inbounds i8, ptr %.val3.i, i64 24
   %55 = getelementptr inbounds i8, ptr %.val.i, i64 24
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %55, ptr nonnull %54, i64 %47), !alias.scope !325, !noalias !317
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %55, ptr nonnull readonly %54, i64 %47), !alias.scope !325, !noalias !317
   %56 = icmp ne i32 %bcmp.i.i.i.i, 0
   br label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
 
@@ -2544,7 +2544,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   %.val12.i.i = load i64, ptr %17, align 8, !alias.scope !349, !noalias !348, !noundef !13
   %18 = sub i64 %.val10.i.i, %.val12.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i, i64 %.val12.i.i)
-  %19 = tail call i32 @memcmp(ptr nonnull %.val.i.i, ptr nonnull %.val11.i.i, i64 %..i.i.i.i.i), !alias.scope !350, !noalias !354
+  %19 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val11.i.i, i64 %..i.i.i.i.i), !alias.scope !350, !noalias !354
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -2644,7 +2644,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %.val12.i.i.i = load i64, ptr %17, align 8, !alias.scope !392, !noalias !391, !noundef !13
   %18 = sub i64 %.val10.i.i.i, %.val12.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i.i, i64 %.val12.i.i.i)
-  %19 = tail call i32 @memcmp(ptr nonnull %.val.i.i.i, ptr nonnull %.val11.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !393, !noalias !397
+  %19 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val11.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !393, !noalias !397
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -3538,7 +3538,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   %.val12.i = load i64, ptr %16, align 8, !alias.scope !697, !noalias !694, !noundef !13
   %17 = sub i64 %.val10.i, %.val12.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val10.i, i64 %.val12.i)
-  %18 = tail call i32 @memcmp(ptr nonnull %.val.i, ptr nonnull %.val11.i, i64 %..i.i.i.i), !alias.scope !699, !noalias !703
+  %18 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val11.i, i64 %..i.i.i.i), !alias.scope !699, !noalias !703
   %19 = sext i32 %18 to i64
   %20 = icmp eq i32 %18, 0
   %spec.store.select.i.i.i.i = select i1 %20, i64 %17, i64 %19
@@ -5316,7 +5316,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Option$LT$T$G
   %.val12 = load i64, ptr %16, align 8, !noundef !13
   %17 = sub i64 %.val10, %.val12
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %.val10, i64 %.val12)
-  %18 = tail call i32 @memcmp(ptr nonnull %.val, ptr nonnull %.val11, i64 %..i.i.i), !alias.scope !1138
+  %18 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val11, i64 %..i.i.i), !alias.scope !1138
   %19 = sext i32 %18 to i64
   %20 = icmp eq i32 %18, 0
   %spec.store.select.i.i.i = select i1 %20, i64 %17, i64 %19
@@ -6169,7 +6169,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %13, i64 %5), !alias.scope !1217, !noalias !1224
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %14, ptr nonnull readonly %13, i64 %5), !alias.scope !1217, !noalias !1224
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79193397364a3f32E.exit"
 

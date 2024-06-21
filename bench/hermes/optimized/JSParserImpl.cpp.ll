@@ -1575,7 +1575,7 @@ entry:
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 %kind, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef %where, ptr noundef %what, ptr %whatLoc.coerce)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef %where, ptr noundef %what, ptr %whatLoc.coerce)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -2034,7 +2034,7 @@ if.then64:                                        ; preds = %if.end58
   %cond60 = select i1 %isDeclaration, ptr @.str.82, ptr @.str.83
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 53, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.81, ptr noundef nonnull %cond60, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.81, ptr noundef nonnull %cond60, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %cleanup229
 
@@ -2177,7 +2177,7 @@ if.then131:                                       ; preds = %if.end123
   %cond125 = select i1 %isDeclaration, ptr @.str.84, ptr @.str.85
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i116)
   store i32 49, ptr %k1.addr.i.i116, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i116, i64 1, ptr noundef nonnull %cond125, ptr noundef nonnull %cond127, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i116, i64 1, ptr noundef nonnull %cond125, ptr noundef nonnull %cond127, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i116)
   br label %cleanup229
 
@@ -2613,7 +2613,7 @@ if.then:                                          ; preds = %land.lhs.true
 _ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 92, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr %retval.sroa.0.0.copyload.i.i7)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr %retval.sroa.0.0.copyload.i.i7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -2775,7 +2775,7 @@ while.end:                                        ; preds = %if.end50, %if.end41
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i45: ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i42)
   store i32 54, ptr %k1.addr.i.i.i42, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i42, i64 1, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i42, i64 1, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i42)
   br label %return
 
@@ -4207,7 +4207,7 @@ _ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exi
 if.then14:                                        ; preds = %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 51, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -4320,7 +4320,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -4342,7 +4342,7 @@ if.end12:                                         ; preds = %if.end
 if.then16:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   store i32 54, ptr %k1.addr.i.i.i2, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   br label %return
 
@@ -4489,7 +4489,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -4511,7 +4511,7 @@ if.end10:                                         ; preds = %if.end
 if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   store i32 54, ptr %k1.addr.i.i.i2, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   br label %return
 
@@ -4625,7 +4625,7 @@ if.end:                                           ; preds = %entry
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 32, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -4639,7 +4639,7 @@ if.end16:                                         ; preds = %if.end
 if.then20:                                        ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   store i32 53, ptr %k1.addr.i.i.i2, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   br label %return
 
@@ -4661,7 +4661,7 @@ if.end28:                                         ; preds = %if.end21
 if.then32:                                        ; preds = %if.end28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i14)
   store i32 54, ptr %k1.addr.i.i.i14, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i14, i64 1, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i14, i64 1, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.120, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i14)
   br label %return
 
@@ -4815,7 +4815,7 @@ if.end:                                           ; preds = %if.endthread-pre-sp
 if.then9:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -5104,7 +5104,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 if.then103:                                       ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i74)
   store i32 54, ptr %k1.addr.i.i.i74, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i74, i64 1, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i74, i64 1, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i74)
   br label %return
 
@@ -5274,7 +5274,7 @@ if.end166:                                        ; preds = %if.then157
 if.then170:                                       ; preds = %if.end166
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i116)
   store i32 60, ptr %k1.addr.i.i.i116, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i116, i64 1, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i116, i64 1, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i116)
   br label %return
 
@@ -5303,7 +5303,7 @@ if.end182:                                        ; preds = %if.then173
 if.then186:                                       ; preds = %if.end182
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i130)
   store i32 54, ptr %k1.addr.i.i.i130, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i130, i64 1, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i130, i64 1, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i130)
   br label %return
 
@@ -5460,7 +5460,7 @@ if.end:                                           ; preds = %_ZN6hermes6parser6d
 if.then13:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 1, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -5720,7 +5720,7 @@ if.end:                                           ; preds = %_ZN6hermes6parser6d
 if.then13:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 1, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.140, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.140, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -6095,7 +6095,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -6117,7 +6117,7 @@ if.end12:                                         ; preds = %if.end
 if.then16:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   store i32 54, ptr %k1.addr.i.i.i2, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   br label %return
 
@@ -6226,7 +6226,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.145, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.145, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -6248,7 +6248,7 @@ if.end12:                                         ; preds = %if.end
 if.then16:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   store i32 54, ptr %k1.addr.i.i.i2, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i2, i64 1, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i2)
   br label %return
 
@@ -6262,7 +6262,7 @@ if.end17:                                         ; preds = %if.end12
 if.then24:                                        ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i13)
   store i32 49, ptr %k1.addr.i.i.i13, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i13, i64 1, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i13, i64 1, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i13)
   br label %return
 
@@ -6355,7 +6355,7 @@ if.end59:                                         ; preds = %if.then44, %if.then
 if.then66:                                        ; preds = %if.end59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i49)
   store i32 92, ptr %k1.addr.i.i.i49, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i49, i64 1, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.153, ptr %retval.sroa.0.0.copyload.i27)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i49, i64 1, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.153, ptr %retval.sroa.0.0.copyload.i27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i49)
   br label %return
 
@@ -6746,7 +6746,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 49, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.158, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.158, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -6832,7 +6832,7 @@ _ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarC
 if.then45:                                        ; preds = %if.end41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 54, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.160, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.160, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -6845,7 +6845,7 @@ if.end47:                                         ; preds = %_ZN6hermes6parser6d
 if.then51:                                        ; preds = %if.end47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i28)
   store i32 49, ptr %k1.addr.i.i28, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i28, i64 1, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.160, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i28, i64 1, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.160, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i28)
   br label %return
 
@@ -6900,7 +6900,7 @@ if.then75:                                        ; preds = %if.end70
 if.then79:                                        ; preds = %if.then75
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i46)
   store i32 49, ptr %k1.addr.i.i46, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i46, i64 1, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.164, ptr %retval.sroa.0.0.copyload.i39)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i46, i64 1, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.164, ptr %retval.sroa.0.0.copyload.i39)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i46)
   br label %return
 
@@ -10950,7 +10950,7 @@ if.end33:                                         ; preds = %if.end26, %if.end
 if.then37:                                        ; preds = %if.end33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 56, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -11173,7 +11173,7 @@ if.end26:                                         ; preds = %if.end18, %if.end
 if.then30:                                        ; preds = %if.end26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 51, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -11985,7 +11985,7 @@ if.end:                                           ; preds = %sw.bb33
 if.then42:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 56, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr %retval.sroa.0.0.copyload.i.i76)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr %retval.sroa.0.0.copyload.i.i76)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -14076,7 +14076,7 @@ if.end26:                                         ; preds = %if.end23
 if.then37:                                        ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 56, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -14249,7 +14249,7 @@ if.end18:                                         ; preds = %if.end15
 if.then27:                                        ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 51, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.109, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.109, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -15182,7 +15182,7 @@ if.end:                                           ; preds = %if.else38
 if.then48:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %cleanup499
 
@@ -15196,7 +15196,7 @@ if.end49:                                         ; preds = %if.end
 if.then53:                                        ; preds = %if.end49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i136)
   store i32 54, ptr %k1.addr.i.i.i136, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i136, i64 1, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i136, i64 1, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i136)
   br label %cleanup499
 
@@ -15253,7 +15253,7 @@ if.end69:                                         ; preds = %if.end67, %land.lhs
 if.then75:                                        ; preds = %if.end69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 49, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %cleanup
 
@@ -15673,7 +15673,7 @@ if.end163:                                        ; preds = %if.else155
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i384: ; preds = %if.end163
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i381)
   store i32 53, ptr %k1.addr.i.i.i381, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i381, i64 1, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i381, i64 1, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i381)
   br label %_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE.exit388
 
@@ -15750,7 +15750,7 @@ if.end204:                                        ; preds = %if.end204thread-pre
 if.then208:                                       ; preds = %if.end204
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i413)
   store i32 49, ptr %k1.addr.i.i413, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i413, i64 1, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i413, i64 1, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i413)
   br label %cleanup242
 
@@ -16508,7 +16508,7 @@ if.end410:                                        ; preds = %if.end410thread-pre
 if.then414:                                       ; preds = %if.end410
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i781)
   store i32 53, ptr %k1.addr.i.i781, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i781, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i781, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i781)
   br label %cleanup467.thread
 
@@ -16569,7 +16569,7 @@ if.end439:                                        ; preds = %if.end439thread-pre
 if.then443:                                       ; preds = %if.end439
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i808)
   store i32 49, ptr %k1.addr.i.i808, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i808, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i808, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i808)
   br label %cleanup467.thread
 
@@ -16614,7 +16614,7 @@ if.else469:                                       ; preds = %lor.lhs.false
 if.then473:                                       ; preds = %if.else469
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i830)
   store i32 92, ptr %k1.addr.i.i.i830, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i830, i64 1, ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i830, i64 1, ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i830)
   br label %cleanup499
 
@@ -17235,7 +17235,7 @@ if.end52:                                         ; preds = %if.else49
 if.then56:                                        ; preds = %if.end52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 53, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %cleanup.thread
 
@@ -17646,7 +17646,7 @@ if.end14:                                         ; preds = %if.end
 if.then21:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 56, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.201, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.201, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %cleanup
 
@@ -17797,7 +17797,7 @@ if.then56:                                        ; preds = %_ZN6hermes6parser6d
 if.then65:                                        ; preds = %if.then56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 1, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.202, ptr noundef nonnull @.str.192, ptr %objectLoc.coerce)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.202, ptr noundef nonnull @.str.192, ptr %objectLoc.coerce)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -18027,7 +18027,7 @@ if.end121:                                        ; preds = %if.then116
 if.then126:                                       ; preds = %if.end121
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i167)
   store i32 53, ptr %k1.addr.i.i167, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i167, i64 1, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.204, ptr %objectLoc.coerce)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i167, i64 1, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.204, ptr %objectLoc.coerce)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i167)
   br label %return
 
@@ -18063,7 +18063,7 @@ if.end139:                                        ; preds = %if.then133
 if.then144:                                       ; preds = %if.end139
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i179)
   store i32 53, ptr %k1.addr.i.i179, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i179, i64 1, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.204, ptr %objectLoc.coerce)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i179, i64 1, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.204, ptr %objectLoc.coerce)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i179)
   br label %return
 
@@ -18305,7 +18305,7 @@ if.end28:                                         ; preds = %if.end21, %if.end24
 if.then36:                                        ; preds = %if.end28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 54, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.131, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -21092,7 +21092,7 @@ if.end86:                                         ; preds = %if.end84, %if.end72
 if.then90:                                        ; preds = %if.end86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 92, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210, ptr %retval.sroa.0.0.copyload.i11)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210, ptr %retval.sroa.0.0.copyload.i11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %cleanup110
 
@@ -21559,7 +21559,7 @@ while.cond:                                       ; preds = %_ZN6hermes6parser6d
 if.then40:                                        ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 1, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.216, ptr %startLoc.coerce)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.216, ptr %startLoc.coerce)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -21596,7 +21596,7 @@ if.end52:                                         ; preds = %if.end46, %if.then3
 if.then56:                                        ; preds = %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i, %if.end52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i43)
   store i32 49, ptr %k1.addr.i.i43, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i43, i64 1, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.216, ptr %startLoc.coerce)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i43, i64 1, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.216, ptr %startLoc.coerce)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i43)
   br label %return
 
@@ -23345,7 +23345,7 @@ if.end233:                                        ; preds = %if.end233thread-pre
 if.then237:                                       ; preds = %if.end233
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 53, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -23433,7 +23433,7 @@ if.end270:                                        ; preds = %if.end270thread-pre
 if.then274:                                       ; preds = %if.end270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i453)
   store i32 49, ptr %k1.addr.i.i453, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i453, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i453, i64 1, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.180, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i453)
   br label %cleanup
 
@@ -24425,7 +24425,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 109, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.237, ptr %coerce.val.ip)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.237, ptr %coerce.val.ip)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %cleanup53
 
@@ -27372,7 +27372,7 @@ if.end:                                           ; preds = %_ZNK6hermes6parser6
 if.then7:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 112, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -27469,7 +27469,7 @@ entry:
 _ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE.exit.thread: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 49, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 
@@ -27535,7 +27535,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit: ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 1, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   br label %return
 
@@ -27614,7 +27614,7 @@ if.end26:                                         ; preds = %_ZN6hermes6ESTree4N
 _ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE.exit59: ; preds = %if.end26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i52)
   store i32 92, ptr %k1.addr.i.i.i52, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i52, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i52, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i52)
   br label %return
 
@@ -27628,7 +27628,7 @@ if.end31:                                         ; preds = %if.end26
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit64: ; preds = %if.end31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i60)
   store i32 112, ptr %k1.addr.i.i60, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i60, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i60, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i60)
   br label %return
 
@@ -27764,7 +27764,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117: ; preds = %if.then.i.i.i115, %
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i136: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i133)
   store i32 51, ptr %k1.addr.i.i.i133, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i133, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i133, i64 1, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.208, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i133)
   br label %return
 
@@ -28116,7 +28116,7 @@ if.end60:                                         ; preds = %if.then55
 if.then66:                                        ; preds = %if.end53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i)
   store i32 49, ptr %k1.addr.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.251, ptr %retval.sroa.0.0.copyload.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i, i64 1, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.251, ptr %retval.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i)
   %65 = ptrtoint ptr %kind.3 to i64
   br label %return
@@ -28399,7 +28399,7 @@ _ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer1
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i: ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 51, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.109, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.109, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %cleanup
 
@@ -29253,7 +29253,7 @@ _ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer1
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i: ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   store i32 51, ptr %k1.addr.i.i.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.266, ptr %retval.sroa.0.0.copyload.i.i)
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i.i.i, i64 1, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.266, ptr %retval.sroa.0.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i.i.i)
   br label %return
 

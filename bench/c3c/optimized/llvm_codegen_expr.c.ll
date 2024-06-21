@@ -2339,7 +2339,7 @@ llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_up
   %1042 = getelementptr inbounds i8, ptr %2, i64 24
   %1043 = load ptr, ptr %1042, align 8
   %.val.i138 = load ptr, ptr %1043, align 8
-  %1044 = tail call fastcc ptr @type_lowering(ptr noundef %.val.i138)
+  %1044 = tail call fastcc ptr @type_lowering(ptr noundef readonly %.val.i138)
   %1045 = load ptr, ptr %1042, align 8
   %1046 = getelementptr inbounds i8, ptr %2, i64 32
   %1047 = load i8, ptr %1046, align 8
@@ -3333,7 +3333,7 @@ expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subs
   br label %1568
 
 1568:                                             ; preds = %1565, %1563
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
   %.not21.i.i = icmp eq ptr %1, null
   br i1 %.not21.i.i, label %llvm_emit_inc_dec_change.exit.i, label %1569
@@ -9254,7 +9254,7 @@ define internal fastcc void @llvm_emit_const_expr(ptr noundef %0, ptr noundef %1
   %4 = alloca [2 x i64], align 16
   %5 = alloca [2 x ptr], align 16
   %.val = load ptr, ptr %2, align 8
-  %6 = tail call fastcc ptr @type_lowering(ptr noundef %.val)
+  %6 = tail call fastcc ptr @type_lowering(ptr noundef readonly %.val)
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
@@ -17641,7 +17641,7 @@ expr_is_vector_subscript.exit.thread:             ; preds = %expr_is_vector_subs
   br label %30
 
 30:                                               ; preds = %27, %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
@@ -17907,7 +17907,7 @@ type_flatten.exit149:                             ; preds = %50
 
 llvm_emit_bitassign_array.exit:                   ; preds = %80, %82
   %.0.i.i = phi i1 [ %81, %80 ], [ %..i.i, %82 ]
-  call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %70, i32 noundef %72, ptr noundef %75, i1 noundef zeroext %.0.i.i, ptr noundef %12, ptr noundef %47)
+  call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %70, i32 noundef %72, ptr noundef %75, i1 noundef zeroext %.0.i.i, ptr noundef readonly %12, ptr noundef %47)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %160
 

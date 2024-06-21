@@ -4186,7 +4186,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mca_pml_ob1_recv_request_p
   %46 = getelementptr inbounds i8, ptr %26, i64 48
   store i64 %38, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %26, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr align 1 %.025, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr readonly align 1 %.025, i64 %9, i1 false)
   %48 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr @mca_pml_ob1_put_completion, ptr %48, align 8
   store i8 1, ptr %27, align 1

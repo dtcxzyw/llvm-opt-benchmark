@@ -1783,7 +1783,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %if.then2.i7, %land.lhs.true5.i, %land.lhs.true7.i, %if.then9.i, %if.else11.i, %land.lhs.true16.i, %if.else20.i
@@ -4917,7 +4917,7 @@ if.then26.i:                                      ; preds = %if.then19.i
 if.then.i.i:                                      ; preds = %if.then26.i
   %internalChannelMap.i = getelementptr inbounds i8, ptr %pDevice, i64 2824
   %conv.i.i = zext i32 %38 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap.i, ptr nonnull align 1 %internalChannelMap.i, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap.i, ptr nonnull readonly align 1 %internalChannelMap.i, i64 %conv.i.i, i1 false)
   br label %if.end51.i
 
 if.else.i:                                        ; preds = %if.then19.i
@@ -4999,7 +4999,7 @@ if.then90.i:                                      ; preds = %if.then83.i
 if.then.i142.i:                                   ; preds = %if.then90.i
   %internalChannelMap95.i = getelementptr inbounds i8, ptr %pDevice, i64 1392
   %conv.i143.i = zext i32 %46 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap78.i, ptr nonnull align 1 %internalChannelMap95.i, i64 %conv.i143.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap78.i, ptr nonnull readonly align 1 %internalChannelMap95.i, i64 %conv.i143.i, i1 false)
   br label %if.end119.i
 
 if.else99.i:                                      ; preds = %if.then83.i
@@ -5937,7 +5937,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks34, ptr noundef nonnull align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks34, ptr noundef nonnull readonly align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %if.then2.i13, %land.lhs.true5.i, %land.lhs.true7.i, %if.then9.i, %if.else11.i, %land.lhs.true16.i, %if.else20.i
@@ -6265,7 +6265,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %return, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %pConfig.addr.0.sroa.phi246, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %pConfig.addr.0.sroa.phi246, i64 32, i1 false)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else20.i, %if.then9.i
@@ -6324,7 +6324,7 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp18.i.i, label %ma_allocation_callbacks_init_copy.exit.i, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %land.lhs.true16.i.i, %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit.i
 
 ma_allocation_callbacks_init_copy.exit.i:         ; preds = %if.else20.i.i, %land.lhs.true16.i.i, %if.else11.i.i, %if.then9.i.i, %land.lhs.true7.i.i, %land.lhs.true5.i.i
@@ -7416,7 +7416,7 @@ ma_dlsym.exit956:                                 ; preds = %ma_context_get_log.
   br i1 %cmp.i957, label %land.lhs.true, label %if.end.i958
 
 if.end.i958:                                      ; preds = %ma_dlsym.exit956
-  %call.i959 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #77
+  %call.i959 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %125) #77
   %add.i = add i64 %call.i959, 1
   %onMalloc.i.i = getelementptr inbounds i8, ptr %pContext, i64 296
   %126 = load ptr, ptr %onMalloc.i.i, align 8
@@ -7472,7 +7472,7 @@ if.end199:                                        ; preds = %ma_copy_string.exit
   br i1 %cmp.i961, label %land.lhs.true206, label %if.end.i962
 
 if.end.i962:                                      ; preds = %if.end199
-  %call.i963 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %130) #77
+  %call.i963 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %130) #77
   %add.i964 = add i64 %call.i963, 1
   %onMalloc.i.i965 = getelementptr inbounds i8, ptr %pContext, i64 296
   %131 = load ptr, ptr %onMalloc.i.i965, align 8
@@ -8909,7 +8909,7 @@ ma_dlsym.exit267:                                 ; preds = %ma_context_get_log.
   br i1 %cmp56.not, label %if.end62, label %if.end.i269
 
 if.end.i269:                                      ; preds = %ma_dlsym.exit267
-  %call.i270 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #77
+  %call.i270 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #77
   %add.i = add i64 %call.i270, 1
   %onMalloc.i.i = getelementptr inbounds i8, ptr %pContext, i64 296
   %36 = load ptr, ptr %onMalloc.i.i, align 8
@@ -9751,7 +9751,7 @@ if.end.i:                                         ; preds = %if.end75
 
 if.then.i.i:                                      ; preds = %if.end.i
   %conv.i.i = zext i32 %35 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap, ptr nonnull align 1 %36, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap, ptr nonnull readonly align 1 %36, i64 %conv.i.i, i1 false)
   br label %ma_channel_map_copy_or_default.exit
 
 if.end7.i.i:                                      ; preds = %if.end.i, %if.end7.i.i
@@ -9801,7 +9801,7 @@ if.end.i332:                                      ; preds = %ma_channel_map_copy
 
 if.then.i.i334:                                   ; preds = %if.end.i332
   %conv.i.i335 = zext i32 %41 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap128, ptr nonnull align 1 %42, i64 %conv.i.i335, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap128, ptr nonnull readonly align 1 %42, i64 %conv.i.i335, i1 false)
   br label %ma_channel_map_copy_or_default.exit348
 
 if.end7.i.i337:                                   ; preds = %if.end.i332, %if.end7.i.i337
@@ -10941,7 +10941,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i = zext i32 %channels to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pOut, ptr nonnull align 1 %pIn, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pOut, ptr nonnull readonly align 1 %pIn, i64 %conv.i, i1 false)
   br label %if.end4
 
 if.else:                                          ; preds = %if.end
@@ -13017,7 +13017,7 @@ if.end10.i.thread:                                ; preds = %land.lhs.true7.i.i,
   br label %if.then2.i.i.i18
 
 if.end10.i:                                       ; preds = %lor.lhs.false.i.i, %land.lhs.true16.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
   %onMalloc.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %pRB, i64 112
   %.pre = load ptr, ptr %onMalloc.i.i.i.phi.trans.insert, align 8
   %subbufferSizeInBytes11.i = getelementptr inbounds i8, ptr %pRB, i64 80
@@ -30809,7 +30809,7 @@ if.else:                                          ; preds = %if.end19
 
 if.then.i.i:                                      ; preds = %if.else
   %conv30 = zext i32 %12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pHeap, ptr nonnull align 1 %11, i64 %conv30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pHeap, ptr nonnull readonly align 1 %11, i64 %conv30, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end7.i.i, %if.end.i, %if.then2.i39, %if.then.i.i, %if.else, %if.else.i, %if.then.i, %entry
@@ -31644,7 +31644,7 @@ if.end.i91:                                       ; preds = %if.then42
   br i1 %cmp2.not.i, label %if.end7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %32, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull readonly align 1 %32, i64 %conv, i1 false)
   br label %if.end48
 
 if.end7.i.i:                                      ; preds = %if.end.i91, %if.end7.i.i
@@ -38266,7 +38266,7 @@ if.end.i:                                         ; preds = %if.then10
   br i1 %cmp2.not.i, label %if.end7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %8, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull readonly align 1 %8, i64 %conv, i1 false)
   br label %if.end17
 
 if.end7.i.i:                                      ; preds = %if.end.i, %if.end7.i.i
@@ -38313,7 +38313,7 @@ if.end.i220:                                      ; preds = %if.then20
   br i1 %cmp2.not.i221, label %if.end7.i.i226, label %if.then.i.i222
 
 if.then.i.i222:                                   ; preds = %if.end.i220
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr21, ptr nonnull align 1 %12, i64 %conv25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr21, ptr nonnull readonly align 1 %12, i64 %conv25, i1 false)
   br label %if.end30
 
 if.end7.i.i226:                                   ; preds = %if.end.i220, %if.end7.i.i226
@@ -41004,7 +41004,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.end.i
   %conv.i.i = zext i32 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull align 1 %0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull readonly align 1 %0, i64 %conv.i.i, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
@@ -41052,7 +41052,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.end.i
   %conv.i.i = zext i32 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull align 1 %0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull readonly align 1 %0, i64 %conv.i.i, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
@@ -43355,7 +43355,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %conv.i.i.i = zext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull align 1 %1, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull readonly align 1 %1, i64 %conv.i.i.i, i1 false)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -43459,7 +43459,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %conv.i.i.i = zext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull align 1 %1, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull readonly align 1 %1, i64 %conv.i.i.i, i1 false)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -44672,7 +44672,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %return, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else20.i, %if.then9.i, %if.then2.i29
@@ -48393,7 +48393,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %if.then2.i3, %land.lhs.true5.i, %land.lhs.true7.i, %if.then9.i, %if.else11.i, %land.lhs.true16.i, %if.else20.i
@@ -48494,7 +48494,7 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp18.i.i, label %ma_allocation_callbacks_init_copy.exit.i, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %land.lhs.true16.i.i, %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks12.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks12.i, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit.i
 
 ma_allocation_callbacks_init_copy.exit.i:         ; preds = %if.else20.i.i, %land.lhs.true16.i.i, %if.else11.i.i, %if.then9.i.i, %land.lhs.true7.i.i, %land.lhs.true5.i.i
@@ -48608,7 +48608,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks12, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks12, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %land.lhs.true5.i, %land.lhs.true7.i, %if.then9.i, %if.else11.i, %land.lhs.true16.i, %if.else20.i
@@ -50308,7 +50308,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %return, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %pAllocationCallbacks, i64 32, i1 false)
   br label %return
 
 return:                                           ; preds = %if.else20.i, %land.lhs.true16.i, %if.else11.i, %if.then9.i, %land.lhs.true7.i, %land.lhs.true5.i, %if.then2.i, %entry
@@ -50336,7 +50336,7 @@ if.end6.i.i:                                      ; preds = %if.end
   %cmp2.not.i = icmp eq i32 %and1.i, 0
   %.str.176..str.483.i = select i1 %cmp2.not.i, ptr @.str.176, ptr @.str.483
   %pOpenModeStr.0.i = select i1 %cmp.not.i, ptr @.str.484, ptr %.str.176..str.483.i
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull %pOpenModeStr.0.i)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly %pOpenModeStr.0.i)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end8.i
 
@@ -50626,7 +50626,7 @@ if.end6.i.i.i:                                    ; preds = %if.end.i7
   %cmp2.not.i.i = icmp eq i32 %and1.i.i, 0
   %.str.176..str.483.i.i = select i1 %cmp2.not.i.i, ptr @.str.176, ptr @.str.483
   %pOpenModeStr.0.i.i = select i1 %cmp.not.i.i, ptr @.str.484, ptr %.str.176..str.483.i.i
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull %pOpenModeStr.0.i.i)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly %pOpenModeStr.0.i.i)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.end8.i.i
 
@@ -51101,7 +51101,7 @@ if.end9.i.i:                                      ; preds = %if.end6.i.i
   br label %if.end10
 
 if.end6.i.i.i.i:                                  ; preds = %if.then8
-  %call.i.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.176)
+  %call.i.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i41.thread
 
@@ -51734,7 +51734,7 @@ if.end:                                           ; preds = %if.then2.i.i, %land
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -51833,7 +51833,7 @@ entry:
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_ex.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_wav_init_file_ex.exit, label %if.end.i
 
@@ -55395,7 +55395,7 @@ if.end:                                           ; preds = %if.then2.i.i, %land
   br i1 %cmp1.i.i, label %ma_dr_flac_open_file.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_flac_open_file.exit, label %if.end.i
 
@@ -55428,7 +55428,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFileName, ptr noundef nonnull @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFileName, ptr noundef nonnull readonly @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -60097,7 +60097,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -61524,7 +61524,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61602,7 +61602,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else11.i.i.i, %l
   br i1 %or.cond8, label %return, label %if.else20.i.i.i
 
 if.else20.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i.i, %if.then9.i.i.i
@@ -62014,7 +62014,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %entry
@@ -62089,7 +62089,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else11.i.i.i, %l
   br i1 %or.cond157, label %return, label %if.else20.i.i.i
 
 if.else20.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i.i, %if.then9.i.i.i
@@ -62563,7 +62563,7 @@ if.end6.i:                                        ; preds = %if.end.i
   store i32 0, ptr %tmp.sroa.965.0.converterConfig.sroa_idx.i, align 8
   %resampling.i = getelementptr inbounds i8, ptr %converterConfig.i, i64 72
   %resampling31.i = getelementptr inbounds i8, ptr %pConfig, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %resampling.i, ptr noundef nonnull align 8 dereferenceable(48) %resampling31.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %resampling.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %resampling31.i, i64 48, i1 false)
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pDecoder, i64 496
   %converter.i = getelementptr inbounds i8, ptr %pDecoder, i64 152
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %heapLayout.i.i.i)
@@ -62869,7 +62869,7 @@ land.lhs.true16.i.i.i:                            ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp18.i.i.i, label %return, label %if.else20.i.i.i
 
 if.else20.i.i.i:                                  ; preds = %land.lhs.true16.i.i.i, %lor.lhs.false.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
   br label %if.end4
 
 if.else.i.i:                                      ; preds = %if.end4.i
@@ -63041,7 +63041,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %entry
@@ -63121,7 +63121,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond290, label %ma_decoder__preinit_vfs.exit.thread, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -63144,7 +63144,7 @@ if.end6.i.i.i:                                    ; preds = %if.end5.i
   br i1 %cmp7.i.i.i, label %ma_decoder__preinit_vfs.exit.thread, label %ma_vfs_or_default_open.exit.i
 
 if.end6.i.i.i.i.i:                                ; preds = %if.end5.i
-  %call.i.i.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.176)
+  %call.i.i.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp7.i.i.i.i.i, label %if.then8.i.i.i.i.i, label %if.end
 
@@ -63499,7 +63499,7 @@ if.end8.i.i:                                      ; preds = %if.then7.i.i, %whil
 ma_path_extension_equal.exit:                     ; preds = %while.cond.i.i
   %cmp10.not.i.i = icmp eq ptr %lastOccurance.0.i.i, null
   %cond.i.i = select i1 %cmp10.not.i.i, ptr %extension.0.i.i, ptr %lastOccurance.0.i.i
-  %call2.i = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %cond.i.i) #77
+  %call2.i = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.169, ptr noundef nonnull %cond.i.i) #77
   %cmp3.i.not = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i.not, label %if.then39, label %while.cond.i.i.i155.preheader
 
@@ -63622,7 +63622,7 @@ if.end8.i.i171:                                   ; preds = %if.then7.i.i169, %w
 ma_path_extension_equal.exit183:                  ; preds = %while.cond.i.i166
   %cmp10.not.i.i177 = icmp eq ptr %lastOccurance.0.i.i168, null
   %cond.i.i178 = select i1 %cmp10.not.i.i177, ptr %extension.0.i.i167, ptr %lastOccurance.0.i.i168
-  %call2.i179 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %cond.i.i178) #77
+  %call2.i179 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.170, ptr noundef nonnull %cond.i.i178) #77
   %cmp3.i180.not = icmp eq i32 %call2.i179, 0
   br i1 %cmp3.i180.not, label %if.then50, label %while.cond.i.i.i205.preheader
 
@@ -63722,7 +63722,7 @@ if.end8.i.i221:                                   ; preds = %if.then7.i.i219, %w
 ma_path_extension_equal.exit233:                  ; preds = %while.cond.i.i216
   %cmp10.not.i.i227 = icmp eq ptr %lastOccurance.0.i.i218, null
   %cond.i.i228 = select i1 %cmp10.not.i.i227, ptr %extension.0.i.i217, ptr %lastOccurance.0.i.i218
-  %call2.i229 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %cond.i.i228) #77
+  %call2.i229 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.171, ptr noundef nonnull %cond.i.i228) #77
   %cmp3.i230.not = icmp eq i32 %call2.i229, 0
   br i1 %cmp3.i230.not, label %if.then61, label %if.then70.critedge
 
@@ -63884,7 +63884,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %entry
@@ -63964,7 +63964,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond220, label %ma_decoder__preinit_vfs_w.exit.thread, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -64611,7 +64611,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %entry
@@ -64686,7 +64686,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond296, label %return, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -64951,7 +64951,7 @@ if.end8.i.i:                                      ; preds = %if.then7.i.i, %whil
 ma_path_extension_equal.exit:                     ; preds = %while.cond.i.i
   %cmp10.not.i.i = icmp eq ptr %lastOccurance.0.i.i, null
   %cond.i.i = select i1 %cmp10.not.i.i, ptr %extension.0.i.i, ptr %lastOccurance.0.i.i
-  %call2.i = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %cond.i.i) #77
+  %call2.i = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.169, ptr noundef nonnull %cond.i.i) #77
   %cmp3.i.not = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i.not, label %if.then30, label %while.cond.i.i.i130.preheader
 
@@ -65050,7 +65050,7 @@ if.end8.i.i146:                                   ; preds = %if.then7.i.i144, %w
 ma_path_extension_equal.exit158:                  ; preds = %while.cond.i.i141
   %cmp10.not.i.i152 = icmp eq ptr %lastOccurance.0.i.i143, null
   %cond.i.i153 = select i1 %cmp10.not.i.i152, ptr %extension.0.i.i142, ptr %lastOccurance.0.i.i143
-  %call2.i154 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %cond.i.i153) #77
+  %call2.i154 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.170, ptr noundef nonnull %cond.i.i153) #77
   %cmp3.i155.not = icmp eq i32 %call2.i154, 0
   br i1 %cmp3.i155.not, label %if.then37, label %while.cond.i.i.i180.preheader
 
@@ -65149,7 +65149,7 @@ if.end8.i.i196:                                   ; preds = %if.then7.i.i194, %w
 ma_path_extension_equal.exit208:                  ; preds = %while.cond.i.i191
   %cmp10.not.i.i202 = icmp eq ptr %lastOccurance.0.i.i193, null
   %cond.i.i203 = select i1 %cmp10.not.i.i202, ptr %extension.0.i.i192, ptr %lastOccurance.0.i.i193
-  %call2.i204 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %cond.i.i203) #77
+  %call2.i204 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.171, ptr noundef nonnull %cond.i.i203) #77
   %cmp3.i205.not = icmp eq i32 %call2.i204, 0
   br i1 %cmp3.i205.not, label %if.then44, label %if.then50
 
@@ -65377,7 +65377,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %entry
@@ -65452,7 +65452,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond227, label %return, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -66682,7 +66682,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %conv.i.i.i.i = zext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull align 1 %4, i64 %conv.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pChannelMap, ptr nonnull readonly align 1 %4, i64 %conv.i.i.i.i, i1 false)
   br label %return
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -66994,7 +66994,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %if.end3
@@ -67188,7 +67188,7 @@ if.end3.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit.i
 
 if.else.i.i:                                      ; preds = %if.end3.i
@@ -67245,7 +67245,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(144) %pConfig, i64 144, i1 false)
   br label %ma_decoder_config_init_copy.exit
 
 if.else.i:                                        ; preds = %if.end7
@@ -67370,7 +67370,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %return, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks11, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks11, i64 32, i1 false)
   br label %return
 
 return:                                           ; preds = %if.else20.i, %land.lhs.true16.i, %if.else11.i, %if.then9.i, %land.lhs.true7.i, %land.lhs.true5.i, %if.end3, %lor.lhs.false, %lor.lhs.false6, %if.then2.i, %entry
@@ -67503,7 +67503,7 @@ ma_dr_wav_init_write.exit:                        ; preds = %lor.lhs.false20.i.i
   store i16 %conv45.i.i, ptr %bitsPerSample47.i.i, align 2
   %isSequentialWrite.i.i = getelementptr inbounds i8, ptr %call.i, i64 168
   store i32 0, ptr %isSequentialWrite.i.i, align 8
-  %call1.i = call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %call.i, ptr noundef nonnull %wavFormat, i64 noundef 0)
+  %call1.i = call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %call.i, ptr noundef nonnull readonly %wavFormat, i64 noundef 0)
   %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %return, label %if.end29
 
@@ -67658,7 +67658,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp7.i, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %lor.lhs.false6.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pEncoder, ptr noundef nonnull align 8 dereferenceable(48) %pConfig, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pEncoder, ptr noundef nonnull readonly align 8 dereferenceable(48) %pConfig, i64 48, i1 false)
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pEncoder, i64 16
   %allocationCallbacks11.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %3 = load ptr, ptr %allocationCallbacks11.i, align 8
@@ -67709,7 +67709,7 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp18.i.i, label %return, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %land.lhs.true16.i.i, %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks11.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks11.i, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i, %if.then9.i.i
@@ -67731,7 +67731,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp1.i8.i, label %return, label %if.end6.i.i.i.i
 
 if.end6.i.i.i.i:                                  ; preds = %if.else.i
-  %call.i.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.484)
+  %call.i.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.484)
   %cmp7.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp7.i.i.i.i, label %if.then8.i.i.i.i, label %ma_vfs_or_default_open.exit.thread23
 
@@ -67961,7 +67961,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp7.i, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %lor.lhs.false6.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pEncoder, ptr noundef nonnull align 8 dereferenceable(48) %pConfig, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pEncoder, ptr noundef nonnull readonly align 8 dereferenceable(48) %pConfig, i64 48, i1 false)
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pEncoder, i64 16
   %allocationCallbacks11.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %3 = load ptr, ptr %allocationCallbacks11.i, align 8
@@ -68012,7 +68012,7 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp18.i.i, label %return, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %land.lhs.true16.i.i, %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks11.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks11.i, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i, %if.then9.i.i
@@ -68163,7 +68163,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp7.i, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %lor.lhs.false6.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pEncoder, ptr noundef nonnull align 8 dereferenceable(48) %pConfig, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pEncoder, ptr noundef nonnull readonly align 8 dereferenceable(48) %pConfig, i64 48, i1 false)
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pEncoder, i64 16
   %allocationCallbacks11.i = getelementptr inbounds i8, ptr %pConfig, i64 16
   %3 = load ptr, ptr %allocationCallbacks11.i, align 8
@@ -68214,7 +68214,7 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp18.i.i, label %return, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %land.lhs.true16.i.i, %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks11.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks11.i, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i, %if.then9.i.i
@@ -71402,7 +71402,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp18.i, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pResourceManager, ptr noundef nonnull align 8 dereferenceable(32) %pConfig, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pResourceManager, ptr noundef nonnull readonly align 8 dereferenceable(32) %pConfig, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %land.lhs.true5.i, %land.lhs.true7.i, %if.then9.i, %if.else11.i, %land.lhs.true16.i, %if.else20.i
@@ -71462,7 +71462,7 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp18.i.i, label %ma_allocation_callbacks_init_copy.exit.i, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %land.lhs.true16.i.i, %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull align 8 dereferenceable(32) %pResourceManager, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %pResourceManager, i64 32, i1 false)
   br label %ma_allocation_callbacks_init_copy.exit.i
 
 ma_allocation_callbacks_init_copy.exit.i:         ; preds = %if.else20.i.i, %land.lhs.true16.i.i, %if.else11.i.i, %if.then9.i.i, %land.lhs.true7.i.i, %land.lhs.true5.i.i
@@ -71555,7 +71555,7 @@ land.lhs.true16.i.i82:                            ; preds = %lor.lhs.false.i.i77
   br i1 %cmp18.i.i84, label %if.end37, label %if.else20.i.i80
 
 if.else20.i.i80:                                  ; preds = %land.lhs.true16.i.i82, %lor.lhs.false.i.i77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i70, ptr noundef nonnull align 8 dereferenceable(32) %pResourceManager, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks.i70, ptr noundef nonnull readonly align 8 dereferenceable(32) %pResourceManager, i64 32, i1 false)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else20.i.i80, %land.lhs.true16.i.i82, %if.else11.i.i76, %if.then9.i.i92, %land.lhs.true7.i.i89, %land.lhs.true5.i.i86
@@ -73736,7 +73736,7 @@ if.then19:                                        ; preds = %if.then17
   br label %if.end23
 
 if.else:                                          ; preds = %if.then17
-  %call.i = tail call i64 @wcslen(ptr noundef %pFilePathW) #77
+  %call.i = tail call i64 @wcslen(ptr noundef readonly %pFilePathW) #77
   %call.tr.i = trunc i64 %call.i to i32
   %conv2.i = shl i32 %call.tr.i, 2
   %idx.ext.i.i = sext i32 %conv2.i to i64
@@ -73857,7 +73857,7 @@ if.then2.i.i:                                     ; preds = %ma_malloc.exit.i
 
 if.else15.i:                                      ; preds = %if.then2.i.i
   %data16.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data16.i, ptr noundef nonnull align 8 dereferenceable(64) %pExistingData, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data16.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %pExistingData, i64 64, i1 false)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else15.i, %if.then2.i.i
@@ -73900,7 +73900,7 @@ if.then28.i:                                      ; preds = %ma_resource_manager
   br i1 %cmp2, label %if.then.i.i90.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then28.i
-  %call.i83.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pFilePath) #77
+  %call.i83.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pFilePath) #77
   %add.i.i56 = add i64 %call.i83.i, 1
   br i1 %cmp1.not.i.i92.i, label %if.then2.i115.i, label %ma_malloc.exit.i.i
 
@@ -73934,7 +73934,7 @@ return.sink.split.i.i.i:                          ; preds = %for.body.i.i.i, %la
   br label %if.end38.thread.i
 
 if.then.i.i90.i:                                  ; preds = %if.then28.i
-  %call.i87.i = tail call i64 @wcslen(ptr noundef %pFilePathW) #77
+  %call.i87.i = tail call i64 @wcslen(ptr noundef readonly %pFilePathW) #77
   %add.i88.i = add i64 %call.i87.i, 1
   br i1 %cmp1.not.i.i92.i, label %if.then2.i115.i, label %ma_malloc.exit.i95.i
 
@@ -74565,7 +74565,7 @@ if.then8:                                         ; preds = %if.end6
   br label %if.end11
 
 if.else:                                          ; preds = %if.end6
-  %call.i = tail call i64 @wcslen(ptr noundef %pNameW) #77
+  %call.i = tail call i64 @wcslen(ptr noundef readonly %pNameW) #77
   %call.tr.i = trunc i64 %call.i to i32
   %conv2.i = shl i32 %call.tr.i, 2
   %idx.ext.i.i = sext i32 %conv2.i to i64
@@ -75100,7 +75100,7 @@ if.end3.i9.i102:                                  ; preds = %if.end.i7.i100
   br label %return
 
 if.then.i.i:                                      ; preds = %lor.lhs.false
-  %call.i106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #77
+  %call.i106 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #77
   %add.i107 = add i64 %call.i106, 1
   %onMalloc.i.i = getelementptr inbounds i8, ptr %pResourceManager, i64 8
   %32 = load ptr, ptr %onMalloc.i.i, align 8
@@ -75137,7 +75137,7 @@ return.sink.split.i.i:                            ; preds = %for.body.i.i, %land
   br label %if.end40.thread
 
 if.then.i.i118:                                   ; preds = %land.lhs.true26
-  %call.i115 = call i64 @wcslen(ptr noundef nonnull %27) #77
+  %call.i115 = call i64 @wcslen(ptr noundef nonnull readonly %27) #77
   %add.i116 = add i64 %call.i115, 1
   %onMalloc.i.i119 = getelementptr inbounds i8, ptr %pResourceManager, i64 8
   %35 = load ptr, ptr %onMalloc.i.i119, align 8
@@ -77650,7 +77650,7 @@ define noundef i32 @ma_node_init(ptr noundef %pNodeGraph, ptr noundef %pConfig, 
 entry:
   %heapLayout.i = alloca %struct.ma_node_heap_layout, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i)
-  %call.i = call fastcc i32 @ma_node_get_heap_layout(ptr noundef %pNodeGraph, ptr noundef %pConfig, ptr noundef nonnull %heapLayout.i)
+  %call.i = call fastcc i32 @ma_node_get_heap_layout(ptr noundef readonly %pNodeGraph, ptr noundef %pConfig, ptr noundef nonnull %heapLayout.i)
   %cmp1.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.not.i, label %if.end, label %ma_node_get_heap_size.exit
 
@@ -81563,7 +81563,7 @@ if.then2.i:                                       ; preds = %entry
 
 if.end8.i:                                        ; preds = %if.then2.i
   %delay1 = getelementptr inbounds i8, ptr %pDelayNode, i64 360
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %delay1, ptr noundef nonnull align 4 dereferenceable(28) %delay, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %delay1, ptr noundef nonnull readonly align 4 dereferenceable(28) %delay, i64 28, i1 false)
   %delayInFrames.i = getelementptr inbounds i8, ptr %pConfig, i64 48
   %1 = load i32, ptr %delayInFrames.i, align 4
   %bufferSizeInFrames.i = getelementptr inbounds i8, ptr %pDelayNode, i64 392
@@ -81951,7 +81951,7 @@ cond.end15:                                       ; preds = %cond.end.thread, %i
   %pOutputChannels = getelementptr inbounds i8, ptr %baseNodeConfig, i64 32
   store ptr %channelsOut, ptr %pOutputChannels, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i)
-  %call.i = call fastcc i32 @ma_node_get_heap_layout(ptr noundef %.pre.pre, ptr noundef nonnull %baseNodeConfig, ptr noundef nonnull %heapLayout.i)
+  %call.i = call fastcc i32 @ma_node_get_heap_layout(ptr noundef readonly %.pre.pre, ptr noundef nonnull %baseNodeConfig, ptr noundef nonnull %heapLayout.i)
   %cmp1.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.not.i, label %if.end5.i.i, label %ma_node_get_heap_size.exit
 
@@ -93302,7 +93302,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -93448,7 +93448,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -93596,12 +93596,12 @@ entry:
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.484)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.484)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6.i.i
-  %call1.i = tail call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef nonnull %call.i.i, ptr noundef %pFormat, i64 noundef 0, i32 noundef 0, ptr noundef %pAllocationCallbacks)
+  %call1.i = tail call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef nonnull %call.i.i, ptr noundef readonly %pFormat, i64 noundef 0, i32 noundef 0, ptr noundef %pAllocationCallbacks)
   br label %ma_dr_wav_init_file_write__internal.exit
 
 ma_dr_wav_init_file_write__internal.exit:         ; preds = %entry, %if.end6.i.i, %if.end.i
@@ -93616,12 +93616,12 @@ entry:
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.484)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.484)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6.i.i
-  %call1.i = tail call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef nonnull %call.i.i, ptr noundef %pFormat, i64 noundef %totalSampleCount, i32 noundef 1, ptr noundef %pAllocationCallbacks)
+  %call1.i = tail call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef nonnull %call.i.i, ptr noundef readonly %pFormat, i64 noundef %totalSampleCount, i32 noundef 1, ptr noundef %pAllocationCallbacks)
   br label %ma_dr_wav_init_file_write__internal.exit
 
 ma_dr_wav_init_file_write__internal.exit:         ; preds = %entry, %if.end6.i.i, %if.end.i
@@ -93644,12 +93644,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.484)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.484)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end6.i.i.i
-  %call1.i.i = tail call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
+  %call1.i.i = tail call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull readonly %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end6.i.i.i, %if.end, %entry
@@ -93668,7 +93668,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %pFile.i, align 8
-  %call1.i = call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %0, ptr noundef %pFormat, i64 noundef 0, i32 noundef 0, ptr noundef %pAllocationCallbacks)
+  %call1.i = call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %0, ptr noundef readonly %pFormat, i64 noundef 0, i32 noundef 0, ptr noundef %pAllocationCallbacks)
   br label %ma_dr_wav_init_file_write_w__internal.exit
 
 ma_dr_wav_init_file_write_w__internal.exit:       ; preds = %entry, %if.end.i
@@ -93688,7 +93688,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %pFile.i, align 8
-  %call1.i = call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %0, ptr noundef %pFormat, i64 noundef %totalSampleCount, i32 noundef 1, ptr noundef %pAllocationCallbacks)
+  %call1.i = call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %0, ptr noundef readonly %pFormat, i64 noundef %totalSampleCount, i32 noundef 1, ptr noundef %pAllocationCallbacks)
   br label %ma_dr_wav_init_file_write_w__internal.exit
 
 ma_dr_wav_init_file_write_w__internal.exit:       ; preds = %entry, %if.end.i
@@ -93716,7 +93716,7 @@ if.end.i.i:                                       ; preds = %if.end
   %conv = zext i32 %0 to i64
   %mul = mul i64 %conv, %totalPCMFrameCount
   %1 = load ptr, ptr %pFile.i.i, align 8
-  %call1.i.i = call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %1, ptr noundef nonnull %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
+  %call1.i.i = call fastcc i32 @ma_dr_wav_init_file_write__internal_FILE(ptr noundef %pWav, ptr noundef %1, ptr noundef nonnull readonly %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
   br label %ma_dr_wav_init_file_write_sequential_w.exit
 
 ma_dr_wav_init_file_write_sequential_w.exit:      ; preds = %if.end, %if.end.i.i
@@ -94091,7 +94091,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %channels, align 4
   %conv = zext i32 %0 to i64
   %mul = mul i64 %conv, %totalPCMFrameCount
-  %call.i = tail call fastcc range(i32 0, 2) i32 @ma_dr_wav_init_memory_write__internal(ptr noundef %pWav, ptr noundef %ppData, ptr noundef %pDataSize, ptr noundef nonnull %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ma_dr_wav_init_memory_write__internal(ptr noundef %pWav, ptr noundef %ppData, ptr noundef %pDataSize, ptr noundef nonnull readonly %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -97004,7 +97004,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end6
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -97103,7 +97103,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end6
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -97202,7 +97202,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end6
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -98053,7 +98053,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFileName, ptr noundef nonnull @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFileName, ptr noundef nonnull readonly @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -99164,7 +99164,7 @@ if.then3.i127:                                    ; preds = %if.then66
 if.end67:                                         ; preds = %ma_dr_flac__malloc_from_callbacks.exit120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4488) %retval.0.i114, i8 0, i64 4488, i1 false)
   %bs.i130 = getelementptr inbounds i8, ptr %retval.0.i114, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4176) %bs.i130, ptr noundef nonnull align 8 dereferenceable(4176) %bs.i, i64 4176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4176) %bs.i130, ptr noundef nonnull readonly align 8 dereferenceable(4176) %bs.i, i64 4176, i1 false)
   %84 = load ptr, ptr %onMeta6.i, align 8
   store ptr %84, ptr %retval.0.i114, align 8
   %85 = load ptr, ptr %pUserDataMD9.i, align 8
@@ -101395,7 +101395,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %return, label %if.end.i
 
@@ -101448,7 +101448,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %return, label %if.end.i
 
@@ -101501,7 +101501,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %return, label %if.end.i
 
@@ -103422,7 +103422,7 @@ if.end70:                                         ; preds = %do.end.i
   %sub.i178 = sub nsw i32 %mul.i135, %add3.i698.i
   %div.i179 = sdiv i32 %sub.i178, 8
   %conv.i180 = sext i32 %main_data_begin..i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %maindata.i, ptr nonnull align 1 %add.ptr.i177, i64 %conv.i180, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %maindata.i, ptr nonnull readonly align 1 %add.ptr.i177, i64 %conv.i180, i1 false)
   %add.ptr22.i = getelementptr inbounds i8, ptr %maindata.i, i64 %conv.i180
   %div24.i = sdiv i32 %add3.i698.i, 8
   %idx.ext25.i181 = sext i32 %div24.i to i64
@@ -105300,7 +105300,7 @@ if.then7.i:                                       ; preds = %if.end104
   %idx.ext.i274 = zext nneg i32 %spec.select.i271 to i64
   %add.ptr.i275 = getelementptr inbounds i8, ptr %maindata.i, i64 %idx.ext.i274
   %conv.i276 = zext nneg i32 %spec.select12.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %reserv_buf.i, ptr nonnull align 1 %add.ptr.i275, i64 %conv.i276, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %reserv_buf.i, ptr nonnull readonly align 1 %add.ptr.i275, i64 %conv.i276, i1 false)
   br label %ma_dr_mp3_L3_save_reservoir.exit
 
 ma_dr_mp3_L3_save_reservoir.exit:                 ; preds = %if.end104, %if.then7.i
@@ -110162,7 +110162,7 @@ if.end:                                           ; preds = %ma_malloc.exit
   %tmp.sroa.4.0.config.sroa_idx.i = getelementptr inbounds i8, ptr %config.i, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tmp.sroa.4.0.config.sroa_idx.i, i8 0, i64 60, i1 false)
   %tmp.sroa.7.0.config.sroa_idx.i = getelementptr inbounds i8, ptr %config.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.sroa.7.0.config.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %pResourceManager, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.sroa.7.0.config.sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %pResourceManager, i64 32, i1 false)
   %ppCustomDecodingBackendVTables.i.i = getelementptr inbounds i8, ptr %pResourceManager, i64 80
   %3 = load ptr, ptr %ppCustomDecodingBackendVTables.i.i, align 8, !noalias !887
   %customDecodingBackendCount.i.i = getelementptr inbounds i8, ptr %pResourceManager, i64 88
@@ -119297,7 +119297,7 @@ if.then.i:                                        ; preds = %if.end458
   %cond = call i32 @llvm.umin.i32(i32 %105, i32 254)
   %channelMap = getelementptr inbounds i8, ptr %pDescriptor, i64 24
   %conv.i = zext nneg i32 %cond to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap, ptr nonnull align 16 %internalChannelMap, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %channelMap, ptr nonnull readonly align 16 %internalChannelMap, i64 %conv.i, i1 false)
   br label %ma_channel_map_copy.exit
 
 ma_channel_map_copy.exit:                         ; preds = %if.end458, %if.then.i
@@ -125812,7 +125812,7 @@ if.end.i:                                         ; preds = %if.then8.i.i, %land
   br i1 %cmp1.i.i.i, label %if.end.i8, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %pFilePath, ptr noundef nonnull @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %if.end.i8, label %if.end.i.i
 
@@ -130680,7 +130680,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   %6 = getelementptr i8, ptr %5, i64 %result.06.i.i
   %add.ptr6.i.i = getelementptr i8, ptr %6, i64 2
   store ptr %add.ptr6.i.i, ptr %pDataCursor.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(1) %bextData, i64 %add.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull readonly align 16 dereferenceable(1) %bextData, i64 %add.i.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %add.i.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %ma_dr_wav_buffer_reader_seek.exit
@@ -130711,7 +130711,7 @@ if.then.i49:                                      ; preds = %while.body.i.i42
   %11 = getelementptr i8, ptr %10, i64 %result.06.i.i43
   %add.ptr6.i.i51 = getelementptr i8, ptr %11, i64 2
   store ptr %add.ptr6.i.i51, ptr %pDataCursor.i.i50, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 16 dereferenceable(1) %add.ptr.i39, i64 %add.i.i46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull readonly align 16 dereferenceable(1) %add.ptr.i39, i64 %add.i.i46, i1 false)
   %arrayidx.i52 = getelementptr inbounds i8, ptr %10, i64 %add.i.i46
   store i8 0, ptr %arrayidx.i52, align 1
   br label %ma_dr_wav_buffer_reader_seek.exit60
@@ -130742,7 +130742,7 @@ ma_dr_wav__metadata_copy_string.exit75:           ; preds = %while.body.i.i64
   %16 = getelementptr i8, ptr %15, i64 %result.06.i.i65
   %add.ptr6.i.i73 = getelementptr i8, ptr %16, i64 2
   store ptr %add.ptr6.i.i73, ptr %pDataCursor.i.i72, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 16 dereferenceable(1) %add.ptr.i61, i64 %add.i.i68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull readonly align 16 dereferenceable(1) %add.ptr.i61, i64 %add.i.i68, i1 false)
   %arrayidx.i74 = getelementptr inbounds i8, ptr %15, i64 %add.i.i68
   store i8 0, ptr %arrayidx.i74, align 1
   br label %ma_dr_wav_buffer_reader_seek.exit82

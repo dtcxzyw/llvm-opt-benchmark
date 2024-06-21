@@ -2063,7 +2063,7 @@ cond.true.i:                                      ; preds = %_ZN4node6crypto17Is
   br label %cond.end
 
 cond.false.i:                                     ; preds = %_ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit.i
-  tail call void @_ZN4node6crypto10ByteSource10FromStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEEb(ptr sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %env, ptr nonnull %value.coerce, i1 noundef zeroext false)
+  tail call void @_ZN4node6crypto10ByteSource10FromStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEEb(ptr sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef readonly %env, ptr nonnull %value.coerce, i1 noundef zeroext false)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit

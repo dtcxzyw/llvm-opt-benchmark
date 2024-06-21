@@ -1917,7 +1917,7 @@ _ZN12_GLOBAL__N_125CodeMotionOptimizeVisitorD2Ev.exit.i.i: ; preds = %_ZN12_GLOB
 
 .body20.i:                                        ; preds = %131, %110, %81
   %eh.lpad-body21.i = phi { ptr, i32 } [ %82, %81 ], [ %132, %131 ], [ %.pn.i.i.i, %110 ]
-  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #23
+  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %10) #23
   br label %.body.i
 
 133:                                              ; preds = %87
@@ -1939,7 +1939,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %134, %133
 
 137:                                              ; preds = %136, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i
   store ptr null, ptr %33, align 8
-  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #23
+  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %10) #23
   invoke void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser3InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser3InUse10s_userBusyE)
           to label %_ZN12VNUser3InUseD2Ev.exit.i unwind label %138
 

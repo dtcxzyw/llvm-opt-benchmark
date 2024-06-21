@@ -597,11 +597,11 @@ if.end.i.i38:                                     ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i38
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %orig_head, ptr noundef nonnull dereferenceable(32) %call.i35, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %orig_head, ptr noundef nonnull readonly dereferenceable(32) %call.i35, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i38
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %orig_head, ptr noundef nonnull dereferenceable(20) %call.i35, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %orig_head, ptr noundef nonnull readonly dereferenceable(20) %call.i35, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -1132,11 +1132,11 @@ if.end.i.i83:                                     ; preds = %if.else.i.i80, %if.
   br i1 %cmp.i.i.i86, label %if.then.i.i.i92, label %if.end.i.i.i87
 
 if.then.i.i.i92:                                  ; preds = %if.end.i.i83
-  %bcmp3.i.i.i93 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %orig_head, ptr noundef nonnull dereferenceable(32) %call.i77, i64 32)
+  %bcmp3.i.i.i93 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %orig_head, ptr noundef nonnull readonly dereferenceable(32) %call.i77, i64 32)
   br label %is_null_oid.exit96
 
 if.end.i.i.i87:                                   ; preds = %if.end.i.i83
-  %bcmp.i.i.i88 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %orig_head, ptr noundef nonnull dereferenceable(20) %call.i77, i64 20)
+  %bcmp.i.i.i88 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %orig_head, ptr noundef nonnull readonly dereferenceable(20) %call.i77, i64 20)
   br label %is_null_oid.exit96
 
 is_null_oid.exit96:                               ; preds = %if.then.i.i.i92, %if.end.i.i.i87
@@ -1170,11 +1170,11 @@ if.end.i.i103:                                    ; preds = %if.else.i.i100, %if
   br i1 %cmp.i.i.i106, label %if.then.i.i.i112, label %if.end.i.i.i107
 
 if.then.i.i.i112:                                 ; preds = %if.end.i.i103
-  %bcmp3.i.i.i113 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %curr_head, ptr noundef nonnull dereferenceable(32) %call.i97, i64 32)
+  %bcmp3.i.i.i113 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %curr_head, ptr noundef nonnull readonly dereferenceable(32) %call.i97, i64 32)
   br label %is_null_oid.exit116
 
 if.end.i.i.i107:                                  ; preds = %if.end.i.i103
-  %bcmp.i.i.i108 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %curr_head, ptr noundef nonnull dereferenceable(20) %call.i97, i64 20)
+  %bcmp.i.i.i108 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %curr_head, ptr noundef nonnull readonly dereferenceable(20) %call.i97, i64 20)
   br label %is_null_oid.exit116
 
 is_null_oid.exit116:                              ; preds = %if.then.i.i.i112, %if.end.i.i.i107
@@ -1288,11 +1288,11 @@ if.end.i.i139:                                    ; preds = %if.else.i.i136, %if
   br i1 %cmp.i.i.i142, label %if.then.i.i.i148, label %if.end.i.i.i143
 
 if.then.i.i.i148:                                 ; preds = %if.end.i.i139
-  %bcmp3.i.i.i149 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %orig_head, ptr noundef nonnull dereferenceable(32) %call.i133, i64 32)
+  %bcmp3.i.i.i149 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %orig_head, ptr noundef nonnull readonly dereferenceable(32) %call.i133, i64 32)
   br label %is_null_oid.exit152
 
 if.end.i.i.i143:                                  ; preds = %if.end.i.i139
-  %bcmp.i.i.i144 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %orig_head, ptr noundef nonnull dereferenceable(20) %call.i133, i64 20)
+  %bcmp.i.i.i144 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %orig_head, ptr noundef nonnull readonly dereferenceable(20) %call.i133, i64 20)
   br label %is_null_oid.exit152
 
 is_null_oid.exit152:                              ; preds = %if.then.i.i.i148, %if.end.i.i.i143
@@ -1480,11 +1480,11 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %rebase_fork_point, ptr noundef nonnull dereferenceable(32) %call.i.i.i, i64 32)
+  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %rebase_fork_point, ptr noundef nonnull readonly dereferenceable(32) %call.i.i.i, i64 32)
   br label %is_null_oid.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %rebase_fork_point, ptr noundef nonnull dereferenceable(20) %call.i.i.i, i64 20)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %rebase_fork_point, ptr noundef nonnull readonly dereferenceable(20) %call.i.i.i, i64 20)
   br label %is_null_oid.exit.i.i
 
 is_null_oid.exit.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -1517,7 +1517,7 @@ get_octopus_merge_base.exit.i:                    ; preds = %if.end.i.i178
 if.then.i179:                                     ; preds = %if.end.i.i178
   %128 = load ptr, ptr %127, align 8
   %oid.i.i = getelementptr inbounds i8, ptr %128, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oct_merge_base.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oct_merge_base.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
   %algo.i.i.i = getelementptr inbounds i8, ptr %128, i64 36
   %129 = load i32, ptr %algo.i.i.i, align 4
   call void @free_commit_list(ptr noundef nonnull %127) #17
@@ -1547,11 +1547,11 @@ if.end.i.i.i181:                                  ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i12.i, label %if.end.i.i.i11.i
 
 if.then.i.i.i12.i:                                ; preds = %if.end.i.i.i181
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %rebase_fork_point, ptr noundef nonnull dereferenceable(32) %call.i9.i, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %rebase_fork_point, ptr noundef nonnull readonly dereferenceable(32) %call.i9.i, i64 32)
   br label %is_null_oid.exit.i
 
 if.end.i.i.i11.i:                                 ; preds = %if.end.i.i.i181
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %rebase_fork_point, ptr noundef nonnull dereferenceable(20) %call.i9.i, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %rebase_fork_point, ptr noundef nonnull readonly dereferenceable(20) %call.i9.i, i64 20)
   br label %is_null_oid.exit.i
 
 is_null_oid.exit.i:                               ; preds = %if.end.i.i.i11.i, %if.then.i.i.i12.i
@@ -1582,11 +1582,11 @@ if.end.i13.i:                                     ; preds = %if.else.i.i183, %if
   br i1 %cmp.i.i.i188, label %if.then.i.i15.i, label %if.end.i.i14.i
 
 if.then.i.i15.i:                                  ; preds = %if.end.i13.i
-  %bcmp3.i.i.i193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oct_merge_base.i, ptr noundef nonnull dereferenceable(32) %rebase_fork_point, i64 32)
+  %bcmp3.i.i.i193 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oct_merge_base.i, ptr noundef nonnull readonly dereferenceable(32) %rebase_fork_point, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i14.i:                                   ; preds = %if.end.i13.i
-  %bcmp.i.i.i189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oct_merge_base.i, ptr noundef nonnull dereferenceable(20) %rebase_fork_point, i64 20)
+  %bcmp.i.i.i189 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oct_merge_base.i, ptr noundef nonnull readonly dereferenceable(20) %rebase_fork_point, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i14.i, %if.then.i.i15.i
@@ -1619,11 +1619,11 @@ if.end.i.i23.i:                                   ; preds = %if.else.i.i20.i, %i
   br i1 %cmp.i.i.i26.i, label %if.then.i.i.i32.i, label %if.end.i.i.i27.i
 
 if.then.i.i.i32.i:                                ; preds = %if.end.i.i23.i
-  %bcmp3.i.i.i33.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %rebase_fork_point, ptr noundef nonnull dereferenceable(32) %call.i17.i, i64 32)
+  %bcmp3.i.i.i33.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %rebase_fork_point, ptr noundef nonnull readonly dereferenceable(32) %call.i17.i, i64 32)
   br label %is_null_oid.exit36.i
 
 if.end.i.i.i27.i:                                 ; preds = %if.end.i.i23.i
-  %bcmp.i.i.i28.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %rebase_fork_point, ptr noundef nonnull dereferenceable(20) %call.i17.i, i64 20)
+  %bcmp.i.i.i28.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %rebase_fork_point, ptr noundef nonnull readonly dereferenceable(20) %call.i17.i, i64 20)
   br label %is_null_oid.exit36.i
 
 is_null_oid.exit36.i:                             ; preds = %if.end.i.i.i27.i, %if.then.i.i.i32.i
@@ -1632,13 +1632,13 @@ is_null_oid.exit36.i:                             ; preds = %if.end.i.i.i27.i, %
   br i1 %retval.0.in.i.i.i30.not.i, label %if.else.i192, label %if.then11.i
 
 if.then11.i:                                      ; preds = %is_null_oid.exit36.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull align 4 dereferenceable(32) %rebase_fork_point, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull readonly align 4 dereferenceable(32) %rebase_fork_point, i64 32, i1 false)
   %algo.i40.i.phi.trans.insert = getelementptr inbounds i8, ptr %117, i64 32
   %.pre224 = load i32, ptr %algo.i40.i.phi.trans.insert, align 4
   br label %get_rebase_newbase_and_upstream.exit
 
 if.else.i192:                                     ; preds = %is_null_oid.exit36.i, %oideq.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull align 4 dereferenceable(32) %117, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull readonly align 4 dereferenceable(32) %117, i64 32, i1 false)
   %algo.i38.i = getelementptr inbounds i8, ptr %117, i64 32
   %.pre = load i32, ptr %algo.i38.i, align 4
   br label %get_rebase_newbase_and_upstream.exit
@@ -1648,7 +1648,7 @@ get_rebase_newbase_and_upstream.exit:             ; preds = %if.then11.i, %if.el
   %142 = phi i32 [ %.pre, %if.else.i192 ], [ %137, %if.then11.i ]
   %algo3.i39.i = getelementptr inbounds i8, ptr %upstream, i64 32
   store i32 %142, ptr %algo3.i39.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %newbase, ptr noundef nonnull align 4 dereferenceable(32) %117, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %newbase, ptr noundef nonnull readonly align 4 dereferenceable(32) %117, i64 32, i1 false)
   %algo3.i41.i = getelementptr inbounds i8, ptr %newbase, i64 32
   store i32 %141, ptr %algo3.i41.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oct_merge_base.i)
@@ -1851,11 +1851,11 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid1, ptr noundef nonnull dereferenceable(32) %oid2, i64 32)
+  %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
   br label %hasheq_algop.exit
 
 if.end.i:                                         ; preds = %if.end
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid1, ptr noundef nonnull dereferenceable(20) %oid2, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
   br label %hasheq_algop.exit
 
 hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i

@@ -19354,15 +19354,15 @@ if.end.i.i.i.i.i.i.i.i11.i.i:                     ; preds = %_ZN5eastl16TupleVec
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.val.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr3.idx.i.i.i = shl nsw i64 %0, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %5, ptr align 16 %add.ptr.val.i.i, i64 %add.ptr3.idx.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %5, ptr readonly align 16 %add.ptr.val.i.i, i64 %add.ptr3.idx.i.i.i, i1 false)
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr4.val.i.i = load ptr, ptr %add.ptr4.i.i, align 8
   %add.ptr3.idx.i9.i.i = mul nsw i64 %0, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %add.ptr4.val.i.i, i64 %add.ptr3.idx.i9.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %add.ptr4.val.i.i, i64 %add.ptr3.idx.i9.i.i, i1 false)
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr7.val.i.i = load ptr, ptr %add.ptr7.i.i, align 8
   %add.ptr3.idx.i12.i.i = mul nsw i64 %0, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %add.ptr7.val.i.i, i64 %add.ptr3.idx.i12.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr readonly align 8 %add.ptr7.val.i.i, i64 %add.ptr3.idx.i12.i.i, i1 false)
   br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i
 
 _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i11.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i

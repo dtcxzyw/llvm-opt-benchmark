@@ -4158,7 +4158,7 @@ if.end.i10.i.i.i.i:                               ; preds = %google_rpc_Status_a
 
 upb_Arena_Malloc.exit.i.i.i.i:                    ; preds = %if.end.i10.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i11.i.i.i.i = phi ptr [ %call2.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %17, %if.end.i10.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i11.i.i.i.i, ptr align 1 %args.coerce1, i64 %args.coerce0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i11.i.i.i.i, ptr readonly align 1 %args.coerce1, i64 %args.coerce0, i1 false)
   store ptr %retval.0.i11.i.i.i.i, ptr %retval.0.i.i.i.i.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 8
   store i64 %args.coerce0, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i.i.i.i, align 1

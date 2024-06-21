@@ -77,7 +77,7 @@ block_len.exit12:                                 ; preds = %for.body, %sw.bb1.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i)
   %1 = sub nuw nsw i64 200, %.sink50
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi, i8 0, i64 %1, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16, i64 %.sink50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr16, i64 %.sink50, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %block_len.exit12
@@ -115,7 +115,7 @@ entry:
   %2 = select i1 %0, i64 0, i64 %1
   %3 = getelementptr i8, ptr %block.i, i64 %conv.i
   call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %block, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr readonly align 1 %block, i64 %conv.i, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -175,7 +175,7 @@ if.then7:                                         ; preds = %switch.lookup
   %4 = sub nuw nsw i64 200, %conv.i.i
   %5 = getelementptr i8, ptr %block.i.i, i64 %conv.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %4, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i, ptr noundef nonnull align 1 dereferenceable(1) %input, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %input, i64 %conv.i.i, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then7
@@ -199,7 +199,7 @@ Hacl_Impl_SHA3_absorb_inner.exit:                 ; preds = %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i)
   %8 = getelementptr i8, ptr %block.i, i64 %conv.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %4, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i, ptr noundef nonnull align 16 dereferenceable(1) %lastBlock_, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i, ptr noundef nonnull readonly align 16 dereferenceable(1) %lastBlock_, i64 %conv.i.i, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %Hacl_Impl_SHA3_absorb_inner.exit
@@ -224,7 +224,7 @@ Hacl_Impl_SHA3_loadState.exit:                    ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i35)
   %12 = getelementptr i8, ptr %block.i35, i64 %conv.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %4, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i35, ptr noundef nonnull align 16 dereferenceable(1) %nextBlock_, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i35, ptr noundef nonnull readonly align 16 dereferenceable(1) %nextBlock_, i64 %conv.i.i, i1 false)
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.body.i37, %Hacl_Impl_SHA3_loadState.exit
@@ -259,7 +259,7 @@ if.end18:                                         ; preds = %switch.lookup
   %19 = sub nuw nsw i64 200, %conv.i47
   %20 = getelementptr i8, ptr %block.i46, i64 %conv.i47
   call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %19, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i46, ptr noundef nonnull align 16 dereferenceable(1) %lastBlock_19, i64 %conv.i47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i46, ptr noundef nonnull readonly align 16 dereferenceable(1) %lastBlock_19, i64 %conv.i47, i1 false)
   br label %for.body.i48
 
 for.body.i48:                                     ; preds = %for.body.i48, %if.end18
@@ -284,7 +284,7 @@ Hacl_Impl_SHA3_loadState.exit56:                  ; preds = %for.body.i48
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i57)
   %24 = getelementptr i8, ptr %block.i57, i64 %conv.i47
   call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %19, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i57, ptr noundef nonnull align 16 dereferenceable(1) %nextBlock_35, i64 %conv.i47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i57, ptr noundef nonnull readonly align 16 dereferenceable(1) %nextBlock_35, i64 %conv.i47, i1 false)
   br label %for.body.i59
 
 for.body.i59:                                     ; preds = %for.body.i59, %Hacl_Impl_SHA3_loadState.exit56
@@ -996,7 +996,7 @@ block_len.exit12.i:                               ; preds = %sw.bb5.i4.i, %sw.bb
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i)
   %11 = sub nuw nsw i64 200, %.sink50.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i, i8 0, i64 %11, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %s151.sroa.4.0.copyload, i64 %.sink50.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %s151.sroa.4.0.copyload, i64 %.sink50.i, i1 false)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %block_len.exit12.i
@@ -1206,7 +1206,7 @@ block_len.exit12.i283:                            ; preds = %sw.bb5.i4.i304, %sw
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i266)
   %30 = sub nuw nsw i64 200, %.sink50.i284
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i286, i8 0, i64 %30, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i266, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i289, i64 %.sink50.i284, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i266, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr16.i289, i64 %.sink50.i284, i1 false)
   br label %for.body.i.i.i290
 
 for.body.i.i.i290:                                ; preds = %for.body.i.i.i290, %block_len.exit12.i283
@@ -1398,7 +1398,7 @@ block_len.exit12.i404:                            ; preds = %sw.bb5.i4.i425, %sw
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i387)
   %42 = sub nuw nsw i64 200, %.sink50.i405
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i407, i8 0, i64 %42, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i387, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i410, i64 %.sink50.i405, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i387, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr16.i410, i64 %.sink50.i405, i1 false)
   br label %for.body.i.i.i411
 
 for.body.i.i.i411:                                ; preds = %for.body.i.i.i411, %block_len.exit12.i404
@@ -1623,7 +1623,7 @@ block_len.exit12.i498:                            ; preds = %sw.bb5.i4.i519, %sw
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i481)
   %58 = sub nuw nsw i64 200, %.sink50.i499
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i501, i8 0, i64 %58, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i481, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i504, i64 %.sink50.i499, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i481, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr16.i504, i64 %.sink50.i499, i1 false)
   br label %for.body.i.i.i505
 
 for.body.i.i.i505:                                ; preds = %for.body.i.i.i505, %block_len.exit12.i498
@@ -1934,7 +1934,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idx.ext3.i = zext i32 %mul.i to i64
   %add.ptr4.i = getelementptr i8, ptr %dst, i64 %idx.ext3.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i.i, ptr noundef nonnull align 16 dereferenceable(200) %buf11, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i.i, ptr noundef nonnull readonly align 16 dereferenceable(200) %buf11, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr4.i, ptr noundef nonnull align 16 dereferenceable(1) %block.i.i, i64 %conv.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i.i)
   call void @Hacl_Impl_SHA3_state_permute(ptr noundef nonnull %buf11)
@@ -1950,7 +1950,7 @@ Hacl_Impl_SHA3_squeeze.exit:                      ; preds = %for.body.i, %block_
   %idx.neg.i = sub nsw i64 0, %idx.ext1.i
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.neg.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i12.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12.i, ptr noundef nonnull align 16 dereferenceable(200) %buf11, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12.i, ptr noundef nonnull readonly align 16 dereferenceable(200) %buf11, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr2.i, ptr nonnull align 16 %block.i12.i, i64 %idx.ext1.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i12.i)
   br label %return
@@ -1960,7 +1960,7 @@ Hacl_Impl_SHA3_squeeze.exit129:                   ; preds = %if.end30.thread195,
   %retval.0.i105 = phi i64 [ 28, %if.end30.thread ], [ 28, %if.end30.thread219 ], [ 32, %if.end30.thread179 ], [ 32, %if.end30.thread227 ], [ 48, %if.end30.thread187 ], [ 48, %if.end30.thread235 ], [ 64, %if.end30.thread243 ], [ 64, %if.end30.thread195 ]
   call void @Hacl_Hash_SHA3_update_last_sha3(i8 noundef zeroext %a, ptr noundef nonnull %buf11, ptr noundef %add.ptr32178.ph.sink, i32 noundef %r.0131.frozen287)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i12.i110)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12.i110, ptr noundef nonnull align 16 dereferenceable(200) %buf11, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12.i110, ptr noundef nonnull readonly align 16 dereferenceable(200) %buf11, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %dst, ptr noundef nonnull align 16 dereferenceable(1) %block.i12.i110, i64 %retval.0.i105, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i12.i110)
   br label %return
@@ -2089,7 +2089,7 @@ for.body.i:                                       ; preds = %Hacl_Impl_SHA3_abso
   %add.ptr.i = getelementptr i8, ptr %input, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i)
   call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i.i, ptr align 1 %add.ptr.i, i64 %.pre.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i.i, ptr readonly align 1 %add.ptr.i, i64 %.pre.i, i1 false)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i
@@ -2123,14 +2123,14 @@ for.end.i:                                        ; preds = %Hacl_Impl_SHA3_abso
   %10 = select i1 %8, i64 0, i64 %9
   %11 = getelementptr i8, ptr %lastBlock_.i, i64 %conv.i
   call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 %10, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %lastBlock_.i, ptr align 1 %add.ptr4.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %lastBlock_.i, ptr readonly align 1 %add.ptr4.i, i64 %conv.i, i1 false)
   store i8 %delimitedSuffix, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i)
   %12 = icmp ugt i32 %rate, 1599
   %13 = select i1 %12, i64 0, i64 %.pre-phi.i
   %14 = getelementptr i8, ptr %block.i.i, i64 %.pre.i
   call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %13, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr nonnull align 16 %lastBlock_.i, i64 %.pre.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr nonnull readonly align 16 %lastBlock_.i, i64 %.pre.i, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.end.i
@@ -2166,7 +2166,7 @@ if.end.i:                                         ; preds = %if.then.i, %Hacl_Im
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i24.i)
   %17 = getelementptr i8, ptr %block.i24.i, i64 %.pre.i
   call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %13, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i24.i, ptr nonnull align 16 %nextBlock_.i, i64 %.pre.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i24.i, ptr nonnull readonly align 16 %nextBlock_.i, i64 %.pre.i, i1 false)
   br label %for.body.i26.i
 
 for.body.i26.i:                                   ; preds = %for.body.i26.i, %if.end.i
@@ -2202,7 +2202,7 @@ for.body.i6:                                      ; preds = %for.body.i6, %for.b
   %idx.ext3.i9 = zext i32 %mul.i8 to i64
   %add.ptr4.i10 = getelementptr i8, ptr %output, i64 %idx.ext3.i9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i.i3, ptr noundef nonnull align 16 dereferenceable(200) %s, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i.i3, ptr noundef nonnull readonly align 16 dereferenceable(200) %s, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr4.i10, ptr nonnull align 16 %block.i.i3, i64 %.pre.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i.i3)
   call void @Hacl_Impl_SHA3_state_permute(ptr noundef nonnull %s)
@@ -2218,7 +2218,7 @@ Hacl_Impl_SHA3_squeeze.exit:                      ; preds = %for.body.i6, %absor
   %idx.neg.i = sub nsw i64 0, %idx.ext1.i
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i15, i64 %idx.neg.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i12.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12.i, ptr noundef nonnull align 16 dereferenceable(200) %s, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12.i, ptr noundef nonnull readonly align 16 dereferenceable(200) %s, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr2.i, ptr nonnull align 16 %block.i12.i, i64 %idx.ext1.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i12.i)
   ret void
@@ -2280,7 +2280,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext3 = zext i32 %mul to i64
   %add.ptr4 = getelementptr i8, ptr %output, i64 %idx.ext3
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i, ptr noundef nonnull align 8 dereferenceable(200) %s, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i, ptr noundef nonnull readonly align 8 dereferenceable(200) %s, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr4, ptr nonnull align 16 %block.i, i64 %conv.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i)
   tail call void @Hacl_Impl_SHA3_state_permute(ptr noundef %s)
@@ -2296,7 +2296,7 @@ for.end:                                          ; preds = %for.body, %entry
   %idx.neg = sub nsw i64 0, %idx.ext1
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12, ptr noundef nonnull align 8 dereferenceable(200) %s, i64 200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %block.i12, ptr noundef nonnull readonly align 8 dereferenceable(200) %s, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr2, ptr nonnull align 16 %block.i12, i64 %idx.ext1, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i12)
   ret void

@@ -921,7 +921,7 @@ land.lhs.true.i.i:                                ; preds = %sw.bb31.i
 
 getfuncname.exit.i:                               ; preds = %land.lhs.true.i.i
   %45 = load ptr, ptr %previous.i.i, align 8
-  %call.i.i = tail call fastcc ptr @funcnamefromcall(ptr noundef %L, ptr noundef %45, ptr noundef nonnull %name.i)
+  %call.i.i = tail call fastcc ptr @funcnamefromcall(ptr noundef readonly %L, ptr noundef %45, ptr noundef nonnull %name.i)
   store ptr %call.i.i, ptr %namewhat.i, align 8
   %cmp34.i = icmp eq ptr %call.i.i, null
   br i1 %cmp34.i, label %if.then36.i, label %for.inc.i

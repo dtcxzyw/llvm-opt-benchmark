@@ -375,7 +375,7 @@ proto_item_set_generated.exit.i:                  ; preds = %62, %59, %50
   store i32 %129, ptr %127, align 8
   %130 = getelementptr inbounds i8, ptr %127, i64 8
   %131 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull readonly align 8 dereferenceable(16) %131, i64 16, i1 false)
   %132 = getelementptr inbounds i8, ptr %127, i64 24
   store i16 %18, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %127, i64 26

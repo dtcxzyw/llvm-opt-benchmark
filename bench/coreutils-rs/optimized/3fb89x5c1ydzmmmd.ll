@@ -34,7 +34,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 
 13:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %.sroa.0.025, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %1, i64 %2), !alias.scope !6
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %1, i64 %2), !alias.scope !6
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %16, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge"
 
@@ -131,7 +131,7 @@ define hidden void @_ZN3std2fs8metadata17h626e7bfda7efe58bE(ptr noalias nocaptur
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %3, i64 176, i1 false), !alias.scope !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %3, i64 176, i1 false), !alias.scope !36
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h99c1a39e63f2b112E.llvm.16819018904479330167.exit"
 
 7:                                                ; preds = %2
@@ -424,7 +424,7 @@ define hidden void @"_ZN5uu_wc4utf84read23BufReadDecoder$LT$B$GT$11next_strict17
   unreachable
 
 _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i, ptr nonnull align 1 %15, i64 %18, i1 false), !alias.scope !60, !noalias !64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i, ptr nonnull readonly align 1 %15, i64 %18, i1 false), !alias.scope !60, !noalias !64
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load i32, ptr %.sroa.0.i, align 4, !noalias !54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
   %42 = trunc nuw i64 %18 to i40
@@ -624,7 +624,7 @@ define hidden void @"_ZN5uu_wc4utf84read23BufReadDecoder$LT$B$GT$11next_strict17
   unreachable
 
 _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i, ptr nonnull align 1 %21, i64 %24, i1 false), !alias.scope !84, !noalias !88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i, ptr nonnull readonly align 1 %21, i64 %24, i1 false), !alias.scope !84, !noalias !88
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load i32, ptr %.sroa.0.i, align 4, !noalias !78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
   %48 = trunc nuw i64 %24 to i40

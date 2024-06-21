@@ -2588,7 +2588,7 @@ if.then61.i:                                      ; preds = %if.else57.tail.i
   br label %if.end68.i
 
 if.else63.i:                                      ; preds = %if.else57.tail.i
-  %call.i50.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #16
+  %call.i50.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #16
   %99 = load i32, ptr %stuff, align 8
   switch i32 %99, label %sw.default.i.i [
     i32 2, label %sw.bb.i.i
@@ -2623,7 +2623,7 @@ for.body.us.i.i:                                  ; preds = %for.body.lr.ph.i.i,
 if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   %title.us.i.i = getelementptr inbounds i8, ptr %menu_item.033.us.i.i, i64 8
   %104 = load ptr, ptr %title.us.i.i, align 8
-  %call9.us.i.i = call i32 @strncasecmp(ptr noundef nonnull %85, ptr noundef %104, i64 noundef %conv8.i.i) #16
+  %call9.us.i.i = call i32 @strncasecmp(ptr noundef nonnull readonly %85, ptr noundef %104, i64 noundef %conv8.i.i) #16
   %tobool.not.us.i.i = icmp eq i32 %call9.us.i.i, 0
   %tobool11.not.us.i.i = icmp eq i32 %found.034.us.i.i, 0
   %add18.us.i.i = add nuw nsw i32 %i.032.us.i.i, 1
@@ -2639,7 +2639,7 @@ for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i,
   %i.032.i.i = phi i32 [ %inc.pre-phi.i.i74, %for.inc.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %title.i.i = getelementptr inbounds i8, ptr %menu_item.033.i.i, i64 8
   %105 = load ptr, ptr %title.i.i, align 8
-  %call9.i.i = call i32 @strncasecmp(ptr noundef nonnull %85, ptr noundef %105, i64 noundef %conv8.i.i) #16
+  %call9.i.i = call i32 @strncasecmp(ptr noundef nonnull readonly %85, ptr noundef %105, i64 noundef %conv8.i.i) #16
   %tobool.not.i.i72 = icmp eq i32 %call9.i.i, 0
   br i1 %tobool.not.i.i72, label %if.then10.i.i, label %for.body.for.inc_crit_edge.i.i
 
@@ -2683,7 +2683,7 @@ for.body27.i.i:                                   ; preds = %for.inc37.i.i, %for
   %i.128.i.i = phi i32 [ 0, %for.body27.lr.ph.i.i ], [ %inc38.pre-phi.i.i, %for.inc37.i.i ]
   %string_list_item.027.i.i = phi ptr [ %108, %for.body27.lr.ph.i.i ], [ %incdec.ptr39.i.i, %for.inc37.i.i ]
   %109 = load ptr, ptr %string_list_item.027.i.i, align 8
-  %call29.i.i = call i32 @strncasecmp(ptr noundef nonnull %85, ptr noundef %109, i64 noundef %conv28.i.i) #16
+  %call29.i.i = call i32 @strncasecmp(ptr noundef nonnull readonly %85, ptr noundef %109, i64 noundef %conv28.i.i) #16
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %if.then31.i.i, label %for.body27.for.inc37_crit_edge.i.i
 

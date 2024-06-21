@@ -1609,7 +1609,7 @@ Dau_DsdMergeMatches.exit162:                      ; preds = %267, %250
   br i1 %271, label %Dau_DsdRemoveBraces.exit, label %272
 
 272:                                              ; preds = %Dau_DsdMergeMatches.exit162
-  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %17, ptr noundef nonnull %31)
+  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %17, ptr noundef nonnull readonly %31)
   br label %273
 
 273:                                              ; preds = %281, %272
@@ -1893,11 +1893,11 @@ Dau_DsdMergeReplace.exit201:                      ; preds = %325, %384
 Dau_DsdMergeReplace.exit229:                      ; preds = %Dau_DsdMergeReplace.exit201
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr %22, ptr %14, align 8
-  %386 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %22, ptr noundef nonnull %14, ptr noundef nonnull %24, i32 noundef %248, ptr noundef nonnull %29)
+  %386 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %22, ptr noundef nonnull %14, ptr noundef nonnull readonly %24, i32 noundef %248, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr %23, ptr %13, align 8
-  %387 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %23, ptr noundef nonnull %13, ptr noundef nonnull %25, i32 noundef %248, ptr noundef nonnull %30)
+  %387 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %23, ptr noundef nonnull %13, ptr noundef nonnull readonly %25, i32 noundef %248, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   store i32 %248, ptr %32, align 8
   %388 = getelementptr inbounds i8, ptr %32, i64 4024
@@ -2275,7 +2275,7 @@ Dau_DsdMergeReplace.exit298:                      ; preds = %488
   br i1 %519, label %Dau_DsdRemoveBraces.exit304, label %520
 
 520:                                              ; preds = %Dau_DsdMergeReplace.exit298
-  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %8, ptr noundef nonnull %31)
+  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %8, ptr noundef nonnull readonly %31)
   br label %521
 
 521:                                              ; preds = %529, %520

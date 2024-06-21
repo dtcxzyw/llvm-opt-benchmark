@@ -5414,7 +5414,7 @@ unicode_cp_is_allowed.exit.thread.i:              ; preds = %switch.early.test66
   br i1 %.not.i62.i, label %156, label %unicode_cp_is_allowed.exit.thread85.i
 
 156:                                              ; preds = %.critedge2.i.i
-  %157 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %.ptr.i, i64 noundef %.idx.i, ptr noundef nonnull %.0.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %157 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %.ptr.i, i64 noundef %.idx.i, ptr noundef nonnull readonly %.0.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %158 = icmp eq i32 %157, -1
   br i1 %158, label %159, label %.thread-pre-split91_crit_edge.i
 
@@ -5968,7 +5968,7 @@ unescape_inverse_map.exit:                        ; preds = %switch.lookup, %60
   br i1 %179, label %180, label %.loopexit.i
 
 180:                                              ; preds = %178
-  %181 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %181 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef readonly %0, i64 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %9)
   %182 = load i32, ptr %9, align 4
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %.loopexit.i, label %184

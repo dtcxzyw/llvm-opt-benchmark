@@ -830,7 +830,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %262, %259, %256, %.
   %269 = load i32, ptr %53, align 4
   store i32 %269, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %268, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull readonly align 8 dereferenceable(16) %54, i64 16, i1 false)
   %271 = load ptr, ptr %207, align 8
   call void @wmem_itree_insert(ptr noundef %271, i64 noundef %240, i64 noundef %242, ptr noundef nonnull %268) #7
   br label %272
@@ -1545,7 +1545,7 @@ proto_item_set_generated.exit189.i.i:             ; preds = %617, %614, %611, %.
   %625 = load i32, ptr %53, align 4
   store i32 %625, ptr %624, align 8
   %626 = getelementptr inbounds i8, ptr %624, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %626, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %626, ptr noundef nonnull readonly align 8 dereferenceable(16) %54, i64 16, i1 false)
   call void @wmem_itree_insert(ptr noundef %.0167.i.i, i64 noundef %588, i64 noundef %590, ptr noundef nonnull %624) #7
   br label %627
 
@@ -2509,7 +2509,7 @@ define internal fastcc void @ltp_ref_src(ptr noundef %0, i64 noundef %1, ptr nou
   store i32 %19, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   %21 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
   call void @wmem_list_append(ptr noundef %.0, ptr noundef nonnull %17) #7
   br label %22
 

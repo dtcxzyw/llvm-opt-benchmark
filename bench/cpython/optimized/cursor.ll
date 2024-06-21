@@ -625,7 +625,7 @@ Py_DECREF.exit170.i:                              ; preds = %if.then1.i168.i, %i
 
 if.end72.i:                                       ; preds = %Py_DECREF.exit170.i, %if.end.i98.i
   %adapted.0.i = phi ptr [ %call68.i, %Py_DECREF.exit170.i ], [ %current_param.0117.i, %if.end.i98.i ]
-  %call74.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull %47, i32 noundef %add.i149, ptr noundef nonnull %adapted.0.i)
+  %call74.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull readonly %47, i32 noundef %add.i149, ptr noundef nonnull %adapted.0.i)
   %63 = load i64, ptr %adapted.0.i, align 8
   %64 = and i64 %63, 2147483648
   %cmp.i175.not.i = icmp eq i64 %64, 0
@@ -742,7 +742,7 @@ Py_DECREF.exit152.i:                              ; preds = %if.then1.i150.i, %i
 
 if.end125.i:                                      ; preds = %Py_DECREF.exit152.i, %if.end.i104.i
   %adapted.1.i = phi ptr [ %call121.i, %Py_DECREF.exit152.i ], [ %69, %if.end.i104.i ]
-  %call126.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull %47, i32 noundef %i.1139.i, ptr noundef nonnull %adapted.1.i)
+  %call126.i = call fastcc i32 @bind_param(ptr noundef nonnull %26, ptr noundef nonnull readonly %47, i32 noundef %i.1139.i, ptr noundef nonnull %adapted.1.i)
   %77 = load i64, ptr %adapted.1.i, align 8
   %78 = and i64 %77, 2147483648
   %cmp.i183.not.i = icmp eq i64 %78, 0

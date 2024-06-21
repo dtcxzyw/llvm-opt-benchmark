@@ -2452,8 +2452,8 @@ if.then6.i:                                       ; preds = %sw.bb.i238
   br label %for.inc.i
 
 if.else.i239:                                     ; preds = %sw.bb.i238
-  %call.i275 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull %115, i32 noundef 0, i32 noundef 8, i32 noundef 0)
-  %call.i274 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull %115, i32 noundef 8, i32 noundef 16, i32 noundef 0)
+  %call.i275 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull readonly %115, i32 noundef 0, i32 noundef 8, i32 noundef 0)
+  %call.i274 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull readonly %115, i32 noundef 8, i32 noundef 16, i32 noundef 0)
   %conv.i = zext i1 %call.i275 to i32
   %add12.i = add nsw i32 %fp.0.i330, %conv.i
   %conv14.i = zext i1 %call.i274 to i32
@@ -2611,8 +2611,8 @@ sw.bb139:                                         ; preds = %for.body135, %for.b
   br i1 %cmp141, label %for.inc202, label %if.end144
 
 if.end144:                                        ; preds = %sw.bb139
-  %call.i241 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull %135, i32 noundef 0, i32 noundef 8, i32 noundef 0)
-  %call.i242 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull %135, i32 noundef 8, i32 noundef 16, i32 noundef 0)
+  %call.i241 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull readonly %135, i32 noundef 0, i32 noundef 8, i32 noundef 0)
+  %call.i242 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull readonly %135, i32 noundef 8, i32 noundef 16, i32 noundef 0)
   %conv149 = zext i1 %call.i241 to i32
   %add = add nsw i32 %fp.0336, %conv149
   %conv151 = zext i1 %call.i242 to i32
@@ -3716,7 +3716,7 @@ define internal fastcc void @copy_ret_buffer(ptr nocapture noundef readonly %var
 entry:
   %ty1 = getelementptr inbounds i8, ptr %var, i64 16
   %0 = load ptr, ptr %ty1, align 8
-  %call.i = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef readonly %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   %size = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %size, align 4
   br i1 %call.i, label %if.then, label %for.cond.preheader
@@ -3766,7 +3766,7 @@ if.end19:                                         ; preds = %for.body, %cond.end
   br i1 %cmp21, label %if.then22, label %if.end64
 
 if.then22:                                        ; preds = %if.end19
-  %call.i31 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull %0, i32 noundef 8, i32 noundef 16, i32 noundef 0)
+  %call.i31 = tail call fastcc noundef zeroext i1 @has_flonum(ptr noundef nonnull readonly %0, i32 noundef 8, i32 noundef 16, i32 noundef 0)
   br i1 %call.i31, label %if.then24, label %for.body57.lr.ph
 
 if.then24:                                        ; preds = %if.then22

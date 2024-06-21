@@ -894,7 +894,7 @@ hladdword.exit.i:                                 ; preds = %67, %60
   %101 = sext i32 %100 to i64
   %102 = getelementptr %struct.HeadlineWordEntry, ptr %99, i64 %101, i32 2
   %103 = load ptr, ptr %102, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %62, i64 %93, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr readonly align 1 %62, i64 %93, i1 false)
   %104 = load i32, ptr %27, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %27, align 4
@@ -997,7 +997,7 @@ hladdword.exit:                                   ; preds = %13, %20
   %54 = sext i32 %53 to i64
   %55 = getelementptr %struct.HeadlineWordEntry, ptr %52, i64 %54, i32 2
   %56 = load ptr, ptr %55, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %15, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr readonly align 1 %15, i64 %46, i1 false)
   %57 = load i32, ptr %5, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %5, align 4

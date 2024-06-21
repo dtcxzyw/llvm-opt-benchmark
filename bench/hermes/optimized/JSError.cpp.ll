@@ -1161,7 +1161,7 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit238: ; preds = %if.end.i.th
   %.pre.i.i232 = load i32, ptr %Size.i.i.i222, align 8
   %conv.i12.i.i233 = add i32 %.pre.i.i232, 8
   store i32 %conv.i12.i.i233, ptr %Size.i.i.i222, align 8
-  %call.i = call ptr @_ZN6hermes2vm7JSError22getFunctionNameAtIndexERNS0_7RuntimeENS0_6HandleIS1_EEm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %selfHandle.coerce, i64 noundef %add)
+  %call.i = call ptr @_ZN6hermes2vm7JSError22getFunctionNameAtIndexERNS0_7RuntimeENS0_6HandleIS1_EEm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull readonly %selfHandle.coerce, i64 noundef %add)
   %47 = load i64, ptr %call.i, align 8
   %cmp.i.i.i239 = icmp ugt i64 %47, -844424930131969
   %and.i.i.i = and i64 %47, 281474976710655

@@ -892,7 +892,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
   %245 = extractvalue { i64, ptr } %243, 1
   %246 = icmp ne ptr %245, null
   tail call void @llvm.assume(i1 %246)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %245, ptr noundef nonnull align 1 dereferenceable(34) @anon.1d86752e3500b213ea3aae889ff55469.36, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %245, ptr noundef nonnull readonly align 1 dereferenceable(34) @anon.1d86752e3500b213ea3aae889ff55469.36, i64 34, i1 false)
   %247 = getelementptr inbounds i8, ptr %14, i64 24
   store i32 1, ptr %247, align 8, !noalias !145
   store i64 %244, ptr %14, align 8, !noalias !145
@@ -992,7 +992,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
   %281 = extractvalue { i64, ptr } %279, 1
   %282 = icmp ne ptr %281, null
   tail call void @llvm.assume(i1 %282)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %281, ptr noundef nonnull align 1 dereferenceable(34) @anon.1d86752e3500b213ea3aae889ff55469.36, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %281, ptr noundef nonnull readonly align 1 dereferenceable(34) @anon.1d86752e3500b213ea3aae889ff55469.36, i64 34, i1 false)
   %283 = getelementptr inbounds i8, ptr %12, i64 24
   store i32 1, ptr %283, align 8, !noalias !160
   store i64 %280, ptr %12, align 8, !noalias !160
@@ -1760,7 +1760,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr55drop
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.exit.thread": ; preds = %115
   %124 = load ptr, ptr %65, align 8, !alias.scope !265, !noalias !268, !nonnull !5, !noundef !5
   %125 = getelementptr inbounds i8, ptr %124, i64 %119
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr nonnull align 1 %116, i64 %117, i1 false), !noalias !265
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr nonnull readonly align 1 %116, i64 %117, i1 false), !noalias !265
   %126 = add i64 %119, %117
   store i64 %126, ptr %64, align 8, !alias.scope !265, !noalias !268
   br label %144

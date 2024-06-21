@@ -2288,7 +2288,7 @@ RSTRING_PTR.exit61:                               ; preds = %RSTRING_PTR.exit, %
 119:                                              ; preds = %RSTRING_PTR.exit61
   %120 = load i64, ptr %105, align 8
   %121 = getelementptr inbounds i8, ptr %.sroa.2.0.i60, i64 %120
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr align 1 %121, i64 %spec.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr readonly align 1 %121, i64 %spec.select, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit61, %119
@@ -2494,7 +2494,7 @@ RSTRING_PTR.exit:                                 ; preds = %72, %83
 RSTRING_PTR.exit34:                               ; preds = %89, %RSTRING_PTR.exit
   %.sroa.2.0.i33 = phi ptr [ %.sroa.2.0.copyload.i32, %89 ], [ %88, %RSTRING_PTR.exit ]
   %90 = getelementptr inbounds i8, ptr %.sroa.2.0.i33, i64 %.0.i26
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr align 1 %90, i64 %spec.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr readonly align 1 %90, i64 %spec.select, i1 false)
   %91 = load i64, ptr %6, align 8
   br label %strio_substr.exit
 
@@ -3670,7 +3670,7 @@ rb_num2long_inline.exit51:                        ; preds = %rb_num2long_inline.
   br i1 %.not.i52, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %71
-  %73 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %63) #19
+  %73 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %63) #19
   %.not3.i = icmp eq i32 %73, 0
   br i1 %.not3.i, label %rb_num2long_inline.exit51.thread, label %rb_enc_asciicompat.exit.thread
 

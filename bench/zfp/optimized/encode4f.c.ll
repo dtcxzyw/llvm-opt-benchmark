@@ -94,7 +94,7 @@ rev_fwd_cast_float.exit.i:                        ; preds = %27
 
 rev_fwd_reversible_float.exit.i:                  ; preds = %36, %exponent_block_float.exit.thread.i
   %43 = phi i32 [ -127, %exponent_block_float.exit.thread.i ], [ %24, %36 ]
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1024) %1, ptr noundef nonnull dereferenceable(1024) %7, i64 1024)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1024) %1, ptr noundef nonnull dereferenceable(1024) %7, i64 1024)
   %.not.i35.not.i = icmp eq i32 %bcmp.i.i, 0
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   br i1 %.not.i35.not.i, label %44, label %87
@@ -171,7 +171,7 @@ stream_write_bits.exit.i:                         ; preds = %56, %49
   br label %rev_encode_block_float_4.exit
 
 87:                                               ; preds = %rev_fwd_reversible_float.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 256 dereferenceable(1024) %9, ptr noundef nonnull align 4 dereferenceable(1024) %1, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 256 dereferenceable(1024) %9, ptr noundef nonnull readonly align 4 dereferenceable(1024) %1, i64 1024, i1 false)
   br label %88
 
 88:                                               ; preds = %94, %87

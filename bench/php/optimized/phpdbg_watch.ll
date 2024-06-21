@@ -2593,7 +2593,7 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
 
 110:                                              ; preds = %97
   %111 = getelementptr inbounds i8, ptr %1, i64 120
-  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %111, ptr noundef nonnull dereferenceable(12) %.058, i64 12)
+  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %111, ptr noundef nonnull readonly dereferenceable(12) %.058, i64 12)
   %.not72 = icmp eq i32 %bcmp16.i, 0
   br i1 %.not72, label %115, label %112
 
@@ -2696,7 +2696,7 @@ define hidden void @phpdbg_free_watch_element_tree(ptr noundef %0) local_unnamed
   %8 = getelementptr inbounds i8, ptr %.015, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %.015)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %.015)
   %11 = getelementptr inbounds i8, ptr %.015, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @zend_hash_del(ptr noundef nonnull %10, ptr noundef %12) #17
@@ -2939,7 +2939,7 @@ define hidden void @phpdbg_remove_watch_element(ptr noundef %0) local_unnamed_ad
   %8 = getelementptr inbounds i8, ptr %.026, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %.026)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %.026)
   %11 = getelementptr inbounds i8, ptr %.026, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @zend_hash_del(ptr noundef nonnull %10, ptr noundef %12) #17
@@ -2977,7 +2977,7 @@ phpdbg_clean_watch_element.exit23.thread:         ; preds = %.lr.ph29
   %25 = getelementptr inbounds i8, ptr %.01928, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %.01928)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %.01928)
   %28 = getelementptr inbounds i8, ptr %.01928, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @zend_hash_del(ptr noundef nonnull %27, ptr noundef %29) #17
@@ -3011,7 +3011,7 @@ phpdbg_clean_watch_element.exit23:                ; preds = %34, %22
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %0)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull readonly %0)
   %44 = getelementptr inbounds i8, ptr %0, i64 112
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @zend_hash_del(ptr noundef nonnull %43, ptr noundef %45) #17
@@ -3984,7 +3984,7 @@ thread-pre-split:                                 ; preds = %133, %131, %9, %35,
   %140 = load ptr, ptr %0, align 8
   %141 = load i64, ptr %139, align 8
   %142 = add i64 %141, 8
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %139, ptr %140, i64 %142)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %139, ptr readonly %140, i64 %142)
   %.not270 = icmp eq i32 %bcmp.i, 0
   br i1 %.not270, label %phpdbg_check_watch_diff.exit.thread253, label %.thread262
 
@@ -4010,17 +4010,17 @@ thread-pre-split:                                 ; preds = %133, %131, %9, %35,
 152:                                              ; preds = %149
   %153 = getelementptr inbounds i8, ptr %0, i64 112
   %154 = getelementptr inbounds i8, ptr %151, i64 16
-  %bcmp15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %153, ptr noundef nonnull dereferenceable(16) %154, i64 16)
+  %bcmp15.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %153, ptr noundef nonnull readonly dereferenceable(16) %154, i64 16)
   %.not.i = icmp eq i32 %bcmp15.i, 0
   br i1 %.not.i, label %phpdbg_check_watch_diff.exit, label %.thread256.thread266
 
 155:                                              ; preds = %149
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %150, ptr noundef nonnull dereferenceable(4) %151, i64 4)
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %150, ptr noundef nonnull readonly dereferenceable(4) %151, i64 4)
   %.not271 = icmp eq i32 %bcmp14.i, 0
   br i1 %.not271, label %phpdbg_check_watch_diff.exit.thread253, label %.thread259
 
 phpdbg_check_watch_diff.exit:                     ; preds = %149, %152
-  %bcmp16.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %150, ptr noundef nonnull dereferenceable(12) %151, i64 12)
+  %bcmp16.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %150, ptr noundef nonnull readonly dereferenceable(12) %151, i64 12)
   %.not272 = icmp eq i32 %bcmp16.i, 0
   br i1 %.not272, label %phpdbg_check_watch_diff.exit.thread253, label %156
 
@@ -4220,7 +4220,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %254 = load ptr, ptr %0, align 8
-  %bcmp16.i242 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %150, ptr noundef nonnull dereferenceable(12) %254, i64 12)
+  %bcmp16.i242 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %150, ptr noundef nonnull readonly dereferenceable(12) %254, i64 12)
   %.not273 = icmp eq i32 %bcmp16.i242, 0
   br i1 %.not273, label %255, label %.thread262
 

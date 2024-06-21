@@ -108787,7 +108787,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorke
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc364, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %398, %.lr.ph.i.i.i.i.i.i.i.i ], [ %394, %.noexc364 ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %397, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %.noexc364 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.092.i.i.i.i.i.i.i.i, i64 80, i1 false), !alias.scope !812, !noalias !809
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %.092.i.i.i.i.i.i.i.i, i64 80, i1 false), !alias.scope !812, !noalias !809
   %397 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 80
   %398 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %397, %373
@@ -108916,7 +108916,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorke
 .lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %.noexc367, %.lr.ph.i.i.i.i.i.i19.i.i
   %.03.i.i.i.i.i.i20.i.i = phi ptr [ %426, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %422, %.noexc367 ]
   %.092.i.i.i.i.i.i21.i.i = phi ptr [ %425, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %.noexc367 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.092.i.i.i.i.i.i21.i.i, i64 80, i1 false), !alias.scope !817, !noalias !809
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %.092.i.i.i.i.i.i21.i.i, i64 80, i1 false), !alias.scope !817, !noalias !809
   %425 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i, i64 80
   %426 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i, i64 80
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %425, %.pre1039

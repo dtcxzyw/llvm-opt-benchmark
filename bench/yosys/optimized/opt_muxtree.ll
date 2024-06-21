@@ -6610,7 +6610,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit454:                 ; preds = %._crit_edge3493, %2
   br i1 %.not.i455, label %2553, label %2550
 
 2550:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit454
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2548, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2548, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %.noexc460 unwind label %.loopexit2826
 
 .noexc460:                                        ; preds = %2550
@@ -6653,7 +6653,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_len
 _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %2565, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %2568 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %2567, %2565 ]
   %2569 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::muxinfo_t", ptr %2568, i64 %2559
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2569, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2569, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %2570 unwind label %2580
 
 2570:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i

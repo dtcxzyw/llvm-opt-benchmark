@@ -117,7 +117,7 @@ define dso_local noundef ptr @cstring_to_text(ptr nocapture noundef readonly %0)
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   %sext = shl i64 %2, 32
   %9 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr align 1 %0, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr readonly align 1 %0, i64 %9, i1 false)
   ret ptr %6
 }
 
@@ -1056,7 +1056,7 @@ define dso_local noundef i64 @textin(ptr nocapture noundef readonly %0) local_un
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #18
   %6 = trunc i64 %5 to i32
   %7 = add i32 %6, 4
   %8 = sext i32 %7 to i64
@@ -1066,7 +1066,7 @@ define dso_local noundef i64 @textin(ptr nocapture noundef readonly %0) local_un
   %11 = getelementptr inbounds i8, ptr %9, i64 4
   %sext.i = shl i64 %5, 32
   %12 = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 1 %4, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr readonly align 1 %4, i64 %12, i1 false)
   %13 = ptrtoint ptr %9 to i64
   ret i64 %13
 }
@@ -1156,7 +1156,7 @@ define dso_local noundef i64 @textrecv(ptr nocapture noundef readonly %0) local_
   store i32 %16, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %15, i64 4
   %18 = sext i32 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 1 %11, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr readonly align 1 %11, i64 %18, i1 false)
   call void @pfree(ptr noundef %11) #19
   %19 = ptrtoint ptr %15 to i64
   ret i64 %19
@@ -6040,7 +6040,7 @@ define dso_local noundef i64 @name_text(ptr nocapture noundef readonly %0) local
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #18
   %6 = trunc i64 %5 to i32
   %7 = add i32 %6, 4
   %8 = sext i32 %7 to i64
@@ -6050,7 +6050,7 @@ define dso_local noundef i64 @name_text(ptr nocapture noundef readonly %0) local
   %11 = getelementptr inbounds i8, ptr %9, i64 4
   %sext.i = shl i64 %5, 32
   %12 = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 1 %4, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr readonly align 1 %4, i64 %12, i1 false)
   %13 = ptrtoint ptr %9 to i64
   ret i64 %13
 }
@@ -7512,7 +7512,7 @@ appendStringInfoText.exit:                        ; preds = %90, %99, %102
   store i32 %146, ptr %145, align 4
   %147 = getelementptr inbounds i8, ptr %145, i64 4
   %148 = sext i32 %142 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %147, ptr align 1 %140, i64 %148, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %147, ptr readonly align 1 %140, i64 %148, i1 false)
   %149 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %149) #19
   br label %150
@@ -8496,7 +8496,7 @@ charlen_to_bytelen.exit118:                       ; preds = %appendStringInfoReg
   store i32 %307, ptr %306, align 4
   %308 = getelementptr inbounds i8, ptr %306, i64 4
   %309 = sext i32 %303 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %308, ptr align 1 %301, i64 %309, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %308, ptr readonly align 1 %301, i64 %309, i1 false)
   %310 = load ptr, ptr %8, align 8
   call void @pfree(ptr noundef %310) #19
   call void @pfree(ptr noundef %37) #19
@@ -8696,7 +8696,7 @@ define dso_local i64 @split_part(ptr nocapture noundef readonly %0) local_unname
   %110 = getelementptr inbounds i8, ptr %108, i64 4
   %sext102 = shl i64 %104, 32
   %111 = ashr exact i64 %sext102, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr align 1 %96, i64 %111, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr readonly align 1 %96, i64 %111, i1 false)
   br label %171
 
 112:                                              ; preds = %91
@@ -8780,7 +8780,7 @@ define dso_local i64 @split_part(ptr nocapture noundef readonly %0) local_unname
   store i32 %155, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %154, i64 4
   %157 = sext i32 %151 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %156, ptr align 1 %.073.lcssa, i64 %157, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %156, ptr readonly align 1 %.073.lcssa, i64 %157, i1 false)
   br label %171
 
 158:                                              ; preds = %._crit_edge
@@ -8807,7 +8807,7 @@ define dso_local i64 @split_part(ptr nocapture noundef readonly %0) local_unname
   %169 = getelementptr inbounds i8, ptr %167, i64 4
   %sext = shl i64 %163, 32
   %170 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %169, ptr align 1 %.073107.lcssa, i64 %170, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %169, ptr readonly align 1 %.073107.lcssa, i64 %170, i1 false)
   br label %171
 
 171:                                              ; preds = %.critedge, %158, %145, %78, %78, %71, %71, %116, %93, %79, %72, %67
@@ -9121,7 +9121,7 @@ split_text_accum_result.exit:                     ; preds = %102, %107
   %162 = getelementptr inbounds i8, ptr %160, i64 4
   %sext = shl i64 %157, 32
   %163 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %162, ptr align 1 %.083, i64 %163, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %162, ptr readonly align 1 %.083, i64 %163, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   br i1 %.not.i110, label %168, label %164
@@ -9230,7 +9230,7 @@ split_text_accum_result.exit113:                  ; preds = %170, %174
   store i32 %212, ptr %211, align 4
   %213 = getelementptr inbounds i8, ptr %211, i64 4
   %214 = sext i32 %205 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %213, ptr align 1 %.1120.us, i64 %214, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %213, ptr readonly align 1 %.1120.us, i64 %214, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %215 = load ptr, ptr %203, align 8
@@ -9282,7 +9282,7 @@ split_text_accum_result.exit117.us:               ; preds = %219, %216
   store i32 %234, ptr %233, align 4
   %235 = getelementptr inbounds i8, ptr %233, i64 4
   %236 = sext i32 %227 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %235, ptr align 1 %.1120, i64 %236, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %235, ptr readonly align 1 %.1120, i64 %236, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %237 = ptrtoint ptr %233 to i64
@@ -9763,7 +9763,7 @@ fetch_att.exit:                                   ; preds = %85, %88, %91, %94, 
   store i32 %158, ptr %157, align 4
   %159 = getelementptr inbounds i8, ptr %157, i64 4
   %160 = sext i32 %154 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %159, ptr align 1 %152, i64 %160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %159, ptr readonly align 1 %152, i64 %160, i1 false)
   %161 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %161) #19
   br label %162
@@ -9969,7 +9969,7 @@ convert_to_base.exit:                             ; preds = %7
   %24 = getelementptr inbounds i8, ptr %22, i64 4
   %sext.i = shl i64 %18, 32
   %25 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull align 1 %11, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull readonly align 1 %11, i64 %25, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %26 = ptrtoint ptr %22 to i64
   ret i64 %26
@@ -10011,7 +10011,7 @@ convert_to_base.exit:                             ; preds = %6
   %23 = getelementptr inbounds i8, ptr %21, i64 4
   %sext.i = shl i64 %17, 32
   %24 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 1 %10, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull readonly align 1 %10, i64 %24, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %25 = ptrtoint ptr %21 to i64
   ret i64 %25
@@ -10054,7 +10054,7 @@ convert_to_base.exit:                             ; preds = %7
   %24 = getelementptr inbounds i8, ptr %22, i64 4
   %sext.i = shl i64 %18, 32
   %25 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull align 1 %11, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull readonly align 1 %11, i64 %25, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %26 = ptrtoint ptr %22 to i64
   ret i64 %26
@@ -10096,7 +10096,7 @@ convert_to_base.exit:                             ; preds = %6
   %23 = getelementptr inbounds i8, ptr %21, i64 4
   %sext.i = shl i64 %17, 32
   %24 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 1 %10, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull readonly align 1 %10, i64 %24, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %25 = ptrtoint ptr %21 to i64
   ret i64 %25
@@ -10139,7 +10139,7 @@ convert_to_base.exit:                             ; preds = %7
   %24 = getelementptr inbounds i8, ptr %22, i64 4
   %sext.i = shl i64 %18, 32
   %25 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull align 1 %11, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull readonly align 1 %11, i64 %25, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %26 = ptrtoint ptr %22 to i64
   ret i64 %26
@@ -10181,7 +10181,7 @@ convert_to_base.exit:                             ; preds = %6
   %23 = getelementptr inbounds i8, ptr %21, i64 4
   %sext.i = shl i64 %17, 32
   %24 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 1 %10, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull readonly align 1 %10, i64 %24, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %25 = ptrtoint ptr %21 to i64
   ret i64 %25
@@ -10339,7 +10339,7 @@ define dso_local noundef i64 @pg_column_compression(ptr nocapture noundef %0) lo
   %38 = tail call ptr @palloc(i64 noundef 7) #19
   store i32 28, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %38, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %39, ptr noundef nonnull align 1 dereferenceable(3) @.str.15, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %39, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.15, i64 3, i1 false)
   br label %43
 
 40:                                               ; preds = %29
@@ -10861,7 +10861,7 @@ define dso_local noundef i64 @string_agg_finalfn(ptr nocapture noundef %0) local
   store i32 %21, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %20, i64 4
   %23 = sext i32 %17 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 1 %14, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr readonly align 1 %14, i64 %23, i1 false)
   %24 = ptrtoint ptr %20 to i64
   br label %26
 
@@ -11041,7 +11041,7 @@ build_concat_foutcache.exit:                      ; preds = %44, %26
   store i32 %84, ptr %83, align 4
   %85 = getelementptr inbounds i8, ptr %83, i64 4
   %86 = sext i32 %80 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %85, ptr align 1 %78, i64 %86, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %85, ptr readonly align 1 %78, i64 %86, i1 false)
   %87 = load ptr, ptr %6, align 8
   call void @pfree(ptr noundef %87) #19
   br label %88
@@ -11202,7 +11202,7 @@ define dso_local i64 @text_left(ptr nocapture noundef readonly %0) local_unnamed
   store i32 %42, ptr %41, align 4
   %43 = getelementptr inbounds i8, ptr %41, i64 4
   %44 = sext i32 %38 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 1 %16, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull readonly align 1 %16, i64 %44, i1 false)
   br label %47
 
 45:                                               ; preds = %1
@@ -11286,7 +11286,7 @@ define dso_local noundef i64 @text_right(ptr nocapture noundef readonly %0) loca
   store i32 %45, ptr %44, align 4
   %46 = getelementptr inbounds i8, ptr %44, i64 4
   %47 = sext i32 %41 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr align 1 %40, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr readonly align 1 %40, i64 %47, i1 false)
   %48 = ptrtoint ptr %44 to i64
   ret i64 %48
 }
@@ -12017,7 +12017,7 @@ text_format_string_conversion.exit:               ; preds = %287, %275, %274, %2
   store i32 %308, ptr %307, align 4
   %309 = getelementptr inbounds i8, ptr %307, i64 4
   %310 = sext i32 %304 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %309, ptr align 1 %302, i64 %310, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %309, ptr readonly align 1 %302, i64 %310, i1 false)
   %311 = load ptr, ptr %4, align 8
   call void @pfree(ptr noundef %311) #19
   %312 = ptrtoint ptr %307 to i64
@@ -13984,7 +13984,7 @@ hexval_n.exit132:                                 ; preds = %hexval.exit.i128
   store i32 %261, ptr %260, align 4
   %262 = getelementptr inbounds i8, ptr %260, i64 4
   %263 = sext i32 %257 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %262, ptr align 1 %255, i64 %263, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %262, ptr readonly align 1 %255, i64 %263, i1 false)
   %264 = load ptr, ptr %2, align 8
   call void @pfree(ptr noundef %264) #19
   %265 = ptrtoint ptr %260 to i64

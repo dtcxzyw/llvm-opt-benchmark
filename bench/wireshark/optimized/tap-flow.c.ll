@@ -58,12 +58,12 @@ define internal void @flow_init(ptr noundef %0, ptr noundef %1) #0 {
   %5 = tail call ptr @sequence_analysis_get_name(ptr noundef %1) #8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.2, i64 noundef 9) #10
+  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(10) @.str.2, i64 noundef 9) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %flow_arg_mode.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #10
+  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(9) @.str.3, i64 noundef 8) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %flow_arg_mode.exit, label %13
 

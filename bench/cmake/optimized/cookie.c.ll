@@ -532,14 +532,14 @@ define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %or.cond650, label %.thread632, label %96
 
 96:                                               ; preds = %89
-  %97 = call i64 @strcspn(ptr noundef nonnull %94, ptr noundef nonnull @invalid_octets.badoctets) #13
+  %97 = call i64 @strcspn(ptr noundef nonnull readonly %94, ptr noundef nonnull @invalid_octets.badoctets) #13
   %98 = getelementptr inbounds i8, ptr %94, i64 %97
   %99 = load i8, ptr %98, align 1
   %.not652 = icmp eq i8 %99, 0
   br i1 %.not652, label %100, label %104
 
 100:                                              ; preds = %96
-  %101 = call i64 @strcspn(ptr noundef nonnull %95, ptr noundef nonnull @invalid_octets.badoctets) #13
+  %101 = call i64 @strcspn(ptr noundef nonnull readonly %95, ptr noundef nonnull @invalid_octets.badoctets) #13
   %102 = getelementptr inbounds i8, ptr %95, i64 %101
   %103 = load i8, ptr %102, align 1
   %.not653 = icmp eq i8 %103, 0
@@ -2208,7 +2208,7 @@ cookie_tailmatch.exit.thread99:                   ; preds = %31, %38, %cookie_ta
   br i1 %.not81, label %pathmatch.exit.thread102, label %43
 
 43:                                               ; preds = %cookie_tailmatch.exit.thread99
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #13
+  %44 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %42) #13
   %45 = icmp eq i64 %44, 1
   br i1 %45, label %pathmatch.exit.thread102, label %46
 
@@ -2246,7 +2246,7 @@ cookie_tailmatch.exit.thread99:                   ; preds = %31, %38, %cookie_ta
   br i1 %58, label %pathmatch.exit.thread105, label %59
 
 59:                                               ; preds = %56
-  %60 = tail call i32 @strncmp(ptr noundef nonnull %42, ptr noundef nonnull %.026.i, i64 noundef %44) #13
+  %60 = tail call i32 @strncmp(ptr noundef nonnull readonly %42, ptr noundef nonnull %.026.i, i64 noundef %44) #13
   %.not21.i = icmp eq i32 %60, 0
   br i1 %.not21.i, label %61, label %pathmatch.exit.thread105
 

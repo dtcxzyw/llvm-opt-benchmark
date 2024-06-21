@@ -12928,7 +12928,7 @@ _remove_job_hash.exit:                            ; preds = %.loopexit.i, %14, %
 
 125:                                              ; preds = %89
   %126 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.39, i32 noundef 18292, ptr noundef nonnull @__func__._dup_job_fed_details) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef nonnull align 8 dereferenceable(48) %124, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef nonnull readonly align 8 dereferenceable(48) %124, i64 48, i1 false)
   %127 = getelementptr inbounds i8, ptr %124, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr @xstrdup(ptr noundef %128) #28
@@ -20135,7 +20135,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_job_desc_fields(ptr nocaptu
   br i1 %.not.i, label %.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #31
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #31
   %20 = trunc i64 %19 to i32
   %21 = icmp sgt i32 %20, 1024
   br i1 %21, label %22, label %.thread
@@ -20156,7 +20156,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_job_desc_fields(ptr nocaptu
   br i1 %.not.i77, label %.thread92, label %28
 
 28:                                               ; preds = %.thread
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #31
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #31
   %30 = trunc i64 %29 to i32
   %31 = icmp sgt i32 %30, 1024
   br i1 %31, label %32, label %.thread92
@@ -20177,7 +20177,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_job_desc_fields(ptr nocaptu
   br i1 %.not.i81, label %.thread96, label %38
 
 38:                                               ; preds = %.thread92
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #31
+  %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %37) #31
   %40 = trunc i64 %39 to i32
   %41 = icmp sgt i32 %40, 4096
   br i1 %41, label %42, label %.thread96
@@ -20198,7 +20198,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_job_desc_fields(ptr nocaptu
   br i1 %.not.i85, label %.thread100, label %48
 
 48:                                               ; preds = %.thread96
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #31
+  %49 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %47) #31
   %50 = trunc i64 %49 to i32
   %51 = icmp sgt i32 %50, 8192
   br i1 %51, label %52, label %.thread100
@@ -39377,7 +39377,7 @@ define dso_local void @init_depend_policy() local_unnamed_addr #0 {
 
 11:                                               ; preds = %0
   %12 = getelementptr inbounds i8, ptr %10, i64 17
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #31
+  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %12) #31
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %17
 

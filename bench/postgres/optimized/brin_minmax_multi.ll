@@ -809,7 +809,7 @@ brin_minmax_multi_get_values.exit:                ; preds = %37, %39
   %.086 = phi ptr [ %53, %brin_minmax_multi_get_values.exit ], [ %67, %65 ], [ %93, %77 ]
   %103 = getelementptr inbounds i8, ptr %23, i64 68
   %104 = load i32, ptr %103, align 4
-  %105 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull %7, i16 noundef zeroext %17, i32 noundef %104, i16 noundef zeroext 1)
+  %105 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull readonly %7, i16 noundef zeroext %17, i32 noundef %104, i16 noundef zeroext 1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %106 = getelementptr inbounds i8, ptr %.086, i64 24
   %107 = load i32, ptr %106, align 8
@@ -824,7 +824,7 @@ brin_minmax_multi_get_values.exit:                ; preds = %37, %39
 
 115:                                              ; preds = %102
   %116 = load i32, ptr %103, align 4
-  %117 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull %7, i16 noundef zeroext %17, i32 noundef %116, i16 noundef zeroext 1)
+  %117 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull readonly %7, i16 noundef zeroext %17, i32 noundef %116, i16 noundef zeroext 1)
   tail call fastcc void @range_deduplicate_values(ptr noundef nonnull %.086)
   %118 = load i32, ptr %106, align 8
   %119 = shl i32 %118, 1
@@ -1028,13 +1028,13 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %220 = sext i32 %219 to i64
   %221 = getelementptr [0 x i64], ptr %216, i64 0, i64 %220
   %222 = load i64, ptr %221, align 8
-  %223 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 1)
+  %223 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 1)
   %224 = tail call i64 @FunctionCall2Coll(ptr noundef %223, i32 noundef %16, i64 noundef %12, i64 noundef %217) #12
   %.not.i.i31.i = icmp eq i64 %224, 0
   br i1 %.not.i.i31.i, label %225, label %.loopexit3.i.i
 
 225:                                              ; preds = %215
-  %226 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 5)
+  %226 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 5)
   %227 = tail call i64 @FunctionCall2Coll(ptr noundef %226, i32 noundef %16, i64 noundef %12, i64 noundef %222) #12
   %.not44.i.i.i = icmp eq i64 %227, 0
   br i1 %.not44.i.i.i, label %228, label %.loopexit3.i.i
@@ -1085,7 +1085,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   br i1 %.not46.i.i.i, label %range_contains_value.exit.thread.i, label %.outer.i.i.i
 
 .loopexit3.i.i:                                   ; preds = %.outer.i.i.i, %245, %228, %225, %215, %ensure_free_space_in_buffer.exit.i
-  %250 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 3)
+  %250 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 3)
   %251 = getelementptr inbounds i8, ptr %.086, i64 28
   %252 = load i32, ptr %251, align 4
   %253 = icmp sgt i32 %252, 15
@@ -1292,7 +1292,7 @@ define internal void @brin_minmax_multi_serialize(ptr nocapture noundef readonly
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = load i32, ptr %5, align 8
-  %22 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %0, i16 noundef zeroext %20, i32 noundef %21, i16 noundef zeroext 1)
+  %22 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %0, i16 noundef zeroext %20, i32 noundef %21, i16 noundef zeroext 1)
   %23 = load i16, ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = zext i16 %23 to i64

@@ -4033,8 +4033,8 @@ switch.lookup:                                    ; preds = %entry
   %measuredDimensions_.i = getelementptr inbounds i8, ptr %this, i64 500
   %arrayidx.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i, i64 0, i64 %switch.load
   %2 = load float, ptr %arrayidx.i.i.i, align 4
-  %call.i = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1, float noundef %widthSize)
-  %call2.i = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1, float noundef %widthSize)
+  %call.i = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1, float noundef %widthSize)
+  %call2.i = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1, float noundef %widthSize)
   %add.i = fadd float %call.i, %call2.i
   %add = fadd float %2, %add.i
   ret float %add
@@ -4798,15 +4798,15 @@ land.lhs.true.i:                                  ; preds = %_ZN8facebook4yoga16
   br i1 %call.i.i, label %if.end.i, label %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
-  %call3.i = tail call noundef zeroext i1 @_ZNK8facebook4yoga4Node28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %retval.0.i99, i8 noundef zeroext %cond)
+  %call3.i = tail call noundef zeroext i1 @_ZNK8facebook4yoga4Node28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %retval.0.i99, i8 noundef zeroext %cond)
   br i1 %call3.i, label %if.then4.i29, label %if.end6.i27
 
 if.then4.i29:                                     ; preds = %if.end.i
-  %call5.i = tail call noundef float @_ZNK8facebook4yoga4Node22getInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %retval.0.i99, i8 noundef zeroext %cond, float noundef %mainSize)
+  %call5.i = tail call noundef float @_ZNK8facebook4yoga4Node22getInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %retval.0.i99, i8 noundef zeroext %cond, float noundef %mainSize)
   br label %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit
 
 if.end6.i27:                                      ; preds = %if.end.i
-  %call7.i = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %retval.0.i99, i8 noundef zeroext %cond, float noundef %mainSize)
+  %call7.i = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %retval.0.i99, i8 noundef zeroext %cond, float noundef %mainSize)
   %mul.i = fneg float %call7.i
   br label %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit
 
@@ -4824,15 +4824,15 @@ land.lhs.true.i41:                                ; preds = %_ZNK8facebook4yoga4
   br i1 %call.i.i43, label %if.end.i33, label %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit44
 
 if.end.i33:                                       ; preds = %land.lhs.true.i41, %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %call3.i34 = tail call noundef zeroext i1 @_ZNK8facebook4yoga4Node28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %2, i8 noundef zeroext %cond)
+  %call3.i34 = tail call noundef zeroext i1 @_ZNK8facebook4yoga4Node28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %2, i8 noundef zeroext %cond)
   br i1 %call3.i34, label %if.then4.i39, label %if.end6.i35
 
 if.then4.i39:                                     ; preds = %if.end.i33
-  %call5.i40 = tail call noundef float @_ZNK8facebook4yoga4Node22getInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %2, i8 noundef zeroext %cond, float noundef %crossSize)
+  %call5.i40 = tail call noundef float @_ZNK8facebook4yoga4Node22getInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %2, i8 noundef zeroext %cond, float noundef %crossSize)
   br label %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit44
 
 if.end6.i35:                                      ; preds = %if.end.i33
-  %call7.i36 = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %2, i8 noundef zeroext %cond, float noundef %crossSize)
+  %call7.i36 = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %2, i8 noundef zeroext %cond, float noundef %crossSize)
   %mul.i37 = fneg float %call7.i36
   br label %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit44
 

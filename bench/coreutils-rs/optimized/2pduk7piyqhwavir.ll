@@ -181,7 +181,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %44
 69:                                               ; preds = %.noexc60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !10
   %70 = getelementptr inbounds i8, ptr %41, i64 16
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h52f7e8a80a277b6fE.llvm.399940785433822248"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %22, ptr noundef nonnull %41, ptr noundef nonnull %70)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h52f7e8a80a277b6fE.llvm.399940785433822248"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %22, ptr noundef nonnull readonly %41, ptr noundef nonnull readonly %70)
           to label %.noexc62 unwind label %32
 
 .noexc62:                                         ; preds = %69
@@ -710,7 +710,7 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
   br i1 %.not.i59, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit63.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit63"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit63": ; preds = %12
-  %bcmp.i.i61 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.13accb9a4f1adf839dc9dd6c82dc791e.46, ptr noundef nonnull dereferenceable(2) %.sroa.0.0.i.pn.ph, i64 2), !alias.scope !84
+  %bcmp.i.i61 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.13accb9a4f1adf839dc9dd6c82dc791e.46, ptr noundef nonnull readonly dereferenceable(2) %.sroa.0.0.i.pn.ph, i64 2), !alias.scope !84
   %13 = icmp eq i32 %bcmp.i.i61, 0
   br i1 %13, label %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit63.thread"
 
@@ -743,7 +743,7 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit76": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i68.thread"
   %21 = getelementptr inbounds i8, ptr %1, i64 %.047.ph170175183
-  %bcmp.i.i74 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.13accb9a4f1adf839dc9dd6c82dc791e.48, ptr noundef nonnull dereferenceable(2) %21, i64 2), !alias.scope !96
+  %bcmp.i.i74 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.13accb9a4f1adf839dc9dd6c82dc791e.48, ptr noundef nonnull readonly dereferenceable(2) %21, i64 2), !alias.scope !96
   %22 = icmp eq i32 %bcmp.i.i74, 0
   br i1 %22, label %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit76.thread"
 

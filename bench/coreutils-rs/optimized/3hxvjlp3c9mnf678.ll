@@ -654,7 +654,7 @@ common.resume:                                    ; preds = %19, %15
   %64 = getelementptr inbounds i8, ptr %2, i64 8
   %65 = load ptr, ptr %64, align 8, !alias.scope !95, !noalias !98, !nonnull !16, !noundef !16
   %66 = getelementptr inbounds i8, ptr %65, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %54, i64 %56, i1 false), !noalias !95
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %54, i64 %56, i1 false), !noalias !95
   %67 = add i64 %59, %56
   store i64 %67, ptr %58, align 8, !alias.scope !95, !noalias !98
   br label %107
@@ -686,7 +686,7 @@ common.resume:                                    ; preds = %19, %15
   %84 = getelementptr inbounds i8, ptr %2, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !100, !noalias !103, !nonnull !16, !noundef !16
   %86 = getelementptr inbounds i8, ptr %85, i64 %79
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %74, i64 %76, i1 false), !noalias !100
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull readonly align 1 %74, i64 %76, i1 false), !noalias !100
   %87 = add i64 %79, %76
   store i64 %87, ptr %78, align 8, !alias.scope !100, !noalias !103
   br label %89
@@ -718,7 +718,7 @@ common.resume:                                    ; preds = %19, %15
   %102 = getelementptr inbounds i8, ptr %2, i64 8
   %103 = load ptr, ptr %102, align 8, !alias.scope !106, !noalias !109, !nonnull !16, !noundef !16
   %104 = getelementptr inbounds i8, ptr %103, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull align 1 %92, i64 %94, i1 false), !noalias !106
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull readonly align 1 %92, i64 %94, i1 false), !noalias !106
   %105 = add i64 %97, %94
   store i64 %105, ptr %96, align 8, !alias.scope !106, !noalias !109
   br label %111
@@ -991,7 +991,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread: ; preds = %
   %69 = getelementptr inbounds i8, ptr %40, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !156, !noalias !159, !nonnull !16, !noundef !16
   %71 = getelementptr inbounds i8, ptr %70, i64 %65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %50, i64 %52, i1 false), !noalias !161
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %50, i64 %52, i1 false), !noalias !161
   %72 = add i64 %65, %52
   store i64 %72, ptr %54, align 8, !alias.scope !156, !noalias !159
   br label %79
@@ -1060,7 +1060,7 @@ _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread: ; preds
   %103 = getelementptr inbounds i8, ptr %40, i64 8
   %104 = load ptr, ptr %103, align 8, !alias.scope !170, !noalias !173, !nonnull !16, !noundef !16
   %105 = getelementptr inbounds i8, ptr %104, i64 %100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull align 1 %98, i64 %97, i1 false), !noalias !167
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull readonly align 1 %98, i64 %97, i1 false), !noalias !167
   %106 = add i64 %100, %97
   store i64 %106, ptr %54, align 8, !alias.scope !170, !noalias !173
   br label %109
@@ -1565,7 +1565,7 @@ define hidden noundef ptr @_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !239, !noalias !242, !nonnull !16, !noundef !16
   %25 = getelementptr inbounds i8, ptr %24, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %0, i64 %1, i1 false), !noalias !239
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !noalias !239
   %26 = add i64 %16, %1
   store i64 %26, ptr %5, align 8, !alias.scope !239, !noalias !242
   br label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit9"
@@ -1622,7 +1622,7 @@ define hidden noundef ptr @_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e3888
   %26 = getelementptr inbounds i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !249, !noalias !252, !nonnull !16, !noundef !16
   %28 = getelementptr inbounds i8, ptr %27, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %0, i64 %1, i1 false), !noalias !249
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !noalias !249
   %29 = add i64 %20, %1
   store i64 %29, ptr %19, align 8, !alias.scope !249, !noalias !252
   br label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit17"

@@ -809,7 +809,7 @@ invoke.cont.i:                                    ; preds = %call.i.noexc
           to label %call6.i.noexc unwind label %lpad5
 
 call6.i.noexc:                                    ; preds = %invoke.cont.i
-  invoke void @_ZN7Imf_3_218DeepTiledInputFile19multiPartInitializeEPNS_13InputPartDataE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call6.i20)
+  invoke void @_ZN7Imf_3_218DeepTiledInputFile19multiPartInitializeEPNS_13InputPartDataE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %call6.i20)
           to label %try.cont unwind label %lpad5
 
 lpad.i:                                           ; preds = %call.i.noexc
@@ -1787,7 +1787,7 @@ invoke.cont.i:                                    ; preds = %call.i.noexc
           to label %call6.i.noexc unwind label %lpad7
 
 call6.i.noexc:                                    ; preds = %invoke.cont.i
-  invoke void @_ZN7Imf_3_218DeepTiledInputFile19multiPartInitializeEPNS_13InputPartDataE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call6.i14)
+  invoke void @_ZN7Imf_3_218DeepTiledInputFile19multiPartInitializeEPNS_13InputPartDataE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %call6.i14)
           to label %try.cont unwind label %lpad7
 
 lpad.i:                                           ; preds = %call.i.noexc
@@ -4518,7 +4518,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218DeepTiledInputFile8readTileEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_218DeepTiledInputFile9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dx, i32 noundef %dy, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
+  tail call void @_ZN7Imf_3_218DeepTiledInputFile9readTilesEiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dx, i32 noundef %dy, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
   ret void
 }
 
@@ -7110,7 +7110,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218DeepTiledInputFile20readPixelSampleCountEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_218DeepTiledInputFile21readPixelSampleCountsEiiiiii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dx, i32 noundef %dy, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
+  tail call void @_ZN7Imf_3_218DeepTiledInputFile21readPixelSampleCountsEiiiiii(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %dx, i32 noundef %dx, i32 noundef %dy, i32 noundef %dy, i32 noundef %l, i32 noundef %l)
   ret void
 }
 

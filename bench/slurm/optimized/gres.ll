@@ -4056,7 +4056,7 @@ _check_conf_mismatch.exit:                        ; preds = %_validate_gres_conf
 299:                                              ; preds = %290
   %300 = getelementptr inbounds i8, ptr %292, i64 16
   %301 = load i64, ptr %300, align 8
-  call fastcc void @_merge_gres2(ptr noundef %261, ptr noundef %262, i64 noundef %301, ptr noundef null, ptr noundef nonnull %287, i32 noundef %293)
+  call fastcc void @_merge_gres2(ptr noundef %261, ptr noundef %262, i64 noundef %301, ptr noundef null, ptr noundef nonnull readonly %287, i32 noundef %293)
   br label %_merge_gres.exit.i
 
 302:                                              ; preds = %302, %.lr.ph.i.i
@@ -4067,7 +4067,7 @@ _check_conf_mismatch.exit:                        ; preds = %_validate_gres_conf
   %306 = load ptr, ptr %298, align 8
   %307 = getelementptr inbounds ptr, ptr %306, i64 %indvars.iv.i.i
   %308 = load ptr, ptr %307, align 8
-  call fastcc void @_merge_gres2(ptr noundef %261, ptr noundef %262, i64 noundef %305, ptr noundef %308, ptr noundef %287, i32 noundef %293)
+  call fastcc void @_merge_gres2(ptr noundef %261, ptr noundef %262, i64 noundef %305, ptr noundef %308, ptr noundef readonly %287, i32 noundef %293)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %309 = load i16, ptr %294, align 8
   %310 = zext i16 %309 to i64
@@ -19717,7 +19717,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   store ptr %124, ptr %11, align 8
   %125 = call i64 @bit_size(ptr noundef nonnull %4) #25
   %126 = shl i64 %125, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %124, ptr align 8 %7, i64 %126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %124, ptr readonly align 8 %7, i64 %126, i1 false)
   %.not132.i = icmp slt i32 %1, 0
   br i1 %.not132.i, label %_get_shared_gres_per_task.exit, label %.lr.ph135.i
 

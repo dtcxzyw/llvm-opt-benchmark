@@ -314,7 +314,7 @@ do.end34:                                         ; preds = %do.end26
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr27, i64 %call.i
   %sub.ptr.rhs.cast37 = ptrtoint ptr %add.ptr35 to i64
   %sub.ptr.sub38 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast37
-  %call.i33 = call i64 @LZ4F_flush(ptr noundef %cctx, ptr noundef %add.ptr35, i64 noundef %sub.ptr.sub38, ptr nonnull poison)
+  %call.i33 = call i64 @LZ4F_flush(ptr noundef %cctx, ptr noundef %add.ptr35, i64 noundef %sub.ptr.sub38, ptr nonnull readnone poison)
   %cmp.i.i = icmp ult i64 %call.i33, -21
   br i1 %cmp.i.i, label %do.end.i, label %return
 

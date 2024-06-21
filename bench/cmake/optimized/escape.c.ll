@@ -121,7 +121,7 @@ define dso_local ptr @curl_unescape(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not.i.i, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #5
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -239,7 +239,7 @@ define dso_local ptr @curl_easy_unescape(ptr nocapture noundef readnone %0, ptr 
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #5
   br label %10
 
 10:                                               ; preds = %8, %6

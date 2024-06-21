@@ -78,7 +78,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr %union.LWLockPadded, ptr %23, i64 %20
   %25 = tail call zeroext i1 @LWLockAcquire(ptr noundef %24, i32 noundef 0) #9
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %7)
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef %7)
   tail call void @LWLockRelease(ptr noundef %24) #9
   %26 = sub i32 %1, %.0.lcssa
   %27 = zext nneg i32 %.0.lcssa to i64
@@ -131,7 +131,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr %union.LWLockPadded, ptr %52, i64 %49
   %54 = tail call zeroext i1 @LWLockAcquire(ptr noundef %53, i32 noundef 0) #9
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i, ptr noundef %46, i32 noundef %3, i64 noundef %4, i64 noundef %.026.i)
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i, ptr noundef readonly %46, i32 noundef %3, i64 noundef %4, i64 noundef %.026.i)
   tail call void @LWLockRelease(ptr noundef %53) #9
   %55 = icmp slt i32 %.2.i, %26
   br i1 %55, label %.preheader.i, label %set_status_by_pages.exit, !llvm.loop !8
@@ -188,7 +188,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr %union.LWLockPadded, ptr %82, i64 %79
   %84 = tail call zeroext i1 @LWLockAcquire(ptr noundef %83, i32 noundef 0) #9
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i48, ptr noundef %76, i32 noundef 3, i64 noundef %4, i64 noundef %.026.i40)
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i48, ptr noundef readonly %76, i32 noundef 3, i64 noundef %4, i64 noundef %.026.i40)
   tail call void @LWLockRelease(ptr noundef %83) #9
   %85 = icmp slt i32 %.2.i47, %56
   br i1 %85, label %.preheader.i39, label %set_status_by_pages.exit50, !llvm.loop !8
@@ -202,7 +202,7 @@ set_status_by_pages.exit50:                       ; preds = %74
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr %union.LWLockPadded, ptr %91, i64 %88
   %93 = tail call zeroext i1 @LWLockAcquire(ptr noundef %92, i32 noundef 0) #9
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %4, i64 noundef %7)
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef nonnull readonly %2, i32 noundef 1, i64 noundef %4, i64 noundef %7)
   tail call void @LWLockRelease(ptr noundef %92) #9
   %94 = load i32, ptr %58, align 4
   %95 = lshr i32 %94, 15
@@ -248,7 +248,7 @@ set_status_by_pages.exit50:                       ; preds = %74
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr %union.LWLockPadded, ptr %116, i64 %113
   %118 = tail call zeroext i1 @LWLockAcquire(ptr noundef %117, i32 noundef 0) #9
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i61, ptr noundef %110, i32 noundef 1, i64 noundef %4, i64 noundef %.026.i53)
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i61, ptr noundef readonly %110, i32 noundef 1, i64 noundef %4, i64 noundef %.026.i53)
   tail call void @LWLockRelease(ptr noundef %117) #9
   %119 = icmp slt i32 %.2.i60, %56
   br i1 %119, label %.preheader.i52, label %set_status_by_pages.exit, !llvm.loop !8
@@ -262,7 +262,7 @@ set_status_by_pages.exit.critedge:                ; preds = %.split35
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr %union.LWLockPadded, ptr %125, i64 %122
   %127 = tail call zeroext i1 @LWLockAcquire(ptr noundef %126, i32 noundef 0) #9
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef %2, i32 noundef 1, i64 noundef %4, i64 noundef %7)
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef readonly %2, i32 noundef 1, i64 noundef %4, i64 noundef %7)
   tail call void @LWLockRelease(ptr noundef %126) #9
   br label %set_status_by_pages.exit
 

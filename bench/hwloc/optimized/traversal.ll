@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr nocapture nou
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 0, ptr %7, align 8
-  %9 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 6) #17
+  %9 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.21, i64 noundef 6) #17
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %20
 
@@ -773,7 +773,7 @@ hwloc__osdev_types_sscanf.exit:                   ; preds = %12
   br label %hwloc__type_match.exit
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef 3) #17
+  %21 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.22, i64 noundef 3) #17
   %.not79 = icmp eq i32 %21, 0
   br i1 %.not79, label %22, label %32
 
@@ -2373,7 +2373,7 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %35, %.sink.split.i.
   %.015.i.i = phi ptr [ %45, %43 ], [ %37, %hwloc_get_next_obj_by_depth.exit.i.i ]
   %38 = getelementptr inbounds i8, ptr %.015.i.i, i64 184
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %1, ptr noundef %39) #17
+  %40 = tail call i32 @hwloc_bitmap_intersects(ptr noundef readonly %1, ptr noundef %39) #17
   %.not12.i.i = icmp eq i32 %40, 0
   br i1 %.not12.i.i, label %43, label %hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader
 
@@ -2584,7 +2584,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
 
 71:                                               ; preds = %68
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %73 = tail call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %70, i64 noundef %72) #17
+  %73 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %70, i64 noundef %72) #17
   %.not103 = icmp eq i32 %73, 0
   br i1 %.not103, label %.loopexit, label %hwloc_get_type_depth.exit.i.backedge
 
@@ -2652,7 +2652,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
 
 97:                                               ; preds = %94
   %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %99 = tail call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %96, i64 noundef %98) #17
+  %99 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %96, i64 noundef %98) #17
   %.not92 = icmp eq i32 %99, 0
   br i1 %.not92, label %.loopexit, label %.loopexit.sink.split
 
@@ -2722,7 +2722,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
 
 117:                                              ; preds = %114
   %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %119 = tail call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %116, i64 noundef %118) #17
+  %119 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %116, i64 noundef %118) #17
   %.not85.us = icmp eq i32 %119, 0
   br i1 %.not85.us, label %.loopexit, label %120
 
@@ -2757,7 +2757,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
 
 131:                                              ; preds = %128
   %132 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %133 = tail call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %130, i64 noundef %132) #17
+  %133 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %130, i64 noundef %132) #17
   %.not85 = icmp eq i32 %133, 0
   br i1 %.not85, label %.loopexit, label %134
 

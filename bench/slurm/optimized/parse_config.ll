@@ -334,7 +334,7 @@ define range(i32 -1, 1) i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture read
   br i1 %32, label %_line_is_space.exit.thread, label %33
 
 33:                                               ; preds = %30
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #15
+  %34 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #15
   %35 = trunc i64 %34 to i32
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i, label %_line_is_space.exit.thread
@@ -549,7 +549,7 @@ define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i.i, label %_compute_hash_val.exit.i, label %58
 
 58:                                               ; preds = %.lr.ph.i
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01940.i) #15
+  %59 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.01940.i) #15
   %60 = trunc i64 %59 to i32
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph.i.i, label %_compute_hash_val.exit.i
@@ -956,7 +956,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
   br i1 %229, label %.outer.backedge, label %230
 
 230:                                              ; preds = %.thread68
-  %231 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #15
+  %231 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %228) #15
   %232 = trunc i64 %231 to i32
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %.lr.ph.i54, label %.outer.backedge

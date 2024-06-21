@@ -588,7 +588,7 @@ for.inc30.i.i:                                    ; preds = %for.cond11.i.i, %fo
 _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i:  ; preds = %for.inc30.i.i, %for.body15.i.i, %for.body.i
   %cmp3.i.i = phi i1 [ false, %for.body.i ], [ %cmp8.i.i, %for.body15.i.i ], [ %cmp.i.i, %for.inc30.i.i ]
   %grey.val.i = load i8, ptr %17, align 1, !noalias !5
-  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
+  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
           to label %invoke.cont6.i unwind label %lpad.loopexit.i
 
 invoke.cont6.i:                                   ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i
@@ -616,7 +616,7 @@ lpad.loopexit.split-lp.i:                         ; preds = %if.end21.i, %if.end
   br label %ehcleanup96.i
 
 if.end.i:                                         ; preds = %invoke.cont6.i, %for.cond.preheader.i, %if.then29
-  %call15.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull %sherman_limit.i)
+  %call15.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull %sherman_limit.i)
           to label %invoke.cont14.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont14.i:                                  ; preds = %if.end.i
@@ -740,12 +740,12 @@ invoke.cont61.i:                                  ; preds = %_ZN3ue2L21calcSherm
   %49 = load i32, ptr %arb.i, align 4, !noalias !5
   %50 = load i8, ptr %single.i, align 1, !noalias !5
   %tobool.i = icmp ne i8 %50, 0
-  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(90) %info, i32 noundef %conv65.i, i32 noundef %conv66.i, i32 noundef %conv67.i, i32 noundef %conv69.i, i32 noundef %49, i1 noundef zeroext %tobool.i, ptr noundef %46)
+  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 2, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %conv65.i, i32 noundef %conv66.i, i32 noundef %conv67.i, i32 noundef %conv69.i, i32 noundef %49, i1 noundef zeroext %tobool.i, ptr noundef %46)
           to label %invoke.cont72.i unwind label %lpad62.i
 
 invoke.cont72.i:                                  ; preds = %invoke.cont61.i
   %add.ptr.i = getelementptr inbounds i8, ptr %46, i64 64
-  invoke fastcc void @_ZN3ue2L18createShuffleMasksEP7mcshengRKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
+  invoke fastcc void @_ZN3ue2L18createShuffleMasksEP7mcshengRKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
           to label %invoke.cont73.i unwind label %lpad62.i
 
 invoke.cont73.i:                                  ; preds = %invoke.cont72.i
@@ -759,7 +759,7 @@ invoke.cont73.i:                                  ; preds = %invoke.cont72.i
   %51 = load ptr, ptr %ref.tmp, align 8, !alias.scope !5
   %conv87.i = trunc i64 %add44.i to i32
   %52 = load ptr, ptr %ri.i, align 8, !noalias !5
-  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv67.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv87.i, ptr noundef nonnull align 8 dereferenceable(8) %52)
+  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %51, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv67.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv87.i, ptr noundef nonnull align 8 dereferenceable(8) %52)
           to label %invoke.cont89.i unwind label %lpad62.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont73.i
@@ -1305,7 +1305,7 @@ invoke.cont46.i:                                  ; preds = %invoke.cont21.i
   %add.ptr.i35 = getelementptr inbounds i8, ptr %145, i64 64
   %accel_limit_8.i = getelementptr inbounds i8, ptr %145, i64 92
   %accept_limit_8.i = getelementptr inbounds i8, ptr %145, i64 94
-  invoke fastcc void @_ZN3ue2L15allocateImplId8ERNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS4_EEEPtSE_(ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, ptr noundef nonnull %accel_limit_8.i, ptr noundef nonnull %accept_limit_8.i)
+  invoke fastcc void @_ZN3ue2L15allocateImplId8ERNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS4_EEEPtSE_(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, ptr noundef nonnull %accel_limit_8.i, ptr noundef nonnull %accept_limit_8.i)
           to label %invoke.cont49.i unwind label %lpad48.i
 
 invoke.cont49.i:                                  ; preds = %invoke.cont46.i
@@ -1319,18 +1319,18 @@ invoke.cont49.i:                                  ; preds = %invoke.cont46.i
   %149 = load i8, ptr %single.i18, align 1, !noalias !21
   %tobool.i38 = icmp ne i8 %149, 0
   %150 = load ptr, ptr %ref.tmp34, align 8, !alias.scope !21
-  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(90) %info, i32 noundef %conv50.i37, i32 noundef %conv51.i, i32 noundef %conv52.i, i32 noundef %conv54.i, i32 noundef %148, i1 noundef zeroext %tobool.i38, ptr noundef %150)
+  invoke fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 1, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %conv50.i37, i32 noundef %conv51.i, i32 noundef %conv52.i, i32 noundef %conv54.i, i32 noundef %148, i1 noundef zeroext %tobool.i38, ptr noundef %150)
           to label %invoke.cont56.i unwind label %lpad48.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont49.i
-  invoke fastcc void @_ZN3ue2L18createShuffleMasksEP7mcshengRKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i35, ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
+  invoke fastcc void @_ZN3ue2L18createShuffleMasksEP7mcshengRKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i35, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
           to label %invoke.cont57.i unwind label %lpad48.i
 
 invoke.cont57.i:                                  ; preds = %invoke.cont56.i
   %151 = load ptr, ptr %ref.tmp34, align 8, !alias.scope !21
   %conv63.i = trunc i64 %add17.i to i32
   %152 = load ptr, ptr %ri.i19, align 8, !noalias !21
-  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %151, ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(8) %152)
+  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %151, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(8) %152)
           to label %invoke.cont65.i unwind label %lpad48.i
 
 invoke.cont65.i:                                  ; preds = %invoke.cont57.i
@@ -2474,7 +2474,7 @@ if.end235:                                        ; preds = %invoke.cont222
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %cache.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  %call.i = invoke fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(40) %sheng_states, ptr nonnull %agg.tmp.sroa.0.0.copyload, i64 %base_cyclic.sroa.6.0.copyload, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(56) %cache.i)
+  %call.i = invoke fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr nonnull %agg.tmp.sroa.0.0.copyload, i64 %base_cyclic.sroa.6.0.copyload, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(56) %cache.i)
           to label %invoke.cont.i unwind label %lpad.i117
 
 invoke.cont.i:                                    ; preds = %if.end235
@@ -3455,7 +3455,7 @@ for.inc30.i.i:                                    ; preds = %for.cond11.i.i, %fo
 _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i:  ; preds = %for.inc30.i.i, %for.body15.i.i, %for.body.i
   %cmp3.i.i = phi i1 [ false, %for.body.i ], [ %cmp8.i.i, %for.body15.i.i ], [ %cmp.i.i, %for.inc30.i.i ]
   %grey.val.i = load i8, ptr %15, align 1, !noalias !74
-  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
+  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
           to label %invoke.cont.i unwind label %lpad.loopexit.i
 
 invoke.cont.i:                                    ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i
@@ -3483,7 +3483,7 @@ lpad.loopexit.split-lp.i:                         ; preds = %if.end20.i, %if.end
   br label %ehcleanup89.i
 
 if.end.i:                                         ; preds = %invoke.cont.i, %for.cond.preheader.i, %if.then29
-  %call14.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull %sherman_limit.i)
+  %call14.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull %sherman_limit.i)
           to label %invoke.cont13.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont13.i:                                  ; preds = %if.end.i
@@ -3608,12 +3608,12 @@ invoke.cont59.i:                                  ; preds = %_ZN3ue2L21calcSherm
   %48 = load i32, ptr %arb.i, align 4, !noalias !74
   %49 = load i8, ptr %single.i, align 1, !noalias !74
   %tobool.i = icmp ne i8 %49, 0
-  invoke fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(90) %info, i32 noundef %conv61.i, i32 noundef %conv62.i, i32 noundef %conv63.i, i32 noundef %conv65.i, i32 noundef %48, i1 noundef zeroext %tobool.i, ptr noundef %45)
+  invoke fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 2, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %conv61.i, i32 noundef %conv62.i, i32 noundef %conv63.i, i32 noundef %conv65.i, i32 noundef %48, i1 noundef zeroext %tobool.i, ptr noundef %45)
           to label %invoke.cont68.i unwind label %lpad67.i
 
 invoke.cont68.i:                                  ; preds = %invoke.cont59.i
   %add.ptr.i = getelementptr inbounds i8, ptr %45, i64 64
-  invoke fastcc void @_ZN3ue2L20createShuffleMasks64EP9mcsheng64RKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
+  invoke fastcc void @_ZN3ue2L20createShuffleMasks64EP9mcsheng64RKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
           to label %invoke.cont69.i unwind label %lpad67.i
 
 invoke.cont69.i:                                  ; preds = %invoke.cont68.i
@@ -3627,7 +3627,7 @@ invoke.cont69.i:                                  ; preds = %invoke.cont68.i
   %50 = load ptr, ptr %ref.tmp, align 8, !alias.scope !74
   %conv82.i = trunc i64 %add43.i to i32
   %51 = load ptr, ptr %ri.i, align 8, !noalias !74
-  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv82.i, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %50, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv82.i, ptr noundef nonnull align 8 dereferenceable(8) %51)
           to label %invoke.cont84.i unwind label %lpad67.i
 
 invoke.cont84.i:                                  ; preds = %invoke.cont69.i
@@ -4171,7 +4171,7 @@ invoke.cont46.i:                                  ; preds = %invoke.cont21.i
   %add.ptr.i37 = getelementptr inbounds i8, ptr %144, i64 64
   %accel_limit_8.i = getelementptr inbounds i8, ptr %144, i64 92
   %accept_limit_8.i = getelementptr inbounds i8, ptr %144, i64 94
-  invoke fastcc void @_ZN3ue2L15allocateImplId8ERNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS4_EEEPtSE_(ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, ptr noundef nonnull %accel_limit_8.i, ptr noundef nonnull %accept_limit_8.i)
+  invoke fastcc void @_ZN3ue2L15allocateImplId8ERNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS4_EEEPtSE_(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, ptr noundef nonnull %accel_limit_8.i, ptr noundef nonnull %accept_limit_8.i)
           to label %invoke.cont49.i unwind label %lpad48.i
 
 invoke.cont49.i:                                  ; preds = %invoke.cont46.i
@@ -4185,18 +4185,18 @@ invoke.cont49.i:                                  ; preds = %invoke.cont46.i
   %148 = load i8, ptr %single.i18, align 1, !noalias !86
   %tobool.i39 = icmp ne i8 %148, 0
   %149 = load ptr, ptr %ref.tmp35, align 8, !alias.scope !86
-  invoke fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(90) %info, i32 noundef %conv50.i, i32 noundef %conv51.i, i32 noundef %conv52.i, i32 noundef %conv54.i, i32 noundef %147, i1 noundef zeroext %tobool.i39, ptr noundef %149)
+  invoke fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef 1, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %conv50.i, i32 noundef %conv51.i, i32 noundef %conv52.i, i32 noundef %conv54.i, i32 noundef %147, i1 noundef zeroext %tobool.i39, ptr noundef %149)
           to label %invoke.cont56.i unwind label %lpad48.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont49.i
-  invoke fastcc void @_ZN3ue2L20createShuffleMasks64EP9mcsheng64RKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i37, ptr noundef nonnull align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
+  invoke fastcc void @_ZN3ue2L20createShuffleMasks64EP9mcsheng64RKNS_12_GLOBAL__N_18dfa_infoEtRKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE(ptr noundef nonnull %add.ptr.i37, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info)
           to label %invoke.cont57.i unwind label %lpad48.i
 
 invoke.cont57.i:                                  ; preds = %invoke.cont56.i
   %150 = load ptr, ptr %ref.tmp35, align 8, !alias.scope !86
   %conv63.i41 = trunc i64 %add17.i to i32
   %151 = load ptr, ptr %ri.i19, align 8, !noalias !86
-  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %150, ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i41, ptr noundef nonnull align 8 dereferenceable(8) %151)
+  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %150, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i41, ptr noundef nonnull align 8 dereferenceable(8) %151)
           to label %invoke.cont65.i unwind label %lpad48.i
 
 invoke.cont65.i:                                  ; preds = %invoke.cont57.i

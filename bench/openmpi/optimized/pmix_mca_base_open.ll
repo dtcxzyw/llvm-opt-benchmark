@@ -167,7 +167,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not21, label %117, label %56
 
 56:                                               ; preds = %48
-  %57 = call noalias ptr @strdup(ptr noundef nonnull %55) #8
+  %57 = call noalias ptr @strdup(ptr noundef nonnull readonly %55) #8
   %.not40.i = icmp eq ptr %57, null
   br i1 %.not40.i, label %.critedge47.i, label %.lr.ph.i
 

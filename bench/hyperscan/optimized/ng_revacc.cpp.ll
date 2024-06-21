@@ -573,7 +573,7 @@ for.body4.i29:                                    ; preds = %for.body4.i29.backe
   %71 = phi <4 x i64> [ %70, %for.cond1.preheader.i27 ], [ %72, %for.body4.i29.backedge ]
   %add.ptr.i.i31 = getelementptr inbounds %"class.ue2::CharReach", ptr %rev_info.val10, i64 %indvars.iv.i30
   %add.ptr.i44.i = getelementptr inbounds %"class.ue2::CharReach", ptr %1, i64 %indvars.iv.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i31, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr.i.i31, i64 32, i1 false)
   %gep.i = getelementptr %"class.ue2::CharReach", ptr %invariant.gep.i, i64 %indvars.iv.i30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %72 = load <4 x i64>, ptr %add.ptr.i44.i, align 8, !noalias !14
@@ -585,7 +585,7 @@ for.body4.i29:                                    ; preds = %for.body4.i29.backe
   %77 = shufflevector <4 x i64> %72, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %78 = or <2 x i64> %76, %77
   store <2 x i64> %78, ptr %arrayidx.i.i22.i.i.i, align 16, !alias.scope !15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr2.i, ptr noundef nonnull align 8 dereferenceable(32) %gep.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr2.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %gep.i, i64 32, i1 false)
   %79 = load <4 x i64>, ptr %cr2.i, align 16, !alias.scope !11
   %80 = or <4 x i64> %79, %71
   %81 = shufflevector <4 x i64> %80, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
@@ -883,7 +883,7 @@ for.body77.us.i59:                                ; preds = %for.cond74.preheade
   %add.ptr.i147.us.i = getelementptr inbounds %"class.ue2::CharReach", ptr %rev_info.val10, i64 %indvars.iv93.i
   %add.ptr.i148.us.i = getelementptr inbounds %"class.ue2::CharReach", ptr %1, i64 %indvars.iv93.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr78.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i147.us.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr78.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr.i147.us.i, i64 32, i1 false)
   %127 = load <2 x i64>, ptr %add.ptr.i148.us.i, align 8, !noalias !20
   %128 = load <2 x i64>, ptr %cr78.i, align 16, !alias.scope !20
   %129 = or <2 x i64> %128, %127
@@ -909,7 +909,7 @@ for.body77.i58:                                   ; preds = %for.cond74.preheade
   %add.ptr.i147.i = getelementptr inbounds %"class.ue2::CharReach", ptr %rev_info.val10, i64 %indvars.iv89.i
   %add.ptr.i148.i = getelementptr inbounds %"class.ue2::CharReach", ptr %1, i64 %indvars.iv89.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr78.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i147.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr78.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr.i147.i, i64 32, i1 false)
   %136 = load <2 x i64>, ptr %add.ptr.i148.i, align 8, !noalias !20
   %137 = load <2 x i64>, ptr %cr78.i, align 16, !alias.scope !20
   %138 = or <2 x i64> %137, %136

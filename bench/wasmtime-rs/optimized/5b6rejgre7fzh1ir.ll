@@ -1133,7 +1133,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %3 = alloca { { { [2 x i64] }, i64 }, i64, i64 }, align 8
   %4 = alloca { { { [2 x i64] }, i64 }, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !218
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !218
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %.val10 = load i64, ptr %5, align 8, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2059,7 +2059,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit: ; preds = %"_ZN8smallvec17Sma
   %.05.i = phi ptr [ %.sink2.i.i, %.lr.ph50 ], [ %13, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h4e855b34aaa905daE.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %13, %45 ]
   %.0.i = phi ptr [ %.sink3.i.i, %.lr.ph50 ], [ %.pre.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h4e855b34aaa905daE.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %42, %45 ]
   %63 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.0.i, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %63, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %63, ptr noundef nonnull readonly align 4 dereferenceable(12) %4, i64 12, i1 false)
   %64 = load i64, ptr %.05.i, align 8, !alias.scope !377, !noalias !380, !noundef !4
   %65 = add i64 %64, 1
   store i64 %65, ptr %.05.i, align 8, !alias.scope !377, !noalias !380
@@ -2398,7 +2398,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thre
   %.05.i = phi ptr [ %.sink2.i.i, %56 ], [ %13, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h2b8968ff53a09154E.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %13, %63 ]
   %.0.i = phi ptr [ %.sink3.i.i, %56 ], [ %.pre.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h2b8968ff53a09154E.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %60, %63 ]
   %81 = getelementptr inbounds { i32, i32, i16, i8, [1 x i8] }, ptr %.0.i, i64 %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull readonly align 4 dereferenceable(12) %3, i64 12, i1 false)
   %82 = load i64, ptr %.05.i, align 8, !alias.scope !408, !noalias !411, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %.05.i, align 8, !alias.scope !408, !noalias !411
@@ -2858,7 +2858,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thre
   %.05.i = phi ptr [ %.sink2.i.i, %56 ], [ %13, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h4e855b34aaa905daE.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %13, %63 ]
   %.0.i = phi ptr [ %.sink3.i.i, %56 ], [ %.pre.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h4e855b34aaa905daE.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %60, %63 ]
   %81 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.0.i, i64 %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull readonly align 4 dereferenceable(12) %3, i64 12, i1 false)
   %82 = load i64, ptr %.05.i, align 8, !alias.scope !472, !noalias !475, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %.05.i, align 8, !alias.scope !472, !noalias !475
@@ -3244,7 +3244,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %3 = alloca { i16, [11 x i16] }, align 8
   %4 = alloca { i16, [11 x i16] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !538
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !538
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
   %5 = load i16, ptr %4, align 8, !range !545, !alias.scope !542, !noalias !546, !noundef !4
   %trunc.i = trunc nuw i16 %5 to i1
@@ -3421,7 +3421,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %6 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   %7 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !570
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !570
   %.val7 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %.val8 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
@@ -3658,7 +3658,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.05.i = phi ptr [ %.sink2.i.i, %.lr.ph64 ], [ %16, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h2b8968ff53a09154E.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %16, %81 ]
   %.0.i = phi ptr [ %.sink3.i.i, %.lr.ph64 ], [ %.pre.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h2b8968ff53a09154E.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %78, %81 ]
   %101 = getelementptr inbounds { i32, i32, i16, i8, [1 x i8] }, ptr %.0.i, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull readonly align 4 dereferenceable(12) %5, i64 12, i1 false)
   %102 = load i64, ptr %.05.i, align 8, !alias.scope !615, !noalias !618, !noundef !4
   %103 = add i64 %102, 1
   store i64 %103, ptr %.05.i, align 8, !alias.scope !615, !noalias !618
@@ -3749,7 +3749,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %3 = alloca { ptr, { { { [96 x i64] }, i64 }, i64, i64 } }, align 8
   %4 = alloca { ptr, { { { [96 x i64] }, i64 }, i64, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(800) %4, ptr noundef nonnull align 8 dereferenceable(800) %1, i64 800, i1 false), !alias.scope !639
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(800) %4, ptr noundef nonnull readonly align 8 dereferenceable(800) %1, i64 800, i1 false), !alias.scope !639
   %5 = getelementptr inbounds i8, ptr %4, i64 784
   %.val7 = load i64, ptr %5, align 8, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 792
@@ -3987,7 +3987,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %6 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   %7 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !719
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !719
   %.val7 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %.val8 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
@@ -4224,7 +4224,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.05.i = phi ptr [ %.sink2.i.i, %.lr.ph64 ], [ %16, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h4e855b34aaa905daE.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %16, %81 ]
   %.0.i = phi ptr [ %.sink3.i.i, %.lr.ph64 ], [ %.pre.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h4e855b34aaa905daE.exit._ZN8smallvec10infallible17heb7d46c8e758169bE.exit_crit_edge.i" ], [ %78, %81 ]
   %101 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.0.i, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull readonly align 4 dereferenceable(12) %5, i64 12, i1 false)
   %102 = load i64, ptr %.05.i, align 8, !alias.scope !764, !noalias !767, !noundef !4
   %103 = add i64 %102, 1
   store i64 %103, ptr %.05.i, align 8, !alias.scope !764, !noalias !767
@@ -4749,7 +4749,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.sroa.2 = alloca [39 x i8], align 1
   %5 = alloca { { { [20 x i64] }, i64 }, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false), !alias.scope !887
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull readonly align 8 dereferenceable(184) %1, i64 184, i1 false), !alias.scope !887
   %6 = getelementptr inbounds i8, ptr %5, i64 168
   %.val7 = load i64, ptr %6, align 8, !noundef !4
   %7 = getelementptr inbounds i8, ptr %5, i64 176

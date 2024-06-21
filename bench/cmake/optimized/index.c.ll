@@ -1072,7 +1072,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %43 = getelementptr inbounds i8, ptr %30, i64 96
   store i64 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %.02242, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
   %45 = getelementptr inbounds i8, ptr %.02242, i64 160
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %39, align 8

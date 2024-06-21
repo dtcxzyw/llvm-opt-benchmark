@@ -674,7 +674,7 @@ dissect_xtp_ecntl.exit:                           ; preds = %.lr.ph.i, %169, %18
   br label %dissect_xtp_first.exit
 
 215:                                              ; preds = %114
-  %216 = call fastcc i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %65)
+  %216 = call fastcc i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %65)
   %.not.i179 = icmp eq i32 %216, 0
   br i1 %.not.i179, label %dissect_xtp_first.exit, label %217
 
@@ -683,7 +683,7 @@ dissect_xtp_ecntl.exit:                           ; preds = %.lr.ph.i, %169, %18
   br label %dissect_xtp_first.exit
 
 218:                                              ; preds = %114
-  %219 = call fastcc i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %65)
+  %219 = call fastcc i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %65)
   %.not.i180 = icmp eq i32 %219, 0
   br i1 %.not.i180, label %dissect_xtp_first.exit, label %220
 

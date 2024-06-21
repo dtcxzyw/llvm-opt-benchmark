@@ -1833,10 +1833,10 @@ invoke.cont39:                                    ; preds = %invoke.cont39.lr.ph
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp23.sroa.2.0.m_linearFactor.sroa_idx.i, align 8
   %m_linVel.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %m_linearVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_linVel.i.i, i64 16, i1 false)
   %m_angVel.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %m_angularVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_angVel.i.i, i64 16, i1 false)
   store i32 %59, ptr %58, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %numBodies.addr, align 4

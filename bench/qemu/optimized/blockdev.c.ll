@@ -1710,7 +1710,7 @@ entry.tail.i:                                     ; preds = %if.then24
   br i1 %10, label %if.then26, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %if.then24, %entry.tail.i
-  %call1.i85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call21, ptr noundef nonnull dereferenceable(5) @.str.195) #16
+  %call1.i85 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call21, ptr noundef nonnull dereferenceable(5) @.str.195) #16
   %tobool2.not.i = icmp eq i32 %call1.i85, 0
   br i1 %tobool2.not.i, label %if.then26, label %if.end30
 
@@ -5724,7 +5724,7 @@ for.body.i:                                       ; preds = %if.then11, %for.inc
   %child.06.i = phi ptr [ %child.0.i, %for.inc.i ], [ %child.04.i, %if.then11 ]
   %name.i = getelementptr inbounds i8, ptr %child.06.i, i64 8
   %1 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %child) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %child) #16
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end15, label %for.inc.i
 

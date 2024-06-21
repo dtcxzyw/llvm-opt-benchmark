@@ -201,11 +201,11 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call i32 @strcasecmp(ptr noundef %a, ptr noundef %b) #26
+  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %a, ptr noundef readonly %b) #26
   br label %fspathcmp.exit
 
 cond.false.i:                                     ; preds = %entry
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a, ptr noundef nonnull dereferenceable(1) %b) #26
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %a, ptr noundef nonnull readonly dereferenceable(1) %b) #26
   br label %fspathcmp.exit
 
 fspathcmp.exit:                                   ; preds = %cond.true.i, %cond.false.i
@@ -280,11 +280,11 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call i32 @strncasecmp(ptr noundef %pattern, ptr noundef %string, i64 noundef %conv) #26
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %pattern, ptr noundef readonly %string, i64 noundef %conv) #26
   br label %ps_strncmp.exit
 
 if.else.i:                                        ; preds = %if.then
-  %call1.i = tail call i32 @strncmp(ptr noundef %pattern, ptr noundef %string, i64 noundef %conv) #26
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %pattern, ptr noundef readonly %string, i64 noundef %conv) #26
   br label %ps_strncmp.exit
 
 ps_strncmp.exit:                                  ; preds = %if.then.i, %if.else.i
@@ -330,11 +330,11 @@ lor.rhs:                                          ; preds = %if.then6
   br i1 %tobool.not.i24, label %if.else.i28, label %if.then.i25
 
 if.then.i25:                                      ; preds = %lor.rhs
-  %call.i26 = tail call i32 @strcasecmp(ptr noundef nonnull %incdec.ptr, ptr noundef %add.ptr16) #26
+  %call.i26 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %incdec.ptr, ptr noundef readonly %add.ptr16) #26
   br label %ps_strcmp.exit
 
 if.else.i28:                                      ; preds = %lor.rhs
-  %call1.i29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(1) %add.ptr16) #26
+  %call1.i29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr, ptr noundef nonnull readonly dereferenceable(1) %add.ptr16) #26
   br label %ps_strcmp.exit
 
 ps_strcmp.exit:                                   ; preds = %if.then.i25, %if.else.i28
@@ -1085,7 +1085,7 @@ define dso_local range(i32 0, -2147483648) i32 @match_pathspec(ptr noundef %ista
 entry:
   %tobool.not = icmp eq i32 %is_dir, 0
   %cond = select i1 %tobool.not, i32 0, i32 2
-  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef %ps, ptr noundef %name, i32 noundef %namelen, i32 noundef %prefix, ptr noundef %seen, i32 noundef %cond)
+  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef readonly %ps, ptr noundef %name, i32 noundef %namelen, i32 noundef %prefix, ptr noundef %seen, i32 noundef %cond)
   %magic.i = getelementptr inbounds i8, ptr %ps, i64 8
   %0 = load i32, ptr %magic.i, align 8
   %and.i = and i32 %0, 32
@@ -1096,7 +1096,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %or.i = or disjoint i32 %cond, 1
-  %call2.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %ps, ptr noundef %name, i32 noundef %namelen, i32 noundef %prefix, ptr noundef %seen, i32 noundef %or.i)
+  %call2.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %ps, ptr noundef %name, i32 noundef %namelen, i32 noundef %prefix, ptr noundef %seen, i32 noundef %or.i)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   %cond.i = select i1 %tobool3.not.i, i32 %call.i, i32 0
   br label %match_pathspec_with_flags.exit
@@ -1111,7 +1111,7 @@ define dso_local range(i32 0, -2147483648) i32 @submodule_path_match(ptr noundef
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %submodule_name) #26
   %conv = trunc i64 %call to i32
-  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef %ps, ptr noundef %submodule_name, i32 noundef %conv, i32 noundef 0, ptr noundef %seen, i32 noundef 6)
+  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef readonly %ps, ptr noundef %submodule_name, i32 noundef %conv, i32 noundef 0, ptr noundef %seen, i32 noundef 6)
   %magic.i = getelementptr inbounds i8, ptr %ps, i64 8
   %0 = load i32, ptr %magic.i, align 8
   %and.i = and i32 %0, 32
@@ -1121,7 +1121,7 @@ entry:
   br i1 %or.cond.i, label %if.end.i, label %match_pathspec_with_flags.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %ps, ptr noundef %submodule_name, i32 noundef %conv, i32 noundef 0, ptr noundef %seen, i32 noundef 7)
+  %call2.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %ps, ptr noundef %submodule_name, i32 noundef %conv, i32 noundef 0, ptr noundef %seen, i32 noundef 7)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   %cond.i = select i1 %tobool3.not.i, i32 %call.i, i32 0
   br label %match_pathspec_with_flags.exit
@@ -1453,11 +1453,11 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call i32 @strncasecmp(ptr noundef %2, ptr noundef %3, i64 noundef %.) #26
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %2, ptr noundef readonly %3, i64 noundef %.) #26
   br label %fspathncmp.exit
 
 cond.false.i:                                     ; preds = %entry
-  %call1.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef %3, i64 noundef %.) #26
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %2, ptr noundef readonly %3, i64 noundef %.) #26
   br label %fspathncmp.exit
 
 fspathncmp.exit:                                  ; preds = %cond.true.i, %cond.false.i
@@ -2400,7 +2400,7 @@ if.then23:                                        ; preds = %if.then21
   %5 = load ptr, ptr %hash_algo, align 8
   %empty_blob = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load ptr, ptr %empty_blob, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %6, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %oid_stat, i64 68
@@ -2476,7 +2476,7 @@ if.then63:                                        ; preds = %land.lhs.true60
   %arrayidx67 = getelementptr inbounds ptr, ptr %13, i64 %idxprom
   %14 = load ptr, ptr %arrayidx67, align 8
   %oid68 = getelementptr inbounds i8, ptr %14, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid64, ptr noundef nonnull align 4 dereferenceable(32) %oid68, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid64, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid68, i64 32, i1 false)
   %algo.i39 = getelementptr inbounds i8, ptr %14, i64 104
   %15 = load i32, ptr %algo.i39, align 4
   %algo3.i40 = getelementptr inbounds i8, ptr %oid_stat, i64 68
@@ -2553,7 +2553,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %oid_stat, i8 0, i64 36, i1 false)
   %oid3 = getelementptr inbounds i8, ptr %oid_stat, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid3, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid3, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %2 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %oid_stat, i64 68
@@ -2905,11 +2905,11 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.lhs.true
-  %call.i = tail call i32 @strncasecmp(ptr noundef %pattern, ptr noundef %__xpg_basename, i64 noundef %conv) #26
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %pattern, ptr noundef readonly %__xpg_basename, i64 noundef %conv) #26
   br label %fspathncmp.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strncmp(ptr noundef %pattern, ptr noundef %__xpg_basename, i64 noundef %conv) #26
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %pattern, ptr noundef readonly %__xpg_basename, i64 noundef %conv) #26
   br label %fspathncmp.exit
 
 fspathncmp.exit:                                  ; preds = %cond.true.i, %cond.false.i
@@ -2939,11 +2939,11 @@ land.lhs.true7:                                   ; preds = %if.then4
   br i1 %tobool.not.i14, label %cond.false.i18, label %cond.true.i15
 
 cond.true.i15:                                    ; preds = %land.lhs.true7
-  %call.i16 = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr11, i64 noundef %idx.ext10) #26
+  %call.i16 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr, ptr noundef readonly %add.ptr11, i64 noundef %idx.ext10) #26
   br label %fspathncmp.exit20
 
 cond.false.i18:                                   ; preds = %land.lhs.true7
-  %call1.i19 = tail call i32 @strncmp(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr11, i64 noundef %idx.ext10) #26
+  %call1.i19 = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr, ptr noundef readonly %add.ptr11, i64 noundef %idx.ext10) #26
   br label %fspathncmp.exit20
 
 fspathncmp.exit20:                                ; preds = %cond.true.i15, %cond.false.i18
@@ -3036,11 +3036,11 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false, %lan
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false8
-  %call.i = tail call i32 @strncasecmp(ptr noundef %pathname, ptr noundef %base, i64 noundef %conv9.pre-phi) #26
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %pathname, ptr noundef readonly %base, i64 noundef %conv9.pre-phi) #26
   br label %fspathncmp.exit
 
 cond.false.i:                                     ; preds = %lor.lhs.false8
-  %call1.i = tail call i32 @strncmp(ptr noundef %pathname, ptr noundef %base, i64 noundef %conv9.pre-phi) #26
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %pathname, ptr noundef readonly %base, i64 noundef %conv9.pre-phi) #26
   br label %fspathncmp.exit
 
 fspathncmp.exit:                                  ; preds = %cond.true.i, %cond.false.i
@@ -3069,11 +3069,11 @@ if.end22:                                         ; preds = %if.then18
   br i1 %tobool.not.i, label %cond.false.i35, label %cond.true.i32
 
 cond.true.i32:                                    ; preds = %if.end22
-  %call.i33 = tail call i32 @strncasecmp(ptr noundef nonnull %pattern.addr.0, ptr noundef %add.ptr16, i64 noundef %conv23) #26
+  %call.i33 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %pattern.addr.0, ptr noundef readonly %add.ptr16, i64 noundef %conv23) #26
   br label %fspathncmp.exit37
 
 cond.false.i35:                                   ; preds = %if.end22
-  %call1.i36 = tail call i32 @strncmp(ptr noundef nonnull %pattern.addr.0, ptr noundef %add.ptr16, i64 noundef %conv23) #26
+  %call1.i36 = tail call i32 @strncmp(ptr noundef nonnull readonly %pattern.addr.0, ptr noundef readonly %add.ptr16, i64 noundef %conv23) #26
   br label %fspathncmp.exit37
 
 fspathncmp.exit37:                                ; preds = %cond.true.i32, %cond.false.i35
@@ -4053,11 +4053,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %exclude_oid, ptr noundef nonnull dereferenceable(32) %call.i101, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %exclude_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i101, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %exclude_oid, ptr noundef nonnull dereferenceable(20) %call.i101, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %exclude_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i101, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -4107,11 +4107,11 @@ if.end.i107:                                      ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i109, label %if.end.i.i108
 
 if.then.i.i109:                                   ; preds = %if.end.i107
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %exclude_oid163, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %exclude_oid163, i64 32)
   br label %oideq.exit
 
 if.end.i.i108:                                    ; preds = %if.end.i107
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %exclude_oid163, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %exclude_oid163, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i109, %if.end.i.i108
@@ -4126,7 +4126,7 @@ if.then166:                                       ; preds = %oideq.exit
   %inc.i112 = add nsw i32 %77, 1
   store i32 %inc.i112, ptr %gitignore_invalidated.i, align 4
   call fastcc void @do_invalidate_gitignore(ptr noundef nonnull %untracked.2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %exclude_oid163, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %exclude_oid163, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %78 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %untracked.2, i64 104
   store i32 %78, ptr %algo3.i, align 4
@@ -4288,7 +4288,7 @@ dir_entry_new.exit:                               ; preds = %st_add.exit.i
   %add.i6.i = add nsw i64 %conv.i, 5
   %call2.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef %add.i6.i) #25
   %name.i = getelementptr inbounds i8, ptr %call2.i, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i, ptr align 1 %pathname, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i, ptr readonly align 1 %pathname, i64 %conv.i, i1 false)
   store i32 %len, ptr %call2.i, align 4
   %ignored28 = getelementptr inbounds i8, ptr %dir, i64 24
   %4 = load ptr, ptr %ignored28, align 8
@@ -4483,7 +4483,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
 ident_in_untracked.exit:                          ; preds = %if.else, %if.end3.i.i
   %retval.0.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @get_ident_string.sb, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts.i.i)
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #26
+  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #26
   %tobool.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i.not, label %if.end5, label %if.then3
 
@@ -5149,7 +5149,7 @@ land.lhs.true:                                    ; preds = %if.then19
   %62 = load ptr, ptr %buf, align 8
   %63 = load i64, ptr %len, align 8
   %conv35 = trunc i64 %63 to i32
-  %call.i.i47 = call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %pathspec, ptr noundef %62, i32 noundef %conv35, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %call.i.i47 = call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %62, i32 noundef %conv35, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %64 = load i32, ptr %magic.i.i, align 8
   %and.i.i = and i32 %64, 32
   %tobool.i.i = icmp ne i32 %and.i.i, 0
@@ -5158,7 +5158,7 @@ land.lhs.true:                                    ; preds = %if.then19
   br i1 %or.cond.i.i48, label %if.end.i.i49, label %match_pathspec.exit
 
 if.end.i.i49:                                     ; preds = %land.lhs.true
-  %call2.i.i = call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %pathspec, ptr noundef %62, i32 noundef %conv35, i32 noundef 0, ptr noundef null, i32 noundef 1)
+  %call2.i.i = call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %62, i32 noundef %conv35, i32 noundef 0, ptr noundef null, i32 noundef 1)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   %cond.i.i50 = select i1 %tobool3.not.i.i, i32 %call.i.i47, i32 0
   br label %match_pathspec.exit
@@ -5282,7 +5282,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %sb.i)
-  %call.i = call i32 @lstat64(ptr noundef %path, ptr noundef nonnull %sb.i) #25
+  %call.i = call i32 @lstat64(ptr noundef readonly %path, ptr noundef nonnull %sb.i) #25
   %cmp.i = icmp eq i32 %call.i, 0
   %conv.i = zext i1 %cmp.i to i32
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %sb.i)
@@ -5729,7 +5729,7 @@ lor.lhs.false.i:                                  ; preds = %while.end118
   %cond = select i1 %tobool122.not, ptr @.str.10, ptr @.str.12
   %sub.i = sub i64 %sub.ptr.sub121, %call.i
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.2, i64 %sub.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) %cond, i64 %call.i)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(4) %cond, i64 %call.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %spec.select104 = select i1 %tobool.not.i, i64 %sub.i, i64 %sub.ptr.sub121
   br label %strip_suffix_mem.exit
@@ -6825,11 +6825,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i44, %if.
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %exclude_oid, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %exclude_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %exclude_oid, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %exclude_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -7061,7 +7061,7 @@ if.end19:                                         ; preds = %if.end10
   call void @strbuf_add(ptr noundef nonnull %ident21, ptr noundef %4, i64 noundef %idx.ext) #25
   %5 = load ptr, ptr %next, align 8
   %add.ptr26 = getelementptr inbounds i8, ptr %5, i64 76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %call20, ptr noundef nonnull align 1 dereferenceable(36) %5, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %call20, ptr noundef nonnull readonly align 1 dereferenceable(36) %5, i64 36, i1 false)
   %6 = load i32, ptr %call20, align 4
   %7 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #29, !srcloc !44
   store i32 %7, ptr %call20, align 4
@@ -7103,7 +7103,7 @@ if.end19:                                         ; preds = %if.end10
   %25 = load ptr, ptr %hash_algo.i.i, align 8
   %rawsz.i.i = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load i64, ptr %rawsz.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i, ptr nonnull align 1 %add.ptr26, i64 %26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i, ptr nonnull readonly align 1 %add.ptr26, i64 %26, i1 false)
   %27 = load ptr, ptr %hash_algo.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -7119,7 +7119,7 @@ if.end19:                                         ; preds = %if.end10
   %add.ptr28 = getelementptr inbounds i8, ptr %28, i64 76
   %idx.ext29 = and i64 %2, 4294967295
   %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr28, i64 %idx.ext29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ss_excludes_file, ptr noundef nonnull align 1 dereferenceable(36) %add.ptr27, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ss_excludes_file, ptr noundef nonnull readonly align 1 dereferenceable(36) %add.ptr27, i64 36, i1 false)
   %29 = load i32, ptr %ss_excludes_file, align 4
   %30 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #29, !srcloc !44
   store i32 %30, ptr %ss_excludes_file, align 4
@@ -7159,7 +7159,7 @@ if.end19:                                         ; preds = %if.end10
   %47 = load ptr, ptr %hash_algo.i.i, align 8
   %rawsz.i.i74 = getelementptr inbounds i8, ptr %47, i64 16
   %48 = load i64, ptr %rawsz.i.i74, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i72, ptr nonnull align 1 %add.ptr30, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i72, ptr nonnull readonly align 1 %add.ptr30, i64 %48, i1 false)
   %49 = load ptr, ptr %hash_algo.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i75 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i.i.i76 = sub i64 %sub.ptr.lhs.cast.i.i.i75, ptrtoint (ptr @hash_algos to i64)
@@ -7526,7 +7526,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %pos
   %3 = load ptr, ptr %arrayidx, align 8
   %stat_data = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %stat_data, ptr noundef nonnull align 1 dereferenceable(36) %0, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %stat_data, ptr noundef nonnull readonly align 1 dereferenceable(36) %0, i64 36, i1 false)
   %4 = load i32, ptr %stat_data, align 4
   %5 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %4) #29, !srcloc !44
   store i32 %5, ptr %stat_data, align 4
@@ -7601,7 +7601,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %pos
   %6 = load ptr, ptr %arrayidx, align 8
   %exclude_oid = getelementptr inbounds i8, ptr %6, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %exclude_oid, ptr align 1 %0, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %exclude_oid, ptr readonly align 1 %0, i64 %3, i1 false)
   %7 = load ptr, ptr %hash_algo, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -8266,11 +8266,11 @@ land.lhs.true23.i:                                ; preds = %if.end21.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true23.i
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i64 noundef %conv24.i) #26
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv24.i) #26
   br label %ps_strncmp.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true23.i
-  %call1.i.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i64 noundef %conv24.i) #26
+  %call1.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv24.i) #26
   br label %ps_strncmp.exit.i
 
 ps_strncmp.exit.i:                                ; preds = %if.else.i.i, %if.then.i.i
@@ -8316,11 +8316,11 @@ land.lhs.true56.i:                                ; preds = %land.lhs.true45.i
   br i1 %tobool.not.i67.i, label %if.else.i71.i, label %if.then.i68.i
 
 if.then.i68.i:                                    ; preds = %land.lhs.true56.i
-  %call.i69.i = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i64 noundef %conv57.i) #26
+  %call.i69.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv57.i) #26
   br label %ps_strncmp.exit73.i
 
 if.else.i71.i:                                    ; preds = %land.lhs.true56.i
-  %call1.i72.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i64 noundef %conv57.i) #26
+  %call1.i72.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv57.i) #26
   br label %ps_strncmp.exit73.i
 
 ps_strncmp.exit73.i:                              ; preds = %if.else.i71.i, %if.then.i68.i
@@ -8368,11 +8368,11 @@ land.lhs.true94.i:                                ; preds = %land.lhs.true87.i
   br i1 %tobool.not.i75.i, label %if.else.i79.i, label %if.then.i76.i
 
 if.then.i76.i:                                    ; preds = %land.lhs.true94.i
-  %call.i77.i = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr.i59, ptr noundef nonnull %add.ptr, i64 noundef %conv57.i) #26
+  %call.i77.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef nonnull readonly %add.ptr, i64 noundef %conv57.i) #26
   br label %ps_strncmp.exit81.i
 
 if.else.i79.i:                                    ; preds = %land.lhs.true94.i
-  %call1.i80.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i59, ptr noundef nonnull %add.ptr, i64 noundef %conv57.i) #26
+  %call1.i80.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef nonnull readonly %add.ptr, i64 noundef %conv57.i) #26
   br label %ps_strncmp.exit81.i
 
 ps_strncmp.exit81.i:                              ; preds = %if.else.i79.i, %if.then.i76.i
@@ -8396,11 +8396,11 @@ land.lhs.true104.i:                               ; preds = %if.end99.i
   br i1 %tobool.not.i83.i, label %if.else.i87.i, label %if.then.i84.i
 
 if.then.i84.i:                                    ; preds = %land.lhs.true104.i
-  %call.i85.i = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i64 noundef %conv107.i) #26
+  %call.i85.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv107.i) #26
   br label %ps_strncmp.exit89.i
 
 if.else.i87.i:                                    ; preds = %land.lhs.true104.i
-  %call1.i88.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i64 noundef %conv107.i) #26
+  %call1.i88.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv107.i) #26
   br label %ps_strncmp.exit89.i
 
 ps_strncmp.exit89.i:                              ; preds = %if.else.i87.i, %if.then.i84.i
@@ -8839,7 +8839,7 @@ if.then.i52:                                      ; preds = %do.end66
   %add.ptr = getelementptr inbounds ptr, ptr %.pre64, i64 %idx.ext
   %add.ptr68 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %mul.i.i = shl nuw nsw i64 %conv74, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr68, ptr align 1 %add.ptr, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr68, ptr readonly align 1 %add.ptr, i64 %mul.i.i, i1 false)
   %.pre62 = load i32, ptr %dirs_nr, align 8
   %.pre63 = load ptr, ptr %dir, align 8
   br label %move_array.exit
@@ -8887,11 +8887,11 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid1, ptr noundef nonnull dereferenceable(32) %oid2, i64 32)
+  %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
   br label %hasheq_algop.exit
 
 if.end.i:                                         ; preds = %if.end
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid1, ptr noundef nonnull dereferenceable(20) %oid2, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
   br label %hasheq_algop.exit
 
 hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
@@ -9097,11 +9097,11 @@ lor.lhs.false:                                    ; preds = %land.rhs.i, %if.end
   br i1 %tobool.not.i44, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false
-  %call.i45 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #26
+  %call.i45 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly @.str.10) #26
   br label %fspathcmp.exit
 
 cond.false.i:                                     ; preds = %lor.lhs.false
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.10) #26
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.10) #26
   br label %fspathcmp.exit
 
 fspathcmp.exit:                                   ; preds = %cond.true.i, %cond.false.i
@@ -9189,11 +9189,11 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef %30, ptr noundef %24, i64 noundef %conv.i56) #26
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %30, ptr noundef readonly %24, i64 noundef %conv.i56) #26
   br label %ps_strncmp.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  %call1.i.i = tail call i32 @strncmp(ptr noundef %30, ptr noundef %24, i64 noundef %conv.i56) #26
+  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %30, ptr noundef readonly %24, i64 noundef %conv.i56) #26
   br label %ps_strncmp.exit.i
 
 ps_strncmp.exit.i:                                ; preds = %if.else.i.i, %if.then.i.i
@@ -9320,7 +9320,7 @@ land.lhs.true59:                                  ; preds = %sw.bb57
   %52 = load ptr, ptr %buf.i48, align 8
   %53 = load i64, ptr %len2.i, align 8
   %conv62 = trunc i64 %53 to i32
-  %call.i.i96 = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %pathspec, ptr noundef %52, i32 noundef %conv62, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %call.i.i96 = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %52, i32 noundef %conv62, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %magic.i.i = getelementptr inbounds i8, ptr %pathspec, i64 8
   %54 = load i32, ptr %magic.i.i, align 8
   %and.i.i97 = and i32 %54, 32
@@ -9330,7 +9330,7 @@ land.lhs.true59:                                  ; preds = %sw.bb57
   br i1 %or.cond.i.i, label %if.end.i.i99, label %match_pathspec.exit
 
 if.end.i.i99:                                     ; preds = %land.lhs.true59
-  %call2.i.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %pathspec, ptr noundef %52, i32 noundef %conv62, i32 noundef 0, ptr noundef null, i32 noundef 1)
+  %call2.i.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %52, i32 noundef %conv62, i32 noundef 0, ptr noundef null, i32 noundef 1)
   %tobool3.not.i.i100 = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i100, label %if.end66, label %return
 
@@ -9441,11 +9441,11 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef %9, ptr noundef %3, i64 noundef %conv.i) #26
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %9, ptr noundef readonly %3, i64 noundef %conv.i) #26
   br label %ps_strncmp.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  %call1.i.i = tail call i32 @strncmp(ptr noundef %9, ptr noundef %3, i64 noundef %conv.i) #26
+  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %9, ptr noundef readonly %3, i64 noundef %conv.i) #26
   br label %ps_strncmp.exit.i
 
 ps_strncmp.exit.i:                                ; preds = %if.else.i.i, %if.then.i.i
@@ -9472,11 +9472,11 @@ land.lhs.true21.i:                                ; preds = %land.lhs.true14.i
   br i1 %tobool.not.i21.i, label %if.else.i25.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %land.lhs.true21.i
-  %call.i23.i = tail call i32 @strncasecmp(ptr noundef nonnull %11, ptr noundef %3, i64 noundef %conv.i) #26
+  %call.i23.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %11, ptr noundef readonly %3, i64 noundef %conv.i) #26
   br label %ps_strncmp.exit27.i
 
 if.else.i25.i:                                    ; preds = %land.lhs.true21.i
-  %call1.i26.i = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef %3, i64 noundef %conv.i) #26
+  %call1.i26.i = tail call i32 @strncmp(ptr noundef nonnull readonly %11, ptr noundef readonly %3, i64 noundef %conv.i) #26
   br label %ps_strncmp.exit27.i
 
 ps_strncmp.exit27.i:                              ; preds = %if.else.i25.i, %if.then.i22.i
@@ -9665,7 +9665,7 @@ if.end6:                                          ; preds = %entry
   br i1 %or.cond, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %pathspec, ptr noundef %dirname, i32 noundef %len, i32 noundef 0, ptr noundef null, i32 noundef 4)
+  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %dirname, i32 noundef %len, i32 noundef 0, ptr noundef null, i32 noundef 4)
   %magic.i = getelementptr inbounds i8, ptr %pathspec, i64 8
   %0 = load i32, ptr %magic.i, align 8
   %and.i = and i32 %0, 32
@@ -9675,7 +9675,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %or.cond.i, label %if.end.i, label %match_pathspec_with_flags.exit
 
 if.end.i:                                         ; preds = %if.then8
-  %call2.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull %pathspec, ptr noundef %dirname, i32 noundef %len, i32 noundef 0, ptr noundef null, i32 noundef 5)
+  %call2.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %dirname, i32 noundef %len, i32 noundef 0, ptr noundef null, i32 noundef 5)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %if.end13, label %return
 
@@ -9951,7 +9951,7 @@ dir_entry_new.exit:                               ; preds = %st_add.exit.i
   %add.i6.i = add nsw i64 %conv.i, 5
   %call2.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef %add.i6.i) #25
   %name.i = getelementptr inbounds i8, ptr %call2.i, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i, ptr align 1 %pathname, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i, ptr readonly align 1 %pathname, i64 %conv.i, i1 false)
   store i32 %len, ptr %call2.i, align 4
   %entries28 = getelementptr inbounds i8, ptr %dir, i64 16
   %5 = load ptr, ptr %entries28, align 8

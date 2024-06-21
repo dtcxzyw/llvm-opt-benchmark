@@ -2987,7 +2987,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_generate_locality_string(ptr nocaptur
   %25 = call ptr @hwloc_get_obj_by_depth(ptr noundef %24, i32 noundef %.077100, i32 noundef %.013.i) #15
   %26 = getelementptr inbounds i8, ptr %25, i64 184
   %27 = load ptr, ptr %26, align 8
-  %28 = call i32 @hwloc_bitmap_intersects(ptr noundef %27, ptr noundef %21) #15
+  %28 = call i32 @hwloc_bitmap_intersects(ptr noundef %27, ptr noundef readonly %21) #15
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %31, label %29
 
@@ -3157,7 +3157,7 @@ get_locality_string_by_depth.exit.thread:         ; preds = %20, %.lr.ph, %95
   %103 = call ptr @hwloc_get_obj_by_depth(ptr noundef %102, i32 noundef -3, i32 noundef %.013.i92) #15
   %104 = getelementptr inbounds i8, ptr %103, i64 184
   %105 = load ptr, ptr %104, align 8
-  %106 = call i32 @hwloc_bitmap_intersects(ptr noundef %105, ptr noundef %99) #15
+  %106 = call i32 @hwloc_bitmap_intersects(ptr noundef %105, ptr noundef readonly %99) #15
   %.not.i93 = icmp eq i32 %106, 0
   br i1 %.not.i93, label %109, label %107
 
@@ -3611,20 +3611,20 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr nocapture nound
 40:                                               ; preds = %.lr.ph553, %dsearch.exit
   %.0302552 = phi ptr [ null, %.lr.ph553 ], [ %43, %dsearch.exit ]
   %.0312551 = phi i32 [ 1, %.lr.ph553 ], [ %51, %dsearch.exit ]
-  %41 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %35, i32 noundef %.0312551) #15
+  %41 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef readonly %35, i32 noundef %.0312551) #15
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %dsearch.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %40, %49
   %.016.i = phi i32 [ %50, %49 ], [ 0, %40 ]
-  %43 = call ptr @hwloc_get_obj_by_depth(ptr noundef %35, i32 noundef %.0312551, i32 noundef %.016.i) #15
+  %43 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %35, i32 noundef %.0312551, i32 noundef %.016.i) #15
   %44 = getelementptr inbounds i8, ptr %43, i64 184
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %.preheader.i
-  %48 = call i32 @hwloc_bitmap_isincluded(ptr noundef %39, ptr noundef nonnull %45) #15
+  %48 = call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %39, ptr noundef nonnull %45) #15
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %49, label %dsearch.exit
 
@@ -3924,7 +3924,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i378, %154
   br i1 %.not.i385, label %pmix_obj_run_destructors.exit386, label %.lr.ph.i383, !llvm.loop !7
 
 178:                                              ; preds = %.loopexit
-  %179 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %129, i32 noundef 58) #15
+  %179 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %129, i32 noundef 58) #15
   %.not6.i387 = icmp eq ptr %179, null
   br i1 %.not6.i387, label %.preheader509, label %.lr.ph.i388
 
@@ -5019,7 +5019,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_check_vendor(ptr nocapture noundef re
   br i1 %or.cond.i.i, label %.loopexit, label %hwloc_get_next_pcidev.exit
 
 hwloc_get_next_pcidev.exit:                       ; preds = %8
-  %12 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %10, i32 noundef %11, i32 noundef 0) #15
+  %12 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef %11, i32 noundef 0) #15
   %.not1216 = icmp eq ptr %12, null
   br i1 %.not1216, label %.loopexit, label %.lr.ph
 

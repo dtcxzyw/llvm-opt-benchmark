@@ -2846,7 +2846,7 @@ _ZNK6vectorIN7datalog12boogie_proof4stepELb1EjE4sizeEv.exit.i198: ; preds = %if.
 for.body.i201:                                    ; preds = %_ZNK6vectorIN7datalog12boogie_proof4stepELb1EjE4sizeEv.exit.i198
   %arrayidx.i7.i = getelementptr inbounds %"struct.datalog::boogie_proof::step", ptr %130, i64 %indvars.iv.i194
   %133 = trunc nuw i64 %indvars.iv.i194 to i32
-  invoke void @_ZN7datalog12boogie_proof7pp_stepERSojRNS0_4stepE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %133, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i7.i)
+  invoke void @_ZN7datalog12boogie_proof7pp_stepERSojRNS0_4stepE(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %133, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i7.i)
           to label %.noexc204 unwind label %lpad13.loopexit
 
 .noexc204:                                        ; preds = %for.body.i201
@@ -3913,7 +3913,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorISt4pair
   %arrayidx.i8.i = getelementptr inbounds %"struct.std::pair.68", ptr %4, i64 %indvars.iv.i
   %second.i = getelementptr inbounds i8, ptr %arrayidx.i8.i, i64 8
   %7 = load ptr, ptr %second.i, align 8
-  call void @_ZN7datalog12boogie_proof13pp_assignmentERSoRK6symbolP4expr(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i8.i, ptr noundef %7)
+  call void @_ZN7datalog12boogie_proof13pp_assignmentERSoRK6symbolP4expr(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i8.i, ptr noundef %7)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !28
 

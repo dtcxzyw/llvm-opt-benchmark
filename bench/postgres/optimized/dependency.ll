@@ -1001,7 +1001,7 @@ add_exact_object_address_extra.exit:              ; preds = %367, %371
   %383 = load ptr, ptr %4, align 8
   %384 = sext i32 %382 to i64
   %385 = getelementptr %struct.ObjectAddress, ptr %383, i64 %384
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %385, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %385, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %386 = load ptr, ptr %359, align 8
   %387 = load i32, ptr %63, align 8
   %388 = sext i32 %387 to i64
@@ -3361,7 +3361,7 @@ add_exact_object_address.exit:                    ; preds = %84, %87
   %93 = phi ptr [ %91, %87 ], [ %.pre.i, %84 ]
   %94 = sext i32 %92 to i64
   %95 = getelementptr %struct.ObjectAddress, ptr %93, i64 %94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %95, ptr noundef nonnull align 4 dereferenceable(12) %77, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %95, ptr noundef nonnull readonly align 4 dereferenceable(12) %77, i64 12, i1 false)
   %96 = load i32, ptr %66, align 8
   %97 = add i32 %96, 1
   store i32 %97, ptr %66, align 8

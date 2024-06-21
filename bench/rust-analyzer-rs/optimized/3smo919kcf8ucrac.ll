@@ -121,7 +121,7 @@ default.unreachable1:                             ; preds = %3
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i64 208, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull readonly align 8 dereferenceable(208) %5, i64 208, i1 false), !noalias !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %17 = load i64, ptr %4, align 8, !range !18, !alias.scope !16, !noalias !19, !noundef !5
@@ -233,7 +233,7 @@ define hidden void @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$12recv_tim
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %5, i64 200, i1 false), !alias.scope !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 dereferenceable(200) %5, i64 200, i1 false), !alias.scope !27
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2dc2213c758ef712E.llvm.1648072262051207133.exit"
 
 18:                                               ; preds = %14
@@ -474,7 +474,7 @@ _ZN17crossbeam_channel7flavors2at7Channel4recv17h1ab20912c63c54deE.llvm.16480722
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %6, i64 200, i1 false), !alias.scope !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 dereferenceable(200) %6, i64 200, i1 false), !alias.scope !49
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbc12012bdd36f5feE.llvm.1648072262051207133.exit"
 
 54:                                               ; preds = %.thread, %51

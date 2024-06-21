@@ -825,7 +825,7 @@ define ptr @pmix_hwloc_print_topology(ptr nocapture noundef readonly %0) local_u
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %9, i32 noundef 0, i32 noundef 0) #7
+  %10 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %9, i32 noundef 0, i32 noundef 0) #7
   call fastcc void @print_hwloc_obj(ptr noundef nonnull %2, ptr noundef null, ptr noundef %9, ptr noundef %10)
   %11 = load ptr, ptr %2, align 8
   br label %12

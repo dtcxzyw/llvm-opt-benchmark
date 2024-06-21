@@ -3811,7 +3811,7 @@ define internal noundef i32 @_v40_parse_INT32(ptr nocapture noundef readonly %0,
 
 _v40_parse_INT64.exit:                            ; preds = %8
   %11 = tail call ptr @data_get_type_string(ptr noundef %2) #18
-  %12 = tail call i32 (ptr, ptr, ptr, ptr, ptr, i32, ptr, ...) @_parse_error_funcname(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v40_parse_INT64, ptr noundef nonnull @.str.723, i32 noundef 9202, ptr noundef nonnull @.str.724, ptr noundef %11)
+  %12 = tail call i32 (ptr, ptr, ptr, ptr, ptr, i32, ptr, ...) @_parse_error_funcname(ptr noundef readonly %0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v40_parse_INT64, ptr noundef nonnull @.str.723, i32 noundef 9202, ptr noundef nonnull @.str.724, ptr noundef %11)
   br label %17
 
 13:                                               ; preds = %8

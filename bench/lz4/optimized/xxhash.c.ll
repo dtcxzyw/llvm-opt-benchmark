@@ -157,7 +157,7 @@ if.end.i17:                                       ; preds = %entry
 if.then11.i111:                                   ; preds = %if.end.i17
   %mem32.i112 = getelementptr inbounds i8, ptr %state_in, i64 24
   %add.ptr13.i115 = getelementptr inbounds i8, ptr %mem32.i112, i64 %conv7.i29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i115, ptr nonnull align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i115, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
   %3 = load i32, ptr %memsize.i28, align 4
   %add16.i119 = add i32 %3, %conv.i19
   br label %return.sink.split
@@ -171,7 +171,7 @@ if.then19.i77:                                    ; preds = %if.end17.i32
   %add.ptr24.i81 = getelementptr inbounds i8, ptr %mem3220.i78, i64 %conv7.i29
   %sub.i83 = sub i32 16, %2
   %conv26.i84 = zext i32 %sub.i83 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i81, ptr nonnull align 1 %input, i64 %conv26.i84, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i81, ptr nonnull readonly align 1 %input, i64 %conv26.i84, i1 false)
   %v1.i87 = getelementptr inbounds i8, ptr %state_in, i64 8
   %4 = load <4 x i32>, ptr %v1.i87, align 4
   %5 = load <4 x i32>, ptr %mem3220.i78, align 1
@@ -224,7 +224,7 @@ if.then84.i41:                                    ; preds = %if.end81.i38
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %add.ptr.i18 to i64
   %sub.ptr.rhs.cast.i44 = ptrtoint ptr %p.i8.2 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem3285.i42, ptr nonnull align 1 %p.i8.2, i64 %sub.ptr.sub.i45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem3285.i42, ptr nonnull readonly align 1 %p.i8.2, i64 %sub.ptr.sub.i45, i1 false)
   %conv91.i50 = trunc i64 %sub.ptr.sub.i45 to i32
   br label %return.sink.split
 
@@ -442,7 +442,7 @@ if.end.i16:                                       ; preds = %entry
 if.then4.i105:                                    ; preds = %if.end.i16
   %mem64.i106 = getelementptr inbounds i8, ptr %state_in, i64 40
   %add.ptr6.i109 = getelementptr inbounds i8, ptr %mem64.i106, i64 %conv.i20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr6.i109, ptr nonnull align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr6.i109, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
   %conv7.i111 = trunc i64 %len to i32
   %2 = load i32, ptr %memsize.i19, align 8
   %add9.i113 = add i32 %2, %conv7.i111
@@ -457,7 +457,7 @@ if.then12.i68:                                    ; preds = %if.end10.i23
   %add.ptr17.i72 = getelementptr inbounds i8, ptr %mem6413.i69, i64 %conv.i20
   %sub.i74 = sub i32 32, %1
   %conv19.i75 = zext i32 %sub.i74 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17.i72, ptr nonnull align 1 %input, i64 %conv19.i75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17.i72, ptr nonnull readonly align 1 %input, i64 %conv19.i75, i1 false)
   %v1.i77 = getelementptr inbounds i8, ptr %state_in, i64 8
   %3 = load i64, ptr %v1.i77, align 8
   %mem6413.i69.val = load i64, ptr %mem6413.i69, align 1
@@ -568,7 +568,7 @@ if.then85.i32:                                    ; preds = %if.end82.i29
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %add.ptr.i17 to i64
   %sub.ptr.rhs.cast.i35 = ptrtoint ptr %p.i8.2 to i64
   %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6486.i33, ptr align 1 %p.i8.2, i64 %sub.ptr.sub.i36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6486.i33, ptr readonly align 1 %p.i8.2, i64 %sub.ptr.sub.i36, i1 false)
   %conv92.i41 = trunc i64 %sub.ptr.sub.i36 to i32
   br label %return.sink.split
 

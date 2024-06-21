@@ -1166,18 +1166,18 @@ entry:
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
 
 vpack.exit.thread:                                ; preds = %entry
-  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap)
+  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end6
 
 if.then:                                          ; preds = %entry
   call void @llvm.va_copy.p0(ptr nonnull %ap2.i, ptr nonnull %ap)
-  %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap2.i)
+  %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef nonnull %ap2.i)
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap2.i)
-  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef %fmt, ptr noundef nonnull %ap)
+  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -1021
@@ -1437,18 +1437,18 @@ entry:
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
 
 vpack.exit.thread:                                ; preds = %entry
-  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap)
+  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end5
 
 if.then:                                          ; preds = %entry
   call void @llvm.va_copy.p0(ptr nonnull %ap2.i, ptr nonnull %ap)
-  %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap2.i)
+  %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef nonnull %ap2.i)
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap2.i)
-  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef %fmt, ptr noundef nonnull %ap)
+  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -65533

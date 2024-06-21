@@ -2348,7 +2348,7 @@ define void @_ZNK12ProfileModel11dataDisplayERK11QModelIndex(ptr dead_on_unwind 
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %3
-  %17 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %9)
+  %17 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, i32 noundef %9)
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %19
 
@@ -2792,7 +2792,7 @@ define noundef zeroext i1 @_ZNK12ProfileModel14checkDuplicateERK11QModelIndexb(p
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZN5QListIiED2Ev.exit41
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %3
-  %15 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %7)
+  %15 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %7)
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZN5QListIiED2Ev.exit41, label %16
 
@@ -3035,7 +3035,7 @@ define noundef zeroext i1 @_ZNK12ProfileModel14checkIfDeletedERK11QModelIndex(pt
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZN5QListI7QStringED2Ev.exit
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %2
-  %16 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %8)
+  %16 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %8)
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZN5QListI7QStringED2Ev.exit, label %17
 
@@ -3380,7 +3380,7 @@ define noundef zeroext i1 @_ZNK12ProfileModel12checkInvalidERK11QModelIndex(ptr 
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %2
-  %13 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %5)
+  %13 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %5)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %14
 
@@ -6060,7 +6060,7 @@ define void @_ZNK12ProfileModel4dataERK11QModelIndexi(ptr dead_on_unwind noalias
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %4
-  %22 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %14)
+  %22 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, i32 noundef %14)
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %24
 
@@ -6135,7 +6135,7 @@ _ZNK12ProfileModel5guardERK11QModelIndex.exit.thread: ; preds = %4, %_ZNK12Profi
   br i1 %or.cond.i30, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit32, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit32.thread
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit32:  ; preds = %38
-  %47 = call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %39)
+  %47 = call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, i32 noundef %39)
   %.not27 = icmp eq ptr %47, null
   br i1 %.not27, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit32.thread, label %48
 
@@ -6706,7 +6706,7 @@ define i32 @_ZNK12ProfileModel5flagsERK11QModelIndex(ptr noundef nonnull align 8
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %2
-  %12 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %4)
+  %12 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %4)
   %.not = icmp ne ptr %12, null
   %13 = load i32, ptr %6, align 4
   %14 = icmp eq i32 %13, 0
@@ -7360,7 +7360,7 @@ define void @_ZN12ProfileModel14duplicateEntryE11QModelIndexi(ptr dead_on_unwind
   br i1 %or.cond.i, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %4
-  %49 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %41)
+  %49 = tail call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, i32 noundef %41)
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %52
 
@@ -9630,7 +9630,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN17QArrayDataPoin
   br i1 %or.cond.i, label %35, label %_ZN7QStringD2Ev.exit51
 
 35:                                               ; preds = %26
-  %36 = invoke noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %27)
+  %36 = invoke noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %27)
           to label %_ZNK12ProfileModel5guardERK11QModelIndex.exit unwind label %41
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %35
@@ -11515,7 +11515,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
   br i1 %or.cond.i, label %55, label %_ZN7QStringD2Ev.exit59
 
 55:                                               ; preds = %48
-  %56 = invoke noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %49)
+  %56 = invoke noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, i32 noundef %49)
           to label %_ZNK12ProfileModel5guardERK11QModelIndex.exit unwind label %46
 
 _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %55

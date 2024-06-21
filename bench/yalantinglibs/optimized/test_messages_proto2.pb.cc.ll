@@ -80214,7 +80214,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i
-  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %second)
+  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull readonly align 8 dereferenceable(32) %second)
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto2aSERKS1_.exit
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto2aSERKS1_.exit: ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE13mutable_valueEv.exit, %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
@@ -80337,7 +80337,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i
-  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second7.i, ptr noundef nonnull align 8 dereferenceable(32) %call15)
+  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second7.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %call15)
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto2aSERKS1_.exit
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto2aSERKS1_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEixERKS7_.exit, %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
@@ -83500,7 +83500,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i.i25
-  call void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %second)
+  call void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull readonly align 8 dereferenceable(40) %second)
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageaSERKS1_.exit
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageaSERKS1_.exit: ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE13mutable_valueEv.exit, %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i
@@ -83635,7 +83635,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i.i
-  call void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %second7.i, ptr noundef nonnull align 8 dereferenceable(40) %call15)
+  call void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %second7.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %call15)
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageaSERKS1_.exit
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageaSERKS1_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEixERKS7_.exit, %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i
@@ -136297,7 +136297,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i
-  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second7.i, ptr noundef nonnull align 8 dereferenceable(32) %second)
+  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second7.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second)
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto2aSERKS1_.exit
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto2aSERKS1_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEixERKS7_.exit, %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
@@ -153369,7 +153369,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i.i
-  call void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %second7.i, ptr noundef nonnull align 8 dereferenceable(40) %second)
+  call void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %second7.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %second)
   %.pre = load ptr, ptr %last, align 8
   br label %for.inc
 
@@ -153716,7 +153716,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit.i.i: ; preds = %if.then.i3.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i, %if.end.i.i
-  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second7.i, ptr noundef nonnull align 8 dereferenceable(32) %second)
+  call void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second7.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second)
   %.pre = load ptr, ptr %last, align 8
   br label %for.inc
 

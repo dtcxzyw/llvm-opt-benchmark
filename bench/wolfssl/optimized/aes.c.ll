@@ -43,7 +43,7 @@ if.end.i.i:                                       ; preds = %if.end4, %if.end4, 
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
   br label %if.end16.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -52,7 +52,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 if.end16.i:                                       ; preds = %if.else.i.i, %if.then1.i.i
   %conv.i = zext nneg i32 %keylen to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %aes, ptr align 1 %userKey, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
   %0 = ptrtoint ptr %aes to i64
   %1 = and i64 %0, 3
   %or.cond.i.i = icmp eq i64 %1, 0
@@ -79,7 +79,7 @@ if.else.i24.i:                                    ; preds = %if.end16.i
 
 if.else.i.i.thread.i:                             ; preds = %if.else.i24.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %temp.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr align 1 %userKey, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
   br label %ByteReverseWords.exit.i.i
 
 for.body9.preheader.i.i:                          ; preds = %if.else.i24.i
@@ -98,7 +98,7 @@ for.body9.i.i:                                    ; preds = %for.body9.i.i, %for
 
 ByteReverseWords.exit.i:                          ; preds = %for.body9.i.i, %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %temp.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr align 1 %userKey, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
   br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ByteReverseWords.exit.i
@@ -658,7 +658,7 @@ if.end.i33.i:                                     ; preds = %for.body260.i.i, %F
   br i1 %tobool.not.i.i, label %if.else.i38.i, label %if.then1.i36.i
 
 if.then1.i36.i:                                   ; preds = %if.end.i33.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
   br label %return
 
 if.else.i38.i:                                    ; preds = %if.end.i33.i
@@ -5640,7 +5640,7 @@ if.then12:                                        ; preds = %lor.lhs.false2
 
 if.end.i:                                         ; preds = %if.then12, %if.then12, %if.then12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
+  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull readonly %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
   %cmp8.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.i, label %if.end15.i, label %wc_AesGcmSetKey.exit.thread
 
@@ -5777,7 +5777,7 @@ if.then12:                                        ; preds = %lor.lhs.false2
 
 if.end.i:                                         ; preds = %if.then12, %if.then12, %if.then12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
+  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull readonly %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
   %cmp8.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.i, label %if.end15.i, label %wc_AesGcmSetKey.exit.thread
 
@@ -5835,7 +5835,7 @@ if.end:                                           ; preds = %entry
 
 if.end6.i:                                        ; preds = %if.end, %if.end, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %gmac, ptr noundef nonnull %key, i32 noundef %len, ptr noundef nonnull %iv.i, i32 noundef 0)
+  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %gmac, ptr noundef nonnull readonly %key, i32 noundef %len, ptr noundef nonnull %iv.i, i32 noundef 0)
   %cmp8.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.i, label %if.end15.i, label %wc_AesGcmSetKey.exit
 

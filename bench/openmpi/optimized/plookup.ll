@@ -224,7 +224,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %33
   %.011.i.i = phi ptr [ %.0.i.i, %77 ], [ %.09.i.i, %72 ]
   %73 = getelementptr inbounds i8, ptr %.011.i.i, i64 144
   %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(5) @.str.10) #14
+  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull readonly dereferenceable(5) @.str.10) #14
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %.lr.ph.i.i100, label %77
 
@@ -238,7 +238,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %33
   %.011.i.i101 = phi ptr [ %.0.i.i102, %83 ], [ %.09.i.i, %.lr.ph.i.i ]
   %79 = getelementptr inbounds i8, ptr %.011.i.i101, i64 144
   %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(8) @.str.11) #14
+  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull readonly dereferenceable(8) @.str.11) #14
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %pmix_cmd_line_is_taken.exit, label %83
 
@@ -393,7 +393,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %141
   call void @llvm.assume(i1 %.not10.i)
   %154 = getelementptr inbounds i8, ptr %.09.i, i64 144
   %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(8) @.str.11) #14
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull readonly dereferenceable(8) @.str.11) #14
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i122
 
@@ -405,7 +405,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %141
   call void @llvm.assume(i1 %.not.i123)
   %159 = getelementptr inbounds i8, ptr %.0.i, i64 144
   %160 = load ptr, ptr %159, align 8
-  %161 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(8) @.str.11) #14
+  %161 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull readonly dereferenceable(8) @.str.11) #14
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i122
 

@@ -7783,9 +7783,9 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !77
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !77
   %mInv.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !77
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %t.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %this, i64 64, i1 false), !noalias !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %this, i64 64, i1 false), !noalias !77
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %t.i, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
   %n.i = getelementptr inbounds i8, ptr %it, i64 40
@@ -7876,9 +7876,9 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i5, i8 0, i64 16, i1 false), !alias.scope !80
   %mInv.i.i.i6 = getelementptr inbounds i8, ptr %t, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i3, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i6, i64 64, i1 false), !noalias !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i3, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i6, i64 64, i1 false), !noalias !80
   %mInv3.i.i.i7 = getelementptr inbounds i8, ptr %t.i3, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i7, ptr noundef nonnull align 4 dereferenceable(64) %t, i64 64, i1 false), !noalias !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i7, ptr noundef nonnull readonly align 4 dereferenceable(64) %t, i64 64, i1 false), !noalias !80
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i4, ptr noundef nonnull align 4 dereferenceable(128) %t.i3, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i4, i64 24, i1 false)
   %n.i8 = getelementptr inbounds i8, ptr %it, i64 40

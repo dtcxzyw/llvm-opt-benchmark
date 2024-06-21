@@ -13,7 +13,7 @@ define noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef %1, 
   %6 = alloca ptr, align 8
   store i8 0, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %7 = tail call ptr @wcschr(ptr noundef %0, i32 noundef signext 65534) #13
+  %7 = tail call ptr @wcschr(ptr noundef readonly %0, i32 noundef signext 65534) #13
   %.not28 = icmp eq ptr %7, null
   br i1 %.not28, label %_ZL13WideToCharMapPKwPcmRb.exit.thread, label %10
 

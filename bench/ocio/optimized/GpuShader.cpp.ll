@@ -4716,7 +4716,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 invoke.cont51:                                    ; preds = %if.end.i, %.noexc17
   %13 = phi ptr [ %.pre.i, %.noexc17 ], [ null, %if.end.i ]
   %mul4.i = shl nuw nsw i64 %conv.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %v, i64 %mul4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %v, i64 %mul4.i, i1 false)
   ret void
 
 ehcleanup52:                                      ; preds = %lpad8, %lpad.i, %ehcleanup44, %lpad14, %lpad6

@@ -1254,10 +1254,10 @@ Vec_IntDup.exit:                                  ; preds = %79, %84
   br i1 %.not58, label %102, label %96
 
 96:                                               ; preds = %93
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #27
+  %97 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %95) #27
   %98 = add i64 %97, 1
   %99 = tail call noalias noundef ptr @malloc(i64 noundef %98) #24
-  %100 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %95) #25
+  %100 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull readonly dereferenceable(1) %95) #25
   %101 = getelementptr inbounds i8, ptr %29, i64 128
   store ptr %99, ptr %101, align 8
   br label %102
@@ -1279,10 +1279,10 @@ Vec_IntFree.exit:                                 ; preds = %102, %104
   br i1 %.not59, label %113, label %107
 
 107:                                              ; preds = %Vec_IntFree.exit
-  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #27
+  %108 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %106) #27
   %109 = add i64 %108, 1
   %110 = tail call noalias noundef ptr @malloc(i64 noundef %109) #24
-  %111 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(1) %106) #25
+  %111 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull readonly dereferenceable(1) %106) #25
   %112 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %110, ptr %112, align 8
   br label %113
@@ -5022,10 +5022,10 @@ Vec_IntFillTwo.exit381:                           ; preds = %Vec_IntGrow.exit.i3
   br i1 %.not271, label %403, label %397
 
 397:                                              ; preds = %.critedge280
-  %398 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %396) #27
+  %398 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %396) #27
   %399 = add i64 %398, 1
   %400 = tail call noalias noundef ptr @malloc(i64 noundef %399) #24
-  %401 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %400, ptr noundef nonnull dereferenceable(1) %396) #25
+  %401 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %400, ptr noundef nonnull readonly dereferenceable(1) %396) #25
   %402 = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %400, ptr %402, align 8
   br label %403
@@ -10721,10 +10721,10 @@ Vec_IntGrow.exit.i269:                            ; preds = %226, %208
   br i1 %.not197, label %305, label %299
 
 299:                                              ; preds = %.critedge12
-  %300 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %298) #27
+  %300 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %298) #27
   %301 = add i64 %300, 1
   %302 = tail call noalias noundef ptr @malloc(i64 noundef %301) #24
-  %303 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %302, ptr noundef nonnull dereferenceable(1) %298) #25
+  %303 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %302, ptr noundef nonnull readonly dereferenceable(1) %298) #25
   %304 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %302, ptr %304, align 8
   br label %305

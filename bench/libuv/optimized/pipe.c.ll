@@ -44,7 +44,7 @@ entry:
 if.end5:                                          ; preds = %entry
   %incdec.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
   %dec.i = add i64 %namelen, -1
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
   %cmp1.i.not = icmp eq ptr %call.i, null
   br i1 %cmp1.i.not, label %if.end8, label %return
 
@@ -327,7 +327,7 @@ entry:
 if.end5:                                          ; preds = %entry
   %incdec.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
   %dec.i = add i64 %namelen, -1
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
   %cmp1.i.not = icmp eq ptr %call.i, null
   br i1 %cmp1.i.not, label %if.end8, label %return
 
@@ -751,7 +751,7 @@ if.then17:                                        ; preds = %if.end11.i.i33, %if
 if.end18:                                         ; preds = %if.then26.i.i43, %if.end17.i.i41
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i25)
-  %call.i = call noundef i32 @stat64(ptr noundef nonnull %call11, ptr noundef nonnull %pipe_stat) #12
+  %call.i = call noundef i32 @stat64(ptr noundef nonnull readonly %call11, ptr noundef nonnull %pipe_stat) #12
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %if.then21, label %if.end23
 

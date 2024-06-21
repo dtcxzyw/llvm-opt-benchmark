@@ -1458,7 +1458,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.l
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
   %3 = load ptr, ptr %message_types_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %3, i64 %indvars.iv.i
-  invoke fastcc void @"_ZN6google8protobuf8compiler4ruby12ForEachFieldIRZNS2_14DumpImportListB5cxx11EPKNS0_14FileDescriptorEE3$_0EEvPKNS0_10DescriptorEOT_"(ptr noundef %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
+  invoke fastcc void @"_ZN6google8protobuf8compiler4ruby12ForEachFieldIRZNS2_14DumpImportListB5cxx11EPKNS0_14FileDescriptorEE3$_0EEvPKNS0_10DescriptorEOT_"(ptr noundef %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp4)
           to label %.noexc unwind label %lpad5.loopexit.split-lp
 
 .noexc:                                           ; preds = %for.body.i
@@ -1472,7 +1472,7 @@ for.body6.i:                                      ; preds = %.noexc3, %for.body6
   %indvars.iv16.i = phi i64 [ 0, %for.body6.lr.ph.i ], [ %indvars.iv.next17.i, %.noexc3 ]
   %6 = load ptr, ptr %extensions_.i.i, align 8
   %add.ptr.i10.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %6, i64 %indvars.iv16.i
-  invoke fastcc void @"_ZZN6google8protobuf8compiler4ruby14DumpImportListB5cxx11EPKNS0_14FileDescriptorEENK3$_0clEPKNS0_15FieldDescriptorE"(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef %add.ptr.i10.i)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler4ruby14DumpImportListB5cxx11EPKNS0_14FileDescriptorEENK3$_0clEPKNS0_15FieldDescriptorE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp4, ptr noundef %add.ptr.i10.i)
           to label %.noexc3 unwind label %lpad5.loopexit
 
 .noexc3:                                          ; preds = %for.body6.i

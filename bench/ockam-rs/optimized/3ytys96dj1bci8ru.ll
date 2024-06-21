@@ -513,7 +513,7 @@ common.ret:                                       ; preds = %1758, %1974, %182
   %196 = extractvalue { ptr, i64 } %191, 1
   %197 = icmp ne ptr %195, null
   tail call void @llvm.assume(i1 %197)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull align 1 %189, i64 %190, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull readonly align 1 %189, i64 %190, i1 false)
   %198 = getelementptr inbounds i8, ptr %0, i64 81
   store i8 0, ptr %198, align 1
   %199 = getelementptr inbounds i8, ptr %0, i64 56
@@ -959,7 +959,7 @@ common.ret:                                       ; preds = %1758, %1974, %182
   %332 = extractvalue { ptr, i64 } %328, 1
   %333 = icmp ne ptr %331, null
   tail call void @llvm.assume(i1 %333)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %331, ptr nonnull align 1 %326, i64 %327, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %331, ptr nonnull readonly align 1 %326, i64 %327, i1 false)
   %334 = getelementptr inbounds i8, ptr %97, i64 24
   store i8 %324, ptr %334, align 8, !alias.scope !81, !noalias !91
   store ptr %331, ptr %97, align 8, !alias.scope !81, !noalias !91
@@ -2315,7 +2315,7 @@ common.ret:                                       ; preds = %1758, %1974, %182
   %838 = extractvalue { ptr, i64 } %833, 1
   %839 = icmp ne ptr %837, null
   tail call void @llvm.assume(i1 %839)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %837, ptr nonnull align 1 %831, i64 %832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %837, ptr nonnull readonly align 1 %831, i64 %832, i1 false)
   %840 = getelementptr inbounds i8, ptr %63, i64 24
   store i8 %829, ptr %840, align 8, !alias.scope !236, !noalias !247
   store ptr %837, ptr %63, align 8, !alias.scope !236, !noalias !247
@@ -2408,7 +2408,7 @@ common.ret:                                       ; preds = %1758, %1974, %182
   %866 = extractvalue { ptr, i64 } %861, 1
   %867 = icmp ne ptr %865, null
   tail call void @llvm.assume(i1 %867)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %865, ptr nonnull align 1 %859, i64 %860, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %865, ptr nonnull readonly align 1 %859, i64 %860, i1 false)
   %868 = getelementptr inbounds i8, ptr %59, i64 24
   store i8 %858, ptr %868, align 8, !alias.scope !248, !noalias !259
   store ptr %865, ptr %59, align 8, !alias.scope !248, !noalias !259

@@ -435,7 +435,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %21, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   store ptr %24, ptr %21, align 8
   br label %Curl_ip2addr.exit.sink.split.sink.split
 

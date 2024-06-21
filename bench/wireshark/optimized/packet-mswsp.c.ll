@@ -2081,7 +2081,7 @@ define internal fastcc i32 @dissect_mswsp(ptr noundef %0, ptr noundef %1, ptr no
 
 get_create_converstation_data.exit.i:             ; preds = %67, %55
   %.09.i.i = phi ptr [ %66, %55 ], [ %69, %67 ]
-  %71 = call fastcc ptr @find_or_create_message_data(ptr noundef nonnull %.09.i.i, ptr noundef nonnull %1, i16 noundef zeroext 200, i32 noundef %3, ptr noundef %4)
+  %71 = call fastcc ptr @find_or_create_message_data(ptr noundef nonnull %.09.i.i, ptr noundef nonnull %1, i16 noundef zeroext 200, i32 noundef %3, ptr noundef readonly %4)
   %.not78.i = icmp eq ptr %71, null
   br i1 %.not78.i, label %75, label %72
 
@@ -2291,7 +2291,7 @@ get_create_converstation_data.exit.i143:          ; preds = %178, %167
   %188 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %187, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #10
   %189 = load i32, ptr @hf_mswsp_msg_cpmgetrows_cbseek, align 4
   %190 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %189, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648) #10
-  %191 = call fastcc ptr @find_or_create_message_data(ptr noundef nonnull %.09.i.i144, ptr noundef nonnull %1, i16 noundef zeroext 204, i32 noundef %3, ptr noundef %4)
+  %191 = call fastcc ptr @find_or_create_message_data(ptr noundef nonnull %.09.i.i144, ptr noundef nonnull %1, i16 noundef zeroext 204, i32 noundef %3, ptr noundef readonly %4)
   %.not152.i = icmp eq ptr %191, null
   br i1 %.not152.i, label %.critedge.i, label %192
 
@@ -2360,7 +2360,7 @@ get_create_converstation_data.exit.i143:          ; preds = %178, %167
   %224 = call ptr @wmem_file_scope() #10
   %225 = load i32, ptr @proto_mswsp, align 4
   %226 = call ptr @p_get_proto_data(ptr noundef %224, ptr noundef nonnull %1, i32 noundef %225, i32 noundef 0) #10
-  %227 = call fastcc i32 @get_fid_and_frame(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %4)
+  %227 = call fastcc i32 @get_fid_and_frame(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %4)
   %.017.i.i.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i.i.i = icmp eq ptr %.017.i.i.i, null
   br i1 %.not18.i.i.i, label %find_binding_msg_data.exit.i, label %.lr.ph.i.i.i
@@ -2421,7 +2421,7 @@ find_binding_msg_data.exit.i:                     ; preds = %251, %246, %221
   %254 = call ptr @wmem_file_scope() #10
   %255 = load i32, ptr @proto_mswsp, align 4
   %256 = call ptr @p_get_proto_data(ptr noundef %254, ptr noundef %1, i32 noundef %255, i32 noundef 0) #10
-  %257 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %4)
+  %257 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef readonly %4)
   %.017.i.i154.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i.i155.i = icmp eq ptr %.017.i.i154.i, null
   br i1 %.not18.i.i155.i, label %find_rowsin_msg_data.exit.i, label %.lr.ph.i.i156.i
@@ -2482,7 +2482,7 @@ find_rowsin_msg_data.exit.i:                      ; preds = %281, %276, %find_bi
   %284 = call ptr @wmem_file_scope() #10
   %285 = load i32, ptr @proto_mswsp, align 4
   %286 = call ptr @p_get_proto_data(ptr noundef %284, ptr noundef %1, i32 noundef %285, i32 noundef 0) #10
-  %287 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %4)
+  %287 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef readonly %4)
   %.017.i.i163.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i.i164.i = icmp eq ptr %.017.i.i163.i, null
   br i1 %.not18.i.i164.i, label %find_matching_request_by_fid.exit.thread.i.i, label %.lr.ph.i.i165.i
@@ -2547,7 +2547,7 @@ find_matching_request_by_fid.exit.thread.i.i:     ; preds = %311, %find_rowsin_m
   %316 = call ptr @wmem_file_scope() #10
   %317 = load i32, ptr @proto_mswsp, align 4
   %318 = call ptr @p_get_proto_data(ptr noundef %316, ptr noundef %1, i32 noundef %317, i32 noundef 0) #10
-  %319 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4)
+  %319 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef readonly %4)
   %.017.i16.i.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i17.i.i = icmp eq ptr %.017.i16.i.i, null
   br i1 %.not18.i17.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %.lr.ph.i18.i.i
@@ -2845,7 +2845,7 @@ get_create_converstation_data.exit.i153:          ; preds = %466, %462
   br i1 %exitcond.not.i156, label %._crit_edge.i, label %.lr.ph.i155, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i155, %get_create_converstation_data.exit.i153
-  %477 = call fastcc ptr @find_or_create_message_data(ptr noundef nonnull %.09.i.i154, ptr noundef %1, i16 noundef zeroext 208, i32 noundef %3, ptr noundef %4)
+  %477 = call fastcc ptr @find_or_create_message_data(ptr noundef nonnull %.09.i.i154, ptr noundef %1, i16 noundef zeroext 208, i32 noundef %3, ptr noundef readonly %4)
   %.not80.i = icmp eq ptr %477, null
   br i1 %.not80.i, label %dissect_CPMSetBindings.exit, label %478
 
@@ -3859,7 +3859,7 @@ vType_get_type.exit:                              ; preds = %18
   %59 = load ptr, ptr %22, align 8
   %60 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %41) #10
   %61 = add i32 %2, 8
-  %62 = call fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %58, ptr noundef %59, i32 noundef %60)
+  %62 = call fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %58, ptr noundef readonly %59, i32 noundef %60)
   %63 = load i32, ptr @hf_mswsp_cbasestorvariant_num, align 4
   %64 = load i32, ptr %58, align 8
   %65 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %63, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef %64) #10

@@ -4596,7 +4596,7 @@ trace_vfio_pci_hot_reset_dep_devices.exit:        ; preds = %for.body, %land.lhs
   %34 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i)
   %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv37, i32 noundef %conv40, i32 noundef %shr, i32 noundef %and49) #22
-  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i, ptr noundef nonnull dereferenceable(1) %34) #26
+  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i, ptr noundef nonnull readonly dereferenceable(1) %34) #26
   %cmp.i = icmp eq i32 %call2.i, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i)
   br i1 %cmp.i, label %for.inc104, label %for.cond61.preheader
@@ -4661,7 +4661,7 @@ if.end88:                                         ; preds = %lor.lhs.false
   %43 = load ptr, ptr %name91, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i130)
   %call.i134 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i130, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv37, i32 noundef %conv40, i32 noundef %shr, i32 noundef %and49) #22
-  %call2.i135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i130, ptr noundef nonnull dereferenceable(1) %43) #26
+  %call2.i135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i130, ptr noundef nonnull readonly dereferenceable(1) %43) #26
   %cmp.i136 = icmp eq i32 %call2.i135, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i130)
   br i1 %cmp.i136, label %if.then93, label %for.inc100
@@ -4866,7 +4866,7 @@ for.body184:                                      ; preds = %out, %for.inc259
   %70 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i151)
   %call.i155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i151, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv191, i32 noundef %conv196, i32 noundef %shr202, i32 noundef %and209) #22
-  %call2.i156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i151, ptr noundef nonnull dereferenceable(1) %70) #26
+  %call2.i156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i151, ptr noundef nonnull readonly dereferenceable(1) %70) #26
   %cmp.i157 = icmp eq i32 %call2.i156, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i151)
   br i1 %cmp.i157, label %for.inc259, label %for.cond216.preheader
@@ -4919,7 +4919,7 @@ if.end246:                                        ; preds = %lor.lhs.false241
   %76 = load ptr, ptr %name251, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %tmp.i158)
   %call.i162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp.i158, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %conv191, i32 noundef %conv196, i32 noundef %shr202, i32 noundef %and209) #22
-  %call2.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i158, ptr noundef nonnull dereferenceable(1) %76) #26
+  %call2.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tmp.i158, ptr noundef nonnull readonly dereferenceable(1) %76) #26
   %cmp.i164 = icmp eq i32 %call2.i163, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %tmp.i158)
   br i1 %cmp.i164, label %if.then253, label %for.inc255

@@ -899,13 +899,13 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %46 = add nuw nsw i64 %indvars.iv.i, %39
   %47 = shl nsw i64 %46, 4
   %48 = getelementptr inbounds i8, ptr %36, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull align 1 dereferenceable(16) %48, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull readonly align 1 dereferenceable(16) %48, i64 16, i1 false)
   %49 = getelementptr inbounds i8, ptr %45, i64 16
   %50 = shl i64 %46, 36
   %sext.i = ashr exact i64 %50, 32
   %51 = or i64 %sext.i, 16
   %52 = getelementptr inbounds i8, ptr %36, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %52, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %53 = icmp ult i64 %indvars.iv.next.i, %28
   br i1 %53, label %40, label %._crit_edge.us.i, !llvm.loop !19
@@ -1028,13 +1028,13 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %50 = add nsw i64 %indvars.iv.i, %43
   %51 = shl nsw i64 %50, 4
   %52 = getelementptr inbounds i8, ptr %2, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %52, i64 16, i1 false)
   %53 = getelementptr inbounds i8, ptr %49, i64 16
   %54 = shl i64 %50, 36
   %sext.i = ashr exact i64 %54, 32
   %55 = or i64 %sext.i, 16
   %56 = getelementptr inbounds i8, ptr %2, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, ptr noundef nonnull align 1 dereferenceable(16) %56, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, ptr noundef nonnull readonly align 1 dereferenceable(16) %56, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %57 = icmp ult i64 %indvars.iv.next.i, %29
   br i1 %57, label %44, label %._crit_edge.us.i, !llvm.loop !23

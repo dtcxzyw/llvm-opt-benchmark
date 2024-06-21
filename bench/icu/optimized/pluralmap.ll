@@ -547,7 +547,7 @@ for.body.i:                                       ; preds = %for.inc.i, %cond.fa
   %indvars.iv.i = phi i64 [ 0, %cond.false ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [6 x ptr], ptr @_ZN6icu_75L12gPluralFormsE, i64 0, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #13
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #13
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %return.split.loop.exit6.i, label %for.inc.i
 

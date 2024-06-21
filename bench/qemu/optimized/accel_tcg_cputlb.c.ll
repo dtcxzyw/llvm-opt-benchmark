@@ -2080,7 +2080,7 @@ if.then85:                                        ; preds = %land.lhs.true
   %conv86 = and i64 %40, 7
   %vtable = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %arrayidx88 = getelementptr [8 x %union.CPUTLBEntry], ptr %vtable, i64 0, i64 %conv86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx88, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx88, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
   %vfulltlb = getelementptr inbounds i8, ptr %arrayidx, i64 304
   %arrayidx90 = getelementptr [8 x %struct.CPUTLBEntryFull], ptr %vfulltlb, i64 0, i64 %conv86
   %fulltlb = getelementptr inbounds i8, ptr %arrayidx, i64 560
@@ -2380,7 +2380,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i42.lcssa, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i42.lcssa, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i42.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, i64 32, i1 false)
   store atomic i32 0, ptr %neg.i release, align 4
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx.i41, i64 560
@@ -11673,7 +11673,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i70.lcssa, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i70.lcssa, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i70.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, i64 32, i1 false)
   store atomic i32 0, ptr %neg.i release, align 4
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx.i69, i64 560
@@ -12560,7 +12560,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i39.lcssa, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i39.lcssa, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i39.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, i64 32, i1 false)
   store atomic i32 0, ptr %neg.i release, align 4
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 560

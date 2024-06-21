@@ -157,7 +157,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17
   store i64 %2, ptr %.1032..1032..sroa_idx, align 8
   %.1040..1040..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1040
   store i64 0, ptr %.1040..1040..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !alias.scope !6, !noalias !10
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !6, !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(1048) %4, i64 1048, i1 false)
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %4)
   ret void
@@ -1319,7 +1319,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE.exit": ; preds = %64
   %67 = getelementptr inbounds i8, ptr %1, i64 %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %2, i64 %3, i1 false), !alias.scope !79, !noalias !83
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !alias.scope !79, !noalias !83
   %68 = load i64, ptr %52, align 8, !noundef !4
   %69 = add i64 %68, %3
   store i64 %69, ptr %52, align 8

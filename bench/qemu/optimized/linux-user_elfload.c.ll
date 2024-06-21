@@ -2162,7 +2162,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub23 = sub i32 %len.045, %cond
   %idx.ext24 = sext i32 %sub22 to i64
   %add.ptr25 = getelementptr i8, ptr %scratch, i64 %idx.ext24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr align 1 %add.ptr19, i64 %idx.ext18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr readonly align 1 %add.ptr19, i64 %idx.ext18, i1 false)
   %cmp27 = icmp eq i32 %sub22, 0
   br i1 %cmp27, label %if.then29, label %if.end32
 

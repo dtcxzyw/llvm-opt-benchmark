@@ -8442,7 +8442,7 @@ sw.bb4.i.invoke:                                  ; preds = %if.then35, %sw.bb4.
 
 sw.bb9.i:                                         ; preds = %if.then35
   %m_id.i = getelementptr inbounds i8, ptr %arrayidx.i33, i64 88
-  %call12.i37 = invoke noundef i32 @_ZN3opt7context14execute_maxsatERK6symbolbb(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(8) %m_id.i, i1 noundef zeroext false, i1 noundef zeroext false)
+  %call12.i37 = invoke noundef i32 @_ZN3opt7context14execute_maxsatERK6symbolbb(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_id.i, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont unwind label %if.then.i51.loopexit
 
 sw.default.i:                                     ; preds = %if.then35
@@ -9802,7 +9802,7 @@ sw.bb4.i:                                         ; preds = %for.body
 
 sw.bb9.i:                                         ; preds = %for.body
   %m_id.i = getelementptr inbounds i8, ptr %arrayidx.i22, i64 88
-  %call12.i = call noundef i32 @_ZN3opt7context14execute_maxsatERK6symbolbb(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(8) %m_id.i, i1 noundef zeroext %cmp18, i1 noundef zeroext %10)
+  %call12.i = call noundef i32 @_ZN3opt7context14execute_maxsatERK6symbolbb(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_id.i, i1 noundef zeroext %cmp18, i1 noundef zeroext %10)
   br label %_ZN3opt7context7executeERKNS0_9objectiveEbb.exit
 
 sw.default.i:                                     ; preds = %for.body
@@ -12161,7 +12161,7 @@ entry:
   %1 = load ptr, ptr %m_objectives.i, align 8, !noalias !44
   %idxprom.i.i = zext i32 %i to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.opt::context::objective", ptr %1, i64 %idxprom.i.i
-  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
+  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
   ret void
 }
 
@@ -12184,7 +12184,7 @@ entry:
   %1 = load ptr, ptr %m_objectives.i, align 8, !noalias !47
   %idxprom.i.i = zext i32 %i to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.opt::context::objective", ptr %1, i64 %idxprom.i.i
-  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
+  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext true, ptr noundef nonnull readonly align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
   ret void
 }
 

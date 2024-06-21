@@ -708,12 +708,12 @@ if.end68:                                         ; preds = %invoke.cont54
 invoke.cont71:                                    ; preds = %if.end68
   %value73 = getelementptr inbounds i8, ptr %call55, i64 8
   %33 = load ptr, ptr %value73, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(19) @.str.13) #24
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %33, ptr noundef nonnull dereferenceable(19) @.str.13) #24
   %cmp.i81 = icmp eq i32 %call.i, 0
   br i1 %cmp.i81, label %_ZL37convert_security_level_string_to_enumPKc.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont71
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(26) @.str.14) #24
+  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %33, ptr noundef nonnull dereferenceable(26) @.str.14) #24
   %cmp2.i = icmp eq i32 %call1.i, 0
   %..i = select i1 %cmp2.i, i32 2, i32 0
   br label %_ZL37convert_security_level_string_to_enumPKc.exit

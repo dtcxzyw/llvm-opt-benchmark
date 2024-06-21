@@ -682,7 +682,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
 12:                                               ; preds = %10
   %13 = sub i64 %1, %3
   %..i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %14 = tail call i32 @memcmp(ptr nonnull %0, ptr nonnull %2, i64 %..i), !alias.scope !55
+  %14 = tail call i32 @memcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %..i), !alias.scope !55
   %15 = sext i32 %14 to i64
   %16 = icmp eq i32 %14, 0
   %spec.store.select.i = select i1 %16, i64 %13, i64 %15
@@ -699,7 +699,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   %21 = extractvalue { i64, ptr } %20, 1
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %0, i64 %1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
   %23 = getelementptr inbounds i8, ptr %21, i64 %1
   %24 = icmp eq i64 %1, 0
   br i1 %24, label %"_ZN5alloc5slice30_$LT$impl$u20$$u5b$u8$u5d$$GT$18to_ascii_lowercase17h8f9c8eb4822b2cb4E.exit", label %.lr.ph.i.i
@@ -731,7 +731,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   %33 = extractvalue { i64, ptr } %32, 1
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %35 = getelementptr inbounds i8, ptr %33, i64 %3
   %36 = icmp eq i64 %3, 0
   br i1 %36, label %.loopexit, label %.lr.ph.i.i11
@@ -770,7 +770,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   store i64 %3, ptr %.sroa.5.0..sroa_idx.i15, align 8, !alias.scope !71, !noalias !74
   %46 = sub i64 %.val8, %3
   %..i.i = tail call i64 @llvm.umin.i64(i64 %.val8, i64 %3)
-  %47 = tail call i32 @memcmp(ptr nonnull %.val, ptr nonnull %33, i64 %..i.i), !alias.scope !76
+  %47 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %33, i64 %..i.i), !alias.scope !76
   %48 = sext i32 %47 to i64
   %49 = icmp eq i32 %47, 0
   %spec.store.select.i.i = select i1 %49, i64 %46, i64 %48
@@ -3717,7 +3717,7 @@ common.resume:                                    ; preds = %149, %120
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha96388f7069bafcaE.exit": ; preds = %199
   %204 = load ptr, ptr %200, align 8, !nonnull !4, !noundef !4
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %204, ptr noundef nonnull dereferenceable(4) @anon.675cd04a8c62a68bbb52d83b7dbbf767.77, i64 4), !alias.scope !453
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %204, ptr noundef nonnull readonly dereferenceable(4) @anon.675cd04a8c62a68bbb52d83b7dbbf767.77, i64 4), !alias.scope !453
   %205 = icmp eq i32 %bcmp.i, 0
   br i1 %205, label %213, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha96388f7069bafcaE.exit.thread"
 
@@ -4308,7 +4308,7 @@ define void @_ZN7uu_join6uu_app17h210141774ec86f17E(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114)
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %116)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %82), !noalias !511
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %82, ptr noundef nonnull align 8 dereferenceable(592) %117, i64 592, i1 false), !noalias !516
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %82, ptr noundef nonnull readonly align 8 dereferenceable(592) %117, i64 592, i1 false), !noalias !516
   call void @llvm.experimental.noalias.scope.decl(metadata !517)
   call void @llvm.experimental.noalias.scope.decl(metadata !520)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80), !noalias !511
@@ -4530,7 +4530,7 @@ define void @_ZN7uu_join6uu_app17h210141774ec86f17E(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109)
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %111)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %75), !noalias !587
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %75, ptr noundef nonnull align 8 dereferenceable(592) %112, i64 592, i1 false), !noalias !592
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %75, ptr noundef nonnull readonly align 8 dereferenceable(592) %112, i64 592, i1 false), !noalias !592
   call void @llvm.experimental.noalias.scope.decl(metadata !593)
   call void @llvm.experimental.noalias.scope.decl(metadata !596)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73), !noalias !587

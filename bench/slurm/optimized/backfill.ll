@@ -9368,7 +9368,7 @@ _het_job_start_now.exit.thread:                   ; preds = %99
   %203 = add nsw i64 %191, %202
   %204 = getelementptr inbounds i8, ptr %108, i64 232
   store i64 %203, ptr %204, align 8
-  call fastcc void @_reset_job_time_limit(ptr noundef nonnull %108, i64 noundef %100, ptr noundef %0)
+  call fastcc void @_reset_job_time_limit(ptr noundef nonnull %108, i64 noundef %100, ptr noundef readonly %0)
   br label %.thread81.i
 
 .thread81.i:                                      ; preds = %.thread.i, %.thread79.i

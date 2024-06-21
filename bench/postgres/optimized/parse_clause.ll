@@ -3775,7 +3775,7 @@ define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef rea
   br i1 %.not15.i, label %30, label %27
 
 27:                                               ; preds = %22
-  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %15) #11
+  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %15) #11
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %findWindowClause.exit, label %30
 
@@ -3834,7 +3834,7 @@ findWindowClause.exit.thread.thread:              ; preds = %16
   br i1 %.not15.i133, label %56, label %53
 
 53:                                               ; preds = %48
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %39) #11
+  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %39) #11
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %findWindowClause.exit136, label %56
 

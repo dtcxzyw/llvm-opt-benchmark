@@ -459,7 +459,7 @@ addLabelObj.exit.i:                               ; preds = %154
   %162 = getelementptr inbounds i8, ptr %.0194491.i, i64 64
   store double %.sink.i265.i, ptr %162, align 8, !noalias !7
   %163 = getelementptr inbounds i8, ptr %153, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false), !noalias !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull readonly align 8 dereferenceable(16) %163, i64 16, i1 false), !noalias !7
   %164 = insertelement <2 x double> poison, double %.sink.i, i64 0
   %165 = insertelement <2 x double> %164, double %.sink.i265.i, i64 1
   %166 = fmul <2 x double> %165, <double 5.000000e-01, double 5.000000e-01>
@@ -543,7 +543,7 @@ addLabelObj.exit290.i:                            ; preds = %197
   %206 = getelementptr inbounds i8, ptr %.2196472.i, i64 24
   store double %.sink.i278.i, ptr %206, align 8, !noalias !10
   %207 = getelementptr inbounds i8, ptr %196, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.2196472.i, ptr noundef nonnull align 8 dereferenceable(16) %207, i64 16, i1 false), !noalias !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.2196472.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %207, i64 16, i1 false), !noalias !10
   %208 = insertelement <2 x double> poison, double %.sink504.i, i64 0
   %209 = insertelement <2 x double> %208, double %.sink.i278.i, i64 1
   %210 = fmul <2 x double> %209, <double 5.000000e-01, double 5.000000e-01>
@@ -647,7 +647,7 @@ addLabelObj.exit305.i:                            ; preds = %253
   %262 = getelementptr inbounds i8, ptr %.3197.i, i64 24
   store double %.sink.i293.i, ptr %262, align 8, !noalias !13
   %263 = getelementptr inbounds i8, ptr %252, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.3197.i, ptr noundef nonnull align 8 dereferenceable(16) %263, i64 16, i1 false), !noalias !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.3197.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %263, i64 16, i1 false), !noalias !13
   %264 = insertelement <2 x double> poison, double %.sink505.i, i64 0
   %265 = insertelement <2 x double> %264, double %.sink.i293.i, i64 1
   %266 = fmul <2 x double> %265, <double 5.000000e-01, double 5.000000e-01>
@@ -779,7 +779,7 @@ addLabelObj.exit321.i:                            ; preds = %316
   %325 = getelementptr inbounds i8, ptr %.4198.i, i64 24
   store double %.sink.i309.i, ptr %325, align 8, !noalias !16
   %326 = getelementptr inbounds i8, ptr %315, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.4198.i, ptr noundef nonnull align 8 dereferenceable(16) %326, i64 16, i1 false), !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.4198.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %326, i64 16, i1 false), !noalias !16
   %327 = insertelement <2 x double> poison, double %.sink506.i, i64 0
   %328 = insertelement <2 x double> %327, double %.sink.i309.i, i64 1
   %329 = fmul <2 x double> %328, <double 5.000000e-01, double 5.000000e-01>
@@ -908,7 +908,7 @@ addLabelObj.exit343.i:                            ; preds = %387
   %396 = getelementptr inbounds i8, ptr %.5199.i, i64 24
   store double %.sink.i331.i, ptr %396, align 8, !noalias !19
   %397 = getelementptr inbounds i8, ptr %386, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.5199.i, ptr noundef nonnull align 8 dereferenceable(16) %397, i64 16, i1 false), !noalias !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.5199.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %397, i64 16, i1 false), !noalias !19
   %398 = insertelement <2 x double> poison, double %.sink507.i, i64 0
   %399 = insertelement <2 x double> %398, double %.sink.i331.i, i64 1
   %400 = fmul <2 x double> %399, <double 5.000000e-01, double 5.000000e-01>
@@ -1800,7 +1800,7 @@ place_root_label.exit:                            ; preds = %878, %882
 
 agxblen.exit.i:                                   ; preds = %905
   %907 = zext i8 %.val.i to i64
-  %908 = call noalias ptr @strndup(ptr noundef nonnull %6, i64 noundef %907) #16
+  %908 = call noalias ptr @strndup(ptr noundef nonnull readonly %6, i64 noundef %907) #16
   %909 = icmp eq ptr %908, null
   br i1 %909, label %910, label %agxbdisown.exit
 
@@ -2166,7 +2166,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #16
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -2226,7 +2226,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #16
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #16
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 
@@ -2430,7 +2430,7 @@ addLabelObj.exit:                                 ; preds = %23
   %34 = getelementptr inbounds i8, ptr %28, i64 24
   store double %.sink.i, ptr %34, align 8, !noalias !22
   %35 = getelementptr inbounds i8, ptr %22, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !noalias !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull readonly align 8 dereferenceable(16) %35, i64 16, i1 false), !noalias !22
   %36 = insertelement <2 x double> poison, double %.sink, i64 0
   %37 = insertelement <2 x double> %36, double %.sink.i, i64 1
   %38 = fmul <2 x double> %37, <double 5.000000e-01, double 5.000000e-01>

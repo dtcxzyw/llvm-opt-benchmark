@@ -582,7 +582,7 @@ define hidden i64 @rb_backtrace_to_str_ary(i64 noundef %0) local_unnamed_addr #0
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
   %16 = getelementptr [1 x %struct.rb_backtrace_location_struct], ptr %14, i64 0, i64 %indvars.iv.i.i
-  %17 = tail call fastcc i64 @location_to_str(ptr noundef %16)
+  %17 = tail call fastcc i64 @location_to_str(ptr noundef readonly %16)
   %18 = tail call i64 @rb_ary_push(i64 noundef %11, i64 noundef %17) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %19 = load i32, ptr %8, align 8
@@ -1258,7 +1258,7 @@ backtrace_each.exit:                              ; preds = %61, %2, %10, %13
 define dso_local i64 @rb_make_backtrace() local_unnamed_addr #0 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
-  %3 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef %2, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
+  %3 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef readonly %2, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
   %4 = tail call i64 @rb_backtrace_to_str_ary(i64 noundef %3)
   ret i64 %4
 }
@@ -1507,7 +1507,7 @@ rb_num2long_inline.exit46:                        ; preds = %65, %67
 93:                                               ; preds = %93, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %93 ]
   %94 = getelementptr [1 x %struct.rb_backtrace_location_struct], ptr %92, i64 0, i64 %indvars.iv.i.i
-  %95 = call fastcc i64 @location_to_str(ptr noundef %94)
+  %95 = call fastcc i64 @location_to_str(ptr noundef readonly %94)
   %96 = call i64 @rb_ary_push(i64 noundef %89, i64 noundef %95) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %97 = load i32, ptr %86, align 8
@@ -1954,7 +1954,7 @@ define dso_local i64 @rb_debug_inspector_open(ptr nocapture noundef readonly %0,
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef %10, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
+  %14 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef readonly %10, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %14, ptr noundef nonnull @backtrace_data_type) #4
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8

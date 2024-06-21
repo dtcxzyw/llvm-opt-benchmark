@@ -78,7 +78,7 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
 
 35:                                               ; preds = %30, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %37 = add i64 %36, 1
   %38 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %37, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__._remove_path_slashes) #8
   store ptr %38, ptr %4, align 8

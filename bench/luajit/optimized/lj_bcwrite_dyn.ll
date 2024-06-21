@@ -307,7 +307,7 @@ if.end43:                                         ; preds = %if.end36.thread, %i
   %add.ptr1.i = getelementptr inbounds i8, ptr %pt, i64 108
   %mul.i = shl i32 %sub.i, 2
   %conv.i.i = zext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0, ptr nonnull align 1 %add.ptr1.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0, ptr nonnull readonly align 1 %add.ptr1.i, i64 %conv.i.i, i1 false)
   %26 = load i8, ptr %flags, align 1
   %27 = and i8 %26, 16
   %tobool.not.i = icmp eq i8 %27, 0

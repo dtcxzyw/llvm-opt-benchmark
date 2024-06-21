@@ -139,7 +139,7 @@ if.then25:                                        ; preds = %land.lhs.true21
   br i1 %tobool27.not, label %err, label %for.inc
 
 if.else30:                                        ; preds = %land.lhs.true21, %land.lhs.true18, %if.else
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef nonnull %call2, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef nonnull readonly %call2, i32 noundef 0)
   %tobool32.not = icmp eq ptr %call.i, null
   br i1 %tobool32.not, label %err, label %if.end34
 
@@ -200,7 +200,7 @@ land.lhs.true6.us:                                ; preds = %land.lhs.true.us
   br i1 %tobool9.not.us, label %if.then3.i, label %if.else.us
 
 if.else.us:                                       ; preds = %land.lhs.true6.us, %land.lhs.true.us, %for.body.us
-  %call.i11.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef null, ptr noundef nonnull %call2.us, i32 noundef 0)
+  %call.i11.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef null, ptr noundef nonnull readonly %call2.us, i32 noundef 0)
   %tobool16.not.us = icmp eq ptr %call.i11.us, null
   br i1 %tobool16.not.us, label %err, label %if.end18.us
 
@@ -296,7 +296,7 @@ for.end.i:                                        ; preds = %for.cond.i, %for.co
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true, %for.body
-  %call.i11 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef nonnull %ctx, ptr noundef nonnull %call2, i32 noundef 0)
+  %call.i11 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef nonnull %ctx, ptr noundef nonnull readonly %call2, i32 noundef 0)
   %tobool16.not = icmp eq ptr %call.i11, null
   br i1 %tobool16.not, label %err, label %if.end18
 
@@ -631,7 +631,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end6
   %i.08 = phi i64 [ %inc, %if.end6 ], [ 0, %for.cond.preheader ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.08) #6
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef %call2, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef readonly %call2, i32 noundef 0)
   %tobool4.not = icmp eq ptr %call.i, null
   br i1 %tobool4.not, label %err, label %if.end6
 

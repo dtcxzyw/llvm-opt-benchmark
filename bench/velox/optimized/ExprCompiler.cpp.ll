@@ -3960,7 +3960,7 @@ invoke.cont5.i944:                                ; preds = %invoke.cont3.i
   %chunkMask_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lambdaScope.i, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %chunkMask_.i.i.i.i.i.i, i8 0, i64 32, i1 false), !noalias !71
   %body_.i.i = getelementptr inbounds i8, ptr %363, i64 64
-  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_117compileExpressionERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS2_5ScopeERKNS4_11QueryConfigEPNS0_6memory10MemoryPoolERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISO_ESt8equal_toISO_ESaISO_EEb(ptr noalias nonnull align 8 %body.i, ptr noundef nonnull align 8 dereferenceable(16) %body_.i.i, ptr noundef nonnull %lambdaScope.i, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(56) %flatteningCandidates, i1 noundef zeroext %enableConstantFolding)
+  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_117compileExpressionERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS2_5ScopeERKNS4_11QueryConfigEPNS0_6memory10MemoryPoolERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISO_ESt8equal_toISO_ESaISO_EEb(ptr noalias nonnull align 8 %body.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %body_.i.i, ptr noundef nonnull %lambdaScope.i, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(56) %flatteningCandidates, i1 noundef zeroext %enableConstantFolding)
           to label %invoke.cont9.i946 unwind label %lpad6.i, !noalias !71
 
 invoke.cont9.i946:                                ; preds = %invoke.cont5.i944
@@ -19506,7 +19506,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %call50.val.i.i = load i32, ptr %arrayidx.i.i.i.i50.i.i, align 4
   %idxprom.i.i.i = zext i32 %call50.val.i.i to i64
   %arrayidx.i51.i.i = getelementptr inbounds %"struct.std::pair.289", ptr %this.val.i.i, i64 %idxprom.i.i.i
-  call void @llvm.prefetch.p0(ptr %arrayidx.i51.i.i, i32 0, i32 3, i32 1)
+  call void @llvm.prefetch.p0(ptr readonly %arrayidx.i51.i.i, i32 0, i32 3, i32 1)
   %cmp.i43.not.i.i = icmp eq i32 %piter.sroa.0.1.i.i, 0
   br i1 %cmp.i43.not.i.i, label %while.body55.i.i, label %for.body.i.i
 

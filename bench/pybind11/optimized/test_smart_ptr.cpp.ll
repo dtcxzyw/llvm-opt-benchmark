@@ -52490,7 +52490,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EEC2EPS1_(ptr noun
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(13) @.str.189, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(13) @.str.189, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %22 unwind label %74
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -52605,7 +52605,7 @@ _ZN16ConstructorStats7createdEPv.exit.i.i:        ; preds = %42, %.loopexit.i.i.
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %29, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %_Z13print_createdI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_DpOT0_.exit unwind label %67
 
 67:                                               ; preds = %61, %58, %_ZN16ConstructorStats7createdEPv.exit.i.i
@@ -52686,7 +52686,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EEC2ERKS2_(ptr nou
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc7.i
-  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.187, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.187, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %12 unwind label %47
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -59327,7 +59327,7 @@ _ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i: ; p
   %115 = add i64 %114, 1
   store i64 %115, ptr %113, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %102, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %102, ptr noundef nonnull readonly align 8 dereferenceable(8) %38)
           to label %_Z19print_copy_assignedI3refIN12_GLOBAL__N_19MyObject1EEJRA8_KcRKPS2_EEvPT_DpOT0_.exit.i unwind label %116
 
 116:                                              ; preds = %110, %107, %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i

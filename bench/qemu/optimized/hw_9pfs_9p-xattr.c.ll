@@ -32,7 +32,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -154,7 +154,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %3 = load ptr, ptr %xops.0.i, align 8
   %call.i46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.end16, label %for.cond.i, !llvm.loop !5
 
@@ -242,7 +242,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -279,7 +279,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 

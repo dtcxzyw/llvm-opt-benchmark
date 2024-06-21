@@ -697,7 +697,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   store i32 1, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull readonly align 8 dereferenceable(24) %173, i64 24, i1 false)
   %174 = getelementptr i8, ptr %171, i64 32
   store i32 2, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %1, i64 284
@@ -708,7 +708,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   store i32 1, ptr %178, align 8
   %179 = getelementptr i8, ptr %171, i64 72
   %180 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef nonnull align 8 dereferenceable(24) %180, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef nonnull readonly align 8 dereferenceable(24) %180, i64 24, i1 false)
   %181 = getelementptr i8, ptr %171, i64 96
   store i32 2, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %1, i64 288
@@ -1308,7 +1308,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   store i32 1, ptr %494, align 8
   %495 = getelementptr inbounds i8, ptr %494, i64 8
   %496 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %495, ptr noundef nonnull align 8 dereferenceable(24) %496, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %495, ptr noundef nonnull readonly align 8 dereferenceable(24) %496, i64 24, i1 false)
   %497 = getelementptr i8, ptr %494, i64 32
   store i32 2, ptr %497, align 8
   %498 = getelementptr inbounds i8, ptr %1, i64 284
@@ -1319,7 +1319,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   store i32 1, ptr %501, align 8
   %502 = getelementptr i8, ptr %494, i64 72
   %503 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull align 8 dereferenceable(24) %503, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull readonly align 8 dereferenceable(24) %503, i64 24, i1 false)
   %504 = getelementptr i8, ptr %494, i64 96
   store i32 2, ptr %504, align 8
   %505 = getelementptr inbounds i8, ptr %1, i64 288

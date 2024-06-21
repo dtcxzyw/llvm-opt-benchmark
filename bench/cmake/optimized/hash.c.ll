@@ -116,7 +116,7 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
 
 44:                                               ; preds = %.loopexit
   %45 = getelementptr inbounds i8, ptr %43, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr readonly align 1 %1, i64 %2, i1 false)
   %46 = getelementptr inbounds i8, ptr %43, i64 32
   store i64 %2, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %43, i64 24

@@ -1048,7 +1048,7 @@ if.else5.i.i:                                     ; preds = %if.end69.i
 
 if.then7.i.i:                                     ; preds = %if.else5.i.i
   %conv.i37.i.i = and i64 %call75.i, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer.i.i, ptr align 1 %spec.store.select.i, i64 %conv.i37.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer.i.i, ptr readonly align 1 %spec.store.select.i, i64 %conv.i37.i.i, i1 false)
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.then7.i.i, %if.else5.i.i
@@ -1064,7 +1064,7 @@ if.then29.i.i:                                    ; preds = %if.end27.i.i
   %idxprom1.i39.i.i = zext nneg i32 %inc.i.i.i to i64
   %arrayidx2.i40.i.i = getelementptr inbounds i8, ptr %tagBuffer.i.i, i64 %idxprom1.i39.i.i
   %conv.i41.i.i = and i64 %call79.i, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40.i.i, ptr align 1 %15, i64 %conv.i41.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40.i.i, ptr readonly align 1 %15, i64 %conv.i41.i.i, i1 false)
   %add.i42.i.i = add nuw nsw i32 %inc.i.i.i, %conv80.i
   br label %if.end49.i.i
 
@@ -1081,7 +1081,7 @@ if.then51.i.i:                                    ; preds = %if.end49.i.i
   %idxprom1.i47.i.i = zext nneg i32 %inc.i46.i.i to i64
   %arrayidx2.i48.i.i = getelementptr inbounds i8, ptr %tagBuffer.i.i, i64 %idxprom1.i47.i.i
   %conv.i49.i.i = and i64 %call83.i, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48.i.i, ptr align 1 %16, i64 %conv.i49.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48.i.i, ptr readonly align 1 %16, i64 %conv.i49.i.i, i1 false)
   %add.i50.i.i = add nuw nsw i32 %inc.i46.i.i, %conv84.i
   br label %if.end71.i.i
 
@@ -1744,7 +1744,7 @@ if.else5:                                         ; preds = %if.else
 
 if.then7:                                         ; preds = %if.else5
   %conv.i37 = zext nneg i32 %langLength to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer, ptr align 1 %lang, i64 %conv.i37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer, ptr readonly align 1 %lang, i64 %conv.i37, i1 false)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else5, %if.then7
@@ -1760,7 +1760,7 @@ if.then29:                                        ; preds = %if.end27
   %idxprom1.i39 = zext nneg i32 %inc.i to i64
   %arrayidx2.i40 = getelementptr inbounds i8, ptr %tagBuffer, i64 %idxprom1.i39
   %conv.i41 = zext nneg i32 %scriptLength to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40, ptr align 1 %script, i64 %conv.i41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40, ptr readonly align 1 %script, i64 %conv.i41, i1 false)
   %add.i42 = add nuw nsw i32 %inc.i, %scriptLength
   br label %if.end49
 
@@ -1777,7 +1777,7 @@ if.then51:                                        ; preds = %if.end49
   %idxprom1.i47 = zext nneg i32 %inc.i46 to i64
   %arrayidx2.i48 = getelementptr inbounds i8, ptr %tagBuffer, i64 %idxprom1.i47
   %conv.i49 = zext nneg i32 %regionLength to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48, ptr align 1 %region, i64 %conv.i49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48, ptr readonly align 1 %region, i64 %conv.i49, i1 false)
   %add.i50 = add nuw nsw i32 %inc.i46, %regionLength
   br label %if.end71
 

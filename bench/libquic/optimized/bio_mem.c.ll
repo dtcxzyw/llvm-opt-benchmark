@@ -275,7 +275,7 @@ if.end11.i:                                       ; preds = %if.end3.i
   %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %conv5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr align 1 %str, i64 %conv6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %str, i64 %conv6.i, i1 false)
   br label %mem_write.exit
 
 mem_write.exit:                                   ; preds = %if.then.i, %if.end.i, %if.end3.i, %if.end11.i

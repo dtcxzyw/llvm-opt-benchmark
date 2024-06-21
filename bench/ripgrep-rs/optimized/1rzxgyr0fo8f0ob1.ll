@@ -470,7 +470,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   %7 = getelementptr inbounds i8, ptr %0, i64 %1
   %8 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !61
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call { i64, ptr } %9(i8 noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %7), !noalias !61
+  %10 = tail call { i64, ptr } %9(i8 noundef %2, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7), !noalias !61
   %11 = extractvalue { i64, ptr } %10, 0
   %switch8.i64.not = icmp eq i64 %11, 0
   br i1 %switch8.i64.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %12
@@ -492,7 +492,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !65
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call { i64, ptr } %23(i8 noundef %2, ptr noundef nonnull %21, ptr noundef nonnull %7), !noalias !65
+  %24 = tail call { i64, ptr } %23(i8 noundef %2, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %7), !noalias !65
   %25 = extractvalue { i64, ptr } %24, 0
   %switch8.i.not91 = icmp eq i64 %25, 0
   br i1 %switch8.i.not91, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %.lr.ph94.preheader
@@ -544,7 +544,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   %42 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.13.1.lcssa
   %43 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !65
   %44 = inttoptr i64 %43 to ptr
-  %45 = tail call { i64, ptr } %44(i8 noundef %2, ptr noundef nonnull %.sroa.0.1.lcssa, ptr noundef %42), !noalias !65
+  %45 = tail call { i64, ptr } %44(i8 noundef %2, ptr noundef nonnull readonly %.sroa.0.1.lcssa, ptr noundef readonly %42), !noalias !65
   %46 = extractvalue { i64, ptr } %45, 0
   %switch8.i.not = icmp eq i64 %46, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %.lr.ph94

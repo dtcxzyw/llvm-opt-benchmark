@@ -377,7 +377,7 @@ if.end33.i:                                       ; preds = %if.end28.i
   %20 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %21 = load ptr, ptr %sender_authkey.i, align 8
-  %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef nonnull %recipient_pub.i)
+  %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef nonnull %recipient_pub.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %err.i, label %if.end41.i
 
@@ -510,7 +510,7 @@ if.end18.i:                                       ; preds = %if.end15.i
   %8 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %9 = load ptr, ptr %sender_authkey.i, align 8
-  %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef nonnull %recipient_pub.i)
+  %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef nonnull %recipient_pub.i)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %err.i, label %if.end25.i
 

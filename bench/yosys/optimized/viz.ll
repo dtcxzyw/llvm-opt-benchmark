@@ -1892,7 +1892,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %.sroa.0665.01291 = phi ptr [ %.sroa.0685.0.lcssa, %.lr.ph1292 ], [ %3312, %_ZN12_GLOBAL__N_19VizWorkerD2Ev.exit ]
   %.01290 = phi ptr [ null, %.lr.ph1292 ], [ %.2, %_ZN12_GLOBAL__N_19VizWorkerD2Ev.exit ]
   %539 = load ptr, ptr %.sroa.0665.01291, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 16 dereferenceable(16) %58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 16 dereferenceable(16) %58, i64 16, i1 false)
   %.val.i.i.i112 = load ptr, ptr %77, align 16
   %.val9.i.i.i = load ptr, ptr %503, align 8
   %540 = ptrtoint ptr %.val9.i.i.i to i64
@@ -8034,7 +8034,7 @@ _ZN12_GLOBAL__N_19VizWorker9write_dotEP8_IO_FILE.exit: ; preds = %_ZNSt6vectorIN
 
 3232:                                             ; preds = %_ZN12_GLOBAL__N_19VizWorker9write_dotEP8_IO_FILE.exit, %1572
   %.2 = phi ptr [ %.01290, %1572 ], [ %.1, %_ZN12_GLOBAL__N_19VizWorker9write_dotEP8_IO_FILE.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_15GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %507) #28
+  call fastcc void @_ZN12_GLOBAL__N_15GraphD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %507) #28
   %3233 = load ptr, ptr %502, align 8
   %3234 = load ptr, ptr %504, align 8
   %.not4.i.i.i.i.i.i190 = icmp eq ptr %3233, %3234
@@ -12671,7 +12671,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeE
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc186, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %442, %.lr.ph.i.i.i.i.i.i.i.i ], [ %438, %.noexc186 ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %441, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %.noexc186 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !79
   %441 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 32
   %442 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %441, %418
@@ -12941,7 +12941,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeE
 .lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %.noexc189, %.lr.ph.i.i.i.i.i.i19.i.i
   %.03.i.i.i.i.i.i20.i.i = phi ptr [ %551, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %547, %.noexc189 ]
   %.092.i.i.i.i.i.i21.i.i = phi ptr [ %550, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %.noexc189 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i21.i.i, i64 32, i1 false), !alias.scope !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i21.i.i, i64 32, i1 false), !alias.scope !84
   %550 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i, i64 32
   %551 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i, i64 32
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %550, %.pre2804
@@ -13871,7 +13871,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_ops
 .lr.ph.i.i.i.i.i.i.i.i281:                        ; preds = %.noexc291, %.lr.ph.i.i.i.i.i.i.i.i281
   %.03.i.i.i.i.i.i.i.i282 = phi ptr [ %919, %.lr.ph.i.i.i.i.i.i.i.i281 ], [ %915, %.noexc291 ]
   %.092.i.i.i.i.i.i.i.i283 = phi ptr [ %918, %.lr.ph.i.i.i.i.i.i.i.i281 ], [ %.val.i.i.i.i278, %.noexc291 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i.i282, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i.i283, i64 16, i1 false), !alias.scope !94, !noalias !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i.i282, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i.i283, i64 16, i1 false), !alias.scope !94, !noalias !91
   %918 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i283, i64 16
   %919 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i282, i64 16
   %.not.i.i.i.i.i.i.i.i284 = icmp eq ptr %918, %895
@@ -13955,7 +13955,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_ops
 .lr.ph.i.i.i.i.i.i22.i.i:                         ; preds = %.noexc294, %.lr.ph.i.i.i.i.i.i22.i.i
   %.03.i.i.i.i.i.i23.i.i = phi ptr [ %947, %.lr.ph.i.i.i.i.i.i22.i.i ], [ %943, %.noexc294 ]
   %.092.i.i.i.i.i.i24.i.i = phi ptr [ %946, %.lr.ph.i.i.i.i.i.i22.i.i ], [ %.val.i.i18.i.i, %.noexc294 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i23.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i24.i.i, i64 16, i1 false), !alias.scope !99, !noalias !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i23.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i24.i.i, i64 16, i1 false), !alias.scope !99, !noalias !91
   %946 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i24.i.i, i64 16
   %947 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i23.i.i, i64 16
   %.not.i.i.i.i.i.i25.i.i = icmp eq ptr %946, %.pre2818
@@ -14247,7 +14247,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeEN
 .lr.ph.i.i.i.i.i.i.i.i326:                        ; preds = %.noexc341, %.lr.ph.i.i.i.i.i.i.i.i326
   %.03.i.i.i.i.i.i.i.i327 = phi ptr [ %1090, %.lr.ph.i.i.i.i.i.i.i.i326 ], [ %1086, %.noexc341 ]
   %.092.i.i.i.i.i.i.i.i328 = phi ptr [ %1089, %.lr.ph.i.i.i.i.i.i.i.i326 ], [ %.val27.i.i.i.i322, %.noexc341 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i.i.i327, ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i.i.i.i328, i64 24, i1 false), !alias.scope !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i.i.i327, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i.i.i328, i64 24, i1 false), !alias.scope !104
   %1089 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i328, i64 24
   %1090 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i327, i64 24
   %.not.i.i.i.i.i.i.i.i329 = icmp eq ptr %1089, %1066
@@ -14327,7 +14327,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeEN
 .lr.ph.i.i.i.i.i.i19.i.i315:                      ; preds = %.noexc344, %.lr.ph.i.i.i.i.i.i19.i.i315
   %.03.i.i.i.i.i.i20.i.i316 = phi ptr [ %1117, %.lr.ph.i.i.i.i.i.i19.i.i315 ], [ %1113, %.noexc344 ]
   %.092.i.i.i.i.i.i21.i.i317 = phi ptr [ %1116, %.lr.ph.i.i.i.i.i.i19.i.i315 ], [ %.val.i.i.i.i311, %.noexc344 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i20.i.i316, ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i.i21.i.i317, i64 24, i1 false), !alias.scope !109
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i20.i.i316, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i21.i.i317, i64 24, i1 false), !alias.scope !109
   %1116 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i317, i64 24
   %1117 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i316, i64 24
   %.not.i.i.i.i.i.i22.i.i318 = icmp eq ptr %1116, %.pre2820
@@ -19585,7 +19585,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i
   %291 = and i64 %286, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %290, ptr align 8 %.val30.i.i, i64 %291, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %290, ptr readonly align 8 %.val30.i.i, i64 %291, i1 false)
   store ptr %290, ptr %131, align 8
   %292 = getelementptr inbounds i8, ptr %290, i64 %286
   store ptr %292, ptr %132, align 8
@@ -19904,7 +19904,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i1649: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1640
   %406 = and i64 %401, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %405, ptr align 8 %.val30.i.i1637, i64 %406, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %405, ptr readonly align 8 %.val30.i.i1637, i64 %406, i1 false)
   store ptr %405, ptr %138, align 8
   %407 = getelementptr inbounds i8, ptr %405, i64 %401
   store ptr %407, ptr %139, align 8
@@ -20508,7 +20508,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i2335: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i2326
   %635 = and i64 %630, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %634, ptr align 8 %.val30.i.i2323, i64 %635, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %634, ptr readonly align 8 %.val30.i.i2323, i64 %635, i1 false)
   store ptr %634, ptr %150, align 8
   %636 = getelementptr inbounds i8, ptr %634, i64 %630
   store ptr %636, ptr %151, align 8
@@ -20948,7 +20948,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i915: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i906
   %797 = and i64 %792, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %796, ptr align 8 %.val30.i.i903, i64 %797, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %796, ptr readonly align 8 %.val30.i.i903, i64 %797, i1 false)
   store ptr %796, ptr %160, align 8
   %798 = getelementptr inbounds i8, ptr %796, i64 %792
   store ptr %798, ptr %170, align 8
@@ -21253,7 +21253,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i895: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i886
   %909 = and i64 %904, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %908, ptr align 8 %.val30.i.i883, i64 %909, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %908, ptr readonly align 8 %.val30.i.i883, i64 %909, i1 false)
   store ptr %908, ptr %162, align 8
   %910 = getelementptr inbounds i8, ptr %908, i64 %904
   store ptr %910, ptr %173, align 8
@@ -21542,7 +21542,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i875: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i866
   %1017 = and i64 %1012, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1016, ptr align 8 %.val30.i.i863, i64 %1017, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1016, ptr readonly align 8 %.val30.i.i863, i64 %1017, i1 false)
   store ptr %1016, ptr %167, align 8
   %1018 = getelementptr inbounds i8, ptr %1016, i64 %1012
   store ptr %1018, ptr %177, align 8
@@ -22645,7 +22645,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i820: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i811
   %1440 = and i64 %1435, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1439, ptr align 8 %.val30.i.i808, i64 %1440, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1439, ptr readonly align 8 %.val30.i.i808, i64 %1440, i1 false)
   store ptr %1439, ptr %179, align 8
   %1441 = getelementptr inbounds i8, ptr %1439, i64 %1435
   store ptr %1441, ptr %180, align 8
@@ -22940,7 +22940,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i800: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i791
   %1548 = and i64 %1543, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1547, ptr align 8 %.val30.i.i788, i64 %1548, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1547, ptr readonly align 8 %.val30.i.i788, i64 %1548, i1 false)
   store ptr %1547, ptr %185, align 16
   %1549 = getelementptr inbounds i8, ptr %1547, i64 %1543
   store ptr %1549, ptr %186, align 16
@@ -23246,7 +23246,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i780: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i771
   %1662 = and i64 %1657, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1661, ptr align 8 %.val30.i.i768, i64 %1662, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1661, ptr readonly align 8 %.val30.i.i768, i64 %1662, i1 false)
   store ptr %1661, ptr %197, align 8
   %1663 = getelementptr inbounds i8, ptr %1661, i64 %1657
   store ptr %1663, ptr %198, align 8
@@ -23535,7 +23535,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i760: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i751
   %1770 = and i64 %1765, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1769, ptr align 8 %.val30.i.i748, i64 %1770, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1769, ptr readonly align 8 %.val30.i.i748, i64 %1770, i1 false)
   store ptr %1769, ptr %203, align 8
   %1771 = getelementptr inbounds i8, ptr %1769, i64 %1765
   store ptr %1771, ptr %204, align 8
@@ -24005,7 +24005,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EEaSERKSA_.exit.i1291: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1280
   %1967 = and i64 %1958, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1966, ptr align 8 %.val30.i.i1277, i64 %1967, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1966, ptr readonly align 8 %.val30.i.i1277, i64 %1967, i1 false)
   store ptr %1966, ptr %1951, align 8
   %1968 = getelementptr inbounds i8, ptr %1966, i64 %1958
   store ptr %1968, ptr %1959, align 8
@@ -24325,7 +24325,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EEaSERKSA_.exit.i1271: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1260
   %2091 = and i64 %2082, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2090, ptr align 8 %.val30.i.i1257, i64 %2091, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2090, ptr readonly align 8 %.val30.i.i1257, i64 %2091, i1 false)
   store ptr %2090, ptr %2075, align 8
   %2092 = getelementptr inbounds i8, ptr %2090, i64 %2082
   store ptr %2092, ptr %2083, align 8
@@ -24650,7 +24650,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EEaSERKSA_.exit.i1251: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1240
   %2215 = and i64 %2206, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2214, ptr align 8 %.val30.i.i1237, i64 %2215, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2214, ptr readonly align 8 %.val30.i.i1237, i64 %2215, i1 false)
   store ptr %2214, ptr %2199, align 8
   %2216 = getelementptr inbounds i8, ptr %2214, i64 %2206
   store ptr %2216, ptr %2207, align 8
@@ -25112,7 +25112,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictISt4pairINS1_4poolIPN12_GLOBAL__N_19GraphNode
 _ZSt8_DestroyIPN5Yosys7hashlib4dictISt4pairINS1_4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES9_ES9_NS1_8hash_opsISA_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit39.thread.i.i.i.i.body: ; preds = %2344
   %2368 = extractvalue { ptr, i32 } %2345, 0
   %2369 = call ptr @__cxa_begin_catch(ptr %2368) #28
-  call fastcc void @_ZNSt4pairIS_IN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES7_ES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %1925) #28
+  call fastcc void @_ZNSt4pairIS_IN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES7_ES7_ED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %1925) #28
   call void @_ZdlPv(ptr noundef nonnull %1924) #29
   invoke void @__cxa_rethrow() #30
           to label %2375 unwind label %2370
@@ -25363,7 +25363,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i1914: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1905
   %2467 = and i64 %2462, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2466, ptr align 8 %.val30.i.i1902, i64 %2467, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2466, ptr readonly align 8 %.val30.i.i1902, i64 %2467, i1 false)
   store ptr %2466, ptr %208, align 8
   %2468 = getelementptr inbounds i8, ptr %2466, i64 %2462
   store ptr %2468, ptr %209, align 8
@@ -25785,7 +25785,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i.i1167: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1158
   %2623 = and i64 %2618, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2622, ptr align 8 %.val30.i.i1155, i64 %2623, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2622, ptr readonly align 8 %.val30.i.i1155, i64 %2623, i1 false)
   store ptr %2622, ptr %216, align 8
   %2624 = getelementptr inbounds i8, ptr %2622, i64 %2618
   store ptr %2624, ptr %217, align 8
@@ -26345,7 +26345,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EEaSERKSA_.exit.i1149: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1138
   %2832 = and i64 %2823, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2831, ptr align 8 %.val30.i.i1135, i64 %2832, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2831, ptr readonly align 8 %.val30.i.i1135, i64 %2832, i1 false)
   store ptr %2831, ptr %2816, align 8
   %2833 = getelementptr inbounds i8, ptr %2831, i64 %2823
   store ptr %2833, ptr %2824, align 8
@@ -26665,7 +26665,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EEaSERKSA_.exit.i1129: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1118
   %2956 = and i64 %2947, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2955, ptr align 8 %.val30.i.i1115, i64 %2956, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2955, ptr readonly align 8 %.val30.i.i1115, i64 %2956, i1 false)
   store ptr %2955, ptr %2940, align 8
   %2957 = getelementptr inbounds i8, ptr %2955, i64 %2947
   store ptr %2957, ptr %2948, align 8
@@ -26990,7 +26990,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EEaSERKSA_.exit.i1109: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i.i1098
   %3080 = and i64 %3071, 9223372036854775792
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3079, ptr align 8 %.val30.i.i1095, i64 %3080, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3079, ptr readonly align 8 %.val30.i.i1095, i64 %3080, i1 false)
   store ptr %3079, ptr %3064, align 8
   %3081 = getelementptr inbounds i8, ptr %3079, i64 %3071
   store ptr %3081, ptr %3072, align 8
@@ -27452,7 +27452,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictISt4pairINS1_4poolIPN12_GLOBAL__N_19GraphNode
 _ZSt8_DestroyIPN5Yosys7hashlib4dictISt4pairINS1_4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES9_ES9_NS1_8hash_opsISA_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit39.thread.i.i20.i.i.body: ; preds = %3209
   %3233 = extractvalue { ptr, i32 } %3210, 0
   %3234 = call ptr @__cxa_begin_catch(ptr %3233) #28
-  call fastcc void @_ZNSt4pairIS_IN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES7_ES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %2796) #28
+  call fastcc void @_ZNSt4pairIS_IN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES7_ES7_ED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %2796) #28
   call void @_ZdlPv(ptr noundef nonnull %2795) #29
   invoke void @__cxa_rethrow() #30
           to label %3240 unwind label %3235
@@ -29357,7 +29357,7 @@ _ZN5Yosys7hashlib4dictISt4pairINS0_4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_p
 
 .lr.ph.i.i.i.i.i333:                              ; preds = %.body, %.lr.ph.i.i.i.i.i333
   %.05.i.i.i.i.i334 = phi ptr [ %4025, %.lr.ph.i.i.i.i.i333 ], [ %4023, %.body ]
-  call fastcc void @_ZNSt4pairIS_IN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES7_ES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i.i334) #28
+  call fastcc void @_ZNSt4pairIS_IN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES7_ES7_ED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i.i334) #28
   %4025 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i334, i64 176
   %.not.i.i.i.i.i335 = icmp eq ptr %4025, %4024
   br i1 %.not.i.i.i.i.i335, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictISt4pairINS1_4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEES9_ES9_NS1_8hash_opsISA_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i338, label %.lr.ph.i.i.i.i.i333, !llvm.loop !136
@@ -32665,7 +32665,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_ops
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %78, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i ], [ %79, %78 ]
   %.092.i.i.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i.i.i ], [ %.val28.i.i.i, %78 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !148
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !148
   %82 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 16
   %83 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %82, %56
@@ -32753,7 +32753,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_ops
 .lr.ph.i.i.i.i.i.i21.i:                           ; preds = %113, %.lr.ph.i.i.i.i.i.i21.i
   %.03.i.i.i.i.i.i22.i = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i21.i ], [ %114, %113 ]
   %.092.i.i.i.i.i.i23.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i.i21.i ], [ %.val.i.i.i, %113 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i23.i, i64 16, i1 false), !alias.scope !152
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i22.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i23.i, i64 16, i1 false), !alias.scope !152
   %117 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i23.i, i64 16
   %118 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i22.i, i64 16
   %.not.i.i.i.i.i.i24.i = icmp eq ptr %117, %91
@@ -32975,7 +32975,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitENS0_4poolIPN12_GLOBAL__N_19GraphNodeENS
   %88 = phi ptr [ %57, %._crit_edge.i ], [ %.val, %2 ], [ %57, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us ], [ %57, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i ]
   %89 = phi ptr [ %58, %._crit_edge.i ], [ %.val, %2 ], [ %58, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us ], [ %58, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i ]
   %.1.ph = phi i32 [ %.0, %._crit_edge.i ], [ 0, %2 ], [ %.0, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us ], [ %.0, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %90 = getelementptr inbounds i8, ptr %3, i64 16
   %91 = getelementptr inbounds i8, ptr %3, i64 40
   %92 = getelementptr inbounds i8, ptr %4, i64 24
@@ -37023,7 +37023,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_p
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc4
   %15 = and i64 %9, 9223372036854775792
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %.val30.i, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr readonly align 8 %.val30.i, i64 %15, i1 false)
   br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i: ; preds = %.noexc4, %.lr.ph.i.i.i.i.preheader.i.i
@@ -38125,7 +38125,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPN12_GLOBAL__N_19
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_15Graph11update_tagsEvEUlPNS1_9GraphNodeEibE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_15Graph11update_tagsEvEUlPNS1_9GraphNodeEibE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_15Graph11update_tagsEvEUlPNS1_9GraphNodeEibE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -48886,7 +48886,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES5_NS1_12hash_ptr_
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %79, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i.i.i.i.i ], [ %80, %79 ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %79 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !258
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !258
   %83 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 24
   %84 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, %57
@@ -48973,7 +48973,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES5_NS1_12hash_ptr_
 .lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %111, %.lr.ph.i.i.i.i.i.i19.i.i
   %.03.i.i.i.i.i.i20.i.i = phi ptr [ %116, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %112, %111 ]
   %.092.i.i.i.i.i.i21.i.i = phi ptr [ %115, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %111 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i.i21.i.i, i64 24, i1 false), !alias.scope !263
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i21.i.i, i64 24, i1 false), !alias.scope !263
   %115 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i, i64 24
   %116 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i, i64 24
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %115, %89

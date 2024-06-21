@@ -70524,11 +70524,11 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io9WKTParser7Private15buildPropertiesERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEbb(ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.010.014.i, i1 noundef zeroext false, i1 noundef zeroext true)
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io9WKTParser7Private15buildPropertiesERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEbb(ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull readonly align 8 dereferenceable(8) %.sroa.010.014.i, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %.noexc unwind label %118
 
 .noexc:                                           ; preds = %38
-  invoke void @_ZN5osgeo4proj2io9WKTParser7Private9getAnchorB5cxx11ERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::optional") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.010.014.i)
+  invoke void @_ZN5osgeo4proj2io9WKTParser7Private9getAnchorB5cxx11ERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::optional") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.sroa.010.014.i)
           to label %.noexc20 unwind label %118
 
 .noexc20:                                         ; preds = %.noexc
@@ -71908,8 +71908,8 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
 25:                                               ; preds = %_ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io9WKTParser7Private15buildPropertiesERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEbb(ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io9WKTParser7Private15buildPropertiesERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEbb(ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.010.014.i, i1 noundef zeroext false, i1 noundef zeroext true), !noalias !412
-  call void @_ZN5osgeo4proj2io9WKTParser7Private9getAnchorB5cxx11ERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::optional") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.010.014.i), !noalias !412
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io9WKTParser7Private15buildPropertiesERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEbb(ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull readonly align 8 dereferenceable(8) %.sroa.010.014.i, i1 noundef zeroext false, i1 noundef zeroext true), !noalias !412
+  call void @_ZN5osgeo4proj2io9WKTParser7Private9getAnchorB5cxx11ERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::optional") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.sroa.010.014.i), !noalias !412
   invoke void @_ZN5osgeo4proj5datum15ParametricDatum6createERKNS0_4util11PropertyMapERKNS3_8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.560") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN5osgeo4proj2io9WKTParser7Private20buildParametricDatumERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit unwind label %28
 
@@ -116874,7 +116874,7 @@ define void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcS4_(ptr nocaptur
           to label %9 unwind label %10
 
 9:                                                ; preds = %8
-  invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %14 unwind label %12
 
 10:                                               ; preds = %8
@@ -127287,7 +127287,7 @@ define void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKci(ptr nocapture 
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %10 unwind label %8
 
 8:                                                ; preds = %.noexc
@@ -127584,7 +127584,7 @@ define void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcRKSt6vectorIdSaI
           to label %43 unwind label %44
 
 43:                                               ; preds = %._crit_edge
-  invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %49 unwind label %46
 
 44:                                               ; preds = %._crit_edge

@@ -450,7 +450,7 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 32:                                               ; preds = %5
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(47) %30, ptr noundef nonnull dereferenceable(47) @.str.38, i64 47)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(47) %30, ptr noundef nonnull readonly dereferenceable(47) @.str.38, i64 47)
   %33 = icmp eq i32 %bcmp.i, 0
   br i1 %33, label %opcua_string_compare.exit, label %opcua_string_compare.exit64
 
@@ -465,31 +465,31 @@ opcua_string_compare.exit:                        ; preds = %32
   br label %52
 
 37:                                               ; preds = %5
-  %bcmp.i47 = call i32 @bcmp(ptr noundef nonnull dereferenceable(56) %30, ptr noundef nonnull dereferenceable(56) @.str.39, i64 56)
+  %bcmp.i47 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(56) %30, ptr noundef nonnull readonly dereferenceable(56) @.str.39, i64 56)
   %38 = icmp eq i32 %bcmp.i47, 0
   %spec.select = select i1 %38, i64 5124, i64 4
   br label %opcua_string_compare.exit64
 
 39:                                               ; preds = %5
-  %bcmp.i51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(51) %30, ptr noundef nonnull dereferenceable(51) @.str.40, i64 51)
+  %bcmp.i51 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(51) %30, ptr noundef nonnull readonly dereferenceable(51) @.str.40, i64 51)
   %40 = icmp eq i32 %bcmp.i51, 0
   %spec.select73 = select i1 %40, i64 5124, i64 4
   br label %opcua_string_compare.exit64
 
 41:                                               ; preds = %5
-  %bcmp.i55 = call i32 @bcmp(ptr noundef nonnull dereferenceable(57) %30, ptr noundef nonnull dereferenceable(57) @.str.41, i64 57)
+  %bcmp.i55 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(57) %30, ptr noundef nonnull readonly dereferenceable(57) @.str.41, i64 57)
   %42 = icmp eq i32 %bcmp.i55, 0
   %spec.select74 = select i1 %42, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 43:                                               ; preds = %5
-  %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %30, ptr noundef nonnull dereferenceable(64) @.str.42, i64 64)
+  %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(64) %30, ptr noundef nonnull readonly dereferenceable(64) @.str.42, i64 64)
   %44 = icmp eq i32 %bcmp.i59, 0
   %spec.select75 = select i1 %44, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 45:                                               ; preds = %5
-  %bcmp.i63 = call i32 @bcmp(ptr noundef nonnull dereferenceable(63) %30, ptr noundef nonnull dereferenceable(63) @.str.43, i64 63)
+  %bcmp.i63 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(63) %30, ptr noundef nonnull readonly dereferenceable(63) @.str.43, i64 63)
   %46 = icmp eq i32 %bcmp.i63, 0
   %47 = select i1 %46, i64 8196, i64 4
   br label %opcua_string_compare.exit64

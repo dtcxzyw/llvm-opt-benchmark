@@ -2285,7 +2285,7 @@ define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull readonly align 2 dereferenceable(6) %2, i64 6, i1 false)
   br label %21
 
 21:                                               ; preds = %20, %9
@@ -2294,7 +2294,7 @@ define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull readonly align 2 dereferenceable(6) %1, i64 6, i1 false)
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -2329,9 +2329,9 @@ define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %
   %42 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %40, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %43, ptr noundef nonnull align 2 dereferenceable(6) %5, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %43, ptr noundef nonnull readonly align 2 dereferenceable(6) %5, i64 6, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %44, ptr noundef nonnull align 2 dereferenceable(6) %4, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %44, ptr noundef nonnull readonly align 2 dereferenceable(6) %4, i64 6, i1 false)
   br label %45
 
 45:                                               ; preds = %3, %31, %28
@@ -4018,9 +4018,9 @@ BufferGetPage.exit:                               ; preds = %141, %147
   %182 = load ptr, ptr %181, align 8
   %183 = call i32 @GetTopTransactionId() #11
   store i32 %183, ptr %7, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull readonly align 8 dereferenceable(12) %0, i64 12, i1 false)
   %184 = getelementptr inbounds i8, ptr %171, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %97, ptr noundef nonnull align 4 dereferenceable(6) %184, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %97, ptr noundef nonnull readonly align 4 dereferenceable(6) %184, i64 6, i1 false)
   %185 = getelementptr inbounds i8, ptr %182, i64 20
   %186 = load i16, ptr %185, align 4
   %187 = zext i16 %186 to i32
@@ -7917,7 +7917,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   %86 = getelementptr inbounds i8, ptr %81, i64 18
   %87 = load i16, ptr %86, align 2
   %88 = getelementptr inbounds i8, ptr %81, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %14, ptr noundef nonnull align 2 dereferenceable(6) %88, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %14, ptr noundef nonnull readonly align 2 dereferenceable(6) %88, i64 6, i1 false)
   %89 = load i32, ptr %6, align 4
   call void @LockBuffer(i32 noundef %89, i32 noundef 0) #11
   br i1 %.0214, label %90, label %128

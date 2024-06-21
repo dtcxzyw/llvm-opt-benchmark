@@ -247,7 +247,7 @@ if.then.i33:                                      ; preds = %if.end10
   %mul.i.i.i = mul nuw nsw i64 %div2.i.i, 40
   %call6.i.i = tail call ptr @xrealloc(ptr noundef null, i64 noundef %mul.i.i.i) #19
   store ptr %call6.i.i, ptr @commit_formats, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(360) %call6.i.i, ptr noundef nonnull align 16 dereferenceable(360) @__const.setup_commit_formats.builtin_formats, i64 360, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(360) %call6.i.i, ptr noundef nonnull readonly align 16 dereferenceable(360) @__const.setup_commit_formats.builtin_formats, i64 360, i1 false)
   tail call void @git_config(ptr noundef nonnull @git_pretty_formats_config, ptr noundef null) #19
   br label %if.end.i
 

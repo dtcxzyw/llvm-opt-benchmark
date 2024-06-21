@@ -30,7 +30,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
 if.then.i:                                        ; preds = %invoke.cont4
   %2 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val4 = load ptr, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5, ptr align 1 %a.val4, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5, ptr readonly align 1 %a.val4, i64 %a.val, i1 false)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.then.i, %invoke.cont4
@@ -42,7 +42,7 @@ if.then.i7:                                       ; preds = %invoke.cont6
   %3 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val5 = load ptr, ptr %3, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call5, i64 %a.val
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %b.val5, i64 %b.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val5, i64 %b.val, i1 false)
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry, %invoke.cont3
@@ -89,7 +89,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
 if.then.i:                                        ; preds = %invoke.cont7
   %3 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val8 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call8, ptr align 1 %a.val8, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call8, ptr readonly align 1 %a.val8, i64 %a.val, i1 false)
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then.i, %invoke.cont7
@@ -101,7 +101,7 @@ invoke.cont9:                                     ; preds = %if.then.i, %invoke.
 if.then.i10:                                      ; preds = %invoke.cont9
   %4 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val7 = load ptr, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %b.val7, i64 %b.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val7, i64 %b.val, i1 false)
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.then.i10, %invoke.cont9
@@ -113,7 +113,7 @@ if.then.i14:                                      ; preds = %invoke.cont11
   %5 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val6 = load ptr, ptr %5, align 8
   %add.ptr.i11 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %b.val
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i11, ptr align 1 %c.val6, i64 %c.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i11, ptr readonly align 1 %c.val6, i64 %c.val, i1 false)
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry, %invoke.cont6
@@ -152,7 +152,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
 if.then.i:                                        ; preds = %invoke.cont10
   %4 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val11 = load ptr, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call11, ptr align 1 %a.val11, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call11, ptr readonly align 1 %a.val11, i64 %a.val, i1 false)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.then.i, %invoke.cont10
@@ -164,7 +164,7 @@ invoke.cont12:                                    ; preds = %if.then.i, %invoke.
 if.then.i13:                                      ; preds = %invoke.cont12
   %5 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val10 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %b.val10, i64 %b.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val10, i64 %b.val, i1 false)
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.then.i13, %invoke.cont12
@@ -176,7 +176,7 @@ invoke.cont14:                                    ; preds = %if.then.i13, %invok
 if.then.i17:                                      ; preds = %invoke.cont14
   %6 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val9 = load ptr, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i14, ptr align 1 %c.val9, i64 %c.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i14, ptr readonly align 1 %c.val9, i64 %c.val, i1 false)
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %if.then.i17, %invoke.cont14
@@ -188,7 +188,7 @@ if.then.i21:                                      ; preds = %invoke.cont16
   %7 = getelementptr inbounds i8, ptr %d, i64 8
   %d.val8 = load ptr, ptr %7, align 8
   %add.ptr.i18 = getelementptr inbounds i8, ptr %add.ptr.i14, i64 %c.val
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i18, ptr align 1 %d.val8, i64 %d.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i18, ptr readonly align 1 %d.val8, i64 %d.val, i1 false)
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry, %invoke.cont9
@@ -332,7 +332,7 @@ if.then.i:                                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val4 = load ptr, ptr %1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %call
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %a.val4, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val4, i64 %a.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
@@ -356,7 +356,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val7 = load ptr, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %a.val7, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val7, i64 %a.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
@@ -368,7 +368,7 @@ if.then.i9:                                       ; preds = %_ZN4absl12_GLOBAL__
   %3 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val6 = load ptr, ptr %3, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %a.val
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %b.val6, i64 %b.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val6, i64 %b.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit11
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit11: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, %if.then.i9
@@ -394,7 +394,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val10 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %a.val10, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val10, i64 %a.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
@@ -406,7 +406,7 @@ _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then
 if.then.i12:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
   %4 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val9 = load ptr, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %b.val9, i64 %b.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val9, i64 %b.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, %if.then.i12
@@ -418,7 +418,7 @@ if.then.i16:                                      ; preds = %_ZN4absl12_GLOBAL__
   %5 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val8 = load ptr, ptr %5, align 8
   %add.ptr.i13 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %b.val
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i13, ptr align 1 %c.val8, i64 %c.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i13, ptr readonly align 1 %c.val8, i64 %c.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit18
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit18: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit14, %if.then.i16
@@ -446,7 +446,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %a, i64 8
   %a.val13 = load ptr, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %a.val13, i64 %a.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr readonly align 1 %a.val13, i64 %a.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then.i
@@ -458,7 +458,7 @@ _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then
 if.then.i15:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit
   %5 = getelementptr inbounds i8, ptr %b, i64 8
   %b.val12 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %b.val12, i64 %b.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %b.val12, i64 %b.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit, %if.then.i15
@@ -470,7 +470,7 @@ _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17: ; preds = %_ZN4absl12_GL
 if.then.i19:                                      ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17
   %6 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val11 = load ptr, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i16, ptr align 1 %c.val11, i64 %c.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i16, ptr readonly align 1 %c.val11, i64 %c.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit17, %if.then.i19
@@ -482,7 +482,7 @@ if.then.i23:                                      ; preds = %_ZN4absl12_GLOBAL__
   %7 = getelementptr inbounds i8, ptr %d, i64 8
   %d.val10 = load ptr, ptr %7, align 8
   %add.ptr.i20 = getelementptr inbounds i8, ptr %add.ptr.i16, i64 %c.val
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr align 1 %d.val10, i64 %d.val, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr readonly align 1 %d.val10, i64 %d.val, i1 false)
   br label %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit25
 
 _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit25: ; preds = %_ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit21, %if.then.i23

@@ -1458,7 +1458,7 @@ if.end2.i:                                        ; preds = %if.end.i3
   br i1 %cmp3.not.i, label %lor.lhs.false3, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end2.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr align 1 %src, i64 %len, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr readonly align 1 %src, i64 %len, i1 false)
   br label %lor.lhs.false3
 
 WPACKET_memcpy.exit:                              ; preds = %if.end.i3

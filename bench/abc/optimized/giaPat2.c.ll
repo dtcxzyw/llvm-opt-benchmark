@@ -3632,10 +3632,10 @@ define ptr @Gia_ManDupCones2(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #28
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #28
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #25
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %22) #26
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %22) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %._crit_edge, %23
@@ -4839,7 +4839,7 @@ Vec_IntClearAppend.exit305:                       ; preds = %Vec_IntPush.exit.i2
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %276
-  call fastcc void @Vec_IntAppend(ptr noundef nonnull %277, ptr noundef nonnull %59)
+  call fastcc void @Vec_IntAppend(ptr noundef nonnull %277, ptr noundef nonnull readonly %59)
   %281 = add nsw i32 %.041.i, 1
   br label %Min_ManAccumulate.exit
 
@@ -7161,7 +7161,7 @@ define noundef i32 @Patt_ManProfileErrorsOne(ptr nocapture noundef readonly %0, 
   %4 = getelementptr i8, ptr %0, i64 4
   %.val.i = load i32, ptr %4, align 4
   %5 = sdiv i32 %.val.i, %1
-  %6 = tail call ptr @Patt_ManTransposeErrors(ptr noundef %0, i32 noundef %1)
+  %6 = tail call ptr @Patt_ManTransposeErrors(ptr noundef readonly %0, i32 noundef %1)
   %7 = shl nsw i32 %5, 6
   %8 = tail call ptr @Patt_ManOutputErrorCoverage(ptr noundef %6, i32 noundef %7)
   %9 = getelementptr inbounds i8, ptr %6, i64 8

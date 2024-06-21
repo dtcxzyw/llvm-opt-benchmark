@@ -752,7 +752,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.012.i, i64 56
   %7 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %2) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %2) #29
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %for.inc.i
 
@@ -1086,7 +1086,7 @@ entry:
   %0 = load ptr, ptr %conf, align 8
   %queues1 = getelementptr inbounds i8, ptr %0, i64 8200
   %1 = load i32, ptr %queues1, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @qemu_macaddr_set_free.base, i64 5)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @qemu_macaddr_set_free.base, i64 5)
   %cmp.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %qemu_macaddr_set_free.exit
 
@@ -2147,7 +2147,7 @@ entry.tail.i:                                     ; preds = %lor.lhs.false
   br i1 %3, label %if.end, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %lor.lhs.false, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end, label %return
 
@@ -2197,7 +2197,7 @@ entry.tail.i.i:                                   ; preds = %lor.lhs.false.i
   br i1 %4, label %if.end.i, label %is_help_option.exit.i
 
 is_help_option.exit.i:                            ; preds = %entry.tail.i.i, %lor.lhs.false.i
-  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end.i, label %if.end.i4
 
@@ -2523,7 +2523,7 @@ for.body.i:                                       ; preds = %if.end31, %for.inc.
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %9 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %6) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.then34, label %for.inc.i
 
@@ -2581,7 +2581,7 @@ for.body.i30:                                     ; preds = %if.then52, %for.inc
 if.end.i33:                                       ; preds = %for.body.i30
   %name.i34 = getelementptr inbounds i8, ptr %nc.07.i31, i64 56
   %17 = load ptr, ptr %name.i34, align 8
-  %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %14) #29
+  %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %14) #29
   %tobool1.not.i36 = icmp eq i32 %call.i35, 0
   br i1 %tobool1.not.i36, label %if.end58, label %for.inc.i37
 
@@ -2622,7 +2622,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %2 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %id) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %id) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end, label %for.inc.i
 
@@ -2969,7 +2969,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.012.i, i64 56
   %4 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %name) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %name) #29
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %for.inc.i
 
@@ -3406,7 +3406,7 @@ entry.tail.i:                                     ; preds = %land.lhs.true
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -3447,7 +3447,7 @@ entry.tail.i:                                     ; preds = %if.end
   br i1 %3, label %if.then5, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %if.end, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then5, label %for.body.i.preheader
 
@@ -3632,7 +3632,7 @@ for.body.i29:                                     ; preds = %if.then45, %for.inc
 if.end.i30:                                       ; preds = %for.body.i29
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %17 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %nd_id.0) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %nd_id.0) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %qemu_find_netdev.exit, label %for.inc.i31
 
@@ -4231,7 +4231,7 @@ for.body.i38:                                     ; preds = %if.then6, %for.inc.
 if.end.i:                                         ; preds = %for.body.i38
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %7 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %4) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end21, label %for.inc.i39
 

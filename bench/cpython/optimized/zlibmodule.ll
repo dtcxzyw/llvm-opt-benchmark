@@ -3638,7 +3638,7 @@ do.cond59.i:                                      ; preds = %do.cond.i
 
 save.i:                                           ; preds = %do.cond59.i, %land.lhs.true.i, %if.end41.i, %if.then26.i
   %err.2.i = phi i32 [ %err.1.i, %if.then26.i ], [ 2, %land.lhs.true.i ], [ %call45.i, %if.end41.i ], [ %call45.i, %do.cond59.i ]
-  %call63.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef nonnull %data, i32 noundef %err.2.i)
+  %call63.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef nonnull readonly %data, i32 noundef %err.2.i)
   %cmp64.i = icmp slt i32 %call63.i, 0
   br i1 %cmp64.i, label %abort.i, label %if.end66.i
 

@@ -3117,14 +3117,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %file_.i.i = getelementptr inbounds i8, ptr %d, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !84
-  invoke void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull %d)
+  invoke void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly %d)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
   %call1.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26, !noalias !84
   %1 = extractvalue { i64, ptr } %call1.i, 0
   %2 = extractvalue { i64, ptr } %call1.i, 1
-  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull align 8 poison)
+  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull readnone align 8 poison)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3267,14 +3267,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %file_.i.i = getelementptr inbounds i8, ptr %d, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !88
-  invoke void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull %d)
+  invoke void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly %d)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
   %call1.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26, !noalias !88
   %1 = extractvalue { i64, ptr } %call1.i, 0
   %2 = extractvalue { i64, ptr } %call1.i, 1
-  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull align 8 poison)
+  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull readnone align 8 poison)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3479,14 +3479,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %file_.i.i = getelementptr inbounds i8, ptr %d, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !91
-  invoke void @_ZN6google8protobuf8compiler3cpp13ExtensionNameB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull %d)
+  invoke void @_ZN6google8protobuf8compiler3cpp13ExtensionNameB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly %d)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
   %call1.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26, !noalias !91
   %1 = extractvalue { i64, ptr } %call1.i, 0
   %2 = extractvalue { i64, ptr } %call1.i, 1
-  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull align 8 poison)
+  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull readnone align 8 poison)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4146,7 +4146,7 @@ entry:
   store i64 1, ptr %ref.tmp.i, align 8, !noalias !127
   %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.32, ptr %0, align 8, !noalias !127
-  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef %descriptor), !noalias !127
+  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef readonly %descriptor), !noalias !127
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #26, !noalias !127
   %1 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %1, ptr %ref.tmp1.i, align 8, !noalias !127
@@ -4223,7 +4223,7 @@ entry:
   store i64 1, ptr %ref.tmp.i, align 8, !noalias !130
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.32, ptr %1, align 8, !noalias !130
-  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef %descriptor), !noalias !130
+  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef readonly %descriptor), !noalias !130
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #26, !noalias !130
   %2 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %2, ptr %ref.tmp1.i, align 8, !noalias !130
@@ -4327,7 +4327,7 @@ entry:
   store i64 1, ptr %ref.tmp1.i.i, align 8, !noalias !136
   %3 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
   store ptr @.str.32, ptr %3, align 8, !noalias !136
-  call void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %1, ptr %2), !noalias !139
+  call void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %1, ptr readonly %2), !noalias !139
   %call.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #26, !noalias !136
   %4 = extractvalue { i64, ptr } %call.i.i.i, 0
   store i64 %4, ptr %ref.tmp2.i.i, align 8, !noalias !136
@@ -4374,7 +4374,7 @@ entry:
   store i64 1, ptr %ref.tmp1.i.i, align 8, !noalias !143
   %3 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
   store ptr @.str.32, ptr %3, align 8, !noalias !143
-  call void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %1, ptr %2), !noalias !146
+  call void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %1, ptr readonly %2), !noalias !146
   %call.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #26, !noalias !143
   %4 = extractvalue { i64, ptr } %call.i.i.i, 0
   store i64 %4, ptr %ref.tmp2.i.i, align 8, !noalias !143
@@ -5612,11 +5612,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %file_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !156
-  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull %call), !noalias !156
+  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly %call), !noalias !156
   %call1.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26, !noalias !156
   %1 = extractvalue { i64, ptr } %call1.i, 0
   %2 = extractvalue { i64, ptr } %call1.i, 1
-  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull align 8 poison)
+  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %1, ptr %2, ptr nonnull readnone align 8 poison)
           to label %_ZN6google8protobuf8compiler3cpp18QualifiedClassNameB5cxx11EPKNS0_10DescriptorERKNS2_7OptionsE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -6391,11 +6391,11 @@ sw.bb93:                                          ; preds = %_ZNK6google8protobu
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !174
   %file_.i.i.i = getelementptr inbounds i8, ptr %call.i88, i64 16
   %64 = load ptr, ptr %file_.i.i.i, align 8, !noalias !177
-  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull %call.i88), !noalias !177
+  call void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull readonly %call.i88), !noalias !177
   %call1.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #26, !noalias !177
   %65 = extractvalue { i64, ptr } %call1.i.i, 0
   %66 = extractvalue { i64, ptr } %call1.i.i, 1
-  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp96, ptr noundef %64, i64 %65, ptr %66, ptr nonnull align 8 poison)
+  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp96, ptr noundef %64, i64 %65, ptr %66, ptr nonnull readnone align 8 poison)
           to label %invoke.cont100 unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad.body, %lpad17.body, %lpad23, %lpad33.body, %lpad41.body, %lpad47, %lpad53, %lpad58.body, %ehcleanup, %ehcleanup92, %lpad97, %lpad.i.i
@@ -6491,7 +6491,7 @@ cond.true:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !180
-  invoke void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull %descriptor)
+  invoke void @_ZN6google8protobuf8compiler3cpp9ClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly %descriptor)
           to label %.noexc unwind label %lpad.body.thread10
 
 lpad.body.thread10:                               ; preds = %cond.true
@@ -6503,7 +6503,7 @@ lpad.body.thread10:                               ; preds = %cond.true
   %call1.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26, !noalias !180
   %2 = extractvalue { i64, ptr } %call1.i, 0
   %3 = extractvalue { i64, ptr } %call1.i, 1
-  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %2, ptr %3, ptr nonnull align 8 poison)
+  invoke void @_ZN6google8protobuf8compiler3cpp24QualifiedFileLevelSymbolB5cxx11EPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0, i64 %2, ptr %3, ptr nonnull readnone align 8 poison)
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -11263,7 +11263,7 @@ land.lhs.true:                                    ; preds = %entry
   %call3.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %my_name.i) #26
   %3 = extractvalue { i64, ptr } %call3.i, 0
   %4 = extractvalue { i64, ptr } %call3.i, 1
-  %call4.i = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp20GetBootstrapBasenameERKNS2_7OptionsESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS8_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(206) %options, i64 %3, ptr %4, ptr noundef nonnull %my_name.i)
+  %call4.i = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp20GetBootstrapBasenameERKNS2_7OptionsESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS8_SaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(206) %options, i64 %3, ptr %4, ptr noundef nonnull %my_name.i)
           to label %_ZN6google8protobuf8compiler3cpp16IsBootstrapProtoERKNS2_7OptionsEPKNS0_14FileDescriptorE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %land.lhs.true
@@ -11414,7 +11414,7 @@ do.end:                                           ; preds = %invoke.cont8
   store i64 1, ptr %ref.tmp1.i.i, align 8, !noalias !280
   %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
   store ptr @.str.32, ptr %12, align 8, !noalias !280
-  invoke void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %10, ptr %11)
+  invoke void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %10, ptr readonly %11)
           to label %.noexc10 unwind label %lpad2.loopexit.split-lp
 
 .noexc10:                                         ; preds = %do.end
@@ -11501,7 +11501,7 @@ entry:
 _ZN6google8protobuf8compiler3cpp23UsingImplicitWeakFieldsEPKNS0_14FileDescriptorERKNS2_7OptionsE.exit: ; preds = %entry
   %file_.i = getelementptr inbounds i8, ptr %field, i64 16
   %1 = load ptr, ptr %file_.i, align 8
-  %call.i.i = tail call noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef null)
+  %call.i.i = tail call noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(206) %options, ptr noundef null)
   %cmp.i = icmp eq i32 %call.i.i, 3
   br i1 %cmp.i, label %land.lhs.true, label %land.end
 
@@ -11730,7 +11730,7 @@ _ZN6google8protobuf8compiler3cpp23UsingImplicitWeakFieldsEPKNS0_14FileDescriptor
   %16 = load ptr, ptr %15, align 8
   %file_.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %file_.i.i, align 8
-  %call.i.i = tail call noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef null)
+  %call.i.i = tail call noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef %17, ptr noundef nonnull readonly align 8 dereferenceable(206) %options_, ptr noundef null)
   %cmp.i = icmp eq i32 %call.i.i, 3
   %spec.select = zext i1 %cmp.i to i8
   br label %if.end9
@@ -26349,7 +26349,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
