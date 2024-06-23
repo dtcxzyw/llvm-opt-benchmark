@@ -24798,8 +24798,8 @@ define void @_ZN8wasmtime7runtime9component8instance12Instantiator3new17h324953b
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$wasmtime_runtime..component..ComponentRuntimeInfo$GT$$GT$17h2e71d0b318d5a00dE.exit": ; preds = %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit", %.thread, %98
-  %.pn19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit" ], [ %.pn39, %98 ], [ %.pn39, %.thread ]
+"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$wasmtime_runtime..component..ComponentRuntimeInfo$GT$$GT$17h2e71d0b318d5a00dE.exit": ; preds = %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit", %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread", %98
+  %.pn19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit" ], [ %.pn39, %98 ], [ %.pn39, %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread" ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$wasmtime..runtime..component..component..Component$GT$17h50a24a770f72ac1dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #45
           to label %36 unwind label %89
 
@@ -24830,7 +24830,7 @@ define void @_ZN8wasmtime7runtime9component8instance12Instantiator3new17h324953b
   %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr200drop_in_place$LT$alloc..sync..ArcInner$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_environ..component..types..ResourceIndex$C$wasmtime..runtime..component..resources..ResourceType$GT$$GT$$GT$17hbe1e227716cff922E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #45
-          to label %.thread unwind label %50
+          to label %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread" unwind label %50
 
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
@@ -24947,15 +24947,15 @@ define void @_ZN8wasmtime7runtime9component8instance12Instantiator3new17h324953b
           cleanup
   %92 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !3265
   %93 = icmp eq i64 %92, 1
-  br i1 %93, label %94, label %.thread
+  br i1 %93, label %94, label %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread"
 
 94:                                               ; preds = %91
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb02b1f713a50ba57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %.thread unwind label %89
+          to label %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread" unwind label %89
 
-.thread:                                          ; preds = %91, %94, %48
-  %.pn39 = phi { ptr, i32 } [ %49, %48 ], [ %lpad.thr_comm, %94 ], [ %lpad.thr_comm, %91 ]
+"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread": ; preds = %48, %91, %94
+  %.pn39 = phi { ptr, i32 } [ %lpad.thr_comm, %94 ], [ %lpad.thr_comm, %91 ], [ %49, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3270)
   call void @llvm.experimental.noalias.scope.decl(metadata !3273)
   %95 = load ptr, ptr %7, align 8, !alias.scope !3276, !nonnull !13, !noundef !13
@@ -24963,7 +24963,7 @@ define void @_ZN8wasmtime7runtime9component8instance12Instantiator3new17h324953b
   %97 = icmp eq i64 %96, 1
   br i1 %97, label %98, label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$wasmtime_runtime..component..ComponentRuntimeInfo$GT$$GT$17h2e71d0b318d5a00dE.exit"
 
-98:                                               ; preds = %.thread
+98:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h37a79dfae1abc4f6E.exit.thread"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7f2c5639994e9613E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
           to label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$wasmtime_runtime..component..ComponentRuntimeInfo$GT$$GT$17h2e71d0b318d5a00dE.exit" unwind label %89
