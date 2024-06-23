@@ -2097,10 +2097,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp ne ptr %a1, null
-  %or.cond1 = and i1 %cmp2, %cmp1
   %cmp7 = icmp ne ptr %a2, null
-  %or.cond2 = and i1 %cmp, %cmp7
-  %or.cond11 = or i1 %or.cond1, %or.cond2
+  %or.cond11 = xor i1 %cmp2, %cmp7
   br i1 %or.cond11, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end

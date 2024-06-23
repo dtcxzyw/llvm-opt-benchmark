@@ -1641,10 +1641,8 @@ equalRuleLocks.exit:                              ; preds = %107, %116, %121, %1
 
 152:                                              ; preds = %equalRuleLocks.exit
   %153 = icmp ne ptr %147, null
-  %or.cond3.i = and i1 %153, %151
   %154 = icmp ne ptr %149, null
-  %or.cond5.i = and i1 %150, %154
-  %or.cond36.i = or i1 %or.cond3.i, %or.cond5.i
+  %or.cond36.i = xor i1 %153, %154
   br i1 %or.cond36.i, label %equalRSDesc.exit, label %155
 
 155:                                              ; preds = %152
