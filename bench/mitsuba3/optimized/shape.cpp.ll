@@ -1962,16 +1962,16 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %142 = getelementptr inbounds i8, ptr %16, i64 16
   %143 = load <4 x float>, ptr %16, align 16
   %144 = fcmp contract une <4 x float> %143, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %145 = and <4 x i1> %144, %91
-  %146 = load <4 x float>, ptr %95, align 16
-  %147 = select contract <4 x i1> %145, <4 x float> %143, <4 x float> %146
+  %145 = load <4 x float>, ptr %95, align 16
+  %146 = and <4 x i1> %144, %91
+  %147 = select contract <4 x i1> %146, <4 x float> %143, <4 x float> %145
   call void @llvm.assume(i1 true) [ "align"(ptr %117, i64 16) ]
   store <4 x float> %147, ptr %117, align 16
   %148 = getelementptr inbounds i8, ptr %89, i64 240
   call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 16) ]
   %149 = load <4 x float>, ptr %148, align 16
   %150 = load <4 x float>, ptr %142, align 16
-  %151 = select contract <4 x i1> %145, <4 x float> %150, <4 x float> %149
+  %151 = select contract <4 x i1> %146, <4 x float> %150, <4 x float> %149
   call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 16) ]
   store <4 x float> %151, ptr %148, align 16
   %152 = getelementptr inbounds i8, ptr %89, i64 256
@@ -1979,7 +1979,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   call void @llvm.assume(i1 true) [ "align"(ptr %152, i64 16) ]
   %154 = load <4 x float>, ptr %152, align 16
   %155 = load <4 x float>, ptr %153, align 16
-  %156 = select contract <4 x i1> %145, <4 x float> %155, <4 x float> %154
+  %156 = select contract <4 x i1> %146, <4 x float> %155, <4 x float> %154
   call void @llvm.assume(i1 true) [ "align"(ptr %152, i64 16) ]
   store <4 x float> %156, ptr %152, align 16
   %157 = getelementptr inbounds i8, ptr %89, i64 288
@@ -1987,7 +1987,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %159 = shufflevector <4 x i32> %158, <4 x i32> poison, <4 x i32> zeroinitializer
   call void @llvm.assume(i1 true) [ "align"(ptr %157, i64 16) ]
   %160 = load <4 x i32>, ptr %157, align 16
-  %161 = select <4 x i1> %145, <4 x i32> %159, <4 x i32> %160
+  %161 = select <4 x i1> %146, <4 x i32> %159, <4 x i32> %160
   call void @llvm.assume(i1 true) [ "align"(ptr %157, i64 16) ]
   store <4 x i32> %161, ptr %157, align 16
   %162 = getelementptr inbounds i8, ptr %89, i64 272
@@ -1995,7 +1995,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %164 = shufflevector <4 x i32> %163, <4 x i32> poison, <4 x i32> zeroinitializer
   call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 16) ]
   %165 = load <4 x i32>, ptr %162, align 16
-  %166 = select <4 x i1> %145, <4 x i32> %164, <4 x i32> %165
+  %166 = select <4 x i1> %146, <4 x i32> %164, <4 x i32> %165
   call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 16) ]
   store <4 x i32> %166, ptr %162, align 16
   %167 = getelementptr inbounds i8, ptr %89, i64 304
@@ -2003,7 +2003,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %169 = shufflevector <4 x i32> %168, <4 x i32> poison, <4 x i32> zeroinitializer
   call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 16) ]
   %170 = load <4 x i32>, ptr %167, align 16
-  %171 = select <4 x i1> %145, <4 x i32> %169, <4 x i32> %170
+  %171 = select <4 x i1> %146, <4 x i32> %169, <4 x i32> %170
   call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 16) ]
   store <4 x i32> %171, ptr %167, align 16
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm4E7RTCRay47RTCHit4EEvPiPvjjjPT2_PT3_.exit

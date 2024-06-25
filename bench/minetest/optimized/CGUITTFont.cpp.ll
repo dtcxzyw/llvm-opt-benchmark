@@ -6454,9 +6454,9 @@ vector.ph990:                                     ; preds = %for.body309.prehead
   %n.mod.vf991 = and i64 %sub.ptr.div.i.i715, 3
   %n.vec992 = sub nuw nsw i64 %conv306, %n.mod.vf991
   %broadcast.splatinsert1003 = insertelement <2 x i32> poison, i32 %200, i64 0
+  %broadcast.splat1004 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <2 x i32> zeroinitializer
   %203 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <4 x i32> zeroinitializer
   %204 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <4 x i32> zeroinitializer
-  %broadcast.splat1004 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <2 x i32> zeroinitializer
   br label %vector.body995
 
 vector.body995:                                   ; preds = %vector.body995, %vector.ph990
@@ -6466,9 +6466,9 @@ vector.body995:                                   ; preds = %vector.body995, %ve
   %207 = getelementptr inbounds %"class.irr::core::vector2d", ptr %202, i64 %205
   %wide.vec997 = load <4 x i32>, ptr %206, align 4, !tbaa !30
   %wide.vec998 = load <4 x i32>, ptr %207, align 4, !tbaa !30
-  %interleaved.vec1005 = add nsw <4 x i32> %wide.vec997, %204
-  %interleaved.vec1006 = add nsw <4 x i32> %wide.vec998, %203
+  %interleaved.vec1005 = add nsw <4 x i32> %wide.vec997, %203
   store <4 x i32> %interleaved.vec1005, ptr %206, align 4, !tbaa !30
+  %interleaved.vec1006 = add nsw <4 x i32> %wide.vec998, %204
   store <4 x i32> %interleaved.vec1006, ptr %207, align 4, !tbaa !30
   %index.next1007 = add nuw i64 %index996, 4
   %208 = icmp eq i64 %index.next1007, %n.vec992
@@ -6538,9 +6538,9 @@ vector.ph974:                                     ; preds = %for.body358.lr.ph
   %n.mod.vf975 = and i64 %sub.ptr.div.i.i726, 3
   %n.vec976 = sub nuw nsw i64 %conv355, %n.mod.vf975
   %broadcast.splatinsert = insertelement <2 x i32> poison, i32 %220, i64 0
+  %broadcast.splat = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <2 x i32> zeroinitializer
   %221 = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <4 x i32> zeroinitializer
   %222 = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <4 x i32> zeroinitializer
-  %broadcast.splat = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <2 x i32> zeroinitializer
   br label %vector.body979
 
 vector.body979:                                   ; preds = %vector.body979, %vector.ph974
@@ -6550,9 +6550,9 @@ vector.body979:                                   ; preds = %vector.body979, %ve
   %225 = getelementptr inbounds %"class.irr::core::vector2d", ptr %219, i64 %223
   %wide.vec = load <4 x i32>, ptr %224, align 4, !tbaa !30
   %wide.vec981 = load <4 x i32>, ptr %225, align 4, !tbaa !30
-  %interleaved.vec = sub nsw <4 x i32> %wide.vec, %222
-  %interleaved.vec985 = sub nsw <4 x i32> %wide.vec981, %221
+  %interleaved.vec = sub nsw <4 x i32> %wide.vec, %221
   store <4 x i32> %interleaved.vec, ptr %224, align 4, !tbaa !30
+  %interleaved.vec985 = sub nsw <4 x i32> %wide.vec981, %222
   store <4 x i32> %interleaved.vec985, ptr %225, align 4, !tbaa !30
   %index.next986 = add nuw i64 %index980, 4
   %226 = icmp eq i64 %index.next986, %n.vec976

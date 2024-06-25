@@ -3361,35 +3361,35 @@ entry:
   %6 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %mul4.i)
   %7 = tail call float @llvm.fmuladd.f32(float %6, float -2.000000e+00, float 1.000000e+00)
   %8 = insertelement <2 x float> poison, float %1, i64 0
-  %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
-  %10 = insertelement <2 x float> %3, float %1, i64 0
-  %11 = insertelement <2 x float> poison, float %2, i64 0
-  %12 = insertelement <2 x float> %11, float %1, i64 1
-  %13 = fmul <2 x float> %10, %12
-  %14 = insertelement <2 x float> %3, float %0, i64 1
-  %15 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> %14, <2 x float> %13)
-  %16 = fmul <2 x float> %15, <float 2.000000e+00, float 2.000000e+00>
-  %17 = extractelement <2 x float> %3, i64 0
-  %18 = tail call float @llvm.fmuladd.f32(float %17, float %5, float %mul20.i)
-  %mul21.i = fmul float %18, 2.000000e+00
-  %19 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %mul4.i)
-  %20 = tail call float @llvm.fmuladd.f32(float %19, float -2.000000e+00, float 1.000000e+00)
-  %mul50.i = fmul float %17, %1
-  %21 = tail call float @llvm.fmuladd.f32(float %5, float %0, float %mul50.i)
-  %mul51.i = fmul float %21, 2.000000e+00
-  %22 = fmul <2 x float> %3, %3
-  %mul57.i = extractelement <2 x float> %22, i64 1
-  %23 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %mul57.i)
-  %24 = tail call float @llvm.fmuladd.f32(float %23, float -2.000000e+00, float 1.000000e+00)
+  %9 = insertelement <2 x float> %3, float %1, i64 0
+  %10 = insertelement <2 x float> poison, float %2, i64 0
+  %11 = insertelement <2 x float> %10, float %1, i64 1
+  %12 = fmul <2 x float> %9, %11
+  %13 = insertelement <2 x float> %3, float %0, i64 1
+  %14 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> %13, <2 x float> %12)
+  %15 = fmul <2 x float> %14, <float 2.000000e+00, float 2.000000e+00>
+  %16 = extractelement <2 x float> %3, i64 0
+  %17 = tail call float @llvm.fmuladd.f32(float %16, float %5, float %mul20.i)
+  %mul21.i = fmul float %17, 2.000000e+00
+  %18 = tail call float @llvm.fmuladd.f32(float %16, float %16, float %mul4.i)
+  %19 = tail call float @llvm.fmuladd.f32(float %18, float -2.000000e+00, float 1.000000e+00)
+  %mul50.i = fmul float %16, %1
+  %20 = tail call float @llvm.fmuladd.f32(float %5, float %0, float %mul50.i)
+  %mul51.i = fmul float %20, 2.000000e+00
+  %21 = fmul <2 x float> %3, %3
+  %mul57.i = extractelement <2 x float> %21, i64 1
+  %22 = tail call float @llvm.fmuladd.f32(float %16, float %16, float %mul57.i)
+  %23 = tail call float @llvm.fmuladd.f32(float %22, float -2.000000e+00, float 1.000000e+00)
   store float %7, ptr %mat, align 4
-  store <2 x float> %16, ptr %ref.tmp.sroa.2.0.mat.sroa_idx, align 4
+  store <2 x float> %15, ptr %ref.tmp.sroa.2.0.mat.sroa_idx, align 4
   %ref.tmp.sroa.4.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 12
   store float %mul21.i, ptr %ref.tmp.sroa.4.0.mat.sroa_idx, align 4
   %ref.tmp.sroa.5.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 16
-  store float %20, ptr %ref.tmp.sroa.5.0.mat.sroa_idx, align 4
+  store float %19, ptr %ref.tmp.sroa.5.0.mat.sroa_idx, align 4
   %ref.tmp.sroa.6.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 20
+  %24 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
   %25 = fneg <2 x float> %3
-  %26 = fmul <2 x float> %9, %25
+  %26 = fmul <2 x float> %24, %25
   %27 = insertelement <2 x float> poison, float %0, i64 0
   %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
   %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> %28, <2 x float> %26)
@@ -3398,7 +3398,7 @@ entry:
   %ref.tmp.sroa.8.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 28
   store float %mul51.i, ptr %ref.tmp.sroa.8.0.mat.sroa_idx, align 4
   %ref.tmp.sroa.9.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 32
-  store float %24, ptr %ref.tmp.sroa.9.0.mat.sroa_idx, align 4
+  store float %23, ptr %ref.tmp.sroa.9.0.mat.sroa_idx, align 4
   ret void
 }
 
