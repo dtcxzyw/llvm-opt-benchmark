@@ -593,3 +593,6 @@
 [submodule "bench/freetype/freetype"]
 	path = bench/freetype/freetype
 	url = git@github.com:freetype/freetype.git
+[submodule "bench/libwebp/libwebp"]
+	path = bench/libwebp/libwebp
+	url = git@github.com:webmproject/libwebp.git

@@ -1,0 +1,326 @@
+; ModuleID = 'bench/libwebp/original/rescaler_utils.c.ll'
+source_filename = "bench/libwebp/original/rescaler_utils.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+; Function Attrs: nounwind uwtable
+define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+  %10 = icmp slt i32 %1, %4
+  %11 = zext i1 %10 to i32
+  store i32 %11, ptr %0, align 8
+  %12 = icmp slt i32 %2, %5
+  %13 = zext i1 %12 to i32
+  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %13, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %1, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %2, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %4, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %5, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %3, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %6, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %7, ptr %23, align 8
+  %24 = add nsw i32 %4, -1
+  %25 = select i1 %10, i32 %24, i32 %1
+  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %25, ptr %26, align 4
+  %27 = add nsw i32 %1, -1
+  %28 = select i1 %10, i32 %27, i32 %4
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %28, ptr %29, align 8
+  br i1 %10, label %35, label %30
+
+30:                                               ; preds = %9
+  %31 = sext i32 %4 to i64
+  %32 = udiv i64 4294967296, %31
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %33, ptr %34, align 4
+  br label %35
+
+35:                                               ; preds = %30, %9
+  %36 = sext i1 %12 to i32
+  %37 = add nsw i32 %36, %2
+  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %37, ptr %38, align 4
+  %39 = add nsw i32 %36, %5
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  br i1 %12, label %50, label %42
+
+42:                                               ; preds = %35
+  store i32 %37, ptr %41, align 8
+  %43 = sext i32 %5 to i64
+  %44 = shl nsw i64 %43, 32
+  %45 = sext i32 %25 to i64
+  %46 = sext i32 %37 to i64
+  %47 = mul nsw i64 %46, %45
+  %48 = udiv i64 %44, %47
+  %spec.select85 = tail call i64 @llvm.umin.i64(i64 %48, i64 4294967296)
+  %spec.select = trunc i64 %spec.select85 to i32
+  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %spec.select, ptr %49, align 4
+  br label %51
+
+50:                                               ; preds = %35
+  store i32 %39, ptr %41, align 8
+  br label %51
+
+51:                                               ; preds = %50, %42
+  %.sink84 = phi i32 [ %25, %50 ], [ %39, %42 ]
+  %52 = sext i32 %.sink84 to i64
+  %53 = udiv i64 4294967296, %52
+  %54 = trunc i64 %53 to i32
+  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %54, ptr %55, align 8
+  %56 = sext i32 %4 to i64
+  %57 = sext i32 %7 to i64
+  %58 = shl nsw i64 %56, 3
+  %59 = mul i64 %58, %57
+  %60 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %8, ptr %60, align 8
+  %61 = mul nsw i32 %7, %4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i32, ptr %8, i64 %62
+  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %63, ptr %64, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %59, i1 false)
+  tail call void @WebPRescalerDspInit() #6
+  ret i32 1
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+
+declare void @WebPRescalerDspInit() local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden range(i32 0, 2) i32 @WebPRescalerGetScaledDimensions(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
+  %5 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %3, align 4
+  %7 = icmp eq i32 %5, 0
+  %8 = icmp sgt i32 %1, 0
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %9, label %18
+
+9:                                                ; preds = %4
+  %10 = sext i32 %0 to i64
+  %11 = sext i32 %6 to i64
+  %12 = mul nsw i64 %11, %10
+  %13 = zext nneg i32 %1 to i64
+  %14 = add nsw i64 %13, -1
+  %15 = add nsw i64 %14, %12
+  %16 = udiv i64 %15, %13
+  %17 = trunc i64 %16 to i32
+  br label %18
+
+18:                                               ; preds = %9, %4
+  %.032 = phi i32 [ %17, %9 ], [ %5, %4 ]
+  %19 = icmp eq i32 %6, 0
+  %20 = icmp sgt i32 %0, 0
+  %or.cond3 = and i1 %20, %19
+  br i1 %or.cond3, label %21, label %30
+
+21:                                               ; preds = %18
+  %22 = sext i32 %1 to i64
+  %23 = sext i32 %.032 to i64
+  %24 = mul nsw i64 %23, %22
+  %25 = zext nneg i32 %0 to i64
+  %26 = add nsw i64 %25, -1
+  %27 = add nsw i64 %26, %24
+  %28 = udiv i64 %27, %25
+  %29 = trunc i64 %28 to i32
+  br label %30
+
+30:                                               ; preds = %21, %18
+  %.031 = phi i32 [ %29, %21 ], [ %6, %18 ]
+  %31 = add i32 %.032, -1073741824
+  %32 = icmp ult i32 %31, -1073741823
+  %33 = add i32 %.031, -1073741824
+  %34 = icmp ult i32 %33, -1073741823
+  %or.cond9 = select i1 %32, i1 true, i1 %34
+  br i1 %or.cond9, label %36, label %35
+
+35:                                               ; preds = %30
+  store i32 %.032, ptr %2, align 4
+  store i32 %.031, ptr %3, align 4
+  br label %36
+
+36:                                               ; preds = %30, %35
+  %.0 = phi i32 [ 1, %35 ], [ 0, %30 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden i32 @WebPRescaleNeededLines(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = load i32, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load i32, ptr %5, align 8
+  %7 = add i32 %4, -1
+  %8 = add i32 %7, %6
+  %9 = sdiv i32 %8, %6
+  %10 = tail call i32 @llvm.smin.i32(i32 %9, i32 %1)
+  ret i32 %10
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @WebPRescalerImport(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph34, label %.critedge
+
+.lr.ph34:                                         ; preds = %4
+  %7 = getelementptr i8, ptr %0, i64 56
+  %8 = getelementptr i8, ptr %0, i64 64
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = sext i32 %3 to i64
+  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %17
+
+17:                                               ; preds = %.lr.ph34, %.loopexit
+  %.02633 = phi ptr [ %2, %.lr.ph34 ], [ %44, %.loopexit ]
+  %.02732 = phi i32 [ 0, %.lr.ph34 ], [ %45, %.loopexit ]
+  %.val.i = load i32, ptr %7, align 8
+  %.val2.i = load i32, ptr %8, align 8
+  %.not3.i = icmp slt i32 %.val2.i, %.val.i
+  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread
+
+WebPRescalerHasPendingOutput.exit:                ; preds = %17
+  %18 = load i32, ptr %5, align 8
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %WebPRescalerHasPendingOutput.exit.thread, label %.critedge
+
+WebPRescalerHasPendingOutput.exit.thread:         ; preds = %17, %WebPRescalerHasPendingOutput.exit
+  %20 = load i32, ptr %9, align 4
+  %.not28 = icmp eq i32 %20, 0
+  br i1 %.not28, label %24, label %21
+
+21:                                               ; preds = %WebPRescalerHasPendingOutput.exit.thread
+  %22 = load <2 x ptr>, ptr %10, align 8
+  %23 = shufflevector <2 x ptr> %22, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x ptr> %23, ptr %10, align 8
+  br label %24
+
+24:                                               ; preds = %21, %WebPRescalerHasPendingOutput.exit.thread
+  tail call void @WebPRescalerImportRow(ptr noundef nonnull %0, ptr noundef %.02633) #6
+  %25 = load i32, ptr %9, align 4
+  %.not29 = icmp eq i32 %25, 0
+  br i1 %.not29, label %.preheader, label %.loopexit
+
+.preheader:                                       ; preds = %24
+  %26 = load i32, ptr %12, align 8
+  %27 = load i32, ptr %13, align 4
+  %28 = mul nsw i32 %27, %26
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
+  %30 = load ptr, ptr %11, align 8
+  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, %32
+  store i32 %36, ptr %34, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %37 = load i32, ptr %12, align 8
+  %38 = load i32, ptr %13, align 4
+  %39 = mul nsw i32 %38, %37
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !4
+
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %24
+  %42 = load i32, ptr %14, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %14, align 4
+  %44 = getelementptr inbounds i8, ptr %.02633, i64 %15
+  %45 = add nuw nsw i32 %.02732, 1
+  %46 = load i32, ptr %16, align 8
+  %47 = load i32, ptr %5, align 8
+  %48 = sub nsw i32 %47, %46
+  store i32 %48, ptr %5, align 8
+  %exitcond.not = icmp eq i32 %45, %1
+  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !6
+
+.critedge:                                        ; preds = %WebPRescalerHasPendingOutput.exit, %.loopexit, %4
+  %.027.lcssa = phi i32 [ 0, %4 ], [ %1, %.loopexit ], [ %.02732, %WebPRescalerHasPendingOutput.exit ]
+  ret i32 %.027.lcssa
+}
+
+declare void @WebPRescalerImportRow(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @WebPRescalerExport(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr i8, ptr %0, i64 56
+  %4 = getelementptr i8, ptr %0, i64 64
+  %.val.i4 = load i32, ptr %3, align 8
+  %.val2.i5 = load i32, ptr %4, align 8
+  %.not3.i6 = icmp slt i32 %.val2.i5, %.val.i4
+  br i1 %.not3.i6, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread
+
+WebPRescalerHasPendingOutput.exit:                ; preds = %1, %7
+  %.07 = phi i32 [ %8, %7 ], [ 0, %1 ]
+  %5 = load i32, ptr %2, align 8
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %WebPRescalerHasPendingOutput.exit.thread, label %7
+
+7:                                                ; preds = %WebPRescalerHasPendingOutput.exit
+  tail call void @WebPRescalerExportRow(ptr noundef nonnull %0) #6
+  %8 = add nuw nsw i32 %.07, 1
+  %.val.i = load i32, ptr %3, align 8
+  %.val2.i = load i32, ptr %4, align 8
+  %.not3.i = icmp slt i32 %.val2.i, %.val.i
+  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !7
+
+WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit, %7, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %8, %7 ], [ %.07, %WebPRescalerHasPendingOutput.exit ]
+  ret i32 %.0.lcssa
+}
+
+declare void @WebPRescalerExportRow(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

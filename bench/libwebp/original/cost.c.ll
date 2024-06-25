@@ -1,0 +1,418 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%struct.VP8Residual = type { i32, i32, ptr, i32, ptr, ptr, ptr }
+
+@VP8EntropyCost = hidden constant [256 x i16] [i16 1792, i16 1792, i16 1792, i16 1536, i16 1536, i16 1408, i16 1366, i16 1280, i16 1280, i16 1216, i16 1178, i16 1152, i16 1110, i16 1076, i16 1061, i16 1024, i16 1024, i16 992, i16 968, i16 951, i16 939, i16 911, i16 896, i16 878, i16 871, i16 854, i16 838, i16 820, i16 811, i16 794, i16 786, i16 768, i16 768, i16 752, i16 740, i16 732, i16 720, i16 709, i16 704, i16 690, i16 683, i16 672, i16 666, i16 655, i16 647, i16 640, i16 631, i16 622, i16 615, i16 607, i16 598, i16 592, i16 586, i16 576, i16 572, i16 564, i16 559, i16 555, i16 547, i16 541, i16 534, i16 528, i16 522, i16 512, i16 512, i16 504, i16 500, i16 494, i16 488, i16 483, i16 477, i16 473, i16 467, i16 461, i16 458, i16 452, i16 448, i16 443, i16 438, i16 434, i16 427, i16 424, i16 419, i16 415, i16 410, i16 406, i16 403, i16 399, i16 394, i16 390, i16 384, i16 384, i16 377, i16 374, i16 370, i16 366, i16 362, i16 359, i16 355, i16 351, i16 347, i16 342, i16 342, i16 336, i16 333, i16 330, i16 326, i16 323, i16 320, i16 316, i16 312, i16 308, i16 305, i16 302, i16 299, i16 296, i16 293, i16 288, i16 287, i16 283, i16 280, i16 277, i16 274, i16 272, i16 268, i16 266, i16 262, i16 256, i16 256, i16 256, i16 251, i16 248, i16 245, i16 242, i16 240, i16 237, i16 234, i16 232, i16 228, i16 226, i16 223, i16 221, i16 218, i16 216, i16 214, i16 211, i16 208, i16 205, i16 203, i16 201, i16 198, i16 196, i16 192, i16 191, i16 188, i16 187, i16 183, i16 181, i16 179, i16 176, i16 175, i16 171, i16 171, i16 168, i16 165, i16 163, i16 160, i16 159, i16 156, i16 154, i16 152, i16 150, i16 148, i16 146, i16 144, i16 142, i16 139, i16 138, i16 135, i16 133, i16 131, i16 128, i16 128, i16 125, i16 123, i16 121, i16 119, i16 117, i16 115, i16 113, i16 111, i16 110, i16 107, i16 105, i16 103, i16 102, i16 100, i16 98, i16 96, i16 94, i16 92, i16 91, i16 89, i16 86, i16 86, i16 83, i16 82, i16 80, i16 77, i16 76, i16 74, i16 73, i16 71, i16 69, i16 67, i16 66, i16 64, i16 63, i16 61, i16 59, i16 57, i16 55, i16 54, i16 52, i16 51, i16 49, i16 47, i16 46, i16 44, i16 43, i16 41, i16 40, i16 38, i16 36, i16 35, i16 33, i16 32, i16 30, i16 29, i16 27, i16 25, i16 24, i16 22, i16 21, i16 19, i16 18, i16 16, i16 15, i16 13, i16 12, i16 10, i16 9, i16 7, i16 6, i16 4, i16 3], align 16
+@VP8LevelFixedCosts = hidden constant [2048 x i16] [i16 0, i16 256, i16 256, i16 256, i16 256, i16 432, i16 618, i16 630, i16 731, i16 640, i16 640, i16 828, i16 901, i16 948, i16 1021, i16 1101, i16 1174, i16 1221, i16 1294, i16 1042, i16 1085, i16 1115, i16 1158, i16 1202, i16 1245, i16 1275, i16 1318, i16 1337, i16 1380, i16 1410, i16 1453, i16 1497, i16 1540, i16 1570, i16 1613, i16 1280, i16 1295, i16 1317, i16 1332, i16 1358, i16 1373, i16 1395, i16 1410, i16 1454, i16 1469, i16 1491, i16 1506, i16 1532, i16 1547, i16 1569, i16 1584, i16 1601, i16 1616, i16 1638, i16 1653, i16 1679, i16 1694, i16 1716, i16 1731, i16 1775, i16 1790, i16 1812, i16 1827, i16 1853, i16 1868, i16 1890, i16 1905, i16 1727, i16 1733, i16 1742, i16 1748, i16 1759, i16 1765, i16 1774, i16 1780, i16 1800, i16 1806, i16 1815, i16 1821, i16 1832, i16 1838, i16 1847, i16 1853, i16 1878, i16 1884, i16 1893, i16 1899, i16 1910, i16 1916, i16 1925, i16 1931, i16 1951, i16 1957, i16 1966, i16 1972, i16 1983, i16 1989, i16 1998, i16 2004, i16 2027, i16 2033, i16 2042, i16 2048, i16 2059, i16 2065, i16 2074, i16 2080, i16 2100, i16 2106, i16 2115, i16 2121, i16 2132, i16 2138, i16 2147, i16 2153, i16 2178, i16 2184, i16 2193, i16 2199, i16 2210, i16 2216, i16 2225, i16 2231, i16 2251, i16 2257, i16 2266, i16 2272, i16 2283, i16 2289, i16 2298, i16 2304, i16 2168, i16 2174, i16 2183, i16 2189, i16 2200, i16 2206, i16 2215, i16 2221, i16 2241, i16 2247, i16 2256, i16 2262, i16 2273, i16 2279, i16 2288, i16 2294, i16 2319, i16 2325, i16 2334, i16 2340, i16 2351, i16 2357, i16 2366, i16 2372, i16 2392, i16 2398, i16 2407, i16 2413, i16 2424, i16 2430, i16 2439, i16 2445, i16 2468, i16 2474, i16 2483, i16 2489, i16 2500, i16 2506, i16 2515, i16 2521, i16 2541, i16 2547, i16 2556, i16 2562, i16 2573, i16 2579, i16 2588, i16 2594, i16 2619, i16 2625, i16 2634, i16 2640, i16 2651, i16 2657, i16 2666, i16 2672, i16 2692, i16 2698, i16 2707, i16 2713, i16 2724, i16 2730, i16 2739, i16 2745, i16 2540, i16 2546, i16 2555, i16 2561, i16 2572, i16 2578, i16 2587, i16 2593, i16 2613, i16 2619, i16 2628, i16 2634, i16 2645, i16 2651, i16 2660, i16 2666, i16 2691, i16 2697, i16 2706, i16 2712, i16 2723, i16 2729, i16 2738, i16 2744, i16 2764, i16 2770, i16 2779, i16 2785, i16 2796, i16 2802, i16 2811, i16 2817, i16 2840, i16 2846, i16 2855, i16 2861, i16 2872, i16 2878, i16 2887, i16 2893, i16 2913, i16 2919, i16 2928, i16 2934, i16 2945, i16 2951, i16 2960, i16 2966, i16 2991, i16 2997, i16 3006, i16 3012, i16 3023, i16 3029, i16 3038, i16 3044, i16 3064, i16 3070, i16 3079, i16 3085, i16 3096, i16 3102, i16 3111, i16 3117, i16 2981, i16 2987, i16 2996, i16 3002, i16 3013, i16 3019, i16 3028, i16 3034, i16 3054, i16 3060, i16 3069, i16 3075, i16 3086, i16 3092, i16 3101, i16 3107, i16 3132, i16 3138, i16 3147, i16 3153, i16 3164, i16 3170, i16 3179, i16 3185, i16 3205, i16 3211, i16 3220, i16 3226, i16 3237, i16 3243, i16 3252, i16 3258, i16 3281, i16 3287, i16 3296, i16 3302, i16 3313, i16 3319, i16 3328, i16 3334, i16 3354, i16 3360, i16 3369, i16 3375, i16 3386, i16 3392, i16 3401, i16 3407, i16 3432, i16 3438, i16 3447, i16 3453, i16 3464, i16 3470, i16 3479, i16 3485, i16 3505, i16 3511, i16 3520, i16 3526, i16 3537, i16 3543, i16 3552, i16 3558, i16 2816, i16 2822, i16 2831, i16 2837, i16 2848, i16 2854, i16 2863, i16 2869, i16 2889, i16 2895, i16 2904, i16 2910, i16 2921, i16 2927, i16 2936, i16 2942, i16 2967, i16 2973, i16 2982, i16 2988, i16 2999, i16 3005, i16 3014, i16 3020, i16 3040, i16 3046, i16 3055, i16 3061, i16 3072, i16 3078, i16 3087, i16 3093, i16 3116, i16 3122, i16 3131, i16 3137, i16 3148, i16 3154, i16 3163, i16 3169, i16 3189, i16 3195, i16 3204, i16 3210, i16 3221, i16 3227, i16 3236, i16 3242, i16 3267, i16 3273, i16 3282, i16 3288, i16 3299, i16 3305, i16 3314, i16 3320, i16 3340, i16 3346, i16 3355, i16 3361, i16 3372, i16 3378, i16 3387, i16 3393, i16 3257, i16 3263, i16 3272, i16 3278, i16 3289, i16 3295, i16 3304, i16 3310, i16 3330, i16 3336, i16 3345, i16 3351, i16 3362, i16 3368, i16 3377, i16 3383, i16 3408, i16 3414, i16 3423, i16 3429, i16 3440, i16 3446, i16 3455, i16 3461, i16 3481, i16 3487, i16 3496, i16 3502, i16 3513, i16 3519, i16 3528, i16 3534, i16 3557, i16 3563, i16 3572, i16 3578, i16 3589, i16 3595, i16 3604, i16 3610, i16 3630, i16 3636, i16 3645, i16 3651, i16 3662, i16 3668, i16 3677, i16 3683, i16 3708, i16 3714, i16 3723, i16 3729, i16 3740, i16 3746, i16 3755, i16 3761, i16 3781, i16 3787, i16 3796, i16 3802, i16 3813, i16 3819, i16 3828, i16 3834, i16 3629, i16 3635, i16 3644, i16 3650, i16 3661, i16 3667, i16 3676, i16 3682, i16 3702, i16 3708, i16 3717, i16 3723, i16 3734, i16 3740, i16 3749, i16 3755, i16 3780, i16 3786, i16 3795, i16 3801, i16 3812, i16 3818, i16 3827, i16 3833, i16 3853, i16 3859, i16 3868, i16 3874, i16 3885, i16 3891, i16 3900, i16 3906, i16 3929, i16 3935, i16 3944, i16 3950, i16 3961, i16 3967, i16 3976, i16 3982, i16 4002, i16 4008, i16 4017, i16 4023, i16 4034, i16 4040, i16 4049, i16 4055, i16 4080, i16 4086, i16 4095, i16 4101, i16 4112, i16 4118, i16 4127, i16 4133, i16 4153, i16 4159, i16 4168, i16 4174, i16 4185, i16 4191, i16 4200, i16 4206, i16 4070, i16 4076, i16 4085, i16 4091, i16 4102, i16 4108, i16 4117, i16 4123, i16 4143, i16 4149, i16 4158, i16 4164, i16 4175, i16 4181, i16 4190, i16 4196, i16 4221, i16 4227, i16 4236, i16 4242, i16 4253, i16 4259, i16 4268, i16 4274, i16 4294, i16 4300, i16 4309, i16 4315, i16 4326, i16 4332, i16 4341, i16 4347, i16 4370, i16 4376, i16 4385, i16 4391, i16 4402, i16 4408, i16 4417, i16 4423, i16 4443, i16 4449, i16 4458, i16 4464, i16 4475, i16 4481, i16 4490, i16 4496, i16 4521, i16 4527, i16 4536, i16 4542, i16 4553, i16 4559, i16 4568, i16 4574, i16 4594, i16 4600, i16 4609, i16 4615, i16 4626, i16 4632, i16 4641, i16 4647, i16 3515, i16 3521, i16 3530, i16 3536, i16 3547, i16 3553, i16 3562, i16 3568, i16 3588, i16 3594, i16 3603, i16 3609, i16 3620, i16 3626, i16 3635, i16 3641, i16 3666, i16 3672, i16 3681, i16 3687, i16 3698, i16 3704, i16 3713, i16 3719, i16 3739, i16 3745, i16 3754, i16 3760, i16 3771, i16 3777, i16 3786, i16 3792, i16 3815, i16 3821, i16 3830, i16 3836, i16 3847, i16 3853, i16 3862, i16 3868, i16 3888, i16 3894, i16 3903, i16 3909, i16 3920, i16 3926, i16 3935, i16 3941, i16 3966, i16 3972, i16 3981, i16 3987, i16 3998, i16 4004, i16 4013, i16 4019, i16 4039, i16 4045, i16 4054, i16 4060, i16 4071, i16 4077, i16 4086, i16 4092, i16 3956, i16 3962, i16 3971, i16 3977, i16 3988, i16 3994, i16 4003, i16 4009, i16 4029, i16 4035, i16 4044, i16 4050, i16 4061, i16 4067, i16 4076, i16 4082, i16 4107, i16 4113, i16 4122, i16 4128, i16 4139, i16 4145, i16 4154, i16 4160, i16 4180, i16 4186, i16 4195, i16 4201, i16 4212, i16 4218, i16 4227, i16 4233, i16 4256, i16 4262, i16 4271, i16 4277, i16 4288, i16 4294, i16 4303, i16 4309, i16 4329, i16 4335, i16 4344, i16 4350, i16 4361, i16 4367, i16 4376, i16 4382, i16 4407, i16 4413, i16 4422, i16 4428, i16 4439, i16 4445, i16 4454, i16 4460, i16 4480, i16 4486, i16 4495, i16 4501, i16 4512, i16 4518, i16 4527, i16 4533, i16 4328, i16 4334, i16 4343, i16 4349, i16 4360, i16 4366, i16 4375, i16 4381, i16 4401, i16 4407, i16 4416, i16 4422, i16 4433, i16 4439, i16 4448, i16 4454, i16 4479, i16 4485, i16 4494, i16 4500, i16 4511, i16 4517, i16 4526, i16 4532, i16 4552, i16 4558, i16 4567, i16 4573, i16 4584, i16 4590, i16 4599, i16 4605, i16 4628, i16 4634, i16 4643, i16 4649, i16 4660, i16 4666, i16 4675, i16 4681, i16 4701, i16 4707, i16 4716, i16 4722, i16 4733, i16 4739, i16 4748, i16 4754, i16 4779, i16 4785, i16 4794, i16 4800, i16 4811, i16 4817, i16 4826, i16 4832, i16 4852, i16 4858, i16 4867, i16 4873, i16 4884, i16 4890, i16 4899, i16 4905, i16 4769, i16 4775, i16 4784, i16 4790, i16 4801, i16 4807, i16 4816, i16 4822, i16 4842, i16 4848, i16 4857, i16 4863, i16 4874, i16 4880, i16 4889, i16 4895, i16 4920, i16 4926, i16 4935, i16 4941, i16 4952, i16 4958, i16 4967, i16 4973, i16 4993, i16 4999, i16 5008, i16 5014, i16 5025, i16 5031, i16 5040, i16 5046, i16 5069, i16 5075, i16 5084, i16 5090, i16 5101, i16 5107, i16 5116, i16 5122, i16 5142, i16 5148, i16 5157, i16 5163, i16 5174, i16 5180, i16 5189, i16 5195, i16 5220, i16 5226, i16 5235, i16 5241, i16 5252, i16 5258, i16 5267, i16 5273, i16 5293, i16 5299, i16 5308, i16 5314, i16 5325, i16 5331, i16 5340, i16 5346, i16 4604, i16 4610, i16 4619, i16 4625, i16 4636, i16 4642, i16 4651, i16 4657, i16 4677, i16 4683, i16 4692, i16 4698, i16 4709, i16 4715, i16 4724, i16 4730, i16 4755, i16 4761, i16 4770, i16 4776, i16 4787, i16 4793, i16 4802, i16 4808, i16 4828, i16 4834, i16 4843, i16 4849, i16 4860, i16 4866, i16 4875, i16 4881, i16 4904, i16 4910, i16 4919, i16 4925, i16 4936, i16 4942, i16 4951, i16 4957, i16 4977, i16 4983, i16 4992, i16 4998, i16 5009, i16 5015, i16 5024, i16 5030, i16 5055, i16 5061, i16 5070, i16 5076, i16 5087, i16 5093, i16 5102, i16 5108, i16 5128, i16 5134, i16 5143, i16 5149, i16 5160, i16 5166, i16 5175, i16 5181, i16 5045, i16 5051, i16 5060, i16 5066, i16 5077, i16 5083, i16 5092, i16 5098, i16 5118, i16 5124, i16 5133, i16 5139, i16 5150, i16 5156, i16 5165, i16 5171, i16 5196, i16 5202, i16 5211, i16 5217, i16 5228, i16 5234, i16 5243, i16 5249, i16 5269, i16 5275, i16 5284, i16 5290, i16 5301, i16 5307, i16 5316, i16 5322, i16 5345, i16 5351, i16 5360, i16 5366, i16 5377, i16 5383, i16 5392, i16 5398, i16 5418, i16 5424, i16 5433, i16 5439, i16 5450, i16 5456, i16 5465, i16 5471, i16 5496, i16 5502, i16 5511, i16 5517, i16 5528, i16 5534, i16 5543, i16 5549, i16 5569, i16 5575, i16 5584, i16 5590, i16 5601, i16 5607, i16 5616, i16 5622, i16 5417, i16 5423, i16 5432, i16 5438, i16 5449, i16 5455, i16 5464, i16 5470, i16 5490, i16 5496, i16 5505, i16 5511, i16 5522, i16 5528, i16 5537, i16 5543, i16 5568, i16 5574, i16 5583, i16 5589, i16 5600, i16 5606, i16 5615, i16 5621, i16 5641, i16 5647, i16 5656, i16 5662, i16 5673, i16 5679, i16 5688, i16 5694, i16 5717, i16 5723, i16 5732, i16 5738, i16 5749, i16 5755, i16 5764, i16 5770, i16 5790, i16 5796, i16 5805, i16 5811, i16 5822, i16 5828, i16 5837, i16 5843, i16 5868, i16 5874, i16 5883, i16 5889, i16 5900, i16 5906, i16 5915, i16 5921, i16 5941, i16 5947, i16 5956, i16 5962, i16 5973, i16 5979, i16 5988, i16 5994, i16 5858, i16 5864, i16 5873, i16 5879, i16 5890, i16 5896, i16 5905, i16 5911, i16 5931, i16 5937, i16 5946, i16 5952, i16 5963, i16 5969, i16 5978, i16 5984, i16 6009, i16 6015, i16 6024, i16 6030, i16 6041, i16 6047, i16 6056, i16 6062, i16 6082, i16 6088, i16 6097, i16 6103, i16 6114, i16 6120, i16 6129, i16 6135, i16 6158, i16 6164, i16 6173, i16 6179, i16 6190, i16 6196, i16 6205, i16 6211, i16 6231, i16 6237, i16 6246, i16 6252, i16 6263, i16 6269, i16 6278, i16 6284, i16 6309, i16 6315, i16 6324, i16 6330, i16 6341, i16 6347, i16 6356, i16 6362, i16 6382, i16 6388, i16 6397, i16 6403, i16 6414, i16 6420, i16 6429, i16 6435, i16 3515, i16 3521, i16 3530, i16 3536, i16 3547, i16 3553, i16 3562, i16 3568, i16 3588, i16 3594, i16 3603, i16 3609, i16 3620, i16 3626, i16 3635, i16 3641, i16 3666, i16 3672, i16 3681, i16 3687, i16 3698, i16 3704, i16 3713, i16 3719, i16 3739, i16 3745, i16 3754, i16 3760, i16 3771, i16 3777, i16 3786, i16 3792, i16 3815, i16 3821, i16 3830, i16 3836, i16 3847, i16 3853, i16 3862, i16 3868, i16 3888, i16 3894, i16 3903, i16 3909, i16 3920, i16 3926, i16 3935, i16 3941, i16 3966, i16 3972, i16 3981, i16 3987, i16 3998, i16 4004, i16 4013, i16 4019, i16 4039, i16 4045, i16 4054, i16 4060, i16 4071, i16 4077, i16 4086, i16 4092, i16 3956, i16 3962, i16 3971, i16 3977, i16 3988, i16 3994, i16 4003, i16 4009, i16 4029, i16 4035, i16 4044, i16 4050, i16 4061, i16 4067, i16 4076, i16 4082, i16 4107, i16 4113, i16 4122, i16 4128, i16 4139, i16 4145, i16 4154, i16 4160, i16 4180, i16 4186, i16 4195, i16 4201, i16 4212, i16 4218, i16 4227, i16 4233, i16 4256, i16 4262, i16 4271, i16 4277, i16 4288, i16 4294, i16 4303, i16 4309, i16 4329, i16 4335, i16 4344, i16 4350, i16 4361, i16 4367, i16 4376, i16 4382, i16 4407, i16 4413, i16 4422, i16 4428, i16 4439, i16 4445, i16 4454, i16 4460, i16 4480, i16 4486, i16 4495, i16 4501, i16 4512, i16 4518, i16 4527, i16 4533, i16 4328, i16 4334, i16 4343, i16 4349, i16 4360, i16 4366, i16 4375, i16 4381, i16 4401, i16 4407, i16 4416, i16 4422, i16 4433, i16 4439, i16 4448, i16 4454, i16 4479, i16 4485, i16 4494, i16 4500, i16 4511, i16 4517, i16 4526, i16 4532, i16 4552, i16 4558, i16 4567, i16 4573, i16 4584, i16 4590, i16 4599, i16 4605, i16 4628, i16 4634, i16 4643, i16 4649, i16 4660, i16 4666, i16 4675, i16 4681, i16 4701, i16 4707, i16 4716, i16 4722, i16 4733, i16 4739, i16 4748, i16 4754, i16 4779, i16 4785, i16 4794, i16 4800, i16 4811, i16 4817, i16 4826, i16 4832, i16 4852, i16 4858, i16 4867, i16 4873, i16 4884, i16 4890, i16 4899, i16 4905, i16 4769, i16 4775, i16 4784, i16 4790, i16 4801, i16 4807, i16 4816, i16 4822, i16 4842, i16 4848, i16 4857, i16 4863, i16 4874, i16 4880, i16 4889, i16 4895, i16 4920, i16 4926, i16 4935, i16 4941, i16 4952, i16 4958, i16 4967, i16 4973, i16 4993, i16 4999, i16 5008, i16 5014, i16 5025, i16 5031, i16 5040, i16 5046, i16 5069, i16 5075, i16 5084, i16 5090, i16 5101, i16 5107, i16 5116, i16 5122, i16 5142, i16 5148, i16 5157, i16 5163, i16 5174, i16 5180, i16 5189, i16 5195, i16 5220, i16 5226, i16 5235, i16 5241, i16 5252, i16 5258, i16 5267, i16 5273, i16 5293, i16 5299, i16 5308, i16 5314, i16 5325, i16 5331, i16 5340, i16 5346, i16 4604, i16 4610, i16 4619, i16 4625, i16 4636, i16 4642, i16 4651, i16 4657, i16 4677, i16 4683, i16 4692, i16 4698, i16 4709, i16 4715, i16 4724, i16 4730, i16 4755, i16 4761, i16 4770, i16 4776, i16 4787, i16 4793, i16 4802, i16 4808, i16 4828, i16 4834, i16 4843, i16 4849, i16 4860, i16 4866, i16 4875, i16 4881, i16 4904, i16 4910, i16 4919, i16 4925, i16 4936, i16 4942, i16 4951, i16 4957, i16 4977, i16 4983, i16 4992, i16 4998, i16 5009, i16 5015, i16 5024, i16 5030, i16 5055, i16 5061, i16 5070, i16 5076, i16 5087, i16 5093, i16 5102, i16 5108, i16 5128, i16 5134, i16 5143, i16 5149, i16 5160, i16 5166, i16 5175, i16 5181, i16 5045, i16 5051, i16 5060, i16 5066, i16 5077, i16 5083, i16 5092, i16 5098, i16 5118, i16 5124, i16 5133, i16 5139, i16 5150, i16 5156, i16 5165, i16 5171, i16 5196, i16 5202, i16 5211, i16 5217, i16 5228, i16 5234, i16 5243, i16 5249, i16 5269, i16 5275, i16 5284, i16 5290, i16 5301, i16 5307, i16 5316, i16 5322, i16 5345, i16 5351, i16 5360, i16 5366, i16 5377, i16 5383, i16 5392, i16 5398, i16 5418, i16 5424, i16 5433, i16 5439, i16 5450, i16 5456, i16 5465, i16 5471, i16 5496, i16 5502, i16 5511, i16 5517, i16 5528, i16 5534, i16 5543, i16 5549, i16 5569, i16 5575, i16 5584, i16 5590, i16 5601, i16 5607, i16 5616, i16 5622, i16 5417, i16 5423, i16 5432, i16 5438, i16 5449, i16 5455, i16 5464, i16 5470, i16 5490, i16 5496, i16 5505, i16 5511, i16 5522, i16 5528, i16 5537, i16 5543, i16 5568, i16 5574, i16 5583, i16 5589, i16 5600, i16 5606, i16 5615, i16 5621, i16 5641, i16 5647, i16 5656, i16 5662, i16 5673, i16 5679, i16 5688, i16 5694, i16 5717, i16 5723, i16 5732, i16 5738, i16 5749, i16 5755, i16 5764, i16 5770, i16 5790, i16 5796, i16 5805, i16 5811, i16 5822, i16 5828, i16 5837, i16 5843, i16 5868, i16 5874, i16 5883, i16 5889, i16 5900, i16 5906, i16 5915, i16 5921, i16 5941, i16 5947, i16 5956, i16 5962, i16 5973, i16 5979, i16 5988, i16 5994, i16 5858, i16 5864, i16 5873, i16 5879, i16 5890, i16 5896, i16 5905, i16 5911, i16 5931, i16 5937, i16 5946, i16 5952, i16 5963, i16 5969, i16 5978, i16 5984, i16 6009, i16 6015, i16 6024, i16 6030, i16 6041, i16 6047, i16 6056, i16 6062, i16 6082, i16 6088, i16 6097, i16 6103, i16 6114, i16 6120, i16 6129, i16 6135, i16 6158, i16 6164, i16 6173, i16 6179, i16 6190, i16 6196, i16 6205, i16 6211, i16 6231, i16 6237, i16 6246, i16 6252, i16 6263, i16 6269, i16 6278, i16 6284, i16 6309, i16 6315, i16 6324, i16 6330, i16 6341, i16 6347, i16 6356, i16 6362, i16 6382, i16 6388, i16 6397, i16 6403, i16 6414, i16 6420, i16 6429, i16 6435, i16 5303, i16 5309, i16 5318, i16 5324, i16 5335, i16 5341, i16 5350, i16 5356, i16 5376, i16 5382, i16 5391, i16 5397, i16 5408, i16 5414, i16 5423, i16 5429, i16 5454, i16 5460, i16 5469, i16 5475, i16 5486, i16 5492, i16 5501, i16 5507, i16 5527, i16 5533, i16 5542, i16 5548, i16 5559, i16 5565, i16 5574, i16 5580, i16 5603, i16 5609, i16 5618, i16 5624, i16 5635, i16 5641, i16 5650, i16 5656, i16 5676, i16 5682, i16 5691, i16 5697, i16 5708, i16 5714, i16 5723, i16 5729, i16 5754, i16 5760, i16 5769, i16 5775, i16 5786, i16 5792, i16 5801, i16 5807, i16 5827, i16 5833, i16 5842, i16 5848, i16 5859, i16 5865, i16 5874, i16 5880, i16 5744, i16 5750, i16 5759, i16 5765, i16 5776, i16 5782, i16 5791, i16 5797, i16 5817, i16 5823, i16 5832, i16 5838, i16 5849, i16 5855, i16 5864, i16 5870, i16 5895, i16 5901, i16 5910, i16 5916, i16 5927, i16 5933, i16 5942, i16 5948, i16 5968, i16 5974, i16 5983, i16 5989, i16 6000, i16 6006, i16 6015, i16 6021, i16 6044, i16 6050, i16 6059, i16 6065, i16 6076, i16 6082, i16 6091, i16 6097, i16 6117, i16 6123, i16 6132, i16 6138, i16 6149, i16 6155, i16 6164, i16 6170, i16 6195, i16 6201, i16 6210, i16 6216, i16 6227, i16 6233, i16 6242, i16 6248, i16 6268, i16 6274, i16 6283, i16 6289, i16 6300, i16 6306, i16 6315, i16 6321, i16 6116, i16 6122, i16 6131, i16 6137, i16 6148, i16 6154, i16 6163, i16 6169, i16 6189, i16 6195, i16 6204, i16 6210, i16 6221, i16 6227, i16 6236, i16 6242, i16 6267, i16 6273, i16 6282, i16 6288, i16 6299, i16 6305, i16 6314, i16 6320, i16 6340, i16 6346, i16 6355, i16 6361, i16 6372, i16 6378, i16 6387, i16 6393, i16 6416, i16 6422, i16 6431, i16 6437, i16 6448, i16 6454, i16 6463, i16 6469, i16 6489, i16 6495, i16 6504, i16 6510, i16 6521, i16 6527, i16 6536, i16 6542, i16 6567, i16 6573, i16 6582, i16 6588, i16 6599, i16 6605, i16 6614, i16 6620, i16 6640, i16 6646, i16 6655, i16 6661, i16 6672, i16 6678, i16 6687, i16 6693, i16 6557, i16 6563, i16 6572, i16 6578, i16 6589, i16 6595, i16 6604, i16 6610, i16 6630, i16 6636, i16 6645, i16 6651, i16 6662, i16 6668, i16 6677, i16 6683, i16 6708, i16 6714, i16 6723, i16 6729, i16 6740, i16 6746, i16 6755, i16 6761, i16 6781, i16 6787, i16 6796, i16 6802, i16 6813, i16 6819, i16 6828, i16 6834, i16 6857, i16 6863, i16 6872, i16 6878, i16 6889, i16 6895, i16 6904, i16 6910, i16 6930, i16 6936, i16 6945, i16 6951, i16 6962, i16 6968, i16 6977, i16 6983, i16 7008, i16 7014, i16 7023, i16 7029, i16 7040, i16 7046, i16 7055, i16 7061, i16 7081, i16 7087, i16 7096, i16 7102, i16 7113, i16 7119, i16 7128, i16 7134, i16 6392, i16 6398, i16 6407, i16 6413, i16 6424, i16 6430, i16 6439, i16 6445, i16 6465, i16 6471, i16 6480, i16 6486, i16 6497, i16 6503, i16 6512, i16 6518, i16 6543, i16 6549, i16 6558, i16 6564, i16 6575, i16 6581, i16 6590, i16 6596, i16 6616, i16 6622, i16 6631, i16 6637, i16 6648, i16 6654, i16 6663, i16 6669, i16 6692, i16 6698, i16 6707, i16 6713, i16 6724, i16 6730, i16 6739, i16 6745, i16 6765, i16 6771, i16 6780, i16 6786, i16 6797, i16 6803, i16 6812, i16 6818, i16 6843, i16 6849, i16 6858, i16 6864, i16 6875, i16 6881, i16 6890, i16 6896, i16 6916, i16 6922, i16 6931, i16 6937, i16 6948, i16 6954, i16 6963, i16 6969, i16 6833, i16 6839, i16 6848, i16 6854, i16 6865, i16 6871, i16 6880, i16 6886, i16 6906, i16 6912, i16 6921, i16 6927, i16 6938, i16 6944, i16 6953, i16 6959, i16 6984, i16 6990, i16 6999, i16 7005, i16 7016, i16 7022, i16 7031, i16 7037, i16 7057, i16 7063, i16 7072, i16 7078, i16 7089, i16 7095, i16 7104, i16 7110, i16 7133, i16 7139, i16 7148, i16 7154, i16 7165, i16 7171, i16 7180, i16 7186, i16 7206, i16 7212, i16 7221, i16 7227, i16 7238, i16 7244, i16 7253, i16 7259, i16 7284, i16 7290, i16 7299, i16 7305, i16 7316, i16 7322, i16 7331, i16 7337, i16 7357, i16 7363, i16 7372, i16 7378, i16 7389, i16 7395, i16 7404, i16 7410, i16 7205, i16 7211, i16 7220, i16 7226, i16 7237, i16 7243, i16 7252, i16 7258, i16 7278, i16 7284, i16 7293, i16 7299, i16 7310, i16 7316, i16 7325, i16 7331, i16 7356, i16 7362, i16 7371, i16 7377, i16 7388, i16 7394, i16 7403, i16 7409, i16 7429, i16 7435, i16 7444, i16 7450, i16 7461, i16 7467, i16 7476, i16 7482, i16 7505, i16 7511, i16 7520, i16 7526, i16 7537, i16 7543, i16 7552, i16 7558, i16 7578, i16 7584, i16 7593, i16 7599, i16 7610, i16 7616, i16 7625, i16 7631, i16 7656, i16 7662, i16 7671, i16 7677, i16 7688, i16 7694, i16 7703, i16 7709, i16 7729, i16 7735, i16 7744, i16 7750, i16 7761], align 16
+@VP8EncBands = hidden constant [17 x i8] c"\00\01\02\03\06\04\05\06\06\06\06\06\06\06\06\07\00", align 16
+@VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used = internal global ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8
+@VP8EncDspCostInit.VP8EncDspCostInit_body_lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
+@VP8GetCPUInfo = external global ptr, align 8
+@VP8GetResidualCost = hidden global ptr null, align 8
+@VP8SetResidualCoeffs = hidden global ptr null, align 8
+
+; Function Attrs: nounwind uwtable
+define hidden void @VP8EncDspCostInit() #0 {
+  br label %1
+
+1:                                                ; preds = %0
+  %2 = call i32 @pthread_mutex_lock(ptr noundef @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #4
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %1
+  br label %13
+
+5:                                                ; preds = %1
+  %6 = load volatile ptr, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8
+  %7 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %8 = icmp ne ptr %6, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %5
+  call void @VP8EncDspCostInit_body()
+  br label %10
+
+10:                                               ; preds = %9, %5
+  %11 = load ptr, ptr @VP8GetCPUInfo, align 8
+  store volatile ptr %11, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8
+  %12 = call i32 @pthread_mutex_unlock(ptr noundef @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #4
+  br label %13
+
+13:                                               ; preds = %10, %4
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal void @VP8EncDspCostInit_body() #0 {
+  store ptr @GetResidualCost_C, ptr @VP8GetResidualCost, align 8
+  store ptr @SetResidualCoeffs_C, ptr @VP8SetResidualCoeffs, align 8
+  %1 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %2 = icmp ne ptr %1, null
+  br i1 %2, label %3, label %9
+
+3:                                                ; preds = %0
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %5 = call i32 %4(i32 noundef 0)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %3
+  call void @VP8EncDspCostInitSSE2()
+  br label %8
+
+8:                                                ; preds = %7, %3
+  br label %9
+
+9:                                                ; preds = %8, %0
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4
+  store ptr %1, ptr %5, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds %struct.VP8Residual, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8
+  store i32 %19, ptr %6, align 4
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.VP8Residual, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [3 x [11 x i8]], ptr %22, i64 %24
+  %26 = load i32, ptr %4, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [3 x [11 x i8]], ptr %25, i64 0, i64 %27
+  %29 = getelementptr inbounds [11 x i8], ptr %28, i64 0, i64 0
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  store i32 %31, ptr %7, align 4
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.VP8Residual, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %8, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [3 x ptr], ptr %35, i64 %37
+  %39 = load i32, ptr %4, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds [3 x ptr], ptr %38, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %9, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %2
+  %46 = load i32, ptr %7, align 4
+  %47 = trunc i32 %46 to i8
+  %48 = call i32 @VP8BitCost(i32 noundef 1, i8 noundef zeroext %47)
+  br label %50
+
+49:                                               ; preds = %2
+  br label %50
+
+50:                                               ; preds = %49, %45
+  %51 = phi i32 [ %48, %45 ], [ 0, %49 ]
+  store i32 %51, ptr %10, align 4
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds %struct.VP8Residual, ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %60
+
+56:                                               ; preds = %50
+  %57 = load i32, ptr %7, align 4
+  %58 = trunc i32 %57 to i8
+  %59 = call i32 @VP8BitCost(i32 noundef 0, i8 noundef zeroext %58)
+  store i32 %59, ptr %3, align 4
+  br label %147
+
+60:                                               ; preds = %50
+  br label %61
+
+61:                                               ; preds = %98, %60
+  %62 = load i32, ptr %6, align 4
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds %struct.VP8Residual, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp slt i32 %62, %65
+  br i1 %66, label %67, label %101
+
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds %struct.VP8Residual, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %6, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i16, ptr %70, i64 %72
+  %74 = load i16, ptr %73, align 2
+  %75 = sext i16 %74 to i32
+  %76 = call i32 @llvm.abs.i32(i32 %75, i1 true)
+  store i32 %76, ptr %11, align 4
+  %77 = load i32, ptr %11, align 4
+  %78 = icmp sge i32 %77, 2
+  br i1 %78, label %79, label %80
+
+79:                                               ; preds = %67
+  br label %82
+
+80:                                               ; preds = %67
+  %81 = load i32, ptr %11, align 4
+  br label %82
+
+82:                                               ; preds = %80, %79
+  %83 = phi i32 [ 2, %79 ], [ %81, %80 ]
+  store i32 %83, ptr %12, align 4
+  %84 = load ptr, ptr %9, align 8
+  %85 = load i32, ptr %11, align 4
+  %86 = call i32 @VP8LevelCost(ptr noundef %84, i32 noundef %85)
+  %87 = load i32, ptr %10, align 4
+  %88 = add nsw i32 %87, %86
+  store i32 %88, ptr %10, align 4
+  %89 = load ptr, ptr %8, align 8
+  %90 = load i32, ptr %6, align 4
+  %91 = add nsw i32 %90, 1
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds [3 x ptr], ptr %89, i64 %92
+  %94 = load i32, ptr %12, align 4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [3 x ptr], ptr %93, i64 0, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr %9, align 8
+  br label %98
+
+98:                                               ; preds = %82
+  %99 = load i32, ptr %6, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %6, align 4
+  br label %61, !llvm.loop !4
+
+101:                                              ; preds = %61
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds %struct.VP8Residual, ptr %102, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8
+  %105 = load i32, ptr %6, align 4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i16, ptr %104, i64 %106
+  %108 = load i16, ptr %107, align 2
+  %109 = sext i16 %108 to i32
+  %110 = call i32 @llvm.abs.i32(i32 %109, i1 true)
+  store i32 %110, ptr %13, align 4
+  %111 = load ptr, ptr %9, align 8
+  %112 = load i32, ptr %13, align 4
+  %113 = call i32 @VP8LevelCost(ptr noundef %111, i32 noundef %112)
+  %114 = load i32, ptr %10, align 4
+  %115 = add nsw i32 %114, %113
+  store i32 %115, ptr %10, align 4
+  %116 = load i32, ptr %6, align 4
+  %117 = icmp slt i32 %116, 15
+  br i1 %117, label %118, label %145
+
+118:                                              ; preds = %101
+  %119 = load i32, ptr %6, align 4
+  %120 = add nsw i32 %119, 1
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %121
+  %123 = load i8, ptr %122, align 1
+  %124 = zext i8 %123 to i32
+  store i32 %124, ptr %14, align 4
+  %125 = load i32, ptr %13, align 4
+  %126 = icmp eq i32 %125, 1
+  %127 = select i1 %126, i32 1, i32 2
+  store i32 %127, ptr %15, align 4
+  %128 = load ptr, ptr %5, align 8
+  %129 = getelementptr inbounds %struct.VP8Residual, ptr %128, i32 0, i32 4
+  %130 = load ptr, ptr %129, align 8
+  %131 = load i32, ptr %14, align 4
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds [3 x [11 x i8]], ptr %130, i64 %132
+  %134 = load i32, ptr %15, align 4
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds [3 x [11 x i8]], ptr %133, i64 0, i64 %135
+  %137 = getelementptr inbounds [11 x i8], ptr %136, i64 0, i64 0
+  %138 = load i8, ptr %137, align 1
+  %139 = zext i8 %138 to i32
+  store i32 %139, ptr %16, align 4
+  %140 = load i32, ptr %16, align 4
+  %141 = trunc i32 %140 to i8
+  %142 = call i32 @VP8BitCost(i32 noundef 0, i8 noundef zeroext %141)
+  %143 = load i32, ptr %10, align 4
+  %144 = add nsw i32 %143, %142
+  store i32 %144, ptr %10, align 4
+  br label %145
+
+145:                                              ; preds = %118, %101
+  %146 = load i32, ptr %10, align 4
+  store i32 %146, ptr %3, align 4
+  br label %147
+
+147:                                              ; preds = %145, %56
+  %148 = load i32, ptr %3, align 4
+  ret i32 %148
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %struct.VP8Residual, ptr %6, i32 0, i32 1
+  store i32 -1, ptr %7, align 4
+  store i32 15, ptr %5, align 4
+  br label %8
+
+8:                                                ; preds = %23, %2
+  %9 = load i32, ptr %5, align 4
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %26
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %5, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i16, ptr %12, i64 %14
+  %16 = load i16, ptr %15, align 2
+  %17 = icmp ne i16 %16, 0
+  br i1 %17, label %18, label %22
+
+18:                                               ; preds = %11
+  %19 = load i32, ptr %5, align 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %struct.VP8Residual, ptr %20, i32 0, i32 1
+  store i32 %19, ptr %21, align 4
+  br label %26
+
+22:                                               ; preds = %11
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load i32, ptr %5, align 4
+  %25 = add nsw i32 %24, -1
+  store i32 %25, ptr %5, align 4
+  br label %8, !llvm.loop !6
+
+26:                                               ; preds = %18, %8
+  %27 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.VP8Residual, ptr %28, i32 0, i32 2
+  store ptr %27, ptr %29, align 8
+  ret void
+}
+
+declare void @VP8EncDspCostInitSSE2() #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @VP8BitCost(i32 noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  store i32 %0, ptr %3, align 4
+  store i8 %1, ptr %4, align 1
+  %5 = load i32, ptr %3, align 4
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %13, label %7
+
+7:                                                ; preds = %2
+  %8 = load i8, ptr %4, align 1
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %9
+  %11 = load i16, ptr %10, align 2
+  %12 = zext i16 %11 to i32
+  br label %21
+
+13:                                               ; preds = %2
+  %14 = load i8, ptr %4, align 1
+  %15 = zext i8 %14 to i32
+  %16 = sub nsw i32 255, %15
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %17
+  %19 = load i16, ptr %18, align 2
+  %20 = zext i16 %19 to i32
+  br label %21
+
+21:                                               ; preds = %13, %7
+  %22 = phi i32 [ %12, %7 ], [ %20, %13 ]
+  ret i32 %22
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+
+; Function Attrs: nounwind uwtable
+define internal i32 @VP8LevelCost(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr inbounds [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %6
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = load ptr, ptr %3, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = icmp sgt i32 %11, 67
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %2
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load i32, ptr %4, align 4
+  br label %16
+
+16:                                               ; preds = %14, %13
+  %17 = phi i32 [ 67, %13 ], [ %15, %14 ]
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i16, ptr %10, i64 %18
+  %20 = load i16, ptr %19, align 2
+  %21 = zext i16 %20 to i32
+  %22 = add nsw i32 %9, %21
+  ret i32 %22
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
