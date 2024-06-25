@@ -679,75 +679,75 @@ define internal noundef i32 @H5HF__sect_row_serialize(ptr nocapture noundef read
   %.pre.i = load i64, ptr %8, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %tailrecurse.i, %.lr.ph.preheader.i
-  %11 = phi ptr [ %15, %tailrecurse.i ], [ %10, %.lr.ph.preheader.i ]
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %.pre.i, %12
-  br i1 %13, label %tailrecurse.i, label %H5HF__sect_indirect_serialize.exit
-
 tailrecurse.i:                                    ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
-  %15 = load ptr, ptr %14, align 8
-  %.not.i = icmp eq ptr %15, null
+  %11 = getelementptr inbounds i8, ptr %13, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %tailrecurse._crit_edge.i, label %.lr.ph.i
 
+.lr.ph.i:                                         ; preds = %tailrecurse.i, %.lr.ph.preheader.i
+  %13 = phi ptr [ %12, %tailrecurse.i ], [ %10, %.lr.ph.preheader.i ]
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp eq i64 %.pre.i, %14
+  br i1 %15, label %tailrecurse.i, label %H5HF__sect_indirect_serialize.exit
+
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %3
-  %.tr54.lcssa67.i = phi ptr [ %8, %3 ], [ %11, %tailrecurse.i ]
+  %.tr54.lcssa67.i = phi ptr [ %8, %3 ], [ %13, %tailrecurse.i ]
   %16 = getelementptr inbounds i8, ptr %.tr54.lcssa67.i, i64 24
   %17 = getelementptr inbounds i8, ptr %.tr54.lcssa67.i, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   %20 = getelementptr inbounds i8, ptr %6, i64 697
   %21 = load i8, ptr %20, align 1
-  %.not86.i = icmp eq i8 %21, 0
+  %.not85.i = icmp eq i8 %21, 0
   br i1 %19, label %22, label %33
 
 22:                                               ; preds = %tailrecurse._crit_edge.i
-  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph83.preheader.i
+  br i1 %.not85.i, label %.loopexit.i, label %.lr.ph82.preheader.i
 
-.lr.ph83.preheader.i:                             ; preds = %22
+.lr.ph82.preheader.i:                             ; preds = %22
   %23 = load ptr, ptr %16, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 336
   %25 = load i64, ptr %24, align 8
-  br label %.lr.ph83.i
+  br label %.lr.ph82.i
 
-.lr.ph83.i:                                       ; preds = %.lr.ph83.i, %.lr.ph83.preheader.i
-  %.04882.i = phi ptr [ %27, %.lr.ph83.i ], [ %2, %.lr.ph83.preheader.i ]
-  %.04981.i = phi i64 [ %28, %.lr.ph83.i ], [ 0, %.lr.ph83.preheader.i ]
-  %.05080.i = phi i64 [ %29, %.lr.ph83.i ], [ %25, %.lr.ph83.preheader.i ]
-  %26 = trunc i64 %.05080.i to i8
-  %27 = getelementptr inbounds i8, ptr %.04882.i, i64 1
-  store i8 %26, ptr %.04882.i, align 1
-  %28 = add nuw nsw i64 %.04981.i, 1
-  %29 = lshr i64 %.05080.i, 8
+.lr.ph82.i:                                       ; preds = %.lr.ph82.i, %.lr.ph82.preheader.i
+  %.04881.i = phi ptr [ %27, %.lr.ph82.i ], [ %2, %.lr.ph82.preheader.i ]
+  %.04980.i = phi i64 [ %28, %.lr.ph82.i ], [ 0, %.lr.ph82.preheader.i ]
+  %.05079.i = phi i64 [ %29, %.lr.ph82.i ], [ %25, %.lr.ph82.preheader.i ]
+  %26 = trunc i64 %.05079.i to i8
+  %27 = getelementptr inbounds i8, ptr %.04881.i, i64 1
+  store i8 %26, ptr %.04881.i, align 1
+  %28 = add nuw nsw i64 %.04980.i, 1
+  %29 = lshr i64 %.05079.i, 8
   %30 = load i8, ptr %20, align 1
   %31 = zext i8 %30 to i64
   %32 = icmp ult i64 %28, %31
-  br i1 %32, label %.lr.ph83.i, label %.loopexit.i
+  br i1 %32, label %.lr.ph82.i, label %.loopexit.i
 
 33:                                               ; preds = %tailrecurse._crit_edge.i
-  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph78.preheader.i
+  br i1 %.not85.i, label %.loopexit.i, label %.lr.ph77.preheader.i
 
-.lr.ph78.preheader.i:                             ; preds = %33
+.lr.ph77.preheader.i:                             ; preds = %33
   %34 = load i64, ptr %16, align 8
-  br label %.lr.ph78.i
+  br label %.lr.ph77.i
 
-.lr.ph78.i:                                       ; preds = %.lr.ph78.i, %.lr.ph78.preheader.i
-  %.077.i = phi ptr [ %36, %.lr.ph78.i ], [ %2, %.lr.ph78.preheader.i ]
-  %.04676.i = phi i64 [ %37, %.lr.ph78.i ], [ 0, %.lr.ph78.preheader.i ]
-  %.04775.i = phi i64 [ %38, %.lr.ph78.i ], [ %34, %.lr.ph78.preheader.i ]
-  %35 = trunc i64 %.04775.i to i8
-  %36 = getelementptr inbounds i8, ptr %.077.i, i64 1
-  store i8 %35, ptr %.077.i, align 1
-  %37 = add nuw nsw i64 %.04676.i, 1
-  %38 = lshr i64 %.04775.i, 8
+.lr.ph77.i:                                       ; preds = %.lr.ph77.i, %.lr.ph77.preheader.i
+  %.076.i = phi ptr [ %36, %.lr.ph77.i ], [ %2, %.lr.ph77.preheader.i ]
+  %.04675.i = phi i64 [ %37, %.lr.ph77.i ], [ 0, %.lr.ph77.preheader.i ]
+  %.04774.i = phi i64 [ %38, %.lr.ph77.i ], [ %34, %.lr.ph77.preheader.i ]
+  %35 = trunc i64 %.04774.i to i8
+  %36 = getelementptr inbounds i8, ptr %.076.i, i64 1
+  store i8 %35, ptr %.076.i, align 1
+  %37 = add nuw nsw i64 %.04675.i, 1
+  %38 = lshr i64 %.04774.i, 8
   %39 = load i8, ptr %20, align 1
   %40 = zext i8 %39 to i64
   %41 = icmp ult i64 %37, %40
-  br i1 %41, label %.lr.ph78.i, label %.loopexit.i
+  br i1 %41, label %.lr.ph77.i, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph78.i, %.lr.ph83.i, %33, %22
-  %.pn.in.i = phi i8 [ 0, %22 ], [ 0, %33 ], [ %30, %.lr.ph83.i ], [ %39, %.lr.ph78.i ]
+.loopexit.i:                                      ; preds = %.lr.ph77.i, %.lr.ph82.i, %33, %22
+  %.pn.in.i = phi i8 [ 0, %22 ], [ 0, %33 ], [ %30, %.lr.ph82.i ], [ %39, %.lr.ph77.i ]
   %.pn.i = zext i8 %.pn.in.i to i64
   %.052.i = getelementptr inbounds i8, ptr %2, i64 %.pn.i
   %42 = getelementptr inbounds i8, ptr %.tr54.lcssa67.i, i64 32

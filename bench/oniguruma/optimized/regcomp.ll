@@ -5900,9 +5900,9 @@ define internal fastcc void @detect_can_be_slow(ptr nocapture noundef readonly %
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %.critedge.thread, %4
-  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.critedge.thread ], [ %8, %4 ]
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.critedge.thread ], [ %8, %4 ]
   %.tr.ph = phi ptr [ %114, %.critedge.thread ], [ %0, %4 ]
-  %9 = trunc nuw i64 %indvars.iv191 to i32
+  %9 = trunc nuw i64 %indvars.iv177 to i32
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
@@ -5994,8 +5994,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %51 = icmp sgt i32 %.pre, 2
-  %or.cond206 = select i1 %.not124, i1 %51, i1 false
-  br i1 %or.cond206, label %52, label %._crit_edge
+  %or.cond193 = select i1 %.not124, i1 %51, i1 false
+  br i1 %or.cond193, label %52, label %._crit_edge
 
 52:                                               ; preds = %47
   %53 = load i32, ptr %7, align 4
@@ -6117,7 +6117,7 @@ tailrecurse.backedge:                             ; preds = %81, %68
 
 107:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv191
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv177
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %106, %107
@@ -6132,8 +6132,8 @@ tailrecurse.backedge:                             ; preds = %81, %68
   br i1 %111, label %.critedge.thread, label %115
 
 .critedge.thread:                                 ; preds = %106, %.critedge
-  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %112 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv191
+  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %112 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv177
   store i32 %97, ptr %112, align 4
   %113 = getelementptr inbounds i8, ptr %.tr, i64 16
   %114 = load ptr, ptr %113, align 8
@@ -9370,7 +9370,7 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.b
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %45, %tailrecurse.outer
-  %.tr = phi ptr [ %.tr.ph, %tailrecurse.outer ], [ %47, %45 ]
+  %.tr = phi ptr [ %47, %45 ], [ %.tr.ph, %tailrecurse.outer ]
   %4 = load i32, ptr %.tr, align 8
   switch i32 %4, label %.critedge [
     i32 7, label %.preheader

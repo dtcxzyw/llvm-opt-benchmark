@@ -1115,14 +1115,14 @@ tailrecurse:                                      ; preds = %.lr.ph
   store ptr %57, ptr %4, align 8
   %58 = load i32, ptr %28, align 8
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph70, label %._crit_edge
+  br i1 %59, label %.lr.ph69, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %43
+.lr.ph69:                                         ; preds = %43
   %60 = getelementptr inbounds i8, ptr %12, i64 48
   br label %61
 
-61:                                               ; preds = %.lr.ph70, %75
-  %indvars.iv = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next, %75 ]
+61:                                               ; preds = %.lr.ph69, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %75 ]
   %62 = load ptr, ptr %60, align 8
   %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
@@ -1156,11 +1156,11 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %78, label %61, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %75
-  %.pre78 = load ptr, ptr %4, align 8
+  %.pre75 = load ptr, ptr %4, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43, %._crit_edge.loopexit, %tailrecurse._crit_edge
-  %storemerge = phi ptr [ %11, %tailrecurse._crit_edge ], [ %.pre78, %._crit_edge.loopexit ], [ %57, %43 ]
+  %storemerge = phi ptr [ %11, %tailrecurse._crit_edge ], [ %.pre75, %._crit_edge.loopexit ], [ %57, %43 ]
   store ptr %storemerge, ptr %1, align 8
   ret void
 }
