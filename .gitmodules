@@ -572,3 +572,6 @@
 [submodule "bench/soc-simulator/soc-simulator"]
 	path = bench/soc-simulator/soc-simulator
 	url = git@github.com:cyyself/soc-simulator.git
+[submodule "bench/ropey-rs/ropey"]
+	path = bench/ropey-rs/ropey
+	url = git@github.com:cessen/ropey.git
