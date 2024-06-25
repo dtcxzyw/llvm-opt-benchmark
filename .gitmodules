@@ -596,3 +596,6 @@
 [submodule "bench/libwebp/libwebp"]
 	path = bench/libwebp/libwebp
 	url = git@github.com:webmproject/libwebp.git
+[submodule "bench/luau/luau"]
+	path = bench/luau/luau
+	url = git@github.com:luau-lang/luau.git
