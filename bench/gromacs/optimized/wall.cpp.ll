@@ -269,12 +269,12 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds float, ptr %118, i64 %125
+  %119 = getelementptr inbounds i8, ptr %118, i64 %.idx
   %120 = getelementptr inbounds i8, ptr %119, i64 16
   %121 = getelementptr inbounds float, ptr %120, i64 %indvars.iv69
   %122 = load float, ptr %121, align 4
   %123 = getelementptr inbounds float, ptr %118, i64 %indvars.iv69
-  %124 = getelementptr inbounds float, ptr %123, i64 %126
+  %124 = getelementptr inbounds i8, ptr %123, i64 %.idx82
   store float %122, ptr %124, align 4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, 8
@@ -287,27 +287,27 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
 
 .preheader.us:                                    ; preds = %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us, %102
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %102 ], [ 0, %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us ]
-  %125 = mul nuw nsw i64 %indvars.iv72, 12
-  %126 = shl nsw i64 %indvars.iv72, 3
+  %.idx = mul i64 %indvars.iv72, 48
+  %.idx82 = shl nsw i64 %indvars.iv72, 5
   br label %111
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %127 = load i32, ptr %10, align 8
-  %128 = sext i32 %127 to i64
-  %129 = icmp slt i64 %indvars.iv.next80, %128
-  br i1 %129, label %.lr.ph.us, label %._crit_edge65, !llvm.loop !11
+  %125 = load i32, ptr %10, align 8
+  %126 = sext i32 %125 to i64
+  %127 = icmp slt i64 %indvars.iv.next80, %126
+  br i1 %127, label %.lr.ph.us, label %._crit_edge65, !llvm.loop !11
 
 .lr.ph64.split:                                   ; preds = %.lr.ph64, %.lr.ph64.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph64.split ], [ 0, %.lr.ph64 ]
-  %130 = load ptr, ptr %19, align 8
-  %131 = getelementptr inbounds %"class.std::vector.191", ptr %130, i64 %indvars.iv
-  tail call void @_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %131, i64 noundef %45)
+  %128 = load ptr, ptr %19, align 8
+  %129 = getelementptr inbounds %"class.std::vector.191", ptr %128, i64 %indvars.iv
+  tail call void @_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %129, i64 noundef %45)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %132 = load i32, ptr %10, align 8
-  %133 = sext i32 %132 to i64
-  %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %.lr.ph64.split, label %._crit_edge65, !llvm.loop !11
+  %130 = load i32, ptr %10, align 8
+  %131 = sext i32 %130 to i64
+  %132 = icmp slt i64 %indvars.iv.next, %131
+  br i1 %132, label %.lr.ph64.split, label %._crit_edge65, !llvm.loop !11
 
 ._crit_edge65:                                    ; preds = %.lr.ph64.split, %._crit_edge.us, %_ZNSt6vectorIS_ISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm.exit
   ret void

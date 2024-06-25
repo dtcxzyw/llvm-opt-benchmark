@@ -1671,8 +1671,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp12.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %mul = shl nuw i64 %i.0129, 1
-  %add.ptr.i = getelementptr inbounds float, ptr %15, i64 %mul
+  %add.ptr.i.idx = shl i64 %i.0129, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx
   %16 = load float, ptr %add.ptr.i, align 4
   %17 = getelementptr float, ptr %12, i64 %14
   %arrayidx.i = getelementptr i8, ptr %17, i64 -4
@@ -1681,7 +1681,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp17, label %if.end25, label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true
-  %add.ptr.i.le = getelementptr inbounds float, ptr %15, i64 %mul
+  %add.ptr.i.le = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx
   %arrayidx.i.le = getelementptr i8, ptr %17, i64 -4
   %conv = trunc i64 %i.0129 to i32
   store i32 %conv, ptr %ref.tmp19, align 4
@@ -1733,9 +1733,9 @@ lpad14.body:                                      ; preds = %lpad14.loopexit, %l
   call void @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lambda) #23
   br label %ehcleanup39
 
-if.end25:                                         ; preds = %for.body, %land.lhs.true
-  %mul26.pre-phi = phi i64 [ %mul, %land.lhs.true ], [ 0, %for.body ]
-  %add.ptr.i46 = getelementptr inbounds float, ptr %15, i64 %mul26.pre-phi
+if.end25:                                         ; preds = %land.lhs.true, %for.body
+  %mul26 = shl nuw i64 %i.0129, 1
+  %add.ptr.i46 = getelementptr inbounds float, ptr %15, i64 %mul26
   %cmp.i = icmp eq i64 %13, %14
   br i1 %cmp.i, label %if.then.i, label %invoke.cont28
 
@@ -1808,7 +1808,7 @@ invoke.cont28:                                    ; preds = %_ZN4pstd3pmr21polym
   %29 = load i64, ptr %nStored.i, align 8
   %inc.i = add i64 %29, 1
   store i64 %inc.i, ptr %nStored.i, align 8
-  %add = or disjoint i64 %mul26.pre-phi, 1
+  %add = or disjoint i64 %mul26, 1
   %30 = load ptr, ptr %vals, align 8
   %add.ptr.i51 = getelementptr inbounds float, ptr %30, i64 %add
   %31 = load i64, ptr %nAlloc.i52, align 8

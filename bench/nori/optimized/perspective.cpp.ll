@@ -993,7 +993,7 @@ define linkonce_odr hidden void @_ZN4nori17PerspectiveCamera8activateEv(ptr noun
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !11
   call void @_ZN4nori9TransformC1ERKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEE(ptr noundef nonnull align 16 dereferenceable(128) %8, ptr noundef nonnull align 16 dereferenceable(64) %9)
   %77 = getelementptr inbounds i8, ptr %8, i64 64
-  %.sroa.075.0.copyload = load <4 x float>, ptr %77, align 16
+  %.sroa.089.0.copyload = load <4 x float>, ptr %77, align 16
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 80
   %.sroa.3.0.copyload = load <4 x float>, ptr %.sroa.3.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 96
@@ -1008,7 +1008,7 @@ define linkonce_odr hidden void @_ZN4nori17PerspectiveCamera8activateEv(ptr noun
   %.sroa.16.64..sroa_idx = getelementptr inbounds i8, ptr %8, i64 48
   %.sroa.16.64.copyload = load <4 x float>, ptr %.sroa.16.64..sroa_idx, align 16
   %78 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x float> %.sroa.075.0.copyload, ptr %78, align 16
+  store <4 x float> %.sroa.089.0.copyload, ptr %78, align 16
   %79 = getelementptr inbounds i8, ptr %0, i64 48
   store <4 x float> %.sroa.3.0.copyload, ptr %79, align 16
   %80 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1035,19 +1035,19 @@ define linkonce_odr hidden void @_ZN4nori17PerspectiveCamera8activateEv(ptr noun
 
 .noexc:                                           ; preds = %88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %89, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %.noexc66 unwind label %103
+          to label %.noexc80 unwind label %103
 
-.noexc66:                                         ; preds = %.noexc
+.noexc80:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %90
 
-90:                                               ; preds = %.noexc66
+90:                                               ; preds = %.noexc80
   %91 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
   br label %.body
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc66
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc80
   %92 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 0, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %13, i64 16
@@ -2840,116 +2840,116 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   br label %3
 
 3:                                                ; preds = %1, %3
-  %.05 = phi i64 [ 0, %1 ], [ %102, %3 ]
+  %.05 = phi i64 [ 0, %1 ], [ %101, %3 ]
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = shl nuw nsw i64 %.05, 2
-  %7 = getelementptr float, ptr %5, i64 %6
-  %8 = load ptr, ptr %2, align 8
-  %9 = load ptr, ptr %8, align 8, !noalias !50
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds float, ptr %11, i64 %6
-  %13 = load float, ptr %9, align 4
-  %14 = load float, ptr %12, align 4
-  %15 = getelementptr i8, ptr %9, i64 16
-  %16 = load float, ptr %15, align 4
-  %17 = getelementptr i8, ptr %12, i64 4
-  %18 = getelementptr i8, ptr %9, i64 32
-  %19 = load float, ptr %18, align 4
-  %20 = getelementptr i8, ptr %9, i64 48
-  %21 = load float, ptr %20, align 4
-  %22 = getelementptr i8, ptr %12, i64 12
-  %23 = load float, ptr %22, align 4
-  %24 = load <2 x float>, ptr %17, align 4
-  %25 = insertelement <2 x float> poison, float %16, i64 0
-  %26 = insertelement <2 x float> %25, float %19, i64 1
-  %27 = fmul <2 x float> %26, %24
-  %28 = insertelement <2 x float> poison, float %13, i64 0
-  %29 = insertelement <2 x float> %28, float %21, i64 1
-  %30 = insertelement <2 x float> poison, float %14, i64 0
-  %31 = insertelement <2 x float> %30, float %23, i64 1
-  %32 = fmul <2 x float> %29, %31
-  %33 = fadd <2 x float> %27, %32
-  %shift = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %34 = fadd <2 x float> %33, %shift
-  %35 = extractelement <2 x float> %34, i64 0
-  store float %35, ptr %7, align 4
-  %36 = load ptr, ptr %0, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr float, ptr %37, i64 %6
-  %39 = getelementptr i8, ptr %38, i64 4
-  %40 = load ptr, ptr %2, align 8
-  %41 = load ptr, ptr %40, align 8, !noalias !53
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = getelementptr inbounds i8, ptr %40, i64 48
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds float, ptr %44, i64 %6
-  %46 = load float, ptr %42, align 4
-  %47 = load float, ptr %45, align 4
-  %48 = getelementptr i8, ptr %41, i64 20
-  %49 = load float, ptr %48, align 4
-  %50 = getelementptr i8, ptr %45, i64 4
-  %51 = getelementptr i8, ptr %41, i64 36
-  %52 = load float, ptr %51, align 4
-  %53 = getelementptr i8, ptr %41, i64 52
-  %54 = load float, ptr %53, align 4
-  %55 = getelementptr i8, ptr %45, i64 12
-  %56 = load float, ptr %55, align 4
-  %57 = load <2 x float>, ptr %50, align 4
-  %58 = insertelement <2 x float> poison, float %49, i64 0
-  %59 = insertelement <2 x float> %58, float %52, i64 1
-  %60 = fmul <2 x float> %59, %57
-  %61 = insertelement <2 x float> poison, float %46, i64 0
-  %62 = insertelement <2 x float> %61, float %54, i64 1
-  %63 = insertelement <2 x float> poison, float %47, i64 0
-  %64 = insertelement <2 x float> %63, float %56, i64 1
-  %65 = fmul <2 x float> %62, %64
-  %66 = fadd <2 x float> %60, %65
-  %shift6 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %67 = fadd <2 x float> %66, %shift6
-  %68 = extractelement <2 x float> %67, i64 0
-  store float %68, ptr %39, align 4
-  %69 = load ptr, ptr %0, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr float, ptr %70, i64 %6
-  %72 = getelementptr i8, ptr %71, i64 8
-  %73 = load ptr, ptr %2, align 8
-  %74 = load ptr, ptr %73, align 8, !noalias !56
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = getelementptr inbounds i8, ptr %73, i64 48
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds float, ptr %77, i64 %6
-  %79 = load float, ptr %75, align 4
-  %80 = load float, ptr %78, align 4
-  %81 = getelementptr i8, ptr %74, i64 24
-  %82 = load float, ptr %81, align 4
-  %83 = getelementptr i8, ptr %78, i64 4
-  %84 = getelementptr i8, ptr %74, i64 40
-  %85 = load float, ptr %84, align 4
-  %86 = getelementptr i8, ptr %74, i64 56
-  %87 = load float, ptr %86, align 4
-  %88 = getelementptr i8, ptr %78, i64 12
-  %89 = load float, ptr %88, align 4
-  %90 = load <2 x float>, ptr %83, align 4
-  %91 = insertelement <2 x float> poison, float %82, i64 0
-  %92 = insertelement <2 x float> %91, float %85, i64 1
-  %93 = fmul <2 x float> %92, %90
-  %94 = insertelement <2 x float> poison, float %79, i64 0
-  %95 = insertelement <2 x float> %94, float %87, i64 1
-  %96 = insertelement <2 x float> poison, float %80, i64 0
-  %97 = insertelement <2 x float> %96, float %89, i64 1
-  %98 = fmul <2 x float> %95, %97
-  %99 = fadd <2 x float> %93, %98
-  %shift7 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %100 = fadd <2 x float> %99, %shift7
-  %101 = extractelement <2 x float> %100, i64 0
-  store float %101, ptr %72, align 4
-  %102 = add nuw nsw i64 %.05, 1
-  %exitcond.not = icmp eq i64 %102, 4
-  br i1 %exitcond.not, label %103, label %3, !llvm.loop !59
+  %.idx.i.i.i.i = shl nuw nsw i64 %.05, 4
+  %6 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i
+  %7 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr %7, align 8, !noalias !50
+  %9 = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i.i.i
+  %12 = load float, ptr %8, align 4
+  %13 = load float, ptr %11, align 4
+  %14 = getelementptr i8, ptr %8, i64 16
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr i8, ptr %11, i64 4
+  %17 = getelementptr i8, ptr %8, i64 32
+  %18 = load float, ptr %17, align 4
+  %19 = getelementptr i8, ptr %8, i64 48
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr i8, ptr %11, i64 12
+  %22 = load float, ptr %21, align 4
+  %23 = load <2 x float>, ptr %16, align 4
+  %24 = insertelement <2 x float> poison, float %15, i64 0
+  %25 = insertelement <2 x float> %24, float %18, i64 1
+  %26 = fmul <2 x float> %25, %23
+  %27 = insertelement <2 x float> poison, float %12, i64 0
+  %28 = insertelement <2 x float> %27, float %20, i64 1
+  %29 = insertelement <2 x float> poison, float %13, i64 0
+  %30 = insertelement <2 x float> %29, float %22, i64 1
+  %31 = fmul <2 x float> %28, %30
+  %32 = fadd <2 x float> %26, %31
+  %shift = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %33 = fadd <2 x float> %32, %shift
+  %34 = extractelement <2 x float> %33, i64 0
+  store float %34, ptr %6, align 4
+  %35 = load ptr, ptr %0, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr i8, ptr %36, i64 %.idx.i.i.i.i
+  %38 = getelementptr i8, ptr %37, i64 4
+  %39 = load ptr, ptr %2, align 8
+  %40 = load ptr, ptr %39, align 8, !noalias !53
+  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds i8, ptr %39, i64 48
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.idx.i.i.i.i
+  %45 = load float, ptr %41, align 4
+  %46 = load float, ptr %44, align 4
+  %47 = getelementptr i8, ptr %40, i64 20
+  %48 = load float, ptr %47, align 4
+  %49 = getelementptr i8, ptr %44, i64 4
+  %50 = getelementptr i8, ptr %40, i64 36
+  %51 = load float, ptr %50, align 4
+  %52 = getelementptr i8, ptr %40, i64 52
+  %53 = load float, ptr %52, align 4
+  %54 = getelementptr i8, ptr %44, i64 12
+  %55 = load float, ptr %54, align 4
+  %56 = load <2 x float>, ptr %49, align 4
+  %57 = insertelement <2 x float> poison, float %48, i64 0
+  %58 = insertelement <2 x float> %57, float %51, i64 1
+  %59 = fmul <2 x float> %58, %56
+  %60 = insertelement <2 x float> poison, float %45, i64 0
+  %61 = insertelement <2 x float> %60, float %53, i64 1
+  %62 = insertelement <2 x float> poison, float %46, i64 0
+  %63 = insertelement <2 x float> %62, float %55, i64 1
+  %64 = fmul <2 x float> %61, %63
+  %65 = fadd <2 x float> %59, %64
+  %shift6 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %66 = fadd <2 x float> %65, %shift6
+  %67 = extractelement <2 x float> %66, i64 0
+  store float %67, ptr %38, align 4
+  %68 = load ptr, ptr %0, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr i8, ptr %69, i64 %.idx.i.i.i.i
+  %71 = getelementptr i8, ptr %70, i64 8
+  %72 = load ptr, ptr %2, align 8
+  %73 = load ptr, ptr %72, align 8, !noalias !56
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = getelementptr inbounds i8, ptr %72, i64 48
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 %.idx.i.i.i.i
+  %78 = load float, ptr %74, align 4
+  %79 = load float, ptr %77, align 4
+  %80 = getelementptr i8, ptr %73, i64 24
+  %81 = load float, ptr %80, align 4
+  %82 = getelementptr i8, ptr %77, i64 4
+  %83 = getelementptr i8, ptr %73, i64 40
+  %84 = load float, ptr %83, align 4
+  %85 = getelementptr i8, ptr %73, i64 56
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr i8, ptr %77, i64 12
+  %88 = load float, ptr %87, align 4
+  %89 = load <2 x float>, ptr %82, align 4
+  %90 = insertelement <2 x float> poison, float %81, i64 0
+  %91 = insertelement <2 x float> %90, float %84, i64 1
+  %92 = fmul <2 x float> %91, %89
+  %93 = insertelement <2 x float> poison, float %78, i64 0
+  %94 = insertelement <2 x float> %93, float %86, i64 1
+  %95 = insertelement <2 x float> poison, float %79, i64 0
+  %96 = insertelement <2 x float> %95, float %88, i64 1
+  %97 = fmul <2 x float> %94, %96
+  %98 = fadd <2 x float> %92, %97
+  %shift7 = shufflevector <2 x float> %98, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %99 = fadd <2 x float> %98, %shift7
+  %100 = extractelement <2 x float> %99, i64 0
+  store float %100, ptr %71, align 4
+  %101 = add nuw nsw i64 %.05, 1
+  %exitcond.not = icmp eq i64 %101, 4
+  br i1 %exitcond.not, label %102, label %3, !llvm.loop !59
 
-103:                                              ; preds = %3
+102:                                              ; preds = %3
   ret void
 }
 

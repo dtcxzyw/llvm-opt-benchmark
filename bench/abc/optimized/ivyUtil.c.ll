@@ -608,43 +608,43 @@ Vec_IntGrow.exit:                                 ; preds = %.critedge, %33
 42:                                               ; preds = %.lr.ph52, %42
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %42 ]
   %.val.i = load ptr, ptr %37, align 8
-  %43 = shl nsw i64 %indvars.iv58, 3
-  %44 = getelementptr inbounds i32, ptr %.val.i, i64 %43
-  %45 = getelementptr inbounds [8 x [8 x i32]], ptr @Ivy_ManCutTruth.uTruths, i64 0, i64 %indvars.iv58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %44, ptr noundef nonnull align 16 dereferenceable(32) %45, i64 32, i1 false)
+  %.idx = shl nsw i64 %indvars.iv58, 5
+  %43 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx
+  %44 = getelementptr inbounds [8 x [8 x i32]], ptr @Ivy_ManCutTruth.uTruths, i64 0, i64 %indvars.iv58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 16 dereferenceable(32) %44, i64 32, i1 false)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %.val39 = load i32, ptr %35, align 4
-  %46 = sext i32 %.val39 to i64
-  %47 = icmp slt i64 %indvars.iv.next59, %46
-  br i1 %47, label %42, label %.critedge2.preheader, !llvm.loop !14
+  %45 = sext i32 %.val39 to i64
+  %46 = icmp slt i64 %indvars.iv.next59, %45
+  br i1 %46, label %42, label %.critedge2.preheader, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.lr.ph55, %.critedge2
   %indvars.iv61 = phi i64 [ %41, %.lr.ph55 ], [ %indvars.iv.next62, %.critedge2 ]
   %.val42 = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv61
-  %49 = load i32, ptr %48, align 4
+  %47 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv61
+  %48 = load i32, ptr %47, align 4
   %.val45 = load ptr, ptr %40, align 8
-  %50 = getelementptr i8, ptr %.val45, i64 8
-  %.val45.val = load ptr, ptr %50, align 8
-  %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val45.val, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  tail call void @Ivy_ManCutTruthOne(ptr poison, ptr noundef %53, ptr noundef nonnull %4, i32 noundef 8)
+  %49 = getelementptr i8, ptr %.val45, i64 8
+  %.val45.val = load ptr, ptr %49, align 8
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr inbounds ptr, ptr %.val45.val, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  tail call void @Ivy_ManCutTruthOne(ptr poison, ptr noundef %52, ptr noundef nonnull %4, i32 noundef 8)
   %indvars.iv.next62 = add nsw i64 %indvars.iv61, 1
   %.val = load i32, ptr %6, align 4
-  %54 = sext i32 %.val to i64
-  %55 = icmp slt i64 %indvars.iv.next62, %54
-  br i1 %55, label %.critedge2, label %.critedge4, !llvm.loop !15
+  %53 = sext i32 %.val to i64
+  %54 = icmp slt i64 %indvars.iv.next62, %53
+  br i1 %54, label %.critedge2, label %.critedge4, !llvm.loop !15
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %56 = getelementptr inbounds i8, ptr %1, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr i8, ptr %4, i64 8
-  %.val.i47 = load ptr, ptr %58, align 8
-  %59 = shl nsw i32 %57, 3
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %.val.i47, i64 %60
-  ret ptr %61
+  %55 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr i8, ptr %4, i64 8
+  %.val.i47 = load ptr, ptr %57, align 8
+  %58 = shl nsw i32 %56, 3
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i32, ptr %.val.i47, i64 %59
+  ret ptr %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

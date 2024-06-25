@@ -637,32 +637,32 @@ define void @Aig_RManPrintSigs(ptr nocapture noundef readonly %0, i32 noundef %1
   %indvars.iv28 = phi i64 [ 0, %.split.us.us.preheader ], [ %indvars.iv.next29, %.split22.us.us ]
   %4 = trunc nuw nsw i64 %indvars.iv28 to i32
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %4)
-  %6 = shl nuw nsw i64 %indvars.iv28, 1
-  %invariant.gep = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %6
+  %.idx = mul nuw nsw i64 %indvars.iv28, 104
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %.idx
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.split.us.us
-  %7 = phi i1 [ false, %._crit_edge.us.us ], [ true, %.split.us.us ]
+  %6 = phi i1 [ false, %._crit_edge.us.us ], [ true, %.split.us.us ]
   %indvars.iv25 = phi i64 [ 1, %._crit_edge.us.us ], [ 0, %.split.us.us ]
   %gep = getelementptr inbounds %struct.Aig_VSig_t_, ptr %invariant.gep, i64 %indvars.iv25
-  %8 = load i32, ptr %gep, align 4
-  %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %8)
+  %7 = load i32, ptr %gep, align 4
+  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %7)
   %putchar18.us.us = tail call i32 @putchar(i32 40)
-  %10 = getelementptr inbounds i8, ptr %gep, i64 4
-  br label %11
+  %9 = getelementptr inbounds i8, ptr %gep, i64 4
+  br label %10
 
-11:                                               ; preds = %11, %.lr.ph.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph.us.us ]
-  %12 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %13)
+10:                                               ; preds = %10, %.lr.ph.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.lr.ph.us.us ]
+  %11 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %12 = load i32, ptr %11, align 4
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %10, !llvm.loop !16
 
-._crit_edge.us.us:                                ; preds = %11
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
-  br i1 %7, label %.lr.ph.us.us, label %.split22.us.us, !llvm.loop !17
+._crit_edge.us.us:                                ; preds = %10
+  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
+  br i1 %6, label %.lr.ph.us.us, label %.split22.us.us, !llvm.loop !17
 
 .split22.us.us:                                   ; preds = %._crit_edge.us.us
   %putchar.us = tail call i32 @putchar(i32 10)
@@ -871,19 +871,19 @@ define range(i32 0, 2) i32 @Aig_RManVarsAreUnique(ptr nocapture noundef readonly
 4:                                                ; preds = %5, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %11, label %5
+  br i1 %exitcond.not, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = shl nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %6
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = shl nuw nsw i64 %indvars.iv.next, 1
-  %9 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %8
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) %9, i64 4)
-  %10 = icmp eq i32 %bcmp, 0
-  br i1 %10, label %11, label %4, !llvm.loop !21
+  %.idx10 = mul nuw nsw i64 %indvars.iv.next, 104
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.idx10
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %7, i64 4)
+  %8 = icmp eq i32 %bcmp, 0
+  br i1 %8, label %9, label %4, !llvm.loop !21
 
-11:                                               ; preds = %4, %5
+9:                                                ; preds = %4, %5
   %.08 = phi i32 [ 0, %5 ], [ 1, %4 ]
   ret i32 %.08
 }
@@ -921,39 +921,39 @@ define void @Aig_RManPrintUniqueVars(ptr nocapture noundef readonly %0, i32 noun
   %wide.trip.count37 = zext nneg i32 %1 to i64
   br label %.lr.ph31
 
-.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %23
-  %indvars.iv34 = phi i64 [ 1, %.lr.ph31.preheader ], [ %indvars.iv.next35, %23 ]
-  %10 = shl nuw i64 %indvars.iv34, 1
-  %11 = shl i64 %indvars.iv34, 33
-  %sext = add i64 %11, -8589934592
-  %12 = ashr exact i64 %sext, 32
-  %13 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %12
-  %14 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %10
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %13, ptr noundef nonnull dereferenceable(4) %14, i64 4)
-  %15 = icmp eq i32 %bcmp, 0
-  br i1 %15, label %23, label %16
+.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %22
+  %indvars.iv34 = phi i64 [ 1, %.lr.ph31.preheader ], [ %indvars.iv.next35, %22 ]
+  %10 = shl i64 %indvars.iv34, 33
+  %sext = add i64 %10, -8589934592
+  %11 = ashr exact i64 %sext, 32
+  %12 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %11
+  %.idx = mul i64 %indvars.iv34, 104
+  %13 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) %13, i64 4)
+  %14 = icmp eq i32 %bcmp, 0
+  br i1 %14, label %22, label %15
 
-16:                                               ; preds = %.lr.ph31
-  %17 = icmp ult i64 %indvars.iv34, 10
-  %18 = trunc i64 %indvars.iv34 to i32
-  br i1 %17, label %19, label %21
+15:                                               ; preds = %.lr.ph31
+  %16 = icmp ult i64 %indvars.iv34, 10
+  %17 = trunc i64 %indvars.iv34 to i32
+  br i1 %16, label %18, label %20
 
-19:                                               ; preds = %16
-  %20 = or disjoint i32 %18, 48
-  br label %23
+18:                                               ; preds = %15
+  %19 = or disjoint i32 %17, 48
+  br label %22
 
-21:                                               ; preds = %16
-  %22 = add i32 %18, 55
-  br label %23
+20:                                               ; preds = %15
+  %21 = add i32 %17, 55
+  br label %22
 
-23:                                               ; preds = %.lr.ph31, %21, %19
-  %.sink39 = phi i32 [ %22, %21 ], [ %20, %19 ], [ 45, %.lr.ph31 ]
+22:                                               ; preds = %.lr.ph31, %20, %18
+  %.sink39 = phi i32 [ %21, %20 ], [ %19, %18 ], [ 45, %.lr.ph31 ]
   %putchar24 = tail call i32 @putchar(i32 %.sink39)
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !23
 
-._crit_edge32:                                    ; preds = %23, %._crit_edge
+._crit_edge32:                                    ; preds = %22, %._crit_edge
   %putchar21 = tail call i32 @putchar(i32 10)
   ret void
 }
@@ -1358,113 +1358,113 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %4
   br i1 %exitcond.not.i.not, label %Aig_RManVarsAreUnique.exit, label %83
 
 83:                                               ; preds = %82
-  %84 = shl nuw nsw i64 %indvars.iv.i50, 1
-  %85 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %80, i64 %84
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i50, 104
+  %84 = getelementptr inbounds i8, ptr %80, i64 %.idx.i
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
-  %86 = shl nuw nsw i64 %indvars.iv.next.i51, 1
-  %87 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %80, i64 %86
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %85, ptr noundef nonnull readonly dereferenceable(4) %87, i64 4)
-  %88 = icmp eq i32 %bcmp.i, 0
-  br i1 %88, label %Aig_RManVarsAreUnique.exit, label %82, !llvm.loop !21
+  %.idx10.i = mul nuw nsw i64 %indvars.iv.next.i51, 104
+  %85 = getelementptr inbounds i8, ptr %80, i64 %.idx10.i
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %84, ptr noundef nonnull readonly dereferenceable(4) %85, i64 4)
+  %86 = icmp eq i32 %bcmp.i, 0
+  br i1 %86, label %Aig_RManVarsAreUnique.exit, label %82, !llvm.loop !21
 
 Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
   %.08.i = phi i32 [ 1, %82 ], [ 0, %83 ]
-  %89 = getelementptr inbounds i8, ptr %79, i64 3444
-  %90 = load i32, ptr %89, align 4
-  %91 = add nsw i32 %90, %.08.i
-  store i32 %91, ptr %89, align 4
-  %92 = getelementptr inbounds i8, ptr %79, i64 568
-  %93 = tail call i32 @Aig_RManTableFindOrAdd(ptr noundef %79, ptr noundef nonnull %92, i32 noundef %20)
-  %.not45 = icmp eq i32 %93, 0
-  br i1 %.not45, label %97, label %94
+  %87 = getelementptr inbounds i8, ptr %79, i64 3444
+  %88 = load i32, ptr %87, align 4
+  %89 = add nsw i32 %88, %.08.i
+  store i32 %89, ptr %87, align 4
+  %90 = getelementptr inbounds i8, ptr %79, i64 568
+  %91 = tail call i32 @Aig_RManTableFindOrAdd(ptr noundef %79, ptr noundef nonnull %90, i32 noundef %20)
+  %.not45 = icmp eq i32 %91, 0
+  br i1 %.not45, label %95, label %92
 
-94:                                               ; preds = %Aig_RManVarsAreUnique.exit
-  %95 = load ptr, ptr @s_pRMan, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 568
-  tail call void @Aig_RManSaveOne(ptr noundef %95, ptr noundef nonnull %96, i32 noundef %20)
-  br label %97
+92:                                               ; preds = %Aig_RManVarsAreUnique.exit
+  %93 = load ptr, ptr @s_pRMan, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 568
+  tail call void @Aig_RManSaveOne(ptr noundef %93, ptr noundef nonnull %94, i32 noundef %20)
+  br label %95
 
-97:                                               ; preds = %Aig_RManVarsAreUnique.exit, %94
+95:                                               ; preds = %Aig_RManVarsAreUnique.exit, %92
   %.pre = load ptr, ptr @s_pRMan, align 8
   br i1 %.not66, label %._crit_edge61.thread, label %.lr.ph60
 
-._crit_edge61.thread:                             ; preds = %97
-  %98 = getelementptr inbounds i8, ptr %.pre, i64 1592
-  %99 = getelementptr inbounds i8, ptr %.pre, i64 568
-  %100 = getelementptr inbounds i8, ptr %.pre, i64 3364
-  tail call void @Kit_TruthPermute(ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef %20, ptr noundef nonnull %100, i32 noundef 1) #16
+._crit_edge61.thread:                             ; preds = %95
+  %96 = getelementptr inbounds i8, ptr %.pre, i64 1592
+  %97 = getelementptr inbounds i8, ptr %.pre, i64 568
+  %98 = getelementptr inbounds i8, ptr %.pre, i64 3364
+  tail call void @Kit_TruthPermute(ptr noundef nonnull %96, ptr noundef nonnull %97, i32 noundef %20, ptr noundef nonnull %98, i32 noundef 1) #16
   br label %._crit_edge65
 
-.lr.ph60:                                         ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %.pre, i64 3352
-  %102 = getelementptr inbounds i8, ptr %.pre, i64 3364
-  br label %103
+.lr.ph60:                                         ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %.pre, i64 3352
+  %100 = getelementptr inbounds i8, ptr %.pre, i64 3364
+  br label %101
 
-103:                                              ; preds = %.lr.ph60, %103
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next71, %103 ]
-  %104 = getelementptr inbounds [12 x i8], ptr %101, i64 0, i64 %indvars.iv70
-  %105 = load i8, ptr %104, align 1
-  %106 = getelementptr inbounds [12 x i8], ptr %102, i64 0, i64 %indvars.iv70
-  store i8 %105, ptr %106, align 1
+101:                                              ; preds = %.lr.ph60, %101
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next71, %101 ]
+  %102 = getelementptr inbounds [12 x i8], ptr %99, i64 0, i64 %indvars.iv70
+  %103 = load i8, ptr %102, align 1
+  %104 = getelementptr inbounds [12 x i8], ptr %100, i64 0, i64 %indvars.iv70
+  store i8 %103, ptr %104, align 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %30
-  br i1 %exitcond74.not, label %._crit_edge61, label %103, !llvm.loop !31
+  br i1 %exitcond74.not, label %._crit_edge61, label %101, !llvm.loop !31
 
-._crit_edge61:                                    ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %.pre, i64 1592
-  %108 = getelementptr inbounds i8, ptr %.pre, i64 568
-  %109 = getelementptr inbounds i8, ptr %.pre, i64 3364
-  tail call void @Kit_TruthPermute(ptr noundef nonnull %107, ptr noundef nonnull %108, i32 noundef %20, ptr noundef nonnull %109, i32 noundef 1) #16
+._crit_edge61:                                    ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %.pre, i64 1592
+  %106 = getelementptr inbounds i8, ptr %.pre, i64 568
+  %107 = getelementptr inbounds i8, ptr %.pre, i64 3364
+  tail call void @Kit_TruthPermute(ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef %20, ptr noundef nonnull %107, i32 noundef 1) #16
   br i1 %.not66, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %._crit_edge61, %115
-  %.262 = phi i32 [ %116, %115 ], [ 0, %._crit_edge61 ]
-  %110 = shl nuw i32 1, %.262
-  %111 = and i32 %110, %78
-  %.not48 = icmp eq i32 %111, 0
-  br i1 %.not48, label %115, label %112
+.lr.ph64:                                         ; preds = %._crit_edge61, %113
+  %.262 = phi i32 [ %114, %113 ], [ 0, %._crit_edge61 ]
+  %108 = shl nuw i32 1, %.262
+  %109 = and i32 %108, %78
+  %.not48 = icmp eq i32 %109, 0
+  br i1 %.not48, label %113, label %110
 
-112:                                              ; preds = %.lr.ph64
-  %113 = load ptr, ptr @s_pRMan, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 568
-  tail call void @Kit_TruthChangePhase(ptr noundef nonnull %114, i32 noundef %20, i32 noundef %.262) #16
-  br label %115
+110:                                              ; preds = %.lr.ph64
+  %111 = load ptr, ptr @s_pRMan, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 568
+  tail call void @Kit_TruthChangePhase(ptr noundef nonnull %112, i32 noundef %20, i32 noundef %.262) #16
+  br label %113
 
-115:                                              ; preds = %.lr.ph64, %112
-  %116 = add nuw nsw i32 %.262, 1
-  %exitcond75.not = icmp eq i32 %116, %20
+113:                                              ; preds = %.lr.ph64, %110
+  %114 = add nuw nsw i32 %.262, 1
+  %exitcond75.not = icmp eq i32 %114, %20
   br i1 %exitcond75.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !32
 
-._crit_edge65:                                    ; preds = %115, %._crit_edge61.thread, %._crit_edge61
-  br i1 %exitcond.not.i.not, label %117, label %Kit_TruthIsEqual.exit
+._crit_edge65:                                    ; preds = %113, %._crit_edge61.thread, %._crit_edge61
+  br i1 %exitcond.not.i.not, label %115, label %Kit_TruthIsEqual.exit
 
-117:                                              ; preds = %._crit_edge65
-  %118 = load ptr, ptr @s_pRMan, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 568
-  %120 = getelementptr inbounds i8, ptr %118, i64 56
-  %121 = zext i32 %47 to i64
+115:                                              ; preds = %._crit_edge65
+  %116 = load ptr, ptr @s_pRMan, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 568
+  %118 = getelementptr inbounds i8, ptr %116, i64 56
+  %119 = zext i32 %47 to i64
   br label %select.unfold.i53
 
-select.unfold.i53:                                ; preds = %124, %117
-  %indvars.iv.i54 = phi i64 [ %121, %117 ], [ %125, %124 ]
-  %122 = trunc nuw i64 %indvars.iv.i54 to i32
-  %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %124, label %Kit_TruthIsEqual.exit
+select.unfold.i53:                                ; preds = %122, %115
+  %indvars.iv.i54 = phi i64 [ %119, %115 ], [ %123, %122 ]
+  %120 = trunc nuw i64 %indvars.iv.i54 to i32
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %122, label %Kit_TruthIsEqual.exit
 
-124:                                              ; preds = %select.unfold.i53
-  %125 = add nsw i64 %indvars.iv.i54, -1
-  %126 = getelementptr inbounds i32, ptr %119, i64 %125
+122:                                              ; preds = %select.unfold.i53
+  %123 = add nsw i64 %indvars.iv.i54, -1
+  %124 = getelementptr inbounds i32, ptr %117, i64 %123
+  %125 = load i32, ptr %124, align 4
+  %126 = getelementptr inbounds i32, ptr %118, i64 %123
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i32, ptr %120, i64 %125
-  %129 = load i32, ptr %128, align 4
-  %.not.i = icmp eq i32 %127, %129
-  br i1 %.not.i, label %select.unfold.i53, label %130, !llvm.loop !8
+  %.not.i = icmp eq i32 %125, %127
+  br i1 %.not.i, label %select.unfold.i53, label %128, !llvm.loop !8
 
-130:                                              ; preds = %124
+128:                                              ; preds = %122
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %Kit_TruthIsEqual.exit
 
-Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i53, %._crit_edge65, %130, %22, %4
+Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i53, %._crit_edge65, %128, %22, %4
   ret void
 }
 

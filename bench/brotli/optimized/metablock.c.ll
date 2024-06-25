@@ -748,7 +748,7 @@ for.cond114.loopexit:                             ; preds = %for.body120
 for.body116:                                      ; preds = %if.then111, %for.cond114.loopexit
   %i.1385 = phi i64 [ %dec117, %for.cond114.loopexit ], [ %42, %if.then111 ]
   %dec117 = add i64 %i.1385, -1
-  %shl124 = shl i64 %dec117, 6
+  %arrayidx125.idx = shl i64 %dec117, 8
   br label %for.body120
 
 for.body120:                                      ; preds = %for.body116, %for.body120
@@ -757,7 +757,7 @@ for.body120:                                      ; preds = %for.body116, %for.b
   %arrayidx122 = getelementptr inbounds i32, ptr %43, i64 %dec117
   %44 = load i32, ptr %arrayidx122, align 4
   %45 = getelementptr i32, ptr %43, i64 %j.0383
-  %arrayidx125 = getelementptr i32, ptr %45, i64 %shl124
+  %arrayidx125 = getelementptr i8, ptr %45, i64 %arrayidx125.idx
   store i32 %44, ptr %arrayidx125, align 4
   %inc127 = add nuw nsw i64 %j.0383, 1
   %exitcond397.not = icmp eq i64 %inc127, 64
@@ -1466,7 +1466,7 @@ for.body.i246:                                    ; preds = %cond.end.i, %for.in
   %i.015.i = phi i64 [ %inc16.i, %for.inc15.i ], [ 0, %cond.end.i ]
   %mul6.i = mul i64 %i.015.i, %num_contexts
   %conv.i247 = trunc i64 %mul6.i to i32
-  %shl12.i = shl i64 %i.015.i, 6
+  %arrayidx14.idx.i = shl i64 %i.015.i, 8
   br label %for.body10.i248
 
 for.body10.i248:                                  ; preds = %for.body10.i248, %for.body.i246
@@ -1476,7 +1476,7 @@ for.body10.i248:                                  ; preds = %for.body10.i248, %f
   %add.i250 = add i32 %69, %conv.i247
   %70 = load ptr, ptr %literal_context_map.i, align 8
   %71 = getelementptr i32, ptr %70, i64 %j.013.i
-  %arrayidx14.i = getelementptr i32, ptr %71, i64 %shl12.i
+  %arrayidx14.i = getelementptr i8, ptr %71, i64 %arrayidx14.idx.i
   store i32 %add.i250, ptr %arrayidx14.i, align 4
   %inc.i251 = add nuw nsw i64 %j.013.i, 1
   %exitcond.not.i252 = icmp eq i64 %inc.i251, 64

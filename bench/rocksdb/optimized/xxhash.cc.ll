@@ -1537,13 +1537,12 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds
   br label %for.body.i4.i
 
 for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i
-  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %inc.i8.i, %for.body.i4.i ]
+  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %inc.i7.i, %for.body.i4.i ]
   %result64.08.i.i = phi i64 [ %mul.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %add.i.i, %for.body.i4.i ]
-  %mul.i5.i = shl nuw nsw i64 %i.09.i.i, 1
-  %add.ptr.i6.i = getelementptr inbounds i64, ptr %acc.i, i64 %mul.i5.i
-  %mul1.i.i = shl nuw nsw i64 %i.09.i.i, 4
-  %add.ptr2.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %mul1.i.i
-  %29 = load <2 x i64>, ptr %add.ptr.i6.i, align 16
+  %add.ptr.idx.i.i = shl nuw nsw i64 %i.09.i.i, 4
+  %add.ptr.i5.i = getelementptr inbounds i8, ptr %acc.i, i64 %add.ptr.idx.i.i
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i
+  %29 = load <2 x i64>, ptr %add.ptr.i5.i, align 16
   %30 = load <2 x i64>, ptr %add.ptr2.i.i, align 1
   %31 = xor <2 x i64> %30, %29
   %32 = extractelement <2 x i64> %31, i64 0
@@ -1553,18 +1552,18 @@ for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL
   %mul.i.i.i.i.i = mul nuw i128 %35, %33
   %shr.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
   %xor1.i.i.i.i = xor i128 %shr.i.i.i.i.i, %mul.i.i.i.i.i
-  %xor.i.i.i7.i = trunc i128 %xor1.i.i.i.i to i64
-  %add.i.i = add i64 %result64.08.i.i, %xor.i.i.i7.i
-  %inc.i8.i = add nuw nsw i64 %i.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i8.i, 4
+  %xor.i.i.i6.i = trunc i128 %xor1.i.i.i.i to i64
+  %add.i.i = add i64 %result64.08.i.i, %xor.i.i.i6.i
+  %inc.i7.i = add nuw nsw i64 %i.09.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i7.i, 4
   br i1 %exitcond.not.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit, label %for.body.i4.i, !llvm.loop !20
 
 _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %for.body.i4.i
   %shr.i.i.i.i = lshr i64 %add.i.i, 37
   %xor.i.i7.i.i = xor i64 %shr.i.i.i.i, %add.i.i
-  %mul.i.i10.i = mul i64 %xor.i.i7.i.i, 1609587791953885689
-  %shr.i4.i.i.i = lshr i64 %mul.i.i10.i, 32
-  %xor.i5.i.i.i = xor i64 %shr.i4.i.i.i, %mul.i.i10.i
+  %mul.i.i9.i = mul i64 %xor.i.i7.i.i, 1609587791953885689
+  %shr.i4.i.i.i = lshr i64 %mul.i.i9.i, 32
+  %xor.i5.i.i.i = xor i64 %shr.i4.i.i.i, %mul.i.i9.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i)
   ret i64 %xor.i5.i.i.i
 }
@@ -1700,13 +1699,12 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds
   br label %for.body.i4.i
 
 for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i
-  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %inc.i8.i, %for.body.i4.i ]
+  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %inc.i7.i, %for.body.i4.i ]
   %result64.08.i.i = phi i64 [ %mul.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %add.i.i, %for.body.i4.i ]
-  %mul.i5.i = shl nuw nsw i64 %i.09.i.i, 1
-  %add.ptr.i6.i = getelementptr inbounds i64, ptr %acc.i, i64 %mul.i5.i
-  %mul1.i.i = shl nuw nsw i64 %i.09.i.i, 4
-  %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul1.i.i
-  %29 = load <2 x i64>, ptr %add.ptr.i6.i, align 16
+  %add.ptr.idx.i.i = shl nuw nsw i64 %i.09.i.i, 4
+  %add.ptr.i5.i = getelementptr inbounds i8, ptr %acc.i, i64 %add.ptr.idx.i.i
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.ptr.idx.i.i
+  %29 = load <2 x i64>, ptr %add.ptr.i5.i, align 16
   %30 = load <2 x i64>, ptr %add.ptr2.i.i, align 1
   %31 = xor <2 x i64> %30, %29
   %32 = extractelement <2 x i64> %31, i64 0
@@ -1716,18 +1714,18 @@ for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL
   %mul.i.i.i.i.i = mul nuw i128 %35, %33
   %shr.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
   %xor1.i.i.i.i = xor i128 %shr.i.i.i.i.i, %mul.i.i.i.i.i
-  %xor.i.i.i7.i = trunc i128 %xor1.i.i.i.i to i64
-  %add.i.i = add i64 %result64.08.i.i, %xor.i.i.i7.i
-  %inc.i8.i = add nuw nsw i64 %i.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i8.i, 4
+  %xor.i.i.i6.i = trunc i128 %xor1.i.i.i.i to i64
+  %add.i.i = add i64 %result64.08.i.i, %xor.i.i.i6.i
+  %inc.i7.i = add nuw nsw i64 %i.09.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i7.i, 4
   br i1 %exitcond.not.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit, label %for.body.i4.i, !llvm.loop !20
 
 _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %for.body.i4.i
   %shr.i.i.i.i = lshr i64 %add.i.i, 37
   %xor.i.i7.i.i = xor i64 %shr.i.i.i.i, %add.i.i
-  %mul.i.i10.i = mul i64 %xor.i.i7.i.i, 1609587791953885689
-  %shr.i4.i.i.i = lshr i64 %mul.i.i10.i, 32
-  %xor.i5.i.i.i = xor i64 %shr.i4.i.i.i, %mul.i.i10.i
+  %mul.i.i9.i = mul i64 %xor.i.i7.i.i, 1609587791953885689
+  %shr.i4.i.i.i = lshr i64 %mul.i.i9.i, 32
+  %xor.i5.i.i.i = xor i64 %shr.i4.i.i.i, %mul.i.i9.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i)
   ret i64 %xor.i5.i.i.i
 }
@@ -1857,13 +1855,12 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; pre
   br label %for.body.i4.i.i
 
 for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i
-  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %inc.i8.i.i, %for.body.i4.i.i ]
+  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %inc.i7.i.i, %for.body.i4.i.i ]
   %result64.08.i.i.i = phi i64 [ %mul.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %add.i.i.i, %for.body.i4.i.i ]
-  %mul.i5.i.i = shl nuw nsw i64 %i.09.i.i.i, 1
-  %add.ptr.i6.i.i = getelementptr inbounds i64, ptr %acc.i.i, i64 %mul.i5.i.i
-  %mul1.i.i.i = shl nuw nsw i64 %i.09.i.i.i, 4
-  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %mul1.i.i.i
-  %29 = load <2 x i64>, ptr %add.ptr.i6.i.i, align 16
+  %add.ptr.idx.i.i.i = shl nuw nsw i64 %i.09.i.i.i, 4
+  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %acc.i.i, i64 %add.ptr.idx.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i.i
+  %29 = load <2 x i64>, ptr %add.ptr.i5.i.i, align 16
   %30 = load <2 x i64>, ptr %add.ptr2.i.i.i, align 1
   %31 = xor <2 x i64> %30, %29
   %32 = extractelement <2 x i64> %31, i64 0
@@ -1873,18 +1870,18 @@ for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_
   %mul.i.i.i.i.i.i = mul nuw i128 %35, %33
   %shr.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i, 64
   %xor1.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i, %mul.i.i.i.i.i.i
-  %xor.i.i.i7.i.i = trunc i128 %xor1.i.i.i.i.i to i64
-  %add.i.i.i = add i64 %result64.08.i.i.i, %xor.i.i.i7.i.i
-  %inc.i8.i.i = add nuw nsw i64 %i.09.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i8.i.i, 4
+  %xor.i.i.i6.i.i = trunc i128 %xor1.i.i.i.i.i to i64
+  %add.i.i.i = add i64 %result64.08.i.i.i, %xor.i.i.i6.i.i
+  %inc.i7.i.i = add nuw nsw i64 %i.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i7.i.i, 4
   br i1 %exitcond.not.i.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i, label %for.body.i4.i.i, !llvm.loop !20
 
 _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i: ; preds = %for.body.i4.i.i
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i, 37
   %xor.i.i7.i.i.i = xor i64 %shr.i.i.i.i.i, %add.i.i.i
-  %mul.i.i10.i.i = mul i64 %xor.i.i7.i.i.i, 1609587791953885689
-  %shr.i4.i.i.i.i = lshr i64 %mul.i.i10.i.i, 32
-  %xor.i5.i.i.i.i = xor i64 %shr.i4.i.i.i.i, %mul.i.i10.i.i
+  %mul.i.i9.i.i = mul i64 %xor.i.i7.i.i.i, 1609587791953885689
+  %shr.i4.i.i.i.i = lshr i64 %mul.i.i9.i.i, 32
+  %xor.i5.i.i.i.i = xor i64 %shr.i4.i.i.i.i, %mul.i.i9.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i)
   br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 
@@ -2017,39 +2014,38 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i: ; p
   br label %for.body.i4.i68.i
 
 for.body.i4.i68.i:                                ; preds = %for.body.i4.i68.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i
-  %i.09.i.i69.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i ], [ %inc.i8.i88.i, %for.body.i4.i68.i ]
-  %result64.08.i.i70.i = phi i64 [ %mul.i67.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i ], [ %add.i.i87.i, %for.body.i4.i68.i ]
-  %mul.i5.i71.i = shl nuw nsw i64 %i.09.i.i69.i, 1
-  %add.ptr.i6.i72.i = getelementptr inbounds i64, ptr %acc.i7.i, i64 %mul.i5.i71.i
-  %mul1.i.i73.i = shl nuw nsw i64 %i.09.i.i69.i, 4
-  %add.ptr2.i.i74.i = getelementptr inbounds i8, ptr %add.ptr.i66.i, i64 %mul1.i.i73.i
-  %67 = load <2 x i64>, ptr %add.ptr.i6.i72.i, align 16
-  %68 = load <2 x i64>, ptr %add.ptr2.i.i74.i, align 1
+  %i.09.i.i69.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i ], [ %inc.i7.i87.i, %for.body.i4.i68.i ]
+  %result64.08.i.i70.i = phi i64 [ %mul.i67.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i ], [ %add.i.i86.i, %for.body.i4.i68.i ]
+  %add.ptr.idx.i.i71.i = shl nuw nsw i64 %i.09.i.i69.i, 4
+  %add.ptr.i5.i72.i = getelementptr inbounds i8, ptr %acc.i7.i, i64 %add.ptr.idx.i.i71.i
+  %add.ptr2.i.i73.i = getelementptr inbounds i8, ptr %add.ptr.i66.i, i64 %add.ptr.idx.i.i71.i
+  %67 = load <2 x i64>, ptr %add.ptr.i5.i72.i, align 16
+  %68 = load <2 x i64>, ptr %add.ptr2.i.i73.i, align 1
   %69 = xor <2 x i64> %68, %67
   %70 = extractelement <2 x i64> %69, i64 0
   %71 = zext i64 %70 to i128
   %72 = extractelement <2 x i64> %69, i64 1
   %73 = zext i64 %72 to i128
-  %mul.i.i.i.i.i83.i = mul nuw i128 %73, %71
-  %shr.i.i.i.i.i84.i = lshr i128 %mul.i.i.i.i.i83.i, 64
-  %xor1.i.i.i.i85.i = xor i128 %shr.i.i.i.i.i84.i, %mul.i.i.i.i.i83.i
-  %xor.i.i.i7.i86.i = trunc i128 %xor1.i.i.i.i85.i to i64
-  %add.i.i87.i = add i64 %result64.08.i.i70.i, %xor.i.i.i7.i86.i
-  %inc.i8.i88.i = add nuw nsw i64 %i.09.i.i69.i, 1
-  %exitcond.not.i.i89.i = icmp eq i64 %inc.i8.i88.i, 4
-  br i1 %exitcond.not.i.i89.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit95.i, label %for.body.i4.i68.i, !llvm.loop !20
+  %mul.i.i.i.i.i82.i = mul nuw i128 %73, %71
+  %shr.i.i.i.i.i83.i = lshr i128 %mul.i.i.i.i.i82.i, 64
+  %xor1.i.i.i.i84.i = xor i128 %shr.i.i.i.i.i83.i, %mul.i.i.i.i.i82.i
+  %xor.i.i.i6.i85.i = trunc i128 %xor1.i.i.i.i84.i to i64
+  %add.i.i86.i = add i64 %result64.08.i.i70.i, %xor.i.i.i6.i85.i
+  %inc.i7.i87.i = add nuw nsw i64 %i.09.i.i69.i, 1
+  %exitcond.not.i.i88.i = icmp eq i64 %inc.i7.i87.i, 4
+  br i1 %exitcond.not.i.i88.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i, label %for.body.i4.i68.i, !llvm.loop !20
 
-_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit95.i: ; preds = %for.body.i4.i68.i
-  %shr.i.i.i.i90.i = lshr i64 %add.i.i87.i, 37
-  %xor.i.i7.i.i91.i = xor i64 %shr.i.i.i.i90.i, %add.i.i87.i
-  %mul.i.i10.i92.i = mul i64 %xor.i.i7.i.i91.i, 1609587791953885689
-  %shr.i4.i.i.i93.i = lshr i64 %mul.i.i10.i92.i, 32
-  %xor.i5.i.i.i94.i = xor i64 %shr.i4.i.i.i93.i, %mul.i.i10.i92.i
+_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i: ; preds = %for.body.i4.i68.i
+  %shr.i.i.i.i89.i = lshr i64 %add.i.i86.i, 37
+  %xor.i.i7.i.i90.i = xor i64 %shr.i.i.i.i89.i, %add.i.i86.i
+  %mul.i.i9.i91.i = mul i64 %xor.i.i7.i.i90.i, 1609587791953885689
+  %shr.i4.i.i.i92.i = lshr i64 %mul.i.i9.i91.i, 32
+  %xor.i5.i.i.i93.i = xor i64 %shr.i4.i.i.i92.i, %mul.i.i9.i91.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i7.i)
   br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 
-_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit: ; preds = %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit95.i
-  %retval.0.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i ], [ %xor.i5.i.i.i94.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit95.i ]
+_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit: ; preds = %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i
+  %retval.0.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i ], [ %xor.i5.i.i.i93.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %secret.i)
   ret i64 %retval.0.i
 }
@@ -2184,13 +2180,12 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; pre
   br label %for.body.i4.i.i
 
 for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i
-  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %inc.i8.i.i, %for.body.i4.i.i ]
+  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %inc.i7.i.i, %for.body.i4.i.i ]
   %result64.08.i.i.i = phi i64 [ %mul.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %add.i.i.i, %for.body.i4.i.i ]
-  %mul.i5.i.i = shl nuw nsw i64 %i.09.i.i.i, 1
-  %add.ptr.i6.i.i = getelementptr inbounds i64, ptr %acc.i.i, i64 %mul.i5.i.i
-  %mul1.i.i.i = shl nuw nsw i64 %i.09.i.i.i, 4
-  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul1.i.i.i
-  %29 = load <2 x i64>, ptr %add.ptr.i6.i.i, align 16
+  %add.ptr.idx.i.i.i = shl nuw nsw i64 %i.09.i.i.i, 4
+  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %acc.i.i, i64 %add.ptr.idx.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr.idx.i.i.i
+  %29 = load <2 x i64>, ptr %add.ptr.i5.i.i, align 16
   %30 = load <2 x i64>, ptr %add.ptr2.i.i.i, align 1
   %31 = xor <2 x i64> %30, %29
   %32 = extractelement <2 x i64> %31, i64 0
@@ -2200,18 +2195,18 @@ for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_
   %mul.i.i.i.i.i.i = mul nuw i128 %35, %33
   %shr.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i, 64
   %xor1.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i, %mul.i.i.i.i.i.i
-  %xor.i.i.i7.i.i = trunc i128 %xor1.i.i.i.i.i to i64
-  %add.i.i.i = add i64 %result64.08.i.i.i, %xor.i.i.i7.i.i
-  %inc.i8.i.i = add nuw nsw i64 %i.09.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i8.i.i, 4
+  %xor.i.i.i6.i.i = trunc i128 %xor1.i.i.i.i.i to i64
+  %add.i.i.i = add i64 %result64.08.i.i.i, %xor.i.i.i6.i.i
+  %inc.i7.i.i = add nuw nsw i64 %i.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i7.i.i, 4
   br i1 %exitcond.not.i.i.i, label %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit, label %for.body.i4.i.i, !llvm.loop !20
 
 _ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit:  ; preds = %for.body.i4.i.i
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i, 37
   %xor.i.i7.i.i.i = xor i64 %shr.i.i.i.i.i, %add.i.i.i
-  %mul.i.i10.i.i = mul i64 %xor.i.i7.i.i.i, 1609587791953885689
-  %shr.i4.i.i.i.i = lshr i64 %mul.i.i10.i.i, 32
-  %xor.i5.i.i.i.i = xor i64 %shr.i4.i.i.i.i, %mul.i.i10.i.i
+  %mul.i.i9.i.i = mul i64 %xor.i.i7.i.i.i, 1609587791953885689
+  %shr.i4.i.i.i.i = lshr i64 %mul.i.i9.i.i, 32
+  %xor.i5.i.i.i.i = xor i64 %shr.i4.i.i.i.i, %mul.i.i9.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i)
   br label %return
 
@@ -2996,10 +2991,9 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %i.09.i = phi i64 [ 0, %if.then ], [ %inc.i, %for.body.i ]
   %result64.08.i = phi i64 [ %mul, %if.then ], [ %add.i, %for.body.i ]
-  %mul.i = shl nuw nsw i64 %i.09.i, 1
-  %add.ptr.i = getelementptr inbounds i64, ptr %acc, i64 %mul.i
-  %mul1.i = shl nuw nsw i64 %i.09.i, 4
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
+  %add.ptr.idx.i = shl nuw nsw i64 %i.09.i, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %acc, i64 %add.ptr.idx.i
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr.idx.i
   %2 = load <2 x i64>, ptr %add.ptr.i, align 16
   %3 = load <2 x i64>, ptr %add.ptr2.i, align 1
   %4 = xor <2 x i64> %3, %2
@@ -4207,10 +4201,9 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %i.09.i = phi i64 [ 0, %if.then ], [ %inc.i, %for.body.i ]
   %result64.08.i = phi i64 [ %mul, %if.then ], [ %add.i, %for.body.i ]
-  %mul.i = shl nuw nsw i64 %i.09.i, 1
-  %add.ptr.i = getelementptr inbounds i64, ptr %acc, i64 %mul.i
-  %mul1.i = shl nuw nsw i64 %i.09.i, 4
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
+  %add.ptr.idx.i = shl nuw nsw i64 %i.09.i, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %acc, i64 %add.ptr.idx.i
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr.idx.i
   %4 = load <2 x i64>, ptr %add.ptr.i, align 16
   %5 = load <2 x i64>, ptr %add.ptr2.i, align 1
   %6 = xor <2 x i64> %5, %4
@@ -4239,35 +4232,34 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %for.body.i
   br label %for.body.i21
 
 for.body.i21:                                     ; preds = %for.body.i21, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %i.09.i22 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %inc.i41, %for.body.i21 ]
-  %result64.08.i23 = phi i64 [ %not, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %add.i40, %for.body.i21 ]
-  %mul.i24 = shl nuw nsw i64 %i.09.i22, 1
-  %add.ptr.i25 = getelementptr inbounds i64, ptr %acc, i64 %mul.i24
-  %mul1.i26 = shl nuw nsw i64 %i.09.i22, 4
-  %add.ptr2.i27 = getelementptr inbounds i8, ptr %add.ptr13, i64 %mul1.i26
+  %i.09.i22 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %inc.i40, %for.body.i21 ]
+  %result64.08.i23 = phi i64 [ %not, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %add.i39, %for.body.i21 ]
+  %add.ptr.idx.i24 = shl nuw nsw i64 %i.09.i22, 4
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %acc, i64 %add.ptr.idx.i24
+  %add.ptr2.i26 = getelementptr inbounds i8, ptr %add.ptr13, i64 %add.ptr.idx.i24
   %11 = load <2 x i64>, ptr %add.ptr.i25, align 16
-  %12 = load <2 x i64>, ptr %add.ptr2.i27, align 1
+  %12 = load <2 x i64>, ptr %add.ptr2.i26, align 1
   %13 = xor <2 x i64> %12, %11
   %14 = extractelement <2 x i64> %13, i64 0
   %15 = zext i64 %14 to i128
   %16 = extractelement <2 x i64> %13, i64 1
   %17 = zext i64 %16 to i128
-  %mul.i.i.i.i36 = mul nuw i128 %17, %15
-  %shr.i.i.i.i37 = lshr i128 %mul.i.i.i.i36, 64
-  %xor1.i.i.i38 = xor i128 %shr.i.i.i.i37, %mul.i.i.i.i36
-  %xor.i.i.i39 = trunc i128 %xor1.i.i.i38 to i64
-  %add.i40 = add i64 %result64.08.i23, %xor.i.i.i39
-  %inc.i41 = add nuw nsw i64 %i.09.i22, 1
-  %exitcond.not.i42 = icmp eq i64 %inc.i41, 4
-  br i1 %exitcond.not.i42, label %_ZL14XXH3_mergeAccsPKmPKhm.exit48, label %for.body.i21, !llvm.loop !20
+  %mul.i.i.i.i35 = mul nuw i128 %17, %15
+  %shr.i.i.i.i36 = lshr i128 %mul.i.i.i.i35, 64
+  %xor1.i.i.i37 = xor i128 %shr.i.i.i.i36, %mul.i.i.i.i35
+  %xor.i.i.i38 = trunc i128 %xor1.i.i.i37 to i64
+  %add.i39 = add i64 %result64.08.i23, %xor.i.i.i38
+  %inc.i40 = add nuw nsw i64 %i.09.i22, 1
+  %exitcond.not.i41 = icmp eq i64 %inc.i40, 4
+  br i1 %exitcond.not.i41, label %_ZL14XXH3_mergeAccsPKmPKhm.exit47, label %for.body.i21, !llvm.loop !20
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit48:                ; preds = %for.body.i21
+_ZL14XXH3_mergeAccsPKmPKhm.exit47:                ; preds = %for.body.i21
   %xor.i5.i.i = xor i64 %shr.i4.i.i, %mul.i.i
-  %shr.i.i.i43 = lshr i64 %add.i40, 37
-  %xor.i.i7.i44 = xor i64 %shr.i.i.i43, %add.i40
-  %mul.i.i45 = mul i64 %xor.i.i7.i44, 1609587791953885689
-  %shr.i4.i.i46 = lshr i64 %mul.i.i45, 32
-  %xor.i5.i.i47 = xor i64 %shr.i4.i.i46, %mul.i.i45
+  %shr.i.i.i42 = lshr i64 %add.i39, 37
+  %xor.i.i7.i43 = xor i64 %shr.i.i.i42, %add.i39
+  %mul.i.i44 = mul i64 %xor.i.i7.i43, 1609587791953885689
+  %shr.i4.i.i45 = lshr i64 %mul.i.i44, 32
+  %xor.i5.i.i46 = xor i64 %shr.i4.i.i45, %mul.i.i44
   br label %return
 
 if.end17:                                         ; preds = %entry
@@ -4287,14 +4279,14 @@ if.end23:                                         ; preds = %if.end17
   %secretLimit27 = getelementptr inbounds i8, ptr %state, i64 544
   %21 = load i64, ptr %secretLimit27, align 32
   %add28 = add i64 %21, 64
-  %call.i49 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #33
-  %22 = extractvalue { i64, i64 } %call.i49, 0
-  %23 = extractvalue { i64, i64 } %call.i49, 1
+  %call.i48 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #33
+  %22 = extractvalue { i64, i64 } %call.i48, 0
+  %23 = extractvalue { i64, i64 } %call.i48, 1
   br label %return
 
-return:                                           ; preds = %if.end23, %if.then18, %_ZL14XXH3_mergeAccsPKmPKhm.exit48
-  %retval.sroa.0.0 = phi i64 [ %xor.i5.i.i, %_ZL14XXH3_mergeAccsPKmPKhm.exit48 ], [ %19, %if.then18 ], [ %22, %if.end23 ]
-  %retval.sroa.4.0 = phi i64 [ %xor.i5.i.i47, %_ZL14XXH3_mergeAccsPKmPKhm.exit48 ], [ %20, %if.then18 ], [ %23, %if.end23 ]
+return:                                           ; preds = %if.end23, %if.then18, %_ZL14XXH3_mergeAccsPKmPKhm.exit47
+  %retval.sroa.0.0 = phi i64 [ %xor.i5.i.i, %_ZL14XXH3_mergeAccsPKmPKhm.exit47 ], [ %19, %if.then18 ], [ %22, %if.end23 ]
+  %retval.sroa.4.0 = phi i64 [ %xor.i5.i.i46, %_ZL14XXH3_mergeAccsPKmPKhm.exit47 ], [ %20, %if.then18 ], [ %23, %if.end23 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -4632,13 +4624,12 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds =
   br label %for.body.i7
 
 for.body.i7:                                      ; preds = %for.body.i7, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
-  %i.09.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %inc.i11, %for.body.i7 ]
+  %i.09.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %inc.i10, %for.body.i7 ]
   %result64.08.i = phi i64 [ %mul, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %add.i, %for.body.i7 ]
-  %mul.i8 = shl nuw nsw i64 %i.09.i, 1
-  %add.ptr.i9 = getelementptr inbounds i64, ptr %acc, i64 %mul.i8
-  %mul1.i = shl nuw nsw i64 %i.09.i, 4
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
-  %29 = load <2 x i64>, ptr %add.ptr.i9, align 16
+  %add.ptr.idx.i = shl nuw nsw i64 %i.09.i, 4
+  %add.ptr.i8 = getelementptr inbounds i8, ptr %acc, i64 %add.ptr.idx.i
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr.idx.i
+  %29 = load <2 x i64>, ptr %add.ptr.i8, align 16
   %30 = load <2 x i64>, ptr %add.ptr2.i, align 1
   %31 = xor <2 x i64> %30, %29
   %32 = extractelement <2 x i64> %31, i64 0
@@ -4648,54 +4639,53 @@ for.body.i7:                                      ; preds = %for.body.i7, %_ZL27
   %mul.i.i.i.i = mul nuw i128 %35, %33
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
   %xor1.i.i.i = xor i128 %shr.i.i.i.i, %mul.i.i.i.i
-  %xor.i.i.i10 = trunc i128 %xor1.i.i.i to i64
-  %add.i = add i64 %result64.08.i, %xor.i.i.i10
-  %inc.i11 = add nuw nsw i64 %i.09.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i11, 4
+  %xor.i.i.i9 = trunc i128 %xor1.i.i.i to i64
+  %add.i = add i64 %result64.08.i, %xor.i.i.i9
+  %inc.i10 = add nuw nsw i64 %i.09.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i10, 4
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %for.body.i7, !llvm.loop !20
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %for.body.i7
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr22.i, i64 -75
   %mul6 = mul i64 %len, -4417276706812531889
   %not = xor i64 %mul6, -1
-  br label %for.body.i14
+  br label %for.body.i13
 
-for.body.i14:                                     ; preds = %for.body.i14, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %i.09.i15 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %inc.i34, %for.body.i14 ]
-  %result64.08.i16 = phi i64 [ %not, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %add.i33, %for.body.i14 ]
-  %mul.i17 = shl nuw nsw i64 %i.09.i15, 1
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %acc, i64 %mul.i17
-  %mul1.i19 = shl nuw nsw i64 %i.09.i15, 4
-  %add.ptr2.i20 = getelementptr inbounds i8, ptr %add.ptr5, i64 %mul1.i19
-  %36 = load <2 x i64>, ptr %add.ptr.i18, align 16
-  %37 = load <2 x i64>, ptr %add.ptr2.i20, align 1
+for.body.i13:                                     ; preds = %for.body.i13, %_ZL14XXH3_mergeAccsPKmPKhm.exit
+  %i.09.i14 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %inc.i32, %for.body.i13 ]
+  %result64.08.i15 = phi i64 [ %not, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %add.i31, %for.body.i13 ]
+  %add.ptr.idx.i16 = shl nuw nsw i64 %i.09.i14, 4
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %acc, i64 %add.ptr.idx.i16
+  %add.ptr2.i18 = getelementptr inbounds i8, ptr %add.ptr5, i64 %add.ptr.idx.i16
+  %36 = load <2 x i64>, ptr %add.ptr.i17, align 16
+  %37 = load <2 x i64>, ptr %add.ptr2.i18, align 1
   %38 = xor <2 x i64> %37, %36
   %39 = extractelement <2 x i64> %38, i64 0
   %40 = zext i64 %39 to i128
   %41 = extractelement <2 x i64> %38, i64 1
   %42 = zext i64 %41 to i128
-  %mul.i.i.i.i29 = mul nuw i128 %42, %40
-  %shr.i.i.i.i30 = lshr i128 %mul.i.i.i.i29, 64
-  %xor1.i.i.i31 = xor i128 %shr.i.i.i.i30, %mul.i.i.i.i29
-  %xor.i.i.i32 = trunc i128 %xor1.i.i.i31 to i64
-  %add.i33 = add i64 %result64.08.i16, %xor.i.i.i32
-  %inc.i34 = add nuw nsw i64 %i.09.i15, 1
-  %exitcond.not.i35 = icmp eq i64 %inc.i34, 4
-  br i1 %exitcond.not.i35, label %_ZL14XXH3_mergeAccsPKmPKhm.exit42, label %for.body.i14, !llvm.loop !20
+  %mul.i.i.i.i27 = mul nuw i128 %42, %40
+  %shr.i.i.i.i28 = lshr i128 %mul.i.i.i.i27, 64
+  %xor1.i.i.i29 = xor i128 %shr.i.i.i.i28, %mul.i.i.i.i27
+  %xor.i.i.i30 = trunc i128 %xor1.i.i.i29 to i64
+  %add.i31 = add i64 %result64.08.i15, %xor.i.i.i30
+  %inc.i32 = add nuw nsw i64 %i.09.i14, 1
+  %exitcond.not.i33 = icmp eq i64 %inc.i32, 4
+  br i1 %exitcond.not.i33, label %_ZL14XXH3_mergeAccsPKmPKhm.exit40, label %for.body.i13, !llvm.loop !20
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit42:                ; preds = %for.body.i14
+_ZL14XXH3_mergeAccsPKmPKhm.exit40:                ; preds = %for.body.i13
   %shr.i.i.i = lshr i64 %add.i, 37
   %xor.i.i7.i = xor i64 %shr.i.i.i, %add.i
-  %mul.i.i13 = mul i64 %xor.i.i7.i, 1609587791953885689
-  %shr.i4.i.i = lshr i64 %mul.i.i13, 32
-  %xor.i5.i.i = xor i64 %shr.i4.i.i, %mul.i.i13
-  %shr.i.i.i37 = lshr i64 %add.i33, 37
-  %xor.i.i7.i38 = xor i64 %shr.i.i.i37, %add.i33
-  %mul.i.i39 = mul i64 %xor.i.i7.i38, 1609587791953885689
-  %shr.i4.i.i40 = lshr i64 %mul.i.i39, 32
-  %xor.i5.i.i41 = xor i64 %shr.i4.i.i40, %mul.i.i39
+  %mul.i.i12 = mul i64 %xor.i.i7.i, 1609587791953885689
+  %shr.i4.i.i = lshr i64 %mul.i.i12, 32
+  %xor.i5.i.i = xor i64 %shr.i4.i.i, %mul.i.i12
+  %shr.i.i.i35 = lshr i64 %add.i31, 37
+  %xor.i.i7.i36 = xor i64 %shr.i.i.i35, %add.i31
+  %mul.i.i37 = mul i64 %xor.i.i7.i36, 1609587791953885689
+  %shr.i4.i.i38 = lshr i64 %mul.i.i37, 32
+  %xor.i5.i.i39 = xor i64 %shr.i4.i.i38, %mul.i.i37
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %xor.i5.i.i, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %xor.i5.i.i41, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %xor.i5.i.i39, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

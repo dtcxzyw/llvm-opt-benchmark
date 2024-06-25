@@ -177,32 +177,32 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %indvars.iv26 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next27, %for.end ]
-  %4 = shl nuw i64 %indvars.iv26, 5
-  %add.ptr14 = getelementptr inbounds i32, ptr %add.ptr10, i64 %4
+  %add.ptr14.idx = shl i64 %indvars.iv26, 7
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr10, i64 %add.ptr14.idx
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.body17
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body17 ]
   %arrayidx = getelementptr inbounds i32, ptr %add.ptr14, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx, align 4
-  %idx.ext18 = zext i32 %5 to i64
+  %4 = load i32, ptr %arrayidx, align 4
+  %idx.ext18 = zext i32 %4 to i64
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext18
-  %6 = load i16, ptr %add.ptr19, align 2
+  %5 = load i16, ptr %add.ptr19, align 2
   %arrayidx21 = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv
-  store i16 %6, ptr %arrayidx21, align 2
+  store i16 %5, ptr %arrayidx21, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %for.end, label %for.body17, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body17
-  %7 = load <32 x i8>, ptr %buffer, align 16
-  %8 = load <32 x i8>, ptr %add.ptr25, align 16
-  %9 = shufflevector <32 x i8> %7, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
-  %10 = bitcast <32 x i8> %9 to <4 x i64>
-  %11 = shufflevector <32 x i8> %8, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
-  %12 = bitcast <32 x i8> %11 to <4 x i64>
-  %perm = shufflevector <4 x i64> %10, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  %perm30 = shufflevector <4 x i64> %12, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
+  %6 = load <32 x i8>, ptr %buffer, align 16
+  %7 = load <32 x i8>, ptr %add.ptr25, align 16
+  %8 = shufflevector <32 x i8> %6, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
+  %9 = bitcast <32 x i8> %8 to <4 x i64>
+  %10 = shufflevector <32 x i8> %7, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
+  %11 = bitcast <32 x i8> %10 to <4 x i64>
+  %perm = shufflevector <4 x i64> %9, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
+  %perm30 = shufflevector <4 x i64> %11, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %vperm31 = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %add.ptr33 = getelementptr inbounds <4 x i64>, ptr %0, i64 %indvars.iv26
@@ -245,32 +245,32 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %indvars.iv26 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next27, %for.end ]
-  %4 = shl nuw i64 %indvars.iv26, 4
-  %add.ptr14 = getelementptr inbounds i32, ptr %add.ptr10, i64 %4
+  %add.ptr14.idx = shl i64 %indvars.iv26, 6
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr10, i64 %add.ptr14.idx
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.body17
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body17 ]
   %arrayidx = getelementptr inbounds i32, ptr %add.ptr14, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx, align 4
-  %idx.ext18 = zext i32 %5 to i64
+  %4 = load i32, ptr %arrayidx, align 4
+  %idx.ext18 = zext i32 %4 to i64
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext18
-  %6 = load i32, ptr %add.ptr19, align 4
+  %5 = load i32, ptr %add.ptr19, align 4
   %arrayidx21 = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv
-  store i32 %6, ptr %arrayidx21, align 4
+  store i32 %5, ptr %arrayidx21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body17, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body17
-  %7 = load <32 x i8>, ptr %buffer, align 16
-  %8 = load <32 x i8>, ptr %add.ptr25, align 16
-  %9 = shufflevector <32 x i8> %7, <32 x i8> poison, <32 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13, i32 2, i32 3, i32 6, i32 7, i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 20, i32 21, i32 24, i32 25, i32 28, i32 29, i32 18, i32 19, i32 22, i32 23, i32 26, i32 27, i32 30, i32 31>
-  %10 = bitcast <32 x i8> %9 to <4 x i64>
-  %11 = shufflevector <32 x i8> %8, <32 x i8> poison, <32 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13, i32 2, i32 3, i32 6, i32 7, i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 20, i32 21, i32 24, i32 25, i32 28, i32 29, i32 18, i32 19, i32 22, i32 23, i32 26, i32 27, i32 30, i32 31>
-  %12 = bitcast <32 x i8> %11 to <4 x i64>
-  %perm = shufflevector <4 x i64> %10, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  %perm30 = shufflevector <4 x i64> %12, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
+  %6 = load <32 x i8>, ptr %buffer, align 16
+  %7 = load <32 x i8>, ptr %add.ptr25, align 16
+  %8 = shufflevector <32 x i8> %6, <32 x i8> poison, <32 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13, i32 2, i32 3, i32 6, i32 7, i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 20, i32 21, i32 24, i32 25, i32 28, i32 29, i32 18, i32 19, i32 22, i32 23, i32 26, i32 27, i32 30, i32 31>
+  %9 = bitcast <32 x i8> %8 to <4 x i64>
+  %10 = shufflevector <32 x i8> %7, <32 x i8> poison, <32 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13, i32 2, i32 3, i32 6, i32 7, i32 10, i32 11, i32 14, i32 15, i32 16, i32 17, i32 20, i32 21, i32 24, i32 25, i32 28, i32 29, i32 18, i32 19, i32 22, i32 23, i32 26, i32 27, i32 30, i32 31>
+  %11 = bitcast <32 x i8> %10 to <4 x i64>
+  %perm = shufflevector <4 x i64> %9, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
+  %perm30 = shufflevector <4 x i64> %11, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %vperm31 = shufflevector <4 x i64> %perm, <4 x i64> %perm30, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %add.ptr33 = getelementptr inbounds <4 x i64>, ptr %0, i64 %indvars.iv26
@@ -313,32 +313,32 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %indvars.iv24 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next25, %for.end ]
-  %4 = shl nuw i64 %indvars.iv24, 3
-  %add.ptr14 = getelementptr inbounds i32, ptr %add.ptr10, i64 %4
+  %add.ptr14.idx = shl i64 %indvars.iv24, 5
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr10, i64 %add.ptr14.idx
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.body17
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body17 ]
   %arrayidx = getelementptr inbounds i32, ptr %add.ptr14, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx, align 4
-  %idx.ext18 = zext i32 %5 to i64
+  %4 = load i32, ptr %arrayidx, align 4
+  %idx.ext18 = zext i32 %4 to i64
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext18
-  %6 = load i64, ptr %add.ptr19, align 8
+  %5 = load i64, ptr %add.ptr19, align 8
   %arrayidx21 = getelementptr inbounds i64, ptr %buffer, i64 %indvars.iv
-  store i64 %6, ptr %arrayidx21, align 8
+  store i64 %5, ptr %arrayidx21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body17, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body17
-  %7 = load <8 x i32>, ptr %buffer, align 16
-  %8 = load <8 x i32>, ptr %add.ptr25, align 16
-  %9 = shufflevector <8 x i32> %7, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
-  %10 = bitcast <8 x i32> %9 to <4 x i64>
-  %11 = shufflevector <8 x i32> %8, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
-  %12 = bitcast <8 x i32> %11 to <4 x i64>
-  %vperm = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %vperm30 = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %6 = load <8 x i32>, ptr %buffer, align 16
+  %7 = load <8 x i32>, ptr %add.ptr25, align 16
+  %8 = shufflevector <8 x i32> %6, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
+  %9 = bitcast <8 x i32> %8 to <4 x i64>
+  %10 = shufflevector <8 x i32> %7, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
+  %11 = bitcast <8 x i32> %10 to <4 x i64>
+  %vperm = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %vperm30 = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %add.ptr32 = getelementptr inbounds <4 x i64>, ptr %0, i64 %indvars.iv24
   store <4 x i64> %vperm, ptr %add.ptr32, align 1
   %add.ptr34 = getelementptr inbounds <4 x i64>, ptr %1, i64 %indvars.iv24
@@ -377,29 +377,29 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %4 = shl nuw i64 %indvars.iv, 2
-  %add.ptr14 = getelementptr inbounds i32, ptr %add.ptr10, i64 %4
-  %5 = load i32, ptr %add.ptr14, align 4
-  %idx.ext15 = zext i32 %5 to i64
+  %add.ptr14.idx = shl i64 %indvars.iv, 4
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr10, i64 %add.ptr14.idx
+  %4 = load i32, ptr %add.ptr14, align 4
+  %idx.ext15 = zext i32 %4 to i64
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext15
   %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr14, i64 4
-  %6 = load i32, ptr %arrayidx17, align 4
-  %idx.ext18 = zext i32 %6 to i64
+  %5 = load i32, ptr %arrayidx17, align 4
+  %idx.ext18 = zext i32 %5 to i64
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext18
   %arrayidx20 = getelementptr inbounds i8, ptr %add.ptr14, i64 8
-  %7 = load i32, ptr %arrayidx20, align 4
-  %idx.ext21 = zext i32 %7 to i64
+  %6 = load i32, ptr %arrayidx20, align 4
+  %idx.ext21 = zext i32 %6 to i64
   %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext21
   %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr14, i64 12
-  %8 = load i32, ptr %arrayidx23, align 4
-  %idx.ext24 = zext i32 %8 to i64
+  %7 = load i32, ptr %arrayidx23, align 4
+  %idx.ext24 = zext i32 %7 to i64
   %add.ptr25 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext24
-  %9 = load <2 x i64>, ptr %add.ptr16, align 1
-  %10 = load <2 x i64>, ptr %add.ptr19, align 1
-  %11 = load <2 x i64>, ptr %add.ptr22, align 1
-  %12 = load <2 x i64>, ptr %add.ptr25, align 1
-  %perm = shufflevector <2 x i64> %9, <2 x i64> %10, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  %perm34 = shufflevector <2 x i64> %11, <2 x i64> %12, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
+  %8 = load <2 x i64>, ptr %add.ptr16, align 1
+  %9 = load <2 x i64>, ptr %add.ptr19, align 1
+  %10 = load <2 x i64>, ptr %add.ptr22, align 1
+  %11 = load <2 x i64>, ptr %add.ptr25, align 1
+  %perm = shufflevector <2 x i64> %8, <2 x i64> %9, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
+  %perm34 = shufflevector <2 x i64> %10, <2 x i64> %11, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %vperm = shufflevector <4 x i64> %perm, <4 x i64> %perm34, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %vperm35 = shufflevector <4 x i64> %perm, <4 x i64> %perm34, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %add.ptr37 = getelementptr inbounds <4 x i64>, ptr %0, i64 %indvars.iv

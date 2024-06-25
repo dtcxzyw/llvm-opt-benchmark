@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.btVector3 = type { [4 x float] }
 %struct.AabbCalculationCallback = type { %class.btInternalTriangleIndexCallback, %class.btVector3, %class.btVector3 }
 %class.btInternalTriangleIndexCallback = type { ptr }
-%struct.btIntIndexData = type { i32 }
 %struct.btShortIntIndexTripletData = type { [3 x i16], [2 x i8] }
 %struct.btCharIndexTripletData = type { [3 x i8], i8 }
 %struct.btVector3FloatData = type { [4 x float] }
@@ -664,29 +663,29 @@ for.body29:                                       ; preds = %if.then17, %for.bod
   %idx.ext = sext i32 %mul30 to i64
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
   %16 = load i32, ptr %add.ptr, align 4
-  %17 = mul nuw nsw i64 %indvars.iv133, 3
-  %arrayidx32 = getelementptr inbounds %struct.btIntIndexData, ptr %10, i64 %17
+  %arrayidx32.idx = mul i64 %indvars.iv133, 12
+  %arrayidx32 = getelementptr inbounds i8, ptr %10, i64 %arrayidx32.idx
   store i32 %16, ptr %arrayidx32, align 4
   %arrayidx33 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %18 = load i32, ptr %arrayidx33, align 4
+  %17 = load i32, ptr %arrayidx33, align 4
   %arrayidx36 = getelementptr inbounds i8, ptr %arrayidx32, i64 4
-  store i32 %18, ptr %arrayidx36, align 4
+  store i32 %17, ptr %arrayidx36, align 4
   %arrayidx38 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %19 = load i32, ptr %arrayidx38, align 4
+  %18 = load i32, ptr %arrayidx38, align 4
   %arrayidx42 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
-  store i32 %19, ptr %arrayidx42, align 4
+  store i32 %18, ptr %arrayidx42, align 4
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %20 = load i32, ptr %numtriangles, align 4
-  %21 = sext i32 %20 to i64
-  %cmp28 = icmp slt i64 %indvars.iv.next134, %21
+  %19 = load i32, ptr %numtriangles, align 4
+  %20 = sext i32 %19 to i64
+  %cmp28 = icmp slt i64 %indvars.iv.next134, %20
   br i1 %cmp28, label %for.body29, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body29, %if.then17
-  %22 = load ptr, ptr %m_oldPtr22, align 8
+  %21 = load ptr, ptr %m_oldPtr22, align 8
   %vtable45 = load ptr, ptr %serializer, align 8
   %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 40
-  %23 = load ptr, ptr %vfn46, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call21, ptr noundef nonnull @.str, i32 noundef 1497453121, ptr noundef %22)
+  %22 = load ptr, ptr %vfn46, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call21, ptr noundef nonnull @.str, i32 noundef 1497453121, ptr noundef %21)
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %for.body
@@ -696,54 +695,54 @@ sw.bb47:                                          ; preds = %for.body
 if.then49:                                        ; preds = %sw.bb47
   %vtable51 = load ptr, ptr %serializer, align 8
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 32
-  %24 = load ptr, ptr %vfn52, align 8
-  %call53 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 8, i32 noundef %6)
+  %23 = load ptr, ptr %vfn52, align 8
+  %call53 = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 8, i32 noundef %6)
   %m_oldPtr55 = getelementptr inbounds i8, ptr %call53, i64 8
-  %25 = load ptr, ptr %m_oldPtr55, align 8
+  %24 = load ptr, ptr %m_oldPtr55, align 8
   %vtable56 = load ptr, ptr %serializer, align 8
   %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 56
-  %26 = load ptr, ptr %vfn57, align 8
-  %call58 = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %25)
+  %25 = load ptr, ptr %vfn57, align 8
+  %call58 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %24)
   store ptr %call58, ptr %m_3indices16, align 8
-  %27 = load i32, ptr %numtriangles, align 4
-  %cmp61118 = icmp sgt i32 %27, 0
+  %26 = load i32, ptr %numtriangles, align 4
+  %cmp61118 = icmp sgt i32 %26, 0
   br i1 %cmp61118, label %for.body62, label %for.end90
 
 for.body62:                                       ; preds = %if.then49, %for.body62
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %for.body62 ], [ 0, %if.then49 ]
-  %28 = load ptr, ptr %indexbase, align 8
-  %29 = load i32, ptr %indexstride, align 4
-  %30 = trunc nuw nsw i64 %indvars.iv130 to i32
-  %mul64 = mul nsw i32 %29, %30
+  %27 = load ptr, ptr %indexbase, align 8
+  %28 = load i32, ptr %indexstride, align 4
+  %29 = trunc nuw nsw i64 %indvars.iv130 to i32
+  %mul64 = mul nsw i32 %28, %29
   %idx.ext65 = sext i32 %mul64 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %28, i64 %idx.ext65
-  %31 = load i16, ptr %add.ptr66, align 2
-  %arrayidx69 = getelementptr inbounds %struct.btShortIntIndexTripletData, ptr %25, i64 %indvars.iv130
-  store i16 %31, ptr %arrayidx69, align 2
+  %add.ptr66 = getelementptr inbounds i8, ptr %27, i64 %idx.ext65
+  %30 = load i16, ptr %add.ptr66, align 2
+  %arrayidx69 = getelementptr inbounds %struct.btShortIntIndexTripletData, ptr %24, i64 %indvars.iv130
+  store i16 %30, ptr %arrayidx69, align 2
   %arrayidx71 = getelementptr inbounds i8, ptr %add.ptr66, i64 2
-  %32 = load i16, ptr %arrayidx71, align 2
+  %31 = load i16, ptr %arrayidx71, align 2
   %arrayidx75 = getelementptr inbounds i8, ptr %arrayidx69, i64 2
-  store i16 %32, ptr %arrayidx75, align 2
+  store i16 %31, ptr %arrayidx75, align 2
   %arrayidx76 = getelementptr inbounds i8, ptr %add.ptr66, i64 4
-  %33 = load i16, ptr %arrayidx76, align 2
+  %32 = load i16, ptr %arrayidx76, align 2
   %arrayidx80 = getelementptr inbounds i8, ptr %arrayidx69, i64 4
-  store i16 %33, ptr %arrayidx80, align 2
+  store i16 %32, ptr %arrayidx80, align 2
   %m_pad = getelementptr inbounds i8, ptr %arrayidx69, i64 6
   store i8 0, ptr %m_pad, align 2
   %arrayidx87 = getelementptr inbounds i8, ptr %arrayidx69, i64 7
   store i8 0, ptr %arrayidx87, align 1
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %34 = load i32, ptr %numtriangles, align 4
-  %35 = sext i32 %34 to i64
-  %cmp61 = icmp slt i64 %indvars.iv.next131, %35
+  %33 = load i32, ptr %numtriangles, align 4
+  %34 = sext i32 %33 to i64
+  %cmp61 = icmp slt i64 %indvars.iv.next131, %34
   br i1 %cmp61, label %for.body62, label %for.end90, !llvm.loop !14
 
 for.end90:                                        ; preds = %for.body62, %if.then49
-  %36 = load ptr, ptr %m_oldPtr55, align 8
+  %35 = load ptr, ptr %m_oldPtr55, align 8
   %vtable92 = load ptr, ptr %serializer, align 8
   %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 40
-  %37 = load ptr, ptr %vfn93, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call53, ptr noundef nonnull @.str.1, i32 noundef 1497453121, ptr noundef %36)
+  %36 = load ptr, ptr %vfn93, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call53, ptr noundef nonnull @.str.1, i32 noundef 1497453121, ptr noundef %35)
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %for.body
@@ -753,186 +752,186 @@ sw.bb95:                                          ; preds = %for.body
 if.then97:                                        ; preds = %sw.bb95
   %vtable99 = load ptr, ptr %serializer, align 8
   %vfn100 = getelementptr inbounds i8, ptr %vtable99, i64 32
-  %38 = load ptr, ptr %vfn100, align 8
-  %call101 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 4, i32 noundef %6)
+  %37 = load ptr, ptr %vfn100, align 8
+  %call101 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 4, i32 noundef %6)
   %m_oldPtr103 = getelementptr inbounds i8, ptr %call101, i64 8
-  %39 = load ptr, ptr %m_oldPtr103, align 8
+  %38 = load ptr, ptr %m_oldPtr103, align 8
   %vtable104 = load ptr, ptr %serializer, align 8
   %vfn105 = getelementptr inbounds i8, ptr %vtable104, i64 56
-  %40 = load ptr, ptr %vfn105, align 8
-  %call106 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %39)
+  %39 = load ptr, ptr %vfn105, align 8
+  %call106 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %38)
   store ptr %call106, ptr %m_3indices8, align 8
-  %41 = load i32, ptr %numtriangles, align 4
-  %cmp109116 = icmp sgt i32 %41, 0
+  %40 = load i32, ptr %numtriangles, align 4
+  %cmp109116 = icmp sgt i32 %40, 0
   br i1 %cmp109116, label %for.body110, label %for.end135
 
 for.body110:                                      ; preds = %if.then97, %for.body110
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body110 ], [ 0, %if.then97 ]
-  %42 = load ptr, ptr %indexbase, align 8
-  %43 = load i32, ptr %indexstride, align 4
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul112 = mul nsw i32 %43, %44
+  %41 = load ptr, ptr %indexbase, align 8
+  %42 = load i32, ptr %indexstride, align 4
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  %mul112 = mul nsw i32 %42, %43
   %idx.ext113 = sext i32 %mul112 to i64
-  %add.ptr114 = getelementptr inbounds i8, ptr %42, i64 %idx.ext113
-  %45 = load i8, ptr %add.ptr114, align 1
-  %arrayidx117 = getelementptr inbounds %struct.btCharIndexTripletData, ptr %39, i64 %indvars.iv
-  store i8 %45, ptr %arrayidx117, align 1
+  %add.ptr114 = getelementptr inbounds i8, ptr %41, i64 %idx.ext113
+  %44 = load i8, ptr %add.ptr114, align 1
+  %arrayidx117 = getelementptr inbounds %struct.btCharIndexTripletData, ptr %38, i64 %indvars.iv
+  store i8 %44, ptr %arrayidx117, align 1
   %arrayidx120 = getelementptr inbounds i8, ptr %add.ptr114, i64 1
-  %46 = load i8, ptr %arrayidx120, align 1
+  %45 = load i8, ptr %arrayidx120, align 1
   %arrayidx124 = getelementptr inbounds i8, ptr %arrayidx117, i64 1
-  store i8 %46, ptr %arrayidx124, align 1
+  store i8 %45, ptr %arrayidx124, align 1
   %arrayidx125 = getelementptr inbounds i8, ptr %add.ptr114, i64 2
-  %47 = load i8, ptr %arrayidx125, align 1
+  %46 = load i8, ptr %arrayidx125, align 1
   %arrayidx129 = getelementptr inbounds i8, ptr %arrayidx117, i64 2
-  store i8 %47, ptr %arrayidx129, align 1
+  store i8 %46, ptr %arrayidx129, align 1
   %m_pad132 = getelementptr inbounds i8, ptr %arrayidx117, i64 3
   store i8 0, ptr %m_pad132, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %numtriangles, align 4
-  %49 = sext i32 %48 to i64
-  %cmp109 = icmp slt i64 %indvars.iv.next, %49
+  %47 = load i32, ptr %numtriangles, align 4
+  %48 = sext i32 %47 to i64
+  %cmp109 = icmp slt i64 %indvars.iv.next, %48
   br i1 %cmp109, label %for.body110, label %for.end135, !llvm.loop !15
 
 for.end135:                                       ; preds = %for.body110, %if.then97
-  %50 = load ptr, ptr %m_oldPtr103, align 8
+  %49 = load ptr, ptr %m_oldPtr103, align 8
   %vtable137 = load ptr, ptr %serializer, align 8
   %vfn138 = getelementptr inbounds i8, ptr %vtable137, i64 40
-  %51 = load ptr, ptr %vfn138, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call101, ptr noundef nonnull @.str.2, i32 noundef 1497453121, ptr noundef %50)
+  %50 = load ptr, ptr %vfn138, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call101, ptr noundef nonnull @.str.2, i32 noundef 1497453121, ptr noundef %49)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body, %sw.bb95, %for.end135, %sw.bb47, %for.end90, %sw.bb, %for.end
-  %52 = load i32, ptr %type, align 4
-  switch i32 %52, label %sw.epilog223 [
+  %51 = load i32, ptr %type, align 4
+  switch i32 %51, label %sw.epilog223 [
     i32 0, label %sw.bb140
     i32 1, label %sw.bb179
   ]
 
 sw.bb140:                                         ; preds = %sw.epilog
-  %53 = load i32, ptr %numverts, align 4
-  %tobool141.not = icmp eq i32 %53, 0
+  %52 = load i32, ptr %numverts, align 4
+  %tobool141.not = icmp eq i32 %52, 0
   br i1 %tobool141.not, label %sw.epilog223, label %if.then142
 
 if.then142:                                       ; preds = %sw.bb140
   %vtable144 = load ptr, ptr %serializer, align 8
   %vfn145 = getelementptr inbounds i8, ptr %vtable144, i64 32
-  %54 = load ptr, ptr %vfn145, align 8
-  %call146 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 16, i32 noundef %53)
+  %53 = load ptr, ptr %vfn145, align 8
+  %call146 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 16, i32 noundef %52)
   %m_oldPtr147 = getelementptr inbounds i8, ptr %call146, i64 8
-  %55 = load ptr, ptr %m_oldPtr147, align 8
+  %54 = load ptr, ptr %m_oldPtr147, align 8
   %vtable148 = load ptr, ptr %serializer, align 8
   %vfn149 = getelementptr inbounds i8, ptr %vtable148, i64 56
-  %56 = load ptr, ptr %vfn149, align 8
-  %call150 = call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %55)
+  %55 = load ptr, ptr %vfn149, align 8
+  %call150 = call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %54)
   store ptr %call150, ptr %memPtr.0128, align 8
-  %57 = load i32, ptr %numverts, align 4
-  %cmp153124 = icmp sgt i32 %57, 0
+  %56 = load i32, ptr %numverts, align 4
+  %cmp153124 = icmp sgt i32 %56, 0
   br i1 %cmp153124, label %for.body154, label %for.end174
 
 for.body154:                                      ; preds = %if.then142, %for.body154
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.body154 ], [ 0, %if.then142 ]
-  %58 = load ptr, ptr %vertexbase, align 8
-  %59 = load i32, ptr %stride, align 4
-  %60 = trunc nuw nsw i64 %indvars.iv141 to i32
-  %mul155 = mul nsw i32 %59, %60
+  %57 = load ptr, ptr %vertexbase, align 8
+  %58 = load i32, ptr %stride, align 4
+  %59 = trunc nuw nsw i64 %indvars.iv141 to i32
+  %mul155 = mul nsw i32 %58, %59
   %idx.ext156 = sext i32 %mul155 to i64
-  %add.ptr157 = getelementptr inbounds i8, ptr %58, i64 %idx.ext156
-  %61 = load float, ptr %add.ptr157, align 4
-  %arrayidx160 = getelementptr inbounds %struct.btVector3FloatData, ptr %55, i64 %indvars.iv141
-  store float %61, ptr %arrayidx160, align 4
+  %add.ptr157 = getelementptr inbounds i8, ptr %57, i64 %idx.ext156
+  %60 = load float, ptr %add.ptr157, align 4
+  %arrayidx160 = getelementptr inbounds %struct.btVector3FloatData, ptr %54, i64 %indvars.iv141
+  store float %60, ptr %arrayidx160, align 4
   %arrayidx162 = getelementptr inbounds i8, ptr %add.ptr157, i64 4
-  %62 = load float, ptr %arrayidx162, align 4
+  %61 = load float, ptr %arrayidx162, align 4
   %arrayidx166 = getelementptr inbounds i8, ptr %arrayidx160, i64 4
-  store float %62, ptr %arrayidx166, align 4
+  store float %61, ptr %arrayidx166, align 4
   %arrayidx167 = getelementptr inbounds i8, ptr %add.ptr157, i64 8
-  %63 = load float, ptr %arrayidx167, align 4
+  %62 = load float, ptr %arrayidx167, align 4
   %arrayidx171 = getelementptr inbounds i8, ptr %arrayidx160, i64 8
-  store float %63, ptr %arrayidx171, align 4
+  store float %62, ptr %arrayidx171, align 4
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %64 = load i32, ptr %numverts, align 4
-  %65 = sext i32 %64 to i64
-  %cmp153 = icmp slt i64 %indvars.iv.next142, %65
+  %63 = load i32, ptr %numverts, align 4
+  %64 = sext i32 %63 to i64
+  %cmp153 = icmp slt i64 %indvars.iv.next142, %64
   br i1 %cmp153, label %for.body154, label %for.end174, !llvm.loop !16
 
 for.end174:                                       ; preds = %for.body154, %if.then142
-  %66 = load ptr, ptr %m_oldPtr147, align 8
+  %65 = load ptr, ptr %m_oldPtr147, align 8
   %vtable176 = load ptr, ptr %serializer, align 8
   %vfn177 = getelementptr inbounds i8, ptr %vtable176, i64 40
-  %67 = load ptr, ptr %vfn177, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call146, ptr noundef nonnull @.str.3, i32 noundef 1497453121, ptr noundef %66)
+  %66 = load ptr, ptr %vfn177, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call146, ptr noundef nonnull @.str.3, i32 noundef 1497453121, ptr noundef %65)
   br label %sw.epilog223
 
 sw.bb179:                                         ; preds = %sw.epilog
-  %68 = load i32, ptr %numverts, align 4
-  %tobool180.not = icmp eq i32 %68, 0
+  %67 = load i32, ptr %numverts, align 4
+  %tobool180.not = icmp eq i32 %67, 0
   br i1 %tobool180.not, label %sw.epilog223, label %if.then181
 
 if.then181:                                       ; preds = %sw.bb179
   %vtable183 = load ptr, ptr %serializer, align 8
   %vfn184 = getelementptr inbounds i8, ptr %vtable183, i64 32
-  %69 = load ptr, ptr %vfn184, align 8
-  %call185 = call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 32, i32 noundef %68)
+  %68 = load ptr, ptr %vfn184, align 8
+  %call185 = call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 32, i32 noundef %67)
   %m_oldPtr187 = getelementptr inbounds i8, ptr %call185, i64 8
-  %70 = load ptr, ptr %m_oldPtr187, align 8
+  %69 = load ptr, ptr %m_oldPtr187, align 8
   %vtable188 = load ptr, ptr %serializer, align 8
   %vfn189 = getelementptr inbounds i8, ptr %vtable188, i64 56
-  %71 = load ptr, ptr %vfn189, align 8
-  %call190 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %70)
+  %70 = load ptr, ptr %vfn189, align 8
+  %call190 = call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %69)
   store ptr %call190, ptr %m_vertices3d, align 8
-  %72 = load i32, ptr %numverts, align 4
-  %cmp194122 = icmp sgt i32 %72, 0
+  %71 = load i32, ptr %numverts, align 4
+  %cmp194122 = icmp sgt i32 %71, 0
   br i1 %cmp194122, label %for.body195.lr.ph, label %for.end217
 
 for.body195.lr.ph:                                ; preds = %if.then181
-  %73 = load i32, ptr %stride, align 4
-  %74 = sext i32 %73 to i64
-  %wide.trip.count = zext nneg i32 %72 to i64
+  %72 = load i32, ptr %stride, align 4
+  %73 = sext i32 %72 to i64
+  %wide.trip.count = zext nneg i32 %71 to i64
   br label %for.body195
 
 for.body195:                                      ; preds = %for.body195.lr.ph, %for.body195
   %indvars.iv137 = phi i64 [ 0, %for.body195.lr.ph ], [ %indvars.iv.next138, %for.body195 ]
-  %75 = load ptr, ptr %vertexbase, align 8
-  %76 = mul nsw i64 %indvars.iv137, %74
-  %add.ptr199 = getelementptr inbounds i8, ptr %75, i64 %76
-  %77 = load double, ptr %add.ptr199, align 8
-  %arrayidx202 = getelementptr inbounds %struct.btVector3DoubleData, ptr %70, i64 %indvars.iv137
-  store double %77, ptr %arrayidx202, align 8
+  %74 = load ptr, ptr %vertexbase, align 8
+  %75 = mul nsw i64 %indvars.iv137, %73
+  %add.ptr199 = getelementptr inbounds i8, ptr %74, i64 %75
+  %76 = load double, ptr %add.ptr199, align 8
+  %arrayidx202 = getelementptr inbounds %struct.btVector3DoubleData, ptr %69, i64 %indvars.iv137
+  store double %76, ptr %arrayidx202, align 8
   %arrayidx205 = getelementptr inbounds i8, ptr %add.ptr199, i64 8
-  %78 = load double, ptr %arrayidx205, align 8
+  %77 = load double, ptr %arrayidx205, align 8
   %arrayidx209 = getelementptr inbounds i8, ptr %arrayidx202, i64 8
-  store double %78, ptr %arrayidx209, align 8
+  store double %77, ptr %arrayidx209, align 8
   %arrayidx210 = getelementptr inbounds i8, ptr %add.ptr199, i64 16
-  %79 = load double, ptr %arrayidx210, align 8
+  %78 = load double, ptr %arrayidx210, align 8
   %arrayidx214 = getelementptr inbounds i8, ptr %arrayidx202, i64 16
-  store double %79, ptr %arrayidx214, align 8
+  store double %78, ptr %arrayidx214, align 8
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
   br i1 %exitcond.not, label %for.end217, label %for.body195, !llvm.loop !17
 
 for.end217:                                       ; preds = %for.body195, %if.then181
-  %80 = load ptr, ptr %m_oldPtr187, align 8
+  %79 = load ptr, ptr %m_oldPtr187, align 8
   %vtable219 = load ptr, ptr %serializer, align 8
   %vfn220 = getelementptr inbounds i8, ptr %vtable219, i64 40
-  %81 = load ptr, ptr %vfn220, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call185, ptr noundef nonnull @.str.4, i32 noundef 1497453121, ptr noundef %80)
+  %80 = load ptr, ptr %vfn220, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call185, ptr noundef nonnull @.str.4, i32 noundef 1497453121, ptr noundef %79)
   br label %sw.epilog223
 
 sw.epilog223:                                     ; preds = %sw.epilog, %sw.bb179, %for.end217, %sw.bb140, %for.end174
   %vtable224 = load ptr, ptr %this, align 8
   %vfn225 = getelementptr inbounds i8, ptr %vtable224, i64 48
-  %82 = load ptr, ptr %vfn225, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %part.0127)
+  %81 = load ptr, ptr %vfn225, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %part.0127)
   %inc227 = add nuw nsw i32 %part.0127, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %memPtr.0128, i64 56
   %exitcond144.not = icmp eq i32 %inc227, %call13
   br i1 %exitcond144.not, label %for.end228, label %for.body, !llvm.loop !18
 
 for.end228:                                       ; preds = %sw.epilog223, %if.then
-  %83 = load ptr, ptr %m_oldPtr, align 8
+  %82 = load ptr, ptr %m_oldPtr, align 8
   %vtable230 = load ptr, ptr %serializer, align 8
   %vfn231 = getelementptr inbounds i8, ptr %vtable230, i64 40
-  %84 = load ptr, ptr %vfn231, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call6, ptr noundef nonnull @.str.5, i32 noundef 1497453121, ptr noundef %83)
+  %83 = load ptr, ptr %vfn231, align 8
+  call void %83(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call6, ptr noundef nonnull @.str.5, i32 noundef 1497453121, ptr noundef %82)
   br label %if.end232
 
 if.end232:                                        ; preds = %for.end228, %entry
@@ -945,9 +944,9 @@ if.end232:                                        ; preds = %for.end228, %entry
 for.body.i:                                       ; preds = %for.body.i, %if.end232
   %indvars.iv.i = phi i64 [ 0, %if.end232 ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [4 x float], ptr %m_scaling, i64 0, i64 %indvars.iv.i
-  %85 = load float, ptr %arrayidx.i, align 4
+  %84 = load float, ptr %arrayidx.i, align 4
   %arrayidx4.i = getelementptr inbounds [4 x float], ptr %m_scaling233, i64 0, i64 %indvars.iv.i
-  store float %85, ptr %arrayidx4.i, align 4
+  store float %84, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !19

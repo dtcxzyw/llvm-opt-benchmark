@@ -4894,12 +4894,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %7 = mul nuw nsw i64 %indvars.iv, 3
-  %arrayidx16 = getelementptr inbounds i32, ptr %call.i, i64 %7
+  %arrayidx16.idx = mul i64 %indvars.iv, 12
+  %arrayidx16 = getelementptr inbounds i8, ptr %call.i, i64 %arrayidx16.idx
   store i32 %call13, ptr %arrayidx16, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #13
-  %8 = load i32, ptr %arrayidx, align 4
-  call void @_ZN6icu_7517LikelySubtagsData8toScriptEi(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %8)
+  %7 = load i32, ptr %arrayidx, align 4
+  call void @_ZN6icu_7517LikelySubtagsData8toScriptEi(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %7)
   %call23 = invoke noundef i32 @_ZN6icu_7517UniqueCharStrings10addByValueENS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(177) %strings, ptr noundef nonnull %agg.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont22 unwind label %lpad21
 
@@ -4907,10 +4907,10 @@ invoke.cont22:                                    ; preds = %invoke.cont
   %arrayidx26 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
   store i32 %call23, ptr %arrayidx26, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18) #13
-  %9 = load i32, ptr %arrayidx, align 4
+  %8 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %region.i)
-  %or.cond.i = icmp ult i32 %9, 2
+  %or.cond.i = icmp ult i32 %8, 2
   br i1 %or.cond.i, label %if.then.i31, label %if.end.i
 
 if.then.i31:                                      ; preds = %invoke.cont22
@@ -4919,23 +4919,23 @@ if.then.i31:                                      ; preds = %invoke.cont22
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i31
-  %10 = load ptr, ptr %agg.tmp.i, align 8, !noalias !30
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #13, !srcloc !33
+  %9 = load ptr, ptr %agg.tmp.i, align 8, !noalias !30
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #13, !srcloc !33
   br label %_ZN6icu_7517LikelySubtagsData8toRegionERKNS_13ResourceArrayERNS_13ResourceValueEiR10UErrorCode.exit
 
 common.resume:                                    ; preds = %lpad, %lpad21, %lpad31, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i ], [ %18, %lpad31 ], [ %17, %lpad21 ], [ %16, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i ], [ %17, %lpad31 ], [ %16, %lpad21 ], [ %15, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i31
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %agg.tmp.i, align 8, !noalias !30
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #13, !srcloc !33
+  %11 = load ptr, ptr %agg.tmp.i, align 8, !noalias !30
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #13, !srcloc !33
   br label %common.resume
 
 if.end.i:                                         ; preds = %invoke.cont22
-  %and.i = and i32 %9, 16777215
+  %and.i = and i32 %8, 16777215
   %div.i = udiv i32 %and.i, 19683
   %rem.urem.i = add nsw i32 %div.i, -729
   %rem.cmp.i = icmp ult i32 %and.i, 14348907
@@ -4950,12 +4950,12 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.end.i
   %rem6.lhs.trunc.i = trunc nsw i32 %rem.i to i16
   %rem69.i = urem i16 %rem6.lhs.trunc.i, 27
-  %13 = trunc nuw nsw i16 %rem69.i to i8
-  %conv.i30 = or disjoint i8 %13, 64
+  %12 = trunc nuw nsw i16 %rem69.i to i8
+  %conv.i30 = or disjoint i8 %12, 64
   store i8 %conv.i30, ptr %region.i, align 1, !noalias !30
   %div710.i = udiv i16 %rem6.lhs.trunc.i, 27
-  %14 = trunc i16 %div710.i to i8
-  %conv11.i = or disjoint i8 %14, 64
+  %13 = trunc i16 %div710.i to i8
+  %conv11.i = or disjoint i8 %13, 64
   store i8 %conv11.i, ptr %arrayidx12.i, align 1, !noalias !30
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp28, ptr noundef nonnull %region.i, i32 noundef 2, i32 noundef 0)
   br label %_ZN6icu_7517LikelySubtagsData8toRegionERKNS_13ResourceArrayERNS_13ResourceValueEiR10UErrorCode.exit
@@ -4970,24 +4970,24 @@ invoke.cont32:                                    ; preds = %_ZN6icu_7517LikelyS
   %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   store i32 %call33, ptr %arrayidx37, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp28) #13
-  %15 = load i32, ptr %errorCode, align 4
-  %cmp.i32 = icmp slt i32 %15, 1
+  %14 = load i32, ptr %errorCode, align 4
+  %cmp.i32 = icmp slt i32 %14, 1
   br i1 %cmp.i32, label %for.cond, label %return
 
 lpad:                                             ; preds = %for.body
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #13
   br label %common.resume
 
 lpad21:                                           ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp18) #13
   br label %common.resume
 
 lpad31:                                           ; preds = %_ZN6icu_7517LikelySubtagsData8toRegionERKNS_13ResourceArrayERNS_13ResourceValueEiR10UErrorCode.exit
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp28) #13
   br label %common.resume

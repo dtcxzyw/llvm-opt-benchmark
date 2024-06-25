@@ -2956,9 +2956,9 @@ while.end:                                        ; preds = %while.end.loopexit,
   %block_id_new172.0.lcssa = phi i64 [ %conv175, %if.end183 ], [ %and220, %while.end.loopexit ]
   %block_base_new202.0.lcssa = phi ptr [ %add.ptr207, %if.end183 ], [ %add.ptr225.le, %while.end.loopexit ]
   %full_slots_new210.0.lcssa = phi i32 [ %full_slots_new210.0222, %if.end183 ], [ %full_slots_new210.0, %while.end.loopexit ]
-  %mul232 = shl nuw nsw i64 %block_id_new172.0.lcssa, 3
   %conv233 = zext nneg i32 %full_slots_new210.0.lcssa to i64
-  %105 = getelementptr i32, ptr %cond.i117, i64 %mul232
+  %.idx = shl nuw nsw i64 %block_id_new172.0.lcssa, 5
+  %105 = getelementptr i8, ptr %cond.i117, i64 %.idx
   %arrayidx235 = getelementptr i32, ptr %105, i64 %conv233
   store i32 %95, ptr %arrayidx235, align 4
   %sub236 = sub nuw nsw i32 7, %full_slots_new210.0.lcssa

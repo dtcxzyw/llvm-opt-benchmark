@@ -123,13 +123,13 @@ for.body.preheader.i.lr.ph:                       ; preds = %if.end53, %if.end59
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef 1, ptr noundef %1, i64 noundef %mul38) #7
   %mul.i = shl nuw nsw i64 %conv, 5
   %arrayidx.i = getelementptr i32, ptr %add.ptr65, i64 %mul.i
-  %mul1.i = shl nuw nsw i64 %conv, 6
-  %arrayidx2.i = getelementptr i32, ptr %add.ptr65, i64 %mul1.i
+  %arrayidx2.i = getelementptr i8, ptr %add.ptr65, i64 %mul46
+  %invariant.gep193.i = getelementptr i8, ptr %arrayidx.i, i64 -64
+  %invariant.gep.i = getelementptr i8, ptr %add.ptr65, i64 -64
   %mul13.i = shl nuw nsw i64 %conv, 1
-  %arrayidx.i.i = getelementptr i8, ptr %arrayidx.i, i64 -64
-  %mul10.i.i = shl nuw nsw i64 %conv, 4
-  %2 = getelementptr i32, ptr %arrayidx.i, i64 %mul.i
-  %arrayidx.i61.i = getelementptr i8, ptr %2, i64 -64
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %mul37
+  %arrayidx12.idx.i.i = shl nuw nsw i64 %conv, 6
+  %gep192.i = getelementptr i8, ptr %invariant.gep193.i, i64 %mul37
   %sub.i = add nsw i64 %N, -1
   br label %for.body.preheader.i
 
@@ -151,11 +151,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %for.body.i, %blockmix_salsa8.exit92.loopexit.i
-  %i.0192.i = phi i64 [ %add19.i, %blockmix_salsa8.exit92.loopexit.i ], [ 0, %for.body.i ]
-  %mul11.i = mul i64 %i.0192.i, %mul.i
+  %i.0196.i = phi i64 [ %add19.i, %blockmix_salsa8.exit92.loopexit.i ], [ 0, %for.body.i ]
+  %mul11.i = mul i64 %i.0196.i, %mul.i
   %arrayidx12.i = getelementptr i32, ptr %add.ptr, i64 %mul11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx12.i, ptr nonnull readonly align 4 %add.ptr65, i64 %mul37, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx.i.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %gep.i, i64 64, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %blkxor.exit24.i.i, %for.body9.i
@@ -167,10 +167,10 @@ for.body.i.i:                                     ; preds = %blkxor.exit24.i.i, 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i
   %i.05.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i ]
   %arrayidx.i.i.i = getelementptr i32, ptr %arrayidx4.i.i, i64 %i.05.i.i.i
-  %3 = load i32, ptr %arrayidx.i.i.i, align 4
+  %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %arrayidx1.i.i.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i.i
-  %4 = load i32, ptr %arrayidx1.i.i.i, align 4
-  %xor.i.i.i = xor i32 %4, %3
+  %3 = load i32, ptr %arrayidx1.i.i.i, align 4
+  %xor.i.i.i = xor i32 %3, %2
   store i32 %xor.i.i.i, ptr %arrayidx1.i.i.i, align 4
   %inc.i.i.i = add nuw nsw i64 %i.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 16
@@ -178,8 +178,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 blkxor.exit.i.i:                                  ; preds = %for.body.i.i.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %mul5.i.i = shl nuw nsw i64 %i.026.i.i, 3
-  %arrayidx6.i.i = getelementptr i32, ptr %arrayidx.i, i64 %mul5.i.i
+  %arrayidx6.idx.i.i = shl i64 %i.026.i.i, 5
+  %arrayidx6.i.i = getelementptr i8, ptr %arrayidx.i, i64 %arrayidx6.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx6.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add.i.i = or disjoint i64 %mul3.i.i, 16
   %arrayidx8.i.i = getelementptr i32, ptr %add.ptr65, i64 %add.i.i
@@ -188,10 +188,10 @@ blkxor.exit.i.i:                                  ; preds = %for.body.i.i.i
 for.body.i17.i.i:                                 ; preds = %for.body.i17.i.i, %blkxor.exit.i.i
   %i.05.i18.i.i = phi i64 [ %inc.i22.i.i, %for.body.i17.i.i ], [ 0, %blkxor.exit.i.i ]
   %arrayidx.i19.i.i = getelementptr i32, ptr %arrayidx8.i.i, i64 %i.05.i18.i.i
-  %5 = load i32, ptr %arrayidx.i19.i.i, align 4
+  %4 = load i32, ptr %arrayidx.i19.i.i, align 4
   %arrayidx1.i20.i.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i.i
-  %6 = load i32, ptr %arrayidx1.i20.i.i, align 4
-  %xor.i21.i.i = xor i32 %6, %5
+  %5 = load i32, ptr %arrayidx1.i20.i.i, align 4
+  %xor.i21.i.i = xor i32 %5, %4
   store i32 %xor.i21.i.i, ptr %arrayidx1.i20.i.i, align 4
   %inc.i22.i.i = add nuw nsw i64 %i.05.i18.i.i, 1
   %exitcond.not.i23.i.i = icmp eq i64 %inc.i22.i.i, 16
@@ -199,18 +199,18 @@ for.body.i17.i.i:                                 ; preds = %for.body.i17.i.i, %
 
 blkxor.exit24.i.i:                                ; preds = %for.body.i17.i.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %arrayidx12.i.i = getelementptr i32, ptr %arrayidx6.i.i, i64 %mul10.i.i
+  %arrayidx12.i.i = getelementptr i8, ptr %arrayidx6.i.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i.i = add nuw nsw i64 %i.026.i.i, 2
   %cmp.i.i = icmp ult i64 %add13.i.i, %mul13.i
   br i1 %cmp.i.i, label %for.body.i.i, label %blockmix_salsa8.exit.i, !llvm.loop !7
 
 blockmix_salsa8.exit.i:                           ; preds = %blkxor.exit24.i.i
-  %add.i = or disjoint i64 %i.0192.i, 1
+  %add.i = or disjoint i64 %i.0196.i, 1
   %mul15.i = mul i64 %add.i, %mul.i
   %arrayidx16.i = getelementptr i32, ptr %add.ptr, i64 %mul15.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx16.i, ptr readonly align 4 %arrayidx.i, i64 %mul37, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx.i61.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %gep192.i, i64 64, i1 false)
   br label %for.body.i65.i
 
 for.body.i65.i:                                   ; preds = %blkxor.exit24.i88.i, %blockmix_salsa8.exit.i
@@ -222,10 +222,10 @@ for.body.i65.i:                                   ; preds = %blkxor.exit24.i88.i
 for.body.i.i69.i:                                 ; preds = %for.body.i.i69.i, %for.body.i65.i
   %i.05.i.i70.i = phi i64 [ %inc.i.i74.i, %for.body.i.i69.i ], [ 0, %for.body.i65.i ]
   %arrayidx.i.i71.i = getelementptr i32, ptr %arrayidx4.i68.i, i64 %i.05.i.i70.i
-  %7 = load i32, ptr %arrayidx.i.i71.i, align 4
+  %6 = load i32, ptr %arrayidx.i.i71.i, align 4
   %arrayidx1.i.i72.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i70.i
-  %8 = load i32, ptr %arrayidx1.i.i72.i, align 4
-  %xor.i.i73.i = xor i32 %8, %7
+  %7 = load i32, ptr %arrayidx1.i.i72.i, align 4
+  %xor.i.i73.i = xor i32 %7, %6
   store i32 %xor.i.i73.i, ptr %arrayidx1.i.i72.i, align 4
   %inc.i.i74.i = add nuw nsw i64 %i.05.i.i70.i, 1
   %exitcond.not.i.i75.i = icmp eq i64 %inc.i.i74.i, 16
@@ -233,8 +233,8 @@ for.body.i.i69.i:                                 ; preds = %for.body.i.i69.i, %
 
 blkxor.exit.i76.i:                                ; preds = %for.body.i.i69.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %mul5.i77.i = shl nuw nsw i64 %i.026.i66.i, 3
-  %arrayidx6.i78.i = getelementptr i32, ptr %add.ptr65, i64 %mul5.i77.i
+  %arrayidx6.idx.i77.i = shl i64 %i.026.i66.i, 5
+  %arrayidx6.i78.i = getelementptr i8, ptr %add.ptr65, i64 %arrayidx6.idx.i77.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx6.i78.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add.i79.i = or disjoint i64 %mul3.i67.i, 16
   %arrayidx8.i80.i = getelementptr i32, ptr %arrayidx.i, i64 %add.i79.i
@@ -243,10 +243,10 @@ blkxor.exit.i76.i:                                ; preds = %for.body.i.i69.i
 for.body.i17.i81.i:                               ; preds = %for.body.i17.i81.i, %blkxor.exit.i76.i
   %i.05.i18.i82.i = phi i64 [ %inc.i22.i86.i, %for.body.i17.i81.i ], [ 0, %blkxor.exit.i76.i ]
   %arrayidx.i19.i83.i = getelementptr i32, ptr %arrayidx8.i80.i, i64 %i.05.i18.i82.i
-  %9 = load i32, ptr %arrayidx.i19.i83.i, align 4
+  %8 = load i32, ptr %arrayidx.i19.i83.i, align 4
   %arrayidx1.i20.i84.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i82.i
-  %10 = load i32, ptr %arrayidx1.i20.i84.i, align 4
-  %xor.i21.i85.i = xor i32 %10, %9
+  %9 = load i32, ptr %arrayidx1.i20.i84.i, align 4
+  %xor.i21.i85.i = xor i32 %9, %8
   store i32 %xor.i21.i85.i, ptr %arrayidx1.i20.i84.i, align 4
   %inc.i22.i86.i = add nuw nsw i64 %i.05.i18.i82.i, 1
   %exitcond.not.i23.i87.i = icmp eq i64 %inc.i22.i86.i, 16
@@ -254,21 +254,21 @@ for.body.i17.i81.i:                               ; preds = %for.body.i17.i81.i,
 
 blkxor.exit24.i88.i:                              ; preds = %for.body.i17.i81.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %arrayidx12.i89.i = getelementptr i32, ptr %arrayidx6.i78.i, i64 %mul10.i.i
+  %arrayidx12.i89.i = getelementptr i8, ptr %arrayidx6.i78.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i89.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i90.i = add nuw nsw i64 %i.026.i66.i, 2
   %cmp.i91.i = icmp ult i64 %add13.i90.i, %mul13.i
   br i1 %cmp.i91.i, label %for.body.i65.i, label %blockmix_salsa8.exit92.loopexit.i, !llvm.loop !7
 
 blockmix_salsa8.exit92.loopexit.i:                ; preds = %blkxor.exit24.i88.i
-  %add19.i = add nuw nsw i64 %i.0192.i, 2
+  %add19.i = add nuw nsw i64 %i.0196.i, 2
   %cmp8.i = icmp ult i64 %add19.i, %N
   br i1 %cmp8.i, label %for.body9.i, label %for.body.i95.preheader.i, !llvm.loop !8
 
 for.body.i95.preheader.i:                         ; preds = %blockmix_salsa8.exit92.loopexit.i, %blockmix_salsa8.exit178.loopexit.i
-  %i.1194.i = phi i64 [ %add37.i, %blockmix_salsa8.exit178.loopexit.i ], [ 0, %blockmix_salsa8.exit92.loopexit.i ]
-  %11 = load i64, ptr %arrayidx.i.i, align 4
-  %and.i = and i64 %11, %sub.i
+  %i.1204.i = phi i64 [ %add37.i, %blockmix_salsa8.exit178.loopexit.i ], [ 0, %blockmix_salsa8.exit92.loopexit.i ]
+  %10 = load i64, ptr %gep.i, align 4
+  %and.i = and i64 %10, %sub.i
   %mul26.i = mul i64 %and.i, %mul.i
   %arrayidx27.i = getelementptr i32, ptr %add.ptr, i64 %mul26.i
   br label %for.body.i95.i
@@ -276,17 +276,17 @@ for.body.i95.preheader.i:                         ; preds = %blockmix_salsa8.exi
 for.body.i95.i:                                   ; preds = %for.body.i95.i, %for.body.i95.preheader.i
   %i.05.i.i = phi i64 [ %inc.i.i, %for.body.i95.i ], [ 0, %for.body.i95.preheader.i ]
   %arrayidx.i96.i = getelementptr i32, ptr %arrayidx27.i, i64 %i.05.i.i
-  %12 = load i32, ptr %arrayidx.i96.i, align 4
+  %11 = load i32, ptr %arrayidx.i96.i, align 4
   %arrayidx1.i.i = getelementptr i32, ptr %add.ptr65, i64 %i.05.i.i
-  %13 = load i32, ptr %arrayidx1.i.i, align 4
-  %xor.i.i = xor i32 %13, %12
+  %12 = load i32, ptr %arrayidx1.i.i, align 4
+  %xor.i.i = xor i32 %12, %11
   store i32 %xor.i.i, ptr %arrayidx1.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul.i
   br i1 %exitcond.not.i.i, label %blkxor.exit.i, label %for.body.i95.i, !llvm.loop !6
 
 blkxor.exit.i:                                    ; preds = %for.body.i95.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx.i.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %gep.i, i64 64, i1 false)
   br label %for.body.i103.i
 
 for.body.i103.i:                                  ; preds = %blkxor.exit24.i126.i, %blkxor.exit.i
@@ -298,10 +298,10 @@ for.body.i103.i:                                  ; preds = %blkxor.exit24.i126.
 for.body.i.i107.i:                                ; preds = %for.body.i.i107.i, %for.body.i103.i
   %i.05.i.i108.i = phi i64 [ %inc.i.i112.i, %for.body.i.i107.i ], [ 0, %for.body.i103.i ]
   %arrayidx.i.i109.i = getelementptr i32, ptr %arrayidx4.i106.i, i64 %i.05.i.i108.i
-  %14 = load i32, ptr %arrayidx.i.i109.i, align 4
+  %13 = load i32, ptr %arrayidx.i.i109.i, align 4
   %arrayidx1.i.i110.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i108.i
-  %15 = load i32, ptr %arrayidx1.i.i110.i, align 4
-  %xor.i.i111.i = xor i32 %15, %14
+  %14 = load i32, ptr %arrayidx1.i.i110.i, align 4
+  %xor.i.i111.i = xor i32 %14, %13
   store i32 %xor.i.i111.i, ptr %arrayidx1.i.i110.i, align 4
   %inc.i.i112.i = add nuw nsw i64 %i.05.i.i108.i, 1
   %exitcond.not.i.i113.i = icmp eq i64 %inc.i.i112.i, 16
@@ -309,8 +309,8 @@ for.body.i.i107.i:                                ; preds = %for.body.i.i107.i, 
 
 blkxor.exit.i114.i:                               ; preds = %for.body.i.i107.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %mul5.i115.i = shl nuw nsw i64 %i.026.i104.i, 3
-  %arrayidx6.i116.i = getelementptr i32, ptr %arrayidx.i, i64 %mul5.i115.i
+  %arrayidx6.idx.i115.i = shl i64 %i.026.i104.i, 5
+  %arrayidx6.i116.i = getelementptr i8, ptr %arrayidx.i, i64 %arrayidx6.idx.i115.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx6.i116.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add.i117.i = or disjoint i64 %mul3.i105.i, 16
   %arrayidx8.i118.i = getelementptr i32, ptr %add.ptr65, i64 %add.i117.i
@@ -319,10 +319,10 @@ blkxor.exit.i114.i:                               ; preds = %for.body.i.i107.i
 for.body.i17.i119.i:                              ; preds = %for.body.i17.i119.i, %blkxor.exit.i114.i
   %i.05.i18.i120.i = phi i64 [ %inc.i22.i124.i, %for.body.i17.i119.i ], [ 0, %blkxor.exit.i114.i ]
   %arrayidx.i19.i121.i = getelementptr i32, ptr %arrayidx8.i118.i, i64 %i.05.i18.i120.i
-  %16 = load i32, ptr %arrayidx.i19.i121.i, align 4
+  %15 = load i32, ptr %arrayidx.i19.i121.i, align 4
   %arrayidx1.i20.i122.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i120.i
-  %17 = load i32, ptr %arrayidx1.i20.i122.i, align 4
-  %xor.i21.i123.i = xor i32 %17, %16
+  %16 = load i32, ptr %arrayidx1.i20.i122.i, align 4
+  %xor.i21.i123.i = xor i32 %16, %15
   store i32 %xor.i21.i123.i, ptr %arrayidx1.i20.i122.i, align 4
   %inc.i22.i124.i = add nuw nsw i64 %i.05.i18.i120.i, 1
   %exitcond.not.i23.i125.i = icmp eq i64 %inc.i22.i124.i, 16
@@ -330,15 +330,15 @@ for.body.i17.i119.i:                              ; preds = %for.body.i17.i119.i
 
 blkxor.exit24.i126.i:                             ; preds = %for.body.i17.i119.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %arrayidx12.i127.i = getelementptr i32, ptr %arrayidx6.i116.i, i64 %mul10.i.i
+  %arrayidx12.i127.i = getelementptr i8, ptr %arrayidx6.i116.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i127.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i128.i = add nuw nsw i64 %i.026.i104.i, 2
   %cmp.i129.i = icmp ult i64 %add13.i128.i, %mul13.i
   br i1 %cmp.i129.i, label %for.body.i103.i, label %blockmix_salsa8.exit130.i, !llvm.loop !7
 
 blockmix_salsa8.exit130.i:                        ; preds = %blkxor.exit24.i126.i
-  %18 = load i64, ptr %arrayidx.i61.i, align 4
-  %and31.i = and i64 %18, %sub.i
+  %17 = load i64, ptr %gep192.i, align 4
+  %and31.i = and i64 %17, %sub.i
   %mul33.i = mul i64 %and31.i, %mul.i
   %arrayidx34.i = getelementptr i32, ptr %add.ptr, i64 %mul33.i
   br label %for.body.i137.i
@@ -346,17 +346,17 @@ blockmix_salsa8.exit130.i:                        ; preds = %blkxor.exit24.i126.
 for.body.i137.i:                                  ; preds = %for.body.i137.i, %blockmix_salsa8.exit130.i
   %i.05.i138.i = phi i64 [ %inc.i142.i, %for.body.i137.i ], [ 0, %blockmix_salsa8.exit130.i ]
   %arrayidx.i139.i = getelementptr i32, ptr %arrayidx34.i, i64 %i.05.i138.i
-  %19 = load i32, ptr %arrayidx.i139.i, align 4
+  %18 = load i32, ptr %arrayidx.i139.i, align 4
   %arrayidx1.i140.i = getelementptr i32, ptr %arrayidx.i, i64 %i.05.i138.i
-  %20 = load i32, ptr %arrayidx1.i140.i, align 4
-  %xor.i141.i = xor i32 %20, %19
+  %19 = load i32, ptr %arrayidx1.i140.i, align 4
+  %xor.i141.i = xor i32 %19, %18
   store i32 %xor.i141.i, ptr %arrayidx1.i140.i, align 4
   %inc.i142.i = add nuw nsw i64 %i.05.i138.i, 1
   %exitcond.not.i143.i = icmp eq i64 %inc.i142.i, %mul.i
   br i1 %exitcond.not.i143.i, label %blkxor.exit144.loopexit.i, label %for.body.i137.i, !llvm.loop !6
 
 blkxor.exit144.loopexit.i:                        ; preds = %for.body.i137.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx.i61.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx2.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %gep192.i, i64 64, i1 false)
   br label %for.body.i151.i
 
 for.body.i151.i:                                  ; preds = %blkxor.exit24.i174.i, %blkxor.exit144.loopexit.i
@@ -368,10 +368,10 @@ for.body.i151.i:                                  ; preds = %blkxor.exit24.i174.
 for.body.i.i155.i:                                ; preds = %for.body.i.i155.i, %for.body.i151.i
   %i.05.i.i156.i = phi i64 [ %inc.i.i160.i, %for.body.i.i155.i ], [ 0, %for.body.i151.i ]
   %arrayidx.i.i157.i = getelementptr i32, ptr %arrayidx4.i154.i, i64 %i.05.i.i156.i
-  %21 = load i32, ptr %arrayidx.i.i157.i, align 4
+  %20 = load i32, ptr %arrayidx.i.i157.i, align 4
   %arrayidx1.i.i158.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i156.i
-  %22 = load i32, ptr %arrayidx1.i.i158.i, align 4
-  %xor.i.i159.i = xor i32 %22, %21
+  %21 = load i32, ptr %arrayidx1.i.i158.i, align 4
+  %xor.i.i159.i = xor i32 %21, %20
   store i32 %xor.i.i159.i, ptr %arrayidx1.i.i158.i, align 4
   %inc.i.i160.i = add nuw nsw i64 %i.05.i.i156.i, 1
   %exitcond.not.i.i161.i = icmp eq i64 %inc.i.i160.i, 16
@@ -379,8 +379,8 @@ for.body.i.i155.i:                                ; preds = %for.body.i.i155.i, 
 
 blkxor.exit.i162.i:                               ; preds = %for.body.i.i155.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %mul5.i163.i = shl nuw nsw i64 %i.026.i152.i, 3
-  %arrayidx6.i164.i = getelementptr i32, ptr %add.ptr65, i64 %mul5.i163.i
+  %arrayidx6.idx.i163.i = shl i64 %i.026.i152.i, 5
+  %arrayidx6.i164.i = getelementptr i8, ptr %add.ptr65, i64 %arrayidx6.idx.i163.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx6.i164.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add.i165.i = or disjoint i64 %mul3.i153.i, 16
   %arrayidx8.i166.i = getelementptr i32, ptr %arrayidx.i, i64 %add.i165.i
@@ -389,10 +389,10 @@ blkxor.exit.i162.i:                               ; preds = %for.body.i.i155.i
 for.body.i17.i167.i:                              ; preds = %for.body.i17.i167.i, %blkxor.exit.i162.i
   %i.05.i18.i168.i = phi i64 [ %inc.i22.i172.i, %for.body.i17.i167.i ], [ 0, %blkxor.exit.i162.i ]
   %arrayidx.i19.i169.i = getelementptr i32, ptr %arrayidx8.i166.i, i64 %i.05.i18.i168.i
-  %23 = load i32, ptr %arrayidx.i19.i169.i, align 4
+  %22 = load i32, ptr %arrayidx.i19.i169.i, align 4
   %arrayidx1.i20.i170.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i168.i
-  %24 = load i32, ptr %arrayidx1.i20.i170.i, align 4
-  %xor.i21.i171.i = xor i32 %24, %23
+  %23 = load i32, ptr %arrayidx1.i20.i170.i, align 4
+  %xor.i21.i171.i = xor i32 %23, %22
   store i32 %xor.i21.i171.i, ptr %arrayidx1.i20.i170.i, align 4
   %inc.i22.i172.i = add nuw nsw i64 %i.05.i18.i168.i, 1
   %exitcond.not.i23.i173.i = icmp eq i64 %inc.i22.i172.i, 16
@@ -400,27 +400,27 @@ for.body.i17.i167.i:                              ; preds = %for.body.i17.i167.i
 
 blkxor.exit24.i174.i:                             ; preds = %for.body.i17.i167.i
   tail call fastcc void @salsa20_8(ptr noundef nonnull %arrayidx2.i)
-  %arrayidx12.i175.i = getelementptr i32, ptr %arrayidx6.i164.i, i64 %mul10.i.i
+  %arrayidx12.i175.i = getelementptr i8, ptr %arrayidx6.i164.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i175.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i176.i = add nuw nsw i64 %i.026.i152.i, 2
   %cmp.i177.i = icmp ult i64 %add13.i176.i, %mul13.i
   br i1 %cmp.i177.i, label %for.body.i151.i, label %blockmix_salsa8.exit178.loopexit.i, !llvm.loop !7
 
 blockmix_salsa8.exit178.loopexit.i:               ; preds = %blkxor.exit24.i174.i
-  %add37.i = add nuw nsw i64 %i.1194.i, 2
+  %add37.i = add nuw nsw i64 %i.1204.i, 2
   %cmp22.i = icmp ult i64 %add37.i, %N
   br i1 %cmp22.i, label %for.body.i95.preheader.i, label %for.body42.i, !llvm.loop !9
 
 for.body42.i:                                     ; preds = %blockmix_salsa8.exit178.loopexit.i, %for.body42.i
-  %k.1196.i = phi i64 [ %inc47.i, %for.body42.i ], [ 0, %blockmix_salsa8.exit178.loopexit.i ]
-  %mul43.i = shl nuw nsw i64 %k.1196.i, 2
+  %k.1206.i = phi i64 [ %inc47.i, %for.body42.i ], [ 0, %blockmix_salsa8.exit178.loopexit.i ]
+  %mul43.i = shl nuw nsw i64 %k.1206.i, 2
   %arrayidx44.i = getelementptr i8, ptr %arrayidx, i64 %mul43.i
-  %arrayidx45.i = getelementptr i32, ptr %add.ptr65, i64 %k.1196.i
-  %25 = load i32, ptr %arrayidx45.i, align 4
-  store i32 %25, ptr %arrayidx44.i, align 1
-  %inc47.i = add nuw nsw i64 %k.1196.i, 1
-  %exitcond200.not.i = icmp eq i64 %inc47.i, %mul.i
-  br i1 %exitcond200.not.i, label %smix.exit, label %for.body42.i, !llvm.loop !10
+  %arrayidx45.i = getelementptr i32, ptr %add.ptr65, i64 %k.1206.i
+  %24 = load i32, ptr %arrayidx45.i, align 4
+  store i32 %24, ptr %arrayidx44.i, align 1
+  %inc47.i = add nuw nsw i64 %k.1206.i, 1
+  %exitcond210.not.i = icmp eq i64 %inc47.i, %mul.i
+  br i1 %exitcond210.not.i, label %smix.exit, label %for.body42.i, !llvm.loop !10
 
 smix.exit:                                        ; preds = %for.body42.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -155,7 +155,7 @@ define dso_local void @init_espfix_ap(i32 noundef %0) local_unnamed_addr #2 alig
   %9 = inttoptr i64 %8 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %159, !prof !6
+  br i1 %11, label %12, label %158, !prof !6
 
 12:                                               ; preds = %1
   %13 = lshr i32 %0, 6
@@ -179,13 +179,13 @@ define dso_local void @init_espfix_ap(i32 noundef %0) local_unnamed_addr #2 alig
   %31 = getelementptr [1 x ptr], ptr @espfix_pages, i64 0, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %152, !prof !6
+  br i1 %33, label %34, label %151, !prof !6
 
 34:                                               ; preds = %12
   tail call void @mutex_lock(ptr noundef nonnull @espfix_init_mutex) #4
   %35 = load volatile ptr, ptr %31, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %150
+  br i1 %36, label %37, label %149
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %6, align 8
@@ -339,44 +339,44 @@ define dso_local void @init_espfix_ap(i32 noundef %0) local_unnamed_addr #2 alig
   br label %142
 
 142:                                              ; preds = %142, %125
-  %143 = phi i64 [ 0, %125 ], [ %146, %142 ]
-  %144 = shl nuw nsw i64 %143, 4
-  %145 = getelementptr %struct.pte_t, ptr %121, i64 %144
+  %143 = phi i64 [ 0, %125 ], [ %145, %142 ]
+  %.idx = shl i64 %143, 7
+  %144 = getelementptr i8, ptr %121, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %141, ptr %2, align 8
   %.0..0..0..0.2 = load volatile i64, ptr %2, align 8
-  store volatile i64 %.0..0..0..0.2, ptr %145, align 8
+  store volatile i64 %.0..0..0..0.2, ptr %144, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %146 = add nuw nsw i64 %143, 1
-  %147 = icmp eq i64 %146, 32
-  br i1 %147, label %148, label %142, !llvm.loop !12
+  %145 = add nuw nsw i64 %143, 1
+  %146 = icmp eq i64 %145, 32
+  br i1 %146, label %147, label %142, !llvm.loop !12
 
-148:                                              ; preds = %142
-  %149 = inttoptr i64 %133 to ptr
-  store volatile ptr %149, ptr %31, align 8
-  br label %150
+147:                                              ; preds = %142
+  %148 = inttoptr i64 %133 to ptr
+  store volatile ptr %148, ptr %31, align 8
+  br label %149
 
-150:                                              ; preds = %148, %34
-  %151 = phi ptr [ %35, %34 ], [ %149, %148 ]
+149:                                              ; preds = %147, %34
+  %150 = phi ptr [ %35, %34 ], [ %148, %147 ]
   tail call void @mutex_unlock(ptr noundef nonnull @espfix_init_mutex) #4
   %.pre7 = load i64, ptr %6, align 8
   %.pre8 = add i64 %.pre7, ptrtoint (ptr @espfix_stack to i64)
   %.pre9 = inttoptr i64 %.pre8 to ptr
-  br label %152
+  br label %151
 
-152:                                              ; preds = %150, %12
-  %.pre-phi10 = phi ptr [ %.pre9, %150 ], [ %9, %12 ]
-  %153 = phi ptr [ %151, %150 ], [ %32, %12 ]
+151:                                              ; preds = %149, %12
+  %.pre-phi10 = phi ptr [ %.pre9, %149 ], [ %9, %12 ]
+  %152 = phi ptr [ %150, %149 ], [ %32, %12 ]
   store i64 %28, ptr %.pre-phi10, align 8
-  %154 = ptrtoint ptr %153 to i64
-  %155 = add i64 %154, %22
-  %156 = load i64, ptr %6, align 8
-  %157 = add i64 %156, ptrtoint (ptr @espfix_waddr to i64)
-  %158 = inttoptr i64 %157 to ptr
-  store i64 %155, ptr %158, align 8
-  br label %159
+  %153 = ptrtoint ptr %152 to i64
+  %154 = add i64 %153, %22
+  %155 = load i64, ptr %6, align 8
+  %156 = add i64 %155, ptrtoint (ptr @espfix_waddr to i64)
+  %157 = inttoptr i64 %156 to ptr
+  store i64 %154, ptr %157, align 8
+  br label %158
 
-159:                                              ; preds = %152, %1
+158:                                              ; preds = %151, %1
   ret void
 }
 

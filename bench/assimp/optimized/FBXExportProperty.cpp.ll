@@ -663,14 +663,14 @@ entry:
 
 for.cond3.preheader:                              ; preds = %entry, %for.inc11
   %indvars.iv12 = phi i64 [ 0, %entry ], [ %indvars.iv.next13, %for.inc11 ]
-  %0 = shl nuw nsw i64 %indvars.iv12, 2
-  %invariant.gep = getelementptr inbounds double, ptr %call5.i.i.i.i1.i.i7, i64 %0
+  %arrayidx10.idx = shl nsw i64 %indvars.iv12, 5
+  %invariant.gep = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i7, i64 %arrayidx10.idx
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond3.preheader, %_ZNK12aiMatrix4x4tIfEixEj.exit
   %indvars.iv = phi i64 [ 0, %for.cond3.preheader ], [ %indvars.iv.next, %_ZNK12aiMatrix4x4tIfEixEj.exit ]
-  %1 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %1, label %default.unreachable.i [
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %0, label %default.unreachable.i [
     i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb3.i
@@ -692,8 +692,8 @@ default.unreachable.i:                            ; preds = %if.end.i
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %if.end.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i
   %retval.0.i = phi ptr [ %d1.i, %sw.bb4.i ], [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %vm, %if.end.i ]
   %arrayidx = getelementptr inbounds float, ptr %retval.0.i, i64 %indvars.iv12
-  %2 = load float, ptr %arrayidx, align 4
-  %conv = fpext float %2 to double
+  %1 = load float, ptr %arrayidx, align 4
+  %conv = fpext float %1 to double
   %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
   store double %conv, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -125,37 +125,37 @@ define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr nocapture noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZL11_Py_XDECREFP7_object.exit
-  %.04 = phi i64 [ %9, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
-  %3 = shl i64 %.04, 1
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %3
-  %4 = load ptr, ptr %gep, align 8
-  %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %5
+  %.04 = phi i64 [ %8, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
+  %.idx = shl i64 %.04, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %3 = load ptr, ptr %gep, align 8
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %4
 
-5:                                                ; preds = %.lr.ph
-  %6 = load i64, ptr %4, align 8
-  %7 = add nsw i64 %6, -1
-  store i64 %7, ptr %4, align 8
-  %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %8, label %_ZL11_Py_XDECREFP7_object.exit
+4:                                                ; preds = %.lr.ph
+  %5 = load i64, ptr %3, align 8
+  %6 = add nsw i64 %5, -1
+  store i64 %6, ptr %3, align 8
+  %.not.i.i = icmp eq i64 %6, 0
+  br i1 %.not.i.i, label %7, label %_ZL11_Py_XDECREFP7_object.exit
 
-8:                                                ; preds = %5
-  invoke void @_Py_Dealloc(ptr noundef nonnull %4)
-          to label %_ZL11_Py_XDECREFP7_object.exit unwind label %10
+7:                                                ; preds = %4
+  invoke void @_Py_Dealloc(ptr noundef nonnull %3)
+          to label %_ZL11_Py_XDECREFP7_object.exit unwind label %9
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %5, %.lr.ph, %8
-  %9 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %9, %1
+_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %.lr.ph, %7
+  %8 = add nuw i64 %.04, 1
+  %exitcond.not = icmp eq i64 %8, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZL11_Py_XDECREFP7_object.exit, %2
   ret void
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #8
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #8
   unreachable
 }
 

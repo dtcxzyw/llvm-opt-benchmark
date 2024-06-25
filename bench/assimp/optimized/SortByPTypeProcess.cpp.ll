@@ -331,10 +331,9 @@ for.end760.thread:                                ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.end
   %conv = zext i32 %1 to i64
-  %shl = shl nuw nsw i64 %conv, 1
   %mul.i.i.i.i = shl nuw nsw i64 %conv, 4
   %call5.i.i.i.i234 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #17
-  %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i234, i64 %shl
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i234, i64 %mul.i.i.i.i
   %mul = shl i32 %1, 2
   %conv5 = zext i32 %mul to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %replaceMeshIndex, i8 0, i64 24, i1 false)

@@ -65227,7 +65227,7 @@ _ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds =
   %.not131 = icmp eq i32 %1058, 943870035
   %1059 = load <2 x ptr>, ptr %21, align 8
   store <2 x ptr> %1059, ptr %14, align 8
-  br i1 %.not131, label %1060, label %1280
+  br i1 %.not131, label %1060, label %1279
 
 1060:                                             ; preds = %1054
   %1061 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
@@ -65647,186 +65647,186 @@ _ZL10stbi__get8P13stbi__context.exit.i119:        ; preds = %_ZL19stbi__refill_b
   %wide.trip.count287.i = zext nneg i32 %.fr256.i to i64
   br label %.lr.ph255.i
 
-.lr.ph255.i:                                      ; preds = %1241, %.lr.ph255.preheader.i
-  %indvars.iv284.i = phi i64 [ 0, %.lr.ph255.preheader.i ], [ %indvars.iv.next285.i, %1241 ]
-  %1218 = shl nsw i64 %indvars.iv284.i, 2
-  %1219 = getelementptr inbounds i16, ptr %.0185.i, i64 %1218
-  %1220 = getelementptr inbounds i8, ptr %1219, i64 6
-  %1221 = load i16, ptr %1220, align 2
-  switch i16 %1221, label %1222 [
-    i16 0, label %1241
-    i16 -1, label %1241
+.lr.ph255.i:                                      ; preds = %1240, %.lr.ph255.preheader.i
+  %indvars.iv284.i = phi i64 [ 0, %.lr.ph255.preheader.i ], [ %indvars.iv.next285.i, %1240 ]
+  %.idx.i = shl nsw i64 %indvars.iv284.i, 3
+  %1218 = getelementptr inbounds i8, ptr %.0185.i, i64 %.idx.i
+  %1219 = getelementptr inbounds i8, ptr %1218, i64 6
+  %1220 = load i16, ptr %1219, align 2
+  switch i16 %1220, label %1221 [
+    i16 0, label %1240
+    i16 -1, label %1240
   ]
 
-1222:                                             ; preds = %.lr.ph255.i
-  %1223 = uitofp i16 %1221 to float
-  %1224 = fdiv float %1223, 6.553500e+04
-  %1225 = fdiv float 1.000000e+00, %1224
-  %1226 = fsub float 1.000000e+00, %1225
-  %1227 = fmul float %1226, 6.553500e+04
-  %1228 = load <2 x i16>, ptr %1219, align 2
-  %1229 = uitofp <2 x i16> %1228 to <2 x float>
-  %1230 = insertelement <2 x float> poison, float %1225, i64 0
-  %1231 = shufflevector <2 x float> %1230, <2 x float> poison, <2 x i32> zeroinitializer
-  %1232 = insertelement <2 x float> poison, float %1227, i64 0
-  %1233 = shufflevector <2 x float> %1232, <2 x float> poison, <2 x i32> zeroinitializer
-  %1234 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1229, <2 x float> %1231, <2 x float> %1233)
-  %1235 = fptoui <2 x float> %1234 to <2 x i16>
-  store <2 x i16> %1235, ptr %1219, align 2
-  %1236 = getelementptr inbounds i8, ptr %1219, i64 4
-  %1237 = load i16, ptr %1236, align 2
-  %1238 = uitofp i16 %1237 to float
-  %1239 = tail call float @llvm.fmuladd.f32(float %1238, float %1225, float %1227)
-  %1240 = fptoui float %1239 to i16
-  store i16 %1240, ptr %1236, align 2
-  br label %1241
+1221:                                             ; preds = %.lr.ph255.i
+  %1222 = uitofp i16 %1220 to float
+  %1223 = fdiv float %1222, 6.553500e+04
+  %1224 = fdiv float 1.000000e+00, %1223
+  %1225 = fsub float 1.000000e+00, %1224
+  %1226 = fmul float %1225, 6.553500e+04
+  %1227 = load <2 x i16>, ptr %1218, align 2
+  %1228 = uitofp <2 x i16> %1227 to <2 x float>
+  %1229 = insertelement <2 x float> poison, float %1224, i64 0
+  %1230 = shufflevector <2 x float> %1229, <2 x float> poison, <2 x i32> zeroinitializer
+  %1231 = insertelement <2 x float> poison, float %1226, i64 0
+  %1232 = shufflevector <2 x float> %1231, <2 x float> poison, <2 x i32> zeroinitializer
+  %1233 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1228, <2 x float> %1230, <2 x float> %1232)
+  %1234 = fptoui <2 x float> %1233 to <2 x i16>
+  store <2 x i16> %1234, ptr %1218, align 2
+  %1235 = getelementptr inbounds i8, ptr %1218, i64 4
+  %1236 = load i16, ptr %1235, align 2
+  %1237 = uitofp i16 %1236 to float
+  %1238 = tail call float @llvm.fmuladd.f32(float %1237, float %1224, float %1226)
+  %1239 = fptoui float %1238 to i16
+  store i16 %1239, ptr %1235, align 2
+  br label %1240
 
-1241:                                             ; preds = %1222, %.lr.ph255.i, %.lr.ph255.i
+1240:                                             ; preds = %1221, %.lr.ph255.i, %.lr.ph255.i
   %indvars.iv.next285.i = add nuw nsw i64 %indvars.iv284.i, 1
   %exitcond288.not.i = icmp eq i64 %indvars.iv.next285.i, %wide.trip.count287.i
   br i1 %exitcond288.not.i, label %.loopexit.i110, label %.lr.ph255.i, !llvm.loop !1749
 
-.lr.ph253.i:                                      ; preds = %1266, %.lr.ph253.preheader.i
-  %indvars.iv280.i = phi i64 [ 0, %.lr.ph253.preheader.i ], [ %indvars.iv.next281.i, %1266 ]
-  %1242 = shl nsw i64 %indvars.iv280.i, 2
-  %1243 = getelementptr inbounds i8, ptr %.0185.i, i64 %1242
-  %1244 = getelementptr inbounds i8, ptr %1243, i64 3
-  %1245 = load i8, ptr %1244, align 1
-  switch i8 %1245, label %1246 [
-    i8 0, label %1266
-    i8 -1, label %1266
+.lr.ph253.i:                                      ; preds = %1265, %.lr.ph253.preheader.i
+  %indvars.iv280.i = phi i64 [ 0, %.lr.ph253.preheader.i ], [ %indvars.iv.next281.i, %1265 ]
+  %1241 = shl nsw i64 %indvars.iv280.i, 2
+  %1242 = getelementptr inbounds i8, ptr %.0185.i, i64 %1241
+  %1243 = getelementptr inbounds i8, ptr %1242, i64 3
+  %1244 = load i8, ptr %1243, align 1
+  switch i8 %1244, label %1245 [
+    i8 0, label %1265
+    i8 -1, label %1265
   ]
 
-1246:                                             ; preds = %.lr.ph253.i
-  %1247 = uitofp i8 %1245 to float
-  %1248 = fdiv float %1247, 2.550000e+02
-  %1249 = fdiv float 1.000000e+00, %1248
-  %1250 = fsub float 1.000000e+00, %1249
-  %1251 = fmul float %1250, 2.550000e+02
-  %1252 = load i8, ptr %1243, align 1
-  %1253 = uitofp i8 %1252 to float
-  %1254 = tail call float @llvm.fmuladd.f32(float %1253, float %1249, float %1251)
-  %1255 = fptoui float %1254 to i8
-  store i8 %1255, ptr %1243, align 1
-  %1256 = getelementptr inbounds i8, ptr %1243, i64 1
-  %1257 = load i8, ptr %1256, align 1
-  %1258 = uitofp i8 %1257 to float
-  %1259 = tail call float @llvm.fmuladd.f32(float %1258, float %1249, float %1251)
-  %1260 = fptoui float %1259 to i8
-  store i8 %1260, ptr %1256, align 1
-  %1261 = getelementptr inbounds i8, ptr %1243, i64 2
-  %1262 = load i8, ptr %1261, align 1
-  %1263 = uitofp i8 %1262 to float
-  %1264 = tail call float @llvm.fmuladd.f32(float %1263, float %1249, float %1251)
-  %1265 = fptoui float %1264 to i8
-  store i8 %1265, ptr %1261, align 1
-  br label %1266
+1245:                                             ; preds = %.lr.ph253.i
+  %1246 = uitofp i8 %1244 to float
+  %1247 = fdiv float %1246, 2.550000e+02
+  %1248 = fdiv float 1.000000e+00, %1247
+  %1249 = fsub float 1.000000e+00, %1248
+  %1250 = fmul float %1249, 2.550000e+02
+  %1251 = load i8, ptr %1242, align 1
+  %1252 = uitofp i8 %1251 to float
+  %1253 = tail call float @llvm.fmuladd.f32(float %1252, float %1248, float %1250)
+  %1254 = fptoui float %1253 to i8
+  store i8 %1254, ptr %1242, align 1
+  %1255 = getelementptr inbounds i8, ptr %1242, i64 1
+  %1256 = load i8, ptr %1255, align 1
+  %1257 = uitofp i8 %1256 to float
+  %1258 = tail call float @llvm.fmuladd.f32(float %1257, float %1248, float %1250)
+  %1259 = fptoui float %1258 to i8
+  store i8 %1259, ptr %1255, align 1
+  %1260 = getelementptr inbounds i8, ptr %1242, i64 2
+  %1261 = load i8, ptr %1260, align 1
+  %1262 = uitofp i8 %1261 to float
+  %1263 = tail call float @llvm.fmuladd.f32(float %1262, float %1248, float %1250)
+  %1264 = fptoui float %1263 to i8
+  store i8 %1264, ptr %1260, align 1
+  br label %1265
 
-1266:                                             ; preds = %1246, %.lr.ph253.i, %.lr.ph253.i
+1265:                                             ; preds = %1245, %.lr.ph253.i, %.lr.ph253.i
   %indvars.iv.next281.i = add nuw nsw i64 %indvars.iv280.i, 1
   %exitcond283.not.i = icmp eq i64 %indvars.iv.next281.i, %wide.trip.count.i111
   br i1 %exitcond283.not.i, label %.loopexit.i110, label %.lr.ph253.i, !llvm.loop !1750
 
-.loopexit.i110:                                   ; preds = %1266, %1241, %.preheader.i112, %.preheader217.i, %.loopexit227.i
-  %1267 = and i32 %4, -5
-  %or.cond11.not.i = icmp eq i32 %1267, 0
-  br i1 %or.cond11.not.i, label %1277, label %1268
+.loopexit.i110:                                   ; preds = %1265, %1240, %.preheader.i112, %.preheader217.i, %.loopexit227.i
+  %1266 = and i32 %4, -5
+  %or.cond11.not.i = icmp eq i32 %1266, 0
+  br i1 %or.cond11.not.i, label %1276, label %1267
 
-1268:                                             ; preds = %.loopexit.i110
-  %1269 = load i32, ptr %5, align 4
-  %1270 = icmp eq i32 %1269, 16
-  br i1 %1270, label %1271, label %1273
+1267:                                             ; preds = %.loopexit.i110
+  %1268 = load i32, ptr %5, align 4
+  %1269 = icmp eq i32 %1268, 16
+  br i1 %1269, label %1270, label %1272
 
-1271:                                             ; preds = %1268
-  %1272 = tail call fastcc noundef ptr @_ZL22stbi__convert_format16Ptiijj(ptr noundef nonnull %.0185.i, i32 noundef 4, i32 noundef %4, i32 noundef %1098, i32 noundef %1094)
-  br label %1275
+1270:                                             ; preds = %1267
+  %1271 = tail call fastcc noundef ptr @_ZL22stbi__convert_format16Ptiijj(ptr noundef nonnull %.0185.i, i32 noundef 4, i32 noundef %4, i32 noundef %1098, i32 noundef %1094)
+  br label %1274
 
-1273:                                             ; preds = %1268
-  %1274 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %.0185.i, i32 noundef 4, i32 noundef %4, i32 noundef %1098, i32 noundef %1094)
-  br label %1275
+1272:                                             ; preds = %1267
+  %1273 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %.0185.i, i32 noundef 4, i32 noundef %4, i32 noundef %1098, i32 noundef %1094)
+  br label %1274
 
-1275:                                             ; preds = %1273, %1271
-  %.1186.i = phi ptr [ %1272, %1271 ], [ %1274, %1273 ]
-  %1276 = icmp eq ptr %.1186.i, null
-  br i1 %1276, label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit, label %1277
+1274:                                             ; preds = %1272, %1270
+  %.1186.i = phi ptr [ %1271, %1270 ], [ %1273, %1272 ]
+  %1275 = icmp eq ptr %.1186.i, null
+  br i1 %1275, label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit, label %1276
 
-1277:                                             ; preds = %1275, %.loopexit.i110
-  %.2187.i = phi ptr [ %.1186.i, %1275 ], [ %.0185.i, %.loopexit.i110 ]
+1276:                                             ; preds = %1274, %.loopexit.i110
+  %.2187.i = phi ptr [ %.1186.i, %1274 ], [ %.0185.i, %.loopexit.i110 ]
   %.not210.i = icmp eq ptr %3, null
-  br i1 %.not210.i, label %1279, label %1278
+  br i1 %.not210.i, label %1278, label %1277
 
-1278:                                             ; preds = %1277
+1277:                                             ; preds = %1276
   store i32 4, ptr %3, align 4
-  br label %1279
+  br label %1278
 
-1279:                                             ; preds = %1278, %1277
+1278:                                             ; preds = %1277, %1276
   store i32 %1094, ptr %2, align 4
   store i32 %1098, ptr %1, align 4
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1280:                                             ; preds = %1054
-  %1281 = tail call fastcc noundef i32 @_ZL14stbi__pic_testP13stbi__context(ptr noundef nonnull %0)
-  %.not78 = icmp eq i32 %1281, 0
-  br i1 %.not78, label %1284, label %1282
+1279:                                             ; preds = %1054
+  %1280 = tail call fastcc noundef i32 @_ZL14stbi__pic_testP13stbi__context(ptr noundef nonnull %0)
+  %.not78 = icmp eq i32 %1280, 0
+  br i1 %.not78, label %1283, label %1281
 
-1282:                                             ; preds = %1280
-  %1283 = tail call fastcc noundef ptr @_ZL14stbi__pic_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+1281:                                             ; preds = %1279
+  %1282 = tail call fastcc noundef ptr @_ZL14stbi__pic_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1284:                                             ; preds = %1280
-  %1285 = tail call fastcc noundef i32 @_ZL15stbi__jpeg_testP13stbi__context(ptr noundef nonnull %0)
-  %.not79 = icmp eq i32 %1285, 0
-  br i1 %.not79, label %1288, label %1286
+1283:                                             ; preds = %1279
+  %1284 = tail call fastcc noundef i32 @_ZL15stbi__jpeg_testP13stbi__context(ptr noundef nonnull %0)
+  %.not79 = icmp eq i32 %1284, 0
+  br i1 %.not79, label %1287, label %1285
 
-1286:                                             ; preds = %1284
-  %1287 = tail call fastcc noundef ptr @_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+1285:                                             ; preds = %1283
+  %1286 = tail call fastcc noundef ptr @_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1288:                                             ; preds = %1284
-  %1289 = tail call fastcc noundef i32 @_ZL14stbi__pnm_testP13stbi__context(ptr noundef nonnull %0)
-  %.not80 = icmp eq i32 %1289, 0
-  br i1 %.not80, label %1292, label %1290
+1287:                                             ; preds = %1283
+  %1288 = tail call fastcc noundef i32 @_ZL14stbi__pnm_testP13stbi__context(ptr noundef nonnull %0)
+  %.not80 = icmp eq i32 %1288, 0
+  br i1 %.not80, label %1291, label %1289
 
-1290:                                             ; preds = %1288
-  %1291 = tail call fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5)
+1289:                                             ; preds = %1287
+  %1290 = tail call fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5)
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1292:                                             ; preds = %1288
-  %1293 = tail call fastcc noundef i32 @_ZL14stbi__hdr_testP13stbi__context(ptr noundef nonnull %0)
-  %.not81 = icmp eq i32 %1293, 0
-  br i1 %.not81, label %1303, label %1294
+1291:                                             ; preds = %1287
+  %1292 = tail call fastcc noundef i32 @_ZL14stbi__hdr_testP13stbi__context(ptr noundef nonnull %0)
+  %.not81 = icmp eq i32 %1292, 0
+  br i1 %.not81, label %1302, label %1293
 
-1294:                                             ; preds = %1292
-  %1295 = tail call fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %1296 = load i32, ptr %1, align 4
-  %1297 = load i32, ptr %2, align 4
+1293:                                             ; preds = %1291
+  %1294 = tail call fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %1295 = load i32, ptr %1, align 4
+  %1296 = load i32, ptr %2, align 4
   %.not83 = icmp eq i32 %4, 0
-  br i1 %.not83, label %1298, label %1300
+  br i1 %.not83, label %1297, label %1299
 
-1298:                                             ; preds = %1294
-  %1299 = load i32, ptr %3, align 4
-  br label %1300
+1297:                                             ; preds = %1293
+  %1298 = load i32, ptr %3, align 4
+  br label %1299
 
-1300:                                             ; preds = %1294, %1298
-  %1301 = phi i32 [ %1299, %1298 ], [ %4, %1294 ]
-  %1302 = tail call fastcc noundef ptr @_ZL16stbi__hdr_to_ldrPfiii(ptr noundef %1295, i32 noundef %1296, i32 noundef %1297, i32 noundef %1301)
+1299:                                             ; preds = %1293, %1297
+  %1300 = phi i32 [ %1298, %1297 ], [ %4, %1293 ]
+  %1301 = tail call fastcc noundef ptr @_ZL16stbi__hdr_to_ldrPfiii(ptr noundef %1294, i32 noundef %1295, i32 noundef %1296, i32 noundef %1300)
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1303:                                             ; preds = %1292
-  %1304 = tail call fastcc noundef i32 @_ZL14stbi__tga_testP13stbi__context(ptr noundef nonnull %0)
-  %.not82 = icmp eq i32 %1304, 0
-  br i1 %.not82, label %1307, label %1305
+1302:                                             ; preds = %1291
+  %1303 = tail call fastcc noundef i32 @_ZL14stbi__tga_testP13stbi__context(ptr noundef nonnull %0)
+  %.not82 = icmp eq i32 %1303, 0
+  br i1 %.not82, label %1306, label %1304
 
-1305:                                             ; preds = %1303
-  %1306 = tail call fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+1304:                                             ; preds = %1302
+  %1305 = tail call fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1307:                                             ; preds = %1303
+1306:                                             ; preds = %1302
   store ptr @.str.93, ptr %100, align 8
   br label %_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %1279, %1275, %.split236.us.i, %1132, %1119, %1116, %1109, %1106, %1103, %1100, %1089, %1068, %1065, %1307, %1305, %1300, %1290, %1286, %1282, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
-  %.0 = phi ptr [ %.043.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i100, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %1283, %1282 ], [ %1287, %1286 ], [ %1291, %1290 ], [ %1302, %1300 ], [ %1306, %1305 ], [ null, %1307 ], [ null, %1065 ], [ null, %1068 ], [ null, %1089 ], [ null, %1100 ], [ null, %1103 ], [ null, %1106 ], [ null, %1109 ], [ null, %1116 ], [ null, %.split236.us.i ], [ %.2187.i, %1279 ], [ null, %1132 ], [ null, %1119 ], [ null, %1275 ]
+_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %1278, %1274, %.split236.us.i, %1132, %1119, %1116, %1109, %1106, %1103, %1100, %1089, %1068, %1065, %1306, %1304, %1299, %1289, %1285, %1281, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
+  %.0 = phi ptr [ %.043.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i100, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %1282, %1281 ], [ %1286, %1285 ], [ %1290, %1289 ], [ %1301, %1299 ], [ %1305, %1304 ], [ null, %1306 ], [ null, %1065 ], [ null, %1068 ], [ null, %1089 ], [ null, %1100 ], [ null, %1103 ], [ null, %1106 ], [ null, %1109 ], [ null, %1116 ], [ null, %.split236.us.i ], [ %.2187.i, %1278 ], [ null, %1132 ], [ null, %1119 ], [ null, %1274 ]
   ret ptr %.0
 }
 

@@ -254,7 +254,7 @@ define void @_ZN3gmx19buildBoxDeformationERKNS_13MultiDimArrayISt5arrayIfLm9EENS
 
 .preheader.i:                                     ; preds = %61, %50
   %indvars.iv13.i = phi i64 [ 0, %50 ], [ %indvars.iv.next14.i, %61 ]
-  %54 = mul nuw nsw i64 %indvars.iv13.i, 3
+  %54 = mul nuw nsw i64 %indvars.iv13.i, 12
   br label %55
 
 55:                                               ; preds = %55, %.preheader.i
@@ -262,7 +262,7 @@ define void @_ZN3gmx19buildBoxDeformationERKNS_13MultiDimArrayISt5arrayIfLm9EENS
   %56 = getelementptr inbounds [3 x float], ptr %52, i64 %indvars.iv13.i, i64 %indvars.iv.i
   %57 = load float, ptr %56, align 4, !noalias !5
   %58 = load ptr, ptr %53, align 8, !alias.scope !5
-  %59 = getelementptr float, ptr %58, i64 %54
+  %59 = getelementptr i8, ptr %58, i64 %54
   %60 = getelementptr float, ptr %59, i64 %indvars.iv.i
   store float %57, ptr %60, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -876,23 +876,23 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   store ptr %4, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %.preheader54
+  br label %.preheader75
 
-.preheader54:                                     ; preds = %3, %34
-  %indvars.iv67 = phi i64 [ 0, %3 ], [ %indvars.iv.next68, %34 ]
-  %16 = mul nuw nsw i64 %indvars.iv67, 3
+.preheader75:                                     ; preds = %3, %34
+  %indvars.iv86 = phi i64 [ 0, %3 ], [ %indvars.iv.next87, %34 ]
+  %16 = mul nuw nsw i64 %indvars.iv86, 12
   br label %18
 
-.preheader53:                                     ; preds = %34
+.preheader74:                                     ; preds = %34
   %17 = getelementptr inbounds i8, ptr %1, i64 48
   %.pre.pre = load ptr, ptr %13, align 8
-  %.pre80.pre = load ptr, ptr %17, align 8
-  br label %.preheader52
+  %.pre99.pre = load ptr, ptr %17, align 8
+  br label %.preheader73
 
-18:                                               ; preds = %.preheader54, %33
-  %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %33 ]
+18:                                               ; preds = %.preheader75, %33
+  %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %33 ]
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr float, ptr %19, i64 %16
+  %20 = getelementptr i8, ptr %19, i64 %16
   %21 = getelementptr float, ptr %20, i64 %indvars.iv
   %22 = load float, ptr %21, align 4
   %23 = fcmp une float %22, 0.000000e+00
@@ -900,12 +900,12 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr float, ptr %25, i64 %16
+  %26 = getelementptr i8, ptr %25, i64 %16
   %27 = getelementptr float, ptr %26, i64 %indvars.iv
   %28 = load float, ptr %27, align 4
   %29 = call float @llvm.fmuladd.f32(float %12, float %22, float %28)
   %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr float, ptr %30, i64 %16
+  %31 = getelementptr i8, ptr %30, i64 %16
   %32 = getelementptr float, ptr %31, i64 %indvars.iv
   store float %29, ptr %32, align 4
   br label %33
@@ -916,151 +916,151 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   br i1 %exitcond.not, label %34, label %18, !llvm.loop !15
 
 34:                                               ; preds = %33
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, 3
-  br i1 %exitcond71.not, label %.preheader53, label %.preheader54, !llvm.loop !16
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, 3
+  br i1 %exitcond90.not, label %.preheader74, label %.preheader75, !llvm.loop !16
 
-.preheader52:                                     ; preds = %.preheader53, %131
-  %.pre80 = phi ptr [ %.pre80.pre, %.preheader53 ], [ %.pre8093, %131 ]
-  %.pre = phi ptr [ %.pre.pre, %.preheader53 ], [ %.pre89, %131 ]
-  %indvars.iv72 = phi i64 [ 1, %.preheader53 ], [ %indvars.iv.next73, %131 ]
-  %35 = mul nuw nsw i64 %indvars.iv72, 3
-  br label %.preheader51
+.preheader73:                                     ; preds = %.preheader74, %130
+  %.pre99 = phi ptr [ %.pre99.pre, %.preheader74 ], [ %.pre99112, %130 ]
+  %.pre = phi ptr [ %.pre.pre, %.preheader74 ], [ %.pre108, %130 ]
+  %indvars.iv91 = phi i64 [ 1, %.preheader74 ], [ %indvars.iv.next92, %130 ]
+  %35 = mul nuw nsw i64 %indvars.iv91, 12
+  br label %.preheader72
 
-.loopexit:                                        ; preds = %.lr.ph62, %.preheader
-  %.pre8093 = phi ptr [ %.pre8094, %.preheader ], [ %121, %.lr.ph62 ]
-  %.pre89 = phi ptr [ %.pre90, %.preheader ], [ %117, %.lr.ph62 ]
-  %36 = phi ptr [ %55, %.preheader ], [ %121, %.lr.ph62 ]
-  %37 = phi ptr [ %56, %.preheader ], [ %117, %.lr.ph62 ]
-  %38 = icmp ugt i64 %indvars.iv74, 1
-  br i1 %38, label %.preheader51, label %131, !llvm.loop !17
+.loopexit:                                        ; preds = %.lr.ph81, %.preheader
+  %.pre99112 = phi ptr [ %.pre99113, %.preheader ], [ %120, %.lr.ph81 ]
+  %.pre108 = phi ptr [ %.pre109, %.preheader ], [ %116, %.lr.ph81 ]
+  %36 = phi ptr [ %54, %.preheader ], [ %120, %.lr.ph81 ]
+  %37 = phi ptr [ %55, %.preheader ], [ %116, %.lr.ph81 ]
+  %38 = icmp ugt i64 %indvars.iv93, 1
+  br i1 %38, label %.preheader72, label %130, !llvm.loop !17
 
-.preheader51:                                     ; preds = %.preheader52, %.loopexit
-  %.pre8095 = phi ptr [ %.pre80, %.preheader52 ], [ %.pre8093, %.loopexit ]
-  %.pre91 = phi ptr [ %.pre, %.preheader52 ], [ %.pre89, %.loopexit ]
-  %39 = phi ptr [ %.pre80, %.preheader52 ], [ %36, %.loopexit ]
-  %40 = phi ptr [ %.pre, %.preheader52 ], [ %37, %.loopexit ]
-  %indvars.iv74 = phi i64 [ %indvars.iv72, %.preheader52 ], [ %indvars.iv.next75, %.loopexit ]
-  %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
-  %41 = mul nsw i64 %indvars.iv.next75, 3
-  %42 = getelementptr float, ptr %40, i64 %35
-  %43 = getelementptr float, ptr %42, i64 %indvars.iv.next75
-  %44 = load float, ptr %43, align 4
-  %45 = getelementptr float, ptr %39, i64 %35
-  %46 = getelementptr float, ptr %45, i64 %indvars.iv.next75
-  %47 = load float, ptr %46, align 4
-  %48 = fsub float %44, %47
-  %49 = getelementptr float, ptr %40, i64 %41
-  %50 = getelementptr float, ptr %49, i64 %indvars.iv.next75
-  %51 = load float, ptr %50, align 4
-  %52 = fmul float %51, 5.000000e-01
-  %53 = fcmp ogt float %48, %52
-  br i1 %53, label %.lr.ph, label %.preheader
+.preheader72:                                     ; preds = %.preheader73, %.loopexit
+  %.pre99114 = phi ptr [ %.pre99, %.preheader73 ], [ %.pre99112, %.loopexit ]
+  %.pre110 = phi ptr [ %.pre, %.preheader73 ], [ %.pre108, %.loopexit ]
+  %39 = phi ptr [ %.pre99, %.preheader73 ], [ %36, %.loopexit ]
+  %40 = phi ptr [ %.pre, %.preheader73 ], [ %37, %.loopexit ]
+  %indvars.iv93 = phi i64 [ %indvars.iv91, %.preheader73 ], [ %indvars.iv.next94, %.loopexit ]
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
+  %.idx.i.i55 = mul nsw i64 %indvars.iv.next94, 12
+  %41 = getelementptr i8, ptr %40, i64 %35
+  %42 = getelementptr float, ptr %41, i64 %indvars.iv.next94
+  %43 = load float, ptr %42, align 4
+  %44 = getelementptr i8, ptr %39, i64 %35
+  %45 = getelementptr float, ptr %44, i64 %indvars.iv.next94
+  %46 = load float, ptr %45, align 4
+  %47 = fsub float %43, %46
+  %48 = getelementptr i8, ptr %40, i64 %.idx.i.i55
+  %49 = getelementptr float, ptr %48, i64 %indvars.iv.next94
+  %50 = load float, ptr %49, align 4
+  %51 = fmul float %50, 5.000000e-01
+  %52 = fcmp ogt float %47, %51
+  br i1 %52, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader51
-  %.pre-phi = phi float [ %48, %.preheader51 ], [ %90, %.lr.ph ]
-  %.pre8094 = phi ptr [ %.pre8095, %.preheader51 ], [ %86, %.lr.ph ]
-  %.pre90 = phi ptr [ %.pre91, %.preheader51 ], [ %82, %.lr.ph ]
-  %54 = phi float [ %51, %.preheader51 ], [ %93, %.lr.ph ]
-  %55 = phi ptr [ %39, %.preheader51 ], [ %86, %.lr.ph ]
-  %56 = phi ptr [ %40, %.preheader51 ], [ %82, %.lr.ph ]
-  %57 = fmul float %54, -5.000000e-01
-  %58 = fcmp olt float %.pre-phi, %57
-  br i1 %58, label %.lr.ph62.preheader, label %.loopexit
+.preheader:                                       ; preds = %.lr.ph, %.preheader72
+  %.pre-phi = phi float [ %47, %.preheader72 ], [ %89, %.lr.ph ]
+  %.pre99113 = phi ptr [ %.pre99114, %.preheader72 ], [ %85, %.lr.ph ]
+  %.pre109 = phi ptr [ %.pre110, %.preheader72 ], [ %81, %.lr.ph ]
+  %53 = phi float [ %50, %.preheader72 ], [ %92, %.lr.ph ]
+  %54 = phi ptr [ %39, %.preheader72 ], [ %85, %.lr.ph ]
+  %55 = phi ptr [ %40, %.preheader72 ], [ %81, %.lr.ph ]
+  %56 = fmul float %53, -5.000000e-01
+  %57 = fcmp olt float %.pre-phi, %56
+  br i1 %57, label %.lr.ph81.preheader, label %.loopexit
 
-.lr.ph62.preheader:                               ; preds = %.preheader
-  %59 = getelementptr float, ptr %56, i64 %41
-  %60 = getelementptr float, ptr %56, i64 %35
-  br label %.lr.ph62
+.lr.ph81.preheader:                               ; preds = %.preheader
+  %58 = getelementptr i8, ptr %55, i64 %.idx.i.i55
+  %59 = getelementptr i8, ptr %55, i64 %35
+  br label %.lr.ph81
 
-.lr.ph:                                           ; preds = %.preheader51, %.lr.ph
-  %61 = phi ptr [ %91, %.lr.ph ], [ %49, %.preheader51 ]
-  %62 = phi ptr [ %83, %.lr.ph ], [ %42, %.preheader51 ]
+.lr.ph:                                           ; preds = %.preheader72, %.lr.ph
+  %60 = phi ptr [ %90, %.lr.ph ], [ %48, %.preheader72 ]
+  %61 = phi ptr [ %82, %.lr.ph ], [ %41, %.preheader72 ]
+  %62 = load float, ptr %60, align 4
   %63 = load float, ptr %61, align 4
-  %64 = load float, ptr %62, align 4
-  %65 = fsub float %64, %63
-  store float %65, ptr %62, align 4
-  %66 = load ptr, ptr %13, align 8
-  %67 = getelementptr float, ptr %66, i64 %41
-  %68 = getelementptr i8, ptr %67, i64 4
-  %69 = load float, ptr %68, align 4
-  %70 = getelementptr float, ptr %66, i64 %35
-  %71 = getelementptr i8, ptr %70, i64 4
-  %72 = load float, ptr %71, align 4
-  %73 = fsub float %72, %69
-  store float %73, ptr %71, align 4
-  %74 = load ptr, ptr %13, align 8
-  %75 = getelementptr float, ptr %74, i64 %41
-  %76 = getelementptr i8, ptr %75, i64 8
-  %77 = load float, ptr %76, align 4
-  %78 = getelementptr float, ptr %74, i64 %35
-  %79 = getelementptr i8, ptr %78, i64 8
-  %80 = load float, ptr %79, align 4
-  %81 = fsub float %80, %77
-  store float %81, ptr %79, align 4
-  %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr float, ptr %82, i64 %35
-  %84 = getelementptr float, ptr %83, i64 %indvars.iv.next75
-  %85 = load float, ptr %84, align 4
-  %86 = load ptr, ptr %17, align 8
-  %87 = getelementptr float, ptr %86, i64 %35
-  %88 = getelementptr float, ptr %87, i64 %indvars.iv.next75
-  %89 = load float, ptr %88, align 4
-  %90 = fsub float %85, %89
-  %91 = getelementptr float, ptr %82, i64 %41
-  %92 = getelementptr float, ptr %91, i64 %indvars.iv.next75
-  %93 = load float, ptr %92, align 4
-  %94 = fmul float %93, 5.000000e-01
-  %95 = fcmp ogt float %90, %94
-  br i1 %95, label %.lr.ph, label %.preheader, !llvm.loop !18
+  %64 = fsub float %63, %62
+  store float %64, ptr %61, align 4
+  %65 = load ptr, ptr %13, align 8
+  %66 = getelementptr i8, ptr %65, i64 %.idx.i.i55
+  %67 = getelementptr i8, ptr %66, i64 4
+  %68 = load float, ptr %67, align 4
+  %69 = getelementptr i8, ptr %65, i64 %35
+  %70 = getelementptr i8, ptr %69, i64 4
+  %71 = load float, ptr %70, align 4
+  %72 = fsub float %71, %68
+  store float %72, ptr %70, align 4
+  %73 = load ptr, ptr %13, align 8
+  %74 = getelementptr i8, ptr %73, i64 %.idx.i.i55
+  %75 = getelementptr i8, ptr %74, i64 8
+  %76 = load float, ptr %75, align 4
+  %77 = getelementptr i8, ptr %73, i64 %35
+  %78 = getelementptr i8, ptr %77, i64 8
+  %79 = load float, ptr %78, align 4
+  %80 = fsub float %79, %76
+  store float %80, ptr %78, align 4
+  %81 = load ptr, ptr %13, align 8
+  %82 = getelementptr i8, ptr %81, i64 %35
+  %83 = getelementptr float, ptr %82, i64 %indvars.iv.next94
+  %84 = load float, ptr %83, align 4
+  %85 = load ptr, ptr %17, align 8
+  %86 = getelementptr i8, ptr %85, i64 %35
+  %87 = getelementptr float, ptr %86, i64 %indvars.iv.next94
+  %88 = load float, ptr %87, align 4
+  %89 = fsub float %84, %88
+  %90 = getelementptr i8, ptr %81, i64 %.idx.i.i55
+  %91 = getelementptr float, ptr %90, i64 %indvars.iv.next94
+  %92 = load float, ptr %91, align 4
+  %93 = fmul float %92, 5.000000e-01
+  %94 = fcmp ogt float %89, %93
+  br i1 %94, label %.lr.ph, label %.preheader, !llvm.loop !18
 
-.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
-  %96 = phi ptr [ %126, %.lr.ph62 ], [ %59, %.lr.ph62.preheader ]
-  %97 = phi ptr [ %118, %.lr.ph62 ], [ %60, %.lr.ph62.preheader ]
+.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
+  %95 = phi ptr [ %125, %.lr.ph81 ], [ %58, %.lr.ph81.preheader ]
+  %96 = phi ptr [ %117, %.lr.ph81 ], [ %59, %.lr.ph81.preheader ]
+  %97 = load float, ptr %95, align 4
   %98 = load float, ptr %96, align 4
-  %99 = load float, ptr %97, align 4
-  %100 = fadd float %98, %99
-  store float %100, ptr %97, align 4
-  %101 = load ptr, ptr %13, align 8
-  %102 = getelementptr float, ptr %101, i64 %41
-  %103 = getelementptr i8, ptr %102, i64 4
-  %104 = load float, ptr %103, align 4
-  %105 = getelementptr float, ptr %101, i64 %35
-  %106 = getelementptr i8, ptr %105, i64 4
-  %107 = load float, ptr %106, align 4
-  %108 = fadd float %104, %107
-  store float %108, ptr %106, align 4
-  %109 = load ptr, ptr %13, align 8
-  %110 = getelementptr float, ptr %109, i64 %41
-  %111 = getelementptr i8, ptr %110, i64 8
-  %112 = load float, ptr %111, align 4
-  %113 = getelementptr float, ptr %109, i64 %35
-  %114 = getelementptr i8, ptr %113, i64 8
-  %115 = load float, ptr %114, align 4
-  %116 = fadd float %112, %115
-  store float %116, ptr %114, align 4
-  %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr float, ptr %117, i64 %35
-  %119 = getelementptr float, ptr %118, i64 %indvars.iv.next75
-  %120 = load float, ptr %119, align 4
-  %121 = load ptr, ptr %17, align 8
-  %122 = getelementptr float, ptr %121, i64 %35
-  %123 = getelementptr float, ptr %122, i64 %indvars.iv.next75
-  %124 = load float, ptr %123, align 4
-  %125 = fsub float %120, %124
-  %126 = getelementptr float, ptr %117, i64 %41
-  %127 = getelementptr float, ptr %126, i64 %indvars.iv.next75
-  %128 = load float, ptr %127, align 4
-  %129 = fmul float %128, -5.000000e-01
-  %130 = fcmp olt float %125, %129
-  br i1 %130, label %.lr.ph62, label %.loopexit, !llvm.loop !19
+  %99 = fadd float %97, %98
+  store float %99, ptr %96, align 4
+  %100 = load ptr, ptr %13, align 8
+  %101 = getelementptr i8, ptr %100, i64 %.idx.i.i55
+  %102 = getelementptr i8, ptr %101, i64 4
+  %103 = load float, ptr %102, align 4
+  %104 = getelementptr i8, ptr %100, i64 %35
+  %105 = getelementptr i8, ptr %104, i64 4
+  %106 = load float, ptr %105, align 4
+  %107 = fadd float %103, %106
+  store float %107, ptr %105, align 4
+  %108 = load ptr, ptr %13, align 8
+  %109 = getelementptr i8, ptr %108, i64 %.idx.i.i55
+  %110 = getelementptr i8, ptr %109, i64 8
+  %111 = load float, ptr %110, align 4
+  %112 = getelementptr i8, ptr %108, i64 %35
+  %113 = getelementptr i8, ptr %112, i64 8
+  %114 = load float, ptr %113, align 4
+  %115 = fadd float %111, %114
+  store float %115, ptr %113, align 4
+  %116 = load ptr, ptr %13, align 8
+  %117 = getelementptr i8, ptr %116, i64 %35
+  %118 = getelementptr float, ptr %117, i64 %indvars.iv.next94
+  %119 = load float, ptr %118, align 4
+  %120 = load ptr, ptr %17, align 8
+  %121 = getelementptr i8, ptr %120, i64 %35
+  %122 = getelementptr float, ptr %121, i64 %indvars.iv.next94
+  %123 = load float, ptr %122, align 4
+  %124 = fsub float %119, %123
+  %125 = getelementptr i8, ptr %116, i64 %.idx.i.i55
+  %126 = getelementptr float, ptr %125, i64 %indvars.iv.next94
+  %127 = load float, ptr %126, align 4
+  %128 = fmul float %127, -5.000000e-01
+  %129 = fcmp olt float %124, %128
+  br i1 %129, label %.lr.ph81, label %.loopexit, !llvm.loop !19
 
-131:                                              ; preds = %.loopexit
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond79.not, label %132, label %.preheader52, !llvm.loop !20
+130:                                              ; preds = %.loopexit
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond98.not = icmp eq i64 %indvars.iv.next92, 3
+  br i1 %exitcond98.not, label %131, label %.preheader73, !llvm.loop !20
 
-132:                                              ; preds = %131
+131:                                              ; preds = %130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %4, i64 36, i1 false)
   store ptr %1, ptr %17, align 8
   ret void

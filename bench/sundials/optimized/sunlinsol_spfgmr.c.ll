@@ -389,7 +389,7 @@ switch.edge:
   store i32 0, ptr %37, align 4
   %52 = icmp slt i32 %50, 0
   %53 = select i1 %52, i32 -805, i32 803
-  br label %194
+  br label %193
 
 54:                                               ; preds = %49
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %24, ptr noundef %24) #11
@@ -425,7 +425,7 @@ switch.edge:
 
 68:                                               ; preds = %65
   store i32 0, ptr %37, align 4
-  br label %194
+  br label %193
 
 69:                                               ; preds = %65
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %20) #11
@@ -444,9 +444,9 @@ switch.edge:
   br label %.preheader307
 
 .preheader307:                                    ; preds = %._crit_edge350, %.preheader307.lr.ph
-  %.0258355 = phi double [ %66, %.preheader307.lr.ph ], [ %184, %._crit_edge350 ]
+  %.0258355 = phi double [ %66, %.preheader307.lr.ph ], [ %183, %._crit_edge350 ]
   %.0260354 = phi double [ %66, %.preheader307.lr.ph ], [ %.2, %._crit_edge350 ]
-  %.0270353 = phi i32 [ 0, %.preheader307.lr.ph ], [ %187, %._crit_edge350 ]
+  %.0270353 = phi i32 [ 0, %.preheader307.lr.ph ], [ %186, %._crit_edge350 ]
   %.0271352 = phi i32 [ 0, %.preheader307.lr.ph ], [ %.2273, %._crit_edge350 ]
   br i1 %70, label %._crit_edge316.thread, label %.preheader.us
 
@@ -519,7 +519,7 @@ switch.edge:
   store i32 0, ptr %37, align 4
   %96 = icmp slt i32 %94, 0
   %97 = select i1 %96, i32 -808, i32 805
-  br label %194
+  br label %193
 
 98:                                               ; preds = %90, %89
   %99 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv378
@@ -535,7 +535,7 @@ switch.edge:
   store i32 0, ptr %37, align 4
   %105 = icmp slt i32 %103, 0
   %106 = select i1 %105, i32 -805, i32 803
-  br label %194
+  br label %193
 
 107:                                              ; preds = %98
   br i1 %.not, label %110, label %108
@@ -568,7 +568,7 @@ switch.edge:
 
 122:                                              ; preds = %119
   store i32 0, ptr %37, align 4
-  br label %194
+  br label %193
 
 123:                                              ; preds = %119
   %124 = shl nuw nsw i64 %indvars.iv378, 1
@@ -619,7 +619,7 @@ switch.edge:
 
 143:                                              ; preds = %._crit_edge331
   store i32 0, ptr %37, align 4
-  br label %194
+  br label %193
 
 144:                                              ; preds = %._crit_edge331
   store double 1.000000e+00, ptr %41, align 8
@@ -665,7 +665,7 @@ switch.edge:
 
 158:                                              ; preds = %157, %156
   store i32 0, ptr %37, align 4
-  br label %194
+  br label %193
 
 159:                                              ; preds = %._crit_edge335
   %160 = icmp eq i32 %.0270353, %8
@@ -680,30 +680,30 @@ switch.edge:
 
 .lr.ph338:                                        ; preds = %.lr.ph338.preheader, %.lr.ph338
   %indvars.iv392 = phi i64 [ %161, %.lr.ph338.preheader ], [ %indvars.iv.next393, %.lr.ph338 ]
-  %.0259337 = phi double [ 1.000000e+00, %.lr.ph338.preheader ], [ %170, %.lr.ph338 ]
-  %162 = shl nuw nsw i64 %indvars.iv392, 1
-  %163 = getelementptr double, ptr %18, i64 %162
-  %164 = getelementptr i8, ptr %163, i64 -16
-  %165 = load double, ptr %164, align 8
-  %166 = fmul double %.0259337, %165
-  %167 = getelementptr inbounds double, ptr %22, i64 %indvars.iv392
-  store double %166, ptr %167, align 8
-  %168 = getelementptr i8, ptr %163, i64 -8
-  %169 = load double, ptr %168, align 8
-  %170 = fmul double %.0259337, %169
+  %.0259337 = phi double [ 1.000000e+00, %.lr.ph338.preheader ], [ %169, %.lr.ph338 ]
+  %.idx = shl i64 %indvars.iv392, 4
+  %162 = getelementptr i8, ptr %18, i64 %.idx
+  %163 = getelementptr i8, ptr %162, i64 -16
+  %164 = load double, ptr %163, align 8
+  %165 = fmul double %.0259337, %164
+  %166 = getelementptr inbounds double, ptr %22, i64 %indvars.iv392
+  store double %165, ptr %166, align 8
+  %167 = getelementptr i8, ptr %162, i64 -8
+  %168 = load double, ptr %167, align 8
+  %169 = fmul double %.0259337, %168
   %indvars.iv.next393 = add nsw i64 %indvars.iv392, -1
-  %171 = icmp ugt i64 %indvars.iv392, 1
-  br i1 %171, label %.lr.ph338, label %._crit_edge339
+  %170 = icmp ugt i64 %indvars.iv392, 1
+  br i1 %170, label %.lr.ph338, label %._crit_edge339
 
 ._crit_edge339:                                   ; preds = %.lr.ph338, %.preheader306
-  %.0259.lcssa = phi double [ 1.000000e+00, %.preheader306 ], [ %170, %.lr.ph338 ]
+  %.0259.lcssa = phi double [ 1.000000e+00, %.preheader306 ], [ %169, %.lr.ph338 ]
   store double %.0259.lcssa, ptr %22, align 8
-  %172 = fmul double %.0258355, %.0259.lcssa
+  %171 = fmul double %.0258355, %.0259.lcssa
   %.not302341 = icmp slt i32 %.2273, 0
   br i1 %.not302341, label %._crit_edge345.thread, label %.lr.ph344.preheader
 
 ._crit_edge345.thread:                            ; preds = %._crit_edge339
-  %173 = tail call double @llvm.fabs.f64(double %172)
+  %172 = tail call double @llvm.fabs.f64(double %171)
   br label %._crit_edge350
 
 .lr.ph344.preheader:                              ; preds = %._crit_edge339
@@ -712,16 +712,16 @@ switch.edge:
 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph344
   %indvars.iv395 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next396, %.lr.ph344 ]
-  %174 = getelementptr inbounds double, ptr %22, i64 %indvars.iv395
-  %175 = load double, ptr %174, align 8
-  %176 = fmul double %172, %175
-  store double %176, ptr %174, align 8
+  %173 = getelementptr inbounds double, ptr %22, i64 %indvars.iv395
+  %174 = load double, ptr %173, align 8
+  %175 = fmul double %171, %174
+  store double %175, ptr %173, align 8
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count398
   br i1 %exitcond399.not, label %._crit_edge345, label %.lr.ph344
 
 ._crit_edge345:                                   ; preds = %.lr.ph344
-  %177 = tail call double @llvm.fabs.f64(double %172)
+  %176 = tail call double @llvm.fabs.f64(double %171)
   br i1 %.not302341, label %._crit_edge350, label %.lr.ph349.preheader
 
 .lr.ph349.preheader:                              ; preds = %._crit_edge345
@@ -730,58 +730,58 @@ switch.edge:
 
 .lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
   %indvars.iv400 = phi i64 [ 0, %.lr.ph349.preheader ], [ %indvars.iv.next401, %.lr.ph349 ]
-  %178 = getelementptr inbounds double, ptr %22, i64 %indvars.iv400
-  %179 = load double, ptr %178, align 8
-  %180 = getelementptr inbounds double, ptr %41, i64 %indvars.iv400
-  store double %179, ptr %180, align 8
-  %181 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv400
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv400
-  store ptr %182, ptr %183, align 8
+  %177 = getelementptr inbounds double, ptr %22, i64 %indvars.iv400
+  %178 = load double, ptr %177, align 8
+  %179 = getelementptr inbounds double, ptr %41, i64 %indvars.iv400
+  store double %178, ptr %179, align 8
+  %180 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv400
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv400
+  store ptr %181, ptr %182, align 8
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
   br i1 %exitcond404.not, label %._crit_edge350, label %.lr.ph349
 
 ._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge345.thread, %._crit_edge345
-  %184 = phi double [ %173, %._crit_edge345.thread ], [ %177, %._crit_edge345 ], [ %177, %.lr.ph349 ]
-  %185 = load ptr, ptr %12, align 8
-  %186 = tail call i32 @N_VLinearCombination(i32 noundef %152, ptr noundef nonnull %41, ptr noundef nonnull %43, ptr noundef %185) #11
-  %187 = add nuw nsw i32 %.0270353, 1
+  %183 = phi double [ %172, %._crit_edge345.thread ], [ %176, %._crit_edge345 ], [ %176, %.lr.ph349 ]
+  %184 = load ptr, ptr %12, align 8
+  %185 = tail call i32 @N_VLinearCombination(i32 noundef %152, ptr noundef nonnull %41, ptr noundef nonnull %43, ptr noundef %184) #11
+  %186 = add nuw nsw i32 %.0270353, 1
   br label %.preheader307
 
 ._crit_edge356:                                   ; preds = %159
-  %188 = fcmp olt double %.2, %66
-  br i1 %188, label %189, label %._crit_edge356.thread
+  %187 = fcmp olt double %.2, %66
+  br i1 %187, label %188, label %._crit_edge356.thread
 
-189:                                              ; preds = %._crit_edge356
-  %190 = load i32, ptr %37, align 4
-  %.not304 = icmp eq i32 %190, 0
-  br i1 %.not304, label %192, label %191
+188:                                              ; preds = %._crit_edge356
+  %189 = load i32, ptr %37, align 4
+  %.not304 = icmp eq i32 %189, 0
+  br i1 %.not304, label %191, label %190
 
-191:                                              ; preds = %189
+190:                                              ; preds = %188
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %20, ptr noundef %2) #11
-  br label %193
+  br label %192
 
-192:                                              ; preds = %189
+191:                                              ; preds = %188
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef 1.000000e+00, ptr noundef %20, ptr noundef %2) #11
-  br label %193
+  br label %192
 
-193:                                              ; preds = %192, %191
+192:                                              ; preds = %191, %190
   store i32 0, ptr %37, align 4
-  br label %194
+  br label %193
 
 ._crit_edge356.thread:                            ; preds = %69, %._crit_edge356
   store i32 0, ptr %37, align 4
-  br label %194
+  br label %193
 
-194:                                              ; preds = %._crit_edge356.thread, %193, %158, %143, %122, %104, %95, %68, %51
-  %.sink = phi i32 [ 802, %._crit_edge356.thread ], [ 801, %193 ], [ 0, %158 ], [ -811, %143 ], [ 807, %122 ], [ %106, %104 ], [ %97, %95 ], [ 0, %68 ], [ %53, %51 ]
-  %195 = load ptr, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 32
-  store i32 %.sink, ptr %196, align 8
-  %197 = load ptr, ptr %0, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 32
-  %.0 = load i32, ptr %198, align 8
+193:                                              ; preds = %._crit_edge356.thread, %192, %158, %143, %122, %104, %95, %68, %51
+  %.sink = phi i32 [ 802, %._crit_edge356.thread ], [ 801, %192 ], [ 0, %158 ], [ -811, %143 ], [ 807, %122 ], [ %106, %104 ], [ %97, %95 ], [ 0, %68 ], [ %53, %51 ]
+  %194 = load ptr, ptr %0, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 32
+  store i32 %.sink, ptr %195, align 8
+  %196 = load ptr, ptr %0, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 32
+  %.0 = load i32, ptr %197, align 8
   ret i32 %.0
 }
 
