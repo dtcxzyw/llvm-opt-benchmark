@@ -599,3 +599,6 @@
 [submodule "bench/luau/luau"]
 	path = bench/luau/luau
 	url = git@github.com:luau-lang/luau.git
+[submodule "bench/glslang/glslang"]
+	path = bench/glslang/glslang
+	url = git@github.com:KhronosGroup/glslang.git
