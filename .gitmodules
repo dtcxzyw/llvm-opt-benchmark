@@ -584,3 +584,6 @@
 [submodule "bench/anki-rs/anki"]
 	path = bench/anki-rs/anki
 	url = git@github.com:ankitects/anki.git
+[submodule "bench/stat-rs/statrs"]
+	path = bench/stat-rs/statrs
+	url = git@github.com:statrs-dev/statrs.git
