@@ -385,35 +385,35 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h702
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %49
   %32 = phi i64 [ %47, %49 ], [ %.054, %.lr.ph.i.i ]
-  %.sroa.3.0.i47.i.i = sub nuw i64 %2, %32
-  %.49.i.i = getelementptr inbounds i8, ptr %1, i64 %32
-  %33 = icmp ult i64 %.sroa.3.0.i47.i.i, 16
+  %.sroa.7.049.i.i = sub nuw i64 %2, %32
+  %.sroa.0.050.i.i = getelementptr inbounds i8, ptr %1, i64 %32
+  %33 = icmp ult i64 %.sroa.7.049.i.i, 16
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %.lr.ph.split.split.i.i
-  %35 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %.pre.pre, ptr noalias noundef nonnull readonly align 1 %.49.i.i, i64 noundef %.sroa.3.0.i47.i.i)
+  %35 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %.pre.pre, ptr noalias noundef nonnull readonly align 1 %.sroa.0.050.i.i, i64 noundef %.sroa.7.049.i.i)
           to label %.noexc14 unwind label %.loopexit
 
 36:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %32, %2
+  %.not.i.i.i = icmp eq i64 %.sroa.7.049.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %40
   %.05.i.i.i = phi i64 [ %41, %40 ], [ 0, %36 ]
-  %37 = getelementptr inbounds [0 x i8], ptr %.49.i.i, i64 0, i64 %.05.i.i.i
+  %37 = getelementptr inbounds [0 x i8], ptr %.sroa.0.050.i.i, i64 0, i64 %.05.i.i.i
   %38 = load i8, ptr %37, align 1, !alias.scope !27, !noalias !30, !noundef !5
   %39 = icmp eq i8 %38, %.pre.pre
   br i1 %39, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %40
 
 40:                                               ; preds = %.lr.ph.i.i.i
-  %41 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %41, %.sroa.3.0.i47.i.i
+  %41 = add nuw nsw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %41, %.sroa.7.049.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40, %.lr.ph.i.i.i, %36
-  %.0.lcssa.i.i.i = phi i64 [ 0, %36 ], [ %.sroa.3.0.i47.i.i, %40 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i25.i.i = phi i64 [ 0, %36 ], [ 0, %40 ], [ 1, %.lr.ph.i.i.i ]
-  %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i, 0
+  %.0.lcssa.i.i.i = phi i64 [ 0, %36 ], [ %.sroa.7.049.i.i, %40 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i24.i.i = phi i64 [ 0, %36 ], [ 0, %40 ], [ 1, %.lr.ph.i.i.i ]
+  %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i24.i.i, 0
   %43 = insertvalue { i64, i64 } %42, i64 %.0.lcssa.i.i.i, 1
   br label %.noexc14
 
@@ -2755,9 +2755,9 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 
 154:                                              ; preds = %150
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 1912) #16
-          to label %.noexc274 unwind label %155
+          to label %.noexc289 unwind label %155
 
-.noexc274:                                        ; preds = %154
+.noexc289:                                        ; preds = %154
   unreachable
 
 155:                                              ; preds = %154
@@ -3113,12 +3113,12 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
   br label %305
 
 305:                                              ; preds = %281, %292, %255, %266, %180, %185, %302, %241, %227, %213, %199, %165, %143, %125, %109, %93, %77, %61, %45
-  %.sink293 = phi ptr [ %181, %180 ], [ %183, %185 ], [ %303, %302 ], [ %239, %241 ], [ %225, %227 ], [ %211, %213 ], [ %197, %199 ], [ %163, %165 ], [ %141, %143 ], [ %123, %125 ], [ %107, %109 ], [ %91, %93 ], [ %75, %77 ], [ %59, %61 ], [ %43, %45 ], [ %264, %266 ], [ %256, %255 ], [ %290, %292 ], [ %282, %281 ]
-  %.sink291 = phi ptr [ %177, %180 ], [ %186, %185 ], [ %304, %302 ], [ %242, %241 ], [ %228, %227 ], [ %214, %213 ], [ %200, %199 ], [ %166, %165 ], [ %144, %143 ], [ %126, %125 ], [ %110, %109 ], [ %94, %93 ], [ %78, %77 ], [ %62, %61 ], [ %46, %45 ], [ %267, %266 ], [ %257, %255 ], [ %293, %292 ], [ %283, %281 ]
+  %.sink308 = phi ptr [ %181, %180 ], [ %183, %185 ], [ %303, %302 ], [ %239, %241 ], [ %225, %227 ], [ %211, %213 ], [ %197, %199 ], [ %163, %165 ], [ %141, %143 ], [ %123, %125 ], [ %107, %109 ], [ %91, %93 ], [ %75, %77 ], [ %59, %61 ], [ %43, %45 ], [ %264, %266 ], [ %256, %255 ], [ %290, %292 ], [ %282, %281 ]
+  %.sink306 = phi ptr [ %177, %180 ], [ %186, %185 ], [ %304, %302 ], [ %242, %241 ], [ %228, %227 ], [ %214, %213 ], [ %200, %199 ], [ %166, %165 ], [ %144, %143 ], [ %126, %125 ], [ %110, %109 ], [ %94, %93 ], [ %78, %77 ], [ %62, %61 ], [ %46, %45 ], [ %267, %266 ], [ %257, %255 ], [ %293, %292 ], [ %283, %281 ]
   %306 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink293, ptr %306, align 8
+  store ptr %.sink308, ptr %306, align 8
   %307 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink291, ptr %307, align 8
+  store ptr %.sink306, ptr %307, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -3131,17 +3131,17 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
   ret void
 
 310:                                              ; preds = %305
-  %.val261 = load ptr, ptr %24, align 8, !nonnull !5, !align !144, !noundef !5
-  %311 = load ptr, ptr %.val261, align 8, !invariant.load !5, !nonnull !5
+  %.val276 = load ptr, ptr %24, align 8, !nonnull !5, !align !144, !noundef !5
+  %311 = load ptr, ptr %.val276, align 8, !invariant.load !5, !nonnull !5
   invoke void %311(ptr noundef nonnull align 1 %308)
           to label %321 unwind label %312
 
 312:                                              ; preds = %310
   %313 = landingpad { ptr, i32 }
           cleanup
-  %314 = getelementptr inbounds i8, ptr %.val261, i64 8
+  %314 = getelementptr inbounds i8, ptr %.val276, i64 8
   %315 = load i64, ptr %314, align 8, !range !15, !invariant.load !5
-  %316 = getelementptr inbounds i8, ptr %.val261, i64 16
+  %316 = getelementptr inbounds i8, ptr %.val276, i64 16
   %317 = load i64, ptr %316, align 8, !range !16, !invariant.load !5
   %318 = icmp ult i64 %317, -9223372036854775807
   call void @llvm.assume(i1 %318)
@@ -3153,9 +3153,9 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
   br label %common.resume
 
 321:                                              ; preds = %310
-  %322 = getelementptr inbounds i8, ptr %.val261, i64 8
+  %322 = getelementptr inbounds i8, ptr %.val276, i64 8
   %323 = load i64, ptr %322, align 8, !range !15, !invariant.load !5
-  %324 = getelementptr inbounds i8, ptr %.val261, i64 16
+  %324 = getelementptr inbounds i8, ptr %.val276, i64 16
   %325 = load i64, ptr %324, align 8, !range !16, !invariant.load !5
   %326 = icmp ult i64 %325, -9223372036854775807
   call void @llvm.assume(i1 %326)
@@ -3175,8 +3175,8 @@ common.resume:                                    ; preds = %.body, %329, %312, 
   br label %309
 
 329:                                              ; preds = %.body
-  %.val259 = load ptr, ptr %24, align 8, !nonnull !5, !align !144, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..features..sum..Digest$GT$$GT$17hf055cacec5bc574bE"(ptr nonnull %31, ptr nonnull %.val259) #14
+  %.val274 = load ptr, ptr %24, align 8, !nonnull !5, !align !144, !noundef !5
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..features..sum..Digest$GT$$GT$17hf055cacec5bc574bE"(ptr nonnull %31, ptr nonnull %.val274) #14
           to label %common.resume unwind label %330
 
 330:                                              ; preds = %329

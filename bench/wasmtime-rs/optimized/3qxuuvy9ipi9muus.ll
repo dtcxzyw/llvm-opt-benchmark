@@ -11208,39 +11208,37 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h1ea3bc7aa2
 16:                                               ; preds = %12
   %.not.not.i.i.i = icmp eq i8 %15, 0
   %spec.select124.i.i.i = add i8 %15, -1
-  br i1 %.not.not.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit", label %.thread.i.i.i
+  br i1 %.not.not.i.i.i, label %17, label %.thread.i.i.i
 
-"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit": ; preds = %16
-  %17 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = load ptr, ptr %.val, align 8, !nonnull !4, !align !95, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %.val, i64 8
-  %22 = load ptr, ptr %21, align 8, !noundef !4
-  tail call void %20(ptr noundef %22)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8)
-  store i24 0, ptr %8, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 1
-  call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9286f73d083a5aaE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %23)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
-  store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  br label %69
+17:                                               ; preds = %16
+  %18 = icmp ne ptr %.val, null
+  tail call void @llvm.assume(i1 %18)
+  %19 = load ptr, ptr %.val, align 8, !nonnull !4, !align !95, !noundef !4
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  %22 = getelementptr inbounds i8, ptr %.val, i64 8
+  %23 = load ptr, ptr %22, align 8, !noundef !4
+  tail call void %21(ptr noundef %23)
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit"
 
 .thread.i.i.i:                                    ; preds = %16, %12
   %.sroa.5.03.i.i.i = phi i8 [ %spec.select124.i.i.i, %16 ], [ %15, %12 ]
   store i8 %.sroa.5.03.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h0a753da637f2068cE, i64 77), align 1
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit"
+
+"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit": ; preds = %.thread.i.i.i, %17
+  %.sroa.4.0.i.i.i = phi i8 [ %15, %.thread.i.i.i ], [ 0, %17 ]
+  %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %17 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8)
   store i24 0, ptr %8, align 4
   %24 = getelementptr inbounds i8, ptr %8, i64 1
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9286f73d083a5aaE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %24)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread"
+  br i1 %.sroa.0.0.i.i.i, label %67, label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread": ; preds = %.thread.i.i.i, %3
-  %.sroa.0.0.i1228.off8 = phi i8 [ 0, %3 ], [ %13, %.thread.i.i.i ]
-  %.sroa.0.0.i1228.off16 = phi i8 [ 0, %3 ], [ %15, %.thread.i.i.i ]
+"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread": ; preds = %3, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit"
+  %.sroa.0.0.i1228.off8 = phi i8 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit" ], [ 0, %3 ]
+  %.sroa.0.0.i1228.off16 = phi i8 [ %.sroa.4.0.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit" ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1228.off8, ptr %9, align 1
   %25 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 %.sroa.0.0.i1228.off16, ptr %25, align 1
@@ -11250,7 +11248,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h1ea3bc7aa2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !3147
   %28 = getelementptr inbounds i8, ptr %26, i64 80
   invoke void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h1154d037c006ce63E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 %28)
-          to label %.noexc unwind label %67
+          to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread"
   %29 = load i64, ptr %7, align 8, !range !55, !noalias !3147, !noundef !4
@@ -11267,12 +11265,12 @@ default.unreachable:                              ; preds = %.noexc14, %.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !3147
   %31 = getelementptr inbounds i8, ptr %26, i64 144
   invoke void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker15register_by_ref17h1628c5530001c65fE(ptr noundef nonnull align 8 %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
-          to label %.noexc13 unwind label %67
+          to label %.noexc13 unwind label %68
 
 .noexc13:                                         ; preds = %30
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !3147
   invoke void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h1154d037c006ce63E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 %28)
-          to label %.noexc14 unwind label %67
+          to label %.noexc14 unwind label %68
 
 .noexc14:                                         ; preds = %.noexc13
   %32 = load i64, ptr %5, align 8, !range !55, !noalias !3147, !noundef !4
@@ -11296,7 +11294,7 @@ default.unreachable:                              ; preds = %.noexc14, %.noexc
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %26, i64 96
   %40 = invoke noundef zeroext i1 @"_ZN92_$LT$tokio..sync..mpsc..bounded..Semaphore$u20$as$u20$tokio..sync..mpsc..chan..Semaphore$GT$7is_idle17h6f8639a113626fc7E"(ptr noundef nonnull align 8 %39)
-          to label %.noexc15 unwind label %67
+          to label %.noexc15 unwind label %68
 
 .noexc15:                                         ; preds = %38
   br i1 %40, label %41, label %37
@@ -11317,7 +11315,7 @@ default.unreachable:                              ; preds = %.noexc14, %.noexc
 45:                                               ; preds = %.noexc14
   %46 = getelementptr inbounds i8, ptr %26, i64 96
   %47 = invoke noundef zeroext i1 @"_ZN92_$LT$tokio..sync..mpsc..bounded..Semaphore$u20$as$u20$tokio..sync..mpsc..chan..Semaphore$GT$7is_idle17h6f8639a113626fc7E"(ptr noundef nonnull align 8 %46)
-          to label %.noexc16 unwind label %67
+          to label %.noexc16 unwind label %68
 
 .noexc16:                                         ; preds = %45
   br i1 %47, label %54, label %.invoke
@@ -11362,7 +11360,7 @@ default.unreachable:                              ; preds = %.noexc14, %.noexc
 58:                                               ; preds = %.noexc
   %59 = getelementptr inbounds i8, ptr %26, i64 96
   %60 = invoke noundef zeroext i1 @"_ZN92_$LT$tokio..sync..mpsc..bounded..Semaphore$u20$as$u20$tokio..sync..mpsc..chan..Semaphore$GT$7is_idle17h6f8639a113626fc7E"(ptr noundef nonnull align 8 %59)
-          to label %.noexc18 unwind label %67
+          to label %.noexc18 unwind label %68
 
 .noexc18:                                         ; preds = %58
   br i1 %60, label %66, label %.invoke
@@ -11388,7 +11386,7 @@ default.unreachable:                              ; preds = %.noexc14, %.noexc
 .invoke:                                          ; preds = %.noexc18, %.noexc16
   %65 = phi ptr [ @anon.b2e014e162b40b76d2ef1a9eaeca846d.61, %.noexc16 ], [ @anon.b2e014e162b40b76d2ef1a9eaeca846d.62, %.noexc18 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.b2e014e162b40b76d2ef1a9eaeca846d.59, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65) #27
-          to label %.cont unwind label %67
+          to label %.cont unwind label %68
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -11398,26 +11396,31 @@ default.unreachable:                              ; preds = %.noexc14, %.noexc
   store i64 0, ptr %0, align 8, !alias.scope !3144, !noalias !3149
   br label %64
 
-67:                                               ; preds = %.invoke, %58, %45, %38, %.noexc13, %30, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread"
-  %68 = landingpad { ptr, i32 }
+67:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit"
+  store i64 2, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
+  br label %70
+
+68:                                               ; preds = %.invoke, %58, %45, %38, %.noexc13, %30, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit.thread"
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %48, %61, %67
-  %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %49, %48 ], [ %62, %61 ]
+.body:                                            ; preds = %48, %61, %68
+  %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %49, %48 ], [ %62, %61 ]
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9286f73d083a5aaE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %9)
-          to label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h9a97539539ad00e5E.exit" unwind label %70
+          to label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h9a97539539ad00e5E.exit" unwind label %71
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he45a7ee8238471b4E.exit": ; preds = %64, %51, %41, %37
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9286f73d083a5aaE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %9)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he45a7ee8238471b4E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17hce201dd747b6a518E.exit"
+70:                                               ; preds = %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he45a7ee8238471b4E.exit", %67
   ret void
 
-70:                                               ; preds = %.body
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %.body
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
@@ -11925,10 +11928,11 @@ common.ret:                                       ; preds = %69, %62
 
 69:                                               ; preds = %67, %66
   %.sroa.38.0 = phi i8 [ %32, %66 ], [ 2, %67 ]
+  %.sroa.36.0 = phi i8 [ %.sroa.428.0.copyload, %66 ], [ undef, %67 ]
   %.sroa.04.0 = phi ptr [ %.sroa.027.0.copyload, %66 ], [ %68, %67 ]
   store ptr %.sroa.04.0, ptr %0, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sroa.428.0.copyload, ptr %.sroa.36.0..sroa_idx, align 8
+  store i8 %.sroa.36.0, ptr %.sroa.36.0..sroa_idx, align 8
   %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   store i8 %.sroa.38.0, ptr %.sroa.38.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
@@ -24136,6 +24140,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24149,7 +24154,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread29:                                        ; preds = %3, %23
   %.sroa.0.0.i1433.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1433.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1433.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1433.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1433.off16, ptr %24, align 1
@@ -24273,6 +24278,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24286,7 +24292,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread29:                                        ; preds = %3, %23
   %.sroa.0.0.i1433.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1433.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1433.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1433.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1433.off16, ptr %24, align 1
@@ -24410,6 +24416,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24423,7 +24430,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -24534,6 +24541,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24547,7 +24555,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread29:                                        ; preds = %3, %23
   %.sroa.0.0.i1433.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1433.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1433.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1433.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1433.off16, ptr %24, align 1
@@ -24671,6 +24679,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24684,7 +24693,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -24848,6 +24857,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24861,7 +24871,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -24972,6 +24982,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -24985,7 +24996,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -25096,6 +25107,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -25109,7 +25121,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -25268,6 +25280,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -25281,7 +25294,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -25392,6 +25405,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -25405,7 +25419,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread29:                                        ; preds = %3, %23
   %.sroa.0.0.i1433.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1433.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1433.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1433.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1433.off16, ptr %24, align 1
@@ -25529,6 +25543,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -25542,7 +25557,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
@@ -25707,6 +25722,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 22:                                               ; preds = %15, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %13, %.thread.i.i.i ], [ 0, %15 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %15 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -25720,7 +25736,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %24
   %.sroa.0.0.i1430.off8 = phi i8 [ %11, %24 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %13, %24 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %24 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %25 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %25, align 1

@@ -432,7 +432,7 @@ define internal void @"_ZN96_$LT$actix_multipart..form..tempfile..TempFile$u20$a
   %.sroa.8.sroa.8 = alloca [20 x i8], align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 432
   %19 = load i8, ptr %18, align 8, !range !11, !noundef !4
-  switch i8 %19, label %default.unreachable277 [
+  switch i8 %19, label %default.unreachable275 [
     i8 0, label %20
     i8 1, label %147
     i8 2, label %148
@@ -446,7 +446,7 @@ define internal void @"_ZN96_$LT$actix_multipart..form..tempfile..TempFile$u20$a
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !77, !noalias !80
   br label %189
 
-default.unreachable277:                           ; preds = %3
+default.unreachable275:                           ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
@@ -481,8 +481,8 @@ default.unreachable277:                           ; preds = %3
 
 34:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.9167.sroa.7)
-  %.phi.trans.insert275 = getelementptr inbounds i8, ptr %1, i64 440
-  %.val53.pre = load ptr, ptr %.phi.trans.insert275, align 8
+  %.phi.trans.insert273 = getelementptr inbounds i8, ptr %1, i64 440
+  %.val53.pre = load ptr, ptr %.phi.trans.insert273, align 8
   br label %257
 
 35:                                               ; preds = %309, %.body, %45, %36
@@ -1251,6 +1251,7 @@ common.ret:                                       ; preds = %324, %277, %199, %1
 
 "_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit": ; preds = %.noexc104, %297
   %.sroa.5174.0 = phi ptr [ undef, %297 ], [ %304, %.noexc104 ]
+  %.sroa.6175.0 = phi i64 [ undef, %297 ], [ %299, %.noexc104 ]
   %.sink.i = phi i64 [ -9223372036854775808, %297 ], [ %303, %.noexc104 ]
   %306 = getelementptr inbounds i8, ptr %1, i64 296
   %307 = load i64, ptr %306, align 8, !noundef !4
@@ -1322,7 +1323,7 @@ common.ret:                                       ; preds = %324, %277, %199, %1
   %.sroa.14.4 = phi i32 [ %.sroa.03.sroa.0.sroa.7.0.copyload, %320 ], [ %.sroa.14.1, %333 ]
   %.sroa.21184.0 = phi i64 [ %.sink.i, %320 ], [ undef, %333 ]
   %.sroa.22.0 = phi ptr [ %.sroa.5174.0, %320 ], [ undef, %333 ]
-  %.sroa.23.0 = phi i64 [ %299, %320 ], [ undef, %333 ]
+  %.sroa.23.0 = phi i64 [ %.sroa.6175.0, %320 ], [ undef, %333 ]
   %.sroa.25.0 = phi i64 [ %307, %320 ], [ undef, %333 ]
   store i64 %.sroa.0176.4, ptr %0, align 8
   %.sroa.8178.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

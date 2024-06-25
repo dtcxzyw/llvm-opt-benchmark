@@ -2779,7 +2779,7 @@ define hidden void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = getelementptr inbounds i8, ptr %1, i64 68
   %12 = load i8, ptr %11, align 4, !range !670, !noundef !7
-  switch i8 %12, label %default.unreachable55.i [
+  switch i8 %12, label %default.unreachable69.i [
     i8 4, label %.lr.ph
     i8 0, label %18
     i8 1, label %30
@@ -2800,7 +2800,7 @@ define hidden void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut
 default.unreachable:                              ; preds = %32
   unreachable
 
-default.unreachable55.i:                          ; preds = %3
+default.unreachable69.i:                          ; preds = %3
   unreachable
 
 18:                                               ; preds = %3, %tailrecurse._crit_edge.thread

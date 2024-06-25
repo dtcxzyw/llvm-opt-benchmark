@@ -49,7 +49,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   call void @"_ZN82_$LT$std..io..Lines$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a6c21fce2619a96E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !17
   %7 = load i64, ptr %4, align 8, !range !18, !noalias !14, !noundef !9
   %.not.i.i = icmp eq i64 %7, -9223372036854775807
-  br i1 %.not.i.i, label %.thread4, label %8
+  br i1 %.not.i.i, label %.thread6, label %8
 
 8:                                                ; preds = %2
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -87,7 +87,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   store ptr %.sroa.2.0.copyload.i.i, ptr %6, align 8, !alias.scope !11, !noalias !19
   resume { ptr, i32 } %17
 
-.thread4:                                         ; preds = %2
+.thread6:                                         ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !14
   br label %"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..string..String$GT$$GT$17h8893d62bc30bcf06E.llvm.13331784394299603573.exit"
 
@@ -110,7 +110,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
 19:                                               ; preds = %.thread, %"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..string..String$GT$$GT$17h8893d62bc30bcf06E.llvm.13331784394299603573.exit"
   ret void
 
-"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..string..String$GT$$GT$17h8893d62bc30bcf06E.llvm.13331784394299603573.exit": ; preds = %.thread4, %18
+"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..string..String$GT$$GT$17h8893d62bc30bcf06E.llvm.13331784394299603573.exit": ; preds = %.thread6, %18
   store i64 -9223372036854775808, ptr %0, align 8
   br label %19
 }
@@ -176,12 +176,14 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   br label %20
 
 19:                                               ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h413bcfbaa0be1bc5E.exit.i.i", %8
+  %.sroa.8.1.i = phi i64 [ undef, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h413bcfbaa0be1bc5E.exit.i.i" ], [ %.sroa.3.0.copyload.i, %8 ]
+  %.sroa.6.1.i = phi ptr [ undef, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h413bcfbaa0be1bc5E.exit.i.i" ], [ %.sroa.2.0.copyload.i, %8 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !40
   store i64 %7, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.6.1.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.copyload.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.8.1.i, ptr %.sroa.5.0..sroa_idx, align 8
   br label %20
 
 20:                                               ; preds = %18, %19
@@ -1191,11 +1193,13 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8caefec967
   br label %19
 
 18:                                               ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h413bcfbaa0be1bc5E.exit.i", %8
+  %.sroa.8.1 = phi i64 [ undef, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h413bcfbaa0be1bc5E.exit.i" ], [ %.sroa.3.0.copyload, %8 ]
+  %.sroa.6.1 = phi ptr [ undef, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h413bcfbaa0be1bc5E.exit.i" ], [ %.sroa.2.0.copyload, %8 ]
   store i64 %7, ptr %0, align 8, !alias.scope !233
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.2.0.copyload, ptr %.sroa.29.0..sroa_idx, align 8, !alias.scope !233
+  store ptr %.sroa.6.1, ptr %.sroa.29.0..sroa_idx, align 8, !alias.scope !233
   %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.copyload, ptr %.sroa.310.0..sroa_idx, align 8, !alias.scope !233
+  store i64 %.sroa.8.1, ptr %.sroa.310.0..sroa_idx, align 8, !alias.scope !233
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %19
 

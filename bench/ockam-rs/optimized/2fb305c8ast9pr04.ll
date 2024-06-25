@@ -4993,13 +4993,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   %.sroa.4.0.i.i = phi i64 [ undef, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h022f17c66eb91060E.exit.i" ], [ %.sroa.4.1.i.i, %56 ]
   %.sroa.0.021.i.i = and i64 %.pn.i.i, %.val4.i
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.0.021.i.i
-  %.0.copyload.i28.i.i = load <16 x i8>, ptr %31, align 1, !noalias !842
-  %32 = icmp eq <16 x i8> %.0.copyload.i28.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i29.i.i = load <16 x i8>, ptr %31, align 1, !noalias !842
+  %32 = icmp eq <16 x i8> %.0.copyload.i29.i.i, %.15.vec.insert.i.i.i
   %33 = bitcast <16 x i1> %32 to i16
   br label %34
 
 34:                                               ; preds = %36, %30
-  %.022.i.i = phi i16 [ %33, %30 ], [ %38, %36 ]
+  %.022.i.i = phi i16 [ %33, %30 ], [ %40, %36 ]
   %.not.not.i.i.i.not = icmp ne i16 %.022.i.i, 0
   br i1 %.not.not.i.i.i.not, label %36, label %35
 
@@ -5008,11 +5008,11 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br i1 %.not.i.i, label %45, label %49
 
 36:                                               ; preds = %34
-  %37 = add i16 %.022.i.i, -1
-  %38 = and i16 %37, %.022.i.i
-  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
-  %40 = zext nneg i16 %39 to i64
-  %41 = add i64 %.sroa.0.021.i.i, %40
+  %37 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
+  %38 = zext nneg i16 %37 to i64
+  %39 = add i16 %.022.i.i, -1
+  %40 = and i16 %39, %.022.i.i
+  %41 = add i64 %.sroa.0.021.i.i, %38
   %42 = and i64 %41, %.val4.i
   %43 = sub nsw i64 0, %42
   %gep = getelementptr i64, ptr %invariant.gep, i64 %43
@@ -5021,15 +5021,15 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br i1 %44, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hf8bf536d651f7ff4E.exit", label %34
 
 45:                                               ; preds = %49, %35
-  %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %49 ], [ 1, %35 ]
-  %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %49 ], [ %.sroa.4.0.i.i, %35 ]
-  %46 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i13.i.i, %49 ], [ 1, %35 ]
+  %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i12.i.i, %49 ], [ %.sroa.4.0.i.i, %35 ]
+  %46 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %47 = bitcast <16 x i1> %46 to i16
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %56, label %59
 
 49:                                               ; preds = %35
-  %50 = icmp slt <16 x i8> %.0.copyload.i28.i.i, zeroinitializer
+  %50 = icmp slt <16 x i8> %.0.copyload.i29.i.i, zeroinitializer
   %51 = bitcast <16 x i1> %50 to i16
   %.not.not.i11.i.i = icmp ne i16 %51, 0
   %52 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %51, i1 true)
@@ -5037,8 +5037,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   %.sroa.4.0.i.i.i = select i1 %.not.not.i11.i.i, i64 %53, i64 undef
   %54 = add i64 %.sroa.4.0.i.i.i, %.sroa.0.021.i.i
   %55 = and i64 %54, %.val4.i
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i11.i.i, i64 %55, i64 undef
-  %.sroa.0.0.i12.i.i = zext i1 %.not.not.i11.i.i to i64
+  %.sroa.3.0.i12.i.i = select i1 %.not.not.i11.i.i, i64 %55, i64 undef
+  %.sroa.0.0.i13.i.i = zext i1 %.not.not.i11.i.i to i64
   br label %45
 
 56:                                               ; preds = %45
@@ -6891,13 +6891,13 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   %.sroa.4.0.i.i.i = phi i64 [ undef, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h601941c7cf3e2938E.exit.i.i" ], [ %.sroa.4.1.i.i.i, %108 ]
   %.sroa.0.021.i.i.i = and i64 %.pn.i.i.i, %.val4.i.i
   %81 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.0.021.i.i.i
-  %.0.copyload.i28.i.i.i = load <16 x i8>, ptr %81, align 1, !noalias !1064
-  %82 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %81, align 1, !noalias !1064
+  %82 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, %.15.vec.insert.i.i.i.i
   %83 = bitcast <16 x i1> %82 to i16
   br label %84
 
 84:                                               ; preds = %86, %80
-  %.022.i.i.i = phi i16 [ %83, %80 ], [ %88, %86 ]
+  %.022.i.i.i = phi i16 [ %83, %80 ], [ %90, %86 ]
   %.not.not.i.i.i.i = icmp eq i16 %.022.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %85, label %86
 
@@ -6906,11 +6906,11 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   br i1 %.not.i.i.i, label %97, label %101
 
 86:                                               ; preds = %84
-  %87 = add i16 %.022.i.i.i, -1
-  %88 = and i16 %87, %.022.i.i.i
-  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
-  %90 = zext nneg i16 %89 to i64
-  %91 = add i64 %.sroa.0.021.i.i.i, %90
+  %87 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
+  %88 = zext nneg i16 %87 to i64
+  %89 = add i16 %.022.i.i.i, -1
+  %90 = and i16 %89, %.022.i.i.i
+  %91 = add i64 %.sroa.0.021.i.i.i, %88
   %92 = and i64 %91, %.val4.i.i
   %93 = sub nsw i64 0, %92
   %94 = getelementptr inbounds { i8, [7 x i8], { ptr, ptr } }, ptr %.val.i.i, i64 %93
@@ -6920,15 +6920,15 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   br i1 %96, label %142, label %84
 
 97:                                               ; preds = %101, %85
-  %.sroa.05.1.i.i.i = phi i64 [ %.sroa.0.0.i12.i.i.i, %101 ], [ 1, %85 ]
-  %.sroa.4.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %101 ], [ %.sroa.4.0.i.i.i, %85 ]
-  %98 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %.sroa.05.1.i.i.i = phi i64 [ %.sroa.0.0.i13.i.i.i, %101 ], [ 1, %85 ]
+  %.sroa.4.1.i.i.i = phi i64 [ %.sroa.3.0.i12.i.i.i, %101 ], [ %.sroa.4.0.i.i.i, %85 ]
+  %98 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %99 = bitcast <16 x i1> %98 to i16
   %100 = icmp eq i16 %99, 0
   br i1 %100, label %108, label %111
 
 101:                                              ; preds = %85
-  %102 = icmp slt <16 x i8> %.0.copyload.i28.i.i.i, zeroinitializer
+  %102 = icmp slt <16 x i8> %.0.copyload.i29.i.i.i, zeroinitializer
   %103 = bitcast <16 x i1> %102 to i16
   %.not.not.i11.i.i.i = icmp ne i16 %103, 0
   %104 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %103, i1 true)
@@ -6936,8 +6936,8 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   %.sroa.4.0.i.i.i.i = select i1 %.not.not.i11.i.i.i, i64 %105, i64 undef
   %106 = add i64 %.sroa.4.0.i.i.i.i, %.sroa.0.021.i.i.i
   %107 = and i64 %106, %.val4.i.i
-  %.sroa.3.0.i.i.i.i = select i1 %.not.not.i11.i.i.i, i64 %107, i64 undef
-  %.sroa.0.0.i12.i.i.i = zext i1 %.not.not.i11.i.i.i to i64
+  %.sroa.3.0.i12.i.i.i = select i1 %.not.not.i11.i.i.i, i64 %107, i64 undef
+  %.sroa.0.0.i13.i.i.i = zext i1 %.not.not.i11.i.i.i to i64
   br label %97
 
 108:                                              ; preds = %97
@@ -7185,28 +7185,28 @@ common.resume:                                    ; preds = %68, %17
   %.pn.i.i = phi i64 [ %43, %.noexc ], [ %67, %65 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val3.i
   %48 = getelementptr inbounds i8, ptr %.val2.i, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %48, align 1, !noalias !1123
-  %49 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i31.i.i.i = load <16 x i8>, ptr %48, align 1, !noalias !1123
+  %49 = icmp eq <16 x i8> %.0.copyload.i31.i.i.i, %.15.vec.insert.i.i.i.i
   %50 = bitcast <16 x i1> %49 to i16
   br label %51
 
 51:                                               ; preds = %56, %47
-  %.020.i.i.i = phi i16 [ %50, %47 ], [ %58, %56 ]
-  %.not.not.i.i.i.not.i = icmp eq i16 %.020.i.i.i, 0
+  %.021.i.i.i = phi i16 [ %50, %47 ], [ %60, %56 ]
+  %.not.not.i.i.i.not.i = icmp eq i16 %.021.i.i.i, 0
   br i1 %.not.not.i.i.i.not.i, label %52, label %56
 
 52:                                               ; preds = %51
-  %53 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %53 = icmp eq <16 x i8> %.0.copyload.i31.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %54 = bitcast <16 x i1> %53 to i16
   %55 = icmp eq i16 %54, 0
   br i1 %55, label %65, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h2f7ed653ece5c575E.exit"
 
 56:                                               ; preds = %51
-  %57 = add i16 %.020.i.i.i, -1
-  %58 = and i16 %57, %.020.i.i.i
-  %59 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.020.i.i.i, i1 true)
-  %60 = zext nneg i16 %59 to i64
-  %61 = add i64 %.sroa.01.0.i.i.i.i, %60
+  %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.021.i.i.i, i1 true)
+  %58 = zext nneg i16 %57 to i64
+  %59 = add i16 %.021.i.i.i, -1
+  %60 = and i16 %59, %.021.i.i.i
+  %61 = add i64 %.sroa.01.0.i.i.i.i, %58
   %62 = and i64 %61, %.val3.i
   %63 = sub nsw i64 0, %62
   %gep.i.i.i = getelementptr { i8, [7 x i8], { ptr, ptr } }, ptr %invariant.gep.i.i.i, i64 %63

@@ -680,7 +680,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #14
-          to label %74 unwind label %72, !noalias !83
+          to label %75 unwind label %73, !noalias !83
 
 32:                                               ; preds = %20
   %33 = icmp eq i32 %26, -1
@@ -698,7 +698,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   br i1 %40, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %43
-  %.011.i.i = phi i64 [ %45, %43 ], [ 0, %36 ]
+  %.010.i.i = phi i64 [ %45, %43 ], [ 0, %36 ]
   %41 = phi ptr [ %44, %43 ], [ %37, %36 ]
   %.val.i.i = load i8, ptr %41, align 1, !noalias !103, !noundef !4
   %42 = icmp eq i8 %.val.i.i, 0
@@ -706,7 +706,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
 
 43:                                               ; preds = %.lr.ph.i.i
   %44 = getelementptr inbounds i8, ptr %41, i64 1
-  %45 = add nuw i64 %.011.i.i, 1
+  %45 = add nuw i64 %.010.i.i, 1
   %46 = icmp eq ptr %44, %39
   br i1 %46, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -746,11 +746,11 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   br label %19
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h382480773498739eE.exit.i": ; preds = %.lr.ph.i.i
-  %62 = icmp ult i64 %.011.i.i, %38
+  %62 = icmp ult i64 %.010.i.i, %38
   tail call void @llvm.assume(i1 %62)
-  store i64 %.011.i.i, ptr %25, align 8, !alias.scope !114, !noalias !83
+  store i64 %.010.i.i, ptr %25, align 8, !alias.scope !114, !noalias !83
   %63 = load i64, ptr %4, align 8, !alias.scope !117, !noalias !83, !noundef !4
-  %64 = icmp ugt i64 %63, %.011.i.i
+  %64 = icmp ugt i64 %63, %.010.i.i
   br i1 %64, label %66, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hfe01a7dd54a028caE.exit.i"
 
 .loopexit.i:                                      ; preds = %43, %36
@@ -758,7 +758,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
           to label %52 unwind label %30, !noalias !83
 
 66:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h382480773498739eE.exit.i"
-  %67 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h5419d7e436ce8742E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %.011.i.i)
+  %67 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h5419d7e436ce8742E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %.010.i.i)
           to label %.noexc.i unwind label %30, !noalias !83
 
 .noexc.i:                                         ; preds = %66
@@ -777,7 +777,9 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
 
 70:                                               ; preds = %.noexc.i
   %71 = extractvalue { i64, i64 } %67, 1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %68, i64 noundef %71) #13
+  %72 = icmp eq i64 %68, -9223372036854775807
+  %.sroa.33.0.i.i.i.i = select i1 %72, i64 undef, i64 %71
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %68, i64 noundef %.sroa.33.0.i.i.i.i) #13
           to label %.noexc19.i unwind label %30, !noalias !83
 
 .noexc19.i:                                       ; preds = %70
@@ -789,13 +791,13 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !83
   br label %_ZN8grep_cli8hostname11gethostname17h1d44d4bbce674e0aE.exit
 
-72:                                               ; preds = %30
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %30
+  %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #16, !noalias !83
   unreachable
 
-74:                                               ; preds = %30
+75:                                               ; preds = %30
   resume { ptr, i32 } %31
 
 _ZN8grep_cli8hostname11gethostname17h1d44d4bbce674e0aE.exit: ; preds = %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hfe01a7dd54a028caE.exit.i"

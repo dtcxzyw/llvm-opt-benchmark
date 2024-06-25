@@ -836,7 +836,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %11
 
 11:                                               ; preds = %.lr.ph, %15
-  %.012 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
+  %.011 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
   %12 = phi ptr [ %6, %.lr.ph ], [ %13, %15 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   %.val7 = load i8, ptr %12, align 1, !noundef !5
@@ -844,13 +844,13 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
-  %16 = add i64 %.012, 1
+  %16 = add i64 %.011, 1
   %17 = icmp eq ptr %13, %4
   br i1 %17, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread.loopexit_crit_edge", label %11
 
 18:                                               ; preds = %11
   store ptr %13, ptr %0, align 8, !alias.scope !114
-  %19 = icmp ult i64 %.012, %8
+  %19 = icmp ult i64 %.011, %8
   tail call void @llvm.assume(i1 %19)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread"
 
@@ -859,10 +859,10 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread": ; preds = %2, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread.loopexit_crit_edge", %18
-  %.011 = phi i64 [ %.012, %18 ], [ %8, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread.loopexit_crit_edge" ], [ 0, %2 ]
+  %.sroa.3.0 = phi i64 [ %.011, %18 ], [ undef, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread.loopexit_crit_edge" ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 1, %18 ], [ 0, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread.loopexit_crit_edge" ], [ 0, %2 ]
   %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %.011, 1
+  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.3.0, 1
   ret { i64, i64 } %21
 }
 
@@ -1577,10 +1577,10 @@ define void @_ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8
   %13 = load i64, ptr %12, align 8, !noundef !5
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = icmp eq i64 %13, 0
-  br i1 %15, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5, label %.lr.ph.i
+  br i1 %15, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit6, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %18
-  %.012.i = phi i64 [ %20, %18 ], [ 0, %9 ]
+  %.011.i = phi i64 [ %20, %18 ], [ 0, %9 ]
   %16 = phi ptr [ %19, %18 ], [ %11, %9 ]
   %.val7.i = load i8, ptr %16, align 1, !noalias !215, !noundef !5
   %17 = icmp eq i8 %7, %.val7.i
@@ -1588,16 +1588,16 @@ define void @_ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %16, i64 1
-  %20 = add nuw i64 %.012.i, 1
+  %20 = add nuw i64 %.011.i, 1
   %21 = icmp eq ptr %19, %14
-  br i1 %21, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5, label %.lr.ph.i
+  br i1 %21, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit6, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = icmp ult i64 %.012.i, %13
+  %23 = icmp ult i64 %.011.i, %13
   call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load i64, ptr %24, align 8, !noundef !5
-  %26 = add i64 %25, %.012.i
+  %26 = add i64 %25, %.011.i
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
   store i64 %26, ptr %24, align 8, !alias.scope !219
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1625,7 +1625,7 @@ _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit: ;
   %36 = sub i64 %28, %26
   br label %42
 
-_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5: ; preds = %18, %9
+_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit6: ; preds = %18, %9
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8, !noundef !5
   %39 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1634,10 +1634,10 @@ _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5: 
   %41 = getelementptr inbounds i8, ptr %40, i64 %38
   br label %42
 
-42:                                               ; preds = %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit
-  %storemerge9 = phi ptr [ %35, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit ], [ %41, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5 ]
-  %storemerge = phi i64 [ %36, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit ], [ 0, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5 ]
-  store ptr %storemerge9, ptr %10, align 8
+42:                                               ; preds = %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit6, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit
+  %storemerge10 = phi ptr [ %35, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit ], [ %41, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit6 ]
+  %storemerge = phi i64 [ %36, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit ], [ 0, %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit6 ]
+  store ptr %storemerge10, ptr %10, align 8
   store i64 %storemerge, ptr %12, align 8
   ret void
 }

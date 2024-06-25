@@ -2042,8 +2042,8 @@ define { ptr, i64 } @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$6purify
 .critedge49.backedge:                             ; preds = %7, %64, %62, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
   br label %.critedge49
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread: ; preds = %12, %59, %.critedge49, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i53", %90, %.critedge.thread
-  %.sroa.11.0 = phi i64 [ 0, %.critedge.thread ], [ %1, %90 ], [ %87, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i53" ], [ 0, %12 ], [ 0, %59 ], [ %1, %.critedge49 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread: ; preds = %12, %59, %.critedge49, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i54", %90, %.critedge.thread
+  %.sroa.11.0 = phi i64 [ 0, %.critedge.thread ], [ %1, %90 ], [ %87, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i54" ], [ 0, %12 ], [ 0, %59 ], [ %1, %.critedge49 ]
   %11 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h7cb16393929cc408E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %.sroa.11.0)
   ret { ptr, i64 } %11
 
@@ -2200,20 +2200,20 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %88, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread, label %89
 
 89:                                               ; preds = %.critedge.thread
-  %.not.i.i51 = icmp ult i64 %87, %1
-  br i1 %.not.i.i51, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i53", label %90
+  %.not.i.i52 = icmp ult i64 %87, %1
+  br i1 %.not.i.i52, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i54", label %90
 
 90:                                               ; preds = %89
   %91 = icmp eq i64 %87, %1
   br i1 %91, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread, label %95
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i53": ; preds = %89
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i54": ; preds = %89
   %92 = getelementptr inbounds i8, ptr %0, i64 %87
   %93 = load i8, ptr %92, align 1, !alias.scope !498, !noundef !4
   %94 = icmp sgt i8 %93, -65
   br i1 %94, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread, label %95
 
-95:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i53", %90
+95:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i54", %90
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef 0, i64 noundef %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0e465fe6be52864fcdae16bb4d6a5c56.71) #15
   unreachable
 }

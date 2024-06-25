@@ -671,7 +671,8 @@ define { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8skip_one17hd7975
 
 22:                                               ; preds = %21, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$17hacc5fe5b324a617bE.exit"
   %.sroa.3.0 = phi i8 [ %11, %21 ], [ 2, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$17hacc5fe5b324a617bE.exit" ]
-  %23 = insertvalue { i64, i8 } poison, i64 %9, 0
+  %.sroa.0.0 = phi i64 [ %9, %21 ], [ undef, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$17hacc5fe5b324a617bE.exit" ]
+  %23 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, i8 } %23, i8 %.sroa.3.0, 1
   ret { i64, i8 } %24
 }
@@ -778,7 +779,8 @@ common.resume:                                    ; preds = %20, %23
 
 31:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_env..string_parser..Chunk$GT$$GT$17h5d21fdba17a4baafE.exit", %19
   %.sroa.3.0 = phi i8 [ %11, %19 ], [ 2, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_env..string_parser..Chunk$GT$$GT$17h5d21fdba17a4baafE.exit" ]
-  %32 = insertvalue { i64, i8 } poison, i64 %9, 0
+  %.sroa.0.0 = phi i64 [ %9, %19 ], [ undef, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_env..string_parser..Chunk$GT$$GT$17h5d21fdba17a4baafE.exit" ]
+  %32 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %33 = insertvalue { i64, i8 } %32, i8 %.sroa.3.0, 1
   ret { i64, i8 } %33
 
@@ -828,9 +830,9 @@ common.resume:                                    ; preds = %20, %23
   br label %51
 
 51:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit", %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit"
-  %.sink44 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit" ], [ %.sroa.7.8.copyload, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit" ]
+  %.sink43 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit" ], [ %.sroa.7.8.copyload, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit" ]
   %52 = load i64, ptr %17, align 8, !noundef !5
-  %53 = add i64 %52, %.sink44
+  %53 = add i64 %52, %.sink43
   store i64 %53, ptr %17, align 8
   %54 = load ptr, ptr %.sroa.628.0..sroa_idx, align 8, !alias.scope !145, !noalias !134, !nonnull !5, !noundef !5
   %55 = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !145, !noalias !134, !nonnull !5, !noundef !5

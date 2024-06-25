@@ -11615,7 +11615,7 @@ define hidden noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd76
           to label %31 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3ptr51drop_in_place$LT$pdf_writer..structure..Outline$GT$17h685392192e90dc0aE.exit": ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %149, %69
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %150, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit103, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp104, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %150, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit104, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09546f17f6af0409E.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %"_ZN4core3ptr82drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..content..Content$GT$$GT$17hd883c4dc10868240E.exit" unwind label %94
 
@@ -11624,13 +11624,13 @@ define hidden noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd76
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..structure..Outline$GT$17h685392192e90dc0aE.exit"
 
-.loopexit.split-lp.loopexit:                      ; preds = %.thread97, %118, %.noexc80, %98, %42
-  %lpad.loopexit103 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.thread98, %118, %.noexc80, %98, %42
+  %lpad.loopexit104 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..structure..Outline$GT$17h685392192e90dc0aE.exit"
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %93, %51, %97, %61, %27
-  %lpad.loopexit.split-lp104 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp105 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..structure..Outline$GT$17h685392192e90dc0aE.exit"
 
@@ -11640,9 +11640,9 @@ define hidden noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd76
   %33 = load i64, ptr %30, align 8, !noundef !4
   %34 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i64 }, ptr %32, i64 %33
   %35 = icmp eq i64 %33, 0
-  br i1 %35, label %._crit_edge, label %.lr.ph118
+  br i1 %35, label %._crit_edge, label %.lr.ph119
 
-.lr.ph118:                                        ; preds = %31
+.lr.ph119:                                        ; preds = %31
   %36 = getelementptr inbounds i8, ptr %3, i64 8
   %37 = getelementptr inbounds i8, ptr %8, i64 24
   %38 = getelementptr inbounds i8, ptr %8, i64 32
@@ -11656,11 +11656,11 @@ define hidden noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd76
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %45, label %46
 
-42:                                               ; preds = %.lr.ph118, %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit"
-  %.054117 = phi i64 [ 0, %.lr.ph118 ], [ %.1100, %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit" ]
-  %.sroa.0.0116 = phi ptr [ %32, %.lr.ph118 ], [ %43, %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit" ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 24
-  %44 = invoke noundef zeroext i1 @_ZN5typst11foundations7content7Content2is17h27a838a5337557b0E.llvm.1563996087720595280(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0116)
+42:                                               ; preds = %.lr.ph119, %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit"
+  %.054118 = phi i64 [ 0, %.lr.ph119 ], [ %.1101, %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit" ]
+  %.sroa.0.0117 = phi ptr [ %32, %.lr.ph119 ], [ %43, %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit" ]
+  %43 = getelementptr inbounds i8, ptr %.sroa.0.0117, i64 24
+  %44 = invoke noundef zeroext i1 @_ZN5typst11foundations7content7Content2is17h27a838a5337557b0E.llvm.1563996087720595280(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0117)
           to label %96 unwind label %.loopexit.split-lp.loopexit
 
 45:                                               ; preds = %._crit_edge
@@ -11816,8 +11816,8 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
   call void @llvm.experimental.noalias.scope.decl(metadata !2063)
   call void @llvm.experimental.noalias.scope.decl(metadata !2066)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %99 = load ptr, ptr %.sroa.0.0116, align 8, !alias.scope !2066, !noalias !2063, !nonnull !4, !noundef !4
-  %100 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 8
+  %99 = load ptr, ptr %.sroa.0.0117, align 8, !alias.scope !2066, !noalias !2063, !nonnull !4, !noundef !4
+  %100 = getelementptr inbounds i8, ptr %.sroa.0.0117, i64 8
   %101 = load ptr, ptr %100, align 8, !alias.scope !2066, !noalias !2063, !nonnull !4, !align !411, !noundef !4
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   %103 = load i64, ptr %102, align 8, !range !1326, !invariant.load !4, !noalias !2068
@@ -11849,7 +11849,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %.noexc81
-  %119 = invoke noundef zeroext i1 @"_ZN9typst_pdf7outline11HeadingNode4leaf28_$u7b$$u7b$closure$u7d$$u7d$17h91800f73c4a5f373E.llvm.16528140993567049526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0116)
+  %119 = invoke noundef zeroext i1 @"_ZN9typst_pdf7outline11HeadingNode4leaf28_$u7b$$u7b$closure$u7d$$u7d$17h91800f73c4a5f373E.llvm.16528140993567049526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0117)
           to label %123 unwind label %.loopexit.split-lp.loopexit
 
 120:                                              ; preds = %.noexc81
@@ -11861,7 +11861,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
 
 123:                                              ; preds = %120, %118
   %.0.i.i = phi i1 [ %121, %120 ], [ %119, %118 ]
-  store ptr %.sroa.0.0116, ptr %37, align 8, !alias.scope !2063, !noalias !2066
+  store ptr %.sroa.0.0117, ptr %37, align 8, !alias.scope !2063, !noalias !2066
   store i64 %115, ptr %38, align 8, !alias.scope !2063, !noalias !2066
   %124 = zext i1 %.0.i.i to i8
   store i8 %124, ptr %39, align 8, !alias.scope !2063, !noalias !2066
@@ -11869,28 +11869,28 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2063, !noalias !2066
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2063, !noalias !2066
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br i1 %.0.i.i, label %.preheader, label %.thread97
+  br i1 %.0.i.i, label %.preheader, label %.thread98
 
 .preheader:                                       ; preds = %123
   %125 = load i64, ptr %13, align 8, !noundef !4
-  %.not108 = icmp eq i64 %125, 0
-  br i1 %.not108, label %.critedge, label %.lr.ph
+  %.not109 = icmp eq i64 %125, 0
+  br i1 %.not109, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %126 = add i64 %.054117, -1
+  %126 = add i64 %.054118, -1
   %127 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %128 = add i64 %125, -1
   %129 = getelementptr [0 x { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }], ptr %127, i64 0, i64 %128, i32 2
-  %.059.val120 = load i64, ptr %129, align 8
-  %130 = freeze i64 %.059.val120
-  %spec.select.i83121 = icmp uge i64 %126, %130
+  %.059.val121 = load i64, ptr %129, align 8
+  %130 = freeze i64 %.059.val121
+  %spec.select.i83122 = icmp uge i64 %126, %130
   %131 = icmp ult i64 %130, %115
-  %or.cond122 = and i1 %spec.select.i83121, %131
-  br i1 %or.cond122, label %.lr.ph123, label %.critedge
+  %or.cond123 = and i1 %spec.select.i83122, %131
+  br i1 %or.cond123, label %.lr.ph124, label %.critedge
 
 132:                                              ; preds = %._crit_edge.i, %.critedge
   %133 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %145, %.critedge ]
-  %134 = load ptr, ptr %.lcssa106, align 8, !alias.scope !2069, !noalias !2072, !nonnull !4, !noundef !4
+  %134 = load ptr, ptr %.lcssa107, align 8, !alias.scope !2069, !noalias !2072, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }, ptr %134, i64 %133
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %135, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   %136 = load i64, ptr %144, align 8, !alias.scope !2069, !noalias !2072, !noundef !4
@@ -11899,7 +11899,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit"
 
-138:                                              ; preds = %.lr.ph123
+138:                                              ; preds = %.lr.ph124
   %139 = load ptr, ptr %158, align 8, !nonnull !4, !noundef !4
   %140 = add i64 %160, -1
   %141 = getelementptr [0 x { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }], ptr %139, i64 0, i64 %140, i32 2
@@ -11908,21 +11908,21 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
   %spec.select.i83 = icmp uge i64 %126, %142
   %143 = icmp ult i64 %142, %115
   %or.cond = and i1 %spec.select.i83, %143
-  br i1 %or.cond, label %.lr.ph123, label %.critedge
+  br i1 %or.cond, label %.lr.ph124, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph123, %138, %.lr.ph, %.preheader
-  %.061.lcssa107 = phi ptr [ %11, %.preheader ], [ %11, %.lr.ph ], [ %157, %138 ], [ %157, %.lr.ph123 ]
-  %.lcssa106 = phi ptr [ %12, %.preheader ], [ %12, %.lr.ph ], [ %158, %138 ], [ %158, %.lr.ph123 ]
-  %144 = getelementptr inbounds i8, ptr %.061.lcssa107, i64 16
+.critedge:                                        ; preds = %.lr.ph124, %138, %.lr.ph, %.preheader
+  %.061.lcssa108 = phi ptr [ %11, %.preheader ], [ %11, %.lr.ph ], [ %157, %138 ], [ %157, %.lr.ph124 ]
+  %.lcssa107 = phi ptr [ %12, %.preheader ], [ %12, %.lr.ph ], [ %158, %138 ], [ %158, %.lr.ph124 ]
+  %144 = getelementptr inbounds i8, ptr %.061.lcssa108, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   %145 = load i64, ptr %144, align 8, !alias.scope !2069, !noalias !2072, !noundef !4
-  %146 = load i64, ptr %.061.lcssa107, align 8, !alias.scope !2069, !noalias !2072, !noundef !4
+  %146 = load i64, ptr %.061.lcssa108, align 8, !alias.scope !2069, !noalias !2072, !noundef !4
   %147 = icmp eq i64 %145, %146
   br i1 %147, label %148, label %132
 
 148:                                              ; preds = %.critedge
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hdd84f89965cb955cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.061.lcssa107, i64 noundef %145)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hdd84f89965cb955cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.061.lcssa108, i64 noundef %145)
           to label %._crit_edge.i unwind label %149, !noalias !2072
 
 ._crit_edge.i:                                    ; preds = %148
@@ -11941,20 +11941,20 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %80
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #27
   unreachable
 
-"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit": ; preds = %132, %.thread97
-  %.1100 = phi i64 [ 0, %132 ], [ %spec.select, %.thread97 ]
+"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit": ; preds = %132, %.thread98
+  %.1101 = phi i64 [ 0, %132 ], [ %spec.select, %.thread98 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   %153 = icmp eq ptr %43, %34
   br i1 %153, label %._crit_edge, label %42
 
-.thread97:                                        ; preds = %123
-  %154 = add i64 %.054117, -1
+.thread98:                                        ; preds = %123
+  %154 = add i64 %.054118, -1
   %spec.select.i.not = icmp ult i64 %154, %115
-  %spec.select = select i1 %spec.select.i.not, i64 %.054117, i64 %115
+  %spec.select = select i1 %spec.select.i.not, i64 %.054118, i64 %115
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..outline..HeadingNode$GT$$GT$17ha446009df4cd2fecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr52drop_in_place$LT$typst_pdf..outline..HeadingNode$GT$17h00d44134bc57a7a6E.exit" unwind label %.loopexit.split-lp.loopexit
 
-.lr.ph123:                                        ; preds = %.lr.ph, %138
+.lr.ph124:                                        ; preds = %.lr.ph, %138
   %155 = phi i64 [ %140, %138 ], [ %128, %.lr.ph ]
   %156 = phi ptr [ %139, %138 ], [ %127, %.lr.ph ]
   %157 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }], ptr %156, i64 0, i64 %155
@@ -12228,10 +12228,10 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %71
   %122 = add i64 %121, -1
   %123 = getelementptr inbounds i8, ptr %0, i64 120
   %124 = load i64, ptr %123, align 8, !noundef !4
-  %.not83 = icmp ult i64 %122, %124
+  %.not84 = icmp ult i64 %122, %124
   %125 = getelementptr inbounds i8, ptr %0, i64 112
   %126 = load ptr, ptr %125, align 8, !nonnull !4
-  br i1 %.not83, label %127, label %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit"
+  br i1 %.not84, label %127, label %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit"
 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds i8, ptr %12, i64 8
@@ -12344,13 +12344,13 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %71
   ret i32 %18
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit", %.lr.ph
-  %.03886 = phi i32 [ %172, %.lr.ph ], [ 0, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
-  %.sroa.0.085 = phi ptr [ %169, %.lr.ph ], [ %44, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
-  %.sroa.7.084 = phi i64 [ %170, %.lr.ph ], [ 0, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
-  %169 = getelementptr inbounds i8, ptr %.sroa.0.085, i64 48
-  %170 = add nuw nsw i64 %.sroa.7.084, 1
+  %.03887 = phi i32 [ %172, %.lr.ph ], [ 0, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
+  %.sroa.0.086 = phi ptr [ %169, %.lr.ph ], [ %44, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
+  %.sroa.7.085 = phi i64 [ %170, %.lr.ph ], [ 0, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
+  %169 = getelementptr inbounds i8, ptr %.sroa.0.086, i64 48
+  %170 = add nuw nsw i64 %.sroa.7.085, 1
   %171 = icmp eq i64 %170, %46
-  %172 = call fastcc noundef i32 @_ZN9typst_pdf7outline18write_outline_item17h899067324ce0a2e1E(ptr noalias noundef nonnull align 8 dereferenceable(856) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.085, i32 noundef %18, i32 noundef %.03886, i1 noundef zeroext %171), !range !2056
+  %172 = call fastcc noundef i32 @_ZN9typst_pdf7outline18write_outline_item17h899067324ce0a2e1E(ptr noalias noundef nonnull align 8 dereferenceable(856) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.086, i32 noundef %18, i32 noundef %.03887, i1 noundef zeroext %171), !range !2056
   %173 = icmp eq ptr %169, %132
   br i1 %173, label %._crit_edge, label %.lr.ph
 

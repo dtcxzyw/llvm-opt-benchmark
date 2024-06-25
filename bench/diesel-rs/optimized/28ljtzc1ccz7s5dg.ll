@@ -7,20 +7,21 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbc879f40831e6c4E"(ptr nocapture align 2 %0) unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2, !noundef !3
   %3 = icmp eq i16 %2, 0
-  br i1 %3, label %7, label %4
+  br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = add i16 %2, -1
-  %6 = and i16 %5, %2
-  store i16 %6, ptr %0, align 2
-  br label %7
+  %5 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %2, i1 true)
+  %6 = zext nneg i16 %5 to i64
+  %7 = add i16 %2, -1
+  %8 = and i16 %7, %2
+  store i16 %8, ptr %0, align 2
+  br label %9
 
-7:                                                ; preds = %1, %4
+9:                                                ; preds = %1, %4
+  %.sroa.3.0 = phi i64 [ %6, %4 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %1 ]
-  %8 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %2, i1 true)
-  %9 = zext nneg i16 %8 to i64
   %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %9, 1
+  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.3.0, 1
   ret { i64, i64 } %11
 }
 

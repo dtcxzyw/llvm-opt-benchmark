@@ -908,12 +908,13 @@ define noundef zeroext i1 @_ZN14regex_automata3dfa7onepass6Config16get_byte_clas
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZN14regex_automata3dfa7onepass6Config14get_size_limit17h8d1c3b4cf55bc375E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !129, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8
-  %5 = icmp eq i64 %2, 2
-  %spec.select = select i1 %5, i64 0, i64 %2
-  %6 = insertvalue { i64, i64 } poison, i64 %spec.select, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %4, 1
+  %3 = icmp eq i64 %2, 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %.sroa.3.0 = select i1 %3, i64 undef, i64 %5
+  %.sroa.0.0 = select i1 %3, i64 0, i64 %2
+  %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 
@@ -1038,7 +1039,9 @@ define void @_ZN14regex_automata3dfa7onepass7Builder14build_from_nfa17hd2c8f835f
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %.val8.i = load i64, ptr %15, align 8, !alias.scope !144, !noalias !141
-  %.sroa.5.0.i = select i1 %14, i64 undef, i64 %.val8.i
+  %trunc.i.i = trunc nuw i64 %13 to i1
+  %spec.select.i.i = select i1 %trunc.i.i, i64 %.val8.i, i64 undef
+  %.sroa.5.0.i = select i1 %14, i64 undef, i64 %spec.select.i.i
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   store i8 %8, ptr %16, align 8, !alias.scope !141, !noalias !144
   %17 = getelementptr inbounds i8, ptr %4, i64 17
@@ -1224,7 +1227,9 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
   %39 = icmp eq i64 %38, 2
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   %.val8.i = load i64, ptr %40, align 8, !alias.scope !184, !noalias !187
-  %.sroa.5.0.i = select i1 %39, i64 undef, i64 %.val8.i
+  %trunc.i.i = trunc nuw i64 %38 to i1
+  %spec.select.i.i = select i1 %trunc.i.i, i64 %.val8.i, i64 undef
+  %.sroa.5.0.i = select i1 %39, i64 undef, i64 %spec.select.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %41 = atomicrmw add ptr %29, i64 1 monotonic, align 8
   %42 = icmp slt i64 %41, 0
@@ -4434,8 +4439,8 @@ define noundef zeroext i1 @"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u
   %55 = load i64, ptr %54, align 8, !noundef !4
   %56 = and i64 %55, 63
   %57 = lshr i64 %53, %56
-  %.not224 = icmp eq i64 %57, 0
-  br i1 %.not224, label %._crit_edge, label %.lr.ph
+  %.not225 = icmp eq i64 %57, 0
+  br i1 %.not225, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51
   %58 = getelementptr inbounds i8, ptr %0, i64 352
@@ -4528,9 +4533,9 @@ define noundef zeroext i1 @"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u
   br i1 %127, label %.loopexit, label %138
 
 128:                                              ; preds = %.lr.ph, %259
-  %.sroa.03.0218 = phi i64 [ 0, %.lr.ph ], [ %129, %259 ]
-  %129 = add nuw nsw i64 %.sroa.03.0218, 1
-  %exitcond = icmp eq i64 %.sroa.03.0218, 2147483647
+  %.sroa.03.0219 = phi i64 [ 0, %.lr.ph ], [ %129, %259 ]
+  %129 = add nuw nsw i64 %.sroa.03.0219, 1
+  %exitcond = icmp eq i64 %.sroa.03.0219, 2147483647
   br i1 %exitcond, label %130, label %_ZN14regex_automata4util10primitives7StateID4must17h1a212146a295abf5E.exit
 
 130:                                              ; preds = %128
@@ -4542,7 +4547,7 @@ define noundef zeroext i1 @"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u
 _ZN14regex_automata4util10primitives7StateID4must17h1a212146a295abf5E.exit: ; preds = %128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !580)
-  %131 = shl i64 %.sroa.03.0218, %56
+  %131 = shl i64 %.sroa.03.0219, %56
   %132 = add i64 %59, %131
   %133 = icmp ult i64 %132, %53
   br i1 %133, label %_ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit, label %134, !prof !29
@@ -4555,7 +4560,7 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   %135 = getelementptr inbounds [0 x i64], ptr %.val.i, i64 0, i64 %132
   %136 = load i64, ptr %135, align 8, !noalias !580, !noundef !4
   store i64 %136, ptr %44, align 8
-  %137 = icmp eq i64 %.sroa.03.0218, 0
+  %137 = icmp eq i64 %.sroa.03.0219, 0
   br i1 %137, label %195, label %194
 
 138:                                              ; preds = %._crit_edge
@@ -4565,9 +4570,9 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   %142 = load i64, ptr %141, align 8, !noundef !4
   %143 = getelementptr inbounds i32, ptr %140, i64 %142
   %144 = icmp eq i64 %142, 0
-  br i1 %144, label %._crit_edge223, label %.lr.ph222
+  br i1 %144, label %._crit_edge224, label %.lr.ph223
 
-.lr.ph222:                                        ; preds = %138
+.lr.ph223:                                        ; preds = %138
   %145 = getelementptr inbounds i8, ptr %27, i64 8
   %146 = getelementptr inbounds i8, ptr %27, i64 16
   %147 = getelementptr inbounds i8, ptr %27, i64 24
@@ -4582,7 +4587,7 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   %156 = getelementptr inbounds i8, ptr %31, i64 24
   br label %163
 
-._crit_edge223:                                   ; preds = %192, %138
+._crit_edge224:                                   ; preds = %192, %138
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
@@ -4605,16 +4610,16 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   br i1 %162, label %.loopexit, label %168
 
-163:                                              ; preds = %.lr.ph222, %192
-  %.sroa.0.0220 = phi ptr [ %140, %.lr.ph222 ], [ %164, %192 ]
-  %.sroa.8.0219 = phi i64 [ 0, %.lr.ph222 ], [ %165, %192 ]
-  %164 = getelementptr inbounds i8, ptr %.sroa.0.0220, i64 4
-  %165 = add nuw nsw i64 %.sroa.8.0219, 1
-  %166 = load i32, ptr %.sroa.0.0220, align 4, !noundef !4
-  %167 = icmp eq i64 %.sroa.8.0219, 0
+163:                                              ; preds = %.lr.ph223, %192
+  %.sroa.0.0221 = phi ptr [ %140, %.lr.ph223 ], [ %164, %192 ]
+  %.sroa.8.0220 = phi i64 [ 0, %.lr.ph223 ], [ %165, %192 ]
+  %164 = getelementptr inbounds i8, ptr %.sroa.0.0221, i64 4
+  %165 = add nuw nsw i64 %.sroa.8.0220, 1
+  %166 = load i32, ptr %.sroa.0.0221, align 4, !noundef !4
+  %167 = icmp eq i64 %.sroa.8.0220, 0
   br i1 %167, label %185, label %188
 
-168:                                              ; preds = %._crit_edge223
+168:                                              ; preds = %._crit_edge224
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
@@ -4656,8 +4661,8 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %188, %185, %168, %._crit_edge223, %179, %._crit_edge, %2, %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit.thread"
-  %.0 = phi i1 [ true, %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit.thread" ], [ true, %2 ], [ true, %._crit_edge ], [ %184, %179 ], [ true, %._crit_edge223 ], [ true, %168 ], [ true, %185 ], [ true, %188 ]
+.loopexit:                                        ; preds = %188, %185, %168, %._crit_edge224, %179, %._crit_edge, %2, %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit.thread"
+  %.0 = phi i1 [ true, %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit.thread" ], [ true, %2 ], [ true, %._crit_edge ], [ %184, %179 ], [ true, %._crit_edge224 ], [ true, %168 ], [ true, %185 ], [ true, %188 ]
   ret i1 %.0
 
 185:                                              ; preds = %163
@@ -4683,7 +4688,7 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  %189 = add nsw i64 %.sroa.8.0219, -1
+  %189 = add nsw i64 %.sroa.8.0220, -1
   store i64 %189, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   %190 = zext i32 %166 to i64
@@ -4706,7 +4711,7 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
 
 192:                                              ; preds = %188, %185
   %193 = icmp eq ptr %164, %143
-  br i1 %193, label %._crit_edge223, label %163
+  br i1 %193, label %._crit_edge224, label %163
 
 194:                                              ; preds = %_ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit
   %.not = icmp ugt i64 %136, -4398046511105
@@ -4749,7 +4754,7 @@ _ZN14regex_automata3dfa7onepass3DFA16pattern_epsilons17ha1e9bf4964a78840E.exit: 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
-  store i64 %.sroa.03.0218, ptr %38, align 8
+  store i64 %.sroa.03.0219, ptr %38, align 8
   store ptr %38, ptr %39, align 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h05610c046aa2fa7eE", ptr %73, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37)
@@ -5031,8 +5036,8 @@ _ZN14regex_automata3dfa7onepass3DFA18sparse_transitions17h19be505e9343be78E.exit
 
 259:                                              ; preds = %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  %exitcond269.not = icmp eq i64 %129, %57
-  br i1 %exitcond269.not, label %._crit_edge, label %128
+  %exitcond270.not = icmp eq i64 %129, %57
+  br i1 %exitcond270.not, label %._crit_edge, label %128
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -7103,7 +7108,9 @@ define hidden void @"_ZN75_$LT$regex_automata..dfa..onepass..Config$u20$as$u20$c
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %.val8 = load i64, ptr %11, align 8
-  %.sroa.5.0 = select i1 %10, i64 undef, i64 %.val8
+  %trunc.i = trunc nuw i64 %9 to i1
+  %spec.select.i = select i1 %trunc.i, i64 %.val8, i64 undef
+  %.sroa.5.0 = select i1 %10, i64 undef, i64 %spec.select.i
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %4, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 17

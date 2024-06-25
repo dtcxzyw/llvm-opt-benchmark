@@ -341,7 +341,12 @@ define hidden { i32, i64 } @_ZN6hermes2vm22objectPrototypeValueOfEPvRNS0_7Runtim
 entry:
   %1 = load ptr, ptr %args, align 8, !noalias !10
   %call4 = tail call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %1) #8
-  ret { i32, i64 } %call4
+  %2 = extractvalue { i32, i64 } %call4, 0
+  %3 = extractvalue { i32, i64 } %call4, 1
+  %cmp.i = icmp eq i32 %2, 0
+  %spec.select = select i1 %cmp.i, i64 undef, i64 %3
+  %.fca.1.insert = insertvalue { i32, i64 } %call4, i64 %spec.select, 1
+  ret { i32, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2870,8 +2875,9 @@ entry:
   %4 = extractvalue { i32, i64 } %call10, 1
   %cmp.i5 = icmp ne i32 %3, 0
   %spec.select = zext i1 %cmp.i5 to i32
+  %spec.select6 = select i1 %cmp.i5, i64 %4, i64 undef
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %spec.select, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %4, 1
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %spec.select6, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

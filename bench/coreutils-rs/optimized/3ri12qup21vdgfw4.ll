@@ -164,7 +164,13 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hbe31ba
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %4 = load ptr, ptr %0, align 8, !alias.scope !42, !noalias !45, !nonnull !16, !align !17, !noundef !16
   %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !51
-  ret { i64, ptr } %5
+  %6 = extractvalue { i64, ptr } %5, 1
+  %7 = icmp eq ptr %6, null
+  %8 = extractvalue { i64, ptr } %5, 0
+  %.sroa.0.0 = select i1 %7, i64 undef, i64 %8
+  %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %10 = insertvalue { i64, ptr } %9, ptr %6, 1
+  ret { i64, ptr } %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -708,8 +714,14 @@ define hidden { i64, ptr } @_ZN9itertools9Itertools13find_position17h33625faf71c
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8
   %6 = call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !133
+  %7 = extractvalue { i64, ptr } %6, 1
+  %8 = icmp eq ptr %7, null
+  %9 = extractvalue { i64, ptr } %6, 0
+  %.sroa.0.0.i = select i1 %8, i64 undef, i64 %9
+  %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %11 = insertvalue { i64, ptr } %10, ptr %7, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  ret { i64, ptr } %6
+  ret { i64, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

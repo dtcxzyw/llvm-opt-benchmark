@@ -895,84 +895,83 @@ define { i32, float } @_ZN6sparse6common13sparse_vector12SparseVector5score17ha9
   %18 = load ptr, ptr %17, align 8, !nonnull !5
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !5
-  br label %25
+  br label %24
 
-._crit_edge.loopexit:                             ; preds = %38
-  %21 = and i8 %.140, 1
-  %22 = zext nneg i8 %21 to i32
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %37, %2
+  %.041.lcssa = phi float [ 0.000000e+00, %2 ], [ %.142, %37 ]
+  %.039.lcssa = phi i8 [ 0, %2 ], [ %.140, %37 ]
+  %21 = trunc nuw i8 %.039.lcssa to i1
+  %.041. = select i1 %21, float %.041.lcssa, float undef
+  %.mask = and i8 %.039.lcssa, 1
+  %. = zext nneg i8 %.mask to i32
+  %22 = insertvalue { i32, float } poison, i32 %., 0
+  %23 = insertvalue { i32, float } %22, float %.041., 1
+  ret { i32, float } %23
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.041.lcssa = phi float [ 0.000000e+00, %2 ], [ %.142, %._crit_edge.loopexit ]
-  %.039.lcssa = phi i32 [ 0, %2 ], [ %22, %._crit_edge.loopexit ]
-  %23 = insertvalue { i32, float } poison, i32 %.039.lcssa, 0
-  %24 = insertvalue { i32, float } %23, float %.041.lcssa, 1
-  ret { i32, float } %24
-
-25:                                               ; preds = %.lr.ph, %38
-  %.03670 = phi i64 [ 0, %.lr.ph ], [ %.1, %38 ]
-  %.03769 = phi i64 [ 0, %.lr.ph ], [ %.138, %38 ]
-  %.03968 = phi i8 [ 0, %.lr.ph ], [ %.140, %38 ]
-  %.04167 = phi float [ 0.000000e+00, %.lr.ph ], [ %.142, %38 ]
-  %26 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %.03670
-  %27 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %.03769
+24:                                               ; preds = %.lr.ph, %37
+  %.03670 = phi i64 [ 0, %.lr.ph ], [ %.1, %37 ]
+  %.03769 = phi i64 [ 0, %.lr.ph ], [ %.138, %37 ]
+  %.03968 = phi i8 [ 0, %.lr.ph ], [ %.140, %37 ]
+  %.04167 = phi float [ 0.000000e+00, %.lr.ph ], [ %.142, %37 ]
+  %25 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %.03670
+  %26 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %.03769
+  %27 = load i32, ptr %25, align 4, !noundef !5
   %28 = load i32, ptr %26, align 4, !noundef !5
-  %29 = load i32, ptr %27, align 4, !noundef !5
-  %30 = icmp ult i32 %28, %29
-  %31 = icmp ne i32 %28, %29
-  %.51 = zext i1 %31 to i8
-  %.0 = select i1 %30, i8 -1, i8 %.51
+  %29 = icmp ult i32 %27, %28
+  %30 = icmp ne i32 %27, %28
+  %.51 = zext i1 %30 to i8
+  %.0 = select i1 %29, i8 -1, i8 %.51
   switch i8 %.0, label %default.unreachable78 [
-    i8 -1, label %32
-    i8 0, label %34
-    i8 1, label %36
+    i8 -1, label %31
+    i8 0, label %33
+    i8 1, label %35
   ]
 
-default.unreachable78:                            ; preds = %25
+default.unreachable78:                            ; preds = %24
   unreachable
 
-32:                                               ; preds = %25
-  %33 = add nuw i64 %.03670, 1
-  br label %38
+31:                                               ; preds = %24
+  %32 = add nuw i64 %.03670, 1
+  br label %37
 
-34:                                               ; preds = %25
-  %35 = icmp ult i64 %.03670, %14
-  br i1 %35, label %41, label %43, !prof !154
+33:                                               ; preds = %24
+  %34 = icmp ult i64 %.03670, %14
+  br i1 %34, label %40, label %42, !prof !154
 
-36:                                               ; preds = %25
-  %37 = add nuw i64 %.03769, 1
-  br label %38
+35:                                               ; preds = %24
+  %36 = add nuw i64 %.03769, 1
+  br label %37
 
-38:                                               ; preds = %44, %36, %32
-  %.142 = phi float [ %.04167, %36 ], [ %50, %44 ], [ %.04167, %32 ]
-  %.140 = phi i8 [ %.03968, %36 ], [ 1, %44 ], [ %.03968, %32 ]
-  %.138 = phi i64 [ %37, %36 ], [ %52, %44 ], [ %.03769, %32 ]
-  %.1 = phi i64 [ %.03670, %36 ], [ %51, %44 ], [ %33, %32 ]
-  %39 = icmp ult i64 %.1, %4
-  %40 = icmp ult i64 %.138, %6
-  %or.cond = select i1 %39, i1 %40, i1 false
-  br i1 %or.cond, label %25, label %._crit_edge.loopexit
+37:                                               ; preds = %43, %35, %31
+  %.142 = phi float [ %.04167, %35 ], [ %49, %43 ], [ %.04167, %31 ]
+  %.140 = phi i8 [ %.03968, %35 ], [ 1, %43 ], [ %.03968, %31 ]
+  %.138 = phi i64 [ %36, %35 ], [ %51, %43 ], [ %.03769, %31 ]
+  %.1 = phi i64 [ %.03670, %35 ], [ %50, %43 ], [ %32, %31 ]
+  %38 = icmp ult i64 %.1, %4
+  %39 = icmp ult i64 %.138, %6
+  %or.cond = select i1 %38, i1 %39, i1 false
+  br i1 %or.cond, label %24, label %._crit_edge
 
-41:                                               ; preds = %34
-  %42 = icmp ult i64 %.03769, %16
-  br i1 %42, label %44, label %53, !prof !154
+40:                                               ; preds = %33
+  %41 = icmp ult i64 %.03769, %16
+  br i1 %41, label %43, label %52, !prof !154
 
-43:                                               ; preds = %34
+42:                                               ; preds = %33
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.03670, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30f34e5a9fd2306e2b5288d77ea6d58a.19) #21
   unreachable
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds [0 x float], ptr %20, i64 0, i64 %.03670
-  %46 = load float, ptr %45, align 4, !noundef !5
-  %47 = getelementptr inbounds [0 x float], ptr %18, i64 0, i64 %.03769
-  %48 = load float, ptr %47, align 4, !noundef !5
-  %49 = fmul float %46, %48
-  %50 = fadd float %.04167, %49
-  %51 = add nuw i64 %.03670, 1
-  %52 = add nuw i64 %.03769, 1
-  br label %38
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds [0 x float], ptr %20, i64 0, i64 %.03670
+  %45 = load float, ptr %44, align 4, !noundef !5
+  %46 = getelementptr inbounds [0 x float], ptr %18, i64 0, i64 %.03769
+  %47 = load float, ptr %46, align 4, !noundef !5
+  %48 = fmul float %45, %47
+  %49 = fadd float %.04167, %48
+  %50 = add nuw i64 %.03670, 1
+  %51 = add nuw i64 %.03769, 1
+  br label %37
 
-53:                                               ; preds = %41
+52:                                               ; preds = %40
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.03769, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30f34e5a9fd2306e2b5288d77ea6d58a.20) #21
   unreachable
 }

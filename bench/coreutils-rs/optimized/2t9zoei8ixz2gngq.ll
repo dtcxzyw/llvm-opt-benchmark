@@ -680,7 +680,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h818a9a7220
   unreachable
 
 common.resume:                                    ; preds = %.body.i.i, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %46, %.body.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %.body.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit": ; preds = %17, %"_ZN4core3ptr212drop_in_place$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbdfd4d991d196cb6E.exit.i.i.i"
@@ -691,86 +691,81 @@ common.resume:                                    ; preds = %.body.i.i, %.body.i
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !135
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !132
   %.not = icmp eq i64 %.sroa.0.0.copyload13, -9223372036854775805
-  br i1 %.not, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit", label %39
+  br i1 %.not, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit", label %40
 
 38:                                               ; preds = %14
   %.sroa.5.0..sroa_idx15 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.5.0.copyload16 = load ptr, ptr %.sroa.5.0..sroa_idx15, align 8, !noalias !135
-  %.sroa.6.0..sroa_idx17 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.6.0.copyload18 = load ptr, ptr %.sroa.6.0..sroa_idx17, align 8, !noalias !135
+  %39 = load <2 x ptr>, ptr %.sroa.5.0..sroa_idx15, align 8, !noalias !135
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !132
-  br label %62
+  br label %63
 
-39:                                               ; preds = %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
+40:                                               ; preds = %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
   %.val.i = load ptr, ptr %3, align 8, !noalias !180, !noundef !8
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
-  %.val5.i = load ptr, ptr %40, align 8, !noalias !180
-  %41 = icmp eq ptr %.val.i, null
-  br i1 %41, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i", label %42
+  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %.val5.i = load ptr, ptr %41, align 8, !noalias !180
+  %42 = icmp eq ptr %.val.i, null
+  br i1 %42, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i", label %43
 
-42:                                               ; preds = %39
-  %43 = icmp ne ptr %.val5.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load ptr, ptr %.val5.i, align 8, !invariant.load !8, !noalias !184, !nonnull !8
-  invoke void %44(ptr noundef nonnull align 1 %.val.i)
-          to label %54 unwind label %45, !noalias !184
+43:                                               ; preds = %40
+  %44 = icmp ne ptr %.val5.i, null
+  tail call void @llvm.assume(i1 %44)
+  %45 = load ptr, ptr %.val5.i, align 8, !invariant.load !8, !noalias !184, !nonnull !8
+  invoke void %45(ptr noundef nonnull align 1 %.val.i)
+          to label %55 unwind label %46, !noalias !184
 
-45:                                               ; preds = %42
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = getelementptr inbounds i8, ptr %.val5.i, i64 8
-  %48 = load i64, ptr %47, align 8, !range !87, !invariant.load !8, !noalias !189
-  %49 = getelementptr inbounds i8, ptr %.val5.i, i64 16
-  %50 = load i64, ptr %49, align 8, !range !91, !invariant.load !8, !noalias !189
-  %51 = icmp ult i64 %50, -9223372036854775807
-  tail call void @llvm.assume(i1 %51)
-  %52 = icmp eq i64 %48, 0
-  br i1 %52, label %.body.i, label %53
+  %48 = getelementptr inbounds i8, ptr %.val5.i, i64 8
+  %49 = load i64, ptr %48, align 8, !range !87, !invariant.load !8, !noalias !189
+  %50 = getelementptr inbounds i8, ptr %.val5.i, i64 16
+  %51 = load i64, ptr %50, align 8, !range !91, !invariant.load !8, !noalias !189
+  %52 = icmp ult i64 %51, -9223372036854775807
+  tail call void @llvm.assume(i1 %52)
+  %53 = icmp eq i64 %49, 0
+  br i1 %53, label %.body.i, label %54
 
-53:                                               ; preds = %45
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %48, i64 noundef %50) #18, !noalias !189
+54:                                               ; preds = %46
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %49, i64 noundef %51) #18, !noalias !189
   br label %.body.i
 
-54:                                               ; preds = %42
-  %55 = getelementptr inbounds i8, ptr %.val5.i, i64 8
-  %56 = load i64, ptr %55, align 8, !range !87, !invariant.load !8, !noalias !192
-  %57 = getelementptr inbounds i8, ptr %.val5.i, i64 16
-  %58 = load i64, ptr %57, align 8, !range !91, !invariant.load !8, !noalias !192
-  %59 = icmp ult i64 %58, -9223372036854775807
-  tail call void @llvm.assume(i1 %59)
-  %60 = icmp eq i64 %56, 0
-  br i1 %60, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i", label %61
+55:                                               ; preds = %43
+  %56 = getelementptr inbounds i8, ptr %.val5.i, i64 8
+  %57 = load i64, ptr %56, align 8, !range !87, !invariant.load !8, !noalias !192
+  %58 = getelementptr inbounds i8, ptr %.val5.i, i64 16
+  %59 = load i64, ptr %58, align 8, !range !91, !invariant.load !8, !noalias !192
+  %60 = icmp ult i64 %59, -9223372036854775807
+  tail call void @llvm.assume(i1 %60)
+  %61 = icmp eq i64 %57, 0
+  br i1 %61, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i", label %62
 
-61:                                               ; preds = %54
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %56, i64 noundef %58) #18, !noalias !192
+62:                                               ; preds = %55
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %57, i64 noundef %59) #18, !noalias !192
   br label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i"
 
-.body.i:                                          ; preds = %53, %45
+.body.i:                                          ; preds = %54, %46
   store ptr %.sroa.5.0.copyload, ptr %3, align 8, !noalias !180
-  store ptr %.sroa.6.0.copyload, ptr %40, align 8, !noalias !180
+  store ptr %.sroa.6.0.copyload, ptr %41, align 8, !noalias !180
   br label %common.resume
 
-"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i": ; preds = %61, %54, %39
+"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i": ; preds = %62, %55, %40
   store ptr %.sroa.5.0.copyload, ptr %3, align 8, !noalias !180
-  store ptr %.sroa.6.0.copyload, ptr %40, align 8, !noalias !180
-  br label %62
+  store ptr %.sroa.6.0.copyload, ptr %41, align 8, !noalias !180
+  br label %63
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit": ; preds = %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit.thread23", %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
   store i64 -9223372036854775805, ptr %0, align 8, !alias.scope !195
-  br label %63
+  br label %65
 
-62:                                               ; preds = %38, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i"
-  %.sroa.0.0.copyload2038 = phi i64 [ -9223372036854775806, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.pre.pre.i.i, %38 ]
-  %.sroa.5.0.copyload2137 = phi ptr [ %.sroa.5.0.copyload, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.sroa.5.0.copyload16, %38 ]
-  %.sroa.6.0.copyload2235 = phi ptr [ %.sroa.6.0.copyload, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.sroa.6.0.copyload18, %38 ]
-  store i64 %.sroa.0.0.copyload2038, ptr %0, align 8, !alias.scope !198
+63:                                               ; preds = %38, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i"
+  %.sroa.0.0.copyload2036 = phi i64 [ -9223372036854775806, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.pre.pre.i.i, %38 ]
+  %64 = phi <2 x ptr> [ undef, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %39, %38 ]
+  store i64 %.sroa.0.0.copyload2036, ptr %0, align 8, !alias.scope !198
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.5.0.copyload2137, ptr %.sroa.29.0..sroa_idx, align 8, !alias.scope !198
-  %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.6.0.copyload2235, ptr %.sroa.310.0..sroa_idx, align 8, !alias.scope !198
-  br label %63
+  store <2 x ptr> %64, ptr %.sroa.29.0..sroa_idx, align 8, !alias.scope !198
+  br label %65
 
-63:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit", %62
+65:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit", %63
   ret void
 }
 

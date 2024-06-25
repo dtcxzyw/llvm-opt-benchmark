@@ -246,10 +246,10 @@ define hidden { ptr, ptr } @_ZN9untrusted5input5Input8read_all17h3b5501a55f45cda
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = icmp eq i64 %3, 64
   %.sroa.01.0. = select i1 %7, ptr %5, ptr null
-  %.sroa.6.0.i12 = select i1 %4, ptr undef, ptr %6
+  %spec.select14 = select i1 %4, ptr undef, ptr %6
   %.sroa.0.1 = select i1 %4, ptr null, ptr %.sroa.01.0.
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.6.0.i12, 1
+  %9 = insertvalue { ptr, ptr } %8, ptr %spec.select14, 1
   ret { ptr, ptr } %9
 }
 
@@ -320,14 +320,14 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr n
   br i1 %35, label %39, label %40
 
 "_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread": ; preds = %27, %5, %31
-  %.sroa.6.038 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ], [ %24, %31 ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %27 ]
-  %.sroa.11.02937 = phi i64 [ 15, %5 ], [ %26, %31 ], [ 15, %27 ]
-  %36 = icmp ne ptr %.sroa.6.038, null
+  %.sroa.6.036 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ], [ %24, %31 ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %27 ]
+  %.sroa.11.02935 = phi i64 [ 15, %5 ], [ %26, %31 ], [ 15, %27 ]
+  %36 = icmp ne ptr %.sroa.6.036, null
   call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.6.038, ptr %37, align 8
+  store ptr %.sroa.6.036, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.11.02937, ptr %38, align 8
+  store i64 %.sroa.11.02935, ptr %38, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %43
@@ -338,12 +338,12 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr n
   br label %40
 
 40:                                               ; preds = %32, %39
-  %.sink51 = phi ptr [ %21, %39 ], [ null, %32 ]
-  %.sink50 = phi ptr [ %24, %39 ], [ %2, %32 ]
+  %.sink50 = phi ptr [ %21, %39 ], [ null, %32 ]
+  %.sink49 = phi ptr [ %24, %39 ], [ %2, %32 ]
   %.sink = phi i64 [ %26, %39 ], [ %3, %32 ]
-  store ptr %.sink51, ptr %0, align 8
+  store ptr %.sink50, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink50, ptr %41, align 8
+  store ptr %.sink49, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %42, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -469,15 +469,15 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i: ; preds = %1
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = add i64 %4, -1
+  %7 = add i64 %4, -1
+  %8 = getelementptr inbounds i8, ptr %2, i64 1
   br label %9
 
 9:                                                ; preds = %1, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i, %6
-  %.sroa.4.0.i13 = phi i64 [ %8, %6 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ undef, %1 ]
-  %.sroa.0.1 = phi ptr [ %7, %6 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ null, %1 ]
+  %.sroa.4.1 = phi i64 [ %7, %6 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ undef, %1 ]
+  %.sroa.0.1 = phi ptr [ %8, %6 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ null, %1 ]
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0.i13, 1
+  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.1, 1
   ret { ptr, i64 } %11
 }
 
@@ -594,25 +594,28 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h7e0efe2a6d6e25c
   %.sroa.52.0..i.i = select i1 %.not.i.i, ptr %10, ptr null
   %12 = icmp eq ptr %.sroa.52.0..i.i, null
   %13 = select i1 %11, i1 true, i1 %12
-  br i1 %13, label %18, label %14
+  br i1 %13, label %19, label %14
 
 14:                                               ; preds = %1
   %15 = load i64, ptr %8, align 8, !noundef !4
   %16 = load i64, ptr %7, align 8, !noundef !4
   %17 = icmp eq i64 %15, %16
+  %18 = select i1 %17, i1 %.not.i.i, i1 false
+  %.sroa.7.0. = select i1 %18, i64 %.sroa.6.0.copyload.i.i, i64 undef
   %.sroa.01.0. = select i1 %17, ptr %.sroa.52.0..i.i, ptr null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %19
+  br label %20
 
-18:                                               ; preds = %1
+19:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %14, %18
-  %.sroa.0.1 = phi ptr [ null, %18 ], [ %.sroa.01.0., %14 ]
-  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.6.0.copyload.i.i, 1
-  ret { ptr, i64 } %21
+20:                                               ; preds = %14, %19
+  %.sroa.4.1 = phi i64 [ undef, %19 ], [ %.sroa.7.0., %14 ]
+  %.sroa.0.1 = phi ptr [ null, %19 ], [ %.sroa.01.0., %14 ]
+  %21 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %22 = insertvalue { ptr, i64 } %21, i64 %.sroa.4.1, 1
+  ret { ptr, i64 } %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -759,14 +762,14 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h91e78c218ee6c2d8E(ptr n
   br i1 %38, label %42, label %43
 
 "_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread": ; preds = %30, %5, %34
-  %.sroa.6.040 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ], [ %27, %34 ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %30 ]
-  %.sroa.11.03139 = phi i64 [ 15, %5 ], [ %29, %34 ], [ 15, %30 ]
-  %39 = icmp ne ptr %.sroa.6.040, null
+  %.sroa.6.038 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ], [ %27, %34 ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %30 ]
+  %.sroa.11.03137 = phi i64 [ 15, %5 ], [ %29, %34 ], [ 15, %30 ]
+  %39 = icmp ne ptr %.sroa.6.038, null
   call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.6.040, ptr %40, align 8
+  store ptr %.sroa.6.038, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.11.03139, ptr %41, align 8
+  store i64 %.sroa.11.03137, ptr %41, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %46
@@ -777,12 +780,12 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h91e78c218ee6c2d8E(ptr n
   br label %43
 
 43:                                               ; preds = %35, %42
-  %.sink53 = phi ptr [ %24, %42 ], [ null, %35 ]
-  %.sink52 = phi ptr [ %27, %42 ], [ %2, %35 ]
+  %.sink52 = phi ptr [ %24, %42 ], [ null, %35 ]
+  %.sink51 = phi ptr [ %27, %42 ], [ %2, %35 ]
   %.sink = phi i64 [ %29, %42 ], [ %3, %35 ]
-  store ptr %.sink53, ptr %0, align 8
+  store ptr %.sink52, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %44, align 8
+  store ptr %.sink51, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -1025,12 +1028,13 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i: ; pr
   br i1 %.not.i8.i.i.i.i, label %14, label %20
 
 14:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %10, i64 1
-  %16 = add i64 %.sroa.6.0.copyload.i.i.i.i.i, -1
+  %15 = add i64 %.sroa.6.0.copyload.i.i.i.i.i, -1
+  %16 = getelementptr inbounds i8, ptr %10, i64 1
   %17 = load i64, ptr %8, align 8, !noundef !4
   %18 = load i64, ptr %7, align 8, !noundef !4
   %19 = icmp eq i64 %17, %18
-  %.sroa.01.0. = select i1 %19, ptr %15, ptr null
+  %.sroa.7.0. = select i1 %19, i64 %15, i64 undef
+  %.sroa.01.0. = select i1 %19, ptr %16, ptr null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %21
 
@@ -1039,10 +1043,10 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i: ; pr
   br label %21
 
 21:                                               ; preds = %14, %20
-  %.sroa.3.0.i.i.i.i9 = phi i64 [ undef, %20 ], [ %16, %14 ]
+  %.sroa.4.1 = phi i64 [ undef, %20 ], [ %.sroa.7.0., %14 ]
   %.sroa.0.1 = phi ptr [ null, %20 ], [ %.sroa.01.0., %14 ]
   %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.3.0.i.i.i.i9, 1
+  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.4.1, 1
   ret { ptr, i64 } %23
 }
 
@@ -1170,13 +1174,13 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i: ; preds = %7
   br i1 %.not.i8, label %11, label %_ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit
 
 11:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
-  %13 = add i64 %.sroa.6.0.copyload.i, -1
+  %12 = add i64 %.sroa.6.0.copyload.i, -1
+  %13 = getelementptr inbounds i8, ptr %5, i64 1
   br label %_ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit
 
 _ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit: ; preds = %2, %7, %11, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i
-  %.sroa.3.0 = phi i64 [ %13, %11 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ undef, %7 ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %12, %11 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ null, %7 ], [ null, %2 ]
+  %.sroa.3.0 = phi i64 [ %12, %11 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ undef, %7 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %13, %11 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ null, %7 ], [ null, %2 ]
   %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %15
@@ -1326,12 +1330,13 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i: ; 
   br i1 %.not.i8.i.i.i.i.i, label %20, label %26
 
 20:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %16, i64 1
-  %22 = add i64 %.sroa.6.0.copyload.i.i.i.i.i.i, -1
+  %21 = add i64 %.sroa.6.0.copyload.i.i.i.i.i.i, -1
+  %22 = getelementptr inbounds i8, ptr %16, i64 1
   %23 = load i64, ptr %14, align 8, !noalias !192, !noundef !4
   %24 = load i64, ptr %13, align 8, !noalias !192, !noundef !4
   %25 = icmp eq i64 %23, %24
-  %.sroa.01.0..i = select i1 %25, ptr %21, ptr null
+  %.sroa.7.0..i = select i1 %25, i64 %21, i64 undef
+  %.sroa.01.0..i = select i1 %25, ptr %22, ptr null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !192
   br label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
 
@@ -1340,7 +1345,7 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i: ; 
   br label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
 
 _ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit: ; preds = %2, %9, %26, %20
-  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %22, %20 ], [ undef, %9 ], [ undef, %2 ]
+  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %.sroa.7.0..i, %20 ], [ undef, %9 ], [ undef, %2 ]
   %.sroa.0.0 = phi ptr [ null, %26 ], [ %.sroa.01.0..i, %20 ], [ null, %9 ], [ null, %2 ]
   %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, i64 } %27, i64 %.sroa.3.0, 1

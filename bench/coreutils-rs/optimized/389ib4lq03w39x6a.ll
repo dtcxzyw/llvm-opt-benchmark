@@ -1198,36 +1198,36 @@ define void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..tr
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %28, %3
-  %.sroa.3.0.i47.i.i = phi i64 [ %29, %28 ], [ %2, %3 ]
+  %.sroa.7.049.i.i = phi i64 [ %29, %28 ], [ %2, %3 ]
   %9 = phi i64 [ %25, %28 ], [ 0, %3 ]
-  %.49.i.i = getelementptr inbounds i8, ptr %1, i64 %9
-  %10 = icmp ult i64 %.sroa.3.0.i47.i.i, 16
+  %.sroa.0.050.i.i = getelementptr inbounds i8, ptr %1, i64 %9
+  %10 = icmp ult i64 %.sroa.7.049.i.i, 16
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %.lr.ph.split.split.i.i
-  %12 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %.49.i.i, i64 noundef %.sroa.3.0.i47.i.i), !noalias !191
+  %12 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %.sroa.0.050.i.i, i64 noundef %.sroa.7.049.i.i), !noalias !191
   br label %21
 
 13:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %9, %2
+  %.not.i.i.i = icmp eq i64 %.sroa.7.049.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %13, %17
   %.05.i.i.i = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %14 = getelementptr inbounds [0 x i8], ptr %.49.i.i, i64 0, i64 %.05.i.i.i
+  %14 = getelementptr inbounds [0 x i8], ptr %.sroa.0.050.i.i, i64 0, i64 %.05.i.i.i
   %15 = load i8, ptr %14, align 1, !alias.scope !197, !noalias !191, !noundef !13
   %16 = icmp eq i8 %15, 45
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i
-  %18 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.3.0.i47.i.i
+  %18 = add nuw nsw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.7.049.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %17, %.lr.ph.i.i.i, %13
-  %.0.lcssa.i.i.i = phi i64 [ 0, %13 ], [ %.sroa.3.0.i47.i.i, %17 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i25.i.i = phi i64 [ 0, %13 ], [ 0, %17 ], [ 1, %.lr.ph.i.i.i ]
-  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i, 0
+  %.0.lcssa.i.i.i = phi i64 [ 0, %13 ], [ %.sroa.7.049.i.i, %17 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i24.i.i = phi i64 [ 0, %13 ], [ 0, %17 ], [ 1, %.lr.ph.i.i.i ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i24.i.i, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.0.lcssa.i.i.i, 1
   br label %21
 
@@ -2057,7 +2057,7 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.preheader.i
-  %.011.i.i = phi i64 [ %38, %36 ], [ 0, %.lr.ph.i.preheader.i ]
+  %.010.i.i = phi i64 [ %38, %36 ], [ 0, %.lr.ph.i.preheader.i ]
   %34 = phi ptr [ %37, %36 ], [ %33, %.lr.ph.i.preheader.i ]
   %.val.i.i = load i32, ptr %34, align 4, !range !250, !noalias !324, !noundef !13
   %35 = icmp eq i32 %.val.i.i, 93
@@ -2065,16 +2065,16 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
 
 36:                                               ; preds = %.lr.ph.i.i
   %37 = getelementptr inbounds i8, ptr %34, i64 4
-  %38 = add nuw nsw i64 %.011.i.i, 1
+  %38 = add nuw nsw i64 %.010.i.i, 1
   %39 = icmp eq ptr %37, %13
   br i1 %39, label %_ZN6uucore6parser10parse_glob12fix_negation17h99365c49fc9b1722E.exit, label %.lr.ph.i.i
 
 40:                                               ; preds = %.lr.ph.i.i
-  %41 = icmp ult i64 %.011.i.i, %31
+  %41 = icmp ult i64 %.010.i.i, %31
   tail call void @llvm.assume(i1 %41)
   store i32 33, ptr %25, align 4, !noalias !322
   %42 = add i64 %.03671.i, 4
-  %43 = add i64 %42, %.011.i.i
+  %43 = add i64 %42, %.010.i.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %40, %24, %17

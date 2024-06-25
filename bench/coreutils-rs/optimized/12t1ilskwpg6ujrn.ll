@@ -2983,7 +2983,7 @@ _ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit: ; preds = %15, 
   br i1 %22, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit, %25
-  %.012.i.i = phi i64 [ %27, %25 ], [ 0, %_ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit ]
+  %.011.i.i = phi i64 [ %27, %25 ], [ 0, %_ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit ]
   %23 = phi ptr [ %26, %25 ], [ %18, %_ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit ]
   %.val7.i.i = load i32, ptr %23, align 4, !noalias !357, !noundef !4
   %24 = icmp eq i32 %.val7.i.i, %.0
@@ -2991,7 +2991,7 @@ _ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit: ; preds = %15, 
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds i8, ptr %23, i64 4
-  %27 = add nuw nsw i64 %.012.i.i, 1
+  %27 = add nuw nsw i64 %.011.i.i, 1
   %28 = icmp eq ptr %26, %21
   br i1 %28, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -3002,10 +3002,10 @@ _ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit: ; preds = %15, 
           to label %.body unwind label %41, !noalias !352
 
 31:                                               ; preds = %.lr.ph.i.i
-  %32 = icmp ult i64 %.012.i.i, %20
+  %32 = icmp ult i64 %.011.i.i, %20
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds i32, ptr %18, i64 %.012.i.i
-  invoke void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 noundef %.012.i.i, ptr noundef nonnull %33, i64 noundef 1)
+  %33 = getelementptr inbounds i32, ptr %18, i64 %.011.i.i
+  invoke void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 noundef %.011.i.i, ptr noundef nonnull %33, i64 noundef 1)
           to label %43 unwind label %29, !noalias !361
 
 .loopexit.i:                                      ; preds = %25, %_ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit

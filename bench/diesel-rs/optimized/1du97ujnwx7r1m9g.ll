@@ -660,25 +660,25 @@ common.resume:                                    ; preds = %.thread265, %95, %.
   %.sroa.9.0.i.i.i = phi i64 [ 0, %96 ], [ %149, %148 ]
   %.sroa.01.0.i.i.i = phi i64 [ %103, %96 ], [ %151, %148 ]
   %117 = getelementptr inbounds i8, ptr %104, i64 %.sroa.01.0.i.i.i
-  %.0.copyload.i31.i.i = load <16 x i8>, ptr %117, align 1, !noalias !156
-  %118 = icmp eq <16 x i8> %.0.copyload.i31.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i33.i.i = load <16 x i8>, ptr %117, align 1, !noalias !156
+  %118 = icmp eq <16 x i8> %.0.copyload.i33.i.i, %.15.vec.insert.i.i.i
   %119 = bitcast <16 x i1> %118 to i16
-  %.not.not.i34.i.i = icmp eq i16 %119, 0
-  br i1 %.not.not.i34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not.not.i36.i.i = icmp eq i16 %119, 0
+  br i1 %.not.not.i36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %116
-  %120 = icmp eq <16 x i8> %.0.copyload.i31.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %120 = icmp eq <16 x i8> %.0.copyload.i33.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %121 = bitcast <16 x i1> %120 to i16
   %.not.i.i.i = icmp eq i16 %121, 0
   br i1 %.not.i.i.i, label %148, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h71b4edeb5b814ac2E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %116, %.backedge.i.i
-  %.02135.i.i = phi i16 [ %123, %.backedge.i.i ], [ %119, %116 ]
-  %122 = add i16 %.02135.i.i, -1
-  %123 = and i16 %122, %.02135.i.i
-  %124 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02135.i.i, i1 true)
-  %125 = zext nneg i16 %124 to i64
-  %126 = add i64 %.sroa.01.0.i.i.i, %125
+  %.02237.i.i = phi i16 [ %125, %.backedge.i.i ], [ %119, %116 ]
+  %122 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02237.i.i, i1 true)
+  %123 = zext nneg i16 %122 to i64
+  %124 = add i16 %.02237.i.i, -1
+  %125 = and i16 %124, %.02237.i.i
+  %126 = add i64 %.sroa.01.0.i.i.i, %123
   %127 = and i64 %126, %102
   %128 = sub nsw i64 0, %127
   %129 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %104, i64 %128
@@ -701,7 +701,7 @@ common.resume:                                    ; preds = %.thread265, %95, %.
   br i1 %138, label %182, label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.noexc12.i, %143, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h521d4c58c4ab6bb8E.exit.i.i.i.i.i", %139, %136, %.lr.ph.i.i
-  %.not.not.i.i.i = icmp eq i16 %123, 0
+  %.not.not.i.i.i = icmp eq i16 %125, 0
   br i1 %.not.not.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 139:                                              ; preds = %135

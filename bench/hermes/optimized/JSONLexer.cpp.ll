@@ -1768,8 +1768,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end19
   %0 = phi ptr [ %.pre, %entry ], [ %incdec.ptr.i, %if.end19 ]
-  %i.031 = phi i32 [ 0, %entry ], [ %inc, %if.end19 ]
-  %val.030 = phi i16 [ 0, %entry ], [ %add, %if.end19 ]
+  %i.030 = phi i32 [ 0, %entry ], [ %inc, %if.end19 ]
+  %val.029 = phi i16 [ 0, %entry ], [ %add, %if.end19 ]
   %1 = load ptr, ptr %end_.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %_ZN6hermes11UTF16Stream7hasCharEv.exit, label %if.end
@@ -1779,7 +1779,7 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit:           ; preds = %for.body
   br i1 %call.i, label %_ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge, label %if.then
 
 _ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge: ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
-  %.pre38 = load ptr, ptr %this, align 8
+  %.pre35 = load ptr, ptr %this, align 8
   br label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
@@ -1804,7 +1804,7 @@ if.then:                                          ; preds = %_ZN6hermes11UTF16St
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge, %for.body
-  %3 = phi ptr [ %.pre38, %_ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge ], [ %0, %for.body ]
+  %3 = phi ptr [ %.pre35, %_ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge ], [ %0, %for.body ]
   %4 = load i16, ptr %3, align 2
   %5 = or i16 %4, 32
   %6 = add i16 %5, -48
@@ -1859,21 +1859,24 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %i
 
 if.end19:                                         ; preds = %if.end, %if.then11
   %ch.0 = phi i16 [ %sub12, %if.then11 ], [ %6, %if.end ]
-  %shl = shl i16 %val.030, 4
+  %shl = shl i16 %val.029, 4
   %add = add nuw i16 %ch.0, %shl
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
-  %inc = add nuw nsw i32 %i.031, 1
+  %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !79
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !79
 
-return:                                           ; preds = %if.end19, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit, %if.then
-  %val.029 = phi i16 [ %val.030, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit ], [ %val.030, %if.then ], [ %add, %if.end19 ]
-  %retval.sroa.0.0 = phi i32 [ %call.i.i12, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit ], [ %call.i10, %if.then ], [ 1, %if.end19 ]
-  %retval.sroa.4.0.insert.ext = zext i16 %val.029 to i64
-  %retval.sroa.4.0.insert.shift = shl nuw nsw i64 %retval.sroa.4.0.insert.ext, 32
+return.loopexit:                                  ; preds = %if.end19
+  %14 = zext i16 %add to i64
+  %15 = shl nuw nsw i64 %14, 32
+  br label %return
+
+return:                                           ; preds = %return.loopexit, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit, %if.then
+  %retval.sroa.4.0 = phi i64 [ 0, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit ], [ 0, %if.then ], [ %15, %return.loopexit ]
+  %retval.sroa.0.0 = phi i32 [ %call.i.i12, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit ], [ %call.i10, %if.then ], [ 1, %return.loopexit ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.shift, %retval.sroa.0.0.insert.ext
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

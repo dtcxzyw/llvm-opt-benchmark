@@ -501,7 +501,7 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   br i1 %cond, label %17, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %10
-  %.011.i = phi i64 [ %12, %10 ], [ 0, %3 ]
+  %.010.i = phi i64 [ %12, %10 ], [ 0, %3 ]
   %8 = phi ptr [ %11, %10 ], [ %4, %3 ]
   %.val.i = load i8, ptr %8, align 1, !noalias !48, !noundef !4
   %9 = add i8 %.val.i, -58
@@ -510,14 +510,14 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
 
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %8, i64 1
-  %12 = add nuw i64 %.011.i, 1
+  %12 = add nuw i64 %.010.i, 1
   %13 = icmp eq ptr %11, %7
   br i1 %13, label %19, label %.lr.ph.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = icmp ult i64 %.011.i, %6
+  %15 = icmp ult i64 %.010.i, %6
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp eq i64 %.011.i, 0
+  %16 = icmp eq i64 %.010.i, 0
   br i1 %16, label %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit"
 
 17:                                               ; preds = %3
@@ -559,8 +559,8 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   br label %21
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit": ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %4, i64 %.011.i
-  %25 = sub i64 %6, %.011.i
+  %24 = getelementptr inbounds i8, ptr %4, i64 %.010.i
+  %25 = sub i64 %6, %.010.i
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %26, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -568,7 +568,7 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %4, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.011.i, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.010.i, ptr %.sroa.6.0..sroa_idx, align 8
   br label %21
 }
 

@@ -1696,7 +1696,8 @@ io_buffer_initialize.exit.i:                      ; preds = %io_buffer_map_memor
   br i1 %.not.i47, label %io_buffer_resize_copy.exit, label %io_buffer_initialize.exit.i.thread
 
 io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_initialize.exit.i
-  %.sroa.0.0.i50 = phi ptr [ %.0.i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
+  %.sroa.0.0.i53 = phi ptr [ %.0.i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
+  %.sroa.5.0.i51 = phi i32 [ %..i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
   %69 = phi ptr [ %.pre, %io_buffer_initialize.exit.i ], [ %10, %56 ]
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
@@ -1705,7 +1706,7 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
   br i1 %.not.i15.i, label %ruby_nonempty_memcpy.exit.i, label %72
 
 72:                                               ; preds = %io_buffer_initialize.exit.i.thread
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i50, ptr nonnull readonly align 1 %69, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i53, ptr nonnull readonly align 1 %69, i64 %spec.select.i, i1 false)
   %.val.pre.i = load i64, ptr %70, align 8
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -1715,7 +1716,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %io_buffer_init
   br i1 %73, label %74, label %io_buffer_resize_clear.exit.i
 
 74:                                               ; preds = %ruby_nonempty_memcpy.exit.i
-  %75 = getelementptr i8, ptr %.sroa.0.0.i50, i64 %.val.i
+  %75 = getelementptr i8, ptr %.sroa.0.0.i53, i64 %.val.i
   %76 = sub i64 %1, %.val.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %76, i1 false)
   br label %io_buffer_resize_clear.exit.i
@@ -1749,11 +1750,12 @@ io_buffer_resize_clear.exit.i:                    ; preds = %74, %ruby_nonempty_
   br label %io_buffer_resize_copy.exit
 
 io_buffer_resize_copy.exit:                       ; preds = %io_buffer_initialize.exit.i, %io_buffer_resize_clear.exit.i, %81, %84
-  %.sroa.0.0.i51 = phi ptr [ %.0.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i50, %io_buffer_resize_clear.exit.i ], [ %.sroa.0.0.i50, %81 ], [ %.sroa.0.0.i50, %84 ]
-  store ptr %.sroa.0.0.i51, ptr %3, align 8
+  %.sroa.0.0.i54 = phi ptr [ %.0.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i53, %io_buffer_resize_clear.exit.i ], [ %.sroa.0.0.i53, %81 ], [ %.sroa.0.0.i53, %84 ]
+  %.sroa.5.0.i52 = phi i32 [ %..i.i, %io_buffer_initialize.exit.i ], [ %.sroa.5.0.i51, %io_buffer_resize_clear.exit.i ], [ %.sroa.5.0.i51, %81 ], [ %.sroa.5.0.i51, %84 ]
+  store ptr %.sroa.0.0.i54, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i32 %..i.i, ptr %4, align 8
+  store i32 %.sroa.5.0.i52, ptr %4, align 8
   %.sroa.618.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 4, ptr %.sroa.618.0..sroa_idx.i, align 8
   br label %88

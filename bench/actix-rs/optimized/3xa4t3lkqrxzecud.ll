@@ -6,7 +6,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17ha3551325421d22ceE"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he5d584cdf950fbbcE"(ptr align 8 %0, ptr align 1 %1, i64 %2)
-  ret { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %4, 0
+  %6 = icmp eq ptr %5, null
+  %7 = extractvalue { ptr, i64 } %4, 1
+  %.sroa.3.0 = select i1 %6, i64 undef, i64 %7
+  %8 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

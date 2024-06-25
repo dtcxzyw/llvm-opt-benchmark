@@ -6,9 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$14saturating_mul17h28c9473e63c2df9bE"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %0, i64 %1)
-  %4 = extractvalue { i64, i1 } %3, 0
-  %5 = extractvalue { i64, i1 } %3, 1
-  %.0 = select i1 %5, i64 -1, i64 %4
+  %4 = extractvalue { i64, i1 } %3, 1
+  %5 = extractvalue { i64, i1 } %3, 0
+  %.0 = select i1 %4, i64 -1, i64 %5
   ret i64 %.0
 }
 

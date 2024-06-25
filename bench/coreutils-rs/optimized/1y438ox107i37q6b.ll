@@ -4508,28 +4508,28 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   br label %28
 
 28:                                               ; preds = %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit"
-  %.sroa.010.0 = phi ptr [ %23, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %34, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %.sroa.711.0 = phi ptr [ %24, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.711.122, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %.sroa.10.0 = phi ptr [ %22, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.10.123, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %.sroa.13.0 = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.13.124, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %29 = icmp ne ptr %.sroa.711.0, null
+  %.sroa.011.0 = phi ptr [ %23, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %34, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
+  %.sroa.712.0 = phi ptr [ %24, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.712.123, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
+  %.sroa.10.0 = phi ptr [ %22, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.10.124, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
+  %.sroa.13.0 = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.13.125, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
+  %29 = icmp ne ptr %.sroa.712.0, null
   tail call void @llvm.assume(i1 %29)
-  %30 = icmp eq ptr %.sroa.010.0, %.sroa.711.0
-  br i1 %30, label %31, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread17"
+  %30 = icmp eq ptr %.sroa.011.0, %.sroa.712.0
+  br i1 %30, label %31, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18"
 
 31:                                               ; preds = %28
   %32 = icmp eq ptr %.sroa.10.0, %.sroa.13.0
   %33 = icmp eq ptr %.sroa.10.0, null
   %or.cond = or i1 %33, %32
-  br i1 %or.cond, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread17"
+  br i1 %or.cond, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18"
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread17": ; preds = %28, %31
-  %.sink6.i25 = phi ptr [ %.sroa.10.0, %31 ], [ %.sroa.010.0, %28 ]
-  %.sroa.13.124 = phi ptr [ %.sroa.010.0, %31 ], [ %.sroa.13.0, %28 ]
-  %.sroa.10.123 = phi ptr [ %.sroa.010.0, %31 ], [ %.sroa.10.0, %28 ]
-  %.sroa.711.122 = phi ptr [ %.sroa.13.0, %31 ], [ %.sroa.711.0, %28 ]
-  %34 = getelementptr inbounds i8, ptr %.sink6.i25, i64 8
-  %35 = load ptr, ptr %.sink6.i25, align 8, !nonnull !9, !align !10, !noundef !9
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18": ; preds = %28, %31
+  %.sink6.i26 = phi ptr [ %.sroa.10.0, %31 ], [ %.sroa.011.0, %28 ]
+  %.sroa.13.125 = phi ptr [ %.sroa.011.0, %31 ], [ %.sroa.13.0, %28 ]
+  %.sroa.10.124 = phi ptr [ %.sroa.011.0, %31 ], [ %.sroa.10.0, %28 ]
+  %.sroa.712.123 = phi ptr [ %.sroa.13.0, %31 ], [ %.sroa.712.0, %28 ]
+  %34 = getelementptr inbounds i8, ptr %.sink6.i26, i64 8
+  %35 = load ptr, ptr %.sink6.i26, align 8, !nonnull !9, !align !10, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !660)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !663)
@@ -4538,11 +4538,11 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   %38 = icmp ugt i64 %37, 8192
   br i1 %38, label %39, label %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i
 
-39:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread17"
+39:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18"
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %37, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d9a17f252f4bd5f091d9eb52e4896952.57.llvm.14858434719121323170) #26, !noalias !667
   unreachable
 
-_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread17"
+_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread18"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   %40 = load i64, ptr %1, align 8, !alias.scope !670, !noalias !673, !noundef !9
   %41 = load i64, ptr %26, align 8, !alias.scope !670, !noalias !673, !noundef !9

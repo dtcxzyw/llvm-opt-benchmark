@@ -11785,6 +11785,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i:  ; preds = %_ZL12stbi__at_eofP1
   br label %.cont
 
 .cont:                                            ; preds = %315, %.else
+  %.03 = phi i32 [ undef, %.else ], [ %317, %315 ]
   br i1 %134, label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit, label %.preheader270.lr.ph.i
 
 .preheader270.lr.ph.i:                            ; preds = %.cont
@@ -12610,13 +12611,13 @@ _ZL13stbi__readvalP13stbi__contextiPh.exit235.i:  ; preds = %628
   br i1 %exitcond340.not.i, label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit, label %.preheader270.i, !llvm.loop !94
 
 .loopexit262.sink.split.i:                        ; preds = %_ZL12stbi__at_eofP13stbi__context.exit.thread.i, %_ZL12stbi__at_eofP13stbi__context.exit.i, %309, %217, %322, %591, %538, %_ZL12stbi__at_eofP13stbi__context.exit180.i, %485, %_ZL12stbi__at_eofP13stbi__context.exit144.i, %397, %_ZL12stbi__at_eofP13stbi__context.exit.i191.i, %551, %_ZL12stbi__at_eofP13stbi__context.exit.i150.i, %415, %_ZL12stbi__at_eofP13stbi__context.exit.i.i, %340, %_ZL12stbi__at_eofP13stbi__context.exit.i219.i, %603
-  %.1 = phi i32 [ %317, %603 ], [ %317, %_ZL12stbi__at_eofP13stbi__context.exit.i219.i ], [ %317, %340 ], [ %317, %_ZL12stbi__at_eofP13stbi__context.exit.i.i ], [ %317, %415 ], [ %317, %_ZL12stbi__at_eofP13stbi__context.exit.i150.i ], [ %317, %551 ], [ %317, %_ZL12stbi__at_eofP13stbi__context.exit.i191.i ], [ %317, %397 ], [ %317, %_ZL12stbi__at_eofP13stbi__context.exit144.i ], [ %317, %485 ], [ %317, %_ZL12stbi__at_eofP13stbi__context.exit180.i ], [ %317, %538 ], [ %317, %591 ], [ %317, %322 ], [ undef, %217 ], [ undef, %309 ], [ undef, %_ZL12stbi__at_eofP13stbi__context.exit.i ], [ undef, %_ZL12stbi__at_eofP13stbi__context.exit.thread.i ]
+  %.1 = phi i32 [ %.03, %603 ], [ %.03, %_ZL12stbi__at_eofP13stbi__context.exit.i219.i ], [ %.03, %340 ], [ %.03, %_ZL12stbi__at_eofP13stbi__context.exit.i.i ], [ %.03, %415 ], [ %.03, %_ZL12stbi__at_eofP13stbi__context.exit.i150.i ], [ %.03, %551 ], [ %.03, %_ZL12stbi__at_eofP13stbi__context.exit.i191.i ], [ %.03, %397 ], [ %.03, %_ZL12stbi__at_eofP13stbi__context.exit144.i ], [ %.03, %485 ], [ %.03, %_ZL12stbi__at_eofP13stbi__context.exit180.i ], [ %.03, %538 ], [ %.03, %591 ], [ %.03, %322 ], [ undef, %217 ], [ undef, %309 ], [ undef, %_ZL12stbi__at_eofP13stbi__context.exit.i ], [ undef, %_ZL12stbi__at_eofP13stbi__context.exit.thread.i ]
   %.str.84.sink.i = phi ptr [ @.str.84, %603 ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit.i219.i ], [ @.str.84, %340 ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit.i.i ], [ @.str.84, %415 ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit.i150.i ], [ @.str.84, %551 ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit.i191.i ], [ @.str.84, %397 ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit144.i ], [ @.str.84, %485 ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit180.i ], [ @.str.84, %538 ], [ @.str.84, %591 ], [ @.str.85, %322 ], [ @.str.85, %_ZL12stbi__at_eofP13stbi__context.exit.thread.i ], [ @.str.84, %_ZL12stbi__at_eofP13stbi__context.exit.i ], [ @.str.84, %309 ], [ @.str.85, %217 ]
   store ptr %.str.84.sink.i, ptr @_ZL22stbi__g_failure_reason, align 8
   br label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread
 
 _ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread: ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit235.i, %.loopexit262.sink.split.i
-  %.2.ph = phi i32 [ %.1, %.loopexit262.sink.split.i ], [ %317, %_ZL13stbi__readvalP13stbi__contextiPh.exit235.i ], [ %317, %_ZL13stbi__readvalP13stbi__contextiPh.exit.i ]
+  %.2.ph = phi i32 [ %.1, %.loopexit262.sink.split.i ], [ %.03, %_ZL13stbi__readvalP13stbi__contextiPh.exit235.i ], [ %.03, %_ZL13stbi__readvalP13stbi__contextiPh.exit.i ]
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -12630,12 +12631,12 @@ _ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit: ; preds = %635, %.cont
   br i1 %.not42, label %636, label %637
 
 636:                                              ; preds = %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit
-  %.214 = phi i32 [ %.2.ph, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread ], [ %317, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit ]
+  %.214 = phi i32 [ %.2.ph, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread ], [ %.03, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit ]
   tail call void @free(ptr noundef %.0.i82) #53
   br label %637
 
 637:                                              ; preds = %636, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit
-  %.213 = phi i32 [ %317, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit ], [ %.214, %636 ]
+  %.213 = phi i32 [ %.03, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit ], [ %.214, %636 ]
   %.036 = phi ptr [ %.0.i82, %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit ], [ null, %636 ]
   store i32 %80, ptr %1, align 4
   store i32 %122, ptr %2, align 4
@@ -34279,8 +34280,9 @@ _ZL13stbi__get16beP13stbi__context.exit.else:     ; preds = %_ZL13stbi__get16beP
   br label %_ZL13stbi__get16beP13stbi__context.exit.cont
 
 _ZL13stbi__get16beP13stbi__context.exit.cont:     ; preds = %_ZL13stbi__get16beP13stbi__context.exit, %_ZL13stbi__get16beP13stbi__context.exit.else
-  %97 = phi ptr [ %91, %_ZL13stbi__get16beP13stbi__context.exit ], [ %.pre130, %_ZL13stbi__get16beP13stbi__context.exit.else ]
-  %98 = phi ptr [ %92, %_ZL13stbi__get16beP13stbi__context.exit ], [ %.pre129, %_ZL13stbi__get16beP13stbi__context.exit.else ]
+  %97 = phi ptr [ %.pre130, %_ZL13stbi__get16beP13stbi__context.exit.else ], [ %91, %_ZL13stbi__get16beP13stbi__context.exit ]
+  %98 = phi ptr [ %.pre129, %_ZL13stbi__get16beP13stbi__context.exit.else ], [ %92, %_ZL13stbi__get16beP13stbi__context.exit ]
+  %.0108 = phi i32 [ undef, %_ZL13stbi__get16beP13stbi__context.exit.else ], [ %96, %_ZL13stbi__get16beP13stbi__context.exit ]
   %99 = icmp ult ptr %98, %97
   br i1 %99, label %100, label %103
 
@@ -34378,7 +34380,7 @@ _ZL13stbi__get16beP13stbi__context.exit69.else:   ; preds = %_ZL13stbi__get16beP
   br label %_ZL13stbi__get16beP13stbi__context.exit69.cont
 
 _ZL13stbi__get16beP13stbi__context.exit69.cont:   ; preds = %_ZL13stbi__get16beP13stbi__context.exit69, %_ZL13stbi__get16beP13stbi__context.exit69.else
-  %.1 = phi i32 [ %96, %_ZL13stbi__get16beP13stbi__context.exit69.else ], [ %138, %_ZL13stbi__get16beP13stbi__context.exit69 ]
+  %.1 = phi i32 [ %.0108, %_ZL13stbi__get16beP13stbi__context.exit69.else ], [ %138, %_ZL13stbi__get16beP13stbi__context.exit69 ]
   %139 = load ptr, ptr %8, align 8
   %.not.i70 = icmp eq ptr %139, null
   br i1 %.not.i70, label %_ZL12stbi__at_eofP13stbi__context.exit, label %140

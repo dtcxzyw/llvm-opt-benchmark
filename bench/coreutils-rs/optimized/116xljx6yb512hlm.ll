@@ -147,7 +147,12 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h4f82092896f38
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h98324a3ec8f40964E.exit: ; preds = %19, %22
   %.pn.i = phi { ptr, i64 } [ %21, %19 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret { ptr, i64 } %.pn.i
+  %24 = extractvalue { ptr, i64 } %.pn.i, 0
+  %25 = icmp eq ptr %24, null
+  %26 = extractvalue { ptr, i64 } %.pn.i, 1
+  %.sroa.3.0 = select i1 %25, i64 undef, i64 %26
+  %27 = insertvalue { ptr, i64 } %.pn.i, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -191,7 +196,12 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h9c53fffebf381
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hcd8885324e20ce59E.exit: ; preds = %19, %22
   %.pn.i = phi { ptr, i64 } [ %21, %19 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret { ptr, i64 } %.pn.i
+  %24 = extractvalue { ptr, i64 } %.pn.i, 0
+  %25 = icmp eq ptr %24, null
+  %26 = extractvalue { ptr, i64 } %.pn.i, 1
+  %.sroa.3.0 = select i1 %25, i64 undef, i64 %26
+  %27 = insertvalue { ptr, i64 } %.pn.i, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -235,7 +245,12 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17he2e2387d1f517
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hfcbcc204e618e1caE.exit: ; preds = %19, %22
   %.pn.i = phi { ptr, i64 } [ %21, %19 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret { ptr, i64 } %.pn.i
+  %24 = extractvalue { ptr, i64 } %.pn.i, 0
+  %25 = icmp eq ptr %24, null
+  %26 = extractvalue { ptr, i64 } %.pn.i, 1
+  %.sroa.3.0 = select i1 %25, i64 undef, i64 %26
+  %27 = insertvalue { ptr, i64 } %.pn.i, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

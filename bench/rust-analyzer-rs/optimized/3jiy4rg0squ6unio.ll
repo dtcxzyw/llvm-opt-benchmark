@@ -98383,6 +98383,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h000
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -98408,7 +98409,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h000
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !15325, !noalias !15351
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !15325, !noalias !15351
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !15325, !noalias !15351
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -98925,6 +98926,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h026
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -98950,7 +98952,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h026
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !15401, !noalias !15427
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !15401, !noalias !15427
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !15401, !noalias !15427
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -100984,6 +100986,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h191
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -101009,7 +101012,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h191
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !15658, !noalias !15684
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !15658, !noalias !15684
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !15658, !noalias !15684
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -107241,6 +107244,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h619
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -107266,7 +107270,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h619
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !16473, !noalias !16499
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !16473, !noalias !16499
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !16473, !noalias !16499
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -112986,6 +112990,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h7b8
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -113011,7 +113016,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h7b8
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !17219, !noalias !17245
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17219, !noalias !17245
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17219, !noalias !17245
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -116560,6 +116565,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17haf3
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -116585,7 +116591,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17haf3
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !17655, !noalias !17681
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17655, !noalias !17681
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17655, !noalias !17681
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -117634,6 +117640,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hb95
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -117659,7 +117666,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hb95
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !17806, !noalias !17832
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17806, !noalias !17832
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17806, !noalias !17832
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i
@@ -118176,6 +118183,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hc40
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i", %66, %60
+  %.sroa.20.0.i = phi i64 [ %.sroa.4.0.copyload, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
@@ -118201,7 +118209,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hc40
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %.sroa.19.0.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !17882, !noalias !17908
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17882, !noalias !17908
+  store i64 %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !17882, !noalias !17908
   br label %114
 
 62:                                               ; preds = %.thread67.i, %109, %.body29.i, %.body.i

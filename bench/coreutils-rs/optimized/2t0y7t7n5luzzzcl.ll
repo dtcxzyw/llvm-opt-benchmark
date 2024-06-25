@@ -3009,6 +3009,7 @@ common.resume:                                    ; preds = %80, %44
   br label %"_ZN5uu_cp15copy_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hbc12e46120c5e1baE.exit.thread"
 
 "_ZN5uu_cp15copy_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hbc12e46120c5e1baE.exit": ; preds = %34, %"_ZN119_$LT$uu_cp..Error$u20$as$u20$core..convert..From$LT$quick_error..Context$LT$$RF$str$C$std..io..error..Error$GT$$GT$$GT$4from17h75f556101e6d6a26E.exit.i"
+  %.sroa.11.0 = phi ptr [ %33, %"_ZN119_$LT$uu_cp..Error$u20$as$u20$core..convert..From$LT$quick_error..Context$LT$$RF$str$C$std..io..error..Error$GT$$GT$$GT$4from17h75f556101e6d6a26E.exit.i" ], [ undef, %34 ]
   %.sroa.10.0 = phi i64 [ %42, %"_ZN119_$LT$uu_cp..Error$u20$as$u20$core..convert..From$LT$quick_error..Context$LT$$RF$str$C$std..io..error..Error$GT$$GT$$GT$4from17h75f556101e6d6a26E.exit.i" ], [ %.sroa.536.i.sroa.6.0.copyload, %34 ]
   %.sroa.9.0 = phi ptr [ %49, %"_ZN119_$LT$uu_cp..Error$u20$as$u20$core..convert..From$LT$quick_error..Context$LT$$RF$str$C$std..io..error..Error$GT$$GT$$GT$4from17h75f556101e6d6a26E.exit.i" ], [ %.sroa.536.i.sroa.5.0.copyload, %34 ]
   %.sroa.6.0 = phi i64 [ %48, %"_ZN119_$LT$uu_cp..Error$u20$as$u20$core..convert..From$LT$quick_error..Context$LT$$RF$str$C$std..io..error..Error$GT$$GT$$GT$4from17h75f556101e6d6a26E.exit.i" ], [ %.sroa.536.i.sroa.0.0.copyload, %34 ]
@@ -3036,7 +3037,7 @@ common.resume:                                    ; preds = %80, %44
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
   store i64 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %33, ptr %.sroa.11.0..sroa_idx, align 8
+  store ptr %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !536)
@@ -3129,7 +3130,7 @@ common.resume:                                    ; preds = %80, %44
   %.sroa.10.8..sroa.212.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.10.0, ptr %.sroa.10.8..sroa.212.0..sroa_idx.sroa_idx, align 8
   %.sroa.11.8..sroa.212.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %33, ptr %.sroa.11.8..sroa.212.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.11.0, ptr %.sroa.11.8..sroa.212.0..sroa_idx.sroa_idx, align 8
   %.sroa.12.8..sroa.212.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.8..sroa.212.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12)

@@ -109,7 +109,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
           to label %33 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %344, %299, %289, %"_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17h52ed17215f240891E.exit.i", %254, %358, %326, %308, %274
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body96.ph, %308 ], [ %275, %274 ], [ %359, %358 ], [ %327, %326 ], [ %lpad.thr_comm.split-lp.i, %254 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17h52ed17215f240891E.exit.i" ], [ %290, %289 ], [ %300, %299 ], [ %345, %344 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit177, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp178, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body96.ph, %308 ], [ %275, %274 ], [ %359, %358 ], [ %327, %326 ], [ %lpad.thr_comm.split-lp.i, %254 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17h52ed17215f240891E.exit.i" ], [ %290, %289 ], [ %300, %299 ], [ %345, %344 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit181, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp182, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17h059b20512ae9c075E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #17
           to label %.body92 unwind label %309
 
@@ -119,12 +119,12 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %53
-  %lpad.loopexit177 = landingpad { ptr, i32 }
+  %lpad.loopexit181 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %"_ZN4core3ptr109drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$regex_syntax..hir..translate..HirFrame$GT$$GT$$GT$17h987f4cab062d979dE.llvm.10559302552934589985.exit.i99", %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17h7fce153854b8f7acE.exit.i", %.noexc64.i, %._crit_edge, %4, %337
-  %lpad.loopexit.split-lp178 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp182 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -224,7 +224,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   br label %74
 
 74:                                               ; preds = %303, %59
-  %75 = phi ptr [ %2, %59 ], [ %.pre209, %303 ]
+  %75 = phi ptr [ %2, %59 ], [ %.pre213, %303 ]
   %76 = phi ptr [ %31, %59 ], [ %.pre, %303 ]
   %.sroa.0130.0 = phi i32 [ undef, %59 ], [ %.sroa.0130.1, %303 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6132)
@@ -267,9 +267,9 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
 
 89:                                               ; preds = %86, %82, %74
   %.sroa.0130.1 = phi i32 [ %.sroa.0130.0, %74 ], [ %.sroa.0130.0, %82 ], [ %87, %86 ]
-  %.sink19.i.sroa.phi = phi ptr [ %.sroa.6132, %74 ], [ %.sroa.6132, %82 ], [ %.sroa.11134, %86 ]
+  %.sink20.i.sroa.phi = phi ptr [ %.sroa.6132, %74 ], [ %.sroa.6132, %82 ], [ %.sroa.11134, %86 ]
   %.sink.i = phi ptr [ null, %74 ], [ null, %82 ], [ %84, %86 ]
-  store ptr %.sink.i, ptr %.sink19.i.sroa.phi, align 8, !alias.scope !24, !noalias !27
+  store ptr %.sink.i, ptr %.sink20.i.sroa.phi, align 8, !alias.scope !24, !noalias !27
   %.sroa.6132.0..sroa.6132.0..sroa.6132.0..sroa.6132.8.133 = load ptr, ptr %.sroa.6132, align 8, !noundef !23
   %90 = icmp eq ptr %.sroa.6132.0..sroa.6132.0..sroa.6132.0..sroa.6132.8.133, null
   br i1 %90, label %91, label %276
@@ -324,8 +324,8 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   br label %"_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h1d5863e74e1d8b91E.exit.i"
 
 "_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h1d5863e74e1d8b91E.exit.i": ; preds = %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17h4d49b3a25d235bf9E.exit.i.i.i", %103, %91
-  %.sroa.5.056.i.i = phi i64 [ undef, %91 ], [ %113, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17h4d49b3a25d235bf9E.exit.i.i.i" ], [ undef, %103 ]
-  %.sroa.4.055.i.i = phi ptr [ undef, %91 ], [ %.val1.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17h4d49b3a25d235bf9E.exit.i.i.i" ], [ undef, %103 ]
+  %.sroa.5.062.i.i = phi i64 [ undef, %91 ], [ %113, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17h4d49b3a25d235bf9E.exit.i.i.i" ], [ undef, %103 ]
+  %.sroa.4.061.i.i = phi ptr [ undef, %91 ], [ %.val1.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17h4d49b3a25d235bf9E.exit.i.i.i" ], [ undef, %103 ]
   %.sroa.0.0.i.i = phi ptr [ undef, %91 ], [ %.val.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17h4d49b3a25d235bf9E.exit.i.i.i" ], [ undef, %103 ]
   %114 = getelementptr inbounds i8, ptr %1, i64 122
   %115 = load i8, ptr %114, align 2, !range !52, !alias.scope !50, !noalias !51, !noundef !23
@@ -334,13 +334,17 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   %118 = icmp eq i64 %117, 2
   %119 = getelementptr inbounds i8, ptr %1, i64 24
   %.val45.i.i = load i64, ptr %119, align 8, !alias.scope !50, !noalias !51
-  %.sroa.5.0.i.i = select i1 %118, i64 undef, i64 %.val45.i.i
+  %trunc.i.i.i = trunc nuw i64 %117 to i1
+  %spec.select.i.i.i = select i1 %trunc.i.i.i, i64 %.val45.i.i, i64 undef
+  %.sroa.5.0.i.i = select i1 %118, i64 undef, i64 %spec.select.i.i.i
   %120 = getelementptr inbounds i8, ptr %1, i64 32
   %121 = load i64, ptr %120, align 8, !range !64, !alias.scope !50, !noalias !51, !noundef !23
   %122 = icmp eq i64 %121, 2
   %123 = getelementptr inbounds i8, ptr %1, i64 40
   %.val43.i.i = load i64, ptr %123, align 8, !alias.scope !50, !noalias !51
-  %.sroa.55.0.i.i = select i1 %122, i64 undef, i64 %.val43.i.i
+  %trunc.i46.i.i = trunc nuw i64 %121 to i1
+  %spec.select.i47.i.i = select i1 %trunc.i46.i.i, i64 %.val43.i.i, i64 undef
+  %.sroa.55.0.i.i = select i1 %122, i64 undef, i64 %spec.select.i47.i.i
   %124 = load i64, ptr %1, align 8, !range !65, !alias.scope !50, !noalias !51, !noundef !23
   %125 = getelementptr inbounds i8, ptr %1, i64 8
   %126 = load i64, ptr %125, align 8, !alias.scope !50, !noalias !51
@@ -350,13 +354,17 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   %130 = icmp eq i64 %129, 2
   %131 = getelementptr inbounds i8, ptr %1, i64 56
   %.val41.i.i = load i64, ptr %131, align 8, !alias.scope !50, !noalias !51
-  %.sroa.511.0.i.i = select i1 %130, i64 undef, i64 %.val41.i.i
+  %trunc.i49.i.i = trunc nuw i64 %129 to i1
+  %spec.select.i50.i.i = select i1 %trunc.i49.i.i, i64 %.val41.i.i, i64 undef
+  %.sroa.511.0.i.i = select i1 %130, i64 undef, i64 %spec.select.i50.i.i
   %132 = getelementptr inbounds i8, ptr %1, i64 64
   %133 = load i64, ptr %132, align 8, !range !64, !alias.scope !50, !noalias !51, !noundef !23
   %134 = icmp eq i64 %133, 2
   %135 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i.i = load i64, ptr %135, align 8, !alias.scope !50, !noalias !51
-  %.sroa.513.0.i.i = select i1 %134, i64 undef, i64 %.val39.i.i
+  %trunc.i52.i.i = trunc nuw i64 %133 to i1
+  %spec.select.i53.i.i = select i1 %trunc.i52.i.i, i64 %.val39.i.i, i64 undef
+  %.sroa.513.0.i.i = select i1 %134, i64 undef, i64 %spec.select.i53.i.i
   %trunc.i.i = trunc nuw i64 %124 to i1
   %.sroa.57.0.i.i = select i1 %trunc.i.i, i64 %126, i64 undef
   %136 = getelementptr inbounds i8, ptr %1, i64 121
@@ -375,12 +383,12 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   store i8 %99, ptr %144, align 4, !alias.scope !44, !noalias !66
   %145 = getelementptr inbounds i8, ptr %19, i64 80
   store ptr %.sroa.0.0.i.i, ptr %145, align 8, !alias.scope !44, !noalias !66
-  %.sroa.4.0..sroa_idx51.i.i = getelementptr inbounds i8, ptr %19, i64 88
-  store ptr %.sroa.4.055.i.i, ptr %.sroa.4.0..sroa_idx51.i.i, align 8, !alias.scope !44, !noalias !66
-  %.sroa.5.0..sroa_idx52.i.i = getelementptr inbounds i8, ptr %19, i64 96
-  store i64 %.sroa.5.056.i.i, ptr %.sroa.5.0..sroa_idx52.i.i, align 8, !alias.scope !44, !noalias !66
-  %.sroa.6.0..sroa_idx53.i.i = getelementptr inbounds i8, ptr %19, i64 104
-  store i8 %101, ptr %.sroa.6.0..sroa_idx53.i.i, align 8, !alias.scope !44, !noalias !66
+  %.sroa.4.0..sroa_idx57.i.i = getelementptr inbounds i8, ptr %19, i64 88
+  store ptr %.sroa.4.061.i.i, ptr %.sroa.4.0..sroa_idx57.i.i, align 8, !alias.scope !44, !noalias !66
+  %.sroa.5.0..sroa_idx58.i.i = getelementptr inbounds i8, ptr %19, i64 96
+  store i64 %.sroa.5.062.i.i, ptr %.sroa.5.0..sroa_idx58.i.i, align 8, !alias.scope !44, !noalias !66
+  %.sroa.6.0..sroa_idx59.i.i = getelementptr inbounds i8, ptr %19, i64 104
+  store i8 %101, ptr %.sroa.6.0..sroa_idx59.i.i, align 8, !alias.scope !44, !noalias !66
   %146 = getelementptr inbounds i8, ptr %19, i64 122
   store i8 %115, ptr %146, align 2, !alias.scope !44, !noalias !66
   %147 = getelementptr inbounds i8, ptr %19, i64 16
@@ -916,7 +924,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.6132)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.11134)
   %.pre = load ptr, ptr %.sroa.0121.sroa.2.0..sroa_idx, align 8, !alias.scope !29, !noalias !24
-  %.pre209 = load ptr, ptr %24, align 8, !alias.scope !29, !noalias !24
+  %.pre213 = load ptr, ptr %24, align 8, !alias.scope !29, !noalias !24
   br label %74
 
 308:                                              ; preds = %284, %293

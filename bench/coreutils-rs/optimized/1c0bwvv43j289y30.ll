@@ -1838,19 +1838,19 @@ _ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit: ; preds = %174,
   br label %626
 
 450:                                              ; preds = %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread
-  %.sroa.4.sroa.0.0247.ph = phi i64 [ %.sroa.0148.1, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.0148.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
-  %.sroa.4.sroa.6.0245.ph = phi i64 [ %.sroa.24.1, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.24.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
-  %.sroa.4.sroa.8.0243.ph = phi i64 [ %194, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.45.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
-  %.sroa.62.2231241.ph = phi i64 [ %195, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.62.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
+  %.sroa.4.sroa.0.0244.ph = phi i64 [ %.sroa.0148.1, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.0148.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
+  %.sroa.4.sroa.6.0242.ph = phi i64 [ %.sroa.24.1, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.24.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
+  %.sroa.4.sroa.8.0240.ph = phi i64 [ %194, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.45.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
+  %.sroa.927.0.ph = phi i64 [ %195, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread ], [ %.sroa.62.0, %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit ]
   store i64 2, ptr %0, align 8
   %.sroa.259.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.4.sroa.0.0247.ph, ptr %.sroa.259.0..sroa_idx, align 8
+  store i64 %.sroa.4.sroa.0.0244.ph, ptr %.sroa.259.0..sroa_idx, align 8
   %.sroa.259.sroa.2.0..sroa.259.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.sroa.6.0245.ph, ptr %.sroa.259.sroa.2.0..sroa.259.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.sroa.6.0242.ph, ptr %.sroa.259.sroa.2.0..sroa.259.0..sroa_idx.sroa_idx, align 8
   %.sroa.259.sroa.3.0..sroa.259.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.sroa.8.0243.ph, ptr %.sroa.259.sroa.3.0..sroa.259.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.sroa.8.0240.ph, ptr %.sroa.259.sroa.3.0..sroa.259.0..sroa_idx.sroa_idx, align 8
   %.sroa.360.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.62.2231241.ph, ptr %.sroa.360.0..sroa_idx, align 8
+  store i64 %.sroa.927.0.ph, ptr %.sroa.360.0..sroa_idx, align 8
   br label %626
 
 451:                                              ; preds = %93

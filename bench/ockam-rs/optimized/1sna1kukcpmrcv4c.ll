@@ -6176,21 +6176,21 @@ define internal fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vaul
   %4 = alloca { i8, [39 x i8] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i8, ptr %5, align 8, !range !16, !noundef !17
-  switch i8 %6, label %default.unreachable60 [
+  switch i8 %6, label %default.unreachable66 [
     i8 0, label %8
     i8 1, label %29
     i8 2, label %30
     i8 3, label %7
   ]
 
-default.unreachable60:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.val19.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !1797
-  %.phi.trans.insert58 = getelementptr i8, ptr %1, i64 24
-  %.val20.pre = load ptr, ptr %.phi.trans.insert58, align 8, !alias.scope !1797
+  %.phi.trans.insert64 = getelementptr i8, ptr %1, i64 24
+  %.val20.pre = load ptr, ptr %.phi.trans.insert64, align 8, !alias.scope !1797
   br label %31
 
 8:                                                ; preds = %3
@@ -6331,12 +6331,14 @@ common.ret:                                       ; preds = %"_ZN153_$LT$core..r
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h2be8ce294bc73547E.exit": ; preds = %57, %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i", %53
   %.sroa.043.0 = phi i8 [ 0, %53 ], [ 1, %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i" ], [ 1, %57 ]
+  %.sroa.444.0 = phi i8 [ %.sroa.2.sroa.0.0.copyload, %53 ], [ undef, %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i" ], [ undef, %57 ]
+  %.sroa.545.0 = phi i8 [ %.sroa.2.sroa.2.0.copyload, %53 ], [ undef, %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i" ], [ undef, %57 ]
   %.sroa.7.0 = phi ptr [ %.sroa.3.0.copyload, %53 ], [ %54, %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i" ], [ %.sroa.3.0.copyload, %57 ]
   store i8 %.sroa.043.0, ptr %0, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sroa.2.sroa.0.0.copyload, ptr %.sroa.444.0..sroa_idx, align 1
+  store i8 %.sroa.444.0, ptr %.sroa.444.0..sroa_idx, align 1
   %.sroa.545.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %.sroa.2.sroa.2.0.copyload, ptr %.sroa.545.0..sroa_idx, align 2
+  store i8 %.sroa.545.0, ptr %.sroa.545.0..sroa_idx, align 2
   %.sroa.646.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.646.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.646, i64 5, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -8814,7 +8816,7 @@ common.ret:                                       ; preds = %60, %13
   %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.sroa.236.0, ptr %.sroa.236.0..sroa_idx, align 1
   %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.338.0..sroa_idx, align 8
+  store ptr %.sroa.338.0, ptr %.sroa.338.0..sroa_idx, align 8
   br label %common.ret
 
 14:                                               ; preds = %3
@@ -9042,6 +9044,7 @@ common.ret:                                       ; preds = %60, %13
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h722512f9939fb3aeE.exit": ; preds = %86, %"_ZN160_$LT$ockam_vault..software..vault_for_signing..vault_for_signing..SoftwareVaultForSigning$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$25delete_signing_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf4711450959937a0E.exit.i"
   %.sroa.236.0 = phi i8 [ undef, %86 ], [ %85, %"_ZN160_$LT$ockam_vault..software..vault_for_signing..vault_for_signing..SoftwareVaultForSigning$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$25delete_signing_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf4711450959937a0E.exit.i" ]
+  %.sroa.338.0 = phi ptr [ %.sroa.3.0.copyload, %86 ], [ undef, %"_ZN160_$LT$ockam_vault..software..vault_for_signing..vault_for_signing..SoftwareVaultForSigning$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$25delete_signing_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf4711450959937a0E.exit.i" ]
   %storemerge.i = phi i8 [ 1, %86 ], [ 0, %"_ZN160_$LT$ockam_vault..software..vault_for_signing..vault_for_signing..SoftwareVaultForSigning$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$25delete_signing_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf4711450959937a0E.exit.i" ]
   %88 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !2271)

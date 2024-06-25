@@ -1033,26 +1033,26 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   ret void
 
 .lr.ph:                                           ; preds = %1, %93
-  %.038 = phi i8 [ %.1, %93 ], [ 0, %1 ]
-  %.01037 = phi i32 [ %.111, %93 ], [ 0, %1 ]
-  %.sroa.0.036 = phi ptr [ %15, %93 ], [ %.val, %1 ]
-  %.sroa.7.035 = phi i64 [ %16, %93 ], [ 0, %1 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 32
-  %16 = add nuw nsw i64 %.sroa.7.035, 1
-  %17 = load float, ptr %.sroa.0.036, align 4, !noundef !12
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 8
+  %.039 = phi i8 [ %.1, %93 ], [ 0, %1 ]
+  %.01038 = phi i32 [ %.111, %93 ], [ 0, %1 ]
+  %.sroa.0.037 = phi ptr [ %15, %93 ], [ %.val, %1 ]
+  %.sroa.7.036 = phi i64 [ %16, %93 ], [ 0, %1 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 32
+  %16 = add nuw nsw i64 %.sroa.7.036, 1
+  %17 = load float, ptr %.sroa.0.037, align 4, !noundef !12
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 8
   %19 = load float, ptr %18, align 4, !noundef !12
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 12
+  %20 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 12
   %21 = load float, ptr %20, align 4, !noundef !12
   %22 = fadd float %21, 1.600000e+01
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 16
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 16
   %24 = load float, ptr %23, align 4, !noundef !12
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 20
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 20
   %26 = load float, ptr %25, align 4, !noundef !12
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 24
+  %27 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 24
   %28 = load float, ptr %27, align 4, !noundef !12
   %29 = fadd float %28, 1.600000e+01
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 28
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 28
   %31 = load float, ptr %30, align 4, !noundef !12
   %32 = fadd float %31, 1.000000e+00
   %33 = tail call i64 @llvm.fptoui.sat.i64.f32(float %24)
@@ -1064,7 +1064,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   %.0.sroa.speculated.i23 = tail call noundef i64 @llvm.umin.i64(i64 %35, i64 %.0.sroa.speculated.i)
   %.0.sroa.speculated.i24 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %.0.sroa.speculated.i23)
   %.0.sroa.speculated.i25 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %.0.sroa.speculated.i24)
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 4
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 4
   %39 = load float, ptr %38, align 4, !noundef !12
   %40 = fadd float %39, 6.000000e+00
   %41 = uitofp i64 %.0.sroa.speculated.i25 to float
@@ -1087,7 +1087,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   br i1 %or.cond4, label %57, label %53
 
 51:                                               ; preds = %.lr.ph
-  %52 = icmp ult i64 %.sroa.7.035, 8192
+  %52 = icmp ult i64 %.sroa.7.036, 8192
   br i1 %52, label %88, label %90, !prof !278
 
 53:                                               ; preds = %46
@@ -1098,17 +1098,17 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   br i1 %or.cond5, label %63, label %59
 
 57:                                               ; preds = %46
-  %58 = icmp ult i64 %.sroa.7.035, 8192
+  %58 = icmp ult i64 %.sroa.7.036, 8192
   br i1 %58, label %81, label %83, !prof !278
 
 59:                                               ; preds = %53
   %60 = fadd float %41, 6.000000e+00
   %61 = fcmp olt float %60, %17
-  %62 = icmp ult i64 %.sroa.7.035, 8192
+  %62 = icmp ult i64 %.sroa.7.036, 8192
   br i1 %61, label %66, label %65
 
 63:                                               ; preds = %53
-  %64 = icmp ult i64 %.sroa.7.035, 8192
+  %64 = icmp ult i64 %.sroa.7.036, 8192
   br i1 %64, label %78, label %80, !prof !278
 
 65:                                               ; preds = %59
@@ -1118,16 +1118,16 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   br i1 %62, label %condstore.split, label %77, !prof !278
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.035
+  %68 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
   store i8 0, ptr %68, align 1
   br label %85
 
 69:                                               ; preds = %65
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.035, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.20) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.036, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.20) #21
   unreachable
 
 condstore.split:                                  ; preds = %66
-  %70 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.035
+  %70 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
   %71 = icmp eq i64 %.0.sroa.speculated.i25, %36
   %spec.store.select = select i1 %71, i8 7, i8 4
   store i8 %spec.store.select, ptr %70, align 1
@@ -1139,25 +1139,25 @@ condstore.split:                                  ; preds = %66
   br i1 %76, label %84, label %85
 
 77:                                               ; preds = %66
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.035, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.21) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.036, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.21) #21
   unreachable
 
 78:                                               ; preds = %63
-  %79 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.035
+  %79 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
   store i8 3, ptr %79, align 1
   br label %85
 
 80:                                               ; preds = %63
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.035, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.26) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.036, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.26) #21
   unreachable
 
 81:                                               ; preds = %57
-  %82 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.035
+  %82 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
   store i8 2, ptr %82, align 1
   br label %85
 
 83:                                               ; preds = %57
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.035, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.27) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.036, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.27) #21
   unreachable
 
 84:                                               ; preds = %condstore.split
@@ -1172,22 +1172,22 @@ condstore.split:                                  ; preds = %66
   br i1 %87, label %91, label %95
 
 88:                                               ; preds = %51
-  %89 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.035
+  %89 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
   store i8 1, ptr %89, align 1
   br label %85
 
 90:                                               ; preds = %51
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.035, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.28) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.7.036, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.28) #21
   unreachable
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.035
-  store i8 %.038, ptr %92, align 1
+  %92 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  store i8 %.039, ptr %92, align 1
   br label %93
 
 93:                                               ; preds = %95, %91
-  %.111 = phi i32 [ %.01037, %91 ], [ %spec.select20, %95 ]
-  %.1 = phi i8 [ %.038, %91 ], [ %spec.select21, %95 ]
+  %.111 = phi i32 [ %.01038, %91 ], [ %spec.select20, %95 ]
+  %.1 = phi i8 [ %.039, %91 ], [ %spec.select21, %95 ]
   %94 = icmp eq ptr %15, %6
   br i1 %94, label %._crit_edge, label %.lr.ph
 
@@ -1197,9 +1197,9 @@ condstore.split:                                  ; preds = %66
   %98 = load i32, ptr %97, align 4, !noundef !12
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 4
-  %100 = icmp ugt i32 %99, %.01037
-  %spec.select20 = tail call i32 @llvm.umax.i32(i32 %99, i32 %.01037)
-  %spec.select21 = select i1 %100, i8 %86, i8 %.038
+  %100 = icmp ugt i32 %99, %.01038
+  %spec.select20 = tail call i32 @llvm.umax.i32(i32 %99, i32 %.01038)
+  %spec.select21 = select i1 %100, i8 %86, i8 %.039
   br label %93
 }
 

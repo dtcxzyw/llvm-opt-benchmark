@@ -4046,9 +4046,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %6 = load ptr, ptr %5, align 8, !nonnull !4
   %7 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %.sroa.3.0 = select i1 %.not, ptr %7, ptr undef
+  %.sroa.0.0 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %10
 }
 
@@ -4061,9 +4062,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %6 = load ptr, ptr %5, align 8, !nonnull !4
   %7 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %.sroa.3.0 = select i1 %.not, ptr %7, ptr undef
+  %.sroa.0.0 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %10
 }
 
@@ -4077,9 +4079,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %7 = getelementptr inbounds { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %.0 = select i1 %.not, ptr %7, ptr null
   %8 = getelementptr inbounds i8, ptr %.0, i64 40
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %spec.select = select i1 %.not, ptr %7, ptr undef
+  %spec.select9 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select9, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %spec.select, 1
   ret { ptr, ptr } %10
 }
 
@@ -4093,9 +4096,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %7 = getelementptr inbounds { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %.0 = select i1 %.not, ptr %7, ptr null
   %8 = getelementptr inbounds i8, ptr %.0, i64 56
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %spec.select = select i1 %.not, ptr %7, ptr undef
+  %spec.select9 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select9, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %spec.select, 1
   ret { ptr, ptr } %10
 }
 
@@ -4109,9 +4113,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %7 = getelementptr inbounds { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %.0 = select i1 %.not, ptr %7, ptr null
   %8 = getelementptr inbounds i8, ptr %.0, i64 72
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %spec.select = select i1 %.not, ptr %7, ptr undef
+  %spec.select9 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select9, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %spec.select, 1
   ret { ptr, ptr } %10
 }
 
@@ -4141,9 +4146,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %6 = load ptr, ptr %5, align 8, !nonnull !4
   %7 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %.sroa.3.0 = select i1 %.not, ptr %7, ptr undef
+  %.sroa.0.0 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %10
 }
 
@@ -4157,9 +4163,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %7 = getelementptr inbounds { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %6, i64 %1
   %.0 = select i1 %.not, ptr %7, ptr null
   %8 = getelementptr inbounds i8, ptr %.0, i64 40
-  %spec.select = select i1 %.not, ptr %8, ptr null
-  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %7, 1
+  %spec.select = select i1 %.not, ptr %7, ptr undef
+  %spec.select9 = select i1 %.not, ptr %8, ptr null
+  %9 = insertvalue { ptr, ptr } poison, ptr %spec.select9, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %spec.select, 1
   ret { ptr, ptr } %10
 }
 

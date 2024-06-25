@@ -19,8 +19,8 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   store ptr %8, ptr %9, align 8, !noalias !4
   %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %10, 0
-  %switch19.i = icmp eq i64 %.fca.0.extract14.i, 0
-  br i1 %switch19.i, label %11, label %14
+  %switch21.i = icmp eq i64 %.fca.0.extract14.i, 0
+  br i1 %switch21.i, label %11, label %14
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4
@@ -28,11 +28,11 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !4
   %13 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %13, 0
-  %switch.i = icmp eq i64 %.fca.0.extract.i, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %13, 1
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
+  %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %13, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !4
-  br i1 %switch.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
+  br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 14:                                               ; preds = %3
   %.fca.1.extract15.i = extractvalue { i64, i64 } %10, 1
@@ -44,7 +44,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
+  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %23, label %16
@@ -107,8 +107,8 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   store ptr %10, ptr %11, align 8, !noalias !16
   %12 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %12, 0
-  %switch19.i = icmp eq i64 %.fca.0.extract14.i, 0
-  br i1 %switch19.i, label %13, label %16
+  %switch21.i = icmp eq i64 %.fca.0.extract14.i, 0
+  br i1 %switch21.i, label %13, label %16
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !16
@@ -116,11 +116,11 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8, !noalias !16
   %15 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %8)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %15, 0
-  %switch.i = icmp eq i64 %.fca.0.extract.i, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %15, 1
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %15, 0
+  %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %15, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !16
-  br i1 %switch.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
+  br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 16:                                               ; preds = %2
   %.fca.1.extract15.i = extractvalue { i64, i64 } %12, 1
@@ -132,7 +132,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %13
   br label %25
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %13, %16
-  %.1.i = phi i64 [ %17, %16 ], [ %.fca.1.extract.i, %13 ]
+  %.1.i = phi i64 [ %17, %16 ], [ %.fca.1.extract.i.i, %13 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %25, label %18
@@ -197,8 +197,8 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   store ptr %8, ptr %9, align 8, !noalias !26
   %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %10, 0
-  %switch19.i = icmp eq i64 %.fca.0.extract14.i, 0
-  br i1 %switch19.i, label %11, label %14
+  %switch21.i = icmp eq i64 %.fca.0.extract14.i, 0
+  br i1 %switch21.i, label %11, label %14
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !26
@@ -206,11 +206,11 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !26
   %13 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %13, 0
-  %switch.i = icmp eq i64 %.fca.0.extract.i, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %13, 1
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
+  %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %13, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !26
-  br i1 %switch.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
+  br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 14:                                               ; preds = %3
   %.fca.1.extract15.i = extractvalue { i64, i64 } %10, 1
@@ -222,7 +222,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
+  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !26
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %23, label %16
@@ -282,8 +282,8 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   store ptr %8, ptr %9, align 8, !noalias !36
   %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %10, 0
-  %switch19.i = icmp eq i64 %.fca.0.extract14.i, 0
-  br i1 %switch19.i, label %11, label %14
+  %switch21.i = icmp eq i64 %.fca.0.extract14.i, 0
+  br i1 %switch21.i, label %11, label %14
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !36
@@ -291,11 +291,11 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !36
   %13 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %13, 0
-  %switch.i = icmp eq i64 %.fca.0.extract.i, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %13, 1
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
+  %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %13, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !36
-  br i1 %switch.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
+  br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 14:                                               ; preds = %3
   %.fca.1.extract15.i = extractvalue { i64, i64 } %10, 1
@@ -307,7 +307,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
+  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !36
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %23, label %16

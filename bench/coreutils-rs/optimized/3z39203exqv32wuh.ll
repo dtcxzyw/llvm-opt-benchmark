@@ -1010,7 +1010,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br i1 %14, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %12, %17
-  %.011.i.i.i = phi i64 [ %19, %17 ], [ 0, %12 ]
+  %.010.i.i.i = phi i64 [ %19, %17 ], [ 0, %12 ]
   %15 = phi ptr [ %18, %17 ], [ %.sroa.026.0, %12 ]
   %.val.i.i.i = load i8, ptr %15, align 1, !noalias !147, !noundef !4
   %16 = icmp eq i8 %.val.i.i.i, 10
@@ -1018,12 +1018,12 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
 
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = getelementptr inbounds i8, ptr %15, i64 1
-  %19 = add nuw i64 %.011.i.i.i, 1
+  %19 = add nuw i64 %.010.i.i.i, 1
   %20 = icmp eq ptr %18, %13
   br i1 %20, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 21:                                               ; preds = %.lr.ph.i.i.i
-  %22 = add nuw i64 %.011.i.i.i, 1
+  %22 = add nuw i64 %.010.i.i.i, 1
   %23 = sub nuw i64 %.sroa.3.0, %22
   %24 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %22
   br label %.loopexit.i.i
@@ -1032,7 +1032,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   %.sroa.026.1 = phi ptr [ %24, %21 ], [ %.sroa.026.0, %12 ], [ %.sroa.026.0, %17 ]
   %.sroa.3.1 = phi i64 [ %23, %21 ], [ 0, %12 ], [ %.sroa.3.0, %17 ]
   %.sroa.627.1 = phi i1 [ false, %21 ], [ true, %12 ], [ true, %17 ]
-  %.sroa.5.1.i.ph.i = phi i64 [ %.011.i.i.i, %21 ], [ 0, %12 ], [ %.sroa.3.0, %17 ]
+  %.sroa.5.1.i.ph.i = phi i64 [ %.010.i.i.i, %21 ], [ 0, %12 ], [ %.sroa.3.0, %17 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !156
   store i64 %.sroa.029.0, ptr %6, align 8, !noalias !161
   store ptr %.sroa.632.0, ptr %.sroa.632.0..sroa_idx, align 8, !noalias !161

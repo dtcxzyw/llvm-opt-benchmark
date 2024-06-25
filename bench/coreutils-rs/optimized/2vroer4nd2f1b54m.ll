@@ -15109,27 +15109,28 @@ _ZN4core3ptr19swap_nonoverlapping17h3c6ffe4f6a7551d1E.llvm.7442906621139507621.e
 define hidden { ptr, ptr } @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node17h48c192ffb93fc147E.llvm.7442906621139507621"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #11 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %13, label %4
+  br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = load ptr, ptr %7, align 8, !noalias !2774, !noundef !4
-  store ptr %8, ptr %0, align 8, !noalias !2774
-  %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink.i = select i1 %9, ptr %6, ptr %10
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = load ptr, ptr %8, align 8, !noalias !2774, !noundef !4
+  store ptr %9, ptr %0, align 8, !noalias !2774
+  %10 = icmp eq ptr %9, null
+  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink.i = select i1 %10, ptr %7, ptr %11
   store ptr null, ptr %.sink.i, align 8, !noalias !2774
-  %11 = load i64, ptr %5, align 8, !noalias !2774, !noundef !4
-  %12 = add i64 %11, -1
-  store i64 %12, ptr %5, align 8, !noalias !2774
-  br label %13
+  %12 = load i64, ptr %6, align 8, !noalias !2774, !noundef !4
+  %13 = add i64 %12, -1
+  store i64 %13, ptr %6, align 8, !noalias !2774
+  br label %14
 
-13:                                               ; preds = %1, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+14:                                               ; preds = %1, %4
+  %.sroa.3.0 = phi ptr [ %5, %4 ], [ undef, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %14, 1
+  %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %16
 }
 
