@@ -587,3 +587,6 @@
 [submodule "bench/stat-rs/statrs"]
 	path = bench/stat-rs/statrs
 	url = git@github.com:statrs-dev/statrs.git
+[submodule "bench/logos-rs/logos"]
+	path = bench/logos-rs/logos
+	url = git@github.com:maciejhirsz/logos.git

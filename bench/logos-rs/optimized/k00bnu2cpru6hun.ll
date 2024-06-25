@@ -1,0 +1,646 @@
+; ModuleID = 'bench/logos-rs/original/k00bnu2cpru6hun.ll'
+source_filename = "bench/logos-rs/original/k00bnu2cpru6hun.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+@anon.0640757c35bee24bba30bd836bdc0ee5.0 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"byte" }>, align 1
+@anon.0640757c35bee24bba30bd836bdc0ee5.1 = private unnamed_addr constant <{ [2 x i8] }> <{ [2 x i8] c"if" }>, align 1
+@anon.0640757c35bee24bba30bd836bdc0ee5.2 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"J" }>, align 1
+@anon.0640757c35bee24bba30bd836bdc0ee5.3 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0640757c35bee24bba30bd836bdc0ee5.2, [8 x i8] c"\01\00\00\00\00\00\00\00" }>, align 8
+@anon.0640757c35bee24bba30bd836bdc0ee5.5 = private unnamed_addr constant <{ [35 x i8] }> <{ [35 x i8] c"logos-codegen/src/generator/fork.rs" }>, align 1
+@anon.0640757c35bee24bba30bd836bdc0ee5.6 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0640757c35bee24bba30bd836bdc0ee5.5, [16 x i8] c"#\00\00\00\00\00\00\00T\00\00\00)\00\00\00" }>, align 8
+@anon.0640757c35bee24bba30bd836bdc0ee5.7 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"Jump" }>, align 1
+@anon.0640757c35bee24bba30bd836bdc0ee5.9 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0640757c35bee24bba30bd836bdc0ee5.5, [16 x i8] c"#\00\00\00\00\00\00\00]\00\00\006\00\00\00" }>, align 8
+
+; Function Attrs: nonlazybind uwtable
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h18807d22e2d8b6c8E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 {
+  %4 = alloca [40 x i8], align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17hfbd5d8b2844a9bc5E"(ptr sret([32 x i8]) align 8 %0, ptr align 8 %1, ptr nonnull align 8 %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h27158972e99b529cE"(ptr nocapture readnone align 1 %0, i64 %1) unnamed_addr #1 {
+  %.sroa.01.0.extract.trunc.i = trunc i64 %1 to i8
+  %.sroa.22.0.extract.shift.i = lshr i64 %1, 8
+  %.sroa.22.0.extract.trunc.i = trunc i64 %.sroa.22.0.extract.shift.i to i8
+  %3 = insertvalue { i8, i8 } poison, i8 %.sroa.01.0.extract.trunc.i, 0
+  %4 = insertvalue { i8, i8 } %3, i8 %.sroa.22.0.extract.trunc.i, 1
+  ret { i8, i8 } %4
+}
+
+; Function Attrs: nonlazybind uwtable
+define align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d7c9efd76cfe480E"(ptr nocapture readonly align 8 %0, i8 %1) unnamed_addr #0 {
+  %3 = zext i8 %1 to i64
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, %3
+  br i1 %6, label %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17hf4bdf49bdbd21b8cE.exit", label %7, !prof !3
+
+7:                                                ; preds = %2
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 %3, i64 %5, ptr nonnull align 8 @anon.0640757c35bee24bba30bd836bdc0ee5.9) #8
+  unreachable
+
+"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17hf4bdf49bdbd21b8cE.exit": ; preds = %2
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds [0 x { { [16 x i8], i8, [7 x i8] }, { {} } }], ptr %8, i64 0, i64 %3
+  ret ptr %9
+}
+
+; Function Attrs: nonlazybind uwtable
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h47fd5edf6cb5ab3cE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %4 = alloca [24 x i8], align 8
+  %5 = alloca [32 x i8], align 8
+  %6 = alloca [32 x i8], align 8
+  %7 = alloca [32 x i8], align 8
+  %8 = alloca [24 x i8], align 8
+  %9 = alloca [24 x i8], align 8
+  %10 = alloca [24 x i8], align 8
+  %11 = alloca [24 x i8], align 8
+  %12 = alloca [32 x i8], align 8
+  %13 = alloca [2 x i8], align 1
+  %14 = alloca [2 x i8], align 1
+  %15 = alloca [32 x i8], align 8
+  %16 = alloca [2 x i8], align 1
+  %17 = alloca [24 x i8], align 8
+  %18 = alloca [24 x i8], align 8
+  %19 = alloca [24 x i8], align 8
+  %.sroa.2 = alloca [28 x i8], align 4
+  %.sroa.0.0.copyload = load i32, ptr %2, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.2, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.2.0..sroa_idx, i64 28, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
+  %.sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.2.8..sroa_idx, i64 24, i1 false), !noalias !4
+  %20 = load ptr, ptr %1, align 8, !noalias !4
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !4
+  invoke void @_ZN13logos_codegen9generator7context7Context7advance17h22de088f78c31177E(ptr nonnull sret([24 x i8]) align 8 %18, ptr nonnull align 8 %17, i64 1)
+          to label %23 unwind label %.thread15.i, !noalias !4
+
+.thread15.i:                                      ; preds = %55, %51, %43, %30, %23, %3
+  %lpad.thr_comm.i = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread.i
+
+23:                                               ; preds = %3
+  %24 = invoke align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8 %20, i32 %.sroa.0.0.copyload, ptr nonnull align 8 %18)
+          to label %25 unwind label %.thread15.i, !noalias !4
+
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = load ptr, ptr %26, align 8, !noalias !4
+  %28 = getelementptr inbounds i8, ptr %19, i64 16
+  %29 = load i64, ptr %28, align 8, !noalias !4
+  switch i64 %29, label %45 [
+    i64 1, label %30
+    i64 2, label %43
+  ]
+
+30:                                               ; preds = %25
+  %31 = load i8, ptr %27, align 1, !noalias !4
+  %32 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = load i8, ptr %32, align 1, !noalias !4
+  store i8 %31, ptr %16, align 1, !noalias !4
+  %34 = getelementptr inbounds i8, ptr %16, i64 1
+  store i8 %33, ptr %34, align 1, !noalias !4
+  invoke void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %15)
+          to label %35 unwind label %.thread15.i, !noalias !4
+
+35:                                               ; preds = %30
+  invoke void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$logos_codegen..graph..range..Range$GT$9to_tokens17hcb30ba99c765f884E"(ptr nonnull align 1 %16, ptr nonnull align 8 %15)
+          to label %38 unwind label %36, !noalias !4
+
+36:                                               ; preds = %40, %39, %38, %35
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %15) #9
+          to label %.thread.i unwind label %41, !noalias !4
+
+38:                                               ; preds = %35
+  invoke void @_ZN5quote9__private14push_fat_arrow17ha4496d94190d1684E(ptr nonnull align 8 %15)
+          to label %39 unwind label %36, !noalias !4
+
+39:                                               ; preds = %38
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %24, ptr nonnull align 8 %15)
+          to label %40 unwind label %36, !noalias !4
+
+40:                                               ; preds = %39
+  invoke void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr nonnull align 8 %15)
+          to label %93 unwind label %36, !noalias !4
+
+41:                                               ; preds = %.thread.i, %86, %79, %72, %65, %36
+  %42 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10, !noalias !4
+  unreachable
+
+43:                                               ; preds = %25
+  %44 = invoke zeroext i1 @_ZN13logos_codegen5graph5range5Range7is_byte17hff1f6e2dc8ae403eE(ptr align 1 %27)
+          to label %50 unwind label %.thread15.i, !noalias !4
+
+45:                                               ; preds = %54, %50, %25
+  %46 = load ptr, ptr %1, align 8, !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !4
+  %47 = call align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test17h8bbdc7d579d62f05E(ptr align 8 %46, ptr nonnull align 8 %10), !noalias !4
+  call void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17hd27b98c578230308E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 8 %47), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !4
+  %48 = load ptr, ptr %1, align 8, !noalias !4
+  %49 = load ptr, ptr %21, align 8, !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !noalias !4
+  invoke void @_ZN13logos_codegen9generator7context7Context7advance17h22de088f78c31177E(ptr nonnull sret([24 x i8]) align 8 %9, ptr nonnull align 8 %8, i64 1)
+          to label %75 unwind label %73, !noalias !4
+
+50:                                               ; preds = %43
+  br i1 %44, label %51, label %45
+
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds i8, ptr %27, i64 2
+  %53 = invoke zeroext i1 @_ZN13logos_codegen5graph5range5Range7is_byte17hff1f6e2dc8ae403eE(ptr nonnull align 1 %52)
+          to label %54 unwind label %.thread15.i, !noalias !4
+
+54:                                               ; preds = %51
+  br i1 %53, label %55, label %45
+
+55:                                               ; preds = %54
+  %56 = load i8, ptr %27, align 1, !noalias !4
+  %57 = getelementptr inbounds i8, ptr %27, i64 1
+  %58 = load i8, ptr %57, align 1, !noalias !4
+  store i8 %56, ptr %14, align 1, !noalias !4
+  %59 = getelementptr inbounds i8, ptr %14, i64 1
+  store i8 %58, ptr %59, align 1, !noalias !4
+  %60 = load i8, ptr %52, align 1, !noalias !4
+  %61 = getelementptr inbounds i8, ptr %27, i64 3
+  %62 = load i8, ptr %61, align 1, !noalias !4
+  store i8 %60, ptr %13, align 1, !noalias !4
+  %63 = getelementptr inbounds i8, ptr %13, i64 1
+  store i8 %62, ptr %63, align 1, !noalias !4
+  invoke void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %12)
+          to label %64 unwind label %.thread15.i, !noalias !4
+
+64:                                               ; preds = %55
+  invoke void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$logos_codegen..graph..range..Range$GT$9to_tokens17hcb30ba99c765f884E"(ptr nonnull align 1 %14, ptr nonnull align 8 %12)
+          to label %67 unwind label %65, !noalias !4
+
+65:                                               ; preds = %71, %70, %69, %68, %67, %64
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %12) #9
+          to label %.thread.i unwind label %41, !noalias !4
+
+67:                                               ; preds = %64
+  invoke void @_ZN5quote9__private7push_or17ha1df61359c9417efE(ptr nonnull align 8 %12)
+          to label %68 unwind label %65, !noalias !4
+
+68:                                               ; preds = %67
+  invoke void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$logos_codegen..graph..range..Range$GT$9to_tokens17hcb30ba99c765f884E"(ptr nonnull align 1 %13, ptr nonnull align 8 %12)
+          to label %69 unwind label %65, !noalias !4
+
+69:                                               ; preds = %68
+  invoke void @_ZN5quote9__private14push_fat_arrow17ha4496d94190d1684E(ptr nonnull align 8 %12)
+          to label %70 unwind label %65, !noalias !4
+
+70:                                               ; preds = %69
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %24, ptr nonnull align 8 %12)
+          to label %71 unwind label %65, !noalias !4
+
+71:                                               ; preds = %70
+  invoke void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr nonnull align 8 %12)
+          to label %93 unwind label %65, !noalias !4
+
+72:                                               ; preds = %79, %73
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %79 ], [ %74, %73 ]
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %11) #9
+          to label %.thread11.i unwind label %41, !noalias !4
+
+73:                                               ; preds = %77, %75, %45
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  br label %72
+
+75:                                               ; preds = %45
+  %76 = invoke align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8 %48, i32 %.sroa.0.0.copyload, ptr nonnull align 8 %9)
+          to label %77 unwind label %73, !noalias !4
+
+77:                                               ; preds = %75
+  invoke void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %7)
+          to label %78 unwind label %73, !noalias !4
+
+78:                                               ; preds = %77
+  invoke void @_ZN5quote9__private10push_ident17h2c6b9f77d8529b26E(ptr nonnull align 8 %7, ptr nonnull align 1 @anon.0640757c35bee24bba30bd836bdc0ee5.0, i64 4)
+          to label %82 unwind label %80, !noalias !4
+
+79:                                               ; preds = %86, %80
+  %.pn.i = phi { ptr, i32 } [ %81, %80 ], [ %87, %86 ]
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %7) #9
+          to label %72 unwind label %41, !noalias !4
+
+80:                                               ; preds = %91, %90, %89, %88, %84, %83, %82, %78
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  br label %79
+
+82:                                               ; preds = %78
+  invoke void @_ZN5quote9__private10push_ident17h2c6b9f77d8529b26E(ptr nonnull align 8 %7, ptr nonnull align 1 @anon.0640757c35bee24bba30bd836bdc0ee5.1, i64 2)
+          to label %83 unwind label %80, !noalias !4
+
+83:                                               ; preds = %82
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6ce486da8440b8a0E"(ptr nonnull align 8 %11, ptr nonnull align 8 %7)
+          to label %84 unwind label %80, !noalias !4
+
+84:                                               ; preds = %83
+  invoke void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %5)
+          to label %85 unwind label %80, !noalias !4
+
+85:                                               ; preds = %84
+  invoke void @_ZN5quote9__private10push_ident17h2c6b9f77d8529b26E(ptr nonnull align 8 %5, ptr nonnull align 1 @anon.0640757c35bee24bba30bd836bdc0ee5.0, i64 4)
+          to label %88 unwind label %86, !noalias !4
+
+86:                                               ; preds = %85
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %5) #9
+          to label %79 unwind label %41, !noalias !4
+
+88:                                               ; preds = %85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !4
+  invoke void @_ZN5quote9__private10push_group17h1c4ca446806db3d8E(ptr nonnull align 8 %7, i8 0, ptr nonnull align 8 %6)
+          to label %89 unwind label %80, !noalias !4
+
+89:                                               ; preds = %88
+  invoke void @_ZN5quote9__private14push_fat_arrow17ha4496d94190d1684E(ptr nonnull align 8 %7)
+          to label %90 unwind label %80, !noalias !4
+
+90:                                               ; preds = %89
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %76, ptr nonnull align 8 %7)
+          to label %91 unwind label %80, !noalias !4
+
+91:                                               ; preds = %90
+  invoke void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr nonnull align 8 %7)
+          to label %92 unwind label %80, !noalias !4
+
+92:                                               ; preds = %91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %11), !noalias !4
+  br label %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E.exit"
+
+93:                                               ; preds = %71, %40
+  %.sink.i = phi ptr [ %15, %40 ], [ %12, %71 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, i64 32, i1 false)
+  call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr nonnull align 8 %19), !noalias !4
+  br label %"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E.exit"
+
+.thread11.i:                                      ; preds = %.thread.i, %72
+  %.pn59.i = phi { ptr, i32 } [ %.pn510.i, %.thread.i ], [ %.pn.pn.i, %72 ]
+  resume { ptr, i32 } %.pn59.i
+
+.thread.i:                                        ; preds = %65, %36, %.thread15.i
+  %.pn510.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread15.i ], [ %37, %36 ], [ %66, %65 ]
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr nonnull align 8 %19) #9
+          to label %.thread11.i unwind label %41, !noalias !4
+
+"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E.exit": ; preds = %92, %93
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
+  ret void
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define hidden void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17hfbd5d8b2844a9bc5E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %4 = alloca [32 x i8], align 8
+  %5 = alloca [40 x i8], align 8
+  %6 = alloca [24 x i8], align 8
+  %7 = alloca [32 x i8], align 8
+  %8 = alloca [16 x i8], align 8
+  %9 = alloca [48 x i8], align 8
+  %10 = alloca [24 x i8], align 8
+  %11 = alloca [24 x i8], align 8
+  %12 = alloca [24 x i8], align 8
+  %13 = alloca [24 x i8], align 8
+  %14 = alloca [24 x i8], align 8
+  %15 = alloca [24 x i8], align 8
+  %16 = alloca [4 x i8], align 4
+  %17 = load i64, ptr %2, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = load i32, ptr %18, align 8
+  store i32 %19, ptr %16, align 4
+  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
+  %21 = trunc i64 %17 to i8
+  %22 = add i8 %21, 1
+  %23 = load ptr, ptr %1, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+  invoke void @_ZN13logos_codegen9generator7context7Context7advance17h22de088f78c31177E(ptr nonnull sret([24 x i8]) align 8 %14, ptr nonnull align 8 %13, i64 1)
+          to label %26 unwind label %.thread31
+
+.thread31:                                        ; preds = %43, %28, %26, %3
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread26
+
+26:                                               ; preds = %3
+  %27 = invoke align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8 %23, i32 %19, ptr nonnull align 8 %14)
+          to label %28 unwind label %.thread31
+
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = load ptr, ptr %29, align 8
+  store ptr %16, ptr %8, align 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E", ptr %.sroa.26.0..sroa_idx, align 8
+  store ptr @anon.0640757c35bee24bba30bd836bdc0ee5.3, ptr %9, align 8
+  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 1, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %8, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %9, i64 24
+  store i64 1, ptr %34, align 8
+  invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %10, ptr nonnull align 8 %9)
+          to label %35 unwind label %.thread31
+
+35:                                               ; preds = %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %11, i64 16
+  %39 = load i64, ptr %38, align 8
+  invoke void @"_ZN52_$LT$str$u20$as$u20$logos_codegen..util..ToIdent$GT$8to_ident17had88a02b31b0781cE"(ptr nonnull sret([24 x i8]) align 8 %12, ptr align 1 %37, i64 %39)
+          to label %42 unwind label %40
+
+40:                                               ; preds = %42, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %11) #9
+          to label %.thread26 unwind label %70
+
+42:                                               ; preds = %35
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7513189914351c05E"(ptr align 8 %30, ptr nonnull align 8 %12)
+          to label %43 unwind label %40
+
+43:                                               ; preds = %42
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %11)
+          to label %44 unwind label %.thread31
+
+44:                                               ; preds = %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h803904928200c66eE"(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  store i8 0, ptr %.sroa.215.0..sroa_idx, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 35
+  store i8 0, ptr %.sroa.417.0..sroa_idx, align 1
+  %45 = getelementptr inbounds i8, ptr %1, i64 24
+  br label %46
+
+46:                                               ; preds = %72, %44
+  %47 = invoke { i1, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf644b87eb133b243E"(ptr nonnull align 8 %5)
+          to label %50 unwind label %48
+
+48:                                               ; preds = %46
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..range..Range$GT$$GT$$GT$17h23a9dbbe7c5c9f65E"(ptr nonnull align 8 %5) #9
+          to label %.thread unwind label %70
+
+50:                                               ; preds = %46
+  %51 = extractvalue { i1, i8 } %47, 0
+  br i1 %51, label %72, label %52
+
+52:                                               ; preds = %50
+  call void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..range..Range$GT$$GT$$GT$17h23a9dbbe7c5c9f65E"(ptr nonnull align 8 %5)
+  %53 = load ptr, ptr %29, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load i64, ptr %54, align 8
+  %.not = icmp eq i64 %55, 0
+  br i1 %.not, label %56, label %57
+
+56:                                               ; preds = %52
+  call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr nonnull align 8 @anon.0640757c35bee24bba30bd836bdc0ee5.6) #8
+  unreachable
+
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = add i64 %55, -1
+  %61 = getelementptr inbounds [0 x { { [16 x i8], i8, [7 x i8] }, { {} } }], ptr %59, i64 0, i64 %60
+  call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %4)
+  invoke void @_ZN5quote9__private10push_ident17h2c6b9f77d8529b26E(ptr nonnull align 8 %4, ptr nonnull align 1 @anon.0640757c35bee24bba30bd836bdc0ee5.7, i64 4)
+          to label %64 unwind label %62
+
+62:                                               ; preds = %68, %67, %66, %65, %64, %57
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %4) #9
+          to label %.thread unwind label %70
+
+64:                                               ; preds = %57
+  invoke void @_ZN5quote9__private11push_colon217hdd2b0b92471a596dE(ptr nonnull align 8 %4)
+          to label %65 unwind label %62
+
+65:                                               ; preds = %64
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6ce486da8440b8a0E"(ptr align 8 %61, ptr nonnull align 8 %4)
+          to label %66 unwind label %62
+
+66:                                               ; preds = %65
+  invoke void @_ZN5quote9__private14push_fat_arrow17ha4496d94190d1684E(ptr nonnull align 8 %4)
+          to label %67 unwind label %62
+
+67:                                               ; preds = %66
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %27, ptr nonnull align 8 %4)
+          to label %68 unwind label %62
+
+68:                                               ; preds = %67
+  invoke void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr nonnull align 8 %4)
+          to label %69 unwind label %62
+
+69:                                               ; preds = %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  ret void
+
+70:                                               ; preds = %.thread26, %62, %48, %40
+  %71 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
+  unreachable
+
+72:                                               ; preds = %50
+  %73 = extractvalue { i1, i8 } %47, 1
+  %74 = zext i8 %73 to i64
+  %75 = load ptr, ptr %45, align 8
+  %76 = getelementptr inbounds [256 x i8], ptr %75, i64 0, i64 %74
+  store i8 %22, ptr %76, align 1
+  br label %46
+
+.thread:                                          ; preds = %48, %62, %.thread26
+  %.pn25 = phi { ptr, i32 } [ %.pn29, %.thread26 ], [ %49, %48 ], [ %63, %62 ]
+  resume { ptr, i32 } %.pn25
+
+.thread26:                                        ; preds = %40, %.thread31
+  %.pn29 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread31 ], [ %41, %40 ]
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr nonnull align 8 %15) #9
+          to label %.thread unwind label %70
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+define hidden zeroext i1 @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17h996928c9044b7ec7E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #3 {
+  %3 = load i8, ptr %1, align 1
+  %4 = icmp eq i8 %3, 0
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: nonlazybind uwtable
+declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @_ZN13logos_codegen9generator7context7Context7advance17h22de088f78c31177E(ptr sret([24 x i8]) align 8, ptr align 8, i64) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8, i32, ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr sret([32 x i8]) align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$logos_codegen..graph..range..Range$GT$9to_tokens17hcb30ba99c765f884E"(ptr align 1, ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN5quote9__private14push_fat_arrow17ha4496d94190d1684E(ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8, ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr align 8) unnamed_addr #0
+
+; Function Attrs: cold noreturn nounwind nonlazybind uwtable
+declare void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() unnamed_addr #5
+
+; Function Attrs: nonlazybind uwtable
+declare hidden zeroext i1 @_ZN13logos_codegen5graph5range5Range7is_byte17hff1f6e2dc8ae403eE(ptr align 1) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN5quote9__private7push_or17ha1df61359c9417efE(ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test17h8bbdc7d579d62f05E(ptr align 8, ptr align 8) unnamed_addr #0
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17hd27b98c578230308E"(ptr sret([24 x i8]) align 8, ptr align 8) unnamed_addr #2
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN5quote9__private10push_ident17h2c6b9f77d8529b26E(ptr align 8, ptr align 1, i64) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6ce486da8440b8a0E"(ptr align 8, ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN5quote9__private10push_group17h1c4ca446806db3d8E(ptr align 8, i8, ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E"(ptr align 4, ptr align 8) unnamed_addr #0
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr sret([24 x i8]) align 8, ptr align 8) unnamed_addr #2
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN52_$LT$str$u20$as$u20$logos_codegen..util..ToIdent$GT$8to_ident17had88a02b31b0781cE"(ptr sret([24 x i8]) align 8, ptr align 1, i64) unnamed_addr #0
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7513189914351c05E"(ptr align 8, ptr align 8) unnamed_addr #2
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr align 8) unnamed_addr #0
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h803904928200c66eE"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #2
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare { i1, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf644b87eb133b243E"(ptr align 8) unnamed_addr #2
+
+; Function Attrs: nonlazybind uwtable
+declare void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..range..Range$GT$$GT$$GT$17h23a9dbbe7c5c9f65E"(ptr align 8) unnamed_addr #0
+
+; Function Attrs: cold noreturn nonlazybind uwtable
+declare void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr align 8) unnamed_addr #6
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN5quote9__private11push_colon217hdd2b0b92471a596dE(ptr align 8) unnamed_addr #0
+
+; Function Attrs: cold noreturn nonlazybind uwtable
+declare void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64, i64, ptr align 8) unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+
+attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noreturn }
+attributes #9 = { cold }
+attributes #10 = { cold noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1}
+!llvm.ident = !{!2}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E: argument 0"}
+!6 = distinct !{!6, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E"}
