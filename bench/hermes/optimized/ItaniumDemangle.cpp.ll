@@ -16873,15 +16873,16 @@ for.end:                                          ; preds = %for.body
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %e.017, %for.end ]
-  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %for.end ]
-  %5 = load i8, ptr %__first.addr.010.i.i, align 1
+  %__first.addr.010.i.i.idx = phi i64 [ %__first.addr.010.i.i.add, %while.body.i.i ], [ 0, %for.end ]
+  %__first.addr.010.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %__first.addr.010.i.i.idx
+  %5 = load i8, ptr %__first.addr.010.i.i.ptr, align 1
   %6 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i, align 1
+  store i8 %6, ptr %__first.addr.010.i.i.ptr, align 1
   store i8 %5, ptr %__last.addr.011.i.i, align 1
-  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i, i64 1
+  %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
-  %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
-  br i1 %cmp1.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit, !llvm.loop !34
+  %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 2
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !34
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %num, i8 0, i64 24, i1 false)
@@ -17000,15 +17001,16 @@ for.end:                                          ; preds = %for.body
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %e.017, %for.end ]
-  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %for.end ]
-  %5 = load i8, ptr %__first.addr.010.i.i, align 1
+  %__first.addr.010.i.i.idx = phi i64 [ %__first.addr.010.i.i.add, %while.body.i.i ], [ 0, %for.end ]
+  %__first.addr.010.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %__first.addr.010.i.i.idx
+  %5 = load i8, ptr %__first.addr.010.i.i.ptr, align 1
   %6 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i, align 1
+  store i8 %6, ptr %__first.addr.010.i.i.ptr, align 1
   store i8 %5, ptr %__last.addr.011.i.i, align 1
-  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i, i64 1
+  %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
-  %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
-  br i1 %cmp1.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit, !llvm.loop !34
+  %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 4
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !34
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %num, i8 0, i64 32, i1 false)
@@ -17120,15 +17122,16 @@ for.end:                                          ; preds = %for.body
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %e.017, %for.end ]
-  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %for.end ]
-  %5 = load i8, ptr %__first.addr.010.i.i, align 1
+  %__first.addr.010.i.i.idx = phi i64 [ %__first.addr.010.i.i.add, %while.body.i.i ], [ 0, %for.end ]
+  %__first.addr.010.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %__first.addr.010.i.i.idx
+  %5 = load i8, ptr %__first.addr.010.i.i.ptr, align 1
   %6 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i, align 1
+  store i8 %6, ptr %__first.addr.010.i.i.ptr, align 1
   store i8 %5, ptr %__last.addr.011.i.i, align 1
-  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i, i64 1
+  %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
-  %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
-  br i1 %cmp1.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit, !llvm.loop !34
+  %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 5
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !34
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %num, i8 0, i64 40, i1 false)

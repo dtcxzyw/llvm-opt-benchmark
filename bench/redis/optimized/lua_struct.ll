@@ -613,8 +613,8 @@ while.body.i:                                     ; preds = %sw.bb25, %while.bod
   store i8 %24, ptr %arrayidx.i150, align 1, !tbaa !10
   store i8 %23, ptr %arrayidx5.i, align 1, !tbaa !10
   %indvars.iv.next.i151 = add nsw i64 %indvars.iv.i149, -1
-  %cmp2.i = icmp ult i64 %indvars.iv.next22.i, %indvars.iv.next.i151
-  br i1 %cmp2.i, label %while.body.i, label %correctbytes.exit, !llvm.loop !23
+  %exitcond4.not = icmp eq i64 %indvars.iv.next22.i, 2
+  br i1 %exitcond4.not, label %correctbytes.exit, label %while.body.i, !llvm.loop !23
 
 correctbytes.exit:                                ; preds = %while.body.i, %sw.bb25
   %25 = load float, ptr %f, align 4, !tbaa !21
@@ -643,8 +643,8 @@ while.body.i155:                                  ; preds = %sw.bb30, %while.bod
   store i8 %28, ptr %arrayidx.i158, align 1, !tbaa !10
   store i8 %27, ptr %arrayidx5.i159, align 1, !tbaa !10
   %indvars.iv.next.i161 = add nsw i64 %indvars.iv.i157, -1
-  %cmp2.i162 = icmp ult i64 %indvars.iv.next22.i160, %indvars.iv.next.i161
-  br i1 %cmp2.i162, label %while.body.i155, label %correctbytes.exit163, !llvm.loop !23
+  %exitcond.not = icmp eq i64 %indvars.iv.next22.i160, 4
+  br i1 %exitcond.not, label %correctbytes.exit163, label %while.body.i155, !llvm.loop !23
 
 correctbytes.exit163:                             ; preds = %while.body.i155, %sw.bb30
   %29 = load double, ptr %d, align 8, !tbaa !24

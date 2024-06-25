@@ -23855,15 +23855,16 @@ if.then.i:                                        ; preds = %_ZN8nlohmann16json_
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %5 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %5 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %6 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %6, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %5, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, !llvm.loop !244
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE21calc_bson_object_sizeERKS4_ISB_SF_St4lessISB_ESaISt4pairIKSB_SF_EEE.exit
   %oa.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -24153,15 +24154,16 @@ if.then.i.i:                                      ; preds = %sw.bb11
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.then.i.i
   %__last.addr.011.i.i.i.i = phi ptr [ %__last.addr.0.i.i.i.i, %while.body.i.i.i.i ], [ %__last.addr.08.i.i.i.i, %if.then.i.i ]
-  %__first.addr.010.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %vec.i.i, %if.then.i.i ]
-  %22 = load i8, ptr %__first.addr.010.i.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i.i = phi i64 [ %__first.addr.010.i.i.add.i.i, %while.body.i.i.i.i ], [ 0, %if.then.i.i ]
+  %__first.addr.010.i.i.ptr.i.i = getelementptr inbounds i8, ptr %vec.i.i, i64 %__first.addr.010.i.i.idx.i.i
+  %22 = load i8, ptr %__first.addr.010.i.i.ptr.i.i, align 1
   %23 = load i8, ptr %__last.addr.011.i.i.i.i, align 1
-  store i8 %23, ptr %__first.addr.010.i.i.i.i, align 1
+  store i8 %23, ptr %__first.addr.010.i.i.ptr.i.i, align 1
   store i8 %22, ptr %__last.addr.011.i.i.i.i, align 1
-  %incdec.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i.i, 1
   %__last.addr.0.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i.i, i64 -1
-  %cmp1.i.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i.i, %__last.addr.0.i.i.i.i
-  br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE17write_bson_doubleERKSB_d.exit, !llvm.loop !244
+  %exitcond.not.i.i = icmp eq i64 %__first.addr.010.i.i.add.i.i, 4
+  br i1 %exitcond.not.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE17write_bson_doubleERKSB_d.exit, label %while.body.i.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE17write_bson_doubleERKSB_d.exit: ; preds = %while.body.i.i.i.i, %sw.bb11
   %24 = load ptr, ptr %oa.i.i17, align 8
@@ -24767,15 +24769,16 @@ if.then.i:                                        ; preds = %_ZN8nlohmann16json_
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %11 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %11 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %12 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %12, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %12, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %11, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, !llvm.loop !244
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE20calc_bson_array_sizeERKS5_ISF_SaISF_EE.exit
   %13 = load ptr, ptr %oa.i, align 8
@@ -24853,15 +24856,16 @@ if.then.i:                                        ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %8 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %8 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %9 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %9, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %9, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %8, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, !llvm.loop !244
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %entry
   %10 = load ptr, ptr %oa.i, align 8
@@ -24934,15 +24938,16 @@ if.then.i:                                        ; preds = %if.then
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %7 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %7 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %8 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %8, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %8, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %7, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, !llvm.loop !244
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %if.then
   %9 = load ptr, ptr %oa.i7, align 8
@@ -24974,16 +24979,17 @@ if.then.i18:                                      ; preds = %if.else
   br label %while.body.i.i.i20
 
 while.body.i.i.i20:                               ; preds = %while.body.i.i.i20, %if.then.i18
-  %__last.addr.011.i.i.i21 = phi ptr [ %__last.addr.0.i.i.i24, %while.body.i.i.i20 ], [ %__last.addr.08.i.i.i19, %if.then.i18 ]
-  %__first.addr.010.i.i.i22 = phi ptr [ %incdec.ptr2.i.i.i23, %while.body.i.i.i20 ], [ %vec.i14, %if.then.i18 ]
-  %15 = load i8, ptr %__first.addr.010.i.i.i22, align 1
+  %__last.addr.011.i.i.i21 = phi ptr [ %__last.addr.0.i.i.i25, %while.body.i.i.i20 ], [ %__last.addr.08.i.i.i19, %if.then.i18 ]
+  %__first.addr.010.i.i.idx.i22 = phi i64 [ %__first.addr.010.i.i.add.i24, %while.body.i.i.i20 ], [ 0, %if.then.i18 ]
+  %__first.addr.010.i.i.ptr.i23 = getelementptr inbounds i8, ptr %vec.i14, i64 %__first.addr.010.i.i.idx.i22
+  %15 = load i8, ptr %__first.addr.010.i.i.ptr.i23, align 1
   %16 = load i8, ptr %__last.addr.011.i.i.i21, align 1
-  store i8 %16, ptr %__first.addr.010.i.i.i22, align 1
+  store i8 %16, ptr %__first.addr.010.i.i.ptr.i23, align 1
   store i8 %15, ptr %__last.addr.011.i.i.i21, align 1
-  %incdec.ptr2.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i22, i64 1
-  %__last.addr.0.i.i.i24 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i21, i64 -1
-  %cmp1.i.i.i25 = icmp ult ptr %incdec.ptr2.i.i.i23, %__last.addr.0.i.i.i24
-  br i1 %cmp1.i.i.i25, label %while.body.i.i.i20, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIlEEvT_b.exit, !llvm.loop !244
+  %__first.addr.010.i.i.add.i24 = add nuw nsw i64 %__first.addr.010.i.i.idx.i22, 1
+  %__last.addr.0.i.i.i25 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i21, i64 -1
+  %exitcond.not.i26 = icmp eq i64 %__first.addr.010.i.i.add.i24, 4
+  br i1 %exitcond.not.i26, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIlEEvT_b.exit, label %while.body.i.i.i20, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIlEEvT_b.exit: ; preds = %while.body.i.i.i20, %if.else
   %17 = load ptr, ptr %oa.i7, align 8
@@ -25038,15 +25044,16 @@ if.then.i:                                        ; preds = %if.then
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %8 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %8 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %9 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %9, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %9, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %8, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, !llvm.loop !244
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %if.then
   %10 = load ptr, ptr %oa.i, align 8
@@ -25087,16 +25094,17 @@ if.then.i22:                                      ; preds = %if.then9
   br label %while.body.i.i.i24
 
 while.body.i.i.i24:                               ; preds = %while.body.i.i.i24, %if.then.i22
-  %__last.addr.011.i.i.i25 = phi ptr [ %__last.addr.0.i.i.i28, %while.body.i.i.i24 ], [ %__last.addr.08.i.i.i23, %if.then.i22 ]
-  %__first.addr.010.i.i.i26 = phi ptr [ %incdec.ptr2.i.i.i27, %while.body.i.i.i24 ], [ %vec.i18, %if.then.i22 ]
-  %19 = load i8, ptr %__first.addr.010.i.i.i26, align 1
+  %__last.addr.011.i.i.i25 = phi ptr [ %__last.addr.0.i.i.i29, %while.body.i.i.i24 ], [ %__last.addr.08.i.i.i23, %if.then.i22 ]
+  %__first.addr.010.i.i.idx.i26 = phi i64 [ %__first.addr.010.i.i.add.i28, %while.body.i.i.i24 ], [ 0, %if.then.i22 ]
+  %__first.addr.010.i.i.ptr.i27 = getelementptr inbounds i8, ptr %vec.i18, i64 %__first.addr.010.i.i.idx.i26
+  %19 = load i8, ptr %__first.addr.010.i.i.ptr.i27, align 1
   %20 = load i8, ptr %__last.addr.011.i.i.i25, align 1
-  store i8 %20, ptr %__first.addr.010.i.i.i26, align 1
+  store i8 %20, ptr %__first.addr.010.i.i.ptr.i27, align 1
   store i8 %19, ptr %__last.addr.011.i.i.i25, align 1
-  %incdec.ptr2.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i26, i64 1
-  %__last.addr.0.i.i.i28 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i25, i64 -1
-  %cmp1.i.i.i29 = icmp ult ptr %incdec.ptr2.i.i.i27, %__last.addr.0.i.i.i28
-  br i1 %cmp1.i.i.i29, label %while.body.i.i.i24, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIlEEvT_b.exit, !llvm.loop !244
+  %__first.addr.010.i.i.add.i28 = add nuw nsw i64 %__first.addr.010.i.i.idx.i26, 1
+  %__last.addr.0.i.i.i29 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i25, i64 -1
+  %exitcond.not.i30 = icmp eq i64 %__first.addr.010.i.i.add.i28, 4
+  br i1 %exitcond.not.i30, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIlEEvT_b.exit, label %while.body.i.i.i24, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIlEEvT_b.exit: ; preds = %while.body.i.i.i24, %if.then9
   %21 = load ptr, ptr %oa.i11, align 8
@@ -25115,7 +25123,7 @@ if.else12:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.else12
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA16_KcS8_RA56_S9_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(16) @.str.106, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull align 1 dereferenceable(56) @.str.107)
-          to label %invoke.cont17 unwind label %ehcleanup20.thread34
+          to label %invoke.cont17 unwind label %ehcleanup20.thread35
 
 invoke.cont17:                                    ; preds = %invoke.cont
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail12out_of_range6createIPKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEETnNSt9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSC_SK_(ptr sret(%"class.nlohmann::json_abi_v3_11_3::detail::out_of_range") align 8 %exception, i32 noundef 407, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %j)
@@ -25130,7 +25138,7 @@ ehcleanup20.thread:                               ; preds = %if.else12
           cleanup
   br label %cleanup.action
 
-ehcleanup20.thread34:                             ; preds = %invoke.cont
+ehcleanup20.thread35:                             ; preds = %invoke.cont
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #25
@@ -25144,8 +25152,8 @@ ehcleanup20:                                      ; preds = %invoke.cont17, %inv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #25
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
-cleanup.action:                                   ; preds = %ehcleanup20.thread34, %ehcleanup20.thread, %ehcleanup20
-  %.pn.pn33 = phi { ptr, i32 } [ %24, %ehcleanup20.thread ], [ %26, %ehcleanup20 ], [ %25, %ehcleanup20.thread34 ]
+cleanup.action:                                   ; preds = %ehcleanup20.thread35, %ehcleanup20.thread, %ehcleanup20
+  %.pn.pn34 = phi { ptr, i32 } [ %24, %ehcleanup20.thread ], [ %26, %ehcleanup20 ], [ %25, %ehcleanup20.thread35 ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %eh.resume
 
@@ -25153,8 +25161,8 @@ if.end21:                                         ; preds = %_ZN8nlohmann16json_
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup20, %cleanup.action
-  %.pn.pn32 = phi { ptr, i32 } [ %26, %ehcleanup20 ], [ %.pn.pn33, %cleanup.action ]
-  resume { ptr, i32 } %.pn.pn32
+  %.pn.pn33 = phi { ptr, i32 } [ %26, %ehcleanup20 ], [ %.pn.pn34, %cleanup.action ]
+  resume { ptr, i32 } %.pn.pn33
 
 unreachable:                                      ; preds = %invoke.cont19
   unreachable
@@ -25192,15 +25200,16 @@ if.then.i:                                        ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %7 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %7 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %8 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %8, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %8, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %7, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, !llvm.loop !244
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !244
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %entry
   %9 = load ptr, ptr %oa.i, align 8
@@ -68297,15 +68306,16 @@ if.then.i:                                        ; preds = %_ZN8nlohmann16json_
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %5 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %5 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %6 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %6, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %5, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, !llvm.loop !540
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE21calc_bson_object_sizeERKS4_ISB_SF_St4lessISB_ESaISt4pairIKSB_SF_EEE.exit
   %oa.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -68435,15 +68445,16 @@ if.then.i.i:                                      ; preds = %sw.bb11
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.then.i.i
   %__last.addr.011.i.i.i.i = phi ptr [ %__last.addr.0.i.i.i.i, %while.body.i.i.i.i ], [ %__last.addr.08.i.i.i.i, %if.then.i.i ]
-  %__first.addr.010.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %vec.i.i, %if.then.i.i ]
-  %22 = load i8, ptr %__first.addr.010.i.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i.i = phi i64 [ %__first.addr.010.i.i.add.i.i, %while.body.i.i.i.i ], [ 0, %if.then.i.i ]
+  %__first.addr.010.i.i.ptr.i.i = getelementptr inbounds i8, ptr %vec.i.i, i64 %__first.addr.010.i.i.idx.i.i
+  %22 = load i8, ptr %__first.addr.010.i.i.ptr.i.i, align 1
   %23 = load i8, ptr %__last.addr.011.i.i.i.i, align 1
-  store i8 %23, ptr %__first.addr.010.i.i.i.i, align 1
+  store i8 %23, ptr %__first.addr.010.i.i.ptr.i.i, align 1
   store i8 %22, ptr %__last.addr.011.i.i.i.i, align 1
-  %incdec.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i.i, 1
   %__last.addr.0.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i.i, i64 -1
-  %cmp1.i.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i.i, %__last.addr.0.i.i.i.i
-  br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE17write_bson_doubleERKSB_d.exit, !llvm.loop !540
+  %exitcond.not.i.i = icmp eq i64 %__first.addr.010.i.i.add.i.i, 4
+  br i1 %exitcond.not.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE17write_bson_doubleERKSB_d.exit, label %while.body.i.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE17write_bson_doubleERKSB_d.exit: ; preds = %while.body.i.i.i.i, %sw.bb11
   %24 = load ptr, ptr %oa.i.i17, align 8
@@ -68763,15 +68774,16 @@ if.then.i:                                        ; preds = %_ZN8nlohmann16json_
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %11 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %11 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %12 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %12, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %12, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %11, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, !llvm.loop !540
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE20calc_bson_array_sizeERKS5_ISF_SaISF_EE.exit
   %13 = load ptr, ptr %oa.i, align 8
@@ -68849,15 +68861,16 @@ if.then.i:                                        ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %8 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %8 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %9 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %9, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %9, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %8, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, !llvm.loop !540
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %entry
   %10 = load ptr, ptr %oa.i, align 8
@@ -68930,15 +68943,16 @@ if.then.i:                                        ; preds = %if.then
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %7 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %7 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %8 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %8, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %8, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %7, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, !llvm.loop !540
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %if.then
   %9 = load ptr, ptr %oa.i7, align 8
@@ -68970,16 +68984,17 @@ if.then.i18:                                      ; preds = %if.else
   br label %while.body.i.i.i20
 
 while.body.i.i.i20:                               ; preds = %while.body.i.i.i20, %if.then.i18
-  %__last.addr.011.i.i.i21 = phi ptr [ %__last.addr.0.i.i.i24, %while.body.i.i.i20 ], [ %__last.addr.08.i.i.i19, %if.then.i18 ]
-  %__first.addr.010.i.i.i22 = phi ptr [ %incdec.ptr2.i.i.i23, %while.body.i.i.i20 ], [ %vec.i14, %if.then.i18 ]
-  %15 = load i8, ptr %__first.addr.010.i.i.i22, align 1
+  %__last.addr.011.i.i.i21 = phi ptr [ %__last.addr.0.i.i.i25, %while.body.i.i.i20 ], [ %__last.addr.08.i.i.i19, %if.then.i18 ]
+  %__first.addr.010.i.i.idx.i22 = phi i64 [ %__first.addr.010.i.i.add.i24, %while.body.i.i.i20 ], [ 0, %if.then.i18 ]
+  %__first.addr.010.i.i.ptr.i23 = getelementptr inbounds i8, ptr %vec.i14, i64 %__first.addr.010.i.i.idx.i22
+  %15 = load i8, ptr %__first.addr.010.i.i.ptr.i23, align 1
   %16 = load i8, ptr %__last.addr.011.i.i.i21, align 1
-  store i8 %16, ptr %__first.addr.010.i.i.i22, align 1
+  store i8 %16, ptr %__first.addr.010.i.i.ptr.i23, align 1
   store i8 %15, ptr %__last.addr.011.i.i.i21, align 1
-  %incdec.ptr2.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i22, i64 1
-  %__last.addr.0.i.i.i24 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i21, i64 -1
-  %cmp1.i.i.i25 = icmp ult ptr %incdec.ptr2.i.i.i23, %__last.addr.0.i.i.i24
-  br i1 %cmp1.i.i.i25, label %while.body.i.i.i20, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIlEEvT_b.exit, !llvm.loop !540
+  %__first.addr.010.i.i.add.i24 = add nuw nsw i64 %__first.addr.010.i.i.idx.i22, 1
+  %__last.addr.0.i.i.i25 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i21, i64 -1
+  %exitcond.not.i26 = icmp eq i64 %__first.addr.010.i.i.add.i24, 4
+  br i1 %exitcond.not.i26, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIlEEvT_b.exit, label %while.body.i.i.i20, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIlEEvT_b.exit: ; preds = %while.body.i.i.i20, %if.else
   %17 = load ptr, ptr %oa.i7, align 8
@@ -69034,15 +69049,16 @@ if.then.i:                                        ; preds = %if.then
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %8 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %8 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %9 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %9, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %9, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %8, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, !llvm.loop !540
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %if.then
   %10 = load ptr, ptr %oa.i, align 8
@@ -69083,16 +69099,17 @@ if.then.i22:                                      ; preds = %if.then9
   br label %while.body.i.i.i24
 
 while.body.i.i.i24:                               ; preds = %while.body.i.i.i24, %if.then.i22
-  %__last.addr.011.i.i.i25 = phi ptr [ %__last.addr.0.i.i.i28, %while.body.i.i.i24 ], [ %__last.addr.08.i.i.i23, %if.then.i22 ]
-  %__first.addr.010.i.i.i26 = phi ptr [ %incdec.ptr2.i.i.i27, %while.body.i.i.i24 ], [ %vec.i18, %if.then.i22 ]
-  %19 = load i8, ptr %__first.addr.010.i.i.i26, align 1
+  %__last.addr.011.i.i.i25 = phi ptr [ %__last.addr.0.i.i.i29, %while.body.i.i.i24 ], [ %__last.addr.08.i.i.i23, %if.then.i22 ]
+  %__first.addr.010.i.i.idx.i26 = phi i64 [ %__first.addr.010.i.i.add.i28, %while.body.i.i.i24 ], [ 0, %if.then.i22 ]
+  %__first.addr.010.i.i.ptr.i27 = getelementptr inbounds i8, ptr %vec.i18, i64 %__first.addr.010.i.i.idx.i26
+  %19 = load i8, ptr %__first.addr.010.i.i.ptr.i27, align 1
   %20 = load i8, ptr %__last.addr.011.i.i.i25, align 1
-  store i8 %20, ptr %__first.addr.010.i.i.i26, align 1
+  store i8 %20, ptr %__first.addr.010.i.i.ptr.i27, align 1
   store i8 %19, ptr %__last.addr.011.i.i.i25, align 1
-  %incdec.ptr2.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i26, i64 1
-  %__last.addr.0.i.i.i28 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i25, i64 -1
-  %cmp1.i.i.i29 = icmp ult ptr %incdec.ptr2.i.i.i27, %__last.addr.0.i.i.i28
-  br i1 %cmp1.i.i.i29, label %while.body.i.i.i24, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIlEEvT_b.exit, !llvm.loop !540
+  %__first.addr.010.i.i.add.i28 = add nuw nsw i64 %__first.addr.010.i.i.idx.i26, 1
+  %__last.addr.0.i.i.i29 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i25, i64 -1
+  %exitcond.not.i30 = icmp eq i64 %__first.addr.010.i.i.add.i28, 4
+  br i1 %exitcond.not.i30, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIlEEvT_b.exit, label %while.body.i.i.i24, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIlEEvT_b.exit: ; preds = %while.body.i.i.i24, %if.then9
   %21 = load ptr, ptr %oa.i11, align 8
@@ -69111,7 +69128,7 @@ if.else12:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.else12
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA16_KcS8_RA56_S9_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(16) @.str.106, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull align 1 dereferenceable(56) @.str.107)
-          to label %invoke.cont17 unwind label %ehcleanup20.thread34
+          to label %invoke.cont17 unwind label %ehcleanup20.thread35
 
 invoke.cont17:                                    ; preds = %invoke.cont
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail12out_of_range6createIPKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEETnNSt9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSC_SK_(ptr sret(%"class.nlohmann::json_abi_v3_11_3::detail::out_of_range") align 8 %exception, i32 noundef 407, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %j)
@@ -69126,7 +69143,7 @@ ehcleanup20.thread:                               ; preds = %if.else12
           cleanup
   br label %cleanup.action
 
-ehcleanup20.thread34:                             ; preds = %invoke.cont
+ehcleanup20.thread35:                             ; preds = %invoke.cont
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #25
@@ -69140,8 +69157,8 @@ ehcleanup20:                                      ; preds = %invoke.cont17, %inv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #25
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
-cleanup.action:                                   ; preds = %ehcleanup20.thread34, %ehcleanup20.thread, %ehcleanup20
-  %.pn.pn33 = phi { ptr, i32 } [ %24, %ehcleanup20.thread ], [ %26, %ehcleanup20 ], [ %25, %ehcleanup20.thread34 ]
+cleanup.action:                                   ; preds = %ehcleanup20.thread35, %ehcleanup20.thread, %ehcleanup20
+  %.pn.pn34 = phi { ptr, i32 } [ %24, %ehcleanup20.thread ], [ %26, %ehcleanup20 ], [ %25, %ehcleanup20.thread35 ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %eh.resume
 
@@ -69149,8 +69166,8 @@ if.end21:                                         ; preds = %_ZN8nlohmann16json_
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup20, %cleanup.action
-  %.pn.pn32 = phi { ptr, i32 } [ %26, %ehcleanup20 ], [ %.pn.pn33, %cleanup.action ]
-  resume { ptr, i32 } %.pn.pn32
+  %.pn.pn33 = phi { ptr, i32 } [ %26, %ehcleanup20 ], [ %.pn.pn34, %cleanup.action ]
+  resume { ptr, i32 } %.pn.pn33
 
 unreachable:                                      ; preds = %invoke.cont19
   unreachable
@@ -69188,15 +69205,16 @@ if.then.i:                                        ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i, %if.then.i ]
-  %7 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %__first.addr.010.i.i.idx.i = phi i64 [ %__first.addr.010.i.i.add.i, %while.body.i.i.i ], [ 0, %if.then.i ]
+  %__first.addr.010.i.i.ptr.i = getelementptr inbounds i8, ptr %vec.i, i64 %__first.addr.010.i.i.idx.i
+  %7 = load i8, ptr %__first.addr.010.i.i.ptr.i, align 1
   %8 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %8, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %8, ptr %__first.addr.010.i.i.ptr.i, align 1
   store i8 %7, ptr %__last.addr.011.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
+  %__first.addr.010.i.i.add.i = add nuw nsw i64 %__first.addr.010.i.i.idx.i, 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
-  %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, !llvm.loop !540
+  %exitcond.not.i = icmp eq i64 %__first.addr.010.i.i.add.i, 2
+  br i1 %exitcond.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit, label %while.body.i.i.i, !llvm.loop !540
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEcE12write_numberIiEEvT_b.exit: ; preds = %while.body.i.i.i, %entry
   %9 = load ptr, ptr %oa.i, align 8
