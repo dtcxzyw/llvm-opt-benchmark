@@ -575,3 +575,6 @@
 [submodule "bench/ropey-rs/ropey"]
 	path = bench/ropey-rs/ropey
 	url = git@github.com:cessen/ropey.git
+[submodule "bench/pyo3-rs/pyo3"]
+	path = bench/pyo3-rs/pyo3
+	url = git@github.com:PyO3/pyo3.git
