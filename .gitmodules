@@ -590,3 +590,6 @@
 [submodule "bench/logos-rs/logos"]
 	path = bench/logos-rs/logos
 	url = git@github.com:maciejhirsz/logos.git
+[submodule "bench/freetype/freetype"]
+	path = bench/freetype/freetype
+	url = git@github.com:freetype/freetype.git
