@@ -602,3 +602,6 @@
 [submodule "bench/glslang/glslang"]
 	path = bench/glslang/glslang
 	url = git@github.com:KhronosGroup/glslang.git
+[submodule "bench/pocketpy/pocketpy"]
+	path = bench/pocketpy/pocketpy
+	url = git@github.com:pocketpy/pocketpy.git
