@@ -578,3 +578,6 @@
 [submodule "bench/pyo3-rs/pyo3"]
 	path = bench/pyo3-rs/pyo3
 	url = git@github.com:PyO3/pyo3.git
+[submodule "bench/meilisearch-rs/meilisearch"]
+	path = bench/meilisearch-rs/meilisearch
+	url = git@github.com:meilisearch/meilisearch.git
