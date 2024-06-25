@@ -54,6 +54,13 @@ def guess_language(dir):
             return (name, 'C++', url)
         return (name, 'C', url)
 
+def get_stars(url: str):
+    if url.startswith("https://github.com/"):
+        return "https://img.shields.io/github/stars/" + url.removeprefix("https://github.com/")
+    if url.startswith("https://gitlab.com/"):
+        return "https://img.shields.io/gitlab/stars/" + url.removeprefix("https://gitlab.com/")
+    raise ValueError(url)
+
 bench_dir = sys.argv[1]
 
 bench_list = []
@@ -66,7 +73,7 @@ for dir in os.listdir(bench_dir):
     bench_list.append(guess_language(os.path.join(bench_dir, dir)))
 
 bench_list.sort(key=lambda x: (priority[x[1]], x[0]))
-print('|Name|Language|')
-print('|---|---|')
+print('|Name|Language|Stars|')
+print('|---|---|---|')
 for name, lang, url in bench_list:
-    print('|[{}]({})|{}|'.format(name, url, lang))
+    print('|[{}]({})|{}|![stars]({}?style=flat)|'.format(name, url, lang, get_stars(url)))
