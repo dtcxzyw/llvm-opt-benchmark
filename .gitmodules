@@ -581,3 +581,6 @@
 [submodule "bench/meilisearch-rs/meilisearch"]
 	path = bench/meilisearch-rs/meilisearch
 	url = git@github.com:meilisearch/meilisearch.git
+[submodule "bench/anki-rs/anki"]
+	path = bench/anki-rs/anki
+	url = git@github.com:ankitects/anki.git
