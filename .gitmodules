@@ -569,3 +569,6 @@
 	path = bench/msgpack/msgpack-c
 	url = git@github.com:msgpack/msgpack-c.git
 	branch = cpp_master
+[submodule "bench/soc-simulator/soc-simulator"]
+	path = bench/soc-simulator/soc-simulator
+	url = git@github.com:cyyself/soc-simulator.git
