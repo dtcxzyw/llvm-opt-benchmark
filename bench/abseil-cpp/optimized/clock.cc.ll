@@ -59,7 +59,7 @@ if.end:                                           ; preds = %_ZN4absl19GetCurren
 return:                                           ; preds = %if.end, %if.then
   %div.pn = phi i64 [ %div, %if.then ], [ %sub.pn.i.i.i, %if.end ]
   %conv.i.pn = phi i32 [ %conv.i, %if.then ], [ %conv.i.pn.i.i.i, %if.end ]
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } undef, i64 %div.pn, 0
+  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } poison, i64 %div.pn, 0
   %call2.pn = insertvalue { i64, i32 } %.fca.0.insert.i.i.pn, i32 %conv.i.pn, 1
   ret { i64, i32 } %call2.pn
 }

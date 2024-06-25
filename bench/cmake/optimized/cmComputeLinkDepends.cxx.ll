@@ -7555,7 +7555,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt4pairIK10cmLinkItemmED2Ev.exit
 
 _ZNSt4pairIK10cmLinkItemmED2Ev.exit:              ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit, %93, %106, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %.19.i.i.i.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.19.i.i.i.i.pn, 0
   %.fca.1.insert.i20 = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22

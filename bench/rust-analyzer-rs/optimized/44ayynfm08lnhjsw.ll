@@ -40799,7 +40799,7 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_bo
 
 "_ZN4core6option15Option$LT$T$GT$3map17he77124151a8c02aeE.exit": ; preds = %41, %36, %"_ZN4core3ptr158drop_in_place$LT$ide_assists..handlers..extract_function..make_body..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfab51084f44f9affE.exit.sink.split.i", %30
   %.sroa.0.011.i.pn = phi i64 [ %.sroa.0.011.i, %30 ], [ 2, %41 ], [ %1, %36 ], [ %.sroa.0.09.ph.i, %"_ZN4core3ptr158drop_in_place$LT$ide_assists..handlers..extract_function..make_body..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfab51084f44f9affE.exit.sink.split.i" ]
-  %.pn24 = insertvalue { i64, ptr } undef, i64 %.sroa.0.011.i.pn, 0
+  %.pn24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.011.i.pn, 0
   %.pn = insertvalue { i64, ptr } %.pn24, ptr %2, 1
   ret { i64, ptr } %.pn
 

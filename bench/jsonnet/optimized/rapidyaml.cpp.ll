@@ -11882,7 +11882,7 @@ _ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i: ; preds = %15
 _ZNK2c415basic_substringIKcE5trimrEc.exit:        ; preds = %10, %.preheader.i, %2, %_ZNK2c415basic_substringIKcE5trimlEc.exit, %_ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i
   %spec.select.i.pn = phi ptr [ %spec.select.i, %_ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i ], [ %spec.select.i, %_ZNK2c415basic_substringIKcE5trimlEc.exit ], [ %6, %2 ], [ %spec.select.i, %.preheader.i ], [ %6, %10 ]
   %.sroa.3.0.i4 = phi i64 [ %18, %_ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i ], [ 0, %_ZNK2c415basic_substringIKcE5trimlEc.exit ], [ 0, %2 ], [ 0, %.preheader.i ], [ 0, %10 ]
-  %.fca.0.insert.i12 = insertvalue { ptr, i64 } undef, ptr %spec.select.i.pn, 0
+  %.fca.0.insert.i12 = insertvalue { ptr, i64 } poison, ptr %spec.select.i.pn, 0
   %.fca.1.insert.i6 = insertvalue { ptr, i64 } %.fca.0.insert.i12, i64 %.sroa.3.0.i4, 1
   ret { ptr, i64 } %.fca.1.insert.i6
 }
@@ -39539,7 +39539,7 @@ _ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.thread33.i: ; preds = %.preh
 _ZNK2c415basic_substringIKcE5trimrES2_.exit:      ; preds = %17, %.loopexit.us.i.i, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit.i, %3, %_ZNK2c415basic_substringIKcE5trimlES2_.exit, %_ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.i, %_ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.thread33.i
   %.pn21 = phi ptr [ %30, %_ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.thread33.i ], [ %19, %_ZNK2c415basic_substringIKcE5trimlES2_.exit ], [ %19, %_ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.i ], [ %7, %3 ], [ %7, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit.i ], [ %19, %.loopexit.us.i.i ], [ %7, %17 ]
   %.sroa.3.0.i12 = phi i64 [ %32, %_ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.thread33.i ], [ 0, %_ZNK2c415basic_substringIKcE5trimlES2_.exit ], [ 0, %_ZNK2c415basic_substringIKcE11last_not_ofES2_m.exit.i ], [ 0, %3 ], [ 0, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit.i ], [ 0, %.loopexit.us.i.i ], [ 0, %17 ]
-  %.fca.0.insert.i20 = insertvalue { ptr, i64 } undef, ptr %.pn21, 0
+  %.fca.0.insert.i20 = insertvalue { ptr, i64 } poison, ptr %.pn21, 0
   %.fca.1.insert.i14 = insertvalue { ptr, i64 } %.fca.0.insert.i20, i64 %.sroa.3.0.i12, 1
   ret { ptr, i64 } %.fca.1.insert.i14
 }
@@ -40892,7 +40892,7 @@ _ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit: ; preds 
   br label %160
 
 160:                                              ; preds = %150, %151
-  %.fca.0.insert.i50 = insertvalue { ptr, i64 } undef, ptr %.sroa.04.0.in.sroa.speculated.i487687, 0
+  %.fca.0.insert.i50 = insertvalue { ptr, i64 } poison, ptr %.sroa.04.0.in.sroa.speculated.i487687, 0
   %.fca.1.insert.i33 = insertvalue { ptr, i64 } %.fca.0.insert.i50, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert.i33
 }
@@ -46918,7 +46918,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %4
 _ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit.thread: ; preds = %62, %.loopexit.us.i.i.i, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit, %_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit, %_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit289, %205, %466, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread, %76, %_ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit, %_ZNK2c415basic_substringIcE5trimlENS0_IKcEE.exit.i, %51, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i, %_ZNK2c415basic_substringIcE11last_not_ofENS0_IKcEEm.exit.i.i, %85
   %.pn434 = phi ptr [ %1, %85 ], [ %1, %_ZNK2c415basic_substringIcE11last_not_ofENS0_IKcEEm.exit.i.i ], [ %1, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i ], [ %1, %51 ], [ %1, %_ZNK2c415basic_substringIcE5trimlENS0_IKcEE.exit.i ], [ %1, %_ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit ], [ %1, %76 ], [ %1, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread ], [ %1, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ %1, %_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit289 ], [ %1, %466 ], [ %1, %_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit ], [ %.sroa.0.0, %205 ], [ %1, %.loopexit.us.i.i.i ], [ %1, %62 ]
   %.pn432 = phi i64 [ 1, %85 ], [ %.01225.us.i.i.in.i, %_ZNK2c415basic_substringIcE11last_not_ofENS0_IKcEEm.exit.i.i ], [ 0, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i ], [ 0, %51 ], [ 0, %_ZNK2c415basic_substringIcE5trimlENS0_IKcEE.exit.i ], [ 0, %_ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit ], [ 0, %76 ], [ 0, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread ], [ %2, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ %..i286, %_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit289 ], [ %2, %466 ], [ %..i, %_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit ], [ %.sroa.23.0, %205 ], [ 0, %.loopexit.us.i.i.i ], [ 0, %62 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } undef, ptr %.pn434, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %.pn434, 0
   %.pn = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %.pn432, 1
   ret { ptr, i64 } %.pn
 }

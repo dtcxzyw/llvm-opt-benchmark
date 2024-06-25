@@ -7519,7 +7519,7 @@ while.cond.return.loopexit_crit_edge:             ; preds = %while.body
 return:                                           ; preds = %if.then20, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
   %coerce3.sroa.0.0.extract.trunc.i48.pn = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i48, %if.then ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i138.le, %while.cond.return.loopexit_crit_edge ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.then20 ]
   %coerce3.sroa.2.0.extract.trunc.i50.pn = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i50, %if.then ], [ %.tr.i148.i.i, %if.end ], [ %.tr.i148.i.i139.le, %while.cond.return.loopexit_crit_edge ], [ %.tr.i148.i.i, %if.then20 ]
-  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } undef, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
+  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
   %call12.pn = insertvalue { i64, i64 } %.fca.0.insert.i51.pn, i64 %coerce3.sroa.2.0.extract.trunc.i50.pn, 1
   ret { i64, i64 } %call12.pn
 }
@@ -7930,7 +7930,7 @@ while.cond.return.loopexit_crit_edge:             ; preds = %while.body
 return:                                           ; preds = %if.then20, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
   %coerce3.sroa.0.0.extract.trunc.i48.pn = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i48, %if.then ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i138.le, %while.cond.return.loopexit_crit_edge ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.then20 ]
   %coerce3.sroa.2.0.extract.trunc.i50.pn = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i50, %if.then ], [ %.tr.i148.i.i, %if.end ], [ %.tr.i148.i.i139.le, %while.cond.return.loopexit_crit_edge ], [ %.tr.i148.i.i, %if.then20 ]
-  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } undef, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
+  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
   %call12.pn = insertvalue { i64, i64 } %.fca.0.insert.i51.pn, i64 %coerce3.sroa.2.0.extract.trunc.i50.pn, 1
   ret { i64, i64 } %call12.pn
 }
@@ -15632,7 +15632,7 @@ while.cond.return.loopexit_crit_edge:             ; preds = %_ZN4absl15random_in
 return:                                           ; preds = %if.then20, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
   %coerce3.sroa.0.0.extract.trunc.i48.pn = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i48, %if.then ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i159.le, %while.cond.return.loopexit_crit_edge ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.then20 ]
   %coerce3.sroa.2.0.extract.trunc.i50.pn = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i50, %if.then ], [ %.tr.i148.i.i, %if.end ], [ %.tr.i148.i.i160.le, %while.cond.return.loopexit_crit_edge ], [ %.tr.i148.i.i, %if.then20 ]
-  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } undef, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
+  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
   %call12.pn = insertvalue { i64, i64 } %.fca.0.insert.i51.pn, i64 %coerce3.sroa.2.0.extract.trunc.i50.pn, 1
   ret { i64, i64 } %call12.pn
 }
@@ -16119,7 +16119,7 @@ while.cond.return.loopexit_crit_edge:             ; preds = %_ZN4absl15random_in
 return:                                           ; preds = %if.then20, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
   %coerce3.sroa.0.0.extract.trunc.i48.pn = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i48, %if.then ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i159.le, %while.cond.return.loopexit_crit_edge ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.then20 ]
   %coerce3.sroa.2.0.extract.trunc.i50.pn = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i50, %if.then ], [ %.tr.i148.i.i, %if.end ], [ %.tr.i148.i.i160.le, %while.cond.return.loopexit_crit_edge ], [ %.tr.i148.i.i, %if.then20 ]
-  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } undef, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
+  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
   %call12.pn = insertvalue { i64, i64 } %.fca.0.insert.i51.pn, i64 %coerce3.sroa.2.0.extract.trunc.i50.pn, 1
   ret { i64, i64 } %call12.pn
 }
@@ -23466,7 +23466,7 @@ while.cond.return.loopexit_crit_edge:             ; preds = %while.body
 return:                                           ; preds = %if.then20, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
   %coerce3.sroa.0.0.extract.trunc.i48.pn = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i48, %if.then ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i163.le, %while.cond.return.loopexit_crit_edge ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.then20 ]
   %coerce3.sroa.2.0.extract.trunc.i50.pn = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i50, %if.then ], [ %.tr.i148.i.i, %if.end ], [ %.tr.i148.i.i164.le, %while.cond.return.loopexit_crit_edge ], [ %.tr.i148.i.i, %if.then20 ]
-  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } undef, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
+  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
   %call12.pn = insertvalue { i64, i64 } %.fca.0.insert.i51.pn, i64 %coerce3.sroa.2.0.extract.trunc.i50.pn, 1
   ret { i64, i64 } %call12.pn
 }
@@ -23970,7 +23970,7 @@ while.cond.return.loopexit_crit_edge:             ; preds = %while.body
 return:                                           ; preds = %if.then20, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
   %coerce3.sroa.0.0.extract.trunc.i48.pn = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i48, %if.then ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i163.le, %while.cond.return.loopexit_crit_edge ], [ %coerce3.sroa.0.0.extract.trunc.i147.i.i, %if.then20 ]
   %coerce3.sroa.2.0.extract.trunc.i50.pn = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i50, %if.then ], [ %.tr.i148.i.i, %if.end ], [ %.tr.i148.i.i164.le, %while.cond.return.loopexit_crit_edge ], [ %.tr.i148.i.i, %if.then20 ]
-  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } undef, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
+  %.fca.0.insert.i51.pn = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i48.pn, 0
   %call12.pn = insertvalue { i64, i64 } %.fca.0.insert.i51.pn, i64 %coerce3.sroa.2.0.extract.trunc.i50.pn, 1
   ret { i64, i64 } %call12.pn
 }

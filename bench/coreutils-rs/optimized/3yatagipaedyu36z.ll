@@ -3895,7 +3895,7 @@ _ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit30.i.i: ; preds 
 
 80:                                               ; preds = %_ZN6uucore4mods5error12USimpleError3new17h8a9e9eb7bb86a629E.exit63.i.i, %98, %_ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit30.i.i, %_ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit21.i.i, %_ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit.i.i
   %.pn98.i.i = phi ptr [ %91, %98 ], [ %41, %_ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit.i.i ], [ %55, %_ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit21.i.i ], [ %69, %_ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit30.i.i ], [ %134, %_ZN6uucore4mods5error12USimpleError3new17h8a9e9eb7bb86a629E.exit63.i.i ]
-  %.pn96.i.i = insertvalue { ptr, ptr } undef, ptr %.pn98.i.i, 0
+  %.pn96.i.i = insertvalue { ptr, ptr } poison, ptr %.pn98.i.i, 0
   %.pn11.i.i = insertvalue { ptr, ptr } %.pn96.i.i, ptr @anon.54a92d6220539ceb80c7c66b2e7e3ba4.18.llvm.1439132921006970162, 1
   %81 = load i32, ptr %26, align 8, !range !87, !alias.scope !954, !noalias !953, !noundef !5
   %82 = icmp eq i32 %81, 4

@@ -1093,7 +1093,7 @@ while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i
   %ref.tmp.sroa.0.0.pn = phi ptr [ %ref.tmp.sroa.0.0, %while.cond.i.i.i ], [ %ref.tmp13.sroa.0.0, %while.cond.i.i.i9 ]
   %.pn = phi i8 [ 0, %while.cond.i.i.i ], [ 1, %while.cond.i.i.i9 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %ref.tmp.sroa.0.0.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %ref.tmp.sroa.0.0.pn, 0
   %call5.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %call5.pn
 }
@@ -1201,7 +1201,7 @@ while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i
   %ref.tmp.sroa.0.0.pn = phi ptr [ %ref.tmp.sroa.0.0, %while.cond.i.i.i ], [ %ref.tmp13.sroa.0.0, %while.cond.i.i.i9 ]
   %.pn = phi i8 [ 0, %while.cond.i.i.i ], [ 1, %while.cond.i.i.i9 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %ref.tmp.sroa.0.0.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %ref.tmp.sroa.0.0.pn, 0
   %call5.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %call5.pn
 }

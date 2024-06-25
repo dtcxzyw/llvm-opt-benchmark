@@ -42441,7 +42441,7 @@ default.unreachable92:                            ; preds = %.lr.ph.i41, %.lr.ph
 69:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h56770b05e9bd6cfdE.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17ha5c69f687bce3bf0E.exit", %175
   %.sroa.01.01529.i.pn = phi i64 [ %.sroa.01.01529.i, %175 ], [ %.sroa.01.06.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha5c69f687bce3bf0E.exit" ], [ %.sroa.01.06.i36, %"_ZN4core6option15Option$LT$T$GT$6map_or17h56770b05e9bd6cfdE.exit" ]
   %.sroa.3.01331.i.pn = phi ptr [ %.sroa.3.01331.i, %175 ], [ %.sroa.3.04.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha5c69f687bce3bf0E.exit" ], [ %.sroa.3.04.i37, %"_ZN4core6option15Option$LT$T$GT$6map_or17h56770b05e9bd6cfdE.exit" ]
-  %.pn78 = insertvalue { i64, ptr } undef, i64 %.sroa.01.01529.i.pn, 0
+  %.pn78 = insertvalue { i64, ptr } poison, i64 %.sroa.01.01529.i.pn, 0
   %.pn11 = insertvalue { i64, ptr } %.pn78, ptr %.sroa.3.01331.i.pn, 1
   ret { i64, ptr } %.pn11
 

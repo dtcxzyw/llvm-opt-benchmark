@@ -2991,7 +2991,7 @@ c_powi.exit:                                      ; preds = %if.end.i.i, %if.the
   %77 = phi i32 [ 33, %if.then13.i.i ], [ 0, %if.else.i.i ], [ 0, %if.then30.i.i ], [ 0, %if.else28.i.i ], [ 0, %if.end.i.i ]
   %78 = phi <2 x double> [ zeroinitializer, %if.then13.i.i ], [ %66, %if.else.i.i ], [ %76, %if.then30.i.i ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %if.else28.i.i ], [ %24, %if.end.i.i ]
   %79 = extractelement <2 x double> %78, i64 0
-  %.fca.0.insert.i.pn.i = insertvalue { double, double } undef, double %79, 0
+  %.fca.0.insert.i.pn.i = insertvalue { double, double } poison, double %79, 0
   %80 = extractelement <2 x double> %78, i64 1
   %call.pn.i = insertvalue { double, double } %.fca.0.insert.i.pn.i, double %80, 1
   br label %if.end30

@@ -4323,7 +4323,7 @@ lpad:                                             ; preds = %cond.false
 return:                                           ; preds = %cleanup.action, %if.end, %if.then
   %.pn14 = phi ptr [ %12, %if.then ], [ %14, %if.end ], [ %14, %cleanup.action ]
   %.pn = phi i8 [ 0, %if.then ], [ 1, %if.end ], [ 1, %cleanup.action ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %.pn14, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn14, 0
   %call10.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %call10.pn
 }

@@ -59439,7 +59439,7 @@ _ZNK8QPointerI11QCPAxisRectEcvPS0_Ev.exit.thread: ; preds = %5, %9, %1
   %.sroa.2.0.copyload.i.pn.in = phi ptr [ %.sroa.2.0..sroa_idx.i, %_ZNK8QPointerI11QCPAxisRectE4dataEv.exit ], [ %.sroa.2.0..sroa_idx.i3, %_ZNK8QPointerI11QCPAxisRectEcvPS0_Ev.exit.thread ]
   %.sroa.2.0.copyload.i.pn = load i64, ptr %.sroa.2.0.copyload.i.pn.in, align 4
   %.sroa.0.0.copyload.i.pn = load i64, ptr %.sroa.0.0.copyload.i.pn.in, align 4
-  %.fca.0.insert.i.pn = insertvalue { i64, i64 } undef, i64 %.sroa.0.0.copyload.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload.i.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i.pn, i64 %.sroa.2.0.copyload.i.pn, 1
   ret { i64, i64 } %.pn
 }
@@ -201207,7 +201207,7 @@ _ZN12QHashPrivate4DataINS_4NodeIP15QCPItemPosition15QHashDummyValueEEED2Ev.exit.
 _ZN5QHashIP15QCPItemPosition15QHashDummyValueED2Ev.exit: ; preds = %_ZN12QHashPrivate4DataINS_4NodeIP15QCPItemPosition15QHashDummyValueEEED2Ev.exit.i, %91, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %87, %85, %_ZN5QHashIP15QCPItemPosition15QHashDummyValueE14emplace_helperIJRKS2_EEENS3_8iteratorEOS1_DpOT_.exit, %_ZN5QHashIP15QCPItemPosition15QHashDummyValueE14emplace_helperIJS2_EEENS3_8iteratorEOS1_DpOT_.exit
   %.sroa.0.0.copyload.i.pn = phi ptr [ %.sroa.0.0.copyload.i, %_ZN5QHashIP15QCPItemPosition15QHashDummyValueE14emplace_helperIJS2_EEENS3_8iteratorEOS1_DpOT_.exit ], [ %.sroa.0.0.copyload.i8, %_ZN5QHashIP15QCPItemPosition15QHashDummyValueE14emplace_helperIJRKS2_EEENS3_8iteratorEOS1_DpOT_.exit ], [ %.sroa.0.0.copyload.i15, %85 ], [ %.sroa.0.0.copyload.i15, %87 ], [ %.sroa.0.0.copyload.i15, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %.sroa.0.0.copyload.i15, %91 ], [ %.sroa.0.0.copyload.i15, %_ZN12QHashPrivate4DataINS_4NodeIP15QCPItemPosition15QHashDummyValueEEED2Ev.exit.i ]
   %.sroa.2.0.copyload.i.pn = phi i64 [ %.sroa.2.0.copyload.i, %_ZN5QHashIP15QCPItemPosition15QHashDummyValueE14emplace_helperIJS2_EEENS3_8iteratorEOS1_DpOT_.exit ], [ %.sroa.2.0.copyload.i10, %_ZN5QHashIP15QCPItemPosition15QHashDummyValueE14emplace_helperIJRKS2_EEENS3_8iteratorEOS1_DpOT_.exit ], [ %.sroa.2.0.copyload.i17, %85 ], [ %.sroa.2.0.copyload.i17, %87 ], [ %.sroa.2.0.copyload.i17, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %.sroa.2.0.copyload.i17, %91 ], [ %.sroa.2.0.copyload.i17, %_ZN12QHashPrivate4DataINS_4NodeIP15QCPItemPosition15QHashDummyValueEEED2Ev.exit.i ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } undef, ptr %.sroa.0.0.copyload.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.i.pn, 0
   %.pn = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %.sroa.2.0.copyload.i.pn, 1
   ret { ptr, i64 } %.pn
 }

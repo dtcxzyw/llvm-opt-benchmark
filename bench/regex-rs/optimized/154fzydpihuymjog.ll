@@ -5295,7 +5295,7 @@ define { i64, i64 } @_ZN12regex_syntax3hir5Class11minimum_len17h753aecb190616363
 _ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f79af7367bE.exit: ; preds = %13, %11, %6, %3, %15
   %.sroa.3.0 = phi i64 [ 1, %15 ], [ undef, %3 ], [ 1, %6 ], [ %..i, %13 ], [ 2, %11 ]
   %..i5.pn = phi i64 [ %..i5, %15 ], [ 0, %3 ], [ 1, %6 ], [ 1, %13 ], [ 1, %11 ]
-  %.pn6 = insertvalue { i64, i64 } undef, i64 %..i5.pn, 0
+  %.pn6 = insertvalue { i64, i64 } poison, i64 %..i5.pn, 0
   %19 = insertvalue { i64, i64 } %.pn6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %19
 }
@@ -5341,7 +5341,7 @@ define { i64, i64 } @_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07
 _ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268f8932006E.exit: ; preds = %15, %13, %6, %3, %17
   %.sroa.3.0 = phi i64 [ 1, %17 ], [ undef, %3 ], [ 1, %6 ], [ %..i, %15 ], [ 2, %13 ]
   %..i5.pn = phi i64 [ %..i5, %17 ], [ 0, %3 ], [ 1, %6 ], [ 1, %15 ], [ 1, %13 ]
-  %.pn6 = insertvalue { i64, i64 } undef, i64 %..i5.pn, 0
+  %.pn6 = insertvalue { i64, i64 } poison, i64 %..i5.pn, 0
   %21 = insertvalue { i64, i64 } %.pn6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %21
 }

@@ -1390,7 +1390,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 return:                                           ; preds = %cond.end.i.i, %cond.false.i.i, %cond.true.i.i, %if.then
   %ts.coerce0.pn = phi i64 [ %ts.coerce0, %if.then ], [ %lhs.sroa.8.0.in.in.i, %cond.true.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.false.i.i ], [ %ref.tmp.sroa.0.0.i.i, %cond.end.i.i ]
   %conv.i.pn = phi i32 [ %conv.i, %if.then ], [ %add33.i.i, %cond.true.i.i ], [ %add33.i.i, %cond.false.i.i ], [ %ref.tmp.sroa.3.0.i.i, %cond.end.i.i ]
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } undef, i64 %ts.coerce0.pn, 0
+  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } poison, i64 %ts.coerce0.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i.i.pn, i32 %conv.i.pn, 1
   ret { i64, i32 } %call.pn
 }
@@ -1442,7 +1442,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 return:                                           ; preds = %cond.end.i.i, %cond.false.i.i, %cond.true.i.i, %if.then
   %tv.coerce0.pn = phi i64 [ %tv.coerce0, %if.then ], [ %lhs.sroa.8.0.in.in.i, %cond.true.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.false.i.i ], [ %ref.tmp.sroa.0.0.i.i, %cond.end.i.i ]
   %conv.i.pn = phi i32 [ %conv.i, %if.then ], [ %add33.i.i, %cond.true.i.i ], [ %add33.i.i, %cond.false.i.i ], [ %ref.tmp.sroa.3.0.i.i, %cond.end.i.i ]
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } undef, i64 %tv.coerce0.pn, 0
+  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } poison, i64 %tv.coerce0.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i.i.pn, i32 %conv.i.pn, 1
   ret { i64, i32 } %call.pn
 }

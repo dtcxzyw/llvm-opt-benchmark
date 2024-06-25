@@ -170629,7 +170629,7 @@ define { ptr, i64 } @_ZN5typst11foundations3str3Str7matches17hd65bfaf0ee08d15dE(
 53:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..str..Regex$GT$17h697e324e89d8e981E.exit", %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit10"
   %.pn24 = phi ptr [ %48, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit10" ], [ %91, %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..str..Regex$GT$17h697e324e89d8e981E.exit" ]
   %.pn22 = phi i64 [ %49, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit10" ], [ %92, %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..str..Regex$GT$17h697e324e89d8e981E.exit" ]
-  %.pn = insertvalue { ptr, i64 } undef, ptr %.pn24, 0
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn24, 0
   %.pn8 = insertvalue { ptr, i64 } %.pn, i64 %.pn22, 1
   ret { ptr, i64 } %.pn8
 
@@ -173255,7 +173255,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hfd6b64948bd0edefE.exit: ; preds
 39:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator7collect17hfd6b64948bd0edefE.exit, %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..str..Regex$GT$17h697e324e89d8e981E.exit", %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit43"
   %.pn83 = phi ptr [ %64, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit43" ], [ %94, %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..str..Regex$GT$17h697e324e89d8e981E.exit" ], [ %33, %_ZN4core4iter6traits8iterator8Iterator7collect17hfd6b64948bd0edefE.exit ]
   %.pn81 = phi i64 [ %65, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit43" ], [ %95, %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..str..Regex$GT$17h697e324e89d8e981E.exit" ], [ %34, %_ZN4core4iter6traits8iterator8Iterator7collect17hfd6b64948bd0edefE.exit ]
-  %.pn80 = insertvalue { ptr, i64 } undef, ptr %.pn83, 0
+  %.pn80 = insertvalue { ptr, i64 } poison, ptr %.pn83, 0
   %.pn35 = insertvalue { ptr, i64 } %.pn80, i64 %.pn81, 1
   ret { ptr, i64 } %.pn35
 

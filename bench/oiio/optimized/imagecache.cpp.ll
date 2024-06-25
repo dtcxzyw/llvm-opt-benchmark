@@ -65779,7 +65779,7 @@ if.end38:                                         ; preds = %_ZN3tsl17detail_rob
 return:                                           ; preds = %while.body, %if.end38
   %arrayidx.pn = phi ptr [ %add.ptr42, %if.end38 ], [ %arrayidx46, %while.body ]
   %.pn = phi i8 [ 1, %if.end38 ], [ 0, %while.body ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %arrayidx.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %arrayidx.pn, 0
   %call13.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %call13.pn
 }
@@ -69790,7 +69790,7 @@ if.end38:                                         ; preds = %if.else, %if.then33
 return:                                           ; preds = %while.body, %if.end38
   %arrayidx.pn = phi ptr [ %add.ptr42, %if.end38 ], [ %arrayidx44, %while.body ]
   %.pn = phi i8 [ 1, %if.end38 ], [ 0, %while.body ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %arrayidx.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %arrayidx.pn, 0
   %call13.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %call13.pn
 }
@@ -73223,7 +73223,7 @@ if.end38:                                         ; preds = %if.else, %if.then33
 return:                                           ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %if.end38
   %arrayidx.pn = phi ptr [ %add.ptr42, %if.end38 ], [ %arrayidx44, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
   %.pn = phi i8 [ 1, %if.end38 ], [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %arrayidx.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %arrayidx.pn, 0
   %call13.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %call13.pn
 }

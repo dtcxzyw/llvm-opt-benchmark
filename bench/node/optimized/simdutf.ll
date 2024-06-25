@@ -25755,7 +25755,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0E
 return:                                           ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit
   %retval.sroa.4.0 = phi i64 [ %add, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit ], [ %len, %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit ]
   %retval.sroa.0.0.i9.pn = phi i32 [ %retval.sroa.0.0.i9, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit ], [ %retval.sroa.0.0.i, %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit ]
-  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } undef, i32 %retval.sroa.0.0.i9.pn, 0
+  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i9.pn, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert.i10.pn, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -25880,7 +25880,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1E
 return:                                           ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit
   %retval.sroa.4.0 = phi i64 [ %add, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit ], [ %len, %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit ]
   %retval.sroa.0.0.i9.pn = phi i32 [ %retval.sroa.0.0.i9, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit ], [ %retval.sroa.0.0.i, %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit ]
-  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } undef, i32 %retval.sroa.0.0.i9.pn, 0
+  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i9.pn, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert.i10.pn, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -26047,7 +26047,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds
 return:                                           ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_133avx2_validate_utf32le_with_errorsEPKDim.exit, %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit
   %retval.sroa.4.0 = phi i64 [ %add, %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit ], [ %len, %_ZN7simdutf7haswell12_GLOBAL__N_133avx2_validate_utf32le_with_errorsEPKDim.exit ]
   %retval.sroa.0.0.i9.pn = phi i32 [ %retval.sroa.0.0.i9, %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit ], [ %retval.sroa.0.0.i, %_ZN7simdutf7haswell12_GLOBAL__N_133avx2_validate_utf32le_with_errorsEPKDim.exit ]
-  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } undef, i32 %retval.sroa.0.0.i9.pn, 0
+  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i9.pn, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert.i10.pn, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -38961,7 +38961,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0E
 return:                                           ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit
   %retval.sroa.4.0 = phi i64 [ %add, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit ], [ %len, %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit ]
   %retval.sroa.0.0.i9.pn = phi i32 [ %retval.sroa.0.0.i9, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit ], [ %retval.sroa.0.0.i, %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit ]
-  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } undef, i32 %retval.sroa.0.0.i9.pn, 0
+  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i9.pn, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert.i10.pn, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -39076,7 +39076,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1E
 return:                                           ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit
   %retval.sroa.4.0 = phi i64 [ %add, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit ], [ %len, %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit ]
   %retval.sroa.0.0.i9.pn = phi i32 [ %retval.sroa.0.0.i9, %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit ], [ %retval.sroa.0.0.i, %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit ]
-  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } undef, i32 %retval.sroa.0.0.i9.pn, 0
+  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i9.pn, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert.i10.pn, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -39243,7 +39243,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds
 return:                                           ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_132sse_validate_utf32le_with_errorsEPKDim.exit, %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit
   %retval.sroa.4.0 = phi i64 [ %add, %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit ], [ %len, %_ZN7simdutf8westmere12_GLOBAL__N_132sse_validate_utf32le_with_errorsEPKDim.exit ]
   %retval.sroa.0.0.i9.pn = phi i32 [ %retval.sroa.0.0.i9, %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit ], [ %retval.sroa.0.0.i, %_ZN7simdutf8westmere12_GLOBAL__N_132sse_validate_utf32le_with_errorsEPKDim.exit ]
-  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } undef, i32 %retval.sroa.0.0.i9.pn, 0
+  %.fca.0.insert.i10.pn = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i9.pn, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert.i10.pn, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }

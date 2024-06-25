@@ -9201,7 +9201,7 @@ default.unreachable.i.i8:                         ; preds = %58
   %.val5.pn = phi ptr [ %.val5, %18 ], [ %.val5, %20 ], [ %.val5, %22 ], [ %.val5, %24 ], [ %.val7, %64 ], [ %.val7, %66 ], [ %.val7, %68 ], [ %.val7, %70 ]
   %94 = extractvalue { i32, i1 } %.sink12, 0
   store i32 %94, ptr %.sink11, align 4
-  %.pn9 = insertvalue { i64, ptr } undef, i64 %.val.pn, 0
+  %.pn9 = insertvalue { i64, ptr } poison, i64 %.val.pn, 0
   %.pn = insertvalue { i64, ptr } %.pn9, ptr %.val5.pn, 1
   ret { i64, ptr } %.pn
 }

@@ -3530,7 +3530,7 @@ define linkonce_odr { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr nou
 124:                                              ; preds = %66, %119, %8, %61
   %.sroa.0.0.i.pn = phi <2 x float> [ %64, %61 ], [ %35, %8 ], [ %122, %119 ], [ %93, %66 ]
   %.sroa.7.0.i.pn = phi float [ %65, %61 ], [ %47, %8 ], [ %123, %119 ], [ %105, %66 ]
-  %.fca.0.insert.i.pn = insertvalue { <2 x float>, float } undef, <2 x float> %.sroa.0.0.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0.i.pn, 0
   %.pn11 = insertvalue { <2 x float>, float } %.fca.0.insert.i.pn, float %.sroa.7.0.i.pn, 1
   ret { <2 x float>, float } %.pn11
 }

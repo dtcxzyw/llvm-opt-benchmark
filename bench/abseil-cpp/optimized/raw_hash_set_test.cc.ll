@@ -90209,7 +90209,6 @@ if.then.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
 invoke.cont4.thread:                              ; preds = %while.body.i.i.i.i.i.i
   store i32 1, ptr %ref.tmp2, align 4
   %3 = getelementptr inbounds i8, ptr %t, i64 24
-  store i64 0, ptr %ref.tmp3, align 8
   br label %if.then.i.i
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i

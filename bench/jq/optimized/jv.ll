@@ -3272,7 +3272,7 @@ common.ret53.sink.split.i:                        ; preds = %jv_string_concat.ex
 jv_free.exit:                                     ; preds = %41, %24, %15, %common.ret53.sink.split.i, %jv_string_concat.exit
   %.sroa.033.0.insert.insert.i.pn = phi i64 [ %.sroa.033.0.insert.insert.i.i, %jv_string_concat.exit ], [ %.sroa.033.0.insert.insert.i.i, %common.ret53.sink.split.i ], [ %0, %15 ], [ 133, %24 ], [ 133, %41 ]
   %.sroa.6.0.i.pn = phi ptr [ %.sroa.6.0.i.i, %jv_string_concat.exit ], [ %.sroa.6.0.i.i, %common.ret53.sink.split.i ], [ %1, %15 ], [ %29, %24 ], [ %29, %41 ]
-  %.fca.0.insert.i.pn = insertvalue { i64, ptr } undef, i64 %.sroa.033.0.insert.insert.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { i64, ptr } poison, i64 %.sroa.033.0.insert.insert.i.pn, 0
   %.pn = insertvalue { i64, ptr } %.fca.0.insert.i.pn, ptr %.sroa.6.0.i.pn, 1
   ret { i64, ptr } %.pn
 }

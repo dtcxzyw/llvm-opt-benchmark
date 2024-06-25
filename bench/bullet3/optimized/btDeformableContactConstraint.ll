@@ -2449,7 +2449,7 @@ return:                                           ; preds = %if.end, %entry
   %retval.sroa.0.0.vec.insert.i26 = insertelement <2 x float> poison, float %mul.i21, i64 0
   %13 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i26, <2 x float> %12, <2 x i32> <i32 0, i32 2>
   %14 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %12, <2 x i32> <i32 3, i32 1>
-  %.fca.0.insert.i9.pn = insertvalue { <2 x float>, <2 x float> } undef, <2 x float> %13, 0
+  %.fca.0.insert.i9.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %13, 0
   %call5.pn = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i9.pn, <2 x float> %14, 1
   ret { <2 x float>, <2 x float> } %call5.pn
 }

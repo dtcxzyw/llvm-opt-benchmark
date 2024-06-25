@@ -788,7 +788,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %22
 _ZN6memchr4arch3all9rabinkarp6Finder4find17h181cc588d46a72baE.exit: ; preds = %52, %64, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit, %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h80276bf7efbef573E.exit9"
   %.sroa.0.0.i7.pn = phi i64 [ %.sroa.0.0.i19, %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h80276bf7efbef573E.exit9" ], [ 1, %64 ], [ 0, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit ], [ 0, %52 ]
   %.sroa.3.0.i6.pn = phi i64 [ %.sroa.3.0.i18, %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h80276bf7efbef573E.exit9" ], [ %66, %64 ], [ undef, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit ], [ undef, %52 ]
-  %.pn12 = insertvalue { i64, i64 } undef, i64 %.sroa.0.0.i7.pn, 0
+  %.pn12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i7.pn, 0
   %.pn = insertvalue { i64, i64 } %.pn12, i64 %.sroa.3.0.i6.pn, 1
   ret { i64, i64 } %.pn
 

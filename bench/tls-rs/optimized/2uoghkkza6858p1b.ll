@@ -5622,7 +5622,7 @@ define { ptr, ptr } @_ZN6rustls4conn10connection10Connection6writer17h014dfaca04
   %.pn8.idx = select i1 %3, i64 8, i64 0
   %.pn8 = getelementptr inbounds i8, ptr %0, i64 %.pn8.idx
   %anon.57abb3be8c01c189e633236260de9ac9.53.pn = select i1 %3, ptr @anon.57abb3be8c01c189e633236260de9ac9.53, ptr @anon.57abb3be8c01c189e633236260de9ac9.54
-  %.pn6 = insertvalue { ptr, ptr } undef, ptr %.pn8, 0
+  %.pn6 = insertvalue { ptr, ptr } poison, ptr %.pn8, 0
   %.pn = insertvalue { ptr, ptr } %.pn6, ptr %anon.57abb3be8c01c189e633236260de9ac9.53.pn, 1
   ret { ptr, ptr } %.pn
 }

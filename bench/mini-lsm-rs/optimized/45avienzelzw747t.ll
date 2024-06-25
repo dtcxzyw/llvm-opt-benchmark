@@ -10981,7 +10981,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %16 = getelementptr inbounds i8, ptr %0, i64 %.sink
   %.pn8 = load i64, ptr %16, align 8, !noundef !4
   %.pn10 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %.pn7 = insertvalue { ptr, i64 } undef, ptr %.pn10, 0
+  %.pn7 = insertvalue { ptr, i64 } poison, ptr %.pn10, 0
   %.pn = insertvalue { ptr, i64 } %.pn7, i64 %.pn8, 1
   ret { ptr, i64 } %.pn
 }
@@ -11064,7 +11064,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %.pn7.i.pn.in = phi ptr [ %16, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h29fc500b41e7d9f2E.exit" ], [ %34, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h44fd73cc72374841E.exit.i" ], [ %27, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h30e14e7c57a3a1daE.exit.i" ]
   %.pn7.i.pn = load i64, ptr %.pn7.i.pn.in, align 8, !noalias !4, !noundef !4
   %.pn9.i.pn = load ptr, ptr %.pn9.i.pn.in, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %.pn6.i.pn = insertvalue { ptr, i64 } undef, ptr %.pn9.i.pn, 0
+  %.pn6.i.pn = insertvalue { ptr, i64 } poison, ptr %.pn9.i.pn, 0
   %.pn = insertvalue { ptr, i64 } %.pn6.i.pn, i64 %.pn7.i.pn, 1
   ret { ptr, i64 } %.pn
 }
@@ -11124,7 +11124,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %.pn7.in = phi ptr [ %23, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h30e14e7c57a3a1daE.exit" ], [ %16, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h29fc500b41e7d9f2E.exit" ]
   %.pn7 = load i64, ptr %.pn7.in, align 8, !noalias !4, !noundef !4
   %.pn9 = load ptr, ptr %.pn9.in, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   ret { ptr, i64 } %.pn
 }
@@ -11173,7 +11173,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %.pn7.in = phi ptr [ %18, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h44fd73cc72374841E.exit" ], [ %11, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h30e14e7c57a3a1daE.exit" ]
   %.pn7 = load i64, ptr %.pn7.in, align 8, !noalias !4, !noundef !4
   %.pn9 = load ptr, ptr %.pn9.in, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   ret { ptr, i64 } %.pn
 }
@@ -11222,7 +11222,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %.pn7.in = phi ptr [ %18, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h30e14e7c57a3a1daE.exit" ], [ %11, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit" ]
   %.pn7 = load i64, ptr %.pn7.in, align 8, !noundef !4
   %.pn9 = load ptr, ptr %.pn9.in, align 8, !nonnull !4, !noundef !4
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   ret { ptr, i64 } %.pn
 }
@@ -11300,7 +11300,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
 37:                                               ; preds = %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha934f6a9a6fc47ddE.exit", %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit"
   %.pn9 = phi ptr [ %34, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha934f6a9a6fc47ddE.exit" ], [ %27, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit" ]
   %.pn7 = phi i64 [ %36, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha934f6a9a6fc47ddE.exit" ], [ %26, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit" ]
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   %38 = icmp ne ptr %.pn9, null
   tail call void @llvm.assume(i1 %38)
@@ -11407,7 +11407,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
 51:                                               ; preds = %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit", %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit"
   %.pn9 = phi ptr [ %50, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit" ], [ %27, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit" ]
   %.pn7 = phi i64 [ %49, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit" ], [ %26, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit" ]
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   ret { ptr, i64 } %.pn
 }
@@ -11636,7 +11636,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
 51:                                               ; preds = %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit6", %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit"
   %.pn10 = phi ptr [ %50, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit6" ], [ %27, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit" ]
   %.pn8 = phi i64 [ %49, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit6" ], [ %26, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha714dfe575966199E.exit" ]
-  %.pn7 = insertvalue { ptr, i64 } undef, ptr %.pn10, 0
+  %.pn7 = insertvalue { ptr, i64 } poison, ptr %.pn10, 0
   %.pn = insertvalue { ptr, i64 } %.pn7, i64 %.pn8, 1
   ret { ptr, i64 } %.pn
 }
@@ -11752,7 +11752,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
 56:                                               ; preds = %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit", %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hc71706b9abcb33a0E.exit"
   %.pn9 = phi ptr [ %55, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit" ], [ %32, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hc71706b9abcb33a0E.exit" ]
   %.pn7 = phi i64 [ %54, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hd83dbf4014f8b905E.exit" ], [ %31, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hc71706b9abcb33a0E.exit" ]
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   ret { ptr, i64 } %.pn
 }
@@ -12965,7 +12965,7 @@ define { ptr, i64 } @"_ZN92_$LT$mini_lsm..lsm_iterator..LsmIterator$u20$as$u20$m
   %.pn7.i.pn.in.i = phi ptr [ %16, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h29fc500b41e7d9f2E.exit.i" ], [ %34, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h44fd73cc72374841E.exit.i.i" ], [ %27, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17h30e14e7c57a3a1daE.exit.i.i" ]
   %.pn7.i.pn.i = load i64, ptr %.pn7.i.pn.in.i, align 8, !noalias !2958, !noundef !4
   %.pn9.i.pn.i = load ptr, ptr %.pn9.i.pn.in.i, align 8, !noalias !2958, !nonnull !4, !noundef !4
-  %.pn6.i.pn.i = insertvalue { ptr, i64 } undef, ptr %.pn9.i.pn.i, 0
+  %.pn6.i.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn9.i.pn.i, 0
   %.pn.i = insertvalue { ptr, i64 } %.pn6.i.pn.i, i64 %.pn7.i.pn.i, 1
   ret { ptr, i64 } %.pn.i
 }

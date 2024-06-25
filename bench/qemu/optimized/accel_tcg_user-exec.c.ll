@@ -2978,7 +2978,7 @@ load_atom_16.exit:                                ; preds = %if.then.i15, %sw.bb
   %47 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.0.0.i)
   %.pn19 = select i1 %tobool.not, i64 %retval.sroa.0.0.i, i64 %46
   %.pn = select i1 %tobool.not, i64 %retval.sroa.5.0.i, i64 %47
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i64 } undef, i64 %.pn19, 0
+  %.fca.0.insert.i.i.pn = insertvalue { i64, i64 } poison, i64 %.pn19, 0
   %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i.i.pn, i64 %.pn, 1
   ret { i64, i64 } %.fca.1.insert.merged
 }

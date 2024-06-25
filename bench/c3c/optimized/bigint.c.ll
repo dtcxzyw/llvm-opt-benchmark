@@ -2056,7 +2056,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
 i128_neg.exit33:                                  ; preds = %66, %65, %i128_urem.exit
   %.sroa.06.0.i29.pn = phi i64 [ %.sroa.03.0.i, %i128_urem.exit ], [ %72, %66 ], [ %.sroa.03.0.i, %65 ]
   %.sroa.37.0.i30.pn = phi i64 [ %.sroa.3.0.i, %i128_urem.exit ], [ %69, %66 ], [ 0, %65 ]
-  %.fca.0.insert.i31.pn = insertvalue { i64, i64 } undef, i64 %.sroa.06.0.i29.pn, 0
+  %.fca.0.insert.i31.pn = insertvalue { i64, i64 } poison, i64 %.sroa.06.0.i29.pn, 0
   %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i31.pn, i64 %.sroa.37.0.i30.pn, 1
   ret { i64, i64 } %.fca.1.insert.merged
 }

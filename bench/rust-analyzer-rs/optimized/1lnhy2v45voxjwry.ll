@@ -44030,7 +44030,7 @@ default.unreachable12:                            ; preds = %switch.lookup, %30
 "_ZN11chalk_solve5infer5unify16Unifier$LT$I$GT$22generalize_generic_var17h1553e3e94f7f7421E.llvm.3864848197730831337.exit": ; preds = %53, %51, %49, %47, %45, %43
   %.pn11 = phi i64 [ 0, %43 ], [ 1, %45 ], [ 2, %47 ], [ 0, %49 ], [ 1, %51 ], [ 2, %53 ]
   %.sroa.6.0.i6.pn = phi ptr [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
-  %.pn9 = insertvalue { i64, ptr } undef, i64 %.pn11, 0
+  %.pn9 = insertvalue { i64, ptr } poison, i64 %.pn11, 0
   %.pn = insertvalue { i64, ptr } %.pn9, ptr %.sroa.6.0.i6.pn, 1
   ret { i64, ptr } %.pn
 
@@ -54723,7 +54723,7 @@ default.unreachable:                              ; preds = %23, %5
 "_ZN72_$LT$chalk_ir..GenericArgData$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha39a69f32d84648dE.llvm.3864848197730831337.exit": ; preds = %39, %37, %35, %18, %13, %8
   %.pn9 = phi i64 [ 0, %8 ], [ 1, %13 ], [ 2, %18 ], [ 0, %35 ], [ 1, %37 ], [ 2, %39 ]
   %.sroa.4.0.i.pn = phi ptr [ %9, %8 ], [ %14, %13 ], [ %19, %18 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ]
-  %.pn7 = insertvalue { i64, ptr } undef, i64 %.pn9, 0
+  %.pn7 = insertvalue { i64, ptr } poison, i64 %.pn9, 0
   %.pn = insertvalue { i64, ptr } %.pn7, ptr %.sroa.4.0.i.pn, 1
   ret { i64, ptr } %.pn
 }

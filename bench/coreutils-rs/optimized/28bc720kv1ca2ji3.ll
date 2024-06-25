@@ -7884,7 +7884,7 @@ default.unreachable1.i157.i.i:                    ; preds = %770
   br i1 %.013, label %994, label %123
 
 "_ZN4core3ptr76drop_in_place$LT$std..sync..mpsc..Receiver$LT$uu_sort..chunks..Chunk$GT$$GT$17h7bbbf05ecc87e83eE.exit": ; preds = %986, %987, %988
-  %.pn217 = insertvalue { ptr, ptr } undef, ptr %.sroa.0.0.i.pn, 0
+  %.pn217 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.pn, 0
   %.pn18 = insertvalue { ptr, ptr } %.pn217, ptr %.sroa.5.0.i.pn, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122)

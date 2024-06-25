@@ -670,7 +670,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i
 block_join.exit32:                                ; preds = %63, %53, %block_free.exit, %5
   %.pn40 = phi ptr [ %6, %5 ], [ %31, %block_free.exit ], [ %54, %53 ], [ %42, %63 ]
   %.pn38 = phi ptr [ %6, %5 ], [ %31, %block_free.exit ], [ %54, %53 ], [ %54, %63 ]
-  %.fca.0.insert.i.i.pn = insertvalue { ptr, ptr } undef, ptr %.pn40, 0
+  %.fca.0.insert.i.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn40, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i.i.pn, ptr %.pn38, 1
   ret { ptr, ptr } %.pn
 }
@@ -3278,7 +3278,7 @@ bind_matcher.exit.sink.split:                     ; preds = %31, %129
 bind_matcher.exit:                                ; preds = %bind_matcher.exit.sink.split, %128, %._crit_edge.i138, %30, %._crit_edge.i
   %.sroa.0.1.i.i.pn = phi ptr [ %.sroa.0.0.lcssa194201, %._crit_edge.i ], [ %2, %30 ], [ %.sroa.049.1.lcssa, %._crit_edge.i138 ], [ %.sroa.0.1.i129, %128 ], [ %.sroa.0.1.i.i.pn.ph, %bind_matcher.exit.sink.split ]
   %.sroa.3.0.i.i.pn = phi ptr [ %.sroa.9.0.lcssa195200, %._crit_edge.i ], [ %3, %30 ], [ %.sroa.451.1.lcssa, %._crit_edge.i138 ], [ %.sroa.3.0.i128, %128 ], [ %.sroa.3.0.i.i.pn.ph, %bind_matcher.exit.sink.split ]
-  %.fca.0.insert.i16.i.pn = insertvalue { ptr, ptr } undef, ptr %.sroa.0.1.i.i.pn, 0
+  %.fca.0.insert.i16.i.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.i.pn, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i16.i.pn, ptr %.sroa.3.0.i.i.pn, 1
   ret { ptr, ptr } %.pn
 }

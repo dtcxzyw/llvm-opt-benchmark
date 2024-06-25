@@ -281,7 +281,7 @@ define hidden { i1, i8 } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$
 "_ZN81_$LT$core..str..iter..Bytes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8e06cf19fc6562E.llvm.14160285242575610615.exit": ; preds = %"_ZN81_$LT$core..str..iter..Bytes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8e06cf19fc6562E.llvm.14160285242575610615.exit.sink.split", %10, %4
   %.not.i.i.i.pn = phi i1 [ false, %4 ], [ false, %10 ], [ true, %"_ZN81_$LT$core..str..iter..Bytes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8e06cf19fc6562E.llvm.14160285242575610615.exit.sink.split" ]
   %.sroa.3.0.i.i2.pn = phi i8 [ undef, %4 ], [ undef, %10 ], [ %19, %"_ZN81_$LT$core..str..iter..Bytes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8e06cf19fc6562E.llvm.14160285242575610615.exit.sink.split" ]
-  %.pn3 = insertvalue { i1, i8 } undef, i1 %.not.i.i.i.pn, 0
+  %.pn3 = insertvalue { i1, i8 } poison, i1 %.not.i.i.i.pn, 0
   %.pn = insertvalue { i1, i8 } %.pn3, i8 %.sroa.3.0.i.i2.pn, 1
   ret { i1, i8 } %.pn
 }
@@ -27258,7 +27258,7 @@ define { i32, i32 } @"_ZN81_$LT$tokenizers..models..ModelWrapper$u20$as$u20$toke
 "_ZN84_$LT$tokenizers..models..bpe..model..BPE$u20$as$u20$tokenizers..tokenizer..Model$GT$11token_to_id17h85d19407a605da2cE.exit": ; preds = %"_ZN84_$LT$tokenizers..models..bpe..model..BPE$u20$as$u20$tokenizers..tokenizer..Model$GT$11token_to_id17h85d19407a605da2cE.exit.sink.split", %22, %18, %14, %10
   %.sroa.0.0.i7.pn = phi i32 [ 0, %10 ], [ 0, %14 ], [ 0, %18 ], [ 0, %22 ], [ 1, %"_ZN84_$LT$tokenizers..models..bpe..model..BPE$u20$as$u20$tokenizers..tokenizer..Model$GT$11token_to_id17h85d19407a605da2cE.exit.sink.split" ]
   %.sroa.3.0.i6.pn = phi i32 [ undef, %10 ], [ undef, %14 ], [ undef, %18 ], [ undef, %22 ], [ %26, %"_ZN84_$LT$tokenizers..models..bpe..model..BPE$u20$as$u20$tokenizers..tokenizer..Model$GT$11token_to_id17h85d19407a605da2cE.exit.sink.split" ]
-  %.pn8 = insertvalue { i32, i32 } undef, i32 %.sroa.0.0.i7.pn, 0
+  %.pn8 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i7.pn, 0
   %.pn = insertvalue { i32, i32 } %.pn8, i32 %.sroa.3.0.i6.pn, 1
   ret { i32, i32 } %.pn
 }

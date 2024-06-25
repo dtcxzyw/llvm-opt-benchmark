@@ -56205,7 +56205,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit15.i.i:        ; preds = %for.body.i4.i.i
 _ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEENS_15SampledSpectrumES4_.exit: ; preds = %_ZNK4pbrt15SampledSpectrummlEf.exit.i.i, %_ZNK4pbrt15SampledSpectrummlEf.exit15.i.i
   %.fca.0.load.i.pn.i.i = phi <2 x float> [ %.fca.0.load.i.i.i, %_ZNK4pbrt15SampledSpectrummlEf.exit.i.i ], [ %.fca.0.load.i10.i.i, %_ZNK4pbrt15SampledSpectrummlEf.exit15.i.i ]
   %.fca.1.load.i.pn.i.i = phi <2 x float> [ %.fca.1.load.i.i.i, %_ZNK4pbrt15SampledSpectrummlEf.exit.i.i ], [ %.fca.1.load.i13.i.i, %_ZNK4pbrt15SampledSpectrummlEf.exit15.i.i ]
-  %.fca.0.insert.i.pn.i.i = insertvalue { <2 x float>, <2 x float> } undef, <2 x float> %.fca.0.load.i.pn.i.i, 0
+  %.fca.0.insert.i.pn.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.pn.i.i, 0
   %call4.pn.i.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.pn.i.i, <2 x float> %.fca.1.load.i.pn.i.i, 1
   br label %return
 

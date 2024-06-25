@@ -116995,7 +116995,7 @@ _ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855
 50:                                               ; preds = %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread, %49, %48, %17
   %.sroa.5.0 = phi i64 [ %.sroa.3.0.i, %17 ], [ %.sroa.3.0.i14, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread ], [ 3, %49 ], [ %..i, %48 ]
   %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %17 ], [ %.sroa.0.0.i13, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread ], [ %anon.43c633cc9d0c07b847282a0596e0d119.1061.anon.43c633cc9d0c07b847282a0596e0d119.1060.i, %49 ], [ %anon.43c633cc9d0c07b847282a0596e0d119.1062.anon.43c633cc9d0c07b847282a0596e0d119.1021.i, %48 ]
-  %.pn17 = insertvalue { ptr, i64 } undef, ptr %.sroa.0.0.i.pn, 0
+  %.pn17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
   %51 = insertvalue { ptr, i64 } %.pn17, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %51
 }

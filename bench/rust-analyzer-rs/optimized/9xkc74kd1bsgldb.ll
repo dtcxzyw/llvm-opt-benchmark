@@ -17128,7 +17128,7 @@ _ZN6syntax3ast8AstToken4text17he876697180afa21aE.llvm.5537595614626420043.exit: 
 64:                                               ; preds = %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.llvm.5537595614626420043.exit", %39
   %.sroa.0.0 = phi ptr [ %62, %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.llvm.5537595614626420043.exit" ], [ %.sroa.0.0.i.i, %39 ]
   %.pn17 = phi i64 [ %63, %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.llvm.5537595614626420043.exit" ], [ %.sroa.3.0.i.i, %39 ]
-  %.pn = insertvalue { ptr, i64 } undef, ptr %.sroa.0.0, 0
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn17, 1
   ret { ptr, i64 } %.merged
 }

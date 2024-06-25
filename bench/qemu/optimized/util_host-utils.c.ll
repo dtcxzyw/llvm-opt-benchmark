@@ -267,7 +267,7 @@ if.end83:                                         ; preds = %if.end78, %if.end
 return:                                           ; preds = %if.end83, %if.then
   %shr.i217.sink246.off0 = phi i64 [ %extract.t247, %if.end83 ], [ %extract.t248, %if.then ]
   %shr.i217.sink246.off64 = phi i64 [ %extract.t250, %if.end83 ], [ %extract.t252, %if.then ]
-  %.fca.0.insert.i221.pn = insertvalue { i64, i64 } undef, i64 %shr.i217.sink246.off0, 0
+  %.fca.0.insert.i221.pn = insertvalue { i64, i64 } poison, i64 %shr.i217.sink246.off0, 0
   %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i221.pn, i64 %shr.i217.sink246.off64, 1
   ret { i64, i64 } %.fca.1.insert.merged
 }

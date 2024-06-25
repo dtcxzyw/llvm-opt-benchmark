@@ -58668,7 +58668,7 @@ _ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i: ; preds = %15
 _ZNK2c415basic_substringIKcE5trimrEc.exit:        ; preds = %10, %.preheader.i, %2, %_ZNK2c415basic_substringIKcE5trimlEc.exit, %_ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i
   %spec.select.i.pn = phi ptr [ %spec.select.i, %_ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i ], [ %spec.select.i, %_ZNK2c415basic_substringIKcE5trimlEc.exit ], [ %6, %2 ], [ %spec.select.i, %.preheader.i ], [ %6, %10 ]
   %.sroa.3.0.i4 = phi i64 [ %18, %_ZNK2c415basic_substringIKcE11last_not_ofEcm.exit.i ], [ 0, %_ZNK2c415basic_substringIKcE5trimlEc.exit ], [ 0, %2 ], [ 0, %.preheader.i ], [ 0, %10 ]
-  %.fca.0.insert.i12 = insertvalue { ptr, i64 } undef, ptr %spec.select.i.pn, 0
+  %.fca.0.insert.i12 = insertvalue { ptr, i64 } poison, ptr %spec.select.i.pn, 0
   %.fca.1.insert.i6 = insertvalue { ptr, i64 } %.fca.0.insert.i12, i64 %.sroa.3.0.i4, 1
   ret { ptr, i64 } %.fca.1.insert.i6
 }

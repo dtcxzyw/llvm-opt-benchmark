@@ -3276,7 +3276,7 @@ XXH3_len_129to240_128b.exit:                      ; preds = %382, %367
 472:                                              ; preds = %XXH3_len_129to240_128b.exit, %XXH3_len_17to128_128b.exit, %XXH3_len_0to16_128b.exit
   %.sroa.0.0.i.pn = phi i64 [ %.sroa.0.0.i, %XXH3_len_0to16_128b.exit ], [ %323, %XXH3_len_17to128_128b.exit ], [ %465, %XXH3_len_129to240_128b.exit ]
   %.pn1 = phi i64 [ %162, %XXH3_len_0to16_128b.exit ], [ %329, %XXH3_len_17to128_128b.exit ], [ %471, %XXH3_len_129to240_128b.exit ]
-  %.fca.0.insert.i.pn = insertvalue { i64, i64 } undef, i64 %.sroa.0.0.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i.pn, i64 %.pn1, 1
   ret { i64, i64 } %.pn
 }

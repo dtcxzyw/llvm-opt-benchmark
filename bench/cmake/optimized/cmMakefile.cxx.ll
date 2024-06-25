@@ -28754,7 +28754,7 @@ _ZNSt6vectorIP8cmTargetSaIS1_EE9push_backEOS1_.exit: ; preds = %25, %_ZNSt6vecto
 54:                                               ; preds = %_ZNSt6vectorIP8cmTargetSaIS1_EE9push_backEOS1_.exit, %14
   %.pn21 = phi ptr [ %20, %_ZNSt6vectorIP8cmTargetSaIS1_EE9push_backEOS1_.exit ], [ %15, %14 ]
   %.pn19 = phi i8 [ 1, %_ZNSt6vectorIP8cmTargetSaIS1_EE9push_backEOS1_.exit ], [ 0, %14 ]
-  %.fca.0.insert.i10.pn = insertvalue { ptr, i8 } undef, ptr %.pn21, 0
+  %.fca.0.insert.i10.pn = insertvalue { ptr, i8 } poison, ptr %.pn21, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i10.pn, i8 %.pn19, 1
   ret { ptr, i8 } %.pn
 }

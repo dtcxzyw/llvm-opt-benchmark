@@ -922,7 +922,7 @@ entry:
   %26 = fmul <2 x float> %23, %25
   %mul7.i.i.i.i35 = fmul float %.48, %div.i.i.i30
   %nrm.sroa.6.8.vec.insert.i36 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul7.i.i.i.i35, i64 0
-  %.fca.0.insert.i.pn = insertvalue { <2 x float>, <2 x float> } undef, <2 x float> %26, 0
+  %.fca.0.insert.i.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %26, 0
   %call12.pn = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.pn, <2 x float> %nrm.sroa.6.8.vec.insert.i36, 1
   ret { <2 x float>, <2 x float> } %call12.pn
 }

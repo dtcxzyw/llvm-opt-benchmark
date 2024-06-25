@@ -4134,7 +4134,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit13.i.i: ; preds = %
 _ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit13.i.i
   %sub.i.pn.i.i = phi i64 [ %sub.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ], [ %.sroa.speculated.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit13.i.i ]
   %add.ptr.i.pn.i.i = getelementptr inbounds i8, ptr %view.sroa.4.0.i.i, i64 %start.addr.0.i.i
-  %.fca.0.insert.i.pn.i.i = insertvalue { i64, ptr } undef, i64 %sub.i.pn.i.i, 0
+  %.fca.0.insert.i.pn.i.i = insertvalue { i64, ptr } poison, i64 %sub.i.pn.i.i, 0
   %call12.pn.i.i = insertvalue { i64, ptr } %.fca.0.insert.i.pn.i.i, ptr %add.ptr.i.pn.i.i, 1
   br label %return
 

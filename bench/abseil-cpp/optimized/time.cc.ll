@@ -488,7 +488,7 @@ entry:
   %ticks.lobit.i.i.i = ashr i64 %rem.i.i, 61
   %sub.pn.i.i.i = add nsw i64 %ticks.lobit.i.i.i, %div.i.i
   %conv.i.pn.i.i.i = select i1 %cmp.i.i.i, i32 %conv.i.i.i.i, i32 %0
-  %.fca.0.insert.i.i.pn.i.i.i = insertvalue { i64, i32 } undef, i64 %sub.pn.i.i.i, 0
+  %.fca.0.insert.i.i.pn.i.i.i = insertvalue { i64, i32 } poison, i64 %sub.pn.i.i.i, 0
   %call.pn.i.i.i = insertvalue { i64, i32 } %.fca.0.insert.i.i.pn.i.i.i, i32 %conv.i.pn.i.i.i, 1
   ret { i64, i32 } %call.pn.i.i.i
 }

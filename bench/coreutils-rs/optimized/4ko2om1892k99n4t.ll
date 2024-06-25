@@ -1615,7 +1615,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
 43:                                               ; preds = %71, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h61542d98d9f42d0eE.exit36"
   %.sroa.3.0 = phi ptr [ @anon.d0f0d37487e616def0874d26a03facfa.7.llvm.5463894714257817395, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h61542d98d9f42d0eE.exit36" ], [ @anon.b51bb60cae07f0662317628aaf7d9205.3, %71 ]
   %.pn68 = phi ptr [ %36, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h61542d98d9f42d0eE.exit36" ], [ %.sroa.0.0.i, %71 ]
-  %.pn66 = insertvalue { ptr, ptr } undef, ptr %.pn68, 0
+  %.pn66 = insertvalue { ptr, ptr } poison, ptr %.pn68, 0
   %44 = insertvalue { ptr, ptr } %.pn66, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %44
 
@@ -2196,7 +2196,7 @@ _ZN11uu_truncate12TruncateMode7to_size17h72c20f81ed9aa85cE.exit.i: ; preds = %15
 174:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit98", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit92", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit"
   %.sroa.0.1.i.pn = phi ptr [ %.sroa.0.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit" ], [ %.sroa.0.0.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit92" ], [ %.sroa.0.2.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit98" ]
   %.sroa.6.1.i.pn = phi ptr [ %.sroa.6.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit" ], [ %.sroa.4.0.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit92" ], [ %.sroa.7.2.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3e0041bd1ce0369bE.exit98" ]
-  %.pn99 = insertvalue { ptr, ptr } undef, ptr %.sroa.0.1.i.pn, 0
+  %.pn99 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.pn, 0
   %.pn21 = insertvalue { ptr, ptr } %.pn99, ptr %.sroa.6.1.i.pn, 1
   ret { ptr, ptr } %.pn21
 

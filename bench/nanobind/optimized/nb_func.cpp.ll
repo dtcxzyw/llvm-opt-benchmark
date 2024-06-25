@@ -6254,7 +6254,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 .loopexit43:                                      ; preds = %.lr.ph, %99
   %.pn41 = phi ptr [ %104, %99 ], [ %23, %.lr.ph ]
   %.pn39 = phi i8 [ 1, %99 ], [ 0, %.lr.ph ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %.pn41, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn41, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn39, 1
   ret { ptr, i8 } %.pn
 }

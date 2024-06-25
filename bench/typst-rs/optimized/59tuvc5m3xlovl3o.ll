@@ -1263,7 +1263,7 @@ define hidden { i1, i8 } @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..De
 
 "_ZN173_$LT$icu_properties..props.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$icu_properties..props..LineBreak$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h902bb1864eceef86E.llvm.5857379167208991996.exit": ; preds = %3, %8
   %.sroa.3.0.i12.i.i = phi i8 [ %9, %8 ], [ 4, %3 ]
-  %.pn.i.i = insertvalue { i1, i8 } undef, i1 %7, 0
+  %.pn.i.i = insertvalue { i1, i8 } poison, i1 %7, 0
   %11 = insertvalue { i1, i8 } %.pn.i.i, i8 %.sroa.3.0.i12.i.i, 1
   ret { i1, i8 } %11
 }
@@ -4770,7 +4770,7 @@ define hidden { i1, i8 } @"_ZN14icu_properties5props1_85_$LT$impl$u20$serde..de.
 
 "_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17h49e85445769021d2E.llvm.5857379167208991996.exit": ; preds = %1, %6
   %.sroa.3.0.i12.i.i.i = phi i8 [ %7, %6 ], [ 4, %1 ]
-  %.pn.i.i.i = insertvalue { i1, i8 } undef, i1 %5, 0
+  %.pn.i.i.i = insertvalue { i1, i8 } poison, i1 %5, 0
   %9 = insertvalue { i1, i8 } %.pn.i.i.i, i8 %.sroa.3.0.i12.i.i.i, 1
   ret { i1, i8 } %9
 }
@@ -5012,7 +5012,7 @@ define hidden { i1, i8 } @"_ZN173_$LT$icu_properties..props.._..$LT$impl$u20$ser
 
 "_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$14deserialize_u817ha9401aad4726ab7fE.exit": ; preds = %1, %6
   %.sroa.3.0.i12.i = phi i8 [ %7, %6 ], [ 4, %1 ]
-  %.pn.i = insertvalue { i1, i8 } undef, i1 %5, 0
+  %.pn.i = insertvalue { i1, i8 } poison, i1 %5, 0
   %9 = insertvalue { i1, i8 } %.pn.i, i8 %.sroa.3.0.i12.i, 1
   ret { i1, i8 } %9
 }

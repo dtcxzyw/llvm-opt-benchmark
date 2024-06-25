@@ -89227,7 +89227,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 cond.end:                                         ; preds = %cond.true.i.i.i, %cond.true.i.i, %cond.true.i, %entry, %cond.true
   %retval.sroa.0.0.insert.insert.i2.i.i.pn = phi i64 [ %retval.sroa.0.0.insert.insert.i2.i.i, %cond.true ], [ %retval.sroa.0.0.insert.insert.i.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.insert.insert.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
   %add10.i.i.i.pn = phi i32 [ %add10.i.i.i, %cond.true ], [ %add10.i.i.i.i, %cond.true.i ], [ %add10.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
-  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } undef, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
+  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i3.i.i.pn, i32 %add10.i.i.i.pn, 1
   ret { i64, i32 } %call.pn
 }
@@ -100389,7 +100389,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 cond.end:                                         ; preds = %cond.true.i.i.i, %cond.true.i.i, %cond.true.i, %entry, %cond.true
   %retval.sroa.0.0.insert.insert.i2.i.i.pn = phi i64 [ %retval.sroa.0.0.insert.insert.i2.i.i, %cond.true ], [ %retval.sroa.0.0.insert.insert.i.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.insert.insert.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
   %add10.i.i.i.pn = phi i32 [ %add10.i.i.i, %cond.true ], [ %add10.i.i.i.i, %cond.true.i ], [ %add10.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
-  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } undef, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
+  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i3.i.i.pn, i32 %add10.i.i.i.pn, 1
   ret { i64, i32 } %call.pn
 }
@@ -102592,7 +102592,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 cond.end:                                         ; preds = %cond.true.i.i.i, %cond.true.i.i, %cond.true.i, %entry, %cond.true
   %retval.sroa.0.0.insert.insert.i2.i.i.pn = phi i64 [ %retval.sroa.0.0.insert.insert.i2.i.i, %cond.true ], [ %retval.sroa.0.0.insert.insert.i.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.insert.insert.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
   %add10.i.i.i.pn = phi i32 [ %add10.i.i.i, %cond.true ], [ %add10.i.i.i.i, %cond.true.i ], [ %add10.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
-  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } undef, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
+  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i3.i.i.pn, i32 %add10.i.i.i.pn, 1
   ret { i64, i32 } %call.pn
 }
@@ -116074,7 +116074,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 cond.end:                                         ; preds = %cond.true.i.i.i, %cond.true.i.i, %cond.true.i, %entry, %cond.true
   %retval.sroa.0.0.insert.insert.i2.i.i.pn = phi i64 [ %retval.sroa.0.0.insert.insert.i2.i.i, %cond.true ], [ %retval.sroa.0.0.insert.insert.i.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.insert.insert.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
   %add10.i.i.i.pn = phi i32 [ %add10.i.i.i, %cond.true ], [ %add10.i.i.i.i, %cond.true.i ], [ %add10.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
-  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } undef, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
+  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i3.i.i.pn, i32 %add10.i.i.i.pn, 1
   ret { i64, i32 } %call.pn
 }
@@ -124513,7 +124513,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 cond.end:                                         ; preds = %cond.true.i.i.i, %cond.true.i.i, %cond.true.i, %entry, %cond.true
   %retval.sroa.0.0.insert.insert.i2.i.i.pn = phi i64 [ %retval.sroa.0.0.insert.insert.i2.i.i, %cond.true ], [ %retval.sroa.0.0.insert.insert.i.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.insert.insert.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
   %add10.i.i.i.pn = phi i32 [ %add10.i.i.i, %cond.true ], [ %add10.i.i.i.i, %cond.true.i ], [ %add10.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
-  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } undef, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
+  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i3.i.i.pn, i32 %add10.i.i.i.pn, 1
   ret { i64, i32 } %call.pn
 }
@@ -126711,7 +126711,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 cond.end:                                         ; preds = %cond.true.i.i.i, %cond.true.i.i, %cond.true.i, %entry, %cond.true
   %retval.sroa.0.0.insert.insert.i2.i.i.pn = phi i64 [ %retval.sroa.0.0.insert.insert.i2.i.i, %cond.true ], [ %retval.sroa.0.0.insert.insert.i.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.insert.insert.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
   %add10.i.i.i.pn = phi i32 [ %add10.i.i.i, %cond.true ], [ %add10.i.i.i.i, %cond.true.i ], [ %add10.i.i.i.i.i, %cond.true.i.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %cond.true.i.i.i ], [ 0, %entry ]
-  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } undef, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
+  %.fca.0.insert.i3.i.i.pn = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert.i2.i.i.pn, 0
   %call.pn = insertvalue { i64, i32 } %.fca.0.insert.i3.i.i.pn, i32 %add10.i.i.i.pn, 1
   ret { i64, i32 } %call.pn
 }

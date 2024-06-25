@@ -128159,7 +128159,7 @@ if.end.i:                                         ; preds = %if.then.i
   %add.i.i = zext i1 %cmp.i.i to i64
   %conv.pn.i.i = add nsw i64 %add.i.i, %conv.i.i
   %conv2.pn.i.i = select i1 %cmp.i.i, i32 %sub5.i.i, i32 %conv2.i.i
-  %.fca.0.insert.i.pn.i.i = insertvalue { i64, i32 } undef, i64 %conv.pn.i.i, 0
+  %.fca.0.insert.i.pn.i.i = insertvalue { i64, i32 } poison, i64 %conv.pn.i.i, 0
   %call.pn.i.i = insertvalue { i64, i32 } %.fca.0.insert.i.pn.i.i, i32 %conv2.pn.i.i, 1
   br label %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit
 
@@ -129213,7 +129213,7 @@ if.end.i486:                                      ; preds = %if.then.i483
   %add.i.i494 = zext i1 %cmp.i.i492 to i64
   %conv.pn.i.i495 = add nsw i64 %add.i.i494, %conv.i.i487
   %conv2.pn.i.i496 = select i1 %cmp.i.i492, i32 %sub5.i.i493, i32 %conv2.i.i491
-  %.fca.0.insert.i.pn.i.i497 = insertvalue { i64, i32 } undef, i64 %conv.pn.i.i495, 0
+  %.fca.0.insert.i.pn.i.i497 = insertvalue { i64, i32 } poison, i64 %conv.pn.i.i495, 0
   %call.pn.i.i498 = insertvalue { i64, i32 } %.fca.0.insert.i.pn.i.i497, i32 %conv2.pn.i.i496, 1
   br label %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit530
 
@@ -132213,7 +132213,7 @@ if.end.i:                                         ; preds = %if.then.i90
   %add.i.i = zext i1 %cmp.i.i to i64
   %conv.pn.i.i = add nsw i64 %add.i.i, %conv.i.i91
   %conv2.pn.i.i = select i1 %cmp.i.i, i32 %sub5.i.i, i32 %conv2.i.i
-  %.fca.0.insert.i.pn.i.i = insertvalue { i64, i32 } undef, i64 %conv.pn.i.i, 0
+  %.fca.0.insert.i.pn.i.i = insertvalue { i64, i32 } poison, i64 %conv.pn.i.i, 0
   %call.pn.i.i = insertvalue { i64, i32 } %.fca.0.insert.i.pn.i.i, i32 %conv2.pn.i.i, 1
   br label %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit
 
@@ -132504,7 +132504,7 @@ if.end.i134:                                      ; preds = %if.then.i131
   %add.i.i142 = zext i1 %cmp.i.i140 to i64
   %conv.pn.i.i143 = add nsw i64 %add.i.i142, %conv.i.i135
   %conv2.pn.i.i144 = select i1 %cmp.i.i140, i32 %sub5.i.i141, i32 %conv2.i.i139
-  %.fca.0.insert.i.pn.i.i145 = insertvalue { i64, i32 } undef, i64 %conv.pn.i.i143, 0
+  %.fca.0.insert.i.pn.i.i145 = insertvalue { i64, i32 } poison, i64 %conv.pn.i.i143, 0
   %call.pn.i.i146 = insertvalue { i64, i32 } %.fca.0.insert.i.pn.i.i145, i32 %conv2.pn.i.i144, 1
   br label %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit178
 
@@ -132815,7 +132815,7 @@ if.end.i224:                                      ; preds = %if.then.i221
   %add.i.i232 = zext i1 %cmp.i.i230 to i64
   %conv.pn.i.i233 = add nsw i64 %add.i.i232, %conv.i.i225
   %conv2.pn.i.i234 = select i1 %cmp.i.i230, i32 %sub5.i.i231, i32 %conv2.i.i229
-  %.fca.0.insert.i.pn.i.i235 = insertvalue { i64, i32 } undef, i64 %conv.pn.i.i233, 0
+  %.fca.0.insert.i.pn.i.i235 = insertvalue { i64, i32 } poison, i64 %conv.pn.i.i233, 0
   %call.pn.i.i236 = insertvalue { i64, i32 } %.fca.0.insert.i.pn.i.i235, i32 %conv2.pn.i.i234, 1
   br label %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit268
 
@@ -133163,7 +133163,7 @@ if.end.i:                                         ; preds = %if.then.i
   %add.i.i = zext i1 %cmp.i.i to i64
   %conv.pn.i.i = add nsw i64 %add.i.i, %conv.i.i
   %conv2.pn.i.i = select i1 %cmp.i.i, i32 %sub5.i.i, i32 %conv2.i.i
-  %.fca.0.insert.i.pn.i.i = insertvalue { i64, i32 } undef, i64 %conv.pn.i.i, 0
+  %.fca.0.insert.i.pn.i.i = insertvalue { i64, i32 } poison, i64 %conv.pn.i.i, 0
   %call.pn.i.i = insertvalue { i64, i32 } %.fca.0.insert.i.pn.i.i, i32 %conv2.pn.i.i, 1
   br label %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit
 

@@ -9437,7 +9437,7 @@ _ZN10rayon_core8registry9in_worker17h166a4aeda89935e7E.exit: ; preds = %54, %58
 "_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$8complete17he6c9f34b9392548bE.exit36": ; preds = %34, %33, %32, %"_ZN109_$LT$rayon..iter..reduce..ReduceConsumer$LT$R$C$ID$GT$$u20$as$u20$rayon..iter..plumbing..Reducer$LT$T$GT$$GT$6reduce17h461c1fff6e246bc7E.exit"
   %.sroa.05.0.i.i.pn = phi i64 [ %.sroa.05.0.i.i, %"_ZN109_$LT$rayon..iter..reduce..ReduceConsumer$LT$R$C$ID$GT$$u20$as$u20$rayon..iter..plumbing..Reducer$LT$T$GT$$GT$6reduce17h461c1fff6e246bc7E.exit" ], [ 1, %34 ], [ 1, %33 ], [ %.sroa.673.0.copyload, %32 ]
   %.sroa.4.0.i.i.pn = phi i64 [ %.sroa.4.0.i.i, %"_ZN109_$LT$rayon..iter..reduce..ReduceConsumer$LT$R$C$ID$GT$$u20$as$u20$rayon..iter..plumbing..Reducer$LT$T$GT$$GT$6reduce17h461c1fff6e246bc7E.exit" ], [ %35, %34 ], [ %.sroa.471.0.copyload, %33 ], [ %spec.select12.i.i.i.i35, %32 ]
-  %.pn = insertvalue { i64, i64 } undef, i64 %.sroa.05.0.i.i.pn, 0
+  %.pn = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i.pn, 0
   %.pn10 = insertvalue { i64, i64 } %.pn, i64 %.sroa.4.0.i.i.pn, 1
   ret { i64, i64 } %.pn10
 }

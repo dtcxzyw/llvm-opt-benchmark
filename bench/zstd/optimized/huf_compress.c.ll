@@ -2812,7 +2812,7 @@ do.end4.lr.ph:                                    ; preds = %HUF_cardinality.exi
   br i1 %cmp.not5.i, label %do.end4.us.preheader, label %do.end4
 
 do.end4.us.preheader:                             ; preds = %if.end, %do.end4.lr.ph
-  %add.i285358 = phi i32 [ %add.i28, %do.end4.lr.ph ], [ undef, %if.end ]
+  %add.i285358 = phi i32 [ %add.i28, %do.end4.lr.ph ], [ poison, %if.end ]
   br label %do.end4.us
 
 do.end4.us:                                       ; preds = %do.end4.us.preheader, %for.inc.us

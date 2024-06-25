@@ -1318,7 +1318,7 @@ _ZN6uu_cut7matcher12ExactMatcher3new17hd511fb9768925fb9E.exit: ; preds = %151
 
 159:                                              ; preds = %352, %_ZN6uu_cut29cut_fields_explicit_out_delim17h0415557baca6051fE.exit
   %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %_ZN6uu_cut29cut_fields_explicit_out_delim17h0415557baca6051fE.exit ], [ %.sroa.0.0.i29.pn, %352 ]
-  %.pn64 = insertvalue { ptr, ptr } undef, ptr %.sroa.0.0.i.pn, 0
+  %.pn64 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.pn, 0
   %.pn8 = insertvalue { ptr, ptr } %.pn64, ptr @anon.665fe9b1cceef5d373a7ecaaa3833e15.7.llvm.11389445161417936973, 1
   ret { ptr, ptr } %.pn8
 
@@ -2346,7 +2346,7 @@ _ZN6uu_cut29cut_fields_explicit_out_delim17h16b9ac9a5b6f7ce7E.exit: ; preds = %"
 
 180:                                              ; preds = %_ZN6uu_cut29cut_fields_explicit_out_delim17h16b9ac9a5b6f7ce7E.exit, %421
   %.sroa.0.0.i35.pn.pn = phi ptr [ %.sroa.0.0.i35.pn, %421 ], [ %.sroa.0.0.i, %_ZN6uu_cut29cut_fields_explicit_out_delim17h16b9ac9a5b6f7ce7E.exit ]
-  %.pn94.pn = insertvalue { ptr, ptr } undef, ptr %.sroa.0.0.i35.pn.pn, 0
+  %.pn94.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i35.pn.pn, 0
   %.pn9 = insertvalue { ptr, ptr } %.pn94.pn, ptr @anon.665fe9b1cceef5d373a7ecaaa3833e15.7.llvm.11389445161417936973, 1
   ret { ptr, ptr } %.pn9
 

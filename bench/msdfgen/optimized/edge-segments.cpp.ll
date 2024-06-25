@@ -694,7 +694,7 @@ if.then46:                                        ; preds = %if.end
 return:                                           ; preds = %entry, %if.end, %if.then46, %if.then37
   %25 = phi <2 x double> [ %23, %if.then37 ], [ %24, %if.then46 ], [ %19, %if.end ], [ %19, %entry ]
   %26 = extractelement <2 x double> %25, i64 0
-  %.fca.0.insert.i38.pn = insertvalue { double, double } undef, double %26, 0
+  %.fca.0.insert.i38.pn = insertvalue { double, double } poison, double %26, 0
   %27 = extractelement <2 x double> %25, i64 1
   %.fca.1.insert.merged = insertvalue { double, double } %.fca.0.insert.i38.pn, double %27, 1
   ret { double, double } %.fca.1.insert.merged

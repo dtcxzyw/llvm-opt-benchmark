@@ -13456,7 +13456,7 @@ _ZN4core3ops8function6FnOnce9call_once17h362ac1f8f245d093E.exit.i11.i: ; preds =
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3d383209c12a89eE.exit": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h36be605367e8fdb6E.exit.i, %45, %_ZN4core3ops8function6FnOnce9call_once17h362ac1f8f245d093E.exit.i11.i, %.loopexit.i14.i
   %.sroa.3.0.i = phi ptr [ %23, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h36be605367e8fdb6E.exit.i ], [ null, %45 ], [ %64, %_ZN4core3ops8function6FnOnce9call_once17h362ac1f8f245d093E.exit.i11.i ], [ null, %.loopexit.i14.i ]
   %.sroa.0.0.i13.pn.i = phi i32 [ %32, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h36be605367e8fdb6E.exit.i ], [ undef, %45 ], [ %73, %_ZN4core3ops8function6FnOnce9call_once17h362ac1f8f245d093E.exit.i11.i ], [ undef, %.loopexit.i14.i ]
-  %.pn36.i = insertvalue { i32, ptr } undef, i32 %.sroa.0.0.i13.pn.i, 0
+  %.pn36.i = insertvalue { i32, ptr } poison, i32 %.sroa.0.0.i13.pn.i, 0
   %85 = insertvalue { i32, ptr } %.pn36.i, ptr %.sroa.3.0.i, 1
   ret { i32, ptr } %85
 }

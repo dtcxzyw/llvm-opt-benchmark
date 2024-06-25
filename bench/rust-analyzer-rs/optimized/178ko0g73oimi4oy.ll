@@ -15895,7 +15895,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit61.i: 
   %.sroa.076.0.copyload.i = phi ptr [ %.sroa.066.0.copyload289.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit61.i ], [ %.sroa.076.0.copyload.pre.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3903c23018400c0dE.exit.i" ], [ %.sroa.066.0.copyload289.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit.i ]
   %.sroa.0.0.i59.pn.i = phi ptr [ %.sroa.0.0.i59.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit61.i ], [ %377, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3903c23018400c0dE.exit.i" ], [ %.sroa.0.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit.i ]
   %.sroa.4.0.i58.pn.i = phi i64 [ %.sroa.4.0.i58.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit61.i ], [ %378, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3903c23018400c0dE.exit.i" ], [ %.sroa.4.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit.i ]
-  %.pn162.i = insertvalue { ptr, i64 } undef, ptr %.sroa.0.0.i59.pn.i, 0
+  %.pn162.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i59.pn.i, 0
   %.pn.i = insertvalue { ptr, i64 } %.pn162.i, i64 %.sroa.4.0.i58.pn.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2882)
   %346 = getelementptr inbounds i8, ptr %.sroa.076.0.copyload.i, i64 16

@@ -12501,7 +12501,7 @@ define { ptr, i64 } @_ZN10ockam_abac5types7Subject6as_str17h93b6f4e37b2752bdE(pt
   %10 = load i64, ptr %9, align 8, !alias.scope !1618
   %.pn9.i = select i1 %trunc.i, ptr %3, ptr %8
   %.pn7.i = select i1 %trunc.i, i64 %6, i64 %10
-  %.pn6.i = insertvalue { ptr, i64 } undef, ptr %.pn9.i, 0
+  %.pn6.i = insertvalue { ptr, i64 } poison, ptr %.pn9.i, 0
   %.pn.i = insertvalue { ptr, i64 } %.pn6.i, i64 %.pn7.i, 1
   ret { ptr, i64 } %.pn.i
 }
@@ -12810,7 +12810,7 @@ define { ptr, i64 } @_ZN10ockam_abac5types12ResourceName6as_str17hfe8b5343caf166
   %10 = load i64, ptr %9, align 8, !alias.scope !1682
   %.pn9.i = select i1 %trunc.i, ptr %3, ptr %8
   %.pn7.i = select i1 %trunc.i, i64 %6, i64 %10
-  %.pn6.i = insertvalue { ptr, i64 } undef, ptr %.pn9.i, 0
+  %.pn6.i = insertvalue { ptr, i64 } poison, ptr %.pn9.i, 0
   %.pn.i = insertvalue { ptr, i64 } %.pn6.i, i64 %.pn7.i, 1
   ret { ptr, i64 } %.pn.i
 }

@@ -179,7 +179,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
   %.sroa.02.0.lcssa.i.i.pn = phi ptr [ %32, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ %.sroa.02.0.lcssa.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.sroa.02.0.lcssa.i.i, %29 ]
   %.pn16 = phi i8 [ 1, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %29 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %.sroa.02.0.lcssa.i.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.sroa.02.0.lcssa.i.i.pn, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn16, 1
   ret { ptr, i8 } %.pn
 }
@@ -315,7 +315,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImSt8functionIFvRN14Argument
 25:                                               ; preds = %20, %23
   %.sroa.02.0.lcssa.i.i.pn = phi ptr [ %24, %23 ], [ %.sroa.02.0.lcssa.i.i, %20 ]
   %.pn12 = phi i8 [ 1, %23 ], [ 0, %20 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } undef, ptr %.sroa.02.0.lcssa.i.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.sroa.02.0.lcssa.i.i.pn, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn12, 1
   ret { ptr, i8 } %.pn
 }

@@ -40243,7 +40243,7 @@ define hidden { i64, i64 } @_ZN15rustfmt_nightly5shape6Indent10from_width17h95e3
 12:                                               ; preds = %2, %14
   %.pn10 = phi i64 [ %16, %14 ], [ %1, %2 ]
   %.pn8 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  %.pn7 = insertvalue { i64, i64 } undef, i64 %.pn10, 0
+  %.pn7 = insertvalue { i64, i64 } poison, i64 %.pn10, 0
   %.pn = insertvalue { i64, i64 } %.pn7, i64 %.pn8, 1
   ret { i64, i64 } %.pn
 

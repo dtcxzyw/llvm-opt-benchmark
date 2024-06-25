@@ -16796,7 +16796,7 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
   %. = select i1 %switch.not.not, i32 0, i32 2
   store i32 %., ptr %0, align 8
   store i32 %.pn16, ptr %3, align 4
-  %.pn15 = insertvalue { i32, i32 } undef, i32 %.sroa.0.0.i.i.pn, 0
+  %.pn15 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i.i.pn, 0
   %.pn = insertvalue { i32, i32 } %.pn15, i32 %.pn16, 1
   ret { i32, i32 } %.pn
 }

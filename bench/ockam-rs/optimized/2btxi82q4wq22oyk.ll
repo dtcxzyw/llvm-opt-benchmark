@@ -7912,7 +7912,7 @@ define hidden { ptr, i64 } @"_ZN71_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$co
   %10 = load i64, ptr %9, align 8
   %.pn9 = select i1 %trunc, ptr %3, ptr %8
   %.pn7 = select i1 %trunc, i64 %6, i64 %10
-  %.pn6 = insertvalue { ptr, i64 } undef, ptr %.pn9, 0
+  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.pn9, 0
   %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
   ret { ptr, i64 } %.pn
 }

@@ -3917,7 +3917,7 @@ if.else:                                          ; preds = %entry
 return:                                           ; preds = %if.else, %entry
   %.pn16 = phi ptr [ %1, %entry ], [ %., %if.else ]
   %.pn = phi ptr [ null, %entry ], [ %.17, %if.else ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, ptr } undef, ptr %.pn16, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn16, 0
   %call4.pn = insertvalue { ptr, ptr } %.fca.0.insert.i.pn, ptr %.pn, 1
   ret { ptr, ptr } %call4.pn
 }

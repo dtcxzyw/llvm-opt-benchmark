@@ -1316,7 +1316,7 @@ if.else37.i:                                      ; preds = %if.else.i102
 return:                                           ; preds = %if.else37.i, %cond.end28.i, %cond.end.i117, %if.else39.i, %cond.end30.i, %cond.end.i87, %if.else42.i27, %cond.end33.i40, %cond.end.i54, %if.else42.i, %cond.end33.i, %cond.end.i
   %retval.sroa.0.0.i.pn = phi ptr [ %cond.i, %cond.end.i ], [ %cond34.i, %cond.end33.i ], [ %12, %if.else42.i ], [ %cond.i55, %cond.end.i54 ], [ %cond34.i41, %cond.end33.i40 ], [ %21, %if.else42.i27 ], [ %cond.i88, %cond.end.i87 ], [ %cond31.i, %cond.end30.i ], [ %30, %if.else39.i ], [ %cond.i118, %cond.end.i117 ], [ %cond29.i, %cond.end28.i ], [ %39, %if.else37.i ]
   %retval.sroa.4.0.i.pn = phi i64 [ %sub.ptr.sub.i15, %cond.end.i ], [ %sub.ptr.sub41.i, %cond.end33.i ], [ 0, %if.else42.i ], [ %sub.ptr.sub.i61, %cond.end.i54 ], [ %sub.ptr.sub41.i45, %cond.end33.i40 ], [ 0, %if.else42.i27 ], [ %sub.ptr.sub.i91, %cond.end.i87 ], [ %sub.ptr.sub38.i, %cond.end30.i ], [ 0, %if.else39.i ], [ %sub.ptr.sub.i122, %cond.end.i117 ], [ %sub.ptr.sub36.i, %cond.end28.i ], [ 0, %if.else37.i ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } undef, ptr %retval.sroa.0.0.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %call5.pn = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.4.0.i.pn, 1
   ret { ptr, i64 } %call5.pn
 }

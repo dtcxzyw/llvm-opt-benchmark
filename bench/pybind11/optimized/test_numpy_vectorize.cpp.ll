@@ -11402,7 +11402,7 @@ _ZN8pybind117weakrefD2Ev.exit:                    ; preds = %35
 _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %40, %37, %_ZN8pybind117weakrefD2Ev.exit, %_ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE11try_emplaceIJEEESD_INSt8__detail14_Node_iteratorISF_Lb0ELb0EEEbERSE_DpOT_.exit.thread
   %.sroa.020.0.i.i.ph.pn = phi ptr [ %.sroa.020.0.i.i.ph, %_ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE11try_emplaceIJEEESD_INSt8__detail14_Node_iteratorISF_Lb0ELb0EEEbERSE_DpOT_.exit.thread ], [ %32, %_ZN8pybind117weakrefD2Ev.exit ], [ %32, %37 ], [ %32, %40 ]
   %.pn = phi i8 [ 0, %_ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE11try_emplaceIJEEESD_INSt8__detail14_Node_iteratorISF_Lb0ELb0EEEbERSE_DpOT_.exit.thread ], [ 1, %_ZN8pybind117weakrefD2Ev.exit ], [ 1, %37 ], [ 1, %40 ]
-  %.fca.0.insert.i.i12.pn = insertvalue { ptr, i8 } undef, ptr %.sroa.020.0.i.i.ph.pn, 0
+  %.fca.0.insert.i.i12.pn = insertvalue { ptr, i8 } poison, ptr %.sroa.020.0.i.i.ph.pn, 0
   %.fca.1.insert.i.i14 = insertvalue { ptr, i8 } %.fca.0.insert.i.i12.pn, i8 %.pn, 1
   ret { ptr, i8 } %.fca.1.insert.i.i14
 }

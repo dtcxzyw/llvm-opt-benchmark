@@ -647,9 +647,9 @@ _ZN4absl12lts_2023080210CordBuffer15available_up_toEm.exit: ; preds = %cond.true
   %add.ptr.i.pn.i.i = phi ptr [ %add.ptr.i.i.i, %cond.true.i.i ], [ %add.ptr.i2.i.i, %cond.false.i.i ]
   %sub.i.pn.i.i = phi i64 [ %sub.i.i.i, %cond.true.i.i ], [ %sub.i3.i.i, %cond.false.i.i ]
   %conv2 = sext i32 %25 to i64
+  %.fca.0.insert.i.pn.i.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i.pn.i.i, 0
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.pn.i.i, i64 %conv2)
-  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i.pn.i.i, 0
-  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %.sroa.speculated.i.i, 1
+  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.pn.i.i, i64 %.sroa.speculated.i.i, 1
   ret { ptr, i64 } %.fca.1.insert.i.i
 
 lpad:                                             ; preds = %if.else.i, %if.then3.i

@@ -698,7 +698,7 @@ if.end.i42:                                       ; preds = %while.end18
 return:                                           ; preds = %if.end.i42, %while.end18, %if.end.i35, %if.then15
   %retval.sroa.0.0.i.pn = phi ptr [ null, %if.then15 ], [ %add.ptr.i, %if.end.i35 ], [ null, %while.end18 ], [ %17, %if.end.i42 ]
   %retval.sroa.5.0.i.pn = phi i64 [ 0, %if.then15 ], [ %16, %if.end.i35 ], [ 0, %while.end18 ], [ 0, %if.end.i42 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } undef, ptr %retval.sroa.0.0.i.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %call16.pn = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.5.0.i.pn, 1
   ret { ptr, i64 } %call16.pn
 }

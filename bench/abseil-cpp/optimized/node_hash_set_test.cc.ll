@@ -186432,7 +186432,6 @@ call38.i.i.i.noexc:                               ; preds = %if.then.i.i
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9.thread:                              ; preds = %while.body.i.i.i
-  store i8 0, ptr %gtest_ar_, align 8
   %message_.i157 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i157, align 8
   br label %if.else
@@ -186459,7 +186458,7 @@ lpad:                                             ; preds = %if.end.i.i113, %if.
 
 if.else:                                          ; preds = %invoke.cont9.thread, %invoke.cont9
   %message_.i160 = phi ptr [ %message_.i157, %invoke.cont9.thread ], [ %message_.i, %invoke.cont9 ]
-  %add.ptr3.i.i.i158 = phi ptr [ undef, %invoke.cont9.thread ], [ %add.ptr3.i.i.i, %invoke.cont9 ]
+  %add.ptr3.i.i.i158 = phi ptr [ poison, %invoke.cont9.thread ], [ %add.ptr3.i.i.i, %invoke.cont9 ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
@@ -188173,7 +188172,6 @@ call38.i.i.i.noexc:                               ; preds = %if.then.i.i
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9.thread:                              ; preds = %while.body.i.i.i
-  store i8 0, ptr %gtest_ar_, align 8
   %message_.i157 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i157, align 8
   br label %if.else
@@ -188200,7 +188198,7 @@ lpad:                                             ; preds = %if.end.i.i113, %if.
 
 if.else:                                          ; preds = %invoke.cont9.thread, %invoke.cont9
   %message_.i160 = phi ptr [ %message_.i157, %invoke.cont9.thread ], [ %message_.i, %invoke.cont9 ]
-  %add.ptr3.i.i.i158 = phi ptr [ undef, %invoke.cont9.thread ], [ %add.ptr3.i.i.i, %invoke.cont9 ]
+  %add.ptr3.i.i.i158 = phi ptr [ poison, %invoke.cont9.thread ], [ %add.ptr3.i.i.i, %invoke.cont9 ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
@@ -188955,7 +188953,6 @@ call38.i.i.i.noexc:                               ; preds = %if.then.i.i
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9.thread:                              ; preds = %while.body.i.i.i
-  store i8 0, ptr %gtest_ar_, align 8
   %message_.i156 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i156, align 8
   br label %if.else
@@ -188982,7 +188979,7 @@ lpad:                                             ; preds = %if.end.i.i112, %if.
 
 if.else:                                          ; preds = %invoke.cont9.thread, %invoke.cont9
   %message_.i159 = phi ptr [ %message_.i156, %invoke.cont9.thread ], [ %message_.i, %invoke.cont9 ]
-  %add.ptr3.i.i.i157 = phi ptr [ undef, %invoke.cont9.thread ], [ %add.ptr3.i.i.i, %invoke.cont9 ]
+  %add.ptr3.i.i.i157 = phi ptr [ poison, %invoke.cont9.thread ], [ %add.ptr3.i.i.i, %invoke.cont9 ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 

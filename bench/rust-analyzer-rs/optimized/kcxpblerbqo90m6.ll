@@ -8644,7 +8644,7 @@ define hidden { ptr, ptr } @"_ZN6either19Either$LT$L$C$R$GT$6either17ha8950899bf
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %anon.51bed9337ee0b8104f33ac59a1bbbf07.214.llvm.1684962189325099908.anon.51bed9337ee0b8104f33ac59a1bbbf07.215.llvm.1684962189325099908 = select i1 %switch, ptr @anon.51bed9337ee0b8104f33ac59a1bbbf07.214.llvm.1684962189325099908, ptr @anon.51bed9337ee0b8104f33ac59a1bbbf07.215.llvm.1684962189325099908
-  %.pn5 = insertvalue { ptr, ptr } undef, ptr %1, 0
+  %.pn5 = insertvalue { ptr, ptr } poison, ptr %1, 0
   %4 = insertvalue { ptr, ptr } %.pn5, ptr %anon.51bed9337ee0b8104f33ac59a1bbbf07.214.llvm.1684962189325099908.anon.51bed9337ee0b8104f33ac59a1bbbf07.215.llvm.1684962189325099908, 1
   ret { ptr, ptr } %4
 }

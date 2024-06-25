@@ -36438,7 +36438,7 @@ _ZNSt6vectorIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE17_M_reall
 
 cleanup:                                          ; preds = %if.then.i590, %_ZNSt6vectorIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, %invoke.cont220
   %call215.pn = phi ptr [ %call215, %invoke.cont220 ], [ %call229, %_ZNSt6vectorIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %call229, %if.then.i590 ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i32 } undef, ptr %call215.pn, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i32 } poison, ptr %call215.pn, 0
   %k.i621 = getelementptr inbounds i8, ptr %dr, i64 32
   invoke void @__gmpq_clear(ptr noundef nonnull %k.i621)
           to label %_ZN4cvc58internal8RationalD2Ev.exit.i unwind label %terminate.lpad.i.i.i622

@@ -2068,7 +2068,7 @@ while.body.i6.i12.i12.i:                          ; preds = %land.rhs.i4.i9.i6.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %while.body.i6.i12.i12.i, %entry, %if.end8.i
   %add.ptr.i.i.pn16.i = phi ptr [ %1, %if.end8.i ], [ %add.ptr.i.i.i, %entry ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ], [ %incdec.ptr.i.i13.i13.i, %while.body.i6.i12.i12.i ]
-  %.fca.0.insert.i.i.pn.i = insertvalue { ptr, ptr } undef, ptr %add.ptr.i.i.pn16.i, 0
+  %.fca.0.insert.i.i.pn.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.pn16.i, 0
   %call2.pn.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.pn.i, ptr %add.ptr.i.i.i, 1
   ret { ptr, ptr } %call2.pn.i
 }

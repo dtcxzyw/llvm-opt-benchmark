@@ -13824,7 +13824,7 @@ define { ptr, i64 } @_ZN6rustls4quic10connection10Connection25quic_transport_par
   %10 = load i64, ptr %9, align 8
   %.sroa.3.0.i6 = select i1 %6, i64 undef, i64 %10
   %.sroa.0.0.i7 = select i1 %6, ptr null, ptr %8
-  %.pn8 = insertvalue { ptr, i64 } undef, ptr %.sroa.0.0.i7, 0
+  %.pn8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i7, 0
   %.pn = insertvalue { ptr, i64 } %.pn8, i64 %.sroa.3.0.i6, 1
   ret { ptr, i64 } %.pn
 }
